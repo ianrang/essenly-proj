@@ -10,13 +10,13 @@
 | Phase | 작업 수 | 완료 | 진행률 | 상태 |
 |-------|---------|------|--------|------|
 | 사전 완료 | 12 | 12 | 100% | ✅ |
-| Phase 0 | 37 | 35 | 95% | 🔶 진행 중 |
+| Phase 0 | 37 | 36 | 97% | 🔶 진행 중 |
 | Phase 1 | 62 | 0 | 0% | ⬜ 미시작 |
 | Phase 2 | 68 | 0 | 0% | ⬜ 미시작 |
 | Phase 3 | 36 | 0 | 0% | ⬜ 미시작 |
 | **MVP 합계** | **215** | **46** | **21%** | |
 
-**→ 다음: P0-28 (Vercel 배포, 사용자 작업) → Gate 0 통과 심사**
+**→ 다음: P0-1 잔여 (PRD 사용자 결정 12건) → Gate 0 통과 심사**
 
 ---
 
@@ -84,7 +84,7 @@
 | P0-25 | Supabase 브라우저 클라이언트 | 공개 읽기 OK, RLS 쓰기 차단 OK | 정상 동작 | ✅ |
 | P0-26 | Supabase anonymous auth | 세션 + UUID + 데이터 연결 정상 | 세션 유지, 데이터 연결 | ✅ |
 | P0-27 | Supabase Storage | 업로드 + CDN URL(200 OK) 정상 | 업로드/조회 정상 | ✅ |
-| P0-28 | Vercel + GitHub 배포 | GitHub 원격 미설정. 사용자 작업 | 빌드 + HTTPS 접근 | ⬜ |
+| P0-28 | Vercel + GitHub 배포 | GitHub push + Vercel 연동 완료. https://assenly-proj.vercel.app/en HTTPS 접근 확인 | 빌드 + HTTPS 접근 | ✅ |
 
 ## 도메인 데이터 수집/갱신 검증
 
