@@ -111,6 +111,15 @@ treatment.ts ──→ derived.ts    ✗  (peer 간 직접 의존 금지)
 | L-8 | repositories/는 DB CRUD만: 비즈니스 로직(필터링, 정렬, 계산) 금지 |
 | L-9 | service 간 직접 import/호출 금지 (R-9) |
 
+### client/ui/ (디자인 시스템 — 교체 가능 단위)
+
+| ID | 규칙 |
+|----|------|
+| L-16 | `import 'client-only'` 필수 (L-0b 확장) |
+| L-17 | K-뷰티 비즈니스 용어 포함 금지 (L-5 확장, R-13) |
+| L-18 | 시맨틱 토큰만 사용. `#hex` 하드코딩 금지 (S-5) |
+| L-19 | features/ import 금지. shared/ import만 허용 (R-11) |
+
 ### client/ (UI)
 
 | ID | 규칙 |
@@ -222,12 +231,12 @@ treatment.ts ──→ derived.ts    ✗  (peer 간 직접 의존 금지)
 코드 작성/수정 후 반드시 검증:
 
 ```
-□ V-1  의존성 방향: import가 DAG를 위반하지 않는가? (P-1, R-1~R-4)
+□ V-1  의존성 방향: import가 DAG를 위반하지 않는가? (P-1, R-1~R-4, R-11~R-13)
 □ V-2  core 불변: core/ 파일을 수정하지 않았는가? (P-2)
 □ V-3  Composition Root: cross-domain 데이터를 route handler에서 전달하는가? (P-4)
 □ V-4  features 독립: service 간 직접 호출/import이 없는가? (R-9)
 □ V-5  콜 스택 ≤ 4인가? (P-5)
-□ V-6  바인딩 체인 ≤ 4인가? (P-6, shared/ 제외)
+□ V-6  바인딩 체인 ≤ 4인가? (P-6, shared/ 및 client/ui/ 내부 제외)
 □ V-7  beauty/ 순수 함수: DB/API 호출이 없는가? (R-7, L-7)
 □ V-8  beauty/ 단방향: 내부 import가 단방향인가? (§2.3)
 □ V-9  중복: 기존 코드와 동일/유사 구현이 없는가? (G-2)
@@ -235,5 +244,6 @@ treatment.ts ──→ derived.ts    ✗  (peer 간 직접 의존 금지)
 □ V-11 VP-1: is_highlighted가 렌더링 이외에 사용되지 않는가? (Q-2)
 □ V-12 타입 안전: any 타입이 없는가? (G-8)
 □ V-13 디자인 토큰: 색상·radius를 하드코딩하지 않았는가? (S-5)
+□ V-15 ui/ 순수성: client/ui/ 파일에 비즈니스 용어·features/ import가 없는가? (R-11, R-13, L-17~L-19)
 □ V-14 토큰 동기화: :root 변수와 @theme inline 바인딩이 1:1 대응하는가? (S-6)
 ```
