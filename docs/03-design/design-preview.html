@@ -730,18 +730,76 @@
     </div>
   </div>
 
-  <!-- ═══ 10. Chat Interface ═══ -->
+  <!-- ═══ 10. Chat Interface + Kit CTA ═══ -->
   <div class="section">
-    <h2 class="section-title">Chat Interface</h2>
-    <div class="chat-area">
+    <h2 class="section-title">Chat Interface + Kit CTA</h2>
+    <p class="section-subtitle">Inline suggestion card → Bottom sheet form (click "Claim" to preview)</p>
+    <div class="chat-area" style="position:relative;">
       <div class="bubble bubble-user">I have dry, sensitive skin and I'm visiting Seoul for 5 days. What products should I try?</div>
       <div class="bubble bubble-ai">
-        Great question! For dry, sensitive skin in Seoul, I'd recommend starting with a gentle hydrating toner. The <strong>Laneige Cream Skin Toner</strong> is a tourist favorite — available at most Olive Young stores in Myeongdong.
+        Great question! For dry, sensitive skin in Seoul, I'd recommend starting with a gentle hydrating toner. The <strong>Laneige Cream Skin Toner</strong> is a tourist favorite.
       </div>
-      <div class="bubble bubble-user">Where can I buy it near Hongdae?</div>
+      <div class="bubble bubble-user">That sounds great! Anything else I should try?</div>
+      <div class="bubble bubble-ai" style="max-width:100%;">
+        Based on your profile, I've put together something special for you:
+        <!-- Kit CTA Inline Card -->
+        <div style="margin-top:12px; background:var(--card); border:1.5px solid var(--primary); border-radius:var(--radius-lg); padding:20px; position:relative; overflow:hidden;">
+          <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--primary), var(--primary-hover));"></div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+            <span style="font-size:20px;">🎁</span>
+            <span style="font-size:16px; font-weight:700; color:var(--foreground);">Your Essenly Kit</span>
+          </div>
+          <div style="font-size:13px; color:var(--muted-foreground); margin-bottom:14px; line-height:1.5;">
+            3 products hand-picked for your dry, sensitive skin — delivered before your trip.
+          </div>
+          <div style="display:flex; gap:6px; margin-bottom:14px; flex-wrap:wrap;">
+            <span class="tag tag-primary tag-sm">Dry Skin Match</span>
+            <span class="tag tag-sage tag-sm">Hydrating</span>
+            <span class="tag tag-teal tag-sm">Travel Size</span>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <button class="btn btn-primary btn-sm" onclick="openKitSheet()" style="padding:8px 20px;">Claim my free kit →</button>
+            <button class="btn btn-ghost btn-sm" style="padding:8px 14px; font-size:12px;">No thanks</button>
+          </div>
+        </div>
+      </div>
       <div class="chat-input-row">
         <input class="input" type="text" placeholder="Ask about K-beauty...">
         <button class="btn btn-primary btn-sm" style="padding:10px 16px;">Send</button>
+      </div>
+
+      <!-- Bottom Sheet Overlay (hidden by default) -->
+      <div id="kit-sheet-overlay" onclick="closeKitSheet()" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.4); z-index:100; opacity:0; transition:opacity 0.3s;">
+      </div>
+      <div id="kit-sheet" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:101; background:var(--card); border-top-left-radius:var(--radius-xl); border-top-right-radius:var(--radius-xl); padding:0 20px 32px; max-width:480px; margin:0 auto; left:50%; transform:translateX(-50%) translateY(100%); box-shadow:0 -4px 24px rgba(0,0,0,0.12); transition:transform 0.3s ease-out;">
+        <!-- Drag handle -->
+        <div style="display:flex; justify-content:center; padding:12px 0 16px;">
+          <div style="width:36px; height:4px; border-radius:2px; background:var(--border);"></div>
+        </div>
+        <!-- Sheet content -->
+        <div style="font-size:18px; font-weight:700; margin-bottom:4px;">Almost there!</div>
+        <div style="font-size:13px; color:var(--muted-foreground); margin-bottom:20px; line-height:1.5;">
+          Enter your email and we'll send your personalized K-Beauty kit details — curated for dry, sensitive skin.
+        </div>
+        <div style="margin-bottom:12px;">
+          <input class="input" type="email" placeholder="your@email.com" style="width:100%;">
+        </div>
+        <label style="display:flex; align-items:flex-start; gap:8px; margin-bottom:20px; font-size:12px; color:var(--muted-foreground); cursor:pointer;">
+          <input type="checkbox" style="margin-top:2px; accent-color:var(--primary);">
+          <span>I'd like to receive K-beauty tips and offers from Essenly</span>
+        </label>
+        <div id="kit-form">
+          <button class="btn btn-primary" style="width:100%; padding:12px;" onclick="submitKit()">Send my kit details →</button>
+          <div style="text-align:center; margin-top:12px;">
+            <button onclick="closeKitSheet()" style="background:none; border:none; color:var(--muted-foreground); font-size:13px; cursor:pointer; font-family:inherit;">Maybe later</button>
+          </div>
+        </div>
+        <div id="kit-success" style="display:none; text-align:center; padding:20px 0;">
+          <div style="font-size:32px; margin-bottom:12px;">✓</div>
+          <div style="font-size:18px; font-weight:700; margin-bottom:8px;">You're all set!</div>
+          <div style="font-size:13px; color:var(--muted-foreground); margin-bottom:20px; line-height:1.5;">We'll send your personalized K-Beauty kit details to your email soon.</div>
+          <button class="btn btn-primary btn-sm" onclick="closeKitSheet()" style="padding:10px 24px;">Back to chat</button>
+        </div>
       </div>
     </div>
   </div>
@@ -785,6 +843,37 @@ document.querySelectorAll('.swatch-hex[data-light]').forEach(el => {
 document.querySelectorAll('.semantic-hex[data-light]').forEach(el => {
   el.textContent = el.dataset.light;
 });
+
+// Kit CTA Bottom Sheet
+function openKitSheet() {
+  const overlay = document.getElementById('kit-sheet-overlay');
+  const sheet = document.getElementById('kit-sheet');
+  overlay.style.display = 'block';
+  sheet.style.display = 'block';
+  // Force reflow before transition
+  void sheet.offsetHeight;
+  overlay.style.opacity = '1';
+  sheet.style.transform = 'translateX(-50%) translateY(0)';
+}
+function submitKit() {
+  document.getElementById('kit-form').style.display = 'none';
+  document.getElementById('kit-success').style.display = 'block';
+}
+function closeKitSheet() {
+  // Reset form state for re-demo
+  setTimeout(() => {
+    document.getElementById('kit-form').style.display = 'block';
+    document.getElementById('kit-success').style.display = 'none';
+  }, 350);
+  const overlay = document.getElementById('kit-sheet-overlay');
+  const sheet = document.getElementById('kit-sheet');
+  sheet.style.transform = 'translateX(-50%) translateY(100%)';
+  overlay.style.opacity = '0';
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    sheet.style.display = 'none';
+  }, 300);
+}
 </script>
 </body>
 </html>
