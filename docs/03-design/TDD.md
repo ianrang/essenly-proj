@@ -151,7 +151,7 @@ src/
 │   └── api/          # API Routes (Auth, Profile, Chat, Journey, Kit)
 │
 ├── server/           # 서버 전용 (import 'server-only')
-│   ├── core/         # 시스템 인프라 (AI engine, RAG, DB, config)
+│   ├── core/         # 시스템 인프라 (AI engine, RAG, DB, auth, admin-auth, config)
 │   └── features/     # 비즈니스 코드 (chat, profile, beauty, repositories)
 │
 ├── client/           # 클라이언트 전용 (import 'client-only')
@@ -169,19 +169,22 @@ src/
 ## 3.7 Chat API 플로우 (핵심)
 
 ```
-Client → POST /api/chat { message, session_id }
+Client → POST /api/chat { message }
+  │      (Authorization: Bearer <supabase_token>)
   │
-  ├─ 1. 대화 히스토리 로드 (Supabase DB)
-  ├─ 2. 프로필 로드 (user_profiles + journeys)
-  ├─ 3. 시스템 프롬프트 구성
-  ├─ 4. LLM 호출 (스트리밍 + tool_use)
+  ├─ 0. authenticateUser(req) → user.id + user.token  [core/auth.ts]
+  ├─ 1. createAuthenticatedClient(token) → RLS 적용    [core/db.ts]
+  ├─ 2. 대화 히스토리 로드 (messages, RLS: 본인만)
+  ├─ 3. 프로필 로드 (user_profiles + journeys, RLS: 본인만)
+  ├─ 4. 시스템 프롬프트 구성
+  ├─ 5. LLM 호출 (스트리밍 + tool_use)
   │     ├─ tool_use: search_beauty_data → RAG 검색
   │     ├─ tool_use: get_external_links → 링크 조회
   │     └─ 최종 응답 생성 (텍스트 + 카드 데이터)
   │
-  ├─ 5. 대화 히스토리 저장
-  ├─ 6. 행동 로그 기록 (비동기)
-  ├─ 7. 개인화 변수 추출/갱신 (비동기)
+  ├─ 6. 대화 히스토리 저장 (RLS: 본인 conversation)
+  ├─ 7. 행동 로그 기록 (비동기, service_role + user_id 명시)
+  ├─ 8. 개인화 변수 추출/갱신 (비동기, service_role + user_id 명시)
   │
   └─ Response: SSE 스트리밍
 ```
@@ -271,8 +274,10 @@ PRD에서 확정된 비즈니스 결정에 따른 기술 구현 결정 기록.
 | D-1 | 하이브리드 검색 | SQL 필터 + RAG 벡터 (P0-20~22 검증) |
 | D-2 | 하이브리드 판단 | 하드 필터(코드) + 소프트 판단(LLM) |
 | D-3 | 4계층 + core/features | server/core (시스템) + server/features (비즈니스) |
+| D-4 | DB 접근: 서버 API 경유만 (옵션 B) | 클라이언트 직접 DB 접근 금지. 사용자 API: Supabase JWT 클라이언트 (RLS 적용). 관리자 API: service_role (권한은 코드 검증). RLS = defense-in-depth |
+| D-5 | 관리자 인증: 자체 JWT | Google SSO → 자체 JWT 발급 → API 미들웨어 검증. Supabase Auth와 분리 |
 
 ---
 
-> Phase 1 상세 설계 문서: 프롬프트(P1-25~29), Tool(P1-31~34), API(P1-19~24), 검색/판단(P1-42~46), 성능/보안(P1-47~54)
+> Phase 1 상세 설계 문서: 권한 체계([`auth-matrix.md`](../05-design-detail/auth-matrix.md)), 프롬프트(P1-25~29), Tool(P1-31~34), API(P1-19~24), 검색/판단(P1-42~46), 성능/보안(P1-47~54)
 > DB 스키마: [`DB-SCHEMA.md`](DB-SCHEMA.md) (DDL 정본)
