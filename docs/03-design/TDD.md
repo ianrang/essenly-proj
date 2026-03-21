@@ -155,8 +155,10 @@ src/
 │   └── features/     # 비즈니스 코드 (chat, profile, beauty, repositories)
 │
 ├── client/           # 클라이언트 전용 (import 'client-only')
-│   ├── core/         # 재사용 UI 인프라
-│   └── features/     # 비즈니스 UI (chat, cards, onboarding, profile)
+│   ├── core/         # 시스템 인프라 (UI 라이브러리 무관, 프로젝트 무관)
+│   ├── ui/           # 디자인 시스템 (shadcn/ui, 교체 가능 단위)
+│   │   └── primitives/  # shadcn 컴포넌트 (button, dialog, input...)
+│   └── features/     # 비즈니스 UI (chat, cards, onboarding, profile, admin)
 │
 └── shared/           # 순수 타입/상수/유틸 — 런타임 부작용 금지
     ├── types/        # domain.ts, profile.ts, api.ts

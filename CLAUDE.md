@@ -21,7 +21,7 @@
 | P-3 | Last Leaf | `features/` 모듈은 교체/수정해도 core 및 다른 features service에 무영향 |
 | P-4 | Composition Root | `app/`이 조합 루트. cross-domain 데이터 조회 → service에 파라미터 전달. service 간 직접 호출/import 금지 |
 | P-5 | 콜 스택 ≤ 4 | route → service → tool/domain → repository/core. 최대 4단계 |
-| P-6 | 바인딩 ≤ 4 | 정적 의존 체인 최대 4단계. shared/(타입/상수/유틸)는 카운트 제외 |
+| P-6 | 바인딩 ≤ 4 | 정적 의존 체인 최대 4단계. shared/ 및 client/ui/ 내부 import는 카운트 제외 |
 | P-7 | 단일 변경점 | 하나의 기능 변경은 1~2개 파일 수정. 3개 이상이면 설계 재검토 |
 | P-8 | 순환 의존 금지 | 모든 import는 단방향. A→B이면 B→A 불가 |
 
@@ -37,6 +37,9 @@
 | R-2 | `server/` → `client/` import 금지 | `import 'client-only'` → 빌드 에러 |
 | R-3 | `core/` → `features/` import 금지 | ESLint `no-restricted-imports` |
 | R-4 | `shared/` → `server/`, `client/` import 금지 | ESLint `no-restricted-imports` |
+| R-11 | `ui/` → `features/` import 금지 | ui/는 비즈니스 로직에 의존하지 않는다 |
+| R-12 | `core/` → `ui/` import 금지 | core/는 UI 라이브러리 선택에 무관해야 한다 |
+| R-13 | `ui/` 내 K-뷰티 비즈니스 용어 금지 | L-5 원칙의 ui/ 확장 |
 
 ### 2.2 features/ 내부 의존성
 
