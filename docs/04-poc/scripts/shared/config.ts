@@ -66,8 +66,8 @@ export async function getEmbeddingModel() {
   }
 }
 
-// Google 임베딩 providerOptions
-export function getEmbeddingOptions(taskType: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY') {
+// 임베딩 providerOptions (프로바이더별)
+export function getEmbeddingOptions(taskType: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY'): Record<string, Record<string, unknown>> | undefined {
   if (provider === 'google') {
     return {
       google: {
@@ -76,7 +76,7 @@ export function getEmbeddingOptions(taskType: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_
       },
     };
   }
-  return {};
+  return undefined;
 }
 
 export { provider };
