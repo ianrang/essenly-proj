@@ -133,7 +133,6 @@ export interface Store {
   operating_hours: Record<string, string> | null;
   english_support: string;
   store_type: string | null;
-  brands_available: string[];
   tourist_services: string[];
   payment_methods: string[];
   nearby_landmarks: string[];
@@ -156,7 +155,9 @@ export interface Brand {
   tier: string | null;
   is_essenly: boolean;
   specialties: string[];
+  status: string;
   created_at: string;
+  updated_at: string;
 }
 
 export interface Ingredient {
@@ -166,7 +167,9 @@ export interface Ingredient {
   function: string[];
   caution_skin_types: SkinType[];
   common_in: string[];
+  status: string;
   created_at: string;
+  updated_at: string;
 }
 
 // --- DOM-2: Treatment/Clinic ---
@@ -215,7 +218,9 @@ export interface Treatment {
   subcategory: string | null;
   target_concerns: SkinConcern[];
   suitable_skin_types: SkinType[];
-  price_range: { min: number; max: number } | null;
+  price_min: number | null;
+  price_max: number | null;
+  price_currency: string;
   duration_minutes: number | null;
   downtime_days: number | null;
   session_count: string | null;
@@ -239,7 +244,9 @@ export interface Doctor {
   specialties: string[];
   languages: string[];
   certifications: string[];
+  status: string;
   created_at: string;
+  updated_at: string;
 }
 
 // --- Domain Configuration ---
