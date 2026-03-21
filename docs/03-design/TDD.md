@@ -25,7 +25,7 @@
 4계층 아키텍처(Client → API → Backend Services → Data)를 채택하며, LLM 기반 대화 엔진 + RAG 벡터 검색 + 개인화 판단 엔진을 핵심으로 한다.
 
 **참조 문서**:
-- DB 스키마: [`DB-SCHEMA.md`](DB-SCHEMA.md)
+- DB 스키마: [`schema.dbml`](schema.dbml) (DBML 정본)
 - 코드 표준: [`CLAUDE.md`](../../CLAUDE.md) (8개 섹션, 59개 규칙)
 - 프로젝트 정의: [`MASTER-PLAN.md`](MASTER-PLAN.md)
 
@@ -282,4 +282,4 @@ PRD에서 확정된 비즈니스 결정에 따른 기술 구현 결정 기록.
 ---
 
 > Phase 1 상세 설계 문서: 권한 체계([`auth-matrix.md`](../05-design-detail/auth-matrix.md)), 프롬프트(P1-25~29), Tool(P1-31~34), API(P1-19~24), 검색/판단(P1-42~46), 성능/보안(P1-47~54)
-> DB 스키마: [`DB-SCHEMA.md`](DB-SCHEMA.md) (DDL 정본)
+> DB 스키마: [`schema.dbml`](schema.dbml) (DBML 정본)

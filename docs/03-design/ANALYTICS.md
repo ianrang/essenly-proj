@@ -65,7 +65,7 @@ PRD §5.6에 정의된 6개 MVP 성공 지표(KPI)의 **측정 도구와 구현 
 
 ## `behavior_logs` 스키마 매핑
 
-DB-SCHEMA.md 기존 정의:
+schema.dbml 정의 (behavior_logs 테이블):
 
 ```sql
 CREATE TABLE behavior_logs (
@@ -223,9 +223,9 @@ CREATE TABLE behavior_logs (
 
 ## 미결정: `analytics` 동의 컬럼
 
-- 마이그레이션(`setup-all.sql`, `001_initial_schema.sql`)에 `consent_records.analytics BOOLEAN` 컬럼이 존재하나, DB-SCHEMA.md와 PRD §4-C에는 미반영 상태
+- 마이그레이션(`setup-all.sql`, `001_initial_schema.sql`)에 `consent_records.analytics BOOLEAN` 컬럼이 존재하나, schema.dbml와 PRD §4-C에는 미반영 상태
 - KPI 이벤트 동의 매핑이 `data_retention`이 아닌 `analytics`에 해당할 가능성 있음
-- DB-SCHEMA.md + PRD §4-C 동기화 시 동의 매핑 재검토 필요 (P0-3 범위 밖)
+- schema.dbml + PRD §4-C 동기화 시 동의 매핑 재검토 필요 (P0-3 범위 밖)
 
 ---
 
@@ -264,4 +264,4 @@ CREATE TABLE behavior_logs (
 | P1-56 이벤트 상세 | 본 문서의 5개 KPI 이벤트 + 추가 이벤트 상세 정의 (이벤트 이름·속성·발화 시점) | Phase 1 |
 | P2-26 행동 로그 서비스 | `behavior_logs` 기록 서비스 구현 | Phase 2 |
 | U-15 법적 검토 | KPI 이벤트 ⊂ data_retention 동의 전제의 법적 타당성 확인 | Phase 0~3 |
-| consent_records 스키마 동기화 | 마이그레이션의 `analytics` 컬럼이 DB-SCHEMA.md·PRD §4-C에 미반영. 동기화 후 §6 동의 매핑 재검토 | P1-16 (스키마 수정) |
+| consent_records 스키마 동기화 | 마이그레이션의 `analytics` 컬럼이 schema.dbml·PRD §4-C에 미반영. 동기화 후 §6 동의 매핑 재검토 | P1-16 (스키마 수정) |

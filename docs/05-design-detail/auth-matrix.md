@@ -356,7 +356,7 @@ export function middleware(request: NextRequest) {
 |------|----------|------|
 | §4-C | ✅ 이미 일치 | anonymous만, 변경 불필요 |
 
-### DB-SCHEMA.md
+### schema.dbml
 
 | 변경 필요 | 내용 |
 |----------|------|

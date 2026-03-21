@@ -27,7 +27,7 @@
 |------|------|------|------|
 | PRD | v2.2 | 제품 요구사항 (WHAT) | `docs/03-design/PRD.md` |
 | TDD | v1.1 | 기술 설계 (HOW) — 사용자 앱 | `docs/03-design/TDD.md` |
-| DB-SCHEMA | v1.1 | SQL DDL — 사용자 + DOM-1/DOM-2 | `docs/03-design/DB-SCHEMA.md` |
+| DB Schema | v2.0 | DBML 정본 — 21 테이블, 전체 관계 | `docs/03-design/schema.dbml` |
 | CLAUDE.md | — | 코드 표준 (8개 섹션, 59개 규칙) | `CLAUDE.md` |
 
 ## 1.2 시스템 구성
@@ -320,7 +320,7 @@ v2.0까지: 33~50주 (1인)
 | 사이트맵 | `docs/05-design-detail/sitemap.md` |
 | 화면 명세 | `docs/05-design-detail/screens.md` |
 | 권한 매트릭스 | `docs/05-design-detail/auth-matrix.md` |
-| DB 스키마 확장 | `docs/03-design/DB-SCHEMA.md` 업데이트 |
+| DB 스키마 | `docs/03-design/schema.dbml` (DBML 정본) |
 | 인덱스 설계 | `docs/05-design-detail/indexes.md` |
 | API 명세 | `docs/05-design-detail/api-spec.md` |
 | AI 프롬프트 명세 | `docs/05-ai/system-prompt.md` |

@@ -8,7 +8,7 @@
 - 스택: Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS 4 · Supabase · Vercel AI SDK 6.x
 - 상태 관리: useChat + react-hook-form + React Context (Zustand/Redux 금지)
 - 별칭: `@/server`, `@/client`, `@/shared`
-- 설계 문서: `docs/03-design/PRD.md`(WHAT) · `docs/03-design/TDD.md`(HOW) · `docs/03-design/DB-SCHEMA.md`
+- 설계 문서: `docs/03-design/PRD.md`(WHAT) · `docs/03-design/TDD.md`(HOW) · `docs/03-design/schema.dbml`(DB 정본)
 
 ---
 
