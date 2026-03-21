@@ -39,17 +39,17 @@
 | R-4 | `shared/` → `server/`, `client/` import 금지 | ESLint `no-restricted-imports` |
 | R-11 | `ui/` → `features/` import 금지 | ui/는 비즈니스 로직에 의존하지 않는다 |
 | R-12 | `core/` → `ui/` import 금지 | core/는 UI 라이브러리 선택에 무관해야 한다 |
-| R-13 | `ui/` 내 K-뷰티 비즈니스 용어 금지 | L-5 원칙의 ui/ 확장 |
+| R-13 | `ui/` 내 K-뷰티 비즈니스 용어 금지 | ui/는 도메인 무관해야 한다. skin_type, concerns 등 금지 |
 
 ### 2.2 features/ 내부 의존성
 
 | ID | 규칙 | 허용 import |
 |----|------|------------|
-| R-5 | service.ts — 오케스트레이터 | 자기 도메인 내부 + beauty/ + core/ + shared/. 타 도메인 데이터는 route handler에서 파라미터로 수신 (P-4) |
+| R-5 | service.ts — 오케스트레이터 | 자기 도메인 내부 + beauty/ + core/ + shared/. 타 도메인 데이터는 route handler에서 파라미터로 수신 |
 | R-6 | tool handler — LLM 콜백 (유일한 예외) | repositories/ + beauty/ + shared/. LLM 콜백 특성상 직접 import 허용 |
 | R-7 | beauty/*.ts — 순수 함수 | beauty/ 내부(단방향만) + shared/ ONLY. DB/API 호출 금지 |
 | R-8 | repositories/*.ts — DB CRUD | core/db/ + shared/ ONLY. 비즈니스 로직 금지 |
-| R-9 | service → 타 도메인 service/repository 금지 | cross-domain 데이터는 route handler에서 파라미터로 전달 (P-4) |
+| R-9 | service → 타 도메인 service/repository 금지 | cross-domain 데이터는 route handler에서 파라미터로 전달 |
 | R-10 | tool → service 역호출 금지 | tool(③)에서 service(②) 재호출 불가 |
 
 ### 2.3 beauty/ 내부 단방향 규칙
@@ -93,7 +93,7 @@ treatment.ts ──→ derived.ts    ✗  (peer 간 직접 의존 금지)
 |----|------|
 | L-1 | API route는 thin: 입력 검증 → cross-domain 데이터 조회 → service 호출(파라미터 전달) → 응답 반환 |
 | L-2 | page.tsx는 조합만: features/ 컴포넌트 배치. 직접 로직 금지 |
-| L-3 | cross-domain 데이터는 여기서 조회하여 service에 전달 (P-4). 이것이 3-layer와의 핵심 차이 |
+| L-3 | cross-domain 데이터는 여기서 조회하여 service에 파라미터로 전달. service가 타 도메인을 직접 호출하지 않는다 |
 
 ### server/core/ (시스템 인프라)
 
@@ -109,16 +109,16 @@ treatment.ts ──→ derived.ts    ✗  (peer 간 직접 의존 금지)
 | L-6 | 새 도메인 추가 = features/에 폴더 추가. core/ 수정 불필요해야 한다 (OCP) |
 | L-7 | beauty/ 모듈은 순수 함수만: 입력→출력, 부작용 없음, DB/API 호출 금지 |
 | L-8 | repositories/는 DB CRUD만: 비즈니스 로직(필터링, 정렬, 계산) 금지 |
-| L-9 | service 간 직접 import/호출 금지 (R-9) |
+| L-9 | service 간 직접 import/호출 금지. cross-domain 데이터는 route handler에서 파라미터로 전달 |
 
 ### client/ui/ (디자인 시스템 — 교체 가능 단위)
 
 | ID | 규칙 |
 |----|------|
-| L-16 | `import 'client-only'` 필수 (L-0b 확장) |
-| L-17 | K-뷰티 비즈니스 용어 포함 금지 (L-5 확장, R-13) |
-| L-18 | 시맨틱 토큰만 사용. `#hex` 하드코딩 금지 (S-5) |
-| L-19 | features/ import 금지. shared/ import만 허용 (R-11) |
+| L-16 | 파일 첫 줄에 `import 'client-only'` 필수. 서버 번들에 포함되면 빌드 에러 |
+| L-17 | K-뷰티 비즈니스 용어(skin_type, concerns 등) 포함 금지. ui/는 도메인 무관해야 한다 |
+| L-18 | 스타일은 시맨틱 토큰(`bg-primary` 등)만 사용. `#hex` 값 직접 기입 금지 |
+| L-19 | `features/` import 금지. `shared/` import만 허용. ui/는 비즈니스 로직에 의존하지 않는다 |
 
 ### client/ (UI)
 
@@ -231,19 +231,19 @@ treatment.ts ──→ derived.ts    ✗  (peer 간 직접 의존 금지)
 코드 작성/수정 후 반드시 검증:
 
 ```
-□ V-1  의존성 방향: import가 DAG를 위반하지 않는가? (P-1, R-1~R-4, R-11~R-13)
-□ V-2  core 불변: core/ 파일을 수정하지 않았는가? (P-2)
-□ V-3  Composition Root: cross-domain 데이터를 route handler에서 전달하는가? (P-4)
-□ V-4  features 독립: service 간 직접 호출/import이 없는가? (R-9)
-□ V-5  콜 스택 ≤ 4인가? (P-5)
-□ V-6  바인딩 체인 ≤ 4인가? (P-6, shared/ 및 client/ui/ 내부 제외)
-□ V-7  beauty/ 순수 함수: DB/API 호출이 없는가? (R-7, L-7)
-□ V-8  beauty/ 단방향: 내부 import가 단방향인가? (§2.3)
-□ V-9  중복: 기존 코드와 동일/유사 구현이 없는가? (G-2)
-□ V-10 불필요 코드: 미사용 export, 패스스루 래퍼가 없는가? (G-3, G-4)
-□ V-11 VP-1: is_highlighted가 렌더링 이외에 사용되지 않는가? (Q-2)
-□ V-12 타입 안전: any 타입이 없는가? (G-8)
-□ V-13 디자인 토큰: 색상·radius를 하드코딩하지 않았는가? (S-5)
-□ V-15 ui/ 순수성: client/ui/ 파일에 비즈니스 용어·features/ import가 없는가? (R-11, R-13, L-17~L-19)
-□ V-14 토큰 동기화: :root 변수와 @theme inline 바인딩이 1:1 대응하는가? (S-6)
+□ V-1  의존성 방향: import가 app/ → server/, client/ → shared/ DAG를 위반하지 않는가?
+□ V-2  core 불변: core/ 파일을 수정하지 않았는가?
+□ V-3  Composition Root: cross-domain 데이터를 route handler에서 전달하는가?
+□ V-4  features 독립: service 간 직접 호출/import이 없는가?
+□ V-5  콜 스택 ≤ 4인가? (route → service → tool/domain → repository)
+□ V-6  바인딩 체인 ≤ 4인가? (shared/ 및 client/ui/ 내부 import는 제외)
+□ V-7  beauty/ 순수 함수: DB/API 호출이 없는가?
+□ V-8  beauty/ 단방향: 내부 import가 단방향인가?
+□ V-9  중복: 기존 코드와 동일/유사 구현이 없는가?
+□ V-10 불필요 코드: 미사용 export, 패스스루 래퍼가 없는가?
+□ V-11 is_highlighted가 렌더링 이외(검색/정렬/필터)에 사용되지 않는가?
+□ V-12 타입 안전: any 타입이 없는가?
+□ V-13 디자인 토큰: 색상·radius·그림자를 #hex로 하드코딩하지 않았는가?
+□ V-14 토큰 동기화: :root 변수와 @theme inline 바인딩이 1:1 대응하는가?
+□ V-15 ui/ 순수성: client/ui/ 파일에 비즈니스 용어나 features/ import가 없는가?
 ```
