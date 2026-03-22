@@ -11,10 +11,10 @@
 |-------|---------|------|--------|------|
 | 사전 완료 | 12 | 12 | 100% | ✅ |
 | Phase 0 | 37 | 37 | 100% | ✅ |
-| Phase 1 | 62 | 22 | 35% | 🔶 진행 중 |
+| Phase 1 | 62 | 23 | 37% | 🔶 진행 중 |
 | Phase 2 | 68 | 0 | 0% | ⬜ 미시작 |
 | Phase 3 | 36 | 0 | 0% | ⬜ 미시작 |
-| **MVP 합계** | **215** | **71** | **33%** | |
+| **MVP 합계** | **215** | **72** | **33%** | |
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
 
@@ -139,7 +139,7 @@
 | P1-7 | 사용자 앱 사이트맵 + URL 설계 | Route Group (user)/[locale]/ 구조. Landing SSG, Chat/Onboarding/Profile CSR. Kit CTA=인라인+bottom sheet | `sitemap.md` | ✅ |
 | P1-8 | 관리자 앱 사이트맵 (MVP) | Route Group (admin)/admin/ 구조. 7엔티티×3페이지 + 감사로그 + Admin관리. i18n 없음 | `sitemap.md` | ✅ |
 | P1-9 | 사용자 앱 화면 상세 | 4페이지(Landing/Onboarding/Profile/Chat) 컴포넌트 분해, 상태 매트릭스, tool-result→UI 매핑. 재사용 컴포넌트(ProductCard/TreatmentCard/ConsentBanner 등) + 공통 패턴(에러/로딩/빈 상태/세션 만료). client/features/ 계층만 | `user-screens.md` | ✅ |
-| P1-10 | 관리자 앱 화면 설계 | 로그인, 대시보드, 목록/상세/생성/수정 공통, 관계 관리 | 관리자 화면 명세 | ⬜ |
+| P1-10 | 관리자 앱 화면 설계 | 제네릭 CRUD(목록/생성/상세) + 엔티티별 차이 매트릭스. 재사용 컴포넌트 12개(AdminDataTable, EntityForm, MultiLangInput, ImageUploader 등). 고유 화면 4개(로그인/대시보드/감사 로그/관리자 관리). 권한 기반 UI 분기. 한국어 UI | `admin-screens.md` | ✅ |
 | P1-11 | SEO 전략 | Landing만 SEO 대상 (SSG). 정적 OG 1장, MVP en canonical only (v0.2 hreflang), JSON-LD (WebApplication), sitemap.xml 1 URL, robots.txt (admin/api 차단). 모든 구현 app/ 계층 | `seo-strategy.md` | ✅ |
 | P1-12 | 접근성 기준 | WCAG 2.1 AA 전체. Skip link, 키보드 내비게이션, aria-live polite (채팅 스트리밍 완료 시 알림), 포커스 트랩 (Radix 내장), 터치 44x44px, prefers-reduced-motion, autocomplete. axe-core + 수동 체크리스트. client/ 계층만 해당 | `accessibility.md` | ✅ |
 
@@ -196,11 +196,11 @@
 
 | ID | 작업 | 상세 | 산출물 | 상태 |
 |----|------|------|--------|------|
-| P1-42 | 구조화 검색 쿼리 설계 | 도메인별 필터 조합, 동적 WHERE | 검색 쿼리 명세 | ⬜ |
-| P1-43 | 뷰티 판단 엔진 상세 | TDD §3.3 5단계 판단 로직, 입출력, SQL/코드 분담 | 판단 엔진 설계 | ⬜ |
-| P1-44 | 벡터 검색 파이프라인 | 쿼리 임베딩 → 유사도 → 필터 → 병합 | RAG 파이프라인 설계 | ⬜ |
-| P1-45 | 하이브리드 검색 전략 | SQL + 벡터 결과 병합/재정렬 | 하이브리드 설계 | ⬜ |
-| P1-46 | 정렬/랭킹 로직 | 적합성, 개인화 점수, VP-1 비개입 원칙 준수 | 랭킹 설계 | ⬜ |
+| P1-42 | 구조화 검색 쿼리 | 3개 Repository 메서드(findByFilters/matchByVector/findAll) + 공통 query-utils(6개 필터 함수). 4엔티티 필터 매핑. null-safe(VP-3) | `search-engine.md` §2 | ✅ |
+| P1-43 | 뷰티 판단 엔진 | 5단계 판단(SQL 하드 필터 1~2 + beauty/ 순수 함수 3~5). judgment.rank() + treatment.checkDowntime() + shopping.scoreProduct() + derived DV-1~3 | `search-engine.md` §3 | ✅ |
+| P1-44 | 벡터 검색 파이프라인 | core/knowledge.ts(비즈니스 무관) → embed → matchByVector RPC. SQL/벡터 선택 기준 정의 | `search-engine.md` §4 | ✅ |
+| P1-45 | 하이브리드 검색 | 단일 RPC 쿼리(WHERE + ORDER BY embedding). 2단계 불필요. PoC P0-22 검증 완료 | `search-engine.md` §5 | ✅ |
+| P1-46 | 정렬/랭킹 | AI: 4가중치(적합0.4+개인화0.3+유사도0.2+평점0.1). VP-1 준수. 관리자: 엔티티별 허용 정렬 필드 | `search-engine.md` §6 | ✅ |
 
 ## 설계 — 성능 / 보안
 
