@@ -254,7 +254,7 @@ PoC 대비 변경 없음.
 
 ### 동작 방식
 
-api-spec.md §3.4 7b단계: LLM이 대화 중 **동기 tool_use**로 호출. 추출 결과는 tool-result로 반환되고, 11단계에서 **비동기**로 DB에 저장.
+api-spec.md §3.4 7b단계: LLM이 대화 중 **동기 tool_use**로 호출. 추출 결과는 tool-result로 반환되고, 11단계에서 **메모리 보관** (DB 저장하지 않음). 사용자가 프로필 저장에 동의하면 `POST /api/profile/onboarding`으로 DB 저장 (PRD §4-C).
 
 ### 입력
 
