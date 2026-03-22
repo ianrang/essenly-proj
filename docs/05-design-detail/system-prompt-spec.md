@@ -68,7 +68,7 @@
 | §3 Domains | 정의 | — |
 | §4 Rules | 정의 | — |
 | §5 Guardrails | 기본 5개 + 상세 3섹션(Medical/Off-topic/Adversarial) | P1-26 완료 |
-| §6 Tools | 정의 | P1-31/P1-32 (스키마) |
+| §6 Tools | 정의 | tool-spec.md (P1-31+P1-32 완료) |
 | §7 Card Format | 기본 구조 + why_recommended + 매장 선택 + 카드 개수 + 비교 | P1-27 완료 |
 | §8 User Profile | 주입 구조 + 매핑 | — |
 | §9 No Profile Mode | 기본 지시 + 전환 트리거 + 첫 응답/추출 전략/저장 제안 | P1-28 완료 |
@@ -467,9 +467,8 @@ Get purchase, booking, or map links for a specific product, store, clinic, or tr
 - User is still browsing/comparing — wait until they express intent to act
 ```
 
-> P1-31에서 추가: search_beauty_data 파라미터 스키마 (domain, filters, limit), 응답 스키마
-> P1-32에서 추가: get_external_links 파라미터 스키마 (entity_id, entity_type), 응답 스키마
-> P1-33 확정: **동기 tool 방식**. extract_user_profile tool (P0-17 PoC 스키마 계승, 93% 정확도). 상세 JSON Schema는 P1-31에서 정의
+> Tool JSON Schema (입력/출력): `tool-spec.md` (P1-31+P1-32 병합 완료)
+> extract_user_profile: 동기 tool 확정 (P1-33). 스키마는 `tool-spec.md` §3
 
 ---
 

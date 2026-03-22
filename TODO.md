@@ -11,10 +11,10 @@
 |-------|---------|------|--------|------|
 | 사전 완료 | 12 | 12 | 100% | ✅ |
 | Phase 0 | 37 | 37 | 100% | ✅ |
-| Phase 1 | 62 | 52 | 84% | 🔶 진행 중 |
+| Phase 1 | 62 | 54 | 87% | 🔶 진행 중 |
 | Phase 2 | 70 | 0 | 0% | ⬜ 미시작 |
 | Phase 3 | 36 | 0 | 0% | ⬜ 미시작 |
-| **MVP 합계** | **217** | **101** | **47%** | |
+| **MVP 합계** | **217** | **103** | **47%** | |
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
 
@@ -180,8 +180,8 @@
 | P1-28 | 경로B 초기 프롬프트 | §9.1 첫 응답 가이드, §9.2 변수 추출 전략(6변수 3티어 우선순위+VP-3 보호), §9.3 프로필 저장 제안 문구. 추천 질문 버블은 UI 영역(프롬프트 범위 밖) | `system-prompt-spec.md` §9 확장 | ✅ |
 | P1-29 | DV-4 생성 프롬프트 | §10.1: 별도 LLM 호출(채팅과 독립). 입력 UP-1~4+JC-1~5+DV-1~2, 출력 자연어 2~3문장. DV-3 제외(마케팅 전용). features/profile/ 위치 | `system-prompt-spec.md` §10 확장 | ✅ |
 | P1-30 | 프롬프트 평가 체계 | 3차원(가드레일8+추천7+개인화5=20건), 기계 판정 가능 형태, PoC 대체 전략. 자동화 구현은 Phase 2 | `prompt-evaluation.md` | ✅ |
-| P1-31 | Tool 상세 설계 (search_beauty_data) | JSON Schema, 호출 흐름, 응답 형식, 에러 처리 | Tool 명세 | ⬜ |
-| P1-32 | Tool 상세 설계 (get_external_links) | JSON Schema, 링크 타입별 로직, 폴백 | Tool 명세 | ⬜ |
+| P1-31 | Tool 상세 설계 (search_beauty_data) | P1-32와 병합. 입력 스키마(PoC 확장: +category, +max_downtime, limit max 5) + 출력 JSON(ProductCard/TreatmentCard). user-screens.md §1.3~1.4 필드 1:1 대응 검증 | `tool-spec.md` §1 | ✅ |
+| P1-32 | Tool 상세 설계 (get_external_links) | P1-31과 병합. 입력 스키마(PoC 유지) + 출력 JSON(5개 링크 타입). extract_user_profile(P1-33 확정)도 §3에 포함 | `tool-spec.md` §2~3 | ✅ |
 | P1-33 | 개인화 추출 방식 결정 | **동기 tool 확정** (P0-17: 93%). 추출=동기 tool(extract_user_profile), DB 저장=비동기(onFinish). api-spec #7b, TDD U-4, system-prompt-spec §6, auth-matrix §5.4 반영 | 5개 문서 결정 반영 | ✅ |
 | P1-34 | Tool 에러 처리 설계 | 실패 시 LLM 전달 형식, 재시도 정책 | 에러 처리 명세 | ⬜ |
 | P1-35 | 토큰 예산 분배 | 시스템 프롬프트/히스토리/RAG/응답 토큰 배분 (PoC 기반) | 토큰 예산 문서 | ⬜ |
