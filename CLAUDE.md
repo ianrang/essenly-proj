@@ -47,7 +47,7 @@
 | R-5 | service.ts — 오케스트레이터 | 자기 도메인 내부 + beauty/ + core/ + shared/. 타 도메인 데이터는 route handler에서 파라미터로 수신 |
 | R-6 | tool handler — LLM 콜백 (유일한 예외) | repositories/ + beauty/ + shared/. LLM 콜백 특성상 직접 import 허용 |
 | R-7 | beauty/*.ts import 범위 | beauty/ 내부(단방향만) + shared/ ONLY |
-| R-8 | repositories/*.ts — DB CRUD | core/db/ + shared/ ONLY. 비즈니스 로직 금지 |
+| R-8 | repositories/*.ts import 범위 | core/db/ + shared/ ONLY |
 | R-9 | service → 타 도메인 import 금지 | 타 도메인의 service.ts, repositories/ 직접 import 불가 |
 | R-10 | tool → service 역호출 금지 | tool(③)에서 service(②) 재호출 불가 |
 
