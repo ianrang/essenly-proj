@@ -189,8 +189,8 @@
 | P1-37 | RAG 결과 압축 | 검색 결과 필드 선택, 토큰 절약 | 압축 전략 | ⬜ |
 | P1-38 | 임베딩 대상 텍스트 정의 | 4엔티티별 TEXT_FIELDS(en+ko), EMBEDDING_CONFIG 상수(shared/constants/), text-builder 순수 함수, 포함/제외 필드 근거, KB 1doc=1chunk, 태그 전체 포함(MVP) | `embedding-strategy.md` §1-2 | ✅ |
 | P1-39 | 임베딩 생성 파이프라인 설계 | 비동기 fire-and-forget(admin CRUD 후), TEXT_FIELDS 변경 감지(JSONB 깊은 비교), 배치 생성(1초/건), null 허용+SQL 폴백, last-write-wins | `embedding-strategy.md` §3 | ✅ |
-| P1-40 | LLM 장애 대응 설계 | 타임아웃/429/500 재시도, 폴백 모델, 에러 UX | 장애 대응 문서 | ⬜ |
-| P1-41 | LLM 모델 교체 아키텍처 설계 | 환경변수로 프로바이더/모델 전환. 프롬프트·tool 호환성 추상화 계층. 모델별 차이(tool_use 형식, 토큰 제한) 대응 | 모델 교체 설계 문서 | ⬜ |
+| P1-40 | LLM 장애 대응 설계 | 서버 재시도 없음+클라이언트 재시도. 폴백 Claude→Gemini(1회). 에러 분류(429 구분). 스트리밍 중 실패→에러 SSE+기존 출력 유지 | `llm-resilience.md` §2 | ✅ |
+| P1-41 | LLM 모델 교체 아키텍처 설계 | config.ts getModel() 팩토리(core/,P-2). llm-client.ts callWithFallback()(features/,P-3). 환경변수 3개. shared/constants/ai.ts | `llm-resilience.md` §1,§3 | ✅ |
 
 ## 설계 — 검색/필터/판단
 

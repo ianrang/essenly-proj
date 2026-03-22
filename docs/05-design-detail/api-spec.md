@@ -417,7 +417,7 @@ Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
 | `CHAT_LLM_ERROR` | LLM API 에러 (500 등) | "일시적 오류" UI + 재시도 버튼 |
 | `CHAT_RATE_LIMITED` | Chat rate limit 초과 | "잠시 후 다시 시도" UI + Retry-After |
 
-> 에러 복구 상세 (재시도 횟수, 폴백 모델 등)는 P1-40 (LLM 장애 대응)에서 설계.
+> 에러 복구 상세: llm-resilience.md §2 참조 — 서버 재시도 없음, Claude→Gemini 폴백 1회, 클라이언트 재시도 버튼.
 
 ## 3.4 서버 플로우 (TDD §3.7)
 
