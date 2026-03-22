@@ -583,7 +583,7 @@ SDK 갱신 실패 (네트워크 에러, refresh_token 만료 등)
 |------|--------|------------------|
 | 대화 히스토리 저장 | 채팅 스트림 완료 후 | messages.conversation_id → conversations.user_id |
 | 행동 로그 기록 | 채팅 중 tool 호출 시 | behavior_logs.user_id |
-| 개인화 변수 추출/갱신 | 채팅 스트림 완료 후 | learned_preferences.user_id |
+| 개인화 추출 결과 DB 저장 | 채팅 스트림 완료 후 | learned_preferences.user_id (추출 자체는 동기 tool — api-spec §3.4 #7b) |
 
 #### 전달 패턴
 

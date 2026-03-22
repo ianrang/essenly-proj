@@ -429,10 +429,12 @@ Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
 5. 프로필 로드 (user_profiles + journeys, RLS: 본인만)
 6. 시스템 프롬프트 구성
 7. LLM 호출 (streamText + tool_use, stopWhen: stepCountIs)
+   7a. tool_use: search_beauty_data (검색)
+   7b. tool_use: extract_user_profile (개인화 추출 — P1-33 확정: 동기 tool)
 8. SSE 스트리밍 응답
 9. (비동기) 대화 히스토리 저장
 10. (비동기) 행동 로그 기록 — service_role + user_id 명시
-11. (비동기) 개인화 변수 추출/갱신 — service_role + user_id 명시
+11. (비동기) 개인화 추출 결과 DB 저장 — service_role + user_id (추출은 #7b에서 동기 완료)
 ```
 
 ---

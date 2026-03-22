@@ -174,7 +174,7 @@
 
 | ID | 작업 | 상세 | 산출물 | 상태 |
 |----|------|------|--------|------|
-| P1-25 | 시스템 프롬프트 명세 | 섹션 기반 파이프라인(§2~10), 코드/LLM 역할 분담, 섹션 소유권(P1-26~29), MVP 비활성 변수, 프롬프트 관리 전략(MVP 코드→v0.2 DB). TDD U-4 갱신(P1-33 의존성) | `system-prompt-spec.md` | ✅ |
+| P1-25 | 시스템 프롬프트 명세 | 섹션 기반 파이프라인(§2~10), 코드/LLM 역할 분담, 섹션 소유권(P1-26~29), MVP 비활성 변수, 프롬프트 관리 전략(MVP 코드→v0.2 DB). TDD U-4 갱신(P1-33 완료 반영) | `system-prompt-spec.md` | ✅ |
 | P1-26 | 가드레일 규칙 상세 | §5.1 Medical(허용/차단 경계+회색지대+템플릿2), §5.2 Off-topic(판단 기준+Coming soon 제외+템플릿2), §5.3 Adversarial(5패턴 대응+A5 LEAK 강화+템플릿2). MVP 단일턴만 | `system-prompt-spec.md` §5 확장 | ✅ |
 | P1-27 | 카드 포맷 규칙 | §7 확장: why_recommended 작성 규칙(reasons[]→자연어), 매장/클리닉 선택 규칙(§6에서 이동), 카드 개수 가이드, 비교 요청 처리. §6은 tool 사용법에 집중하도록 정리 | `system-prompt-spec.md` §7 확장 | ✅ |
 | P1-28 | 경로B 초기 프롬프트 | §9.1 첫 응답 가이드, §9.2 변수 추출 전략(6변수 3티어 우선순위+VP-3 보호), §9.3 프로필 저장 제안 문구. 추천 질문 버블은 UI 영역(프롬프트 범위 밖) | `system-prompt-spec.md` §9 확장 | ✅ |
@@ -183,7 +183,7 @@
 | P1-30a | 멀티턴 adversarial 검증 | P1-30 평가 완료 후, 멀티턴 탈옥 패턴(점진적 신뢰 구축→공격) 테스트 + 가드레일 강화. P1-26은 단일턴만 커버 | 가드레일 업데이트 | ⬜ |
 | P1-31 | Tool 상세 설계 (search_beauty_data) | JSON Schema, 호출 흐름, 응답 형식, 에러 처리 | Tool 명세 | ⬜ |
 | P1-32 | Tool 상세 설계 (get_external_links) | JSON Schema, 링크 타입별 로직, 폴백 | Tool 명세 | ⬜ |
-| P1-33 | 개인화 추출 방식 결정 | tool vs 후처리 vs LLM 지시 (PoC-17 결과 기반) | 설계 결정 | ⬜ |
+| P1-33 | 개인화 추출 방식 결정 | **동기 tool 확정** (P0-17: 93%). 추출=동기 tool(extract_user_profile), DB 저장=비동기(onFinish). api-spec #7b, TDD U-4, system-prompt-spec §6, auth-matrix §5.4 반영 | 5개 문서 결정 반영 | ✅ |
 | P1-34 | Tool 에러 처리 설계 | 실패 시 LLM 전달 형식, 재시도 정책 | 에러 처리 명세 | ⬜ |
 | P1-35 | 토큰 예산 분배 | 시스템 프롬프트/히스토리/RAG/응답 토큰 배분 (PoC 기반) | 토큰 예산 문서 | ⬜ |
 | P1-36 | 히스토리 요약 전략 | 20턴 초과 시 요약 방법 | 요약 전략 문서 | ⬜ |
@@ -274,7 +274,7 @@
 | P2-19 | 채팅 서비스 | 대화 오케스트레이션 | ⬜ |
 | P2-20 | Chat Tool — search_beauty_data | 도메인 데이터 검색 tool handler | ⬜ |
 | P2-21 | Chat Tool — get_external_links | 외부 링크 조회 tool handler | ⬜ |
-| P2-22 | Chat Tool — 개인화 추출 (방식에 따라) | 대화에서 변수 추출 (P1-33 결정 기반) | ⬜ |
+| P2-22 | Chat Tool — extract_user_profile (동기 tool) | 대화에서 개인화 변수 추출 (P1-33 확정: 동기 tool) | ⬜ |
 | P2-23 | Chat API (스트리밍) | SSE 스트리밍 응답 | ⬜ |
 | P2-24 | Chat 히스토리 API | 대화 히스토리 조회 | ⬜ |
 | P2-25 | Kit CTA API | 이메일 수집/전환 | ⬜ |
@@ -440,4 +440,7 @@
 | V2-6 | 6개 언어 UI | 영어 외 5개 언어 UI 번역 | PRD §5.1 |
 | V2-7 | 위치 기반 추천 | RT-1 (현재 위치) 수집 + 거리 기반 정렬 | PRD §2.2 |
 | V2-8 | 프로필 화면 데이터 삭제 버튼 | "Delete my data" UI | PRD §4-C A-14 |
+| V2-9 | 임베딩 태그 필터링 | 신호 태그(hydrating 등) vs 노이즈 태그(bestseller 등) 분류 규칙 정의 + EMBEDDING_CONFIG.TAG_FILTER 활성화 | P1-38 |
+| V2-10 | 다국어 임베딩 텍스트 확장 | ja/zh/es/fr 사용자 비율 >20% 시 해당 언어 임베딩 텍스트 추가. EMBEDDING_CONFIG.TEXT_LANGUAGES 확장 | P1-38 |
+| V2-11 | 교차 엔티티 임베딩 재생성 | Brand 이름 변경 시 관련 Product 임베딩 CASCADE 재생성 | P1-39 |
 - [ ] 소프트 런칭 피드백 반영

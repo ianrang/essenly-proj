@@ -41,7 +41,7 @@
 - DV-4 AI 뷰티 프로필 생성 프롬프트 → `P1-29`
 - 프롬프트 평가 시나리오 → `P1-30`
 - Tool JSON Schema 상세 → `P1-31`, `P1-32`
-- 개인화 추출 방식(동기 tool vs 비동기 후처리) → `P1-33`
+- 개인화 추출 방식: **동기 tool 확정** → `P1-33` 완료
 - 토큰 예산 분배 → `P1-35`
 - 히스토리 요약 전략 → `P1-36`
 
@@ -89,7 +89,7 @@
 
 | 태스크 | 의존 내용 | P1-25에서의 처리 |
 |--------|----------|----------------|
-| P1-33 | 개인화 추출 방식: 동기 tool vs 비동기 후처리. api-spec §3.4(비동기)와 U-4 결정(tool)이 모순 | §6에 포함하지 않음. P1-33 확정 후 반영 |
+| ~~P1-33~~ | ~~개인화 추출 방식~~ | **확정: 동기 tool (extract_user_profile)**. 추출=동기 tool, DB 저장=비동기. tool 스키마는 P1-31에서 정의 |
 | P1-35 | 시스템 프롬프트 토큰 예산 | §1에 구체적 숫자 없이 P1-35 참조 |
 
 ## 프롬프트 관리 전략
@@ -469,7 +469,7 @@ Get purchase, booking, or map links for a specific product, store, clinic, or tr
 
 > P1-31에서 추가: search_beauty_data 파라미터 스키마 (domain, filters, limit), 응답 스키마
 > P1-32에서 추가: get_external_links 파라미터 스키마 (entity_id, entity_type), 응답 스키마
-> P1-33 확정 후: 개인화 추출 tool(동기) 또는 후처리 지시(비동기)가 이 섹션 또는 별도 메커니즘으로 추가
+> P1-33 확정: **동기 tool 방식**. extract_user_profile tool (P0-17 PoC 스키마 계승, 93% 정확도). 상세 JSON Schema는 P1-31에서 정의
 
 ---
 

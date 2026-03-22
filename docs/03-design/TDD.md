@@ -272,7 +272,7 @@ PRD에서 확정된 비즈니스 결정에 따른 기술 구현 결정 기록.
 | A-14 | 비활동 90일 자동 만료 | Supabase cron/Edge Function 스케줄러 |
 | A-15 | 쿠키 기반 간이 재방문 | localStorage UUID → 서버 프로필 조회 |
 | M-6 | 동의: Landing 배너 + Kit CTA 체크박스 | consent_records 테이블 |
-| U-4 | 개인화 추출: PoC Tool 방식 검증 완료 | P0-17: 93% 정확도. 최종 방식(동기 tool vs 비동기 후처리)은 P1-33에서 확정. api-spec §3.4(비동기)와 PoC(동기 tool) 간 모순 해소 필요 |
+| U-4 | 개인화 추출: **동기 tool 확정** (P1-33) | P0-17: 93% 정확도. extract_user_profile tool. 추출=동기 tool(LLM tool_use), DB 저장=비동기(onFinish). api-spec §3.4 #7b 반영 완료 |
 | D-1 | 하이브리드 검색 | SQL 필터 + RAG 벡터 (P0-20~22 검증) |
 | D-2 | 하이브리드 판단 | 하드 필터(코드) + 소프트 판단(LLM) |
 | D-3 | 4계층 + core/features | server/core (시스템) + server/features (비즈니스) |
