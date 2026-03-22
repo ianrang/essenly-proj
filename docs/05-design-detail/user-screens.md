@@ -473,7 +473,7 @@ idle → submitted → streaming → [card-rendering] → complete
 
 | 상태 | UI |
 |------|-----|
-| 입력 | 키트 설명 + EmailInput (`autocomplete="email"`) + 마케팅 동의 Checkbox + ClaimButton |
+| 입력 | 키트 설명 + EmailInput (`autocomplete="email"`) + 마케팅 동의 Checkbox + ClaimButton + "Back to results" 닫기 버튼 (PRD §3.6) |
 | 제출 중 | ClaimButton 로딩 상태 |
 | 성공 | "Thank you!" + 안내 텍스트 + "Back to results" 버튼 |
 | 에러 | 토스트 에러 + 입력 상태 유지 |
