@@ -11,10 +11,10 @@
 |-------|---------|------|--------|------|
 | 사전 완료 | 12 | 12 | 100% | ✅ |
 | Phase 0 | 37 | 37 | 100% | ✅ |
-| Phase 1 | 62 | 8 | 13% | 🔶 진행 중 |
+| Phase 1 | 62 | 10 | 16% | 🔶 진행 중 |
 | Phase 2 | 68 | 0 | 0% | ⬜ 미시작 |
 | Phase 3 | 36 | 0 | 0% | ⬜ 미시작 |
-| **MVP 합계** | **215** | **57** | **27%** | |
+| **MVP 합계** | **215** | **59** | **27%** | |
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
 
@@ -140,8 +140,8 @@
 | P1-8 | 관리자 앱 사이트맵 (MVP) | Route Group (admin)/admin/ 구조. 7엔티티×3페이지 + 감사로그 + Admin관리. i18n 없음 | `sitemap.md` | ✅ |
 | P1-9 | 사용자 앱 화면 상세 | Landing, 온보딩 4단계, 프로필, Chat, 카드, Kit CTA, 에러 | 화면 명세서 | ⬜ |
 | P1-10 | 관리자 앱 화면 설계 | 로그인, 대시보드, 목록/상세/생성/수정 공통, 관계 관리 | 관리자 화면 명세 | ⬜ |
-| P1-11 | SEO 전략 | Landing SSG, Chat CSR, 메타태그, OG, sitemap.xml | SEO 설계 | ⬜ |
-| P1-12 | 접근성 기준 | WCAG 2.1 AA 최소, 키보드, aria-label, 색 대비 | 접근성 기준 | ⬜ |
+| P1-11 | SEO 전략 | Landing만 SEO 대상 (SSG). 정적 OG 1장, hreflang 6개 언어, JSON-LD (WebApplication), sitemap.xml 6 URL, robots.txt (admin/api 차단). 모든 구현 app/ 계층 | `seo-strategy.md` | ✅ |
+| P1-12 | 접근성 기준 | WCAG 2.1 AA 전체. 키보드 내비게이션, aria-live polite (채팅 스트리밍 완료 시 알림), 포커스 트랩 (Radix 내장), 터치 44x44px, prefers-reduced-motion. axe-core + 수동 체크리스트. client/ 계층만 해당 | `accessibility.md` | ✅ |
 
 ## 기획 — 권한 체계
 
@@ -422,4 +422,21 @@
 - [ ] 성능 SLA 충족
 - [ ] 보안 체크리스트 100% 통과
 - [ ] 모니터링 + 백업 작동 확인
+
+---
+
+# v0.2 백로그
+
+> MVP 후 구현할 기능. Phase 4에서 상세 계획 작성.
+
+| ID | 기능 | 설명 | 근거 |
+|----|------|------|------|
+| V2-1 | 관리자 API 설정 관리 | Rate limit, 시스템 설정을 관리자 UI에서 조정. DB settings 테이블 + 메모리 캐시(TTL 5분) + max/min 안전장치 | P1-22 결정 |
+| V2-2 | 관리자 데이터 동기화 UI | 카카오 API 동기화 주기 설정 + 수동 트리거 + 결과 로그 | P0-32 결정 |
+| V2-3 | Rate limit Redis 전환 | 메모리 Map → Upstash Redis. 다중 인스턴스 지원 | P1-22 |
+| V2-4 | 계정 인증 시스템 | anonymous → 계정 (이메일/소셜). Supabase Auth linking | PRD §4-C |
+| V2-5 | DOM-3 살롱 + DOM-4 맛집 | salons, restaurants 테이블 + CRUD + 추천 | PRD §2.2 |
+| V2-6 | 6개 언어 UI | 영어 외 5개 언어 UI 번역 | PRD §5.1 |
+| V2-7 | 위치 기반 추천 | RT-1 (현재 위치) 수집 + 거리 기반 정렬 | PRD §2.2 |
+| V2-8 | 프로필 화면 데이터 삭제 버튼 | "Delete my data" UI | PRD §4-C A-14 |
 - [ ] 소프트 런칭 피드백 반영
