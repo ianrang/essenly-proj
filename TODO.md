@@ -11,10 +11,10 @@
 |-------|---------|------|--------|------|
 | 사전 완료 | 12 | 12 | 100% | ✅ |
 | Phase 0 | 37 | 37 | 100% | ✅ |
-| Phase 1 | 62 | 23 | 37% | 🔶 진행 중 |
+| Phase 1 | 62 | 25 | 40% | 🔶 진행 중 |
 | Phase 2 | 68 | 0 | 0% | ⬜ 미시작 |
 | Phase 3 | 36 | 0 | 0% | ⬜ 미시작 |
-| **MVP 합계** | **215** | **72** | **33%** | |
+| **MVP 합계** | **215** | **74** | **34%** | |
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
 
@@ -157,7 +157,7 @@
 |----|------|------|--------|------|
 | P1-16 | 스키마 수정 | brands_available 삭제, price_range→3컬럼 분리, status/updated_at 추가(3테이블), FK ON DELETE 12건, CHECK 5건 | `004_schema_v2.sql` | ✅ |
 | P1-17 | 관리자 테이블 | admin_users(role CHECK, permissions JSONB) + audit_logs(불변, RESTRICT). RLS + GRANT. CASCADE 검증 통과 | `004_schema_v2.sql` | ✅ |
-| P1-18 | 인덱스 전략 설계 | B-tree, GIN(배열/JSONB), GiST(GEOGRAPHY), 벡터(v0.2+) | 인덱스 설계 문서 | ⬜ |
+| P1-18 | 인덱스 전략 설계 | 기존 23개 검증 + 신규 14개 추가 (B-tree 14). GIN 기존 유지, GiST/벡터 v0.2+. EXPLAIN ANALYZE 검증 계획 포함 | `index-strategy.md` + 마이그레이션 SQL | ✅ |
 
 ## 설계 — API
 
@@ -208,7 +208,7 @@
 |----|------|------|--------|------|
 | P1-47 | 성능 목표 (SLA) 정의 | 페이지 ≤2s, API ≤200ms, LLM 첫토큰 ≤1s, 검색 ≤100ms | SLA 문서 | ⬜ |
 | P1-48 | 캐싱 전략 | DV 캐시, 검색 결과 캐시, 이미지 CDN | 캐싱 설계 | ⬜ |
-| P1-49 | 인증/인가 아키텍처 설계 | Supabase Auth + 미들웨어 + API 권한 | 보안 설계 | ⬜ |
+| P1-49 | 인증/인가 아키텍처 설계 | P1-13~15에서 85% 완료. §5 구현 상세 보완: JWT 클레임(HS256), 미들웨어 에러 흐름, 세션 복구, 비동기 user_id, 토큰 경쟁 상태, 감사 로그 트랜잭션 | `auth-matrix.md` v1.1 §5 | ✅ |
 | P1-50 | API 입력 검증 설계 | 전 API zod 검증, SQL injection 방지 | 검증 설계 | ⬜ |
 | P1-51 | 환경 변수 관리 설계 | 서버 전용 vs 공개, Git 커밋 금지 규칙 | 환경변수 설계 | ⬜ |
 | P1-52 | CORS / CSP 정책 | API CORS, XSS 방지 CSP 헤더 | 네트워크 보안 설계 | ⬜ |

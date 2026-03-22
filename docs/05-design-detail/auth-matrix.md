@@ -1,6 +1,6 @@
 # 권한 체계 설계 — P1-13 / P1-14 / P1-15
 
-> 버전: 1.0
+> 버전: 1.1
 > 작성일: 2026-03-21
 > 상위: MASTER-PLAN Phase 1, TODO P1-13~P1-15
 > 근거: PRD §4-C, P0-4~6 (7.2-ADMIN-REQUIREMENTS.md), TDD v2.0 §6, PoC P0-26
@@ -364,3 +364,382 @@ export function middleware(request: NextRequest) {
 | 변경 필요 | 내용 |
 |----------|------|
 | ✅ 반영 완료 | admin_users + audit_logs 테이블이 schema.dbml v2.0에 정의됨 |
+
+---
+
+## 5. 구현 상세 (P1-49 보완)
+
+> §1~§4에서 정의한 아키텍처의 구현 수준 상세. 구현자가 이 섹션만으로 코드를 작성할 수 있는 것을 목표로 한다.
+
+### 5.1 JWT 클레임 구조
+
+#### 관리자 JWT 페이로드
+
+```typescript
+interface AdminJwtPayload {
+  // 표준 클레임 (RFC 7519)
+  sub: string;        // admin_users.id (uuid)
+  iat: number;        // 발급 시각 (Unix timestamp)
+  exp: number;        // 만료 시각 (iat + 24h)
+  iss: string;        // 'essenly-admin'
+
+  // 커스텀 클레임
+  email: string;      // admin_users.email
+  role: 'super_admin' | 'admin';
+  permissions: AdminPermissions;  // §2.3 14-bit 구조 그대로 포함
+}
+```
+
+#### 서명 알고리즘
+
+| 항목 | 값 | 근거 |
+|------|---|------|
+| 알고리즘 | **HS256** (HMAC-SHA256) | 단일 서버 발급/검증. 비대칭키 불필요 (MVP) |
+| 비밀키 | 환경변수 `ADMIN_JWT_SECRET` | core/config.ts에서 검증 (Q-8). 최소 32바이트 |
+| 라이브러리 | `jose` (또는 동급) | Next.js Edge 호환 |
+
+#### 검증 순서 (authenticateAdmin 내부)
+
+```
+1. Authorization 헤더에서 Bearer 토큰 추출
+   → 없음: 401 AUTH_TOKEN_INVALID
+2. JWT 서명 검증 (HS256 + ADMIN_JWT_SECRET)
+   → 실패: 401 AUTH_TOKEN_INVALID
+3. exp 만료 확인
+   → 만료: 401 AUTH_TOKEN_EXPIRED
+4. sub로 admin_users 조회 (status = 'active' 확인)
+   → 미존재 또는 inactive: 401 ADMIN_AUTH_ACCOUNT_INACTIVE
+5. DB의 role/permissions를 사용 (JWT 클레임은 캐시 역할, DB가 정본)
+   → AuthenticatedAdmin 반환
+```
+
+> **설계 결정**: JWT의 permissions는 빠른 거부(fast reject)용 캐시. 권한 변경 즉시 반영을 위해 `authenticateAdmin`은 매 요청 DB를 조회한다. MVP 트래픽(관리자 수명)에서 부하 무시 가능. v0.2에서 Redis 캐시 도입 시 TTL 기반으로 전환.
+
+#### 시나리오 검증
+
+| 시나리오 | JWT 상태 | DB 상태 | 결과 |
+|---------|---------|---------|------|
+| 정상 접근 | 유효, permissions 일치 | active | 200 정상 처리 |
+| 토큰 없이 접근 | 없음 | - | 401 `AUTH_TOKEN_INVALID` |
+| 권한 변경 직후 (JWT 갱신 전) | 구 permissions | DB에 새 permissions | DB 기준 판단 → 새 권한 적용 |
+| 계정 비활성화 직후 | 유효 JWT 보유 | inactive | 401 `ADMIN_AUTH_ACCOUNT_INACTIVE` (즉시 차단) |
+
+### 5.2 미들웨어 에러 처리 흐름
+
+#### 에러 발생 지점과 응답 생성
+
+```
+요청 → authenticateAdmin() → checkPermission() → handler → 응답
+         │                      │                    │
+         ├─ throw 401 ──┐      ├─ throw 403 ──┐    ├─ throw 4xx/5xx
+         │              │      │              │    │
+         ▼              │      ▼              │    ▼
+  [에러 catch 계층]     │  [에러 catch 계층]  │  [에러 catch 계층]
+                        │                    │
+                        ▼                    ▼
+                   JSON 응답 생성        JSON 응답 생성 + 감사 로그 기록
+```
+
+#### 에러 응답 생성 규칙
+
+| 발생 함수 | HTTP | 에러 코드 | 감사 로그 | 응답 본문 예시 |
+|-----------|------|----------|----------|--------------|
+| `authenticateAdmin` — 토큰 없음/무효 | 401 | `AUTH_TOKEN_INVALID` | ❌ (actor 불명) | `{ error: { code, message, details: null } }` |
+| `authenticateAdmin` — 토큰 만료 | 401 | `AUTH_TOKEN_EXPIRED` | ❌ (actor 불명) | 동일 |
+| `authenticateAdmin` — 계정 비활성 | 401 | `ADMIN_AUTH_ACCOUNT_INACTIVE` | ✅ `login_failure` (이메일+IP) | 동일 |
+| `checkPermission` — 권한 부족 | 403 | `ADMIN_AUTH_INSUFFICIENT_PERMISSION` | ✅ (actor_id + 요청 resource/action) | `{ error: { code, message, details: { resource, action } } }` |
+| `authenticateUser` — Supabase 세션 무효 | 401 | `AUTH_SESSION_NOT_FOUND` | ❌ | 동일 |
+
+> **감사 로그 시점**: 에러 throw 직전이 아니라, 에러 응답 생성 직전에 기록한다. 이유: actor 식별이 가능한 경우에만 기록하며, 로그 실패가 에러 응답을 방해하지 않도록 한다.
+
+#### 구현 패턴
+
+```typescript
+// server/core/admin-auth.ts
+
+async function authenticateAdmin(req: Request): Promise<AuthenticatedAdmin> {
+  const token = extractBearerToken(req);
+  if (!token) throw new AuthError('AUTH_TOKEN_INVALID', 401);
+
+  const payload = await verifyJwt<AdminJwtPayload>(token, ADMIN_JWT_SECRET);
+  // verifyJwt 내부: 서명 실패 → AUTH_TOKEN_INVALID, 만료 → AUTH_TOKEN_EXPIRED
+
+  const admin = await findActiveAdmin(payload.sub);
+  if (!admin) throw new AuthError('ADMIN_AUTH_ACCOUNT_INACTIVE', 401);
+
+  return {
+    id: admin.id,
+    email: admin.email,
+    role: admin.role,
+    permissions: admin.permissions,
+  };
+}
+
+function checkPermission(
+  admin: AuthenticatedAdmin,
+  resource: string,
+  action: 'read' | 'write'
+): void {
+  if (admin.role === 'super_admin') return; // 전체 허용
+  const key = `${resource}_${action}` as keyof AdminPermissions;
+  if (!admin.permissions[key]) {
+    // 감사 로그: 응답 계층에서 catch 후 기록 (아래 패턴)
+    throw new PermissionError('ADMIN_AUTH_INSUFFICIENT_PERMISSION', 403, {
+      resource, action, admin_id: admin.id,
+    });
+  }
+}
+```
+
+```typescript
+// API Route에서의 에러 처리 (withAdminAuth 래퍼 또는 try-catch)
+try {
+  const admin = await authenticateAdmin(req);
+  checkPermission(admin, 'product', 'write');
+  // ... handler
+} catch (e) {
+  if (e instanceof PermissionError) {
+    const client = createServiceClient();
+    await auditLogService.record(client, e.details.admin_id, 'permission_denied', {
+      resource: e.details.resource,
+      action: e.details.action,
+      ip: getClientIp(req),
+    });
+  }
+  return errorResponse(e); // Q-7: 에러 불삼킴
+}
+```
+
+#### 시나리오 검증
+
+| 시나리오 | 흐름 | 감사 로그 |
+|---------|------|----------|
+| 정상: 유효 JWT + 권한 있음 | authenticate → check → handler → 200 | 없음 (write 시 handler에서 기록) |
+| 토큰 누락 | authenticate throw 401 → 응답 | ❌ actor 불명 |
+| 비활성 계정 + 유효 JWT | authenticate → DB 조회 → throw 401 | ✅ login_failure (이메일 식별 가능) |
+| 유효 JWT + 권한 없음 | authenticate → check throw 403 → 감사 로그 → 응답 | ✅ actor_id + resource + action |
+
+### 5.3 Supabase 세션 만료 복구 흐름
+
+#### 정상 흐름 (SDK 자동 갱신)
+
+```
+Supabase SDK onAuthStateChange 이벤트:
+  TOKEN_REFRESHED → 새 session_token 자동 적용 → 이후 API 요청에 새 토큰 사용
+```
+
+> Supabase SDK는 access_token 만료 전에 자동으로 refresh_token을 사용하여 갱신한다. 클라이언트 코드에서 별도 갱신 로직 불필요 (api-spec B.5 확인).
+
+#### 갱신 실패 시 클라이언트 행동
+
+```
+SDK 갱신 실패 (네트워크 에러, refresh_token 만료 등)
+  │
+  ├─ onAuthStateChange: SIGNED_OUT 이벤트 발생
+  │
+  ▼
+클라이언트 감지
+  │
+  ├─ 1. 현재 진행 중인 채팅 스트림: 종료 (SSE 연결 끊김)
+  ├─ 2. 진행 중인 API 요청: 401 AUTH_SESSION_NOT_FOUND 수신
+  ├─ 3. UI 상태 초기화: 프로필/여정 컨텍스트 클리어
+  │
+  ▼
+복구 시도
+  │
+  ├─ POST /api/auth/anonymous 호출 (새 anonymous 세션 생성)
+  │   ├─ 성공: 새 user_id 발급 → Landing 흐름 (신규 사용자 취급)
+  │   └─ 실패: "연결 오류" UI 표시 + 수동 재시도 버튼
+  │
+  └─ ⚠️ 이전 세션의 데이터(프로필, 대화 히스토리)는 접근 불가
+     (RLS가 이전 user_id 기준이므로 새 세션에서 조회 불가)
+```
+
+#### 데이터 유실 범위
+
+| 데이터 | 상태 | 근거 |
+|--------|------|------|
+| 저장 완료된 프로필/대화 | DB에 존재하지만 새 세션에서 접근 불가 | RLS `auth.uid() = user_id` |
+| 미저장 채팅 (스트리밍 중 끊김) | 유실 | 비동기 저장 완료 전 끊김 |
+| localStorage의 구 session_token | 무효 (refresh_token 만료) | SDK가 자동 삭제 |
+
+> **MVP 수용**: anonymous 사용자의 세션 유실은 MVP에서 허용하는 리스크. v0.2 계정 인증(user 역할)에서 데이터 연속성 보장.
+
+#### 시나리오 검증
+
+| 시나리오 | SDK 동작 | 클라이언트 행동 | 결과 |
+|---------|---------|---------------|------|
+| 정상: 토큰 만료 전 갱신 | TOKEN_REFRESHED | 무중단 | 연속 사용 |
+| 네트워크 일시 장애 후 복구 | SDK 재시도 → TOKEN_REFRESHED | 일시 지연 후 정상 | 연속 사용 |
+| refresh_token 만료 (90일 미접속) | SIGNED_OUT | 새 anonymous 세션 생성 | 신규 사용자 취급 |
+
+### 5.4 비동기 작업 user_id 전달 패턴
+
+> §1.4의 "비동기 후처리: service_role + user_id 필수 파라미터" 구현 상세.
+
+#### 대상 비동기 작업 (api-spec §3.4 #9~#11)
+
+| 작업 | 트리거 | user_id 필요 이유 |
+|------|--------|------------------|
+| 대화 히스토리 저장 | 채팅 스트림 완료 후 | messages.conversation_id → conversations.user_id |
+| 행동 로그 기록 | 채팅 중 tool 호출 시 | behavior_logs.user_id |
+| 개인화 변수 추출/갱신 | 채팅 스트림 완료 후 | learned_preferences.user_id |
+
+#### 전달 패턴
+
+```typescript
+// 채팅 route handler (app/api/chat/route.ts)
+export async function POST(req: Request) {
+  const user = await authenticateUser(req);  // ← user_id 확보 시점
+  const client = createAuthenticatedClient(user.token);
+
+  // 동기: RLS 적용 클라이언트로 데이터 조회
+  const conversation = await chatService.getOrCreateConversation(client, user.id, body);
+  const history = await chatService.loadHistory(client, conversation.id);
+
+  // 스트리밍 응답 시작
+  const stream = await chatService.streamChat({
+    userId: user.id,    // ← 비동기 작업에 전달할 user_id
+    conversationId: conversation.id,
+    history,
+    message: body.message,
+  });
+
+  return stream.toUIMessageStreamResponse();
+}
+```
+
+```typescript
+// 비동기 후처리 (chatService 내부 또는 onFinish 콜백)
+async function onStreamFinish(params: {
+  userId: string;       // route에서 전달받은 user_id (TypeScript 필수 파라미터)
+  conversationId: string;
+  messages: Message[];
+}) {
+  const serviceClient = createServiceClient();  // RLS 우회
+
+  // 모든 DB 작업에 userId 명시 전달
+  await messageRepository.saveMessages(serviceClient, params.conversationId, params.messages);
+  await behaviorLogRepository.recordEvents(serviceClient, params.userId, extractEvents(params.messages));
+  await preferenceRepository.updateFromConversation(serviceClient, params.userId, params.messages);
+}
+```
+
+#### 핵심 제약
+
+| 규칙 | 설명 |
+|------|------|
+| TypeScript 강제 | `userId: string` (non-optional). 누락 시 컴파일 에러 |
+| 클로저 캡처 | route handler에서 확보한 `user.id`를 콜백/비동기 함수에 클로저로 전달 |
+| service_role 사용 | 비동기 시점에 사용자 토큰 만료 가능. service_role 클라이언트로 직접 기록 |
+| 스택 준수 | route(①) → service(②) → repository(④). P-5 콜 스택 ≤ 4 유지 |
+
+### 5.5 Token 갱신 경쟁 상태 처리
+
+#### 관리자 JWT 갱신 경쟁 상태
+
+**문제**: 관리자 앱에서 여러 탭/요청이 동시에 토큰 갱신(`POST /api/admin/auth/refresh`)을 호출하면, 구 토큰으로 중복 갱신 시도가 발생할 수 있다.
+
+**MVP 처리 (stateless)**:
+
+```
+탭 A: refresh(old_jwt) → new_jwt_1 (성공)
+탭 B: refresh(old_jwt) → new_jwt_2 (성공 — old_jwt가 아직 유효하므로)
+```
+
+| 동작 | 설명 |
+|------|------|
+| 구 토큰 유효 기간 | 자연 만료까지 유효 (stateless, 블랙리스트 없음) |
+| 중복 갱신 결과 | 두 토큰 모두 유효. 보안 리스크 낮음 (관리자 수 제한적) |
+| 클라이언트 대응 | 마지막 수신 토큰을 메모리에 저장. 갱신 요청은 단일 Promise로 중복 방지 |
+
+**클라이언트 중복 방지 패턴**:
+
+```typescript
+// client/features/admin/auth-token-manager.ts
+let refreshPromise: Promise<string> | null = null;
+
+async function getValidToken(): Promise<string> {
+  const token = getStoredToken();
+  if (!isExpiringSoon(token)) return token;  // 만료 1시간 이전이면 그대로
+
+  // 이미 갱신 중이면 동일 Promise 재사용 (중복 요청 방지)
+  if (!refreshPromise) {
+    refreshPromise = refreshToken(token).finally(() => {
+      refreshPromise = null;
+    });
+  }
+  return refreshPromise;
+}
+```
+
+> **v0.2**: Redis 기반 토큰 블랙리스트 도입 시, refresh 응답에 구 토큰 jti를 블랙리스트에 추가하여 단일 토큰만 유효하도록 강제.
+
+#### Supabase 사용자 토큰 경쟁 상태
+
+Supabase SDK가 내부적으로 처리. SDK의 `_refreshAccessToken`은 내부 lock으로 중복 갱신을 방지한다. 클라이언트에서 별도 처리 불필요.
+
+### 5.6 감사 로그 트랜잭션 정책
+
+#### 원칙
+
+| 규칙 | 설명 |
+|------|------|
+| 감사 로그는 비즈니스 트랜잭션과 **분리** | 감사 로그 실패가 비즈니스 작업을 롤백하지 않는다 |
+| 감사 로그 실패는 **경고 로그** 기록 | 서버 로그(console.error)에 기록. 에러 삼킴 아님 (Q-7 준수) |
+| 비즈니스 작업 성공 후 기록 | 실패한 작업은 감사 로그에 기록하지 않는다 (DB 에러 등) |
+
+#### 구현 패턴
+
+```typescript
+// 관리자 write route 패턴
+export async function PUT(req: Request, { params }: { params: { id: string } }) {
+  const admin = await authenticateAdmin(req);
+  checkPermission(admin, 'product', 'write');
+
+  const client = createServiceClient();
+  const body = await validateBody(req, productUpdateSchema);
+
+  // 1. 비즈니스 작업 (실패 시 에러 응답 — 감사 로그 없음)
+  const before = await productRepository.findById(client, params.id);
+  const after = await productRepository.update(client, params.id, body);
+
+  // 2. 감사 로그 (비즈니스 성공 후, 별도 try-catch)
+  try {
+    await auditLogRepository.insert(client, {
+      actor_id: admin.id,
+      action: 'update',
+      target_type: 'product',
+      target_id: params.id,
+      changes: { before, after },
+      ip_address: getClientIp(req),
+    });
+  } catch (auditError) {
+    // Q-7: 에러 불삼킴 — 경고 로그 기록
+    console.error('[AUDIT_LOG_FAILURE]', {
+      action: 'update',
+      target: `product:${params.id}`,
+      admin: admin.id,
+      error: auditError,
+    });
+    // 비즈니스 응답은 정상 반환 (감사 로그 실패가 사용자 경험 차단하지 않음)
+  }
+
+  return Response.json({ data: after });
+}
+```
+
+#### 예외: 권한 거부 감사 로그
+
+`checkPermission` 실패(403) 시의 감사 로그도 동일 정책 적용. 로그 실패가 403 응답을 방해하지 않는다.
+
+#### 시나리오 검증
+
+| 시나리오 | 비즈니스 작업 | 감사 로그 | 최종 응답 |
+|---------|-------------|----------|----------|
+| 정상 | 성공 | 성공 | 200 + 데이터 |
+| 비즈니스 실패 (DB 에러) | 실패 | 기록 안 함 | 500 에러 |
+| 비즈니스 성공 + 감사 로그 실패 | 성공 | 실패 → console.error | 200 + 데이터 (정상) |
+| 비즈니스 성공 + 감사 로그 DB 타임아웃 | 성공 | 실패 → console.error | 200 + 데이터 (지연 가능) |
+
+> **v0.2 고려**: 감사 로그 실패 빈도가 높아지면 별도 큐(메모리 버퍼 → 배치 INSERT) 도입. MVP에서는 동기 INSERT로 충분.
