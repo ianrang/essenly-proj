@@ -1,7 +1,7 @@
 # 에센리 K-뷰티 AI 에이전트 — 성공 지표 측정 설계
 
-> 버전: 0.1
-> 최종 갱신: 2026-03-20
+> 버전: 0.2
+> 최종 갱신: 2026-03-22
 > 상위 문서: PRD §5.6, MASTER-PLAN §2
 > 범위: MVP 6개 KPI 측정 방법 + 분석 도구 결정 (U-10)
 
@@ -26,7 +26,7 @@ PRD §5.6에 정의된 6개 MVP 성공 지표(KPI)의 **측정 도구와 구현 
 
 - **입력**: PRD §5.6 KPI 정의 (지표명, 목표값, 계산식)
 - **산출물**: 이벤트 요구사항, 도구 결정, KPI별 측정 방법
-- **범위**: 측정 "설계"까지. 이벤트 상세 스키마는 P1-56, 구현은 P2-26에서 수행
+- **범위**: 측정 설계 + 이벤트 상세 스키마 (P1-56 반영 완료). 구현은 P2-26에서 수행
 - **전제**: PRD §5.6의 "세션"은 MVP에서 `conversations` 레코드(대화 단위)로 구현한다. MVP는 토큰 기반 anonymous 사용이며 세션 타임아웃을 구현하지 않으므로, 1 conversation = 1 측정 단위로 사용한다.
 
 ---
@@ -35,14 +35,16 @@ PRD §5.6에 정의된 6개 MVP 성공 지표(KPI)의 **측정 도구와 구현 
 
 ## 6개 KPI → 필요 데이터 매핑
 
-| # | KPI | 목표 | 분자 | 분모 | 필요 데이터 |
-|---|-----|------|------|------|------------|
-| K1 | 온보딩 완료율 | >60% | 프로필 생성 완료 | 경로A 진입 | ① `path_a_entry` 이벤트 ② `user_profiles` 생성 기록 |
-| K2 | 대화 턴 수 | avg 5+ | 사용자 메시지 합계 | 대화 수 | `messages` 테이블 (role='user') — 기존 DB |
-| K3 | 카드 클릭률 | >30% | 카드 클릭 | 카드 노출 | ① `card_exposure` 이벤트 ② `card_click` 이벤트 |
-| K4 | Kit CTA 전환 | >5% | 이메일 제출 | 전체 대화 수 | ① `kit_cta_submit` 이벤트 ② `conversations` 레코드 수 |
-| K5 | 외부 링크 클릭 | >20% | 외부 링크 클릭 | 카드 노출 | ① `external_link_click` 이벤트 ② K3의 `card_exposure` 공유 |
-| K6 | 다국어 사용 | 2+ 언어 | 비영어 대화 | 전체 대화 수 | `conversations.locale` (URL `[locale]` 파라미터에서 기록) |
+> KPI 지표명·목표값·계산식의 정본은 **PRD §5.6**. 아래는 측정에 필요한 데이터 소스 매핑만 기술.
+
+| # | KPI (PRD §5.6) | 분자 | 분모 | 필요 데이터 |
+|---|----------------|------|------|------------|
+| K1 | 온보딩 완료율 | 프로필 생성 완료 | 경로A 진입 | ① `path_a_entry` 이벤트 ② `user_profiles` 생성 기록 |
+| K2 | 대화 턴 수 | 사용자 메시지 합계 | 대화 수 | `messages` 테이블 (role='user') — 기존 DB |
+| K3 | 카드 클릭률 | 카드 클릭 | 카드 노출 | ① `card_exposure` 이벤트 ② `card_click` 이벤트 |
+| K4 | Kit CTA 전환 | 이메일 제출 | 전체 대화 수 | ① `kit_cta_submit` 이벤트 ② `conversations` 레코드 수 |
+| K5 | 외부 링크 클릭 | 외부 링크 클릭 | 카드 노출 | ① `external_link_click` 이벤트 ② K3의 `card_exposure` 공유 |
+| K6 | 다국어 사용 | 비영어 대화 | 전체 대화 수 | `conversations.locale` (URL `[locale]` 파라미터에서 기록) |
 
 ## 데이터 소스 분류
 
@@ -53,40 +55,192 @@ PRD §5.6에 정의된 6개 MVP 성공 지표(KPI)의 **측정 도구와 구현 
 
 # §3 수집 이벤트 정의
 
-## 필요 이벤트 (5개)
+## 3.1 이벤트 기록 규칙
 
-| event_type | KPI | target_type | metadata |
-|------------|-----|-------------|----------|
-| `path_a_entry` | K1 | — | `{ source: "landing" }` |
-| `card_exposure` | K3, K5 | `product` / `treatment` | `{ card_id, domain }` |
-| `card_click` | K3 | `product` / `treatment` | `{ card_id, domain }` |
-| `external_link_click` | K5 | `product` / `treatment` | `{ card_id, link_type, url }` |
-| `kit_cta_submit` | K4 | — | `{ email_hash }` |
+> 테이블 스키마 정본: `docs/03-design/schema.dbml` → `behavior_logs`. 아래는 스키마에 없는 **애플리케이션 레벨 기록 규칙**만 기술.
 
-## `behavior_logs` 스키마 매핑
+- **user_id**: anonymous 사용자 포함. 모든 이벤트에 필수 기록
+- **target_id + target_type**: 카드 관련 이벤트(card_exposure, card_click, external_link_click)에서만 사용. target_id 기록 시 target_type 필수 동반
+- **metadata**: DB 스키마상 nullable이나, 본 문서의 모든 이벤트는 metadata를 **필수 포함**해야 함 (§3.2 각 이벤트의 zod 스키마로 검증)
 
-schema.dbml 정의 (behavior_logs 테이블):
+## 3.2 KPI 이벤트 상세 (5개) — P1-56
 
-```sql
-CREATE TABLE behavior_logs (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID REFERENCES users(id),
-  event_type TEXT NOT NULL,
-  target_id UUID,
-  target_type TEXT,
-  metadata JSONB,
-  created_at TIMESTAMPTZ DEFAULT now()
-);
+### `path_a_entry` — 온보딩 경로 진입
+
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| target_id | — | null | — | 대상 엔티티 없음 |
+| target_type | — | null | — | — |
+
+**metadata 스키마:**
+
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| source | string | 필수 | `"landing"` | 진입 경로 출처 |
+
+**발화 시점**: Landing 페이지에서 "Start with my profile" (경로A) CTA 클릭 즉시.
+
+**zod 검증:**
+```typescript
+z.object({ source: z.literal("landing") })
 ```
 
-5개 이벤트 모두 이 스키마에 적합:
+---
 
-- `event_type`: 위 5개 문자열
-- `target_id`: 카드 관련 이벤트에서 product/treatment UUID. 비카드 이벤트는 null
-- `target_type`: `product`, `treatment`, 또는 null
-- `metadata`: 이벤트별 추가 정보 (JSONB)
+### `card_exposure` — 카드 노출
 
-> 이벤트 상세 속성(필수/선택, 값 제약 등)은 P1-56(Analytics 이벤트 정의)에서 확정.
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| target_id | UUID | 필수 | 해당 엔티티 PK | 노출된 카드의 엔티티 ID |
+| target_type | string | 필수 | `product` / `treatment` | 카드 유형 |
+
+**metadata 스키마:**
+
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| card_id | string | 필수 | `"{target_type}_{target_id}"` | 카드 고유 식별자 |
+| domain | string | 필수 | `"shopping"` / `"treatment"` | 도메인 분류 |
+| position | number | 필수 | >= 0 | 카드 노출 순서 (0-based) |
+| conversation_id | string | 필수 | UUID | 대화 컨텍스트 |
+
+**발화 시점**: AI 응답에서 추천 카드가 뷰포트에 진입하여 렌더링 완료 시. Intersection Observer 기반. **1 대화 내 동일 카드 중복 기록 방지** (conversation_id + card_id 조합으로 중복 체크).
+
+**zod 검증:**
+```typescript
+z.object({
+  card_id: z.string().min(1),
+  domain: z.enum(["shopping", "treatment"]),
+  position: z.number().int().nonnegative(),
+  conversation_id: z.string().uuid(),
+})
+```
+
+---
+
+### `card_click` — 카드 클릭
+
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| target_id | UUID | 필수 | 해당 엔티티 PK | 클릭된 카드의 엔티티 ID |
+| target_type | string | 필수 | `product` / `treatment` | 카드 유형 |
+
+**metadata 스키마:**
+
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| card_id | string | 필수 | `"{target_type}_{target_id}"` | 카드 고유 식별자 |
+| domain | string | 필수 | `"shopping"` / `"treatment"` | 도메인 분류 |
+| conversation_id | string | 필수 | UUID | 대화 컨텍스트 |
+
+**발화 시점**: 사용자가 카드 영역을 클릭/탭 시 즉시. 카드 내부 외부 링크 클릭은 `external_link_click`으로 별도 기록.
+
+**zod 검증:**
+```typescript
+z.object({
+  card_id: z.string().min(1),
+  domain: z.enum(["shopping", "treatment"]),
+  conversation_id: z.string().uuid(),
+})
+```
+
+---
+
+### `external_link_click` — 외부 링크 클릭
+
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| target_id | UUID | 필수 | 해당 엔티티 PK | 링크가 속한 카드의 엔티티 ID |
+| target_type | string | 필수 | `product` / `treatment` | 카드 유형 |
+
+**metadata 스키마:**
+
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| card_id | string | 필수 | `"{target_type}_{target_id}"` | 카드 고유 식별자 |
+| link_type | string | 필수 | `"naver_map"` / `"kakao_map"` / `"website"` / `"purchase"` / `"booking"` / `"phone"` | 링크 유형 |
+| url | string | 필수 | URL 형식 | 클릭된 외부 URL |
+| conversation_id | string | 필수 | UUID | 대화 컨텍스트 |
+
+**발화 시점**: 카드 내 외부 링크 (지도, 구매, 예약, 전화 등) 클릭 시 즉시. `window.open` / `location.href` 전에 이벤트 기록.
+
+**zod 검증:**
+```typescript
+z.object({
+  card_id: z.string().min(1),
+  link_type: z.enum(["naver_map", "kakao_map", "website", "purchase", "booking", "phone"]),
+  url: z.string().url(),
+  conversation_id: z.string().uuid(),
+})
+```
+
+---
+
+### `kit_cta_submit` — Kit CTA 이메일 제출
+
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| target_id | — | null | — | 대상 엔티티 없음 |
+| target_type | — | null | — | — |
+
+**metadata 스키마:**
+
+| 속성 | 타입 | 필수 | 값 제약 | 설명 |
+|------|------|------|---------|------|
+| email_hash | string | 필수 | SHA-256 해시 | 이메일 해시 (원문 미저장) |
+| conversation_id | string | 필수 | UUID | 대화 컨텍스트 |
+| marketing_consent | boolean | 필수 | true/false | 마케팅 동의 여부 (PRD §3.2) |
+
+**발화 시점**: Kit CTA 폼에서 이메일 입력 + 동의 체크 후 제출 버튼 클릭 시. 서버 저장 성공 후 기록 (실패 시 미기록).
+
+**zod 검증:**
+```typescript
+z.object({
+  email_hash: z.string().length(64),
+  conversation_id: z.string().uuid(),
+  marketing_consent: z.boolean(),
+})
+```
+
+## 3.3 추가 이벤트 (MVP 선택)
+
+KPI 이벤트 외에 MVP 운영에 유용한 보조 이벤트. 구현 우선순위는 KPI 이벤트보다 낮음.
+
+| event_type | 용도 | target_type | 발화 시점 | MVP 포함 |
+|------------|------|-------------|----------|---------|
+| `page_view` | 페이지 진입 추적 | — | 각 페이지 마운트 시 | 선택 (Vercel Analytics 보조) |
+| `onboarding_step_complete` | 온보딩 단계별 이탈 분석 | — | 각 온보딩 단계 완료 시 | 권장 |
+| `chat_message_sent` | 사용자 메시지 패턴 | — | 사용자 메시지 전송 시 | 선택 (messages 테이블로 대체 가능) |
+| `error_displayed` | 에러 빈도 추적 | — | 에러 UI 렌더링 시 | 권장 |
+
+### `page_view` metadata
+
+```typescript
+z.object({
+  page: z.enum(["landing", "onboarding", "profile", "chat"]),
+  locale: z.string().length(2),
+  referrer: z.string().optional(),
+})
+```
+
+### `onboarding_step_complete` metadata
+
+```typescript
+z.object({
+  step: z.number().int().min(1).max(4),
+  step_name: z.enum(["skin_type", "concerns", "budget_style", "travel_info"]),
+  conversation_id: z.string().uuid(),
+})
+```
+
+### `error_displayed` metadata
+
+```typescript
+z.object({
+  error_type: z.enum(["network", "llm_timeout", "api_error", "validation"]),
+  error_code: z.string().optional(),
+  page: z.enum(["landing", "onboarding", "profile", "chat"]),
+})
+```
 
 ---
 
@@ -125,6 +279,8 @@ CREATE TABLE behavior_logs (
 ---
 
 # §5 KPI별 측정 방법
+
+> 각 KPI의 목표값은 PRD §5.6 정본 기준. 아래 소제목의 목표값은 가독성 참고용.
 
 ## K1: 온보딩 완료율 (목표 >60%)
 
@@ -194,7 +350,7 @@ CREATE TABLE behavior_logs (
 보조: 언어별 비율 breakdown (en, ko, ja, zh, es, fr)
 ```
 
-- `conversations` 테이블에 `locale TEXT` 컬럼 추가 필요 (P1-16에서 반영)
+- `conversations.locale TEXT` 컬럼: schema.dbml v2.1에서 추가 완료
 - URL locale = 사용자가 선택한 UI 언어를 대리 지표로 사용. 대화 내 실제 사용 언어 감지는 v0.2+ 범위
 - URL locale 기반 → 경로A/B 모두 포함 (user_profiles.language는 경로B 사용자 누락 가능)
 - 목표 "2+ 언어": 영어 외 1개 이상 언어에서 유의미한 대화 발생 여부
@@ -203,29 +359,20 @@ CREATE TABLE behavior_logs (
 
 # §6 동의/법적 경계
 
-## 이벤트 유형별 동의 구분
+## 이벤트 ↔ 동의 타입 매핑
 
-| 이벤트 유형 | 목적 | 필요 동의 | MVP 수집 |
-|------------|------|----------|---------|
-| **KPI 이벤트** (5개) | 서비스 운영 분석 | `data_retention` (Landing 배너) | ✓ MVP 필수 |
-| **BH-4 학습 이벤트** | 고급 개인화 (선호도 학습) | `behavior_logging` | ✗ v0.3 |
+> 동의 항목의 정본은 **PRD §4-C** + **schema.dbml `consent_records`**. 본 섹션은 이벤트 유형별 매핑만 기술.
 
-## 근거
+| 이벤트 유형 | 목적 | 매핑 동의 컬럼 (consent_records) | MVP 수집 |
+|------------|------|-------------------------------|---------|
+| **KPI 이벤트** (§3.2, 5개) | 서비스 운영 분석 | `data_retention` | ✓ MVP 필수 |
+| **BH-4 학습 이벤트** (v0.3) | 고급 개인화 | `behavior_logging` | ✗ v0.3 |
 
-- `data_retention` 동의 (PRD §4-C): Landing 하단 배너에서 수집. MVP 필수. KPI 이벤트 기록은 서비스 운영 분석에 해당하므로 이 동의에 포함
-- `behavior_logging` 동의 (PRD §4-C): "행동 로깅 동의 — MVP 제외". BH-4 학습을 위한 상세 행동 패턴 추적에 해당
-
-## 주의
+## 본 문서 고유 해석
 
 - 두 유형 모두 동일한 `behavior_logs` 테이블에 기록되지만, **동의 범위가 다름**
-- KPI 이벤트는 집계 목적, BH-4 학습 이벤트는 개인화 목적
-- 법적 검토(U-15)에서 이 구분의 법적 타당성 최종 확인 필요
-
-## 미결정: `analytics` 동의 컬럼
-
-- ~~마이그레이션에 analytics 미반영~~ → schema.dbml v2.0에서 consent_records.analytics 반영 완료
-- KPI 이벤트 동의 매핑이 `data_retention`이 아닌 `analytics`에 해당할 가능성 있음
-- ~~동기화 필요~~ → schema.dbml v2.0에서 해소 완료
+- KPI 이벤트는 집계 목적(개인 식별 불요), BH-4 학습 이벤트는 개인화 목적(개인별 추적)
+- `consent_records.analytics` 컬럼이 schema.dbml v2.0에 존재 — KPI 이벤트 동의가 `data_retention`이 아닌 `analytics`에 해당할 가능성 있음. **U-15 법적 검토에서 확정** 필요
 
 ---
 
@@ -247,7 +394,7 @@ CREATE TABLE behavior_logs (
 |------|------|
 | 대시보드 | 관리자 앱에 KPI 대시보드 시각화 (MASTER-PLAN §2.2) |
 | 퍼널 분석 | Mixpanel/Amplitude 도입 검토 (사용자 규모 증가 시) |
-| 추가 이벤트 | page_view, onboarding_step_complete, profile_edit 등 (P1-56 범위) |
+| 추가 이벤트 | page_view, onboarding_step_complete 등 (§3.3 정의 완료, 구현 우선순위 낮음) |
 | BH-4 학습 | behavior_logging 동의 수집 후 상세 행동 추적 (v0.3) |
 | 행동 분석 | 행동 분석 대시보드 (v0.3, MASTER-PLAN §2.3) |
 
@@ -259,9 +406,9 @@ CREATE TABLE behavior_logs (
 
 | 항목 | 설명 | 결정 시점 |
 |------|------|----------|
-| K6 locale 컬럼 | `conversations` 테이블에 `locale TEXT` 추가 필요 | P1-16 (스키마 수정) |
-| Kit CTA 저장 테이블 | DB 스키마에 kit_subscribers 테이블 없음. 이메일 저장소 설계 필요 | P1-16~P1-20 |
-| P1-56 이벤트 상세 | 본 문서의 5개 KPI 이벤트 + 추가 이벤트 상세 정의 (이벤트 이름·속성·발화 시점) | Phase 1 |
+| ~~K6 locale 컬럼~~ | ~~`conversations` 테이블에 `locale TEXT` 추가 필요~~ | **schema.dbml v2.1에 반영 완료** |
+| ~~Kit CTA 저장 테이블~~ | ~~DB 스키마에 kit_subscribers 테이블 없음~~ | **schema.dbml v2.1에 kit_subscribers 추가 완료** |
+| ~~P1-56 이벤트 상세~~ | ~~본 문서의 5개 KPI 이벤트 + 추가 이벤트 상세 정의~~ | **§3에 반영 완료** |
 | P2-26 행동 로그 서비스 | `behavior_logs` 기록 서비스 구현 | Phase 2 |
 | U-15 법적 검토 | KPI 이벤트 ⊂ data_retention 동의 전제의 법적 타당성 확인 | Phase 0~3 |
 | ~~consent_records 스키마 동기화~~ | schema.dbml v2.0에서 analytics 반영 완료 | 해소 |

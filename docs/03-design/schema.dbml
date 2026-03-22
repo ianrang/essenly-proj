@@ -150,9 +150,10 @@ Table conversations {
   id uuid [pk, default: `gen_random_uuid()`]
   journey_id uuid [ref: > journeys.id, note: 'ON DELETE SET NULL. Nullable: Path B users may not have journey yet.']
   user_id uuid [not null, ref: > users.id, note: 'ON DELETE CASCADE. Intentional denormalization: needed for RLS when journey_id is null.']
+  locale text [note: 'URL [locale] parameter at creation. K6 KPI measurement. e.g. en, ko, ja, zh, es, fr']
   created_at timestamptz [default: `now()`]
 
-  Note: 'Chat conversation container. user_id denormalized for RLS (journey_id nullable for Path B).'
+  Note: 'Chat conversation container. user_id denormalized for RLS (journey_id nullable for Path B). locale for K6 multi-language KPI.'
 }
 
 Table messages {
@@ -190,6 +191,23 @@ Table consent_records {
   updated_at timestamptz [default: `now()`]
 
   Note: '1:1 with users. 5 consent flags. ON DELETE CASCADE from users.'
+}
+
+Table kit_subscribers {
+  id uuid [pk, default: `gen_random_uuid()`]
+  user_id uuid [ref: > users.id, note: 'ON DELETE CASCADE. Anonymous user who submitted.']
+  conversation_id uuid [ref: > conversations.id, note: 'ON DELETE SET NULL. Conversation context at submission.']
+  email_encrypted text [not null, note: 'AES-256 encrypted email. For v0.2 marketing delivery.']
+  email_hash text [not null, note: 'SHA-256 hash. Duplicate check + K4 KPI counting.']
+  marketing_consent boolean [not null, default: false, note: 'PRD §4-C: Kit CTA checkbox.']
+  locale text [note: 'User locale at submission time.']
+  created_at timestamptz [default: `now()`]
+
+  indexes {
+    email_hash [unique, note: 'Prevent duplicate submissions.']
+  }
+
+  Note: 'Kit CTA email collection (PRD §3.6, M9). MVP: collect + store. v0.2: marketing email delivery. ON DELETE CASCADE from users.'
 }
 
 // ============================================================
@@ -448,6 +466,7 @@ TableGroup user_data {
   messages
   behavior_logs
   consent_records
+  kit_subscribers
 }
 
 TableGroup domain_shopping {

@@ -1,7 +1,7 @@
 # 권한 체계 설계 — P1-13 / P1-14 / P1-15
 
-> 버전: 1.1
-> 작성일: 2026-03-21
+> 버전: 1.2
+> 작성일: 2026-03-22
 > 상위: MASTER-PLAN Phase 1, TODO P1-13~P1-15
 > 근거: PRD §4-C, P0-4~6 (7.2-ADMIN-REQUIREMENTS.md), TDD v2.0 §6, PoC P0-26
 
@@ -745,3 +745,79 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
 | 비즈니스 성공 + 감사 로그 DB 타임아웃 | 성공 | 실패 → console.error | 200 + 데이터 (지연 가능) |
 
 > **v0.2 고려**: 감사 로그 실패 빈도가 높아지면 별도 큐(메모리 버퍼 → 배치 INSERT) 도입. MVP에서는 동기 INSERT로 충분.
+
+---
+
+## 6. 미들웨어 통합 실행 순서 (P1-55)
+
+### 6.1 Next.js middleware.ts 실행 흐름도
+
+3개 앱(사용자/관리자/제휴업체)의 요청을 단일 middleware.ts에서 분기 처리한다.
+
+```
+요청 진입 (middleware.ts)
+  │
+  ├─ 1. 경로 분류
+  │     │
+  │     ├─ /api/admin/*  ──→ [API 미들웨어 없음 — Route Handler에서 처리]
+  │     │                     (§3.1 authenticateAdmin + checkPermission)
+  │     │
+  │     ├─ /api/*        ──→ [API 미들웨어 없음 — Route Handler에서 처리]
+  │     │                     (§3.1 authenticateUser, 경로별 필수/선택)
+  │     │
+  │     ├─ /admin/login  ──→ PASS (공개 경로)
+  │     │
+  │     ├─ /admin/*      ──→ 2. 관리자 페이지 보호
+  │     │                     ├─ admin_token 쿠키 존재? (§3.4)
+  │     │                     ├─ 없으면 → redirect /admin/login
+  │     │                     └─ 있으면 → PASS (상세 검증은 API Route에서)
+  │     │
+  │     ├─ /partner/*    ──→ 3. 제휴업체 라우트 (v0.2 예약)
+  │     │                     └─ 501 Not Implemented 응답
+  │     │
+  │     └─ /[locale]/*   ──→ 4. 사용자 앱 i18n 처리
+  │                           ├─ next-intl locale 판별
+  │                           ├─ locale 리다이렉트 (필요 시)
+  │                           └─ PASS
+  │
+  └─ 실행 순서 보장
+        1) 경로 분류 (O(1) — startsWith 비교)
+        2) 관리자 쿠키 확인 (토큰 존재만, 검증 없음)
+        3) i18n locale 처리 (next-intl)
+```
+
+**핵심 원칙**:
+- middleware.ts는 **라우팅 분기 + 가벼운 리다이렉트**만 담당
+- 인증 검증 (JWT 서명, DB 조회, 권한 확인)은 **API Route Handler**에서 수행 (§3.1~§3.3)
+- Edge Runtime 제약: middleware에서 DB 접근 불가
+
+### 6.2 제휴업체 앱 라우트 예약 (v0.2)
+
+| 항목 | 설계 |
+|------|------|
+| 라우트 그룹 | `(partner)/` — app 디렉토리 내 별도 그룹 |
+| URL 패턴 | `/partner/*` |
+| 인증 | `partnerAuthMiddleware` (v0.2에서 설계) |
+| MVP 동작 | middleware.ts에서 `/partner/*` 접근 시 `501 Not Implemented` 응답 |
+| 레이아웃 | 사용자/관리자와 독립된 layout.tsx (v0.2 설계) |
+
+**v0.2 예상 역할**:
+- `partner` 역할: 자사 데이터(store/clinic/treatment) 셀프서비스 CRUD
+- 인증: 별도 가입 + 이메일 인증 또는 초대 링크
+- 권한: 자사 엔티티에 대해서만 read/write
+
+### 6.3 크로스 참조 표
+
+본 섹션은 기존 설계 문서를 통합 참조하는 인덱스이다. 각 항목의 상세는 원본 문서에 정의되어 있다.
+
+| 관심사 | 원본 문서 | 참조 섹션 |
+|--------|----------|----------|
+| 사용자 앱 라우트 트리 | `sitemap.md` | §1 Route Group + §2 User App URLs |
+| 관리자 앱 라우트 트리 | `sitemap.md` | §1 Route Group + §3 Admin App URLs |
+| 제휴업체 앱 라우트 | 본 문서 | §6.2 (예약만, v0.2) |
+| i18n 미들웨어 | `sitemap.md` | §4 Middleware |
+| API 경로 보호 (인증) | 본 문서 | §3.1 미들웨어 레이어 |
+| API 엔드포인트 목록 | `api-spec.md` | §2~§6 전체 |
+| API 엔드포인트별 권한 | 본 문서 | §2.4 권한 매핑 |
+| JWT 검증 상세 | 본 문서 | §5.1 JWT 클레임 + §5.2 에러 처리 |
+| RLS 정책 | 본 문서 | §3.5 RLS 역할 정의 |
