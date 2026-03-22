@@ -123,7 +123,7 @@
 
 **도출 변수**: DV-1(선호 성분), DV-2(기피 성분), DV-3(세그먼트), DV-4(AI 뷰티 프로필). PRD §4-A 참조.
 
-> 의도 분류, 판단 5단계 로직, DV 계산 규칙 상세는 Phase 1에서 설계 (P1-43, P1-33).
+> 의도 분류, 판단 5단계 로직, DV 계산 규칙 상세는 Phase 1에서 설계 (P1-43, P1-33 완료: 동기 tool).
 
 ## 3.4 L3: Memory Layer
 
@@ -182,11 +182,12 @@ Client → POST /api/chat { message }
   ├─ 5. LLM 호출 (스트리밍 + tool_use)
   │     ├─ tool_use: search_beauty_data → RAG 검색
   │     ├─ tool_use: get_external_links → 링크 조회
+  │     ├─ tool_use: extract_user_profile → 개인화 추출 (동기, P1-33 확정)
   │     └─ 최종 응답 생성 (텍스트 + 카드 데이터)
   │
   ├─ 6. 대화 히스토리 저장 (RLS: 본인 conversation)
   ├─ 7. 행동 로그 기록 (비동기, service_role + user_id 명시)
-  ├─ 8. 개인화 변수 추출/갱신 (비동기, service_role + user_id 명시)
+  ├─ 8. 개인화 추출 결과 DB 저장 (비동기, service_role + user_id 명시)
   │
   └─ Response: SSE 스트리밍
 ```
