@@ -8,14 +8,14 @@
 ## 진행률
 
 
-| Phase      | 작업 수    | 완료      | 진행률     | 상태    |
-| ---------- | ------- | ------- | ------- | ----- |
-| 사전 완료      | 12      | 12      | 100%    | ✅     |
-| Phase 0    | 37      | 37      | 100%    | ✅     |
-| Phase 1    | 60      | 60      | 100%    | ✅     |
-| Phase 2    | 102     | 1       | 1%      | 🔶 진행중 |
-| Phase 3    | 36      | 0       | 0%      | ⬜ 미시작 |
-| **MVP 합계** | **247** | **110** | **45%** |       |
+| Phase      | 작업 수    | 완료      | 진행률     | 상태     |
+| ---------- | ------- | ------- | ------- | ------ |
+| 사전 완료      | 12      | 12      | 100%    | ✅      |
+| Phase 0    | 37      | 37      | 100%    | ✅      |
+| Phase 1    | 60      | 60      | 100%    | ✅      |
+| Phase 2    | 103     | 1       | 1%      | 🔶 진행중 |
+| Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
+| **MVP 합계** | **248** | **110** | **44%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -289,149 +289,155 @@
 ## 인프라 코드 (1~2주)
 
 
-| ID   | 작업                    | 상세                           | 상태  |
-| ---- | --------------------- | ---------------------------- | --- |
-| P2-1 | 환경변수 + 설정 모듈          | server/core 설정, 환경별 분기 + shared/constants/ai.ts (LLM_CONFIG + TOKEN_CONFIG) | ✅   |
-| P2-2 | Supabase 서버 클라이언트     | server/core DB 접근 모듈         | ⬜   |
-| P2-3 | Supabase 브라우저 클라이언트   | client/core 클라이언트 모듈         | ⬜   |
-| P2-4 | DB 마이그레이션 실행            | P1-16(스키마 수정) + P1-17(관리자 테이블) + P1-18(인덱스) + 003_vector_search_functions.sql 전체 실행 | ⬜   |
-| P2-5 | AI 엔진 + Rate Limiter     | server/core AI 모듈 (LLM 호출 + 스트리밍) + server/core/rate-limit.ts (메모리 Map, api-spec §4) | ⬜   |
-| P2-6 | 프롬프트 관리 모듈            | 시스템 프롬프트, 카드, 경로B, DV-4 프롬프트 | ⬜   |
-| P2-7 | Knowledge 검색 (RAG) 모듈 | server/core 벡터 + 메타데이터 검색    | ⬜   |
-| P2-8 | 대화 메모리 관리 모듈          | 히스토리 로드/저장, 요약               | ⬜   |
+| ID   | 작업                    | 상세                                                                                   | 상태  |
+| ---- | --------------------- | ------------------------------------------------------------------------------------ | --- |
+| P2-1 | 환경변수 + 설정 모듈          | server/core 설정, 환경별 분기 + shared/constants/ai.ts (LLM_CONFIG + TOKEN_CONFIG)          | ✅   |
+| P2-2 | Supabase 서버 클라이언트     | server/core DB 접근 모듈                                                                 | ⬜   |
+| P2-3 | Supabase 브라우저 클라이언트   | client/core 클라이언트 모듈                                                                 | ⬜   |
+| P2-4 | DB 마이그레이션 실행          | P1-16(스키마 수정) + P1-17(관리자 테이블) + P1-18(인덱스) + 003_vector_search_functions.sql 전체 실행  | ⬜   |
+| P2-5 | AI 엔진 + Rate Limiter  | server/core AI 모듈 (LLM 호출 + 스트리밍) + server/core/rate-limit.ts (메모리 Map, api-spec §4) | ⬜   |
+| P2-6 | 프롬프트 관리 모듈            | 시스템 프롬프트, 카드, 경로B, DV-4 프롬프트                                                         | ⬜   |
+| P2-7 | Knowledge 검색 (RAG) 모듈 | server/core 벡터 + 메타데이터 검색                                                            | ⬜   |
+| P2-8 | 대화 메모리 관리 모듈          | 히스토리 로드/저장, 요약                                                                       | ⬜   |
 
 
 ## 사용자 앱 — 서비스 + API (2~3주)
 
 
-| ID    | 작업                                         | 상세                                         | 상태  |
-| ----- | ------------------------------------------ | ------------------------------------------ | --- |
-| P2-9  | Anonymous 인증 서비스 + API                     | 익명 세션 생성/관리                                | ⬜   |
-| P2-10 | 프로필 서비스 + API                              | 온보딩 저장, 프로필 조회/수정                          | ⬜   |
-| P2-11 | 여정 서비스 + API                               | 여정 생성/조회/수정                                | ⬜   |
-| P2-12 | 뷰티 판단 엔진                                   | 5단계 판단 로직 (필터→매칭→제약→개인화→하이라이트)             | ⬜   |
-| P2-13 | 쇼핑 도메인 로직                                  | beauty/ 순수 함수 (shopping)                   | ⬜   |
-| P2-14 | 시술 도메인 로직                                  | beauty/ 순수 함수 (treatment)                  | ⬜   |
-| P2-15 | DV 계산기                                     | 4개 도출 변수 계산 로직                             | ⬜   |
-| P2-16 | Product 리포지토리                              | 제품 데이터 접근. findByFilters/matchByVector/findById/findAll (search-engine.md §2.1, §2.3 Products) | ⬜   |
-| P2-16a | Store 리포지토리                               | 매장 데이터 접근. findByFilters/findById/findAll (search-engine.md §2.1, §2.3 Stores) | ⬜   |
-| P2-17 | Treatment 리포지토리                            | 시술 데이터 접근. findByFilters/matchByVector/findById/findAll (search-engine.md §2.1, §2.3 Treatments) | ⬜   |
-| P2-17a | Clinic 리포지토리                              | 클리닉 데이터 접근. findByFilters/findById/findAll (search-engine.md §2.1, §2.3 Clinics) | ⬜   |
-| P2-18 | Knowledge 리포지토리                            | RAG 검색 래핑                                  | ⬜   |
-| P2-19 | 채팅 서비스                                     | 대화 오케스트레이션. P2-5/6/8/20/21/22 통합           | ⬜   |
-| P2-20 | Chat Tool — search_beauty_data             | 도메인 데이터 검색 tool handler. P2-7/12~17a 의존    | ⬜   |
-| P2-21 | Chat Tool — get_external_links             | 외부 링크 조회 tool handler                      | ⬜   |
-| P2-22 | Chat Tool — extract_user_profile (동기 tool) | 대화에서 개인화 변수 추출 (P1-33 확정: 동기 tool)         | ⬜   |
-| P2-23 | Chat API (스트리밍)                            | SSE 스트리밍 응답                                | ⬜   |
-| P2-24 | Chat 히스토리 API                              | 대화 히스토리 조회                                 | ⬜   |
-| P2-25 | Kit CTA API                                | 이메일 수집/전환                                  | ⬜   |
-| P2-26 | 행동 로그 서비스 + API                              | 비동기 행동 기록 + POST /api/events 라우트 (api-spec §2.7) | ⬜   |
+| ID     | 작업                                         | 상세                                                                                                                      | 상태  |
+| ------ | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | --- |
+| P2-9   | Anonymous 인증 서비스 + API                     | 익명 세션 생성/관리                                                                                                             | ⬜   |
+| P2-10  | 프로필 서비스 + API                              | 온보딩 저장, 프로필 조회/수정                                                                                                       | ⬜   |
+| P2-11  | 여정 서비스 + API                               | 여정 생성/조회/수정                                                                                                             | ⬜   |
+| P2-12  | 뷰티 판단 엔진                                   | 5단계 판단 로직 (필터→매칭→제약→개인화→하이라이트)                                                                                          | ⬜   |
+| P2-13  | 쇼핑 도메인 로직                                  | beauty/ 순수 함수 (shopping)                                                                                                | ⬜   |
+| P2-14  | 시술 도메인 로직                                  | beauty/ 순수 함수 (treatment)                                                                                               | ⬜   |
+| P2-15  | DV 계산기                                     | 4개 도출 변수 계산 로직                                                                                                          | ⬜   |
+| P2-16  | Product 리포지토리                              | 제품 데이터 접근. findByFilters/matchByVector/findById/findAll (search-engine.md §2.1, §2.3 Products)                          | ⬜   |
+| P2-16a | Store 리포지토리                                | 매장 데이터 접근. findByFilters/findById/findAll (search-engine.md §2.1, §2.3 Stores)                                          | ⬜   |
+| P2-17  | Treatment 리포지토리                            | 시술 데이터 접근. findByFilters/matchByVector/findById/findAll (search-engine.md §2.1, §2.3 Treatments)                        | ⬜   |
+| P2-17a | Clinic 리포지토리                               | 클리닉 데이터 접근. findByFilters/findById/findAll (search-engine.md §2.1, §2.3 Clinics)                                        | ⬜   |
+| P2-18  | Knowledge 리포지토리                            | RAG 검색 래핑                                                                                                               | ⬜   |
+| P2-19  | 채팅 서비스                                     | 대화 오케스트레이션. P2-5/6/8/20/21/22 통합                                                                                        | ⬜   |
+| P2-20  | Chat Tool — search_beauty_data             | 도메인 데이터 검색 tool handler. P2-7/12~17a 의존                                                                                 | ⬜   |
+| P2-21  | Chat Tool — get_external_links             | 외부 링크 조회 tool handler                                                                                                   | ⬜   |
+| P2-22  | Chat Tool — extract_user_profile (동기 tool) | 대화에서 개인화 변수 추출 (P1-33 확정: 동기 tool)                                                                                      | ⬜   |
+| P2-23  | Chat API (스트리밍)                            | SSE 스트리밍 응답                                                                                                             | ⬜   |
+| P2-24  | Chat 히스토리 API                              | 대화 히스토리 조회                                                                                                              | ⬜   |
+| P2-25  | Kit CTA API                                | 이메일 수집/전환                                                                                                               | ⬜   |
+| P2-26  | 행동 로그 서비스 + API                            | 비동기 행동 기록 + POST /api/events 라우트 (api-spec §2.7)                                                                        | ⬜   |
 | P2-26b | 도메인 데이터 공개 읽기 API                          | GET /api/products/:id, /api/treatments/:id, /api/stores/:id, /api/clinics/:id 등 (api-spec §2.2, search-engine §1.1 경로2) | ⬜   |
-| P2-27 | 단위 테스트 — beauty/ 순수 함수                     | judgment, shopping, treatment, derived 테스트 | ⬜   |
-| P2-28 | 단위 테스트 — zod 스키마 검증                        | API 입력, tool 파라미터 유효/무효 케이스                | ⬜   |
+| P2-27  | 단위 테스트 — beauty/ 순수 함수                     | judgment, shopping, treatment, derived 테스트                                                                              | ⬜   |
+| P2-28  | 단위 테스트 — zod 스키마 검증                        | API 입력, tool 파라미터 유효/무효 케이스                                                                                             | ⬜   |
 
 
 ## 사용자 앱 — UI (2~3주, 병렬 가능)
 
 
-| ID    | 작업                        | 상세                                       | 상태  |
-| ----- | ------------------------- | ---------------------------------------- | --- |
-| P2-29 | 공통 레이아웃 + locale 레이아웃     | shadcn/ui 초기화 + 루트, [locale] 레이아웃         | ⬜   |
-| P2-30 | 에러 바운더리 + 에러 화면           | 네트워크, LLM, 세션 에러 처리                      | ⬜   |
-| P2-31 | Header + LanguageSelector | 공통 헤더                                    | ⬜   |
-| P2-32 | Landing 페이지               | 2가지 경로 분기 + ConsentBanner(동의 배너) + ReturnVisitBanner(재방문 흐름) | ⬜   |
-| P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | Step 1~4 (피부/헤어, 고민, 여행, 관심)             | ⬜   |
-| P2-34 | 프로필 전환/확인 화면              | 로딩 애니메이션, 프로필 카드                         | ⬜   |
-| P2-35 | Chat 인터페이스                | 메시지 버블, 입력바, 스트리밍 UI + SuggestedQuestions(경로B 초기 상태) | ⬜   |
-| P2-36 | 5영역 탭 바                   | Shops/Clinic/Salon/Eats/Exp (MVP: 2개 활성) | ⬜   |
-| P2-37 | ProductCard 컴포넌트          | PRD §3.5 기반                              | ⬜   |
-| P2-38 | TreatmentCard 컴포넌트        | PRD §3.5 기반                              | ⬜   |
-| P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조                           | ⬜   |
+| ID    | 작업                        | 상세                                                                     | 상태  |
+| ----- | ------------------------- | ---------------------------------------------------------------------- | --- |
+| P2-29 | 공통 레이아웃 + locale 레이아웃     | shadcn/ui 초기화 + 루트, [locale] 레이아웃                                      | ⬜   |
+| P2-30 | 에러 바운더리 + 에러 화면           | 네트워크, LLM, 세션 에러 처리                                                    | ⬜   |
+| P2-31 | Header + LanguageSelector | 공통 헤더                                                                  | ⬜   |
+| P2-32 | Landing 페이지               | 2가지 경로 분기 + ConsentBanner(동의 배너) + ReturnVisitBanner(재방문 흐름)           | ⬜   |
+| P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | Step 1~4 (피부/헤어, 고민, 여행, 관심)                                           | ⬜   |
+| P2-34 | 프로필 전환/확인 화면              | 로딩 애니메이션, 프로필 카드                                                       | ⬜   |
+| P2-35 | Chat 인터페이스                | 메시지 버블, 입력바, 스트리밍 UI + SuggestedQuestions(경로B 초기 상태)                   | ⬜   |
+| P2-36 | 5영역 탭 바                   | Shops/Clinic/Salon/Eats/Exp (MVP: 2개 활성)                               | ⬜   |
+| P2-37 | ProductCard 컴포넌트          | PRD §3.5 기반                                                            | ⬜   |
+| P2-38 | TreatmentCard 컴포넌트        | PRD §3.5 기반                                                            | ⬜   |
+| P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조                                                         | ⬜   |
 | P2-40 | Kit CTA 컴포넌트              | KitCtaCard + KitCtaSheet(Bottom sheet). Chat 내 인라인 (user-screens §6.6) | ⬜   |
-| P2-41 | Profile 페이지               | 프로필 조회/수정                                | ⬜   |
-| P2-42 | 프로필 Context               | React Context 상태 관리                      | ⬜   |
-| P2-43 | 면책 조항 페이지                 | 시술 추천 면책, 의료 조언 아닌 정보 제공 명시              | ⬜   |
-| P2-44 | 이용약관 + 개인정보처리방침 페이지       | 서비스 이용약관, 데이터 수집/보관/삭제 정책                | ⬜   |
+| P2-41 | Profile 페이지               | 프로필 조회/수정                                                              | ⬜   |
+| P2-42 | 프로필 Context               | React Context 상태 관리                                                    | ⬜   |
+| P2-43 | 면책 조항 페이지                 | 시술 추천 면책, 의료 조언 아닌 정보 제공 명시                                            | ⬜   |
+| P2-44 | 이용약관 + 개인정보처리방침 페이지       | 서비스 이용약관, 데이터 수집/보관/삭제 정책                                              | ⬜   |
 
 
 ## 관리자 앱 — MVP (병렬 가능)
 
 
-| ID    | 작업                 | 상세                                                           | 상태  |
-| ----- | ------------------ | ------------------------------------------------------------ | --- |
-| P2-45 | 관리자 인증 서비스 + API          | 로그인, 세션, 권한 확인 (api-spec.md §6)                                                                                                      | ⬜   |
-| P2-46 | 제네릭 CRUD 서비스              | `features/admin/service.ts` + withAuditLog 미들웨어 + 7엔티티 zod 스키마 + CRUD 후 비동기 임베딩 재생성 연동 (api-spec.md §5.1, embedding-strategy §3.4) | ⬜   |
-| P2-46a | 복합 엔티티 라우트               | Product/Store/Treatment/Clinic CRUD 라우트 + 하이라이트 API(§5.3) + 관계 API(§5.2). P2-16/16a/17/17a 리포지토리 의존                                     | ⬜   |
-| P2-46b | 단순 엔티티 라우트               | Brand/Ingredient/Doctor CRUD 라우트 + 리포지토리 생성 포함 (findAll/findById/create/update/deactivate, query-utils.ts 재사용)                           | ⬜   |
-| P2-47 | 이미지 업로드 서비스 + API         | Product/Store/Clinic/Treatment 4엔티티. Supabase Storage + magic bytes 검증 + 순서 관리 (api-spec.md §5.4)                                       | ⬜   |
-| P2-48 | 감사 로그 조회 API              | `GET /api/admin/audit-logs` + audit-service.ts. super_admin 전용, 날짜/액터/액션 필터 (api-spec.md §6.6). 기록은 P2-46 withAuditLog가 담당            | ⬜   |
-| P2-49 | 관리자 레이아웃 + 로그인 페이지 | admin 라우트 레이아웃, 인증 UI                                        | ⬜   |
-| P2-50 | 관리자 대시보드 (간단)      | 엔티티별 데이터 건수, 최근 변경                                           | ⬜   |
-| P2-51 | 관리자 공통 컴포넌트 — 목록   | 테이블, 검색, 필터, 페이지네이션                                          | ⬜   |
-| P2-52 | 관리자 공통 컴포넌트 — 폼    | 폼 필드, JSONB 다국어 입력, 이미지 업로드                                  | ⬜   |
-| P2-53a | 복합 엔티티 CRUD 페이지   | Product, Store, Clinic, Treatment — 이미지+관계+하이라이트 포함 (P2-46a 대응) | ⬜   |
-| P2-53b | 단순 엔티티 CRUD 페이지   | Brand, Ingredient, Doctor — 기본 CRUD (P2-46b 대응)              | ⬜   |
-| P2-54 | 관계 관리 UI           | Product↔Store, Product↔Ingredient, Clinic↔Treatment          | ⬜   |
-| P2-55 | 하이라이트 관리 UI        | is_highlighted 토글 + badge 텍스트                                | ⬜   |
+| ID     | 작업                 | 상세                                                                                                                                 | 상태  |
+| ------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | --- |
+| P2-45  | 관리자 인증 서비스 + API   | 로그인, 세션, 권한 확인 (api-spec.md §6)                                                                                                    | ⬜   |
+| P2-46  | 제네릭 CRUD 서비스       | `features/admin/service.ts` + withAuditLog 미들웨어 + 7엔티티 zod 스키마 + CRUD 후 비동기 임베딩 재생성 연동 (api-spec.md §5.1, embedding-strategy §3.4) | ⬜   |
+| P2-46a | 복합 엔티티 라우트         | Product/Store/Treatment/Clinic CRUD 라우트 + 하이라이트 API(§5.3) + 관계 API(§5.2). P2-16/16a/17/17a 리포지토리 의존                                | ⬜   |
+| P2-46b | 단순 엔티티 라우트         | Brand/Ingredient/Doctor CRUD 라우트 + 리포지토리 생성 포함 (findAll/findById/create/update/deactivate, query-utils.ts 재사용)                     | ⬜   |
+| P2-47  | 이미지 업로드 서비스 + API  | Product/Store/Clinic/Treatment 4엔티티. Supabase Storage + magic bytes 검증 + 순서 관리 (api-spec.md §5.4)                                  | ⬜   |
+| P2-48  | 감사 로그 조회 API       | `GET /api/admin/audit-logs` + audit-service.ts. super_admin 전용, 날짜/액터/액션 필터 (api-spec.md §6.6). 기록은 P2-46 withAuditLog가 담당         | ⬜   |
+| P2-49  | 관리자 레이아웃 + 로그인 페이지 | admin 라우트 레이아웃, 인증 UI                                                                                                              | ⬜   |
+| P2-50  | 관리자 대시보드 (간단)      | 엔티티별 데이터 건수, 최근 변경                                                                                                                 | ⬜   |
+| P2-51  | 관리자 공통 컴포넌트 — 목록   | 테이블, 검색, 필터, 페이지네이션                                                                                                                | ⬜   |
+| P2-52  | 관리자 공통 컴포넌트 — 폼    | 폼 필드, JSONB 다국어 입력, 이미지 업로드                                                                                                        | ⬜   |
+| P2-53a | 복합 엔티티 CRUD 페이지    | Product, Store, Clinic, Treatment — 이미지+관계+하이라이트 포함 (P2-46a 대응)                                                                    | ⬜   |
+| P2-53b | 단순 엔티티 CRUD 페이지    | Brand, Ingredient, Doctor — 기본 CRUD (P2-46b 대응)                                                                                    | ⬜   |
+| P2-54  | 관계 관리 UI           | Product↔Store, Product↔Ingredient, Clinic↔Treatment                                                                                | ⬜   |
+| P2-55  | 하이라이트 관리 UI        | is_highlighted 토글 + badge 텍스트                                                                                                      | ⬜   |
 
 
 ## 데이터 준비 — 사전 검증 (Phase 2 착수 전 필수)
 
-> 설계서: `docs/superpowers/specs/2026-03-23-data-collection-design.md` §8 미검증 항목
+> 설계서: `docs/05-design-detail/data-collection.md` §8 미검증 항목
 > **Phase 2 코드 작성 전에 완료 필수.** 결과에 따라 파이프라인 전략이 변경될 수 있음.
 
-| ID     | 작업                        | 상세                                                                                       | 의존  | 상태  |
-| ------ | ------------------------- | ---------------------------------------------------------------------------------------- | --- | --- |
-| P2-V1  | 네이버 쇼핑 API 약관 확인 (U-5)    | 네이버 개발자 이용약관 정독. "검색 결과 가공하여 별도 서비스 구축" 허용 여부 확인. **불가 시 S2 제거 → products 전량 수동** | 없음  | ⬜   |
-| P2-V2  | 식약처 API 응답 형식 검증 (U-2)    | data.go.kr API 키 발급 → S3(원료성분)/S4(사용제한)/S5(보고품목) 각 1회 호출. 실제 필드명·형식 확인               | 없음  | ⬜   |
-| P2-V3  | 브랜드 공식 이미지 정책 확인 (U-6)    | 이니스프리, 라네즈, 설화수, 미샤, 코스알엑스 5개 브랜드 프레스킷/이미지 사용 정책 확인. 불가 시 placeholder 전략          | 없음  | ⬜   |
-| P2-V4  | EU CosIng CSV 다운로드 + 커버리지 | CSV 다운로드 → 타깃 100 성분 중 CAS번호 매칭률 측정 (U-3). 50% 미만 시 전량 수동                            | 없음  | ⬜   |
+
+| ID    | 작업                        | 상세                                                                                | 의존  | 상태  |
+| ----- | ------------------------- | --------------------------------------------------------------------------------- | --- | --- |
+| P2-V1 | 네이버 쇼핑 API 약관 확인 (U-5)    | 네이버 개발자 이용약관 정독. "검색 결과 가공하여 별도 서비스 구축" 허용 여부 확인. **불가 시 S2 제거 → products 전량 수동** | 없음  | ⬜   |
+| P2-V2 | 식약처 API 응답 형식 검증 (U-2)    | data.go.kr API 키 발급 → S3(원료성분)/S4(사용제한)/S5(보고품목) 각 1회 호출. 실제 필드명·형식 확인            | 없음  | ⬜   |
+| P2-V3 | 브랜드 공식 이미지 정책 확인 (U-6)    | 이니스프리, 라네즈, 설화수, 미샤, 코스알엑스 5개 브랜드 프레스킷/이미지 사용 정책 확인. 불가 시 placeholder 전략          | 없음  | ⬜   |
+| P2-V4 | EU CosIng CSV 다운로드 + 커버리지 | CSV 다운로드 → 타깃 100 성분 중 CAS번호 매칭률 측정 (U-3). 50% 미만 시 전량 수동                         | 없음  | ⬜   |
+| P2-V5 | 시술 가격 범위 현실성 검증 (U-7)     | M2 시점. 5개 클리닉 실제 상담 가격과 DB price_min/max 대조. 50%+ 불일치 시 가격 표시 방식 재검토             | P2-62 | ⬜   |
+
 
 ## 데이터 준비 — 파이프라인 구현 (코어 구현과 병렬)
 
 > 설계서 §7. 코드 위치: `scripts/seed/lib/` (Phase 2 초반 CLI). 관리자 앱 통합 시 `server/features/pipeline/`으로 이동.
 > 의존 규칙: `scripts/ → server/core/, shared/` 허용. 역방향 금지. `server/features/` import 금지.
 
-| ID     | 작업                              | 상세                                                                                                     | 의존            | 상태  |
-| ------ | ------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------- | --- |
-| P2-56a | shared/validation/ zod 스키마 정의   | 7엔티티 검증 스키마 (product, store, clinic, treatment, ingredient, brand, doctor). 파이프라인 + API 공유              | P2-V2         | ⬜   |
-| P2-56b | scripts/seed/config.ts 파이프라인 환경변수 | KAKAO_API_KEY, NAVER_CLIENT_ID, MFDS_SERVICE_KEY 등 파이프라인 전용 env. core/config.ts 수정 없음 (P-2)           | P2-V1, P2-V2  | ⬜   |
-| P2-56c | scripts/seed/lib/types.ts 파이프라인 타입 | RawRecord, EnrichedRecord, ValidatedRecord, PipelineResult. shared/types/domain.ts import만              | P2-56a        | ⬜   |
-| P2-56d | 카카오 로컬 프로바이더 (S1)               | scripts/seed/lib/providers/kakao-local.ts. P0-33 PoC 계승. PlaceProvider 인터페이스                           | P2-56b, P2-56c | ⬜   |
-| P2-56e | 네이버 쇼핑 프로바이더 (S2)               | scripts/seed/lib/providers/naver-shopping.ts. **P2-V1 결과 "불가" 시 스킵**. HTML 태그 제거, 중복 제거(brand+title 정규화) | P2-V1, P2-56c | ⬜   |
-| P2-56f | 식약처 원료성분 프로바이더 (S3)             | scripts/seed/lib/providers/mfds-ingredient.ts. P2-V2 응답 형식 기반                                          | P2-V2, P2-56c | ⬜   |
-| P2-56g | 식약처 사용제한 프로바이더 (S4)             | scripts/seed/lib/providers/mfds-restricted.ts. S3 CAS번호 기반 LEFT JOIN                                   | P2-56f        | ⬜   |
-| P2-56h | 식약처 보고품목 프로바이더 (S5)             | scripts/seed/lib/providers/mfds-functional.ts. 제품 교차 검증용. 퍼지 매칭                                        | P2-V2, P2-56c | ⬜   |
-| P2-56i | CosIng CSV 프로바이더 (S6)           | scripts/seed/lib/providers/cosing-csv.ts. CSV 파싱 + CAS번호 JOIN → inci_name + function 보강               | P2-V4, P2-56c | ⬜   |
-| P2-56j | CSV 로더 프로바이더                    | scripts/seed/lib/providers/csv-loader.ts. 수동 CSV → RawRecord 변환. products/ingredients/treatments       | P2-56c        | ⬜   |
-| P2-56k | AI 번역 모듈                        | scripts/seed/lib/enrichment/translator.ts. ko→en 필수 + ja/zh/es/fr 선택. server/core/ai-engine.ts 호출     | P2-56c, P2-5  | ⬜   |
-| P2-56l | AI 분류 모듈                        | scripts/seed/lib/enrichment/classifier.ts. skin_types[], concerns[] 분류. 허용값 제한 프롬프트 + zod 출력 검증       | P2-56c, P2-5  | ⬜   |
-| P2-56m | AI 설명 생성 모듈                     | scripts/seed/lib/enrichment/description-generator.ts. description + review_summary 생성                   | P2-56c, P2-5  | ⬜   |
-| P2-56n | fetch-service (Stage 2 오케스트레이션)  | scripts/seed/lib/fetch-service.ts. manifest YAML 파싱 → 프로바이더 호출 → Promise.allSettled → RawRecord[]    | P2-56d~j      | ⬜   |
-| P2-56o | enrich-service (Stage 3 오케스트레이션) | scripts/seed/lib/enrich-service.ts. RawRecord → 번역+분류+생성 → EnrichedRecord[]. 건별 try-catch 에러 격리      | P2-56k~m      | ⬜   |
-| P2-56p | loader (Stage 5 DB 적재)          | scripts/seed/lib/loader.ts. zod 검증 → DB UPSERT. FK 순서 보장, 100건 청크 트랜잭션. server/core/db.ts 참조       | P2-56a, P2-2  | ⬜   |
-| P2-56q | CLI 진입점 (fetch/enrich/validate/load/run-all) | scripts/seed/fetch.ts 등 5개 CLI. thin layer: 인자 파싱 → lib/ 호출 → 로그 출력                                | P2-56n~p      | ⬜   |
-| P2-56r | AI 분류 정확도 PoC (U-1)             | M1 스켈레톤 10건으로 skin_types/concerns AI 분류 → 전문가 대조. **80% 미달 시 수동 전환 결정**                             | P2-56l        | ⬜   |
+
+| ID     | 작업                                           | 상세                                                                                                       | 의존             | 상태  |
+| ------ | -------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- | --- |
+| P2-56a | shared/validation/ zod 스키마 정의                | 7엔티티 검증 스키마 (product, store, clinic, treatment, ingredient, brand, doctor). 파이프라인 + API 공유               | P2-V2          | ⬜   |
+| P2-56b | scripts/seed/config.ts 파이프라인 환경변수            | KAKAO_API_KEY, NAVER_CLIENT_ID, MFDS_SERVICE_KEY 등 파이프라인 전용 env. core/config.ts 수정 없음 (P-2)              | P2-V1, P2-V2   | ⬜   |
+| P2-56c | scripts/seed/lib/types.ts 파이프라인 타입           | RawRecord, EnrichedRecord, ValidatedRecord, PipelineResult. shared/types/domain.ts import만               | P2-56a         | ⬜   |
+| P2-56d | 카카오 로컬 프로바이더 (S1)                            | scripts/seed/lib/providers/kakao-local.ts. P0-33 PoC 계승. PlaceProvider 인터페이스                             | P2-56b, P2-56c | ⬜   |
+| P2-56e | 네이버 쇼핑 프로바이더 (S2)                            | scripts/seed/lib/providers/naver-shopping.ts. **P2-V1 결과 "불가" 시 스킵**. HTML 태그 제거, 중복 제거(brand+title 정규화) | P2-V1, P2-56c  | ⬜   |
+| P2-56f | 식약처 원료성분 프로바이더 (S3)                          | scripts/seed/lib/providers/mfds-ingredient.ts. P2-V2 응답 형식 기반                                            | P2-V2, P2-56c  | ⬜   |
+| P2-56g | 식약처 사용제한 프로바이더 (S4)                          | scripts/seed/lib/providers/mfds-restricted.ts. S3 CAS번호 기반 LEFT JOIN                                     | P2-56f         | ⬜   |
+| P2-56h | 식약처 보고품목 프로바이더 (S5)                          | scripts/seed/lib/providers/mfds-functional.ts. 제품 교차 검증용. 퍼지 매칭                                          | P2-V2, P2-56c  | ⬜   |
+| P2-56i | CosIng CSV 프로바이더 (S6)                        | scripts/seed/lib/providers/cosing-csv.ts. CSV 파싱 + CAS번호 JOIN → inci_name + function 보강                  | P2-V4, P2-56c  | ⬜   |
+| P2-56j | CSV 로더 프로바이더                                 | scripts/seed/lib/providers/csv-loader.ts. 수동 CSV → RawRecord 변환. products/ingredients/treatments         | P2-56c         | ⬜   |
+| P2-56k | AI 번역 모듈                                     | scripts/seed/lib/enrichment/translator.ts. ko→en 필수 + ja/zh/es/fr 선택. server/core/ai-engine.ts 호출        | P2-56c, P2-5   | ⬜   |
+| P2-56l | AI 분류 모듈                                     | scripts/seed/lib/enrichment/classifier.ts. skin_types[], concerns[] 분류. 허용값 제한 프롬프트 + zod 출력 검증          | P2-56c, P2-5   | ⬜   |
+| P2-56m | AI 설명 생성 모듈                                  | scripts/seed/lib/enrichment/description-generator.ts. description + review_summary 생성                    | P2-56c, P2-5   | ⬜   |
+| P2-56n | fetch-service (Stage 2 오케스트레이션)              | scripts/seed/lib/fetch-service.ts. manifest YAML 파싱 → 프로바이더 호출 → Promise.allSettled → RawRecord[]        | P2-56d~j       | ⬜   |
+| P2-56o | enrich-service (Stage 3 오케스트레이션)             | scripts/seed/lib/enrich-service.ts. RawRecord → 번역+분류+생성 → EnrichedRecord[]. 건별 try-catch 에러 격리          | P2-56k~m       | ⬜   |
+| P2-56p | loader (Stage 5 DB 적재)                       | scripts/seed/lib/loader.ts. zod 검증 → DB UPSERT. FK 순서 보장, 100건 청크 트랜잭션. server/core/db.ts 참조             | P2-56a, P2-2   | ⬜   |
+| P2-56q | CLI 진입점 (fetch/enrich/validate/load/run-all) | scripts/seed/fetch.ts 등 5개 CLI. thin layer: 인자 파싱 → lib/ 호출 → 로그 출력                                      | P2-56n~p       | ⬜   |
+| P2-56r | AI 분류 정확도 PoC (U-1)                          | M1 스켈레톤 10건으로 skin_types/concerns AI 분류 → 전문가 대조. **80% 미달 시 수동 전환 결정**                                  | P2-56l         | ⬜   |
+
 
 ## 데이터 준비 — 데이터 입력 + 검수 (코어 구현과 병렬)
 
 > 설계서 §5 큐레이션 + §6 엔티티별 상세 + §9 타임라인 (M1→M2→M3)
 > 수집 순서: Phase A(brands, ingredients, stores, clinics, treatments 병렬) → Phase B(products, doctors) → Phase C(junction) → Phase D(임베딩)
 
-| ID    | 작업                  | 상세                                                                                                                   | 마일스톤 | 상태  |
-| ----- | ------------------- | -------------------------------------------------------------------------------------------------------------------- | ---- | --- |
-| P2-57 | 뷰티 지식 KB 작성         | 성분 가이드 20종 + 시술 가이드 15종 (K1). 지역 5개 + 상식 10편 (K2). AI 초안 + 전문가 검수                                                  | K1→K2 | ⬜   |
-| P2-58 | M1 스켈레톤 데이터 적재       | 7엔티티 × 5~10건 수동 YAML. brands 5, products 10, ingredients 10, stores 5, clinics 5, treatments 10, doctors 5. FK 관계 검증 | M1   | ⬜   |
-| P2-59 | 큐레이션 리스트 확정          | 수집 대상 200제품+50매장+30클리닉 선정. 올리브영 랭킹+화해+YouTube 참조(수동). manifests/*.yaml 작성. 카테고리/가격/피부타입 배분 검증                        | M1   | ⬜   |
-| P2-60 | Phase A: brands 50+ / ingredients 100+ | 브랜드 수동 입력 + S3 식약처 원료성분 자동 수집 + S6 CosIng INCI 교차 + S4 안전성 검증 + AI function 분류 + 전문가 검수 | M2   | ⬜   |
-| P2-61 | Phase A: stores 50+ (S1 자동수집)        | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(영업시간, english_support, tourist_services, 이미지)                 | M2   | ⬜   |
-| P2-62 | Phase A: clinics 30+ (S1 자동수집)       | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(foreigner_friendly, license_verified, 이미지). english_support >= basic 필수 | M2   | ⬜   |
-| P2-63 | Phase A: treatments 50+               | 수동 입력 + AI 보강(target_concerns, suitable_skin_types, description, precautions). 전문가 검수 필수. downtime_days 정확성 | M2   | ⬜   |
-| P2-64a | Phase B: products 200+ (S2+수동)       | S2 네이버 쇼핑(U-5 허용 시) 또는 전량 수동. AI 분류(skin_types, concerns) → **전수 검수(D-7)**. 매장 정가 수동 입력. 브랜드 공식 이미지 | M3   | ⬜   |
-| P2-64b | Phase B: doctors 30+                  | 수동 입력. 클리닉당 1명+. languages 영어 포함 필수                                                                       | M3   | ⬜   |
-| P2-64c | Phase C: junction 데이터               | product_stores(유형 기반+개별 혼합 ~2,700건), product_ingredients(~400건 수동 + key/avoid 분류), clinic_treatments(~150건) | M3   | ⬜   |
-| P2-64d | Phase D: 임베딩 생성 + 벡터 DB 적재          | text-builder.ts + generator.ts (embedding-strategy §2) + 배치 스크립트. products, stores, clinics, treatments          | M3   | ⬜   |
-| P2-64e | Phase E: S5 교차 검증 + 품질 게이트          | 식약처 보고품목 교차 검증(기능성화장품 태깅). M3 품질 게이트: A등급 100%, B등급 90%, 커버리지 검증(skin_type×40, concern×5)                 | M3   | ⬜   |
+
+| ID     | 작업                                     | 상세                                                                                                                   | 마일스톤  | 상태  |
+| ------ | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----- | --- |
+| P2-57  | 뷰티 지식 KB 작성                            | 성분 가이드 20종 + 시술 가이드 15종 (K1). 지역 5개 + 상식 10편 (K2). AI 초안 + 전문가 검수                                                    | K1→K2 | ⬜   |
+| P2-58  | M1 스켈레톤 데이터 적재                         | 7엔티티 × 5~10건 수동 YAML. brands 5, products 10, ingredients 10, stores 5, clinics 5, treatments 10, doctors 5. FK 관계 검증 | M1    | ⬜   |
+| P2-59  | 큐레이션 리스트 확정                            | 수집 대상 200제품+50매장+30클리닉 선정. 올리브영 랭킹+화해+YouTube 참조(수동). manifests/*.yaml 작성. 카테고리/가격/피부타입 배분 검증                        | M1    | ⬜   |
+| P2-60  | Phase A: brands 50+ / ingredients 100+ | 브랜드 수동 입력 + S3 식약처 원료성분 자동 수집 + S6 CosIng INCI 교차 + S4 안전성 검증 + AI function 분류 + 전문가 검수                              | M2    | ⬜   |
+| P2-61  | Phase A: stores 50+ (S1 자동수집)          | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(영업시간, english_support, tourist_services, 이미지)                                        | M2    | ⬜   |
+| P2-62  | Phase A: clinics 30+ (S1 자동수집)         | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(foreigner_friendly, license_verified, 이미지). english_support >= basic 필수              | M2    | ⬜   |
+| P2-63  | Phase A: treatments 50+                | 수동 입력 + AI 보강(target_concerns, suitable_skin_types, description, precautions). 전문가 검수 필수. downtime_days 정확성          | M2    | ⬜   |
+| P2-64a | Phase B: products 200+ (S2+수동)         | S2 네이버 쇼핑(U-5 허용 시) 또는 전량 수동. AI 분류(skin_types, concerns) → **전수 검수(D-7)**. 매장 정가 수동 입력. 브랜드 공식 이미지                  | M3    | ⬜   |
+| P2-64b | Phase B: doctors 30+                   | 수동 입력. 클리닉당 1명+. languages 영어 포함 필수                                                                                  | M3    | ⬜   |
+| P2-64c | Phase C: junction 데이터                  | product_stores(유형 기반+개별 혼합 ~~2,700건), product_ingredients(~~400건 수동 + key/avoid 분류), clinic_treatments(~150건)        | M3    | ⬜   |
+| P2-64d | Phase D: 임베딩 생성 + 벡터 DB 적재             | text-builder.ts + generator.ts (embedding-strategy §2) + 배치 스크립트. products, stores, clinics, treatments              | M3    | ⬜   |
+| P2-64e | Phase E: S5 교차 검증 + 품질 게이트             | 식약처 보고품목 교차 검증(기능성화장품 태깅). M3 품질 게이트: A등급 100%, B등급 90%, 커버리지 검증(skin_type×40, concern×5)                            | M3    | ⬜   |
 
 
 ## 통합 테스트
@@ -556,34 +562,36 @@
 > MVP 후 구현할 기능. Phase 4에서 상세 계획 작성.
 
 
-| ID    | 기능                  | 설명                                                                                    | 근거            |
-| ----- | ------------------- | ------------------------------------------------------------------------------------- | ------------- |
-| V2-1  | 관리자 API 설정 관리       | Rate limit, 시스템 설정을 관리자 UI에서 조정. DB settings 테이블 + 메모리 캐시(TTL 5분) + max/min 안전장치      | P1-22 결정      |
-| V2-2  | 관리자 데이터 동기화 UI      | 카카오 API 동기화 주기 설정 + 수동 트리거 + 결과 로그                                                    | P0-32 결정      |
-| V2-3  | Rate limit Redis 전환 | 메모리 Map → Upstash Redis. 다중 인스턴스 지원                                                   | P1-22         |
-| V2-4  | 계정 인증 시스템           | anonymous → 계정 (이메일/소셜). Supabase Auth linking                                        | PRD §4-C      |
-| V2-5  | DOM-3 살롱 + DOM-4 맛집 | salons, restaurants 테이블 + CRUD + 추천                                                   | PRD §2.2      |
-| V2-6  | 6개 언어 UI            | 영어 외 5개 언어 UI 번역                                                                      | PRD §5.1      |
-| V2-7  | 위치 기반 추천            | RT-1 (현재 위치) 수집 + 거리 기반 정렬                                                            | PRD §2.2      |
-| V2-8  | 프로필 화면 데이터 삭제 버튼    | "Delete my data" UI                                                                   | PRD §4-C A-14 |
-| V2-9  | 임베딩 태그 필터링          | 신호 태그(hydrating 등) vs 노이즈 태그(bestseller 등) 분류 규칙 정의 + EMBEDDING_CONFIG.TAG_FILTER 활성화 | P1-38         |
-| V2-10 | 다국어 임베딩 텍스트 확장      | ja/zh/es/fr 사용자 비율 >20% 시 해당 언어 임베딩 텍스트 추가. EMBEDDING_CONFIG.TEXT_LANGUAGES 확장        | P1-38         |
-| V2-11 | 교차 엔티티 임베딩 재생성      | Brand 이름 변경 시 관련 Product 임베딩 CASCADE 재생성                                              | P1-39         |
+| ID    | 기능                     | 설명                                                                                                      | 근거                       |
+| ----- | ---------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------ |
+| V2-1  | 관리자 API 설정 관리          | Rate limit, 시스템 설정을 관리자 UI에서 조정. DB settings 테이블 + 메모리 캐시(TTL 5분) + max/min 안전장치                        | P1-22 결정                 |
+| V2-2  | 관리자 데이터 동기화 UI         | 카카오 API 동기화 주기 설정 + 수동 트리거 + 결과 로그                                                                      | P0-32 결정                 |
+| V2-3  | Rate limit Redis 전환    | 메모리 Map → Upstash Redis. 다중 인스턴스 지원                                                                     | P1-22                    |
+| V2-4  | 계정 인증 시스템              | anonymous → 계정 (이메일/소셜). Supabase Auth linking                                                          | PRD §4-C                 |
+| V2-5  | DOM-3 살롱 + DOM-4 맛집    | salons, restaurants 테이블 + CRUD + 추천                                                                     | PRD §2.2                 |
+| V2-6  | 6개 언어 UI               | 영어 외 5개 언어 UI 번역                                                                                        | PRD §5.1                 |
+| V2-7  | 위치 기반 추천               | RT-1 (현재 위치) 수집 + 거리 기반 정렬                                                                              | PRD §2.2                 |
+| V2-8  | 프로필 화면 데이터 삭제 버튼       | "Delete my data" UI                                                                                     | PRD §4-C A-14            |
+| V2-9  | 임베딩 태그 필터링             | 신호 태그(hydrating 등) vs 노이즈 태그(bestseller 등) 분류 규칙 정의 + EMBEDDING_CONFIG.TAG_FILTER 활성화                   | P1-38                    |
+| V2-10 | 다국어 임베딩 텍스트 확장         | ja/zh/es/fr 사용자 비율 >20% 시 해당 언어 임베딩 텍스트 추가. EMBEDDING_CONFIG.TEXT_LANGUAGES 확장                          | P1-38                    |
+| V2-11 | 교차 엔티티 임베딩 재생성         | Brand 이름 변경 시 관련 Product 임베딩 CASCADE 재생성                                                                | P1-39                    |
 | V2-12 | 프롬프트 DB 전환 + 관리자 편집 UI | 코드 상수(prompts.ts) → DB prompt_configs 테이블 마이그레이션. 섹션별 행 관리 + 캐싱(TTL) + 관리자 UI 편집(super_admin) + 버전 히스토리 | system-prompt-spec.md §1 |
-| V2-13 | 히스토리 요약 전략       | 트리거: 계정 인증 + 장기 대화(재방문) 도입 시. 20턴 초과 요약 설계. token-management.md §3.3          | P1-36         |
-| V2-14 | RAG 결과 압축        | 트리거: 데이터 규모 증가 (500→5,000건+) 시. 검색 결과 경량 포맷 설계. tool-spec.md §1               | P1-37         |
-| V2-15 | 토큰 카운터 구현        | 트리거: 비용 모니터링에서 토큰 급증 감지 시                                                         | P1-35         |
-| V2-16 | 모델별 토큰 예산 분리     | 트리거: 역방향 폴백(Gemini→Claude) 도입 시                                                    | P1-35         |
-| V2-17 | 토큰 기반 히스토리 로드 전환 | 트리거: 턴당 토큰 변동이 커서 턴 수 기반 부정확 시                                                   | P1-35         |
+| V2-13 | 히스토리 요약 전략             | 트리거: 계정 인증 + 장기 대화(재방문) 도입 시. 20턴 초과 요약 설계. token-management.md §3.3                                    | P1-36                    |
+| V2-14 | RAG 결과 압축              | 트리거: 데이터 규모 증가 (500→5,000건+) 시. 검색 결과 경량 포맷 설계. tool-spec.md §1                                         | P1-37                    |
+| V2-15 | 토큰 카운터 구현              | 트리거: 비용 모니터링에서 토큰 급증 감지 시                                                                               | P1-35                    |
+| V2-16 | 모델별 토큰 예산 분리           | 트리거: 역방향 폴백(Gemini→Claude) 도입 시                                                                         | P1-35                    |
+| V2-17 | 토큰 기반 히스토리 로드 전환       | 트리거: 턴당 토큰 변동이 커서 턴 수 기반 부정확 시                                                                          | P1-35                    |
 
 
 ### v0.3 백로그
 
-| ID    | 태스크               | 설명                                                                                     | 참조            |
-|-------|---------------------|----------------------------------------------------------------------------------------|----------------|
-| V3-1  | DOM-5 문화 체험       | experiences 테이블 마이그레이션 + ExperienceCard + 추천 로직. schema.dbml에 테이블 정의 완료         | PRD §4-B DOM-5 |
-| V3-2  | Stage 2 (코스+팔로업) | F3 뷰티 여정 코스 생성 + F7 자동 팔로업                                                       | PRD §2.2       |
-| V3-3  | 행동 로그 분석         | behavior_logs 기반 BH-4 자동 학습. 클릭·예약·재방문 패턴 → learned_preferences 갱신              | PRD §5.3 X11   |
+
+| ID   | 태스크              | 설명                                                                      | 참조             |
+| ---- | ---------------- | ----------------------------------------------------------------------- | -------------- |
+| V3-1 | DOM-5 문화 체험      | experiences 테이블 마이그레이션 + ExperienceCard + 추천 로직. schema.dbml에 테이블 정의 완료 | PRD §4-B DOM-5 |
+| V3-2 | Stage 2 (코스+팔로업) | F3 뷰티 여정 코스 생성 + F7 자동 팔로업                                              | PRD §2.2       |
+| V3-3 | 행동 로그 분석         | behavior_logs 기반 BH-4 자동 학습. 클릭·예약·재방문 패턴 → learned_preferences 갱신      | PRD §5.3 X11   |
+
 
 - 소프트 런칭 피드백 반영
 
