@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅     |
 | Phase 0    | 37      | 37      | 100%    | ✅     |
 | Phase 1    | 60      | 60      | 100%    | ✅     |
-| Phase 2    | 76      | 1       | 1%      | 🔶 진행중 |
+| Phase 2    | 102     | 1       | 1%      | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작 |
-| **MVP 합계** | **221** | **109** | **49%** |       |
+| **MVP 합계** | **247** | **110** | **45%** |       |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -375,19 +375,63 @@
 | P2-55 | 하이라이트 관리 UI        | is_highlighted 토글 + badge 텍스트                                | ⬜   |
 
 
-## 데이터 준비 (병렬 가능)
+## 데이터 준비 — 사전 검증 (Phase 2 착수 전 필수)
 
+> 설계서: `docs/superpowers/specs/2026-03-23-data-collection-design.md` §8 미검증 항목
+> **Phase 2 코드 작성 전에 완료 필수.** 결과에 따라 파이프라인 전략이 변경될 수 있음.
 
-| ID    | 작업                  | 상세                              | 상태  |
-| ----- | ------------------- | ------------------------------- | --- |
-| P2-56 | 시드 스크립트 구현          | scripts/seed/ 파이프라인 완성          | ⬜   |
-| P2-57 | 뷰티 지식 KB 작성         | 성분 가이드, 시술 가이드, 지역 가이드, K-뷰티 상식 | ⬜   |
-| P2-58 | 제품 데이터 200건+        | 올리브영/시코르 인기 + 에센리 제품            | ⬜   |
-| P2-59 | 매장 데이터 50건+         | 서울 주요 매장                        | ⬜   |
-| P2-60 | 브랜드 50건+ / 성분 100건+ | K-뷰티 브랜드, 활성 성분                 | ⬜   |
-| P2-61 | 클리닉 30건+ / 시술 50건+  | 서울 외국인 친화 클리닉                   | ⬜   |
-| P2-62 | 의사 30건+ / 관계 데이터    | 외국어 가능 의사, 3개 관계 테이블            | ⬜   |
-| P2-63 | 임베딩 생성 + 벡터 DB 적재   | text-builder.ts + generator.ts (embedding-strategy §2) + 배치 스크립트 + 품질 검증 | ⬜   |
+| ID     | 작업                        | 상세                                                                                       | 의존  | 상태  |
+| ------ | ------------------------- | ---------------------------------------------------------------------------------------- | --- | --- |
+| P2-V1  | 네이버 쇼핑 API 약관 확인 (U-5)    | 네이버 개발자 이용약관 정독. "검색 결과 가공하여 별도 서비스 구축" 허용 여부 확인. **불가 시 S2 제거 → products 전량 수동** | 없음  | ⬜   |
+| P2-V2  | 식약처 API 응답 형식 검증 (U-2)    | data.go.kr API 키 발급 → S3(원료성분)/S4(사용제한)/S5(보고품목) 각 1회 호출. 실제 필드명·형식 확인               | 없음  | ⬜   |
+| P2-V3  | 브랜드 공식 이미지 정책 확인 (U-6)    | 이니스프리, 라네즈, 설화수, 미샤, 코스알엑스 5개 브랜드 프레스킷/이미지 사용 정책 확인. 불가 시 placeholder 전략          | 없음  | ⬜   |
+| P2-V4  | EU CosIng CSV 다운로드 + 커버리지 | CSV 다운로드 → 타깃 100 성분 중 CAS번호 매칭률 측정 (U-3). 50% 미만 시 전량 수동                            | 없음  | ⬜   |
+
+## 데이터 준비 — 파이프라인 구현 (코어 구현과 병렬)
+
+> 설계서 §7. 코드 위치: `scripts/seed/lib/` (Phase 2 초반 CLI). 관리자 앱 통합 시 `server/features/pipeline/`으로 이동.
+> 의존 규칙: `scripts/ → server/core/, shared/` 허용. 역방향 금지. `server/features/` import 금지.
+
+| ID     | 작업                              | 상세                                                                                                     | 의존            | 상태  |
+| ------ | ------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------- | --- |
+| P2-56a | shared/validation/ zod 스키마 정의   | 7엔티티 검증 스키마 (product, store, clinic, treatment, ingredient, brand, doctor). 파이프라인 + API 공유              | P2-V2         | ⬜   |
+| P2-56b | scripts/seed/config.ts 파이프라인 환경변수 | KAKAO_API_KEY, NAVER_CLIENT_ID, MFDS_SERVICE_KEY 등 파이프라인 전용 env. core/config.ts 수정 없음 (P-2)           | P2-V1, P2-V2  | ⬜   |
+| P2-56c | scripts/seed/lib/types.ts 파이프라인 타입 | RawRecord, EnrichedRecord, ValidatedRecord, PipelineResult. shared/types/domain.ts import만              | P2-56a        | ⬜   |
+| P2-56d | 카카오 로컬 프로바이더 (S1)               | scripts/seed/lib/providers/kakao-local.ts. P0-33 PoC 계승. PlaceProvider 인터페이스                           | P2-56b, P2-56c | ⬜   |
+| P2-56e | 네이버 쇼핑 프로바이더 (S2)               | scripts/seed/lib/providers/naver-shopping.ts. **P2-V1 결과 "불가" 시 스킵**. HTML 태그 제거, 중복 제거(brand+title 정규화) | P2-V1, P2-56c | ⬜   |
+| P2-56f | 식약처 원료성분 프로바이더 (S3)             | scripts/seed/lib/providers/mfds-ingredient.ts. P2-V2 응답 형식 기반                                          | P2-V2, P2-56c | ⬜   |
+| P2-56g | 식약처 사용제한 프로바이더 (S4)             | scripts/seed/lib/providers/mfds-restricted.ts. S3 CAS번호 기반 LEFT JOIN                                   | P2-56f        | ⬜   |
+| P2-56h | 식약처 보고품목 프로바이더 (S5)             | scripts/seed/lib/providers/mfds-functional.ts. 제품 교차 검증용. 퍼지 매칭                                        | P2-V2, P2-56c | ⬜   |
+| P2-56i | CosIng CSV 프로바이더 (S6)           | scripts/seed/lib/providers/cosing-csv.ts. CSV 파싱 + CAS번호 JOIN → inci_name + function 보강               | P2-V4, P2-56c | ⬜   |
+| P2-56j | CSV 로더 프로바이더                    | scripts/seed/lib/providers/csv-loader.ts. 수동 CSV → RawRecord 변환. products/ingredients/treatments       | P2-56c        | ⬜   |
+| P2-56k | AI 번역 모듈                        | scripts/seed/lib/enrichment/translator.ts. ko→en 필수 + ja/zh/es/fr 선택. server/core/ai-engine.ts 호출     | P2-56c, P2-5  | ⬜   |
+| P2-56l | AI 분류 모듈                        | scripts/seed/lib/enrichment/classifier.ts. skin_types[], concerns[] 분류. 허용값 제한 프롬프트 + zod 출력 검증       | P2-56c, P2-5  | ⬜   |
+| P2-56m | AI 설명 생성 모듈                     | scripts/seed/lib/enrichment/description-generator.ts. description + review_summary 생성                   | P2-56c, P2-5  | ⬜   |
+| P2-56n | fetch-service (Stage 2 오케스트레이션)  | scripts/seed/lib/fetch-service.ts. manifest YAML 파싱 → 프로바이더 호출 → Promise.allSettled → RawRecord[]    | P2-56d~j      | ⬜   |
+| P2-56o | enrich-service (Stage 3 오케스트레이션) | scripts/seed/lib/enrich-service.ts. RawRecord → 번역+분류+생성 → EnrichedRecord[]. 건별 try-catch 에러 격리      | P2-56k~m      | ⬜   |
+| P2-56p | loader (Stage 5 DB 적재)          | scripts/seed/lib/loader.ts. zod 검증 → DB UPSERT. FK 순서 보장, 100건 청크 트랜잭션. server/core/db.ts 참조       | P2-56a, P2-2  | ⬜   |
+| P2-56q | CLI 진입점 (fetch/enrich/validate/load/run-all) | scripts/seed/fetch.ts 등 5개 CLI. thin layer: 인자 파싱 → lib/ 호출 → 로그 출력                                | P2-56n~p      | ⬜   |
+| P2-56r | AI 분류 정확도 PoC (U-1)             | M1 스켈레톤 10건으로 skin_types/concerns AI 분류 → 전문가 대조. **80% 미달 시 수동 전환 결정**                             | P2-56l        | ⬜   |
+
+## 데이터 준비 — 데이터 입력 + 검수 (코어 구현과 병렬)
+
+> 설계서 §5 큐레이션 + §6 엔티티별 상세 + §9 타임라인 (M1→M2→M3)
+> 수집 순서: Phase A(brands, ingredients, stores, clinics, treatments 병렬) → Phase B(products, doctors) → Phase C(junction) → Phase D(임베딩)
+
+| ID    | 작업                  | 상세                                                                                                                   | 마일스톤 | 상태  |
+| ----- | ------------------- | -------------------------------------------------------------------------------------------------------------------- | ---- | --- |
+| P2-57 | 뷰티 지식 KB 작성         | 성분 가이드 20종 + 시술 가이드 15종 (K1). 지역 5개 + 상식 10편 (K2). AI 초안 + 전문가 검수                                                  | K1→K2 | ⬜   |
+| P2-58 | M1 스켈레톤 데이터 적재       | 7엔티티 × 5~10건 수동 YAML. brands 5, products 10, ingredients 10, stores 5, clinics 5, treatments 10, doctors 5. FK 관계 검증 | M1   | ⬜   |
+| P2-59 | 큐레이션 리스트 확정          | 수집 대상 200제품+50매장+30클리닉 선정. 올리브영 랭킹+화해+YouTube 참조(수동). manifests/*.yaml 작성. 카테고리/가격/피부타입 배분 검증                        | M1   | ⬜   |
+| P2-60 | Phase A: brands 50+ / ingredients 100+ | 브랜드 수동 입력 + S3 식약처 원료성분 자동 수집 + S6 CosIng INCI 교차 + S4 안전성 검증 + AI function 분류 + 전문가 검수 | M2   | ⬜   |
+| P2-61 | Phase A: stores 50+ (S1 자동수집)        | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(영업시간, english_support, tourist_services, 이미지)                 | M2   | ⬜   |
+| P2-62 | Phase A: clinics 30+ (S1 자동수집)       | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(foreigner_friendly, license_verified, 이미지). english_support >= basic 필수 | M2   | ⬜   |
+| P2-63 | Phase A: treatments 50+               | 수동 입력 + AI 보강(target_concerns, suitable_skin_types, description, precautions). 전문가 검수 필수. downtime_days 정확성 | M2   | ⬜   |
+| P2-64a | Phase B: products 200+ (S2+수동)       | S2 네이버 쇼핑(U-5 허용 시) 또는 전량 수동. AI 분류(skin_types, concerns) → **전수 검수(D-7)**. 매장 정가 수동 입력. 브랜드 공식 이미지 | M3   | ⬜   |
+| P2-64b | Phase B: doctors 30+                  | 수동 입력. 클리닉당 1명+. languages 영어 포함 필수                                                                       | M3   | ⬜   |
+| P2-64c | Phase C: junction 데이터               | product_stores(유형 기반+개별 혼합 ~2,700건), product_ingredients(~400건 수동 + key/avoid 분류), clinic_treatments(~150건) | M3   | ⬜   |
+| P2-64d | Phase D: 임베딩 생성 + 벡터 DB 적재          | text-builder.ts + generator.ts (embedding-strategy §2) + 배치 스크립트. products, stores, clinics, treatments          | M3   | ⬜   |
+| P2-64e | Phase E: S5 교차 검증 + 품질 게이트          | 식약처 보고품목 교차 검증(기능성화장품 태깅). M3 품질 게이트: A등급 100%, B등급 90%, 커버리지 검증(skin_type×40, concern×5)                 | M3   | ⬜   |
 
 
 ## 통합 테스트
@@ -395,11 +439,11 @@
 
 | ID    | 작업               | 상세                                    | 상태  |
 | ----- | ---------------- | ------------------------------------- | --- |
-| P2-64 | API route 통합 테스트 | profile, journey, auth — 실제 DB 연동     | ⬜   |
-| P2-65 | 검색 통합 테스트        | 검색 API + repository + DB 필터 정확성       | ⬜   |
-| P2-66 | Chat API 통합 테스트  | chat route + service + tools (LLM 모킹) | ⬜   |
-| P2-67 | 관리자 CRUD 통합 테스트  | admin API + DB + 감사 로그                | ⬜   |
-| P2-68 | 인증 통합 테스트        | anonymous + admin 세션/권한               | ⬜   |
+| P2-71 | API route 통합 테스트 | profile, journey, auth — 실제 DB 연동     | ⬜   |
+| P2-72 | 검색 통합 테스트        | 검색 API + repository + DB 필터 정확성       | ⬜   |
+| P2-73 | Chat API 통합 테스트  | chat route + service + tools (LLM 모킹) | ⬜   |
+| P2-74 | 관리자 CRUD 통합 테스트  | admin API + DB + 감사 로그                | ⬜   |
+| P2-75 | 인증 통합 테스트        | anonymous + admin 세션/권한               | ⬜   |
 
 
 ## 프롬프트 평가 실행
@@ -407,8 +451,8 @@
 
 | ID    | 작업                 | 상세                                                                              | 상태  |
 | ----- | ------------------ | ------------------------------------------------------------------------------- | --- |
-| P2-69 | P1-30 평가 자동화 구현    | prompt-evaluation.md 20건 시나리오 → scripts/prompt-eval.ts 자동화. PoC(P0-12/16/17) 대체 | ⬜   |
-| P2-70 | 멀티턴 adversarial 검증 | P2-69 평가 실행 후, 멀티턴 탈옥 패턴(점진적 신뢰 구축→공격) 테스트 + 가드레일 강화. P1-26은 단일턴만 커버            | ⬜   |
+| P2-76 | P1-30 평가 자동화 구현    | prompt-evaluation.md 20건 시나리오 → scripts/prompt-eval.ts 자동화. PoC(P0-12/16/17) 대체 | ⬜   |
+| P2-77 | 멀티턴 adversarial 검증 | P2-76 평가 실행 후, 멀티턴 탈옥 패턴(점진적 신뢰 구축→공격) 테스트 + 가드레일 강화. P1-26은 단일턴만 커버            | ⬜   |
 
 
 ---
