@@ -9,6 +9,7 @@
 - 상태 관리: useChat + react-hook-form + React Context (Zustand/Redux 금지)
 - 별칭: `@/server`, `@/client`, `@/shared`
 - 설계 문서: `docs/03-design/PRD.md`(WHAT) · `docs/03-design/TDD.md`(HOW) · `docs/03-design/schema.dbml`(DB 정본)
+- 작업 추적: `TODO.md`(Phase 0~3 태스크 + 진행률) · `docs/03-design/MASTER-PLAN.md`(범위, 로드맵, 리소스)
 
 ---
 
