@@ -69,10 +69,47 @@ treatment.ts ──→ derived.ts    ✗  (peer 간 직접 의존 금지)
 
 ### 2.4 shared/ 내부 규칙
 
-- 내부 import 깊이 ≤ 2 (flat 구조 유지)
-- `utils/` → `types/` ✓ (타입 참조)
-- `constants/` → `types/` ✓ (타입 참조)
-- 그 외 cross-import 금지. 순환 금지
+shared/는 3개 서브 모듈(types/, constants/, utils/)로 구성. 각 모듈은 단일 책임을 갖고, 의존 방향은 단방향만 허용.
+
+```
+types/     ── 순수 타입/인터페이스만. 런타임 코드 금지.
+constants/ ── 순수 상수만 (as const / 리터럴). 런타임 부작용 금지.
+utils/     ── 순수 유틸 함수만. 부작용 금지. DB/API 호출 금지.
+```
+
+#### 의존 방향 (단방향만 허용, 순환 금지)
+
+```
+types/ 내부:
+  각 파일은 독립 또는 types/ 내 다른 파일 참조만 허용 (type import만)
+  예: profile.ts → domain.ts ✓ / domain.ts → profile.ts ✗
+
+constants/ → types/ ✓ (type import만)
+utils/     → types/ ✓ (타입 참조)
+
+constants/ → utils/     ✗ (금지)
+constants/ → constants/ ✗ (peer 간 직접 의존 금지)
+utils/     → constants/ ✗ (금지)
+utils/     → utils/     ✗ (peer 간 직접 의존 금지. 공통 로직은 별도 파일로 분리)
+types/     → constants/ ✗ (역방향 금지)
+types/     → utils/     ✗ (역방향 금지)
+```
+
+#### 모듈 분류 기준
+
+| 기준 | types/ | constants/ | utils/ |
+|------|--------|-----------|--------|
+| 내용물 | type, interface, enum 타입 | 값 상수 (as const, 리터럴) | 순수 함수 |
+| import 허용 | types/ 내부만 | types/ 타입만 (type import) | types/ 타입만 |
+| export 대상 | 2개 이상 모듈에서 사용하는 타입 | 프로젝트 전역 상수 | 2개 이상 모듈에서 사용하는 유틸 |
+| 금지 | 값, 함수, 런타임 코드 | 함수, 로직, 계산 | DB/API 호출, 부작용 |
+
+#### 새 파일 추가 기준
+
+- 도메인 그룹별 1파일: `types/domain.ts`(도메인 엔티티), `types/ai.ts`(AI 설정), `constants/beauty.ts`(뷰티 열거값)
+- 1파일이 200줄 초과 시 도메인 기준으로 분리
+- 새 파일은 반드시 해당 폴더의 `index.ts`에 re-export 추가
+- 내부 import 깊이 ≤ 2 (flat 구조 유지, L-15)
 
 ---
 
@@ -133,6 +170,7 @@ treatment.ts ──→ derived.ts    ✗  (peer 간 직접 의존 금지)
 | L-13 | 타입, 상수, 순수 유틸 함수만 허용. 런타임 부작용 금지 |
 | L-14 | 모듈 내부 전용 타입은 해당 모듈에 선언. shared/에 넣지 않는다 |
 | L-15 | 내부 import 깊이 ≤ 2. flat 구조 유지 |
+| L-16 | shared/ 단방향 의존: constants/→types/ ✓, utils/→types/ ✓. 역방향·peer 간 import 금지. §2.4 참조 |
 
 ---
 
@@ -248,6 +286,7 @@ treatment.ts ──→ derived.ts    ✗  (peer 간 직접 의존 금지)
 □ V-13 디자인 토큰: 색상·radius·그림자를 #hex로 하드코딩하지 않았는가?
 □ V-14 토큰 동기화: :root 변수와 @theme inline 바인딩이 1:1 대응하는가?
 □ V-15 ui/ 순수성: client/ui/ 파일에 비즈니스 용어나 features/ import가 없는가?
+□ V-16 shared/ 단방향: constants/→types/ ✓, utils/→types/ ✓. 역방향·peer 간·순환 import 없는가?
 ```
 
 ---
