@@ -192,56 +192,94 @@ skin_types[], hair_types[], concerns[], key_ingredients, volume, description, en
 
 > 대상: ingredients 기본 레코드 | 공공데이터포털 data.go.kr/data/15111774
 
-**엔드포인트**: `GET http://apis.data.go.kr/1471000/CsmtcsIngdInfoService/getCsmtcsIngdInfo` (미확인 — Phase 2 PoC에서 Swagger UI 검증 필요)
-**인증**: `serviceKey` 쿼리 파라미터
+**엔드포인트**: `GET https://apis.data.go.kr/1471000/CsmtcsIngdCpntInfoService01/getCsmtcsIngdCpntInfoService01` **(P2-V2 검증 완료 2026-03-23)**
+**인증**: `serviceKey` 쿼리 파라미터 (URL 인코딩)
+**검색**: `INGR_KOR_NAME` 파라미터로 표준명 검색 가능
+**일일 한도**: 개발 10,000건/일 (자동승인)
 
-### 필드 매핑
+### 필드 매핑 (P2-V2 검증 완료 — 실제 필드명 확정)
 
-| API 필드 | DB 컬럼 | 변환 |
-|---------|---------|------|
-| 표준명 | name -> {ko: ...} | 직접 매핑 |
-| 영문명 | name -> {en: ...} | 직접 매핑 |
-| CAS번호 | (매핑 없음) | S4/S6 크로스 매칭 키 |
-| 배합목적 | function[] 초안 | 기술 용어 → 뷰티 용어 변환 필요 |
+| API 필드 (확정) | DB 컬럼 | 변환 |
+|---------------|---------|------|
+| **INGR_KOR_NAME** | name -> {ko: ...} | 직접 매핑 |
+| **INGR_ENG_NAME** | name -> {en: ...} | 직접 매핑 |
+| **CAS_NO** | (매핑 없음) | S4/S6 크로스 매칭 키 |
+| **ORIGIN_MAJOR_KOR_NAME** | (매핑 없음) | 기원/정의 — KB 참고자료로 활용 |
+| **INGR_SYNONYM** | (매핑 없음) | 검색 동의어용 |
+
+> **P2-V2 발견**: 설계서 초안의 "배합목적" 필드는 **이 API에 존재하지 않음**. function[] 소스는 S6(CosIng)만 사용. S3은 name(ko/en) + CAS번호 제공에 한정.
 
 ### 수집 불가 필드
 
-inci_name (S6에서 보강), function[] 세분화 (AI+전문가), caution_skin_types[] (S4+AI+전문가), common_in[] (수동/AI)
+inci_name (S6에서 보강), **function[] 전체 (S6 CosIng + AI)**, caution_skin_types[] (S4+AI+전문가), common_in[] (수동/AI)
 
-### Rate Limit
+### Rate Limit (P2-V2 확정)
 
-개발 1,000건/일, 운영 10,000건/일. 전체 원료 수천 건 → 운영 계정 필요 가능.
+개발 10,000건/일 (자동승인). 전체 원료 수천 건이나 MVP 100건 타깃 → 개발 계정 충분.
 
 ## 3.5 S4: 식약처 화장품 사용제한 원료정보 API
 
 > 대상: ingredients 안전성 보강 | data.go.kr/data/15111772
 
+**엔드포인트 (P2-V2 검증 완료)**:
+- 기본 조회: `GET https://apis.data.go.kr/1471000/CsmtcsUseRstrcInfoService/getCsmtcsUseRstrcInfoService`
+- 배합금지국가 조회: `GET https://apis.data.go.kr/1471000/CsmtcsUseRstrcInfoService/getCsmtcsUseRstrcNatnInfoService`
+
 S3 레코드에 대한 LEFT JOIN enrichment. 단독 레코드 생성하지 않음.
+
+### 실제 응답 필드 (P2-V2 확정)
+
+| 필드명 (확정) | 설명 | 활용 |
+|-------------|------|------|
+| **REGULATE_TYPE** | 구분 (방부제/자외선차단제/색소/기타) | 분류 참고 |
+| **INGR_STD_NAME** | 표준명 | S3 INGR_KOR_NAME과 JOIN 키 |
+| **INGR_ENG_NAME** | 영문명 | S3 JOIN 보조 |
+| **CAS_NO** | CASNo | S3/S6 크로스 매칭 키 (가장 신뢰) |
+| **COUNTRY_NAME** | 배합제한국가 | 외국인 대상 참고 정보 |
+| **NOTICE_INGR_NAME** | 고시원료명 | |
+| **PROVIS_ATRCL** | 단서조항 | |
+| **LIMIT_COND** | 제한사항 | **LLM → caution_skin_types 추론 입력** |
 
 ### 핵심 활용
 
-"제한사항" 텍스트를 LLM에 입력 → dry/oily/combination/sensitive/normal 중 주의 필요 피부타입 추론 → **전문가 검수 필수**.
+**LIMIT_COND**(제한사항) 텍스트를 LLM에 입력 → dry/oily/combination/sensitive/normal 중 주의 필요 피부타입 추론 → **전문가 검수 필수**.
 
 ### Rate Limit
 
-개발 1,000건/일. 사용제한 원료 수백 건 → 개발 계정 충분.
+개발 10,000건/일 (S3과 동일). 사용제한 원료 수백 건 → 개발 계정 충분.
 
 ## 3.6 S5: 식약처 기능성화장품 보고품목 API
 
 > 대상: products 교차 검증 | data.go.kr/data/15095680
 
+**엔드포인트 (P2-V2 검증 완료)**: `GET http://apis.data.go.kr/1471000/FtnltCosmRptPrdlstInfoService/getRptPrdlstInq`
+**검색 파라미터**: `item_name`(품목명), `item_seq`(품목일련번호), `cosmetic_report_seq`(보고일련번호)
+
+### 실제 응답 필드 (P2-V2 확정)
+
+| 필드명 (확정) | 설명 | 설계서 추정과 차이 |
+|-------------|------|-----------------|
+| **ITEM_NAME** | 품목명 | 추정 PRDUCT_NM → **실제 ITEM_NAME** |
+| **ENTP_NAME** | 업소명 | 추정 ENTRPS_NM → **실제 ENTP_NAME** |
+| **MANUF_NAME** | 제조원 | 설계서 미예측 — 추가 정보 |
+| **REPORT_DATE** | 보고일자 | ✓ 일치 |
+| **COSMETIC_REPORT_SEQ** | 보고일련번호 | ✓ 일치 |
+| **EFFECT_YN1~3** | 효능효과 Y/N 플래그 | 추정 FNLT_TP_NM(텍스트) → **실제 Y/N 플래그** |
+| **SPF, PA** | 자외선차단지수 | 설계서 미예측 — 자외선차단 제품 추가 정보 |
+
 ### 활용 방식 (생성이 아닌 검증)
 
-1. S2/수동으로 products 생성
-2. "{brand} {product.name.ko}"로 S5 검색
-3. 매칭 시: tags에 "functional:{유형}" 추가 + 인증 확인 로그
-4. 미매칭 = 비기능성 제품 (정상)
+1. 수동으로 products 생성
+2. `item_name` 파라미터로 S5 검색 (퍼지 매칭)
+3. 매칭 시: EFFECT_YN1~3 확인 → tags에 "functional:미백/주름개선/자외선차단" 추가
+4. SPF/PA 값이 있으면 제품 메타데이터 보강
+5. 미매칭 = 비기능성 제품 (정상)
 
 ### 주의
 
 - 기능성화장품(미백/주름개선/자외선차단)만 대상. 일반 화장품 조회 불가
-- 품목명 ≠ 시장 판매명 → 퍼지 매칭 필요
-- 업체명 ≠ 소비자 브랜드명 (OEM 가능)
+- ITEM_NAME ≠ 시장 판매명 → 퍼지 매칭 필요
+- ENTP_NAME ≠ 소비자 브랜드명 (OEM 가능)
 
 **MVP 결정: 사전 배치 검증만. "동적 보강"(대화 중 실시간 검색)은 v0.2로 연기.**
 
@@ -595,7 +633,7 @@ Phase E (B 완료 후, Phase C와 병렬 실행 가능): S5 교차 검증
 | ID | 항목 | 리스크 | 잘못되면 영향 | 검증 시점 | 검증 방법 |
 |----|------|--------|------------|---------|---------|
 | **U-1** | AI 분류 정확도 (skin_types, concerns) | **높** | 부적합 추천 → 신뢰 상실 | M1 | 10개 제품 AI 분류 → 전문가 대조. 80% 미달 시 수동 전환 |
-| **U-2** | 식약처 API 실제 응답 형식 | **중** | API 필드명/형식 불일치 시 코드 수정 | **Phase 2 전** (M1 이전) | API 키 발급 → Swagger UI 테스트. 1회 호출로 응답 형식 확인 |
+| **U-2** | 식약처 API 실제 응답 형식 | ~~중~~ **확정** | — | **검증 완료 (2026-03-23)** | **P2-V2 완료.** S3: 엔드포인트·필드명 확정 (INGR_KOR_NAME 등). "배합목적" 필드 미존재 발견 → function[]은 S6 CosIng만 사용. S4: LIMIT_COND(제한사항) 필드 확인. S5: ITEM_NAME, EFFECT_YN1~3 확인. 3개 API 모두 일일 10,000건, 무료, 자동승인 |
 | **U-3** | EU CosIng K-뷰티 성분 커버리지 | **중** | 커버율 낮으면 inci_name 수동 입력 | M2 | 목표 100성분 중 CosIng 매칭률 측정 |
 | **U-4** | 네이버 쇼핑 API 중복 제거 복잡도 | **중** | 정규화 실패 시 중복 제품 | M2 | 20개 제품 실제 검색 → 정규화 테스트 |
 | **U-5** | **네이버 쇼핑 API 상업적 이용 약관** | ~~높~~ **확정** | — | **검증 완료 (2026-03-23)** | **판정: S2 MVP 사용 보류.** 네이버 개발자센터 직접 접근 차단으로 약관 원문 미확인. 공식 가이드에서 API는 "네이버 검색의 쇼핑 검색 결과를 반환"하는 것으로 제품 마스터 데이터가 아님. 약관 미확인 상태에서의 상업적 통합은 G-12(외부 소스 사전 검증) 위반. **→ products는 수동+CSV 폴백 경로 채택.** 추후 네이버 개발자센터 로그인 후 약관 원문 확인 시 재평가 가능 |
