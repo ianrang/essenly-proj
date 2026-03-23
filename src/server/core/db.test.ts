@@ -26,9 +26,18 @@ describe('createAuthenticatedClient', () => {
     const { createAuthenticatedClient } = await import('@/server/core/db');
     expect(() => createAuthenticatedClient('')).toThrow('Supabase auth token is required');
   });
+
+  it('token이 undefined이면 에러', async () => {
+    const { createAuthenticatedClient } = await import('@/server/core/db');
+    expect(() => createAuthenticatedClient(undefined as unknown as string)).toThrow('Supabase auth token is required');
+  });
 });
 
 describe('createServiceClient', () => {
+  beforeEach(() => {
+    vi.resetModules();
+  });
+
   it('SupabaseClient를 반환한다', async () => {
     const { createServiceClient } = await import('@/server/core/db');
     const client = createServiceClient();
