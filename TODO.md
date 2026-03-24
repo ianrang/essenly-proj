@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 60      | 60      | 100%    | ✅      |
-| Phase 2    | 103     | 4       | 4%      | 🔶 진행중 |
+| Phase 2    | 103     | 5       | 5%      | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **248** | **113** | **46%** |        |
+| **MVP 합계** | **248** | **114** | **46%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -296,7 +296,7 @@
 | P2-2 | Supabase 서버 클라이언트     | server/core/db.ts: createAuthenticatedClient(RLS 적용) + createServiceClient(RLS 우회). @supabase/supabase-js + config.ts env 경유. 테스트 4개 | ✅   |
 | P2-3 | Supabase 브라우저 클라이언트   | client/core/config.ts(zod 검증) + supabase-browser.ts(Auth 전용 팩토리). DB 직접 접근 없음. 테스트 5개 | ✅   |
 | P2-4 | DB 마이그레이션 실행          | 004(P1-16+P1-17) + 005(인덱스 13개) + 006(beauty_summary) 실행 완료. kit_subscribers 인덱스는 P2-25에서 처리 | ✅   |
-| P2-5 | AI 엔진 + Rate Limiter  | server/core AI 모듈 (LLM 호출 + 스트리밍) + server/core/rate-limit.ts (메모리 Map, api-spec §4) | ⬜   |
+| P2-5 | AI 엔진 + Rate Limiter  | core/rate-limit.ts(메모리Map, window구분자) + features/chat/llm-client.ts(callWithFallback+shouldFallback). ai-engine.ts 삭제. 테스트 13개 | ✅   |
 | P2-6 | 프롬프트 관리 모듈            | 시스템 프롬프트, 카드, 경로B, DV-4 프롬프트                                                         | ⬜   |
 | P2-7 | Knowledge 검색 (RAG) 모듈 | server/core 벡터 + 메타데이터 검색                                                            | ⬜   |
 | P2-8 | 대화 메모리 관리 모듈          | 히스토리 로드/저장, 요약                                                                       | ⬜   |
