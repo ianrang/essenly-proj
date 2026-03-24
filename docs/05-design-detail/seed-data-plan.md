@@ -36,8 +36,8 @@
 
 | 결정 | 내용 | 참조 |
 |------|------|------|
-| U-6 | 데이터 소스: 카카오 API + 수동 보완 혼합 | data-strategy.md |
-| U-8 | 시드 수집: 카카오 API + AI 번역/보강 | data-strategy.md |
+| U-6 | 데이터 소스: 카카오 API + 식약처(S3~S5) + CosIng(S6) + A-3 시드 크롤링 + 수동. ~~S7 보류~~ | data-collection.md (정본) |
+| U-8 | 시드 수집: 카카오 API + A-3 크롤링 + 식약처 API + AI 번역/보강. ~~S7 보류~~ | data-collection.md (정본) |
 | U-14 | 리뷰: AI 생성 요약 ("AI 기반" 면책 표시) | data-strategy.md |
 | P0-14 | LLM 번역 품질: Gemini 6개 언어 4.6/5.0 | cost-estimate.md §5 |
 | P0-35 | 이미지: 브랜드 공식 우선 + placeholder | data-strategy.md |
@@ -85,14 +85,15 @@ data-strategy.md U-6, U-8 결정 기반.
 
 ### 2.2.2 수동 입력 (products, treatments, brands, ingredients, doctors)
 
-제품·시술 데이터는 공식 API가 없으므로 수동 입력이 주 방법.
+제품 데이터는 A-3 시드 크롤링(브랜드 사이트 1순위 + 올리브영 글로벌 2순위) + CSV 수동 + AI 보강. 시술·의사는 수동 입력이 주 방법.
 
 | 입력 방식 | 적용 대상 | 설명 |
 |----------|----------|------|
+| A-3 시드 크롤링 (Playwright) | products | 브랜드 공식 사이트(1순위) + 올리브영 글로벌(2순위 보조). name_en, brand, price, category, image 자동 수집 |
 | 관리자 앱 CRUD | 모든 엔티티 | 7.2-ADMIN-REQUIREMENTS.md 기반 |
-| CSV 일괄 업로드 | products, ingredients | 초기 대량 입력 효율화 |
-| 쿠팡 파트너스 API (S7, 활성화 시) | products | 제품 정보 자동 수집 |
-| AI 보강 | description, review_summary | LLM으로 한국어 설명 생성 후 검수 |
+| CSV 일괄 업로드 | products, ingredients, treatments | 초기 대량 입력 + 크롤링 미대상 제품 보완 |
+| ~~쿠팡 파트너스 API (S7)~~ | ~~products~~ | **MVP 보류** (U-12, 판매 실적 미달). 수익 발생 후 재검토 |
+| AI 보강 | description, review_summary, 번역, 분류 | LLM 처리 후 전수 검수 (D-7) |
 
 ### 2.2.3 AI 보강 단계
 

@@ -38,9 +38,9 @@ data-strategy.md에서 확정된 결정:
 
 | 결정 | 내용 | 참조 |
 |------|------|------|
-| U-6 | 데이터 소스: 카카오 API + 수동 보완 혼합 | data-strategy.md P0-29 |
+| U-6 | 데이터 소스: 카카오 API + 식약처 API(S3~S5) + CosIng(S6) + A-3 시드 크롤링 + 수동 보완. ~~S7(쿠팡) MVP 보류~~ | data-collection.md §3 (정본) |
 | U-7 | 갱신: 관리자 앱에서 동기화 트리거/스케줄 | data-strategy.md P0-32 |
-| U-8 | 시드 수집: 카카오 API + AI 번역/보강 | data-strategy.md P0-32 |
+| U-8 | 시드 수집: 카카오 API + A-3 시드 크롤링 + 식약처 API + AI 번역/보강 | data-collection.md §7 (정본) |
 | U-14 | 리뷰: AI 생성 요약 (면책 표시) | data-strategy.md P0-36 |
 | U-5 | 이미지: Supabase Storage | data-strategy.md P0-35 |
 
@@ -55,10 +55,10 @@ data-strategy.md에서 확정된 결정:
 
   [외부 소스]              [ETL 파이프라인]           [DB]              [서빙 레이어]
   ┌───────────┐         ┌─────────────────┐      ┌──────────┐      ┌──────────────────┐
-  │ 카카오 API │───┐     │  §3 초기 적재     │      │          │      │                  │
-  │ 식약처 API │───┼────▶│  Fetch → Transform│────▶│ Supabase │─────▶│ 검색 엔진         │
-  │ 수동 입력   │───┤     │  → Validate → Load│     │ Postgres │      │ (search-engine.md)│
-  │ AI 보강    │───┘     └─────────────────┘      │          │      └────────┬─────────┘
+  │ 카카오 API  │───┐     │  §3 초기 적재     │      │          │      │                  │
+  │ 식약처 API  │───┤     │  Fetch → Transform│────▶│ Supabase │─────▶│ 검색 엔진         │
+  │ A-3 크롤링  │───┼────▶│  → Validate → Load│     │ Postgres │      │ (search-engine.md)│
+  │ 수동/CSV/AI │───┘     └─────────────────┘      │          │      └────────┬─────────┘
                          ┌─────────────────┐      │          │               │
                          │  §4 주기적 갱신    │      │          │               ▼
   [관리자 앱]────────────▶│  Diff → Merge    │─────▶│          │      ┌──────────────────┐
@@ -112,7 +112,7 @@ interface PlaceProvider {
 |--------|-----------|----------|---------------|
 | stores | 카카오 로컬 API | Google Places | 영업시간, english_support, tourist_services |
 | clinics | 카카오 로컬 API | Google Places | english_support, license_verified, foreigner_friendly |
-| products | 쿠팡 파트너스 API (S7) | 수동 입력 + AI 보강 | 전 필드 (S7 미활성 시 수동) |
+| products | A-3 시드 크롤링 (브랜드 사이트 1순위 + 올리브영 글로벌 2순위 보조) | CSV 수동 + AI 보강 | name_ko, 매장 정가 보정, volume, key_ingredients. ~~S7(쿠팡) MVP 보류 (U-12)~~ |
 | treatments | 수동 입력 + AI 보강 | - | 전 필드 |
 | brands | 수동 입력 | - | 전 필드 |
 | ingredients | 식약처 원료성분(S3) + CosIng(S6) + 식약처 사용제한(S4) | 수동 입력 + AI 보강 | inci_name, function, caution_skin_types |
