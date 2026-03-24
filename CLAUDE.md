@@ -9,7 +9,6 @@
 - 상태 관리: useChat + react-hook-form + React Context (Zustand/Redux 금지)
 - 별칭: `@/server`, `@/client`, `@/shared`
 - 설계 문서: `docs/03-design/PRD.md`(WHAT) · `docs/03-design/TDD.md`(HOW) · `docs/03-design/schema.dbml`(DB 정본)
-- 작업 추적: `TODO.md`(Phase 0~3 태스크 + 진행률) · `docs/03-design/MASTER-PLAN.md`(범위, 로드맵, 리소스)
 
 ---
 
@@ -292,8 +291,8 @@ types/     → utils/     ✗ (역방향 금지)
 □ V-14 토큰 동기화: :root 변수와 @theme inline 바인딩이 1:1 대응하는가?
 □ V-15 ui/ 순수성: client/ui/ 파일에 비즈니스 용어나 features/ import가 없는가?
 □ V-16 shared/ 단방향: constants/→types/ ✓, utils/→types/ ✓. 역방향·peer 간·순환 import 없는가?
-□ V-17 제거 안전성: 이 모듈을 삭제해도 core/, 기존 features/, client/에 빌드 에러가 없는가? (P-10)
-□ V-18 scripts/ 의존 방향: scripts/ → server/core/, shared/ 만 import하는가? 역방향 없는가? (P-9)
+□ V-17 제거 안전성: 이 모듈을 삭제해도 core/, 기존 features/, client/에 빌드 에러가 없는가?
+□ V-18 scripts/ 의존 방향: scripts/ → server/core/, shared/ 만 import하는가? 역방향 없는가?
 ```
 
 ---
@@ -326,6 +325,6 @@ types/     → utils/     ✗ (역방향 금지)
 □ D-CHK-5  기능의 전체 처리 경로(입력→처리→출력)에서 중복 실행이나 무시되는 단계가 없는가?
 □ D-CHK-6  이 변경으로 인해 다른 설계 문서에 모순·stale 참조·무효화된 가정이 없는가?
 □ D-CHK-7  교차 참조가 단방향이고, 정본이 명시되어 있으며, 순환 참조가 없는가?
-□ D-CHK-8  동일 문제를 해결하는 경쟁 서비스를 조사하고, 차별화가 유효한지 확인했는가? (D-8)
-□ D-CHK-9  이 설계에서 다루지 않은 항목(미커버 필드, 미고려 시나리오, 미정의 폴백)을 명시적으로 점검했는가? (D-9)
+□ D-CHK-8  동일 문제를 해결하는 경쟁 서비스를 조사하고, 차별화가 유효한지 확인했는가?
+□ D-CHK-9  이 설계에서 다루지 않은 항목(미커버 필드, 미고려 시나리오, 미정의 폴백)을 명시적으로 점검했는가?
 ```
