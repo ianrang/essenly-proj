@@ -64,7 +64,7 @@ MVP 범위: DOM-1 (쇼핑) + DOM-2 (시술). PRD §5.4 기준.
 
 | 관계 | 예상 건수 | 설명 |
 |------|----------|------|
-| product_stores | ~500 | 제품 × 판매 매장 (평균 제품당 2~3 매장) |
+| product_stores | ~500 | 제품 × 판매 매장 (평균 제품당 2~3 매장). 혼합 매핑(유형 기반+개별) 시 ~2,700건. 정본: data-collection.md §6.2 |
 | product_ingredients | ~800 | 제품 × 핵심 성분 (평균 제품당 3~5 성분) |
 | clinic_treatments | ~150 | 클리닉 × 제공 시술 (평균 클리닉당 5 시술) |
 
@@ -91,6 +91,7 @@ data-strategy.md U-6, U-8 결정 기반.
 |----------|----------|------|
 | 관리자 앱 CRUD | 모든 엔티티 | 7.2-ADMIN-REQUIREMENTS.md 기반 |
 | CSV 일괄 업로드 | products, ingredients | 초기 대량 입력 효율화 |
+| 쿠팡 파트너스 API (S7, 활성화 시) | products | 제품 정보 자동 수집 |
 | AI 보강 | description, review_summary | LLM으로 한국어 설명 생성 후 검수 |
 
 ### 2.2.3 AI 보강 단계
@@ -100,6 +101,7 @@ data-strategy.md U-6, U-8 결정 기반.
 | name.en (+ ja, zh, es, fr) | LLM 번역 (P0-14 검증) | 샘플 10% 수동 검수 |
 | description.ko | 제품/시술 특성 기반 설명 생성 | 전수 검수 |
 | review_summary | AI 생성 요약 (U-14 결정) | "AI 기반" 면책 확인 |
+| ingredients (1순위 소스) | 식약처 원료성분(S3) + CosIng(S6) 기반 수집 | 전문가 검수 |
 | ingredients.function | 성분 기능 설명 | 전문가 검수 |
 | ingredients.caution_skin_types | 피부타입별 주의 성분 | 전문가 검수 |
 

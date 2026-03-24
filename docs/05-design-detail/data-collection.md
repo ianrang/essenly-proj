@@ -672,7 +672,7 @@ CLAUDE.md 4계층 DAG에서 `scripts/`는 **DAG 외부의 보조 Composition Roo
 - `server/ → scripts/` : **금지** (역방향)
 - `client/ → scripts/` : **금지** (역방향)
 
-> 향후 CLAUDE.md 반영 권장: P-4a로 `scripts/`를 보조 Composition Root로 명시.
+> CLAUDE.md P-9에 이미 정의됨.
 
 ### `server-only` guard 정책
 
