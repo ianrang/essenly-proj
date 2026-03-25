@@ -40,7 +40,7 @@
 | U-8 | 시드 수집: 카카오 API + A-3 크롤링 + 식약처 API + AI 번역/보강. ~~S7 보류~~ | data-collection.md (정본) |
 | U-14 | 리뷰: AI 생성 요약 ("AI 기반" 면책 표시) | data-strategy.md |
 | P0-14 | LLM 번역 품질: Gemini 6개 언어 4.6/5.0 | cost-estimate.md §5 |
-| P0-35 | 이미지: 브랜드 공식 우선 + placeholder | data-strategy.md |
+| P0-35 | 이미지: **placeholder 기본** (P2-V3 확정). 브랜드 서면 승인 후 전환 | data-collection.md D-14 (정본) |
 
 ---
 
@@ -127,16 +127,17 @@ data-strategy.md U-6, U-8 결정 기반.
 
 ### 2.3.3 이미지
 
-data-strategy.md P0-35 결정 기반.
+> 정본: data-collection.md §4, D-14. P2-V3 검증 완료 (2026-03-26).
 
 | 우선순위 | 소스 | 적용 |
 |---------|------|------|
-| 1 | 브랜드 공식 제품 이미지 | products |
-| 2 | Google Places 사진 (라이선스 내) | stores, clinics |
-| 3 | placeholder 이미지 | 이미지 미확보 엔티티 |
+| 1 | **placeholder (브랜드 색상+텍스트 카드)** | **모든 엔티티 — MVP 기본** |
+| 2 | 브랜드 서면 승인 이미지 (승인 획득 시) | products |
+| 3 | Google Places 사진 (라이선스 내) | stores, clinics |
 
-- MVP 최소: 엔티티당 이미지 1장 (placeholder 허용)
-- 목표: products 80%+, stores/clinics 60%+ 실사 이미지
+- MVP: **전량 placeholder**. A-3 크롤링 시 image_url 수집+DB 저장은 하되 UI 미표시
+- 브랜드 서면 승인 획득 후 순차 이미지 전환
+- ~~목표: products 80%+ 실사 이미지~~ → v0.2 이후
 
 ## 2.4 데이터 어트리뷰션
 
