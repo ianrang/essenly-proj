@@ -678,18 +678,18 @@ products:
   expected_concerns: []
   available_at:
   - olive_young
-- name_ko: 쿤달 허니 & 마카다미아 샴푸
-  name_en: Kundal Honey & Macadamia Nature Shampoo
-  brand: Kundal
+- name_ko: 아모스 프로페셔널 녹차 실감 샴푸
+  name_en: Amos Professional Green Tea Real Fresh Shampoo
+  brand: Amos Professional
   category: haircare
   subcategory: shampoo
-  budget_level: budget
+  budget_level: moderate
   expected_skin_types:
-  - dry
+  - oily
+  - combination
   - normal
-  - sensitive
   expected_concerns:
-  - dryness
+  - pores
   available_at:
   - olive_young
 - name_ko: 모레모 워터 트리트먼트 미라클 10
@@ -990,21 +990,22 @@ products:
   - dryness
   available_at:
   - olive_young
-- name_ko: 일리윤 세라마이드 아토 로션
-  name_en: Illiyoon Ceramide Ato Lotion
-  brand: Illiyoon
+- name_ko: 바닐라코 클린 잇 제로 클렌징 밤
+  name_en: Banila Co Clean It Zero Cleansing Balm
+  brand: Banila Co
   category: bodycare
-  subcategory: body_lotion
+  subcategory: body_wash
   budget_level: moderate
   expected_skin_types:
   - dry
+  - combination
   - sensitive
+  - normal
   expected_concerns:
   - dryness
-  - eczema
-  - redness
   available_at:
   - olive_young
+  - chicor
 - name_ko: 세타필 바디 모이스처라이저
   name_en: Cetaphil Daily Advance Body Moisturizer
   brand: Cetaphil
@@ -1051,19 +1052,19 @@ products:
   - dullness
   available_at:
   - department_store
-- name_ko: 일리윤 세라마이드 아토 컨센트레이트 크림
-  name_en: Illiyoon Ceramide Ato Concentrate Cream
-  brand: Illiyoon
+- name_ko: 아토팜 MLE 바디로션
+  name_en: Atopalm MLE Body Lotion
+  brand: Atopalm
   category: bodycare
-  subcategory: body_cream
+  subcategory: body_lotion
   budget_level: moderate
   expected_skin_types:
   - dry
   - sensitive
+  - normal
   expected_concerns:
   - dryness
   - eczema
-  - redness
   available_at:
   - olive_young
 - name_ko: 더페이스샵 테라피가든 핸드크림
