@@ -72,8 +72,11 @@ export type AgeRange =
 export type LinkType =
   | "naver_map"
   | "kakao_map"
+  | "map"
   | "website"
   | "instagram"
+  | "purchase"
+  | "booking"
   | "naver_booking"
   | "coupang"
   | "amazon"
