@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 60      | 60      | 100%    | ✅      |
-| Phase 2    | 105     | 20      | 19%     | 🔶 진행중 |
+| Phase 2    | 105     | 21      | 20%     | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **250** | **129** | **52%** |        |
+| **MVP 합계** | **250** | **130** | **52%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -317,7 +317,7 @@
 | P2-16  | Product 리포지토리                              | product-repository.ts(4메서드) + query-utils.ts(공통 8유틸). 테스트 22개                                                         | ✅   |
 | P2-16a | Store 리포지토리                                | store-repository.ts(3메서드). matchByVector 없음(RPC 미설계). 테스트 8개                                                           | ✅   |
 | P2-17  | Treatment 리포지토리                            | treatment-repository.ts(4메서드) + 007_fix_match_treatments.sql(RPC 수정). 테스트 10개                                           | ✅   |
-| P2-17a | Clinic 리포지토리                               | 클리닉 데이터 접근. findByFilters/findById/findAll (search-engine.md §2.1, §2.3 Clinics)                                        | ⬜   |
+| P2-17a | Clinic 리포지토리                               | clinic-repository.ts(3메서드). matchByVector 없음(RPC 미설계). 테스트 8개                                                          | ✅   |
 | P2-18  | Knowledge 리포지토리                            | RAG 검색 래핑                                                                                                               | ⬜   |
 | P2-19  | 채팅 서비스                                     | 대화 오케스트레이션. P2-5/6/8/20/21/22 통합                                                                                        | ⬜   |
 | P2-20  | Chat Tool — search_beauty_data             | 도메인 데이터 검색 tool handler. P2-7/12~17a 의존                                                                                 | ⬜   |
