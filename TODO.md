@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 60      | 60      | 100%    | ✅      |
-| Phase 2    | 105     | 21      | 20%     | 🔶 진행중 |
+| Phase 2    | 105     | 22      | 21%     | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **250** | **130** | **52%** |        |
+| **MVP 합계** | **250** | **131** | **52%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -318,7 +318,7 @@
 | P2-16a | Store 리포지토리                                | store-repository.ts(3메서드). matchByVector 없음(RPC 미설계). 테스트 8개                                                           | ✅   |
 | P2-17  | Treatment 리포지토리                            | treatment-repository.ts(4메서드) + 007_fix_match_treatments.sql(RPC 수정). 테스트 10개                                           | ✅   |
 | P2-17a | Clinic 리포지토리                               | clinic-repository.ts(3메서드). matchByVector 없음(RPC 미설계). 테스트 8개                                                          | ✅   |
-| P2-20  | Chat Tool — search_beauty_data             | 도메인 데이터 검색 tool handler. P2-12~17a(beauty+repository) 조합. tool-spec.md §1                                               | ⬜   |
+| P2-20  | Chat Tool — search_beauty_data             | search-handler.ts: domain 분기 + 벡터/SQL 폴백 + beauty 판단 + stores/clinics junction. 테스트 10개                                 | ✅   |
 | P2-21  | Chat Tool — get_external_links             | 외부 링크 조회 tool handler. tool-spec.md §2. P2-20 이후                                                                       | ⬜   |
 | P2-22  | Chat Tool — extract_user_profile (동기 tool) | 대화에서 개인화 변수 추출 (P1-33 확정: 동기 tool). tool-spec.md §3. P2-20 이후                                                          | ⬜   |
 | P2-19  | 채팅 서비스                                     | 대화 오케스트레이션. P2-5/6/8 + P2-20/21/22(3개 tool) 통합. LLM 호출 + 히스토리 관리                                                       | ⬜   |
