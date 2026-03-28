@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 60      | 60      | 100%    | ✅      |
-| Phase 2    | 105     | 34      | 32%     | 🔶 진행중 |
+| Phase 2    | 105     | 36      | 34%     | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **250** | **143** | **57%** |        |
+| **MVP 합계** | **250** | **145** | **58%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -407,8 +407,8 @@
 | ID     | 작업                                           | 상세                                                                                                       | 의존             | 상태  |
 | ------ | -------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- | --- |
 | P2-56a | shared/validation/ zod 스키마 정의                | **완료 (2026-03-28)**. 7엔티티 create/update 스키마 + 관계 3개 + 하이라이트. 공통 패턴(localizedText, statusEnum, pagination). CLAUDE.md §2.4 + security-infra.md §2.1 갱신. 스켈레톤 데이터 열거값 불일치 17건 수정 | P2-V2          | ✅   |
-| P2-56b | scripts/seed/config.ts 파이프라인 환경변수            | KAKAO_API_KEY, MFDS_SERVICE_KEY 등 파이프라인 전용 env. core/config.ts 수정 없음 (P-2)              | P2-V2   | ⬜   |
-| P2-56c | scripts/seed/lib/types.ts 파이프라인 타입           | RawRecord, EnrichedRecord, ValidatedRecord, PipelineResult. shared/types/domain.ts import만               | P2-56a         | ⬜   |
+| P2-56b | scripts/seed/config.ts 파이프라인 환경변수            | **완료 (2026-03-28)**. zod 검증 14개 변수 (파이프라인 전용 4 + DB 3 + AI 5 + App 2). core/config.ts 독립 — ADMIN_JWT_SECRET 등 불필요 변수 미포함. superRefine AI 키 조건부 필수 | P2-V2   | ✅   |
+| P2-56c | scripts/seed/lib/types.ts 파이프라인 타입           | **완료 (2026-03-28)**. EntityType, RawRecord, EnrichedRecord, ValidatedRecord, LoadResult, PipelineResult, PipelineError, PlaceProvider, RawPlace. shared/types import만 | P2-56a         | ✅   |
 | P2-56d | 카카오 로컬 프로바이더 (S1)                            | scripts/seed/lib/providers/kakao-local.ts. P0-33 PoC 계승. PlaceProvider 인터페이스                             | P2-56b, P2-56c | ⬜   |
 | P2-56e | ~~쿠팡 파트너스 프로바이더 (S7)~~ → **보류** | ~~coupang-partners.ts~~. U-12 활성화 불가 (수익 없음) → CSV 폴백 확정. 수익 발생 후 재검토 | P2-V1 | 🔶 보류 |
 | P2-56e2 | **웹 스크래퍼 프로바이더 (Channel A-3)** | scripts/seed/lib/providers/web-scraper.ts. Playwright 헤드리스 브라우저. 브랜드 공식 사이트(1순위) + 올리브영 글로벌(2순위 보조). name_en, brand, price, category, image_url, description 수집. Crawl-delay 5초 준수 | P2-56b, P2-56c, P2-V7 | ⬜   |

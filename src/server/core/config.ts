@@ -43,6 +43,9 @@ const envSchema = z.object({
   RATE_LIMIT_ANON_CREATE_PER_MIN: z.coerce.number().default(3),
   RATE_LIMIT_ADMIN_PER_MIN: z.coerce.number().default(60),
 
+  // Encryption
+  ENCRYPTION_KEY: z.string().length(64),
+
   // Cron
   CRON_SECRET: z.string().min(1),
 

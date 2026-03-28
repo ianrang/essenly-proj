@@ -14,6 +14,7 @@ function stubValidEnv(overrides: Record<string, string> = {}) {
     ADMIN_JWT_SECRET: 'a'.repeat(32),
     GOOGLE_OAUTH_CLIENT_ID: 'test-client-id',
     GOOGLE_OAUTH_CLIENT_SECRET: 'test-client-secret',
+    ENCRYPTION_KEY: 'a'.repeat(64),
     CRON_SECRET: 'test-cron-secret',
     NEXT_PUBLIC_APP_URL: 'http://localhost:3000',
     NODE_ENV: 'test',
