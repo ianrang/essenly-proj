@@ -326,7 +326,7 @@
 | P2-18  | Knowledge 리포지토리                            | 🔶 **v0.2 연기**. 사유: (1) KB 테이블 미설계(schema.dbml 미정의) (2) search_beauty_data에 knowledge 도메인 없음(tool-spec.md §1: shopping/treatment만) (3) MVP KB는 시스템 프롬프트 인라인(embedding-strategy.md §2.4). 선행: KB 테이블 마이그레이션(v0.2) + tool domain 확장 | 🔶   |
 | P2-24  | Chat 히스토리 API                              | GET /api/chat/history: conversation 자동 조회 + loadRecentMessages + tool_calls 제외. 테스트 6개                                   | ✅   |
 | P2-25  | Kit CTA API                                | 008_kit_subscribers migration + core/crypto.ts(AES-256+SHA-256) + POST /api/kit/claim. 테스트 11개                             | ✅   |
-| P2-26  | 행동 로그 서비스 + API                            | 비동기 행동 기록 + POST /api/events 라우트 (api-spec §2.7)                                                                        | ⬜   |
+| P2-26  | 행동 로그 서비스 + API                            | POST /api/events: 4개 이벤트(path_a_entry/card_exposure/card_click/external_link_click) + metadata zod + Q-15. 테스트 7개       | ✅   |
 | P2-26b | 도메인 데이터 공개 읽기 API                          | GET /api/products/:id, /api/treatments/:id, /api/stores/:id, /api/clinics/:id 등 (api-spec §2.2, search-engine §1.1 경로2) | ⬜   |
 | P2-27  | 단위 테스트 — beauty/ 순수 함수                     | judgment, shopping, treatment, derived 테스트                                                                              | ⬜   |
 | P2-28  | 단위 테스트 — zod 스키마 검증                        | API 입력, tool 파라미터 유효/무효 케이스                                                                                             | ⬜   |
