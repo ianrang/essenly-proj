@@ -13,6 +13,7 @@ interface CallOptions {
   messages: unknown[];
   system: string;
   tools: Record<string, unknown>;
+  stopWhen?: unknown;  // AI SDK stopWhen (stepCountIs 등)
 }
 
 /**
