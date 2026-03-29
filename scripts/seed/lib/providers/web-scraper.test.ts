@@ -223,4 +223,31 @@ describe("scrapeProducts", () => {
       expect.any(Object),
     );
   });
+
+  it("optional 필드 미정의 시 data에 미포함", async () => {
+    const minimalConfig: SiteConfig = {
+      name: "minimal",
+      baseUrl: "https://minimal.com",
+      productListUrl: "/products",
+      selectors: {
+        productLink: ".product a",
+        fields: { name: "h1.name" },
+      },
+      source: "scraper-brand",
+    };
+    mockPage.$$eval.mockResolvedValueOnce(["https://minimal.com/p1"]);
+    mockPage.$.mockImplementation(async (selector: string) => {
+      if (selector === "h1.name") return mockTextField("Minimal Serum");
+      return null;
+    });
+
+    const result = await scrapeProducts([minimalConfig]);
+
+    expect(result).toHaveLength(1);
+    expect(result[0].data.name).toBe("Minimal Serum");
+    expect(result[0].data.price).toBeUndefined();
+    expect(result[0].data.category).toBeUndefined();
+    expect(result[0].data.imageUrl).toBeUndefined();
+    expect(result[0].data.description).toBeUndefined();
+  });
 });
