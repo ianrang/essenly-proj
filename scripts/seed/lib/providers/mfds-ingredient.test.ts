@@ -1,8 +1,12 @@
 // @vitest-environment node
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
+const { mockPipelineEnv } = vi.hoisted(() => ({
+  mockPipelineEnv: { MFDS_SERVICE_KEY: "test-service-key" } as Record<string, unknown>,
+}));
+
 vi.mock("../../config", () => ({
-  pipelineEnv: { MFDS_SERVICE_KEY: "test-service-key" },
+  pipelineEnv: mockPipelineEnv,
 }));
 
 vi.mock("../retry", () => ({
@@ -94,6 +98,15 @@ describe("mapItemToRawRecord", () => {
 describe("fetchAllMfdsIngredients", () => {
   beforeEach(() => {
     mockFetchWithRetry.mockReset();
+    mockPipelineEnv.MFDS_SERVICE_KEY = "test-service-key";
+  });
+
+  it("MFDS_SERVICE_KEY 없으면 에러", async () => {
+    mockPipelineEnv.MFDS_SERVICE_KEY = undefined;
+
+    await expect(fetchAllMfdsIngredients()).rejects.toThrow(
+      "MFDS_SERVICE_KEY is not configured",
+    );
   });
 
   it("단일 페이지 — 전체 수집 후 RawRecord[] 반환", async () => {
