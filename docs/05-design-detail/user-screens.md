@@ -223,34 +223,76 @@ PRD §3.9 에러/엣지 케이스별 UI 패턴:
 
 > 와이어프레임: PRD §3.2 참조. 전환 조건: PRD §3.7 참조.
 
+Landing은 **서비스 소개 마케팅 페이지 + 앱 진입점**을 겸한다. 4개 섹션 스크롤 방식.
+
+**레이아웃**: 풀 너비 반응형. 앱 페이지(640px 중앙)와 **별도 레이아웃** 사용.
+- 모바일(기본): 단일 컬럼, 풀 너비
+- 데스크톱(lg:): 풀 너비, 섹션별 max-width 제한(1024px) + 중앙 정렬
+
+**렌더링**: SSG (정적 마케팅 콘텐츠) + CSR (동의/재방문 상태 컴포넌트).
+- 정적 섹션(Hero, HowItWorks, Benefits, Trust): 서버 렌더링
+- 동적 컴포넌트(ConsentBanner, ReturnVisitBanner, CTA 활성/비활성): `"use client"`
+
 ### 3.1 컴포넌트 트리
 
 ```
-app/(user)/[locale]/page.tsx              ← SSG, Composition Root (L-2)
-  └─ LandingPage                          ← features/ (page-level wrapper)
-       ├─ Header                          ← features/layout/
-       ├─ HeroSection                     ← features/layout/ 또는 Landing 전용
-       │    ├─ 로고 + 태그라인
+app/(user)/[locale]/page.tsx              ← SSG, Composition Root (L-2). 풀 너비 레이아웃.
+  └─ LandingPage                          ← features/landing/ (page-level wrapper)
+       ├─ LandingHeader                   ← features/landing/ (풀 너비. 앱 Header와 별도)
+       │    ├─ 로고
+       │    └─ LanguageSelector           ← features/layout/ (공유)
+       ├─ HeroSection                     ← features/landing/
+       │    ├─ 타이틀 + 설명
        │    ├─ PathAButton ("Start with my profile")
        │    └─ PathBButton ("Just ask")
-       ├─ LanguageSelector                ← features/layout/
-       ├─ ReturnVisitBanner (조건부)       ← features/layout/
+       ├─ HowItWorksSection              ← features/landing/
+       │    ├─ Step 1: "Tell us about yourself"
+       │    ├─ Step 2: "Get AI-matched picks"
+       │    └─ Step 3: "Shop & book instantly"
+       ├─ BenefitsSection                 ← features/landing/
+       │    ├─ Matched Products
+       │    ├─ Verified Clinics
+       │    ├─ Map & Booking
+       │    └─ Free K-Beauty Kit
+       ├─ TrustSection                    ← features/landing/
+       │    └─ 카드 형태: 제목 + 설명 + 3항목 (No account / Never shared / Delete anytime)
+       ├─ ReturnVisitBanner (조건부)       ← features/landing/ ("use client")
        │    ├─ "Welcome back" 메시지
        │    ├─ ProfileConfirmButton
        │    └─ JustChatButton
-       └─ ConsentBanner (조건부)           ← features/layout/
+       └─ ConsentBanner (조건부)           ← features/landing/ ("use client")
 ```
 
-### 3.2 상태 매트릭스
+> **CTA 중복 없음**: CTA는 Hero 섹션에만 1회 배치. Trust 섹션은 신뢰 항목만 표시.
+
+> **Hero 배경**: CSS 그래디언트 애니메이션 (--primary-light ↔ --surface-warm). `prefers-reduced-motion` 시 정적 배경.
+
+> **데스크톱 앱 목업**: MVP 미포함. v0.2에서 실제 앱 스크린샷 추가 예정.
+
+> **Kit 혜택**: BenefitsSection에 "Free K-Beauty Starter Kit" 포함. 상세 트리거는 Chat 내 인라인 카드가 유일 (PRD §3.6).
+
+> **언어 선택**: 코드+원어명 병기 (`EN English`, `JA 日本語`, `ZH 中文`, `ES Español`, `FR Français`, `KO 한국어`). 국기 아이콘 미사용 (정치적 리스크 + 언어≠국가).
+
+### 3.2 반응형 레이아웃
+
+| 섹션 | 모바일 (기본) | 데스크톱 (lg:) |
+|------|-------------|---------------|
+| Header | 로고 좌 + Lang 우 | 동일 (max-width 제한) |
+| Hero | 중앙 정렬, 단일 컬럼 | 중앙 정렬, 단일 컬럼 (MVP. v0.2: 좌 텍스트/우 목업 2컬럼) |
+| How it works | 세로 스택 | 3열 가로 배치 |
+| Benefits | 2×2 그리드 | 4열 가로 배치 |
+| Trust + CTA | 세로 스택 | 중앙 정렬 |
+
+### 3.3 상태 매트릭스
 
 | 상태 | 조건 | UI |
 |------|------|-----|
-| **신규 + 동의 전** | 프로필 없음 + 세션 없음 | HeroSection(PathA/PathB 비활성) + ConsentBanner 표시 |
-| **신규 + 동의 후** | 프로필 없음 + 세션 있음 | HeroSection(PathA/PathB 활성) + ConsentBanner 숨김 |
-| **재방문** | 프로필 있음 (세션 자동 복구) | ReturnVisitBanner 표시 + HeroSection 숨김 |
+| **신규 + 동의 전** | 프로필 없음 + 세션 없음 | 전체 섹션 표시. Hero CTA 비활성 + Trust CTA 비활성 + ConsentBanner 표시 |
+| **신규 + 동의 후** | 프로필 없음 + 세션 있음 | 전체 섹션 표시. CTA 활성 + ConsentBanner 숨김 |
+| **재방문** | 프로필 있음 (세션 자동 복구) | ReturnVisitBanner 오버레이 + 전체 섹션 배경에 유지 |
 | **재방문 판별 실패** | 세션 소실 | 신규 + 동의 전 상태로 폴백 |
 
-### 3.3 동의 → 세션 → CTA 활성화 시퀀스
+### 3.4 동의 → 세션 → CTA 활성화 시퀀스
 
 ```
 1. Landing 진입 → 세션 확인 (Supabase SDK 자동 복구)
@@ -264,12 +306,12 @@ app/(user)/[locale]/page.tsx              ← SSG, Composition Root (L-2)
 인증 아키텍처 상세 → auth-matrix.md §1.3 참조.
 재방문 시 세션 복구 → api-spec.md §2.1 `POST /api/auth/anonymous` 비고 참조.
 
-### 3.4 인터랙션 상세
+### 3.5 인터랙션 상세
 
 | 액션 | 결과 |
 |------|------|
-| PathAButton 클릭 | `/[locale]/onboarding` 이동 |
-| PathBButton 클릭 | `/[locale]/chat` 이동 (프로필 없이) |
+| Hero PathAButton 클릭 | `/[locale]/onboarding` 이동 |
+| Hero PathBButton 클릭 | `/[locale]/chat` 이동 (프로필 없이) |
 | ProfileConfirmButton 클릭 (재방문) | `/[locale]/profile` 이동 |
 | JustChatButton 클릭 (재방문) | `/[locale]/chat` 이동 (기존 프로필 적용) |
 | LanguageSelector 변경 | 대화 언어 Context 업데이트. UI 영어 유지 |

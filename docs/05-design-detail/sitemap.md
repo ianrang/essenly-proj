@@ -12,11 +12,13 @@ src/app/
   layout.tsx                         # Root layout (html, body, font)
   (user)/                            # User app group (not in URL)
     [locale]/
-      layout.tsx                     # User layout (i18n provider)
-      page.tsx                       # Landing
-      chat/page.tsx                  # Chat + Cards + Kit CTA (inline + bottom sheet)
-      onboarding/page.tsx            # 4-step onboarding wizard
-      profile/page.tsx               # Profile confirm / edit
+      layout.tsx                     # Locale layout (i18n provider만. 풀 너비)
+      page.tsx                       # Landing (풀 너비 마케팅 레이아웃. 자체 Header)
+      (app)/                         # App route group (not in URL)
+        layout.tsx                   # App layout (640px 중앙 + 공통 Header)
+        chat/page.tsx                # Chat + Cards + Kit CTA (inline + bottom sheet)
+        onboarding/page.tsx          # 4-step onboarding wizard
+        profile/page.tsx             # Profile confirm / edit
       error.tsx                      # Error boundary (Phase 2)
       not-found.tsx                  # 404 (Phase 2)
   (admin)/                           # Admin app group (not in URL)
@@ -64,7 +66,7 @@ src/app/
 
 | URL | Page | Rendering | Description |
 |-----|------|-----------|-------------|
-| `/[locale]` | Landing | SSG | 2-path entry: "Start with profile" / "Just ask". Language selector. Consent banner. Return-visit detection |
+| `/[locale]` | Landing | SSG+CSR | 풀 너비 마케팅 랜딩 (4섹션: Hero+CTA, How it works, Benefits, Trust). 자체 Header. 동의/재방문은 CSR |
 | `/[locale]/onboarding` | Onboarding | CSR | 4-step wizard (Skin&Hair → Concerns → Travel → Interests). Profile transition display |
 | `/[locale]/profile` | Profile | CSR | Profile confirm/edit. DV-1~4 display. "Edit" / "Show my picks" actions |
 | `/[locale]/chat` | Chat + Results | CSR | Chat bubbles + ProductCard/TreatmentCard + 5-domain tabs. Kit CTA = inline card + bottom sheet (no separate URL) |
