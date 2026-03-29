@@ -601,41 +601,44 @@ SDK 갱신 실패 (네트워크 에러, refresh_token 만료 등)
 #### 전달 패턴
 
 ```typescript
-// 채팅 route handler (app/api/chat/route.ts)
-export async function POST(req: Request) {
-  const user = await authenticateUser(req);  // ← user_id 확보 시점
-  const client = createAuthenticatedClient(user.token);
+// 채팅 Hono handler (features/api/routes/chat.ts — Composition Root)
+// 인증·rate limit는 Hono middleware가 처리 (features/api/middleware/)
+app.post('/api/chat', async (c) => {
+  const user = c.get('user')!;  // ← requireAuth middleware에서 설정
+  const client = c.get('client');
 
-  // 동기: RLS 적용 클라이언트로 데이터 조회
-  const conversation = await chatService.getOrCreateConversation(client, user.id, body);
-  const history = await chatService.loadHistory(client, conversation.id);
+  // cross-domain 데이터 조회 (L-3, P-4)
+  const [profile, journey] = await Promise.all([
+    getProfile(client, user.id).catch(() => null),
+    getActiveJourney(client, user.id).catch(() => null),
+  ]);
 
-  // 스트리밍 응답 시작
-  const stream = await chatService.streamChat({
-    userId: user.id,    // ← 비동기 작업에 전달할 user_id
-    conversationId: conversation.id,
-    history,
-    message: body.message,
+  const result = await streamChat({
+    client, userId: user.id, profile, journey, ...
   });
 
-  return stream.toUIMessageStreamResponse();
-}
+  // 비동기 후처리 (Q-15: 격리)
+  void afterWork();
+
+  return result.stream.toUIMessageStreamResponse();  // SSE raw Response 반환
+});
 ```
 
 ```typescript
-// 비동기 후처리 (chatService 내부 또는 onFinish 콜백)
-async function onStreamFinish(params: {
-  userId: string;       // route에서 전달받은 user_id (TypeScript 필수 파라미터)
-  conversationId: string;
-  messages: Message[];
-}) {
-  const serviceClient = createServiceClient();  // RLS 우회
+// 비동기 후처리 (Hono handler 내부 afterWork 함수)
+const afterWork = async () => {
+  try {
+    const serviceClient = createServiceClient();  // RLS 우회, 토큰 만료 대비
 
-  // 모든 DB 작업에 userId 명시 전달
-  await messageRepository.saveMessages(serviceClient, params.conversationId, params.messages);
-  await behaviorLogRepository.recordEvents(serviceClient, params.userId, extractEvents(params.messages));
-  await preferenceRepository.updateFromConversation(serviceClient, params.userId, params.messages);
-}
+    // TODO(P2-24): 히스토리 저장
+    // TODO(P2-26): 행동 로그
+
+    // 추출 결과 조건부 저장 (프로필 존재 시만)
+    if (result.extractionResults.length > 0 && profile) { ... }
+  } catch (error) {
+    console.error('[chat/after] failed', String(error));  // Q-15: 실패해도 응답 무영향
+  }
+};
 ```
 
 #### 핵심 제약

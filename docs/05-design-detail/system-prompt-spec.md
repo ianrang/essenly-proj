@@ -140,7 +140,7 @@ function buildSystemPrompt(context: SystemPromptContext): string {
 ## 호출 경로 (P-4 Composition Root)
 
 ```
-app/api/chat/route.ts (Composition Root)
+features/api/routes/chat.ts (Hono handler, Composition Root)
   ├── profileService.getProfile(userId)     → UserProfile | null
   ├── journeyService.getActiveJourney(userId) → Journey | null
   ├── beauty/derived.calculateDV(profile, journey) → DerivedVars | null

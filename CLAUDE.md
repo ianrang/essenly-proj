@@ -5,7 +5,7 @@
 ## 프로젝트
 
 - 앱: K-뷰티 AI 의사결정 보조 웹 앱 (외국인 2040 여성 여행객 대상)
-- 스택: Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS 4 · Supabase · Vercel AI SDK 6.x
+- 스택: Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 · Supabase · Vercel AI SDK 6.x · Hono + @hono/zod-openapi (API 레이어 + OpenAPI 자동 문서화)
 - 상태 관리: useChat + react-hook-form + React Context (Zustand/Redux 금지)
 - 별칭: `@/server`, `@/client`, `@/shared`
 - 설계 문서: `docs/03-design/PRD.md`(WHAT) · `docs/03-design/TDD.md`(HOW) · `docs/03-design/schema.dbml`(DB 정본)
@@ -136,9 +136,18 @@ types/      → validation/  ✗ (역방향 금지)
 
 | ID | 규칙 |
 |----|------|
-| L-1 | API route는 thin: 입력 검증 → cross-domain 데이터 조회 → service 호출(파라미터 전달) → 응답 반환 |
+| L-1 | API handler는 thin: 입력 검증(zod) → cross-domain 데이터 조회 → service 호출(파라미터 전달) → 응답 반환. 인증·rate limit는 Hono middleware가 처리 |
 | L-2 | page.tsx는 조합만: features/ 컴포넌트 배치. 직접 로직 금지 |
-| L-3 | cross-domain 데이터는 여기서 조회하여 service에 파라미터로 전달. service가 타 도메인을 직접 호출하지 않는다 |
+| L-3 | cross-domain 데이터는 Hono handler(Composition Root)에서 조회하여 service에 파라미터로 전달. service가 타 도메인을 직접 호출하지 않는다 |
+
+### server/features/api/ (API 레이어 — Hono)
+
+| ID | 규칙 |
+|----|------|
+| L-20 | API 정의는 `features/api/routes/`에 배치. `createRoute()` + `app.openapi()` 패턴. SSE 스트리밍은 `app.post()` 사용 |
+| L-21 | `features/api/routes/*.ts`는 Composition Root 역할 (P-4). 타 도메인 service import 허용 (R-9 미적용). cross-domain 데이터 조합 수행 |
+| L-22 | `features/api/middleware/`는 cross-cutting concerns(인증, rate limit) 추출. core/ 함수를 래핑만 — 비즈니스 로직 금지 |
+| L-23 | API 추가/수정 = `features/api/routes/` 1파일 수정. OpenAPI 문서 자동 반영. 별도 문서 수동 갱신 불필요 (P-7) |
 
 ### server/core/ (시스템 인프라)
 
@@ -315,6 +324,7 @@ types/      → validation/  ✗ (역방향 금지)
 □ V-23 설계 교차 검증: "미존재/불일치" 발견 시, 관련 설계 문서(schema.dbml, api-spec, migration, data-privacy 등)를 끝까지 추적하여 migration 예고·v0.2 명시·규칙 결정 여부를 확인했는가? 설계가 정한 사항을 이슈로 재분류하지 않았는가?
 □ V-24 수정 영향 분석: 기존 코드 수정 시, (1) 관련 설계 문서와 설계 의도 일치를 확인했는가? (2) 수정 대상을 호출/참조하는 모든 비즈니스 코드를 추적하여 수정 범위를 정확히 파악했는가? (3) 논리적 결함·규칙 위반·비즈니스 로직 충돌이 없는가? 문제 발견 시 수정을 중단하고 사용자와 논의했는가?
 □ V-25 정본 확인: 참조한 설계 문서가 해당 주제의 정본(schema.dbml > PRD > TDD > design-detail > plans)인가? 레거시·아카이브·PoC 초안을 현행 설계로 취급하지 않았는가? 상위 정본과 하위 문서 간 충돌이 없는가?
+□ V-26 API 레이어: features/api/routes/ 파일이 Composition Root 역할을 수행하는가 (L-21)? createRoute 정의가 스키마+handler+문서를 통합하는가 (L-23)?
 ```
 
 ---

@@ -827,19 +827,24 @@ Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
 
 # 부록: 구현 파일 매핑
 
-| API 그룹 | Route 위치 | Service | Repository |
-|---------|-----------|---------|------------|
-| auth | `app/api/auth/anonymous/route.ts` | features/auth/service.ts | - |
-| profile | `app/api/profile/route.ts` | features/profile/service.ts | - (직접 DB) |
-| journey | `app/api/journey/route.ts` | features/journey/service.ts | - |
-| chat | `app/api/chat/route.ts` | features/chat/service.ts | repositories/* |
-| products | `app/api/products/route.ts` | - (repository 직접) | repositories/product-repository.ts |
-| admin CRUD | `app/api/admin/{entity}/route.ts` | features/admin/service.ts (제네릭) | repositories/* |
-| admin auth | `app/api/admin/auth/*/route.ts` | features/admin/auth-service.ts | - |
-| audit logs | `app/api/admin/audit-logs/route.ts` | features/admin/audit-service.ts | - |
-| kit | `app/api/kit/route.ts` | features/kit/service.ts | - |
+> API 레이어는 Hono + @hono/zod-openapi로 구현. 엔트리포인트: `app/api/[[...route]]/route.ts`.
+> 자동 문서화: `GET /api/docs` (Swagger UI), `GET /api/docs/openapi.json`.
 
-> `core/`: auth.ts, admin-auth.ts, rate-limit.ts, db.ts, config.ts — 비즈니스 무관.
+| API 그룹 | Route 정의 | Service | Repository |
+|---------|-----------|---------|------------|
+| auth | `features/api/routes/auth.ts` | features/auth/service.ts | - |
+| profile | `features/api/routes/profile.ts` | features/profile/service.ts + features/journey/service.ts | - |
+| chat | `features/api/routes/chat.ts` | features/chat/service.ts | repositories/* |
+| kit | `features/api/routes/kit.ts` | - (직접 DB + core/crypto) | - |
+| events | `features/api/routes/events.ts` | - (직접 DB) | - |
+| products | `features/api/routes/products.ts` | - | repositories/product-repository.ts |
+| treatments | `features/api/routes/treatments.ts` | - | repositories/treatment-repository.ts |
+| stores | `features/api/routes/stores.ts` | - | repositories/store-repository.ts |
+| clinics | `features/api/routes/clinics.ts` | - | repositories/clinic-repository.ts |
+| admin CRUD | `features/api/routes/admin.ts` (P2-46) | features/admin/service.ts | repositories/* |
+
+> `core/`: auth.ts, admin-auth.ts, rate-limit.ts, db.ts, config.ts, crypto.ts, memory.ts, knowledge.ts — 비즈니스 무관.
+> `features/api/middleware/`: auth.ts(인증), rate-limit.ts(속도 제한) — core/ 래핑, 비즈니스 로직 없음.
 
 ---
 
