@@ -10,22 +10,22 @@ function createTreatment(
   return {
     name: { en: 'Test Treatment' },
     description: null,
-    clinic_id: null,
     category: null,
     subcategory: null,
     target_concerns: [],
-    skin_types: [],
+    suitable_skin_types: [],
     downtime_days: null,
     price_min: null,
     price_max: null,
+    price_currency: 'KRW',
     duration_minutes: null,
-    anesthesia: null,
-    sessions_recommended: null,
+    session_count: null,
+    precautions: null,
+    aftercare: null,
     is_highlighted: false,
     highlight_badge: null,
     rating: null,
     review_count: 0,
-    review_summary: null,
     images: [],
     tags: [],
     status: 'active',
@@ -195,5 +195,19 @@ describe('treatment/scoreTreatments', () => {
     const result = scoreTreatments(treatments, null, null, TODAY);
     expect(result).toHaveLength(1);
     expect(result[0].score).toBe(0.5);
+  });
+
+  it('calculateRemainingDays: endDate가 stayDays보다 우선', async () => {
+    const { scoreTreatments } = await import(
+      '@/server/features/beauty/treatment'
+    );
+
+    // endDate 2026-04-04 → 3일 남음. stayDays 10 (무시됨).
+    // downtime 4 > 3 → excluded (endDate 우선이면 excluded, stayDays 우선이면 safe)
+    const treatments = [
+      createTreatment({ id: 't1', downtime_days: 4 }),
+    ];
+    const result = scoreTreatments(treatments, '2026-04-04', 10, TODAY);
+    expect(result).toHaveLength(0); // endDate 기준으로 excluded
   });
 });
