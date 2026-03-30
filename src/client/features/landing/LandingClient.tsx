@@ -63,7 +63,7 @@ export default function LandingClient({ locale }: LandingClientProps) {
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <LandingHeader />
-      <main className={`flex-1 ${state === "new" ? "pb-16" : ""}`}>
+      <main className={`flex-1 ${state === "new" ? "pb-12" : ""}`}>
         <HeroSection ctaEnabled={ctaEnabled} locale={locale} />
         <HowItWorksSection />
         <BenefitsSection />
