@@ -35,12 +35,12 @@ export default function HeroSection({ ctaEnabled, locale }: HeroSectionProps) {
             asChild={ctaEnabled}
           >
             {ctaEnabled ? (
-              <Link href={`/${locale}/onboarding`}>
+              <Link href={`/${locale}/onboarding`} className="flex flex-col items-center">
                 <span className="text-[15px] font-semibold">{t("pathA")}</span>
                 <span className="text-xs opacity-70">{t("pathADescription")}</span>
               </Link>
             ) : (
-              <span>
+              <span className="flex flex-col items-center">
                 <span className="text-[15px] font-semibold">{t("pathA")}</span>
                 <span className="text-xs opacity-70">{t("pathADescription")}</span>
               </span>
@@ -49,17 +49,17 @@ export default function HeroSection({ ctaEnabled, locale }: HeroSectionProps) {
           <Button
             variant="outline"
             size="lg"
-            className="min-h-12 flex-1 flex-col"
+            className="min-h-12 flex-1"
             disabled={!ctaEnabled}
             asChild={ctaEnabled}
           >
             {ctaEnabled ? (
-              <Link href={`/${locale}/chat`}>
+              <Link href={`/${locale}/chat`} className="flex flex-col items-center">
                 <span className="text-[15px] font-semibold">{t("pathB")}</span>
                 <span className="text-xs opacity-70">{t("pathBDescription")}</span>
               </Link>
             ) : (
-              <span>
+              <span className="flex flex-col items-center">
                 <span className="text-[15px] font-semibold">{t("pathB")}</span>
                 <span className="text-xs opacity-70">{t("pathBDescription")}</span>
               </span>

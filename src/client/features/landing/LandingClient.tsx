@@ -27,10 +27,10 @@ export default function LandingClient({ locale }: LandingClientProps) {
         const res = await fetch("/api/profile", { credentials: "include" });
         if (res.ok) {
           setState("returning");
-        } else if (res.status === 401) {
-          setState("new");
-        } else {
+        } else if (res.status === 404) {
           setState("consented");
+        } else {
+          setState("new");
         }
       } catch {
         setState("new");
