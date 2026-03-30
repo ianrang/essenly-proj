@@ -1,7 +1,7 @@
 import 'server-only';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { UserProfile, Journey, LearnedPreference, DerivedVariables } from '@/shared/types/profile';
-import { zodSchema, stepCountIs } from 'ai';
+import { tool, stepCountIs } from 'ai';
 import { z } from 'zod';
 import { callWithFallback } from './llm-client';
 import { buildSystemPrompt } from './prompts';
@@ -180,36 +180,30 @@ function buildTools(
   searchContext: SearchToolContext,
   linksContext: LinksToolContext,
   extractionResults: ExtractionResult[],
-): Record<string, { description: string; inputSchema: unknown; execute: (args: unknown) => Promise<unknown> }> {
+) {
   return {
-    search_beauty_data: {
+    search_beauty_data: tool({
       description: 'Search K-beauty products or treatments matching user criteria. Returns recommendation cards.',
-      inputSchema: zodSchema(searchBeautyDataSchema),
-      execute: async (args: unknown) =>
-        executeSearchBeautyData(
-          args as Parameters<typeof executeSearchBeautyData>[0],
-          searchContext,
-        ),
-    },
-    get_external_links: {
+      inputSchema: searchBeautyDataSchema,
+      execute: async (args) =>
+        executeSearchBeautyData(args, searchContext),
+    }),
+    get_external_links: tool({
       description: 'Get purchase, booking, or map links for a product, store, clinic, or treatment.',
-      inputSchema: zodSchema(getExternalLinksSchema),
-      execute: async (args: unknown) =>
-        executeGetExternalLinks(
-          args as Parameters<typeof executeGetExternalLinks>[0],
-          linksContext,
-        ),
-    },
-    extract_user_profile: {
+      inputSchema: getExternalLinksSchema,
+      execute: async (args) =>
+        executeGetExternalLinks(args, linksContext),
+    }),
+    extract_user_profile: tool({
       description: 'Extract beauty profile info mentioned by user. Call when user mentions skin type, concerns, budget, travel plans.',
-      inputSchema: zodSchema(extractUserProfileSchema),
-      execute: async (args: unknown) => {
+      inputSchema: extractUserProfileSchema,
+      execute: async (args) => {
         const result = await executeExtractUserProfile(args);
         if (!('status' in result)) {
           extractionResults.push(result);
         }
         return result;
       },
-    },
+    }),
   };
 }

@@ -3,7 +3,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 vi.mock('server-only', () => ({}));
 
 vi.mock('ai', () => ({
-  zodSchema: vi.fn((s: unknown) => s),
+  tool: vi.fn((config: unknown) => config),
   stepCountIs: vi.fn((n: number) => n),
 }));
 
