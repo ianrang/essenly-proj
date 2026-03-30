@@ -33,7 +33,7 @@ describe('embedQuery', () => {
     expect(mockEmbed).toHaveBeenCalledWith({
       model: fakeModel,
       value: 'test query',
-      experimental_providerMetadata: {
+      providerOptions: {
         google: { taskType: 'RETRIEVAL_QUERY' },
       },
     });
@@ -65,7 +65,7 @@ describe('embedDocument', () => {
     expect(mockEmbed).toHaveBeenCalledWith({
       model: fakeModel,
       value: 'test document',
-      experimental_providerMetadata: {
+      providerOptions: {
         google: { taskType: 'RETRIEVAL_DOCUMENT' },
       },
     });
