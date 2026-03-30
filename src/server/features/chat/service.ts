@@ -175,7 +175,7 @@ const getExternalLinksSchema = z.object({
   entity_type: z.enum(['product', 'store', 'clinic', 'treatment']).describe('Type of entity'),
 });
 
-/** 3개 tool 등록. AI SDK zodSchema + execute 패턴 (PoC tools.ts 계승). */
+/** 3개 tool 등록. AI SDK tool() 헬퍼 패턴. */
 function buildTools(
   searchContext: SearchToolContext,
   linksContext: LinksToolContext,
