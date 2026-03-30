@@ -7,6 +7,8 @@
 // P-10: poc/ 삭제 시 빌드 에러 0건.
 // ============================================================
 
+// CLI 실행: npx tsx --env-file=.env.local scripts/seed/poc/classify-accuracy.ts
+
 import { readFileSync } from "node:fs";
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -80,11 +82,11 @@ export interface PocResult {
 
 const DEFAULT_SIMILARITY_THRESHOLD = 0.5;
 const DEFAULT_PASS_THRESHOLD = 0.8;
-const M1_YAML_PATH = join(
-  import.meta.dirname,
-  "../data/m1-skeleton.yaml",
-);
-const RESULTS_DIR = join(import.meta.dirname, "../data");
+const SCRIPT_DIR = typeof __dirname !== "undefined"
+  ? __dirname
+  : new URL(".", import.meta.url).pathname;
+const M1_YAML_PATH = join(SCRIPT_DIR, "../data/m1-skeleton.yaml");
+const RESULTS_DIR = join(SCRIPT_DIR, "../data");
 
 // ── 비교 로직 (순수 함수 — 테스트 가능) ─────────────────────
 
