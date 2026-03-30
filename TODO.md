@@ -341,7 +341,7 @@
 | P2-29 | 공통 레이아웃 + locale 레이아웃     | shadcn/ui 초기화(18컴포넌트) + cn.ts + viewport 메타태그 + safe-area + touch-action + Sonner Toaster. globals.css 모바일 호환성 | —         | ✅   |
 | P2-30 | 에러 바운더리 + 에러 화면           | error.tsx (role="alert" + 포커스 이동 + reset), not-found.tsx (404). i18n. Full-page 에러만 | —         | ✅   |
 | P2-31 | Header + LanguageSelector | 공유 앱 Header(props 기반 좌측 컨텍스트) + shadcn Select LanguageSelector + LanguageContext(대화 언어) | P2-29     | ✅   |
-| P2-32 | Landing 페이지               | 풀 너비 마케팅 랜딩 (4섹션: Hero+CTA, HowItWorks, Benefits, Trust+FinalCTA) + ConsentBanner + ReturnVisitBanner. 자체 LandingHeader. (app)/ 라우트 그룹 분리 | P2-29     | ⬜   |
+| P2-32 | Landing 페이지               | 풀 너비 마케팅 랜딩 8컴포넌트 + (app)/ 라우트 그룹 분리 + ConsentBanner(세션) + ReturnVisitBanner(프로필) + 그래디언트 애니메이션 | P2-29     | ✅   |
 | P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | Step 1~4 (피부/헤어, 고민, 여행, 관심). react-hook-form                          | P2-29     | ⬜   |
 | P2-34 | 프로필 전환/확인 화면              | 로딩 애니메이션, 프로필 카드                                                       | P2-29     | ⬜   |
 | P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조. 조건부 렌더링                                                | P2-29     | ⬜   |
