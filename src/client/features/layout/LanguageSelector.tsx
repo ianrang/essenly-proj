@@ -9,13 +9,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/client/ui/primitives/select";
-import {
-  useLanguage,
-  CONVERSATION_LANGUAGES,
-  type ConversationLanguage,
-} from "@/client/features/contexts/LanguageContext";
+import { useLanguage } from "@/client/features/contexts/LanguageContext";
+import { SUPPORTED_LANGUAGES } from "@/shared/constants/beauty";
+import type { SupportedLanguage } from "@/shared/types/domain";
 
-const LANGUAGE_LABELS: Record<ConversationLanguage, string> = {
+const LANGUAGE_LABELS: Record<SupportedLanguage, string> = {
   en: "English",
   ja: "日本語",
   zh: "中文",
@@ -30,7 +28,7 @@ export default function LanguageSelector() {
   return (
     <Select
       value={language}
-      onValueChange={(val) => setLanguage(val as ConversationLanguage)}
+      onValueChange={(val) => setLanguage(val as SupportedLanguage)}
     >
       <SelectTrigger className="h-9 min-w-[120px] gap-1.5 text-xs">
         <SelectValue>
@@ -39,7 +37,7 @@ export default function LanguageSelector() {
         </SelectValue>
       </SelectTrigger>
       <SelectContent>
-        {CONVERSATION_LANGUAGES.map((code) => (
+        {SUPPORTED_LANGUAGES.map((code) => (
           <SelectItem key={code} value={code}>
             <span className="font-semibold">{code.toUpperCase()}</span>{" "}
             {LANGUAGE_LABELS[code]}

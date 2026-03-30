@@ -3,19 +3,17 @@
 import "client-only";
 
 import { createContext, useContext, useState, type ReactNode } from "react";
-
-const CONVERSATION_LANGUAGES = ["en", "ja", "zh", "es", "fr", "ko"] as const;
-type ConversationLanguage = (typeof CONVERSATION_LANGUAGES)[number];
+import type { SupportedLanguage } from "@/shared/types/domain";
 
 type LanguageContextValue = {
-  language: ConversationLanguage;
-  setLanguage: (lang: ConversationLanguage) => void;
+  language: SupportedLanguage;
+  setLanguage: (lang: SupportedLanguage) => void;
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<ConversationLanguage>("en");
+  const [language, setLanguage] = useState<SupportedLanguage>("en");
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
@@ -31,5 +29,3 @@ export function useLanguage() {
   }
   return context;
 }
-
-export { CONVERSATION_LANGUAGES, type ConversationLanguage };
