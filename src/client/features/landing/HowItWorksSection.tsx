@@ -1,3 +1,7 @@
+"use client";
+
+import "client-only";
+
 import { useTranslations } from "next-intl";
 
 const STEPS = [1, 2, 3] as const;

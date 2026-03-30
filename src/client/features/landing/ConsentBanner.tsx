@@ -20,10 +20,10 @@ export default function ConsentBanner({ onConsent, isLoading }: ConsentBannerPro
           {t("description")}
         </p>
         <div className="flex shrink-0 gap-2">
-          <Button size="sm" onClick={onConsent} disabled={isLoading}>
+          <Button size="sm" className="min-h-11 px-4" onClick={onConsent} disabled={isLoading}>
             {t("accept")}
           </Button>
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" size="sm" className="min-h-11 px-4" asChild>
             <a href="/terms">{t("learnMore")}</a>
           </Button>
         </div>

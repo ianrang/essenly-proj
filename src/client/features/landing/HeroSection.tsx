@@ -1,3 +1,7 @@
+"use client";
+
+import "client-only";
+
 import { useTranslations } from "next-intl";
 import { Button } from "@/client/ui/primitives/button";
 import Link from "next/link";
