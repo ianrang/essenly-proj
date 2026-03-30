@@ -186,19 +186,25 @@ function buildTools(
       description: 'Search K-beauty products or treatments matching user criteria. Returns recommendation cards.',
       inputSchema: searchBeautyDataSchema,
       execute: async (args) =>
-        executeSearchBeautyData(args, searchContext),
+        executeSearchBeautyData(
+          args as unknown as Parameters<typeof executeSearchBeautyData>[0],
+          searchContext,
+        ),
     }),
     get_external_links: tool({
       description: 'Get purchase, booking, or map links for a product, store, clinic, or treatment.',
       inputSchema: getExternalLinksSchema,
       execute: async (args) =>
-        executeGetExternalLinks(args, linksContext),
+        executeGetExternalLinks(
+          args as unknown as Parameters<typeof executeGetExternalLinks>[0],
+          linksContext,
+        ),
     }),
     extract_user_profile: tool({
       description: 'Extract beauty profile info mentioned by user. Call when user mentions skin type, concerns, budget, travel plans.',
       inputSchema: extractUserProfileSchema,
       execute: async (args) => {
-        const result = await executeExtractUserProfile(args);
+        const result = await executeExtractUserProfile(args as unknown as Parameters<typeof executeExtractUserProfile>[0]);
         if (!('status' in result)) {
           extractionResults.push(result);
         }
