@@ -1,0 +1,362 @@
+// @vitest-environment node
+import { describe, it, expect, vi, beforeEach } from "vitest";
+
+// ── Config mock ────────────────────────────────────────────
+
+vi.mock("../config", () => ({
+  pipelineEnv: { AI_PROVIDER: "google", NODE_ENV: "test" },
+}));
+
+// ── fs mock ────────────────────────────────────────────────
+
+const { mockWriteFileSync } = vi.hoisted(() => ({
+  mockWriteFileSync: vi.fn(),
+}));
+
+vi.mock("node:fs", () => ({
+  writeFileSync: mockWriteFileSync,
+  readFileSync: vi.fn(),
+}));
+
+// ── AI module mocks ────────────────────────────────────────
+
+const { mockTranslateFields } = vi.hoisted(() => ({
+  mockTranslateFields: vi.fn(),
+}));
+
+vi.mock("./enrichment/translator", async (importOriginal) => {
+  const actual = await importOriginal<Record<string, unknown>>();
+  return { ...actual, translateFields: mockTranslateFields };
+});
+
+const { mockClassifyFields } = vi.hoisted(() => ({
+  mockClassifyFields: vi.fn(),
+}));
+
+vi.mock("./enrichment/classifier", async (importOriginal) => {
+  const actual = await importOriginal<Record<string, unknown>>();
+  return { ...actual, classifyFields: mockClassifyFields };
+});
+
+const { mockGenerateDescriptions } = vi.hoisted(() => ({
+  mockGenerateDescriptions: vi.fn(),
+}));
+
+vi.mock("./enrichment/description-generator", async (importOriginal) => {
+  const actual = await importOriginal<Record<string, unknown>>();
+  return { ...actual, generateDescriptions: mockGenerateDescriptions };
+});
+
+// ── id-generator mock ──────────────────────────────────────
+
+const { mockGenerateEntityId } = vi.hoisted(() => ({
+  mockGenerateEntityId: vi.fn().mockReturnValue("mock-uuid-v5"),
+}));
+
+vi.mock("./id-generator", () => ({
+  generateEntityId: mockGenerateEntityId,
+}));
+
+// ── ai-client mock (translator/classifier/generator 내부 의존) ──
+
+vi.mock("./enrichment/ai-client", () => ({
+  getPipelineModel: vi.fn(),
+}));
+
+vi.mock("ai", () => ({ generateText: vi.fn() }));
+vi.mock("@ai-sdk/anthropic", () => ({ anthropic: vi.fn() }));
+vi.mock("@ai-sdk/google", () => ({ google: vi.fn() }));
+
+// ── imports ────────────────────────────────────────────────
+
+import { enrichRecords } from "./enrich-service";
+import type { RawRecord } from "./types";
+
+// ── 헬퍼 ──────────────────────────────────────────────────
+
+function makeRecord(
+  entityType: string,
+  data: Record<string, unknown> = {},
+): RawRecord {
+  return {
+    source: "csv",
+    sourceId: `test-${entityType}`,
+    entityType: entityType as RawRecord["entityType"],
+    data: { name_ko: "테스트", ...data },
+    fetchedAt: new Date().toISOString(),
+  };
+}
+
+function mockTranslateSuccess() {
+  mockTranslateFields.mockResolvedValue({
+    translated: { name: { ko: "테스트", en: "Test", ja: "テスト", zh: "测试", es: "Prueba", fr: "Test" } },
+    translatedFields: ["name"],
+  });
+}
+
+function mockClassifySuccess() {
+  mockClassifyFields.mockResolvedValue({
+    classified: {
+      skin_types: { values: ["dry", "normal"], confidence: 0.85 },
+      concerns: { values: ["dryness"], confidence: 0.78 },
+    },
+    classifiedFields: ["skin_types", "concerns"],
+  });
+}
+
+function mockGenerateSuccess() {
+  mockGenerateDescriptions.mockResolvedValue({
+    generated: {
+      description: { ko: "제품 설명", en: "Product description" },
+      review_summary: { ko: "리뷰 요약", en: "Review summary" },
+    },
+    generatedFields: ["description", "review_summary"],
+  });
+}
+
+// ── enrichRecords ──────────────────────────────────────────
+
+describe("enrichRecords", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockGenerateEntityId.mockReturnValue("mock-uuid-v5");
+    mockTranslateFields.mockResolvedValue({ translated: {}, translatedFields: [] });
+    mockClassifyFields.mockResolvedValue({ classified: {}, classifiedFields: [] });
+    mockGenerateDescriptions.mockResolvedValue({ generated: {}, generatedFields: [] });
+  });
+
+  // ── product 전체 보강 ──
+
+  it("product: 번역 + 분류(confidence) + 생성 + 재번역", async () => {
+    mockTranslateSuccess();
+    mockClassifySuccess();
+    mockGenerateSuccess();
+
+    const records = [makeRecord("product", {
+      name_ko: "그린티 세럼",
+      description_ko: "수분 세럼",
+      category: "skincare",
+    })];
+
+    const { records: enriched } = await enrichRecords(records, { logDir: "/tmp" });
+
+    expect(enriched).toHaveLength(1);
+
+    // UUID 생성
+    expect(mockGenerateEntityId).toHaveBeenCalledWith("product", "csv", "test-product");
+    expect(enriched[0].data.id).toBe("mock-uuid-v5");
+
+    // 번역 호출
+    expect(mockTranslateFields).toHaveBeenCalled();
+
+    // 분류 호출 + confidence
+    expect(mockClassifyFields).toHaveBeenCalled();
+    expect(enriched[0].enrichments.confidence.skin_types).toBe(0.85);
+    expect(enriched[0].enrichments.confidence.concerns).toBe(0.78);
+
+    // 생성 호출
+    expect(mockGenerateDescriptions).toHaveBeenCalled();
+
+    // 재번역 호출 (생성된 en → ja/zh/es/fr)
+    expect(mockTranslateFields).toHaveBeenCalledTimes(2); // 1회 기본 + 1회 재번역
+  });
+
+  // ── doctor 최소 보강 ──
+
+  it("doctor: 번역만 (분류/생성 없음)", async () => {
+    mockTranslateSuccess();
+
+    const records = [makeRecord("doctor", { name_ko: "김의사" })];
+    const { records: enriched } = await enrichRecords(records, { logDir: "/tmp" });
+
+    expect(enriched).toHaveLength(1);
+    expect(mockTranslateFields).toHaveBeenCalledTimes(1);
+    expect(mockClassifyFields).not.toHaveBeenCalled();
+    expect(mockGenerateDescriptions).not.toHaveBeenCalled();
+    expect(enriched[0].enrichments.classifiedFields).toHaveLength(0);
+  });
+
+  // ── ingredient 보강 ──
+
+  it("ingredient: 번역 + caution_skin_types 분류", async () => {
+    mockTranslateFields.mockResolvedValue({
+      translated: { name: { ko: "나이아신아마이드", en: "Niacinamide" } },
+      translatedFields: ["name"],
+    });
+    mockClassifyFields.mockResolvedValue({
+      classified: { caution_skin_types: { values: ["sensitive"], confidence: 0.72 } },
+      classifiedFields: ["caution_skin_types"],
+    });
+
+    const records = [makeRecord("ingredient", { INGR_KOR_NAME: "나이아신아마이드" })];
+    const { records: enriched } = await enrichRecords(records, { logDir: "/tmp" });
+
+    expect(enriched[0].enrichments.classifiedFields).toContain("caution_skin_types");
+    expect(enriched[0].enrichments.confidence.caution_skin_types).toBe(0.72);
+    expect(mockGenerateDescriptions).not.toHaveBeenCalled();
+  });
+
+  // ── treatment 보강 ──
+
+  it("treatment: 번역 + target_concerns/suitable_skin_types + description", async () => {
+    mockTranslateSuccess();
+    mockClassifyFields.mockResolvedValue({
+      classified: {
+        suitable_skin_types: { values: ["dry"], confidence: 0.9 },
+        target_concerns: { values: ["wrinkles"], confidence: 0.88 },
+      },
+      classifiedFields: ["suitable_skin_types", "target_concerns"],
+    });
+    mockGenerateDescriptions.mockResolvedValue({
+      generated: { description: { ko: "시술 설명", en: "Treatment desc" } },
+      generatedFields: ["description"],
+    });
+
+    const records = [makeRecord("treatment", { name_ko: "보톡스" })];
+    const { records: enriched } = await enrichRecords(records, { logDir: "/tmp" });
+
+    expect(enriched[0].enrichments.classifiedFields).toContain("target_concerns");
+    expect(enriched[0].enrichments.confidence.suitable_skin_types).toBe(0.9);
+  });
+
+  // ── 건별 try-catch ──
+
+  it("3건 중 2번째 에러 → 1,3번째 성공 + PipelineError 1건", async () => {
+    mockTranslateSuccess();
+
+    let callCount = 0;
+    mockTranslateFields.mockImplementation(async () => {
+      callCount++;
+      if (callCount === 2) throw new Error("AI timeout");
+      return { translated: { name: { ko: "ok", en: "ok" } }, translatedFields: ["name"] };
+    });
+
+    const records = [
+      makeRecord("brand", { name_ko: "A" }),
+      makeRecord("brand", { name_ko: "B" }),
+      makeRecord("brand", { name_ko: "C" }),
+    ];
+
+    const { records: enriched, result } = await enrichRecords(records, { logDir: "/tmp" });
+
+    expect(enriched).toHaveLength(2);
+    expect(result.failed).toBe(1);
+    expect(result.errors[0].message).toContain("AI timeout");
+    expect(result.errors[0].recordId).toBe("test-brand");
+  });
+
+  // ── entityTypes 필터 ──
+
+  it("entityTypes: product만 → brand 스킵", async () => {
+    mockTranslateSuccess();
+    mockClassifySuccess();
+    mockGenerateSuccess();
+
+    const records = [
+      makeRecord("product", { name_ko: "세럼" }),
+      makeRecord("brand", { name_ko: "이니스프리" }),
+    ];
+
+    const { records: enriched } = await enrichRecords(records, {
+      entityTypes: ["product"],
+      logDir: "/tmp",
+    });
+
+    expect(enriched).toHaveLength(1);
+    expect(enriched[0].entityType).toBe("product");
+  });
+
+  // ── skip 옵션들 ──
+
+  it("skipTranslation → translateFields 미호출", async () => {
+    const records = [makeRecord("brand", { name_ko: "A" })];
+    await enrichRecords(records, { skipTranslation: true, logDir: "/tmp" });
+    expect(mockTranslateFields).not.toHaveBeenCalled();
+  });
+
+  it("skipClassification → classifyFields 미호출", async () => {
+    mockTranslateSuccess();
+    const records = [makeRecord("product", { name_ko: "A" })];
+    await enrichRecords(records, { skipClassification: true, logDir: "/tmp" });
+    expect(mockClassifyFields).not.toHaveBeenCalled();
+  });
+
+  it("skipGeneration → generateDescriptions 미호출", async () => {
+    mockTranslateSuccess();
+    const records = [makeRecord("product", { name_ko: "A" })];
+    await enrichRecords(records, { skipGeneration: true, logDir: "/tmp" });
+    expect(mockGenerateDescriptions).not.toHaveBeenCalled();
+  });
+
+  // ── targetLangs 오버라이드 ──
+
+  it("targetLangs: ['en']만 → 재번역 없음", async () => {
+    mockTranslateFields.mockResolvedValue({
+      translated: { name: { ko: "테스트", en: "Test" } },
+      translatedFields: ["name"],
+    });
+    mockGenerateDescriptions.mockResolvedValue({
+      generated: { description: { ko: "설명", en: "Desc" } },
+      generatedFields: ["description"],
+    });
+
+    const records = [makeRecord("store", { name_ko: "매장" })];
+    await enrichRecords(records, { targetLangs: ["en"], logDir: "/tmp" });
+
+    // 번역 1회만 (재번역 없음)
+    expect(mockTranslateFields).toHaveBeenCalledTimes(1);
+  });
+
+  // ── deterministic UUID ──
+
+  it("data.id = generateEntityId 결과", async () => {
+    mockGenerateEntityId.mockReturnValue("specific-uuid-123");
+
+    const records = [makeRecord("brand", { name_ko: "A" })];
+    const { records: enriched } = await enrichRecords(records, { logDir: "/tmp" });
+
+    expect(enriched[0].data.id).toBe("specific-uuid-123");
+  });
+
+  // ── EnrichmentMetadata ──
+
+  it("EnrichmentMetadata 정확 구성", async () => {
+    mockTranslateFields.mockResolvedValue({
+      translated: { name: { ko: "A", en: "A" } },
+      translatedFields: ["name"],
+    });
+    mockClassifyFields.mockResolvedValue({
+      classified: { skin_types: { values: ["dry"], confidence: 0.9 } },
+      classifiedFields: ["skin_types"],
+    });
+
+    const records = [makeRecord("product", { name_ko: "A" })];
+    const { records: enriched } = await enrichRecords(records, {
+      skipGeneration: true,
+      logDir: "/tmp",
+    });
+
+    const meta = enriched[0].enrichments;
+    expect(meta.translatedFields).toContain("name");
+    expect(meta.classifiedFields).toContain("skin_types");
+    expect(meta.confidence.skin_types).toBe(0.9);
+  });
+
+  // ── 빈 레코드 ──
+
+  it("빈 배열 → 빈 결과 + PipelineResult.total=0", async () => {
+    const { records: enriched, result } = await enrichRecords([], { logDir: "/tmp" });
+    expect(enriched).toHaveLength(0);
+    expect(result.total).toBe(0);
+  });
+
+  // ── 로그 ──
+
+  it("결과 JSON 로그 저장", async () => {
+    await enrichRecords([], { logDir: "/tmp/logs" });
+
+    expect(mockWriteFileSync).toHaveBeenCalledTimes(1);
+    const [path] = mockWriteFileSync.mock.calls[0];
+    expect(path).toContain("/tmp/logs/enrich-");
+  });
+});
