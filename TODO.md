@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 60      | 60      | 100%    | ✅      |
-| Phase 2    | 102     | 47      | 46%     | 🔶 진행중 |
+| Phase 2    | 102     | 48      | 47%     | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **247** | **156** | **63%** |        |
+| **MVP 합계** | **247** | **157** | **64%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -422,7 +422,7 @@
 | P2-56m | AI 설명 생성 모듈                                  | **완료 (2026-03-30)**. description-generator.ts. generateDescriptions(inputData, fieldSpecs) 범용 함수. GenerationFieldSpec 전용 인터페이스. ko+en 동시 생성. 테스트 14개        | P2-56c, P2-5   | ✅   |
 | P2-56r | AI 분류 정확도 PoC (U-1)                          | **완료 (2026-03-30)**. classify-accuracy.ts. M1 10건 Jaccard 비교. 테스트 16개. **실행 결과: overall 80% PASS (skin_types 100%, concerns 80%)**. 실패 2건은 dark_spots 미인식 — 프롬프트 개선 여지 있음. U-1 해소: AI 자동 분류 확정        | P2-56l         | ✅   |
 | | **── Layer 3: 오케스트레이션 + DB 적재 ──** | | | |
-| P2-56p | loader (Stage 4 DB 적재)                       | scripts/seed/lib/loader.ts. zod 검증 → DB UPSERT. FK 순서 보장, 100건 청크 트랜잭션. 프로바이더와 독립 (P2-56a+P2-2만 의존) | P2-56a, P2-2   | ⬜   |
+| P2-56p | loader (Stage 4 DB 적재)                       | **완료 (2026-03-30)**. loader.ts + db-client.ts + id-generator.ts. deterministic UUID v5(entityType별 namespace) → zod 재검증 → Phase A→B→C FK순서 → 100건 청크 UPSERT. LoadOptions(dryRun/insertOnly/batchSize/entityTypes) 회차별 유연성. Junction 복합PK ON CONFLICT. 테스트 24개 | P2-56a, P2-2   | ✅   |
 | P2-56n | fetch-service (Stage 1 오케스트레이션)              | scripts/seed/lib/fetch-service.ts. 프로바이더 호출 → Promise.allSettled → RawRecord[]. **classifyPlace(RawPlace→EntityType) 포함**. **중복 제거: 2차 placeUrl + 3차 name+좌표(50m) + 4차 name+address 정규화 (data-collection.md §3.2)**. **⚠️ Layer 1 전체 완료 필요** | P2-56d,56e2,56f~j (~~56e 제외~~) | ⬜   |
 | P2-56o | enrich-service (Stage 2 오케스트레이션)             | scripts/seed/lib/enrich-service.ts. RawRecord → 번역+분류(confidence)+생성 → EnrichedRecord[]. 건별 try-catch. **⚠️ Layer 2 + P2-56r 완료 필요**      | P2-56k~m, P2-56r       | ⬜   |
 | | **── Layer 4: 최종 통합 ──** | | | |
