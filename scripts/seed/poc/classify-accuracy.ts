@@ -2,15 +2,12 @@
 // P2-56r: AI 분류 정확도 PoC (U-1)
 // M1 스켈레톤 제품 10건에 대해 classifier.ts 정확도 검증.
 // 80% 미달 시 프롬프트/모델 개선 후 재실행.
-// 실행: npx tsx scripts/seed/poc/classify-accuracy.ts
+// 실행: npx tsx --env-file=.env.local scripts/seed/poc/classify-accuracy.ts
 // P-9: scripts/ 내부 + shared/ import만. server/ import 금지.
 // P-10: poc/ 삭제 시 빌드 에러 0건.
 // ============================================================
 
-// CLI 실행: npx tsx --env-file=.env.local scripts/seed/poc/classify-accuracy.ts
-
-import { readFileSync } from "node:fs";
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parse as parseYaml } from "yaml";
 import { classifyFields, type FieldSpec } from "../lib/enrichment/classifier";
