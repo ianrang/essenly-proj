@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 60      | 60      | 100%    | ✅      |
-| Phase 2    | 102     | 48      | 47%     | 🔶 진행중 |
+| Phase 2    | 102     | 49      | 48%     | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **247** | **157** | **64%** |        |
+| **MVP 합계** | **247** | **158** | **64%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -423,7 +423,7 @@
 | P2-56r | AI 분류 정확도 PoC (U-1)                          | **완료 (2026-03-30)**. classify-accuracy.ts. M1 10건 Jaccard 비교. 테스트 16개. **실행 결과: overall 80% PASS (skin_types 100%, concerns 80%)**. 실패 2건은 dark_spots 미인식 — 프롬프트 개선 여지 있음. U-1 해소: AI 자동 분류 확정        | P2-56l         | ✅   |
 | | **── Layer 3: 오케스트레이션 + DB 적재 ──** | | | |
 | P2-56p | loader (Stage 4 DB 적재)                       | **완료 (2026-03-30)**. loader.ts + db-client.ts + id-generator.ts. deterministic UUID v5(entityType별 namespace) → zod 재검증 → Phase A→B→C FK순서 → 100건 청크 UPSERT. LoadOptions(dryRun/insertOnly/batchSize/entityTypes) 회차별 유연성. Junction 복합PK ON CONFLICT. 테스트 24개 | P2-56a, P2-2   | ✅   |
-| P2-56n | fetch-service (Stage 1 오케스트레이션)              | scripts/seed/lib/fetch-service.ts. 프로바이더 호출 → Promise.allSettled → RawRecord[]. **classifyPlace(RawPlace→EntityType) 포함**. **중복 제거: 2차 placeUrl + 3차 name+좌표(50m) + 4차 name+address 정규화 (data-collection.md §3.2)**. **⚠️ Layer 1 전체 완료 필요** | P2-56d,56e2,56f~j (~~56e 제외~~) | ⬜   |
+| P2-56n | fetch-service (Stage 1 오케스트레이션)              | **완료 (2026-03-30)**. fetch-service.ts + place-mapper.ts. Promise.allSettled 병렬 호출. classifyPlace(store/clinic) + 4단계 dedup. S3↔S6↔S4 ingredients 텍스트 매칭 합병. FetchOptions(targets/placeQueries/csvFiles/siteConfigs). 에러 격리. 테스트 35개 | P2-56d,56e2,56f~j (~~56e 제외~~) | ✅   |
 | P2-56o | enrich-service (Stage 2 오케스트레이션)             | scripts/seed/lib/enrich-service.ts. RawRecord → 번역+분류(confidence)+생성 → EnrichedRecord[]. 건별 try-catch. **⚠️ Layer 2 + P2-56r 완료 필요**      | P2-56k~m, P2-56r       | ⬜   |
 | | **── Layer 4: 최종 통합 ──** | | | |
 | P2-56o2 | review-exporter (Stage 3 검수 CSV)             | scripts/seed/lib/review-exporter.ts. EnrichedRecord → 검수용 CSV export (confidence 포함). 구글시트 검수 후 CSV import | P2-56o         | ⬜   |
