@@ -3,7 +3,6 @@
 import "client-only";
 
 import { useTranslations } from "next-intl";
-import { Button } from "@/client/ui/primitives/button";
 import Link from "next/link";
 
 type ReturnVisitBannerProps = {
@@ -21,12 +20,18 @@ export default function ReturnVisitBanner({ locale }: ReturnVisitBannerProps) {
           {t("returnDescription")}
         </p>
         <div className="flex flex-col gap-2.5">
-          <Button size="lg" className="min-h-11" asChild>
-            <Link href={`/${locale}/profile`}>{t("returnProfile")}</Link>
-          </Button>
-          <Button variant="outline" size="lg" className="min-h-11" asChild>
-            <Link href={`/${locale}/chat`}>{t("returnChat")}</Link>
-          </Button>
+          <Link
+            href={`/${locale}/profile`}
+            className="flex min-h-11 items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
+          >
+            {t("returnProfile")}
+          </Link>
+          <Link
+            href={`/${locale}/chat`}
+            className="flex min-h-11 items-center justify-center rounded-lg border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+          >
+            {t("returnChat")}
+          </Link>
         </div>
       </div>
     </div>

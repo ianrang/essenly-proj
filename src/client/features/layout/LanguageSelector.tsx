@@ -2,13 +2,6 @@
 
 import "client-only";
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/client/ui/primitives/select";
 import { useLanguage } from "@/client/features/contexts/LanguageContext";
 import { SUPPORTED_LANGUAGES } from "@/shared/constants/beauty";
 import type { SupportedLanguage } from "@/shared/types/domain";
@@ -26,24 +19,17 @@ export default function LanguageSelector() {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <Select
+    <select
       value={language}
-      onValueChange={(val) => setLanguage(val as SupportedLanguage)}
+      onChange={(e) => setLanguage(e.target.value as SupportedLanguage)}
+      aria-label="Conversation language"
+      className="h-9 rounded-md border border-border bg-card px-2.5 text-xs font-medium text-foreground transition-colors hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
-      <SelectTrigger className="h-9 min-w-[120px] gap-1.5 text-xs">
-        <SelectValue>
-          <span className="font-semibold">{language.toUpperCase()}</span>{" "}
-          <span className="text-muted-foreground">{LANGUAGE_LABELS[language]}</span>
-        </SelectValue>
-      </SelectTrigger>
-      <SelectContent>
-        {SUPPORTED_LANGUAGES.map((code) => (
-          <SelectItem key={code} value={code}>
-            <span className="font-semibold">{code.toUpperCase()}</span>{" "}
-            {LANGUAGE_LABELS[code]}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+      {SUPPORTED_LANGUAGES.map((code) => (
+        <option key={code} value={code}>
+          {code.toUpperCase()} {LANGUAGE_LABELS[code]}
+        </option>
+      ))}
+    </select>
   );
 }

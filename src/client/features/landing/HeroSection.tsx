@@ -3,8 +3,7 @@
 import "client-only";
 
 import { useTranslations } from "next-intl";
-import { Button } from "@/client/ui/primitives/button";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type HeroSectionProps = {
   ctaEnabled: boolean;
@@ -13,6 +12,7 @@ type HeroSectionProps = {
 
 export default function HeroSection({ ctaEnabled, locale }: HeroSectionProps) {
   const t = useTranslations("landing");
+  const router = useRouter();
 
   return (
     <div className="relative overflow-hidden">
@@ -20,51 +20,30 @@ export default function HeroSection({ ctaEnabled, locale }: HeroSectionProps) {
         className="absolute inset-0 bg-gradient-to-br from-primary-light via-surface-warm to-background bg-[length:200%_200%] motion-safe:animate-[gradient-shift_10s_ease_infinite]"
         aria-hidden="true"
       />
-      <div className="relative z-10 mx-auto max-w-[960px] px-5 py-16 text-center lg:py-20">
+      <div className="relative z-10 mx-auto max-w-[960px] px-5 py-14 text-center lg:py-20">
         <h1 className="mb-3 text-[28px] font-bold leading-tight tracking-tight lg:text-[40px]">
           {t("title")}
         </h1>
         <p className="mx-auto mb-7 max-w-[420px] text-[15px] leading-relaxed text-muted-foreground lg:max-w-[500px] lg:text-[17px]">
           {t("subtitle")}
         </p>
-        <div className="mx-auto flex max-w-[340px] flex-col gap-2.5 lg:max-w-[480px] lg:flex-row">
-          <Button
-            size="lg"
-            className="min-h-12 flex-1 flex-col"
+        <div className="mx-auto flex max-w-[360px] flex-col gap-3 lg:max-w-[480px] lg:flex-row">
+          <button
+            onClick={() => router.push(`/${locale}/onboarding`)}
             disabled={!ctaEnabled}
-            asChild={ctaEnabled}
+            className="flex min-h-12 w-full flex-col items-center justify-center rounded-lg bg-primary px-5 py-3 text-primary-foreground transition-colors hover:bg-primary-hover focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-40 lg:flex-1"
           >
-            {ctaEnabled ? (
-              <Link href={`/${locale}/onboarding`} className="flex flex-col items-center">
-                <span className="text-[15px] font-semibold">{t("pathA")}</span>
-                <span className="text-xs opacity-70">{t("pathADescription")}</span>
-              </Link>
-            ) : (
-              <span className="flex flex-col items-center">
-                <span className="text-[15px] font-semibold">{t("pathA")}</span>
-                <span className="text-xs opacity-70">{t("pathADescription")}</span>
-              </span>
-            )}
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="min-h-12 flex-1"
+            <span className="text-base font-semibold">{t("pathA")}</span>
+            <span className="mt-0.5 text-xs opacity-75">{t("pathADescription")}</span>
+          </button>
+          <button
+            onClick={() => router.push(`/${locale}/chat`)}
             disabled={!ctaEnabled}
-            asChild={ctaEnabled}
+            className="flex min-h-12 w-full flex-col items-center justify-center rounded-lg border border-border bg-card px-5 py-3 text-foreground transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-40 lg:flex-1"
           >
-            {ctaEnabled ? (
-              <Link href={`/${locale}/chat`} className="flex flex-col items-center">
-                <span className="text-[15px] font-semibold">{t("pathB")}</span>
-                <span className="text-xs opacity-70">{t("pathBDescription")}</span>
-              </Link>
-            ) : (
-              <span className="flex flex-col items-center">
-                <span className="text-[15px] font-semibold">{t("pathB")}</span>
-                <span className="text-xs opacity-70">{t("pathBDescription")}</span>
-              </span>
-            )}
-          </Button>
+            <span className="text-base font-semibold">{t("pathB")}</span>
+            <span className="mt-0.5 text-xs opacity-75">{t("pathBDescription")}</span>
+          </button>
         </div>
       </div>
     </div>

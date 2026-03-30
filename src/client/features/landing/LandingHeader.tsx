@@ -3,6 +3,7 @@
 import "client-only";
 
 import LanguageSelector from "@/client/features/layout/LanguageSelector";
+import ThemeToggle from "@/client/features/layout/ThemeToggle";
 
 export default function LandingHeader() {
   return (
@@ -11,7 +12,10 @@ export default function LandingHeader() {
         <span className="text-xl font-bold tracking-tight text-primary">
           Essenly
         </span>
-        <LanguageSelector />
+        <div className="flex items-center gap-2">
+          <LanguageSelector />
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

@@ -4,6 +4,7 @@ import "client-only";
 
 import type { ReactNode } from "react";
 import LanguageSelector from "@/client/features/layout/LanguageSelector";
+import ThemeToggle from "@/client/features/layout/ThemeToggle";
 
 type HeaderProps = {
   leftContent?: ReactNode;
@@ -20,11 +21,12 @@ export default function Header({
         <div className="flex min-w-[60px] items-center">
           {leftContent}
         </div>
-        <span className="text-lg font-bold text-primary tracking-tight">
+        <span className="text-lg font-bold tracking-tight text-primary">
           Essenly
         </span>
-        <div className="flex min-w-[60px] items-center justify-end">
+        <div className="flex min-w-[60px] items-center justify-end gap-2">
           {showLanguageSelector && <LanguageSelector />}
+          <ThemeToggle />
         </div>
       </div>
     </header>

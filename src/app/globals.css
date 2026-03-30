@@ -48,41 +48,37 @@
 }
 
 /* ── Dark Mode: Warm Charcoal ── */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* shadcn core */
-    --background: #1C1817;
-    --foreground: #F0ECF4;
-    --card: #272120;
-    --card-foreground: #F0ECF4;
-    --popover: #272120;
-    --popover-foreground: #F0ECF4;
-    --primary: #E8899A;
-    --secondary: #302826;
-    --secondary-foreground: #F0ECF4;
-    --muted: #302826;
-    --muted-foreground: #908E96;
-    --accent: #302826;
-    --accent-foreground: #F0ECF4;
-    --destructive: #E09088;
-    --border: #3D3533;
-    --input: #3D3533;
-    --ring: #E8899A;
-
-    /* Essenly extensions */
-    --primary-hover: #F2A4B3;
-    --primary-light: #3D2028;
-    --surface-warm: #302826;
-    --border-warm: #4A3835;
-    --sage: #A8B5A0;
-    --teal: #5AB5A8;
-    --coral: #E8988A;
-    --success: #7EC4A0;
-    --warning: #E0B878;
-    --error-bg: #E0908820;
-    --success-bg: #7EC4A020;
-    --warning-bg: #E0B87820;
-  }
+/* next-themes: .dark 클래스 기반 + OS 자동(system) 동시 지원 */
+.dark {
+  --background: #1C1817;
+  --foreground: #F0ECF4;
+  --card: #272120;
+  --card-foreground: #F0ECF4;
+  --popover: #272120;
+  --popover-foreground: #F0ECF4;
+  --primary: #E8899A;
+  --secondary: #302826;
+  --secondary-foreground: #F0ECF4;
+  --muted: #302826;
+  --muted-foreground: #908E96;
+  --accent: #302826;
+  --accent-foreground: #F0ECF4;
+  --destructive: #E09088;
+  --border: #3D3533;
+  --input: #3D3533;
+  --ring: #E8899A;
+  --primary-hover: #F2A4B3;
+  --primary-light: #3D2028;
+  --surface-warm: #302826;
+  --border-warm: #4A3835;
+  --sage: #A8B5A0;
+  --teal: #5AB5A8;
+  --coral: #E8988A;
+  --success: #7EC4A0;
+  --warning: #E0B878;
+  --error-bg: #E0908820;
+  --success-bg: #7EC4A020;
+  --warning-bg: #E0B87820;
 }
 
 /* ── Tailwind Theme Binding ── */

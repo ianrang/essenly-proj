@@ -63,14 +63,14 @@ export default function LandingClient({ locale }: LandingClientProps) {
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <LandingHeader />
-      <main className="flex-1">
+      <main className={`flex-1 ${state === "new" ? "pb-16" : ""}`}>
         <HeroSection ctaEnabled={ctaEnabled} locale={locale} />
         <HowItWorksSection />
         <BenefitsSection />
         <TrustSection />
       </main>
       {state === "new" && (
-        <ConsentBanner onConsent={handleConsent} isLoading={isConsenting} />
+        <ConsentBanner onConsent={handleConsent} isLoading={isConsenting} locale={locale} />
       )}
       {state === "returning" && <ReturnVisitBanner locale={locale} />}
     </div>
