@@ -336,6 +336,37 @@ describe("translateFields", () => {
     expect(result.translated.name.ko).toBe("세럼");
   });
 
+  it("AI 응답에 유효하지 않은 JSON 포함 → ko 폴백", async () => {
+    // 브레이스는 있으나 유효하지 않은 JSON → JSON.parse throw → catch → null
+    mockGenerateText.mockResolvedValueOnce({
+      text: "{name: invalid json, not properly quoted}",
+      usage: { inputTokens: 50, outputTokens: 10 },
+    });
+
+    const result = await translateFields({ name: "세럼" });
+
+    expect(result.translated.name.en).toBe("세럼");
+    expect(result.translated.name.ko).toBe("세럼");
+  });
+
+  it("한국어 텍스트에 따옴표 포함 — 프롬프트 안전성", async () => {
+    mockGenerateText.mockResolvedValueOnce({
+      text: JSON.stringify({
+        name: { en: 'Laneige "Water Bank" Serum' },
+      }),
+      usage: { inputTokens: 50, outputTokens: 30 },
+    });
+
+    const result = await translateFields({
+      name: '라네즈 "워터뱅크" 세럼',
+    });
+
+    // 프롬프트가 JSON.stringify로 이스케이프되어 정상 전달
+    const calledPrompt = mockGenerateText.mock.calls[0][0].prompt as string;
+    expect(calledPrompt).toContain('\\"워터뱅크\\"');
+    expect(result.translated.name.en).toBe('Laneige "Water Bank" Serum');
+  });
+
   it("AI 응답에 마크다운 코드 펜스 포함 → 정상 파싱", async () => {
     mockGenerateText.mockResolvedValueOnce({
       text: '```json\n{"name": {"en": "Serum"}}\n```',

@@ -44,7 +44,7 @@ function buildTranslationPrompt(
 ): string {
   const fieldEntries = Object.entries(fields)
     .filter(([, v]) => v?.trim())
-    .map(([key, value]) => `"${key}": "${value}"`)
+    .map(([key, value]) => `"${key}": ${JSON.stringify(value)}`)
     .join(",\n  ");
 
   const langList = targetLangs
