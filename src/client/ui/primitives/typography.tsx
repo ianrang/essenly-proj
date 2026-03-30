@@ -44,7 +44,7 @@ function SectionLabel({ className, ...props }: React.ComponentProps<"p">) {
 function CardTitle({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
-      className={cn("text-base font-semibold", className)}
+      className={cn("text-[17px] font-semibold leading-snug", className)}
       {...props}
     />
   );
@@ -54,7 +54,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"p">) {
 function CardDescription({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
-      className={cn("text-sm leading-snug text-muted-foreground", className)}
+      className={cn("text-[15px] leading-normal text-foreground/70", className)}
       {...props}
     />
   );
@@ -65,7 +65,7 @@ function BodyText({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       className={cn(
-        "text-base leading-relaxed text-muted-foreground lg:text-lg",
+        "text-[17px] leading-relaxed text-foreground/70 lg:text-lg",
         className
       )}
       {...props}
@@ -77,7 +77,7 @@ function BodyText({ className, ...props }: React.ComponentProps<"p">) {
 function ModalTitle({ className, ...props }: React.ComponentProps<"h2">) {
   return (
     <h2
-      className={cn("text-lg font-bold", className)}
+      className={cn("text-xl font-bold", className)}
       {...props}
     />
   );
