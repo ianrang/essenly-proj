@@ -7,7 +7,7 @@ import ThemeToggle from "@/client/features/layout/ThemeToggle";
 
 export default function LandingHeader() {
   return (
-    <header className="border-b border-border">
+    <header className="relative z-20 border-b border-border">
       <div className="mx-auto flex h-13 max-w-[960px] items-center justify-between px-5">
         <span className="text-xl font-bold tracking-tight text-primary">
           Essenly

@@ -16,7 +16,7 @@ export default function Header({
   showLanguageSelector = false,
 }: HeaderProps) {
   return (
-    <header className="border-b border-border">
+    <header className="relative z-20 border-b border-border">
       <div className="mx-auto flex h-13 max-w-[640px] items-center justify-between px-5">
         <div className="flex min-w-[60px] items-center">
           {leftContent}
