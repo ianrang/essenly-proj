@@ -44,7 +44,7 @@ export default function TrustSection() {
             href="https://www.instagram.com/essenly.beauty/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+            className="mt-5 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-primary"
           >
             <svg
               width="16"
