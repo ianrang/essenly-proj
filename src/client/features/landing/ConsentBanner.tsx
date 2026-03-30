@@ -14,7 +14,7 @@ export default function ConsentBanner({ onConsent, isLoading, locale }: ConsentB
   const t = useTranslations("consent");
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-10 border-t border-border bg-card/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-2px_8px_rgba(0,0,0,0.06)] backdrop-blur-sm">
+    <div className="fixed inset-x-0 bottom-0 z-10 border-t border-border bg-card/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-2px_8px_rgba(0,0,0,0.06)] backdrop-blur-sm after:absolute after:inset-x-0 after:top-full after:h-20 after:bg-card/95 after:backdrop-blur-sm">
       <div className="mx-auto flex max-w-[960px] items-center gap-3 px-4 py-2">
         <p className="flex-1 text-xs leading-snug text-muted-foreground">
           {t("description")}{" "}
