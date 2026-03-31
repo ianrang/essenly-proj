@@ -168,7 +168,7 @@ export async function METHOD(req: Request) {
 }
 ```
 
-> Landing 하단 동의 배너에서 수집한 data_retention 동의를 세션 생성과 동시에 기록 (PRD §3.2).
+> Landing CTA 클릭 시 인라인 동의에서 수집한 data_retention 동의를 세션 생성과 동시에 기록 (PRD §3.2).
 > marketing 동의는 Kit CTA 시점에 별도 수집 (`POST /api/kit/claim`).
 
 **응답 201:**

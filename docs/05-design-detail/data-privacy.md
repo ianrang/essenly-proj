@@ -19,7 +19,7 @@
 
 | 동의 항목 | 수집 시점 | API | 구현 |
 |-----------|----------|-----|------|
-| `data_retention` (필수) | Landing 배너 동의 시 | `POST /api/auth/anonymous` | 세션 생성과 동시에 consent_records INSERT |
+| `data_retention` (필수) | CTA 클릭 시 인라인 동의 | `POST /api/auth/anonymous` | 세션 생성과 동시에 consent_records INSERT |
 | `marketing` (선택) | Kit CTA 이메일 제출 시 | `POST /api/kit/claim` | consent_records.marketing UPDATE |
 | `location_tracking` | MVP 제외 | - | consent_records 기본값 false 유지 |
 | `behavior_logging` | MVP 제외 | - | consent_records 기본값 false 유지 |
@@ -27,12 +27,13 @@
 
 **Landing → 세션 생성 흐름:**
 ```
-1. Landing 하단 동의 배너 표시
-2. 사용자 "동의" 클릭
-3. 클라이언트: POST /api/auth/anonymous { consent: { data_retention: true } }
-4. 서버: signInAnonymously() → users INSERT → consent_records INSERT
-5. 응답: { user_id, session_token }
-6. 클라이언트: session_token을 localStorage에 저장
+1. 사용자 CTA 버튼 클릭 ("Start with my profile" 또는 "Just ask")
+2. Hero 영역 내 인라인 동의 확인 표시
+3. 사용자 "Continue" 클릭
+4. 클라이언트: POST /api/auth/anonymous { consent: { data_retention: true } }
+5. 서버: signInAnonymously() → users INSERT → consent_records INSERT
+6. 응답: { user_id, session_token }
+7. 클라이언트: session_token을 localStorage에 저장 + 선택한 경로로 이동
 ```
 
 **Kit CTA 마케팅 동의 흐름:**

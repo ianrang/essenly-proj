@@ -2,18 +2,40 @@
 
 import "client-only";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { PageTitle, BodyText } from "@/client/ui/primitives/typography";
 
 type HeroSectionProps = {
-  ctaEnabled: boolean;
+  state: "loading" | "new" | "consented" | "returning";
+  onConsent: () => Promise<boolean>;
+  isConsenting: boolean;
   locale: string;
 };
 
-export default function HeroSection({ ctaEnabled, locale }: HeroSectionProps) {
+export default function HeroSection({ state, onConsent, isConsenting, locale }: HeroSectionProps) {
   const t = useTranslations("landing");
+  const tc = useTranslations("consent");
   const router = useRouter();
+  const [pendingPath, setPendingPath] = useState<"profile" | "chat" | null>(null);
+
+  const ctaEnabled = state === "consented" || state === "returning";
+
+  async function handleCtaClick(path: "profile" | "chat") {
+    if (ctaEnabled) {
+      router.push(path === "profile" ? `/${locale}/onboarding` : `/${locale}/chat`);
+      return;
+    }
+    setPendingPath(path);
+  }
+
+  async function handleConsentConfirm() {
+    const success = await onConsent();
+    if (success && pendingPath) {
+      router.push(pendingPath === "profile" ? `/${locale}/onboarding` : `/${locale}/chat`);
+    }
+  }
 
   return (
     <div className="relative overflow-hidden">
@@ -28,25 +50,57 @@ export default function HeroSection({ ctaEnabled, locale }: HeroSectionProps) {
         <BodyText className="mx-auto mb-7 max-w-[420px] lg:max-w-[500px]">
           {t("subtitle")}
         </BodyText>
-        <div className="mx-auto flex max-w-[360px] gap-3 lg:max-w-[480px]">
-          <button
-            onClick={() => router.push(`/${locale}/onboarding`)}
-            disabled={!ctaEnabled}
-            className="flex h-11 flex-1 items-center justify-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-40"
-          >
-            {t("pathA")}
-          </button>
-          <button
-            onClick={() => router.push(`/${locale}/chat`)}
-            disabled={!ctaEnabled}
-            className="flex h-11 flex-1 items-center justify-center rounded-lg border border-border bg-card px-4 text-sm font-semibold text-foreground transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-40"
-          >
-            {t("pathB")}
-          </button>
-        </div>
-        <p className="mx-auto mt-2.5 max-w-[360px] text-center text-xs text-foreground/50 lg:max-w-[480px]">
-          {ctaEnabled ? t("ctaDescription") : t("ctaDisabledHint")}
-        </p>
+
+        {pendingPath ? (
+          <div className="mx-auto max-w-[360px] lg:max-w-[480px]">
+            <p className="mb-3 text-sm leading-relaxed text-foreground/70">
+              {tc("consentNotice")}{" "}
+              <a
+                href={`/${locale}/terms`}
+                className="underline transition-colors hover:text-primary"
+              >
+                {tc("learnMore")}
+              </a>
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setPendingPath(null)}
+                className="flex h-11 flex-1 items-center justify-center rounded-lg border border-border bg-card px-4 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+              >
+                {tc("cancel")}
+              </button>
+              <button
+                onClick={handleConsentConfirm}
+                disabled={isConsenting}
+                className="flex h-11 flex-1 items-center justify-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover disabled:opacity-50"
+              >
+                {tc("accept")}
+              </button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="mx-auto flex max-w-[360px] gap-3 lg:max-w-[480px]">
+              <button
+                onClick={() => handleCtaClick("profile")}
+                disabled={state === "loading"}
+                className="flex h-11 flex-1 items-center justify-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-40"
+              >
+                {t("pathA")}
+              </button>
+              <button
+                onClick={() => handleCtaClick("chat")}
+                disabled={state === "loading"}
+                className="flex h-11 flex-1 items-center justify-center rounded-lg border border-border bg-card px-4 text-sm font-semibold text-foreground transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-40"
+              >
+                {t("pathB")}
+              </button>
+            </div>
+            <p className="mx-auto mt-2.5 max-w-[360px] text-center text-xs text-foreground/50 lg:max-w-[480px]">
+              {t("ctaDescription")}
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

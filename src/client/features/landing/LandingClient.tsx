@@ -8,7 +8,6 @@ import HeroSection from "@/client/features/landing/HeroSection";
 import HowItWorksSection from "@/client/features/landing/HowItWorksSection";
 import BenefitsSection from "@/client/features/landing/BenefitsSection";
 import TrustSection from "@/client/features/landing/TrustSection";
-import ConsentBanner from "@/client/features/landing/ConsentBanner";
 import ReturnVisitBanner from "@/client/features/landing/ReturnVisitBanner";
 
 type LandingClientProps = {
@@ -39,7 +38,7 @@ export default function LandingClient({ locale }: LandingClientProps) {
     checkSession();
   }, []);
 
-  async function handleConsent() {
+  async function handleConsent(): Promise<boolean> {
     setIsConsenting(true);
     try {
       const res = await fetch("/api/auth/anonymous", {
@@ -50,28 +49,26 @@ export default function LandingClient({ locale }: LandingClientProps) {
       });
       if (res.ok) {
         setState("consented");
+        return true;
       }
+      return false;
     } catch (err) {
       console.error("Consent failed:", err);
+      return false;
     } finally {
       setIsConsenting(false);
     }
   }
 
-  const ctaEnabled = state === "consented" || state === "returning";
-
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <LandingHeader />
-      <main className={`flex-1 ${state === "new" ? "pb-12" : ""}`}>
-        <HeroSection ctaEnabled={ctaEnabled} locale={locale} />
+      <main className="flex-1">
+        <HeroSection state={state} onConsent={handleConsent} isConsenting={isConsenting} locale={locale} />
         <HowItWorksSection />
         <BenefitsSection />
         <TrustSection />
       </main>
-      {state === "new" && (
-        <ConsentBanner onConsent={handleConsent} isLoading={isConsenting} locale={locale} />
-      )}
       {state === "returning" && <ReturnVisitBanner locale={locale} />}
     </div>
   );

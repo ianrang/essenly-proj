@@ -11,7 +11,6 @@
     "pathADescription": "Answer a few quick questions and get personalized picks",
     "pathBDescription": "Jump straight into a conversation with our AI",
     "ctaDescription": "Profile for personalized picks, or jump straight into chat",
-    "ctaDisabledHint": "Accept privacy settings below to get started",
     "howItWorksLabel": "Simple",
     "howItWorksTitle": "How it works",
     "step1Title": "Tell us about yourself",
@@ -89,15 +88,10 @@
     "exp": "Exp"
   },
   "consent": {
-    "title": "Privacy Settings",
-    "description": "We need your permission for the following:",
-    "locationTracking": "Location tracking for nearby recommendations",
-    "behaviorLogging": "Activity logging to improve suggestions",
-    "dataRetention": "Long-term storage of your beauty profile",
-    "marketing": "Occasional marketing communications",
-    "analytics": "Anonymous data for research & analytics",
+    "consentNotice": "We'll store your beauty profile to personalize recommendations. Data is auto-deleted after 90 days of inactivity.",
     "accept": "Continue",
-    "learnMore": "Learn more about our privacy practices"
+    "cancel": "Cancel",
+    "learnMore": "Learn more"
   },
   "kit": {
     "title": "Get your personalized K-Beauty Starter Kit",

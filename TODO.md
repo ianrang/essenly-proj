@@ -156,7 +156,7 @@
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --- |
 | P1-7  | 사용자 앱 사이트맵 + URL 설계 | Route Group (user)/[locale]/ 구조. Landing SSG, Chat/Onboarding/Profile CSR. Kit CTA=인라인+bottom sheet                                                                                | `sitemap.md`       | ✅   |
 | P1-8  | 관리자 앱 사이트맵 (MVP)    | Route Group (admin)/admin/ 구조. 7엔티티×3페이지 + 감사로그 + Admin관리. i18n 없음                                                                                                                 | `sitemap.md`       | ✅   |
-| P1-9  | 사용자 앱 화면 상세         | 4페이지(Landing/Onboarding/Profile/Chat) 컴포넌트 분해, 상태 매트릭스, tool-result→UI 매핑. 재사용 컴포넌트(ProductCard/TreatmentCard/ConsentBanner 등) + 공통 패턴(에러/로딩/빈 상태/세션 만료). client/features/ 계층만     | `user-screens.md`  | ✅   |
+| P1-9  | 사용자 앱 화면 상세         | 4페이지(Landing/Onboarding/Profile/Chat) 컴포넌트 분해, 상태 매트릭스, tool-result→UI 매핑. 재사용 컴포넌트(ProductCard/TreatmentCard 등) + 공통 패턴(에러/로딩/빈 상태/세션 만료). client/features/ 계층만     | `user-screens.md`  | ✅   |
 | P1-10 | 관리자 앱 화면 설계         | 제네릭 CRUD(목록/생성/상세) + 엔티티별 차이 매트릭스. 재사용 컴포넌트 12개(AdminDataTable, EntityForm, MultiLangInput, ImageUploader 등). 고유 화면 4개(로그인/대시보드/감사 로그/관리자 관리). 권한 기반 UI 분기. 한국어 UI                 | `admin-screens.md` | ✅   |
 | P1-11 | SEO 전략              | Landing만 SEO 대상 (SSG). 정적 OG 1장, MVP en canonical only (v0.2 hreflang), JSON-LD (WebApplication), sitemap.xml 1 URL, robots.txt (admin/api 차단). 모든 구현 app/ 계층                      | `seo-strategy.md`  | ✅   |
 | P1-12 | 접근성 기준              | WCAG 2.1 AA 전체. Skip link, 키보드 내비게이션, aria-live polite (채팅 스트리밍 완료 시 알림), 포커스 트랩 (Radix 내장), 터치 44x44px, prefers-reduced-motion, autocomplete. axe-core + 수동 체크리스트. client/ 계층만 해당 | `accessibility.md` | ✅   |
@@ -341,7 +341,7 @@
 | P2-29 | 공통 레이아웃 + locale 레이아웃     | shadcn/ui 초기화(18컴포넌트) + cn.ts + viewport 메타태그 + safe-area + touch-action + Sonner Toaster. globals.css 모바일 호환성 | —         | ✅   |
 | P2-30 | 에러 바운더리 + 에러 화면           | error.tsx (role="alert" + 포커스 이동 + reset), not-found.tsx (404). i18n. Full-page 에러만 | —         | ✅   |
 | P2-31 | Header + LanguageSelector | 공유 앱 Header(props 기반 좌측 컨텍스트) + shadcn Select LanguageSelector + LanguageContext(대화 언어) | P2-29     | ✅   |
-| P2-32 | Landing 페이지               | 풀 너비 마케팅 랜딩 8컴포넌트 + (app)/ 라우트 그룹 분리 + ConsentBanner(세션) + ReturnVisitBanner(프로필) + 그래디언트 애니메이션 | P2-29     | ✅   |
+| P2-32 | Landing 페이지               | 풀 너비 마케팅 랜딩 7컴포넌트 + (app)/ 라우트 그룹 분리 + CTA 인라인 동의 + ReturnVisitBanner(프로필) + 그래디언트 애니메이션 | P2-29     | ✅   |
 | P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | Step 1~4 (피부/헤어, 고민, 여행, 관심). react-hook-form                          | P2-29     | ⬜   |
 | P2-34 | 프로필 전환/확인 화면              | 로딩 애니메이션, 프로필 카드                                                       | P2-29     | ⬜   |
 | P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조. 조건부 렌더링                                                | P2-29     | ⬜   |
