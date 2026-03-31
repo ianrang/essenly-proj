@@ -348,7 +348,7 @@
 | P2-36 | 5영역 탭 바                   | Tabs 프리미티브 variant=line 재사용. 5탭 (shops/clinic 활성, salon/eats/exp Coming soon)                                    | P2-29       | ✅   |
 | P2-37 | ProductCard 컴포넌트          | 4상태(normal/highlighted/skeleton/img-error) + HighlightBadge + localized() + Skeleton                              | P2-39       | ✅   |
 | P2-38 | TreatmentCard 컴포넌트        | 시술 카드(가격 범위/시간/다운타임 경고 coral) + HighlightBadge + localized() 공용 추출                                             | P2-39       | ✅   |
-| P2-35 | Chat 인터페이스                | 메시지 버블, 입력바(visualViewport 키보드 감지), 스트리밍 UI + SuggestedQuestions(경로B) + 카드 렌더링 + 탭 필터                          | P2-36~P2-38 | ⬜   |
+| P2-35 | Chat 인터페이스                | AI SDK v6 useChat + MessageBubble/List + InputBar(visualViewport) + SuggestedQuestions(경로B) + StreamingIndicator + TabBar | P2-36~P2-38 | ✅   |
 | P2-40 | Kit CTA 컴포넌트              | KitCtaCard + KitCtaSheet(Bottom sheet). Chat 내 인라인 (user-screens §6.6)                                         | P2-35       | ⬜   |
 | P2-41 | Profile 페이지               | 프로필 조회/수정                                                                                                      | P2-29       | ⬜   |
 | P2-42 | 프로필 Context               | React Context 상태 관리. UI 편의용 — 페이지는 API 호출로 독립 동작                                                               | P2-29       | ⬜   |
@@ -445,6 +445,7 @@
 | P2-61  | Phase A: stores 50+ (S1 자동수집)          | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(영업시간, english_support, tourist_services, 이미지)                                                                               | M2    | ⬜   |
 | P2-62  | Phase A: clinics 30+ (S1 자동수집)         | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(foreigner_friendly, license_verified, 이미지). english_support >= basic 필수                                                     | M2    | ⬜   |
 | P2-63  | Phase A: treatments 50+                | 수동 입력 + AI 보강(target_concerns, suitable_skin_types, description, precautions). 전문가 검수 필수. downtime_days 정확성                                                 | M2    | ⬜   |
+| P2-63b | M1 스켈레톤 데이터 정리                        | Phase A 완료 후, Phase B 진입 전. M1 스켈레톤 50건(수동 slug ID) → 파이프라인 UUID 정본으로 대체 완료 검증. 고아 레코드(M1 brands/products/ingredients 등) 비활성화 또는 삭제. FK 정합성 검증        | M3    | ⬜   |
 | P2-64a | Phase B: products 200+ (A-3+CSV+수동)    | A-3 시드 크롤링 + CSV 임포트 + 관리자 수동. AI 분류 → **전수 검수(D-7, 구글시트)**. image_url 수집+DB 저장, UI placeholder (D-14)                                                      | M3    | ⬜   |
 | P2-64b | Phase B: doctors 30+                   | 수동 입력. 클리닉당 1명+. languages 영어 포함 필수                                                                                                                         | M3    | ⬜   |
 | P2-64c | Phase C: junction 데이터                  | product_stores(유형 기반+개별 혼합 ~~2,700건), product_ingredients(~~400건 수동 + key/avoid 분류), clinic_treatments(~150건)                                               | M3    | ⬜   |
