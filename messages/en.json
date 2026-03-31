@@ -85,7 +85,7 @@
     "country": "Where are you from?",
     "age": "Age range",
     "stayDays": "How many days in Korea?",
-    "stayDaysSuffix": "{days} days",
+    "stayDaysSuffix": "{days, plural, one {# day} other {# days}}",
     "budget": "Budget level",
     "budget_budget": "Budget",
     "budget_moderate": "Moderate",
