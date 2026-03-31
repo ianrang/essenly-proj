@@ -19,6 +19,8 @@ export interface FieldSpec {
   allowedValues: readonly string[];
   /** 분류 지시 문맥: "이 제품에 적합한 피부 타입" vs "이 성분에 주의해야 할 피부 타입" */
   promptHint: string;
+  /** true(기본): allowedValues 외 값 필터링. false: 예시로만 사용, AI 자유 출력 허용 */
+  strict?: boolean;
 }
 
 /** 개별 필드 분류 결과 */
@@ -52,12 +54,22 @@ function buildClassificationPrompt(
 ): string {
   const serializedData = serializeInputData(inputData);
 
+  const hasStrictFields = fieldSpecs.some((s) => s.strict !== false);
+  const hasOpenFields = fieldSpecs.some((s) => s.strict === false);
+
   const fieldInstructions = fieldSpecs
-    .map(
-      (spec, i) =>
-        `${i + 1}. "${spec.fieldName}" — ${spec.promptHint}\n   Allowed values: ${spec.allowedValues.join(", ")}`,
-    )
+    .map((spec, i) => {
+      const label = spec.strict === false ? "Example values" : "Allowed values";
+      return `${i + 1}. "${spec.fieldName}" — ${spec.promptHint}\n   ${label}: ${spec.allowedValues.join(", ")}`;
+    })
     .join("\n\n");
+
+  const strictRule = hasStrictFields
+    ? "- For fields with \"Allowed values\": select ONLY from those values"
+    : "";
+  const openRule = hasOpenFields
+    ? "- For fields with \"Example values\": use examples as guidance but you may include other relevant terms"
+    : "";
 
   return `You are a K-beauty product and cosmetics classification expert.
 
@@ -69,7 +81,7 @@ Classify into the following categories:
 ${fieldInstructions}
 
 Rules:
-- Select ONLY from the allowed values listed above for each field
+${[strictRule, openRule].filter(Boolean).join("\n")}
 - Return multiple values where applicable (as arrays)
 - Provide a confidence score (0.0 to 1.0) for each classification
 - Higher confidence = more certain about the classification
@@ -124,11 +136,18 @@ function parseClassificationResponse(
       const rawValues = Array.isArray(fieldData.values)
         ? fieldData.values
         : [];
-      const allowedSet = allowedSets.get(spec.fieldName)!;
 
-      const filteredValues = rawValues.filter(
-        (v): v is string => typeof v === "string" && allowedSet.has(v),
-      );
+      let filteredValues: string[];
+      if (spec.strict === false) {
+        filteredValues = rawValues.filter(
+          (v): v is string => typeof v === "string" && v.trim().length > 0,
+        );
+      } else {
+        const allowedSet = allowedSets.get(spec.fieldName)!;
+        filteredValues = rawValues.filter(
+          (v): v is string => typeof v === "string" && allowedSet.has(v),
+        );
+      }
 
       result[spec.fieldName] = {
         values: filteredValues,

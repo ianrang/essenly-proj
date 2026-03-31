@@ -91,7 +91,27 @@ const TREATMENT_CLASSIFY_SPECS: FieldSpec[] = [
   },
 ];
 
+/** 성분 기능 예시값 — strict:false이므로 AI 가이드용 (L-14: 로컬 전용) */
+const INGREDIENT_FUNCTIONS = [
+  "moisturizing", "hydration", "moisture retention",
+  "anti-aging", "anti-wrinkle", "wrinkle reduction", "collagen-boosting",
+  "brightening", "dark spot reduction", "tone-evening",
+  "exfoliation", "pore cleansing", "pore minimizing",
+  "soothing", "anti-inflammatory", "healing",
+  "barrier repair", "barrier strengthening", "skin strengthening",
+  "antioxidant", "UV-protection",
+  "acne-fighting", "oil-control",
+  "plumping", "skin smoothing", "cell turnover",
+  "repair", "cell energy", "tyrosinase inhibition",
+] as const;
+
 const INGREDIENT_CLASSIFY_SPECS: FieldSpec[] = [
+  {
+    fieldName: "function",
+    allowedValues: INGREDIENT_FUNCTIONS,
+    promptHint: "Cosmetic functions of this ingredient. Convert CosIng terms (e.g., SKIN CONDITIONING) to specific beauty-friendly terms. Use _cosing.function as reference. Return 2-4 values.",
+    strict: false,
+  },
   {
     fieldName: "caution_skin_types",
     allowedValues: SKIN_TYPES,
@@ -145,6 +165,30 @@ const ENRICHMENT_CONFIG: Record<EntityType, EnrichmentConfig> = {
     generateSpecs: [],
   },
 };
+
+// ── 소스→DB 필드 매핑 (F-1: S3 필드명 → DB 필드명 변환) ──
+
+type FieldExtractor = (data: Record<string, unknown>) => unknown;
+
+const FIELD_MAPPINGS: Partial<Record<EntityType, Record<string, FieldExtractor>>> = {
+  ingredient: {
+    inci_name: (data) => {
+      const cosing = data._cosing as Record<string, unknown> | undefined;
+      return data.INGR_ENG_NAME ?? cosing?.inciName ?? null;
+    },
+  },
+};
+
+function applyFieldMapping(
+  data: Record<string, unknown>,
+  entityType: EntityType,
+): void {
+  const mappings = FIELD_MAPPINGS[entityType];
+  if (!mappings) return;
+  for (const [targetField, extractor] of Object.entries(mappings)) {
+    data[targetField] = extractor(data);
+  }
+}
 
 // ── 상수 ────────────────────────────────────────────────────
 
@@ -213,6 +257,9 @@ async function enrichRecord(
 
   // 1. deterministic UUID (D-2)
   data.id = generateEntityId(record.entityType, record.source, record.sourceId);
+
+  // 1.5 소스 필드 → DB 필드 매핑 (S3 INGR_ENG_NAME → inci_name 등)
+  applyFieldMapping(data, record.entityType);
 
   const translatedFields: string[] = [];
   const classifiedFields: string[] = [];

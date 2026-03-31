@@ -178,22 +178,63 @@ describe("enrichRecords", () => {
 
   // ── ingredient 보강 ──
 
-  it("ingredient: 번역 + caution_skin_types 분류", async () => {
+  it("ingredient: 번역 + function/caution_skin_types 분류 + inci_name 매핑", async () => {
     mockTranslateFields.mockResolvedValue({
       translated: { name: { ko: "나이아신아마이드", en: "Niacinamide" } },
       translatedFields: ["name"],
     });
     mockClassifyFields.mockResolvedValue({
-      classified: { caution_skin_types: { values: ["sensitive"], confidence: 0.72 } },
-      classifiedFields: ["caution_skin_types"],
+      classified: {
+        function: { values: ["brightening", "barrier strengthening"], confidence: 0.9 },
+        caution_skin_types: { values: ["sensitive"], confidence: 0.72 },
+      },
+      classifiedFields: ["function", "caution_skin_types"],
     });
 
-    const records = [makeRecord("ingredient", { INGR_KOR_NAME: "나이아신아마이드" })];
+    const records = [makeRecord("ingredient", {
+      INGR_KOR_NAME: "나이아신아마이드",
+      INGR_ENG_NAME: "Niacinamide",
+      _cosing: { inciName: "NIACINAMIDE", function: "SKIN CONDITIONING", restriction: "" },
+    })];
     const { records: enriched } = await enrichRecords(records, { logDir: "/tmp" });
 
+    // inci_name 매핑 (INGR_ENG_NAME → inci_name)
+    expect(enriched[0].data.inci_name).toBe("Niacinamide");
+
+    // function 분류 (strict=false)
+    expect(enriched[0].enrichments.classifiedFields).toContain("function");
+    expect(enriched[0].enrichments.confidence.function).toBe(0.9);
+    expect(enriched[0].data.function).toEqual(["brightening", "barrier strengthening"]);
+
+    // caution_skin_types 분류 (strict=true)
     expect(enriched[0].enrichments.classifiedFields).toContain("caution_skin_types");
     expect(enriched[0].enrichments.confidence.caution_skin_types).toBe(0.72);
+
     expect(mockGenerateDescriptions).not.toHaveBeenCalled();
+  });
+
+  it("ingredient: inci_name 폴백 — INGR_ENG_NAME 없으면 _cosing.inciName 사용", async () => {
+    mockTranslateFields.mockResolvedValue({
+      translated: { name: { ko: "레티놀", en: "Retinol" } },
+      translatedFields: ["name"],
+    });
+    mockClassifyFields.mockResolvedValue({
+      classified: {
+        function: { values: ["anti-aging"], confidence: 0.85 },
+        caution_skin_types: { values: [], confidence: 0 },
+      },
+      classifiedFields: ["function"],
+    });
+
+    const records = [makeRecord("ingredient", {
+      INGR_KOR_NAME: "레티놀",
+      // INGR_ENG_NAME 없음
+      _cosing: { inciName: "RETINOL", function: "SKIN CONDITIONING" },
+    })];
+    const { records: enriched } = await enrichRecords(records, { logDir: "/tmp" });
+
+    // _cosing.inciName 폴백
+    expect(enriched[0].data.inci_name).toBe("RETINOL");
   });
 
   // ── treatment 보강 ──

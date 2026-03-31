@@ -360,4 +360,124 @@ describe("classifyFields", () => {
     // 유효값 0개 → classifiedFields에 미포함
     expect(result.classifiedFields).toEqual([]);
   });
+
+  // ── strict=false 테스트 ────────────────────────────────────
+
+  it("strict=false — 예시 외 값도 수용", async () => {
+    const openSpec: FieldSpec = {
+      fieldName: "function",
+      allowedValues: ["moisturizing", "anti-aging"],
+      promptHint: "Cosmetic functions",
+      strict: false,
+    };
+
+    mockGenerateText.mockResolvedValueOnce({
+      text: JSON.stringify({
+        function: {
+          values: ["moisturizing", "sebum control", "pore tightening"],
+          confidence: 0.88,
+        },
+      }),
+      usage: { inputTokens: 100, outputTokens: 50 },
+    });
+
+    const result = await classifyFields(SAMPLE_INPUT, [openSpec]);
+
+    // 예시 외 값(sebum control, pore tightening)도 통과
+    expect(result.classified.function.values).toEqual([
+      "moisturizing",
+      "sebum control",
+      "pore tightening",
+    ]);
+    expect(result.classified.function.confidence).toBe(0.88);
+    expect(result.classifiedFields).toEqual(["function"]);
+  });
+
+  it("strict=false — 빈 문자열/비문자열 필터링", async () => {
+    const openSpec: FieldSpec = {
+      fieldName: "function",
+      allowedValues: ["moisturizing"],
+      promptHint: "Cosmetic functions",
+      strict: false,
+    };
+
+    mockGenerateText.mockResolvedValueOnce({
+      text: JSON.stringify({
+        function: {
+          values: ["moisturizing", "", "  ", 123, null, "anti-aging"],
+          confidence: 0.75,
+        },
+      }),
+      usage: { inputTokens: 100, outputTokens: 50 },
+    });
+
+    const result = await classifyFields(SAMPLE_INPUT, [openSpec]);
+
+    // 빈 문자열, 공백, 비문자열 필터링
+    expect(result.classified.function.values).toEqual([
+      "moisturizing",
+      "anti-aging",
+    ]);
+  });
+
+  it("strict=false 프롬프트에 Example values 사용", async () => {
+    const openSpec: FieldSpec = {
+      fieldName: "function",
+      allowedValues: ["moisturizing", "anti-aging"],
+      promptHint: "Cosmetic functions",
+      strict: false,
+    };
+
+    mockGenerateText.mockResolvedValueOnce({
+      text: JSON.stringify({
+        function: { values: ["moisturizing"], confidence: 0.9 },
+      }),
+      usage: { inputTokens: 100, outputTokens: 40 },
+    });
+
+    await classifyFields(SAMPLE_INPUT, [openSpec]);
+
+    const calledPrompt = mockGenerateText.mock.calls[0][0].prompt as string;
+    expect(calledPrompt).toContain("Example values:");
+    expect(calledPrompt).toContain("you may include other relevant terms");
+    expect(calledPrompt).not.toContain("Select ONLY from the allowed values");
+  });
+
+  it("strict 혼합 — strict=true + strict=false 동시 사용", async () => {
+    const strictSpec: FieldSpec = {
+      fieldName: "caution_skin_types",
+      allowedValues: SKIN_TYPES,
+      promptHint: "Caution skin types",
+    };
+    const openSpec: FieldSpec = {
+      fieldName: "function",
+      allowedValues: ["moisturizing"],
+      promptHint: "Cosmetic functions",
+      strict: false,
+    };
+
+    mockGenerateText.mockResolvedValueOnce({
+      text: JSON.stringify({
+        caution_skin_types: {
+          values: ["sensitive", "unknown_type"],
+          confidence: 0.8,
+        },
+        function: {
+          values: ["moisturizing", "custom_function"],
+          confidence: 0.85,
+        },
+      }),
+      usage: { inputTokens: 100, outputTokens: 60 },
+    });
+
+    const result = await classifyFields(SAMPLE_INPUT, [strictSpec, openSpec]);
+
+    // strict=true → unknown_type 필터링
+    expect(result.classified.caution_skin_types.values).toEqual(["sensitive"]);
+    // strict=false → custom_function 수용
+    expect(result.classified.function.values).toEqual([
+      "moisturizing",
+      "custom_function",
+    ]);
+  });
 });

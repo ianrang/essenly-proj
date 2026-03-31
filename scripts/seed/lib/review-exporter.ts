@@ -97,6 +97,9 @@ const ENTITY_REVIEW_COLUMNS: Record<EntityType, ReviewColumnDef[]> = {
     { header: "description_en", source: "data", path: "description.en", format: "string", editable: true },
   ],
   ingredient: [
+    { header: "inci_name", source: "data", path: "inci_name", format: "string", editable: false },
+    { header: "function", source: "data", path: "function", format: "array", editable: true },
+    { header: "function_confidence", source: "enrichments", path: "confidence.function", format: "number", editable: false },
     { header: "caution_skin_types", source: "data", path: "caution_skin_types", format: "array", editable: true },
     { header: "caution_skin_types_confidence", source: "enrichments", path: "confidence.caution_skin_types", format: "number", editable: false },
   ],
