@@ -344,7 +344,7 @@
 | P2-32 | Landing 페이지               | 풀 너비 마케팅 랜딩 7컴포넌트 + (app)/ 라우트 그룹 분리 + CTA 인라인 동의 + ReturnVisitBanner(프로필) + 그래디언트 애니메이션                       | P2-29       | ✅   |
 | P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | Step 1~4 (피부/헤어, 고민, 여행, 관심). react-hook-form + OptionGroup + ProgressBar + localStorage 백업                    | P2-29       | ✅   |
 | P2-34 | 프로필 전환/확인 화면              | ProfileTransition 3단계 체크 애니메이션 + ProfileCard(UP+JC) + ProfileClient(로딩/에러/404) + Edit/ShowPicks 버튼             | P2-29       | ✅   |
-| P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조. 조건부 렌더링                                                                                        | P2-29       | ⬜   |
+| P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조. is_highlighted+badge 조건부 렌더링. teal 토큰. 다국어 폴백                                                  | P2-29       | ✅   |
 | P2-36 | 5영역 탭 바                   | Shops/Clinic/Salon/Eats/Exp (MVP: 2개 활성, 3개 Coming soon)                                                       | P2-29       | ⬜   |
 | P2-37 | ProductCard 컴포넌트          | PRD §3.5 기반. HighlightBadge 포함                                                                                 | P2-39       | ⬜   |
 | P2-38 | TreatmentCard 컴포넌트        | PRD §3.5 기반. HighlightBadge 포함                                                                                 | P2-39       | ⬜   |
