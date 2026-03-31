@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 60      | 60      | 100%    | ✅      |
-| Phase 2    | 102     | 51      | 50%     | 🔶 진행중 |
+| Phase 2    | 102     | 52      | 51%     | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **247** | **160** | **65%** |        |
+| **MVP 합계** | **247** | **161** | **65%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -427,7 +427,7 @@
 | P2-56o | enrich-service (Stage 2 오케스트레이션)             | **완료 (2026-03-30)**. enrich-service.ts. ENRICHMENT_CONFIG 7엔티티별 매핑. 5단계: UUID→번역→분류(confidence)→생성(ko+en)→재번역(4언어). EnrichOptions(entityTypes/targetLangs/skip*). 건별 try-catch 에러 격리. 테스트 14개 | P2-56k~m, P2-56r       | ✅   |
 | | **── Layer 4: 최종 통합 ──** | | | |
 | P2-56o2 | review-exporter (Stage 3 검수 CSV)             | **완료 (2026-03-31)**. review-exporter.ts. 2-파일 전략: JSON(보존)+CSV(검수). 엔티티별 개별 파일. ENTITY_REVIEW_COLUMNS 선언적 설정. export(EnrichedRecord[]→JSON+CSV) + import(JSON+CSV→ValidatedRecord[]). csv-parser.ts에 stringifyCsvRows 추가. 테스트 22개 | P2-56o         | ✅   |
-| P2-56q | CLI 진입점 (fetch/import-csv/enrich/export-review/import-review/validate/load) | scripts/seed/*.ts 7개 CLI. thin layer: 인자 파싱 → lib/ 호출                               | P2-56n~p       | ⬜   |
+| P2-56q | CLI 진입점 (8개 + 레거시 삭제)                    | **완료 (2026-03-31)**. 8개 CLI: fetch, import-csv, enrich, export-review, import-review, validate, load, run-all. run-all 두 모드(검수대기/auto-approve). validate DB 불필요 독립 검증. parse-args.ts 공통 유틸. entity-schemas.ts 공유. 레거시 run.ts+interface.ts 삭제 | P2-56n~p       | ✅   |
 
 
 ## 데이터 준비 — 데이터 입력 + 검수 (코어 구현과 병렬)
