@@ -2,8 +2,47 @@
 
 import "client-only";
 
-// TODO: Implement Step 1: Skin & Hair — TDD §3.3
-// - skin_type, hair_type, hair_concerns collection
+import { useTranslations } from "next-intl";
+import { useFormContext } from "react-hook-form";
+import { SKIN_TYPES, HAIR_TYPES } from "@/shared/constants/beauty";
+import type { OnboardingFormData } from "@/shared/types/profile";
+import { CardTitle } from "@/client/ui/primitives/typography";
+import OptionGroup from "./OptionGroup";
+
 export default function StepSkinHair() {
-  return <div>StepSkinHair — TODO</div>;
+  const t = useTranslations("onboarding");
+  const { watch, setValue } = useFormContext<OnboardingFormData>();
+
+  const skinType = watch("skin_type");
+  const hairType = watch("hair_type");
+
+  const skinOptions = SKIN_TYPES.map((v) => ({ value: v, label: t(`skinType_${v}`) }));
+  const hairOptions = HAIR_TYPES.map((v) => ({ value: v, label: t(`hairType_${v}`) }));
+
+  return (
+    <div className="flex flex-col gap-6">
+      <div>
+        <CardTitle className="mb-3">{t("skinType")}</CardTitle>
+        <OptionGroup
+          options={skinOptions}
+          value={skinType ?? ""}
+          onChange={(v) => setValue("skin_type", v as OnboardingFormData["skin_type"], { shouldValidate: true })}
+          mode="single"
+        />
+      </div>
+
+      <div>
+        <div className="mb-1 flex items-baseline gap-2">
+          <CardTitle>{t("hairType")}</CardTitle>
+          <span className="text-xs text-muted-foreground">{t("optional")}</span>
+        </div>
+        <OptionGroup
+          options={hairOptions}
+          value={hairType ?? ""}
+          onChange={(v) => setValue("hair_type", (v || null) as OnboardingFormData["hair_type"], { shouldValidate: true })}
+          mode="single"
+        />
+      </div>
+    </div>
+  );
 }

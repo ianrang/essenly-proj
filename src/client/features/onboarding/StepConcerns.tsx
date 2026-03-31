@@ -2,8 +2,69 @@
 
 import "client-only";
 
-// TODO: Implement Step 2: Concerns — TDD §3.3
-// - skin_concerns (max 5) collection
+import { useTranslations } from "next-intl";
+import { useFormContext } from "react-hook-form";
+import { HAIR_CONCERNS, MAX_ONBOARDING_SKIN_CONCERNS } from "@/shared/constants/beauty";
+import type { SkinConcern } from "@/shared/types/domain";
+import type { OnboardingFormData } from "@/shared/types/profile";
+import { CardTitle } from "@/client/ui/primitives/typography";
+import OptionGroup from "./OptionGroup";
+
+/** PRD §4-A JC-1: UI에 표시하는 7개 피부 고민 (나머지 4개는 대화 추출) */
+const ONBOARDING_SKIN_CONCERNS: SkinConcern[] = [
+  "acne",
+  "wrinkles",
+  "dark_spots",
+  "redness",
+  "dryness",
+  "pores",
+  "dullness",
+];
+
 export default function StepConcerns() {
-  return <div>StepConcerns — TODO</div>;
+  const t = useTranslations("onboarding");
+  const { watch, setValue } = useFormContext<OnboardingFormData>();
+
+  const skinConcerns = watch("skin_concerns");
+  const hairConcerns = watch("hair_concerns");
+
+  const skinOptions = ONBOARDING_SKIN_CONCERNS.map((v) => ({
+    value: v,
+    label: t(`skinConcern_${v}`),
+  }));
+  const hairOptions = HAIR_CONCERNS.map((v) => ({
+    value: v,
+    label: t(`hairConcern_${v}`),
+  }));
+
+  return (
+    <div className="flex flex-col gap-6">
+      <div>
+        <CardTitle className="mb-1">{t("skinConcerns")}</CardTitle>
+        <p className="mb-3 text-xs text-muted-foreground">
+          {t("skinConcernsCount", { count: skinConcerns.length })}
+        </p>
+        <OptionGroup
+          options={skinOptions}
+          value={skinConcerns}
+          onChange={(v) => setValue("skin_concerns", v as OnboardingFormData["skin_concerns"], { shouldValidate: true })}
+          mode="multiple"
+          max={MAX_ONBOARDING_SKIN_CONCERNS}
+        />
+      </div>
+
+      <div>
+        <div className="mb-3 flex items-baseline gap-2">
+          <CardTitle>{t("hairConcerns")}</CardTitle>
+          <span className="text-xs text-muted-foreground">{t("optional")}</span>
+        </div>
+        <OptionGroup
+          options={hairOptions}
+          value={hairConcerns}
+          onChange={(v) => setValue("hair_concerns", v as OnboardingFormData["hair_concerns"], { shouldValidate: true })}
+          mode="multiple"
+        />
+      </div>
+    </div>
+  );
 }
