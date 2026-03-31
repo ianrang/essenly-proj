@@ -112,7 +112,7 @@
 | P0-32 | 데이터 갱신 전략       | 관리자 앱에서 동기화 주기 설정 + 인터페이스로 카카오 API 동기화 트리거. 관리자 앱 요구사항에 "데이터 동기화" 메뉴 추가 필요                                                          | 전략 결정                 | ✅   |
 | P0-33 | 초기 데이터 적재 파이프라인 | 멀티 프로바이더(Google/카카오/네이버+mock) 플러그인 구조. 변환→적재 검증 완료. clinics 2/2 적재 성공. stores는 external_links 컬럼 미존재(X-2)로 실패 — Phase 1 마이그레이션에서 해결 | 파이프라인 동작 확인           | ✅   |
 | P0-34 | 다국어 번역          | LLM 번역 채택 (P0-14에서 Gemini 6개 언어 4.6/5.0 검증). 200제품×6언어 ≈ $0.50. MVP에 충분                                                             | 번역 방법 결정              | ✅   |
-| P0-35 | 이미지 출처/저작권      | ~~브랜드 공식 이미지 우선~~ → **P2-V3 갱신: MVP placeholder 전략 확정 (D-14)**. 4/5 브랜드 서면 승인 필요. 저장소: Supabase Storage. 정본: data-collection.md §4 | 확보 전략 결정              | ✅   |
+| P0-35 | 이미지 출처/저작권      | ~~브랜드 공식 이미지 우선~~ → **P2-V3 갱신: MVP placeholder 전략 확정 (D-14)**. 4/5 브랜드 서면 승인 필요. 저장소: Supabase Storage. 정본: data-collection.md §4  | 확보 전략 결정              | ✅   |
 | P0-36 | 리뷰 데이터 전략       | AI 생성 요약 확정. "AI 생성" 면책 표시. rating은 공개 평점 수동 참조                                                                                     | 전략 결정                 | ✅   |
 | P0-37 | 비용 추정 문서화       | 실측: MVP $10~~$346/월 (Gemini~~Claude Sonnet). Supabase Free 충분. 외부 API 무료. `cost-estimate.md` 작성                                     | MASTER-PLAN §4.2 업데이트 | ✅   |
 
@@ -156,7 +156,7 @@
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --- |
 | P1-7  | 사용자 앱 사이트맵 + URL 설계 | Route Group (user)/[locale]/ 구조. Landing SSG, Chat/Onboarding/Profile CSR. Kit CTA=인라인+bottom sheet                                                                                | `sitemap.md`       | ✅   |
 | P1-8  | 관리자 앱 사이트맵 (MVP)    | Route Group (admin)/admin/ 구조. 7엔티티×3페이지 + 감사로그 + Admin관리. i18n 없음                                                                                                                 | `sitemap.md`       | ✅   |
-| P1-9  | 사용자 앱 화면 상세         | 4페이지(Landing/Onboarding/Profile/Chat) 컴포넌트 분해, 상태 매트릭스, tool-result→UI 매핑. 재사용 컴포넌트(ProductCard/TreatmentCard 등) + 공통 패턴(에러/로딩/빈 상태/세션 만료). client/features/ 계층만     | `user-screens.md`  | ✅   |
+| P1-9  | 사용자 앱 화면 상세         | 4페이지(Landing/Onboarding/Profile/Chat) 컴포넌트 분해, 상태 매트릭스, tool-result→UI 매핑. 재사용 컴포넌트(ProductCard/TreatmentCard 등) + 공통 패턴(에러/로딩/빈 상태/세션 만료). client/features/ 계층만                   | `user-screens.md`  | ✅   |
 | P1-10 | 관리자 앱 화면 설계         | 제네릭 CRUD(목록/생성/상세) + 엔티티별 차이 매트릭스. 재사용 컴포넌트 12개(AdminDataTable, EntityForm, MultiLangInput, ImageUploader 등). 고유 화면 4개(로그인/대시보드/감사 로그/관리자 관리). 권한 기반 UI 분기. 한국어 UI                 | `admin-screens.md` | ✅   |
 | P1-11 | SEO 전략              | Landing만 SEO 대상 (SSG). 정적 OG 1장, MVP en canonical only (v0.2 hreflang), JSON-LD (WebApplication), sitemap.xml 1 URL, robots.txt (admin/api 차단). 모든 구현 app/ 계층                      | `seo-strategy.md`  | ✅   |
 | P1-12 | 접근성 기준              | WCAG 2.1 AA 전체. Skip link, 키보드 내비게이션, aria-live polite (채팅 스트리밍 완료 시 알림), 포커스 트랩 (Radix 내장), 터치 44x44px, prefers-reduced-motion, autocomplete. axe-core + 수동 체크리스트. client/ 계층만 해당 | `accessibility.md` | ✅   |
@@ -290,70 +290,70 @@
 ## 인프라 코드 (1~2주)
 
 
-| ID   | 작업                    | 상세                                                                                   | 상태  |
-| ---- | --------------------- | ------------------------------------------------------------------------------------ | --- |
-| P2-1 | 환경변수 + 설정 모듈          | server/core 설정, 환경별 분기 + shared/constants/ai.ts (LLM_CONFIG + TOKEN_CONFIG)          | ✅   |
+| ID   | 작업                    | 상세                                                                                                                                   | 상태  |
+| ---- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --- |
+| P2-1 | 환경변수 + 설정 모듈          | server/core 설정, 환경별 분기 + shared/constants/ai.ts (LLM_CONFIG + TOKEN_CONFIG)                                                          | ✅   |
 | P2-2 | Supabase 서버 클라이언트     | server/core/db.ts: createAuthenticatedClient(RLS 적용) + createServiceClient(RLS 우회). @supabase/supabase-js + config.ts env 경유. 테스트 4개 | ✅   |
-| P2-3 | Supabase 브라우저 클라이언트   | client/core/config.ts(zod 검증) + supabase-browser.ts(Auth 전용 팩토리). DB 직접 접근 없음. 테스트 5개 | ✅   |
-| P2-4 | DB 마이그레이션 실행          | 004(P1-16+P1-17) + 005(인덱스 13개) + 006(beauty_summary) 실행 완료. kit_subscribers 인덱스는 P2-25에서 처리 | ✅   |
-| P2-5 | AI 엔진 + Rate Limiter  | core/rate-limit.ts(메모리Map, window구분자) + features/chat/llm-client.ts(callWithFallback+shouldFallback). ai-engine.ts 삭제. 테스트 13개 | ✅   |
-| P2-6 | 프롬프트 관리 모듈            | features/chat/prompts.ts: 고정 6개 상수(§2~§7) + 동적 3개 함수(§8~§10) + buildSystemPrompt 조립. 순수 함수. 테스트 6개 | ✅   |
-| P2-7 | Knowledge 검색 (RAG) 모듈 | config.ts: getEmbeddingModel() + knowledge.ts: embedQuery(RETRIEVAL_QUERY) + embedDocument(RETRIEVAL_DOCUMENT). 테스트 6개 | ✅   |
-| P2-8 | 대화 메모리 관리 모듈          | core/memory.ts: loadRecentMessages(턴 기반) + saveMessages(DB INSERT). SupabaseClient 파라미터 주입(P-4). 테스트 8개 | ✅   |
+| P2-3 | Supabase 브라우저 클라이언트   | client/core/config.ts(zod 검증) + supabase-browser.ts(Auth 전용 팩토리). DB 직접 접근 없음. 테스트 5개                                                | ✅   |
+| P2-4 | DB 마이그레이션 실행          | 004(P1-16+P1-17) + 005(인덱스 13개) + 006(beauty_summary) 실행 완료. kit_subscribers 인덱스는 P2-25에서 처리                                         | ✅   |
+| P2-5 | AI 엔진 + Rate Limiter  | core/rate-limit.ts(메모리Map, window구분자) + features/chat/llm-client.ts(callWithFallback+shouldFallback). ai-engine.ts 삭제. 테스트 13개       | ✅   |
+| P2-6 | 프롬프트 관리 모듈            | features/chat/prompts.ts: 고정 6개 상수(§2~~§7) + 동적 3개 함수(§8~~§10) + buildSystemPrompt 조립. 순수 함수. 테스트 6개                                 | ✅   |
+| P2-7 | Knowledge 검색 (RAG) 모듈 | config.ts: getEmbeddingModel() + knowledge.ts: embedQuery(RETRIEVAL_QUERY) + embedDocument(RETRIEVAL_DOCUMENT). 테스트 6개               | ✅   |
+| P2-8 | 대화 메모리 관리 모듈          | core/memory.ts: loadRecentMessages(턴 기반) + saveMessages(DB INSERT). SupabaseClient 파라미터 주입(P-4). 테스트 8개                              | ✅   |
 
 
 ## 사용자 앱 — 서비스 + API (2~3주)
 
 
-| ID     | 작업                                         | 상세                                                                                                                      | 상태  |
-| ------ | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | --- |
-| P2-9   | Anonymous 인증 서비스 + API                     | 익명 세션 생성/관리. core/auth.ts(인증 미들웨어) + features/auth/service.ts + route. 테스트 21개                                          | ✅   |
-| P2-10  | 프로필 서비스 + API                              | profile service(upsert/get/update) + journey service(createOrUpdate/getActive) + onboarding/profile route. 테스트 30개         | ✅   |
-| P2-11  | 여정 서비스 + API                               | P2-10에서 완료: createOrUpdateJourney + getActiveJourney. POST /api/journey route는 v0.2 (api-spec B.4)                        | ✅   |
-| P2-12  | 뷰티 판단 엔진                                   | judgment.ts: rank() 공통 정렬 + ScoredItem/RankedResult 계약 인터페이스. 순수 함수. 테스트 6개                                              | ✅   |
-| P2-13  | 쇼핑 도메인 로직                                  | shopping.ts: scoreProducts (DV-1/2 성분 매칭). ScoredItem 계약 구현. 순수 함수. 테스트 8개                                              | ✅   |
-| P2-14  | 시술 도메인 로직                                  | treatment.ts: scoreTreatments (다운타임 필터 + checkDowntimeSafety 재사용). 순수 함수. 테스트 11개                                       | ✅   |
-| P2-15  | DV 계산기                                     | derived.ts: DV-1(선호 성분) + DV-2(기피 성분) + DV-3(세그먼트). 독립 순수 함수. 테스트 10개                                               | ✅   |
-| P2-16  | Product 리포지토리                              | product-repository.ts(4메서드) + query-utils.ts(공통 8유틸). 테스트 22개                                                         | ✅   |
-| P2-16a | Store 리포지토리                                | store-repository.ts(3메서드). matchByVector 없음(RPC 미설계). 테스트 8개                                                           | ✅   |
-| P2-17  | Treatment 리포지토리                            | treatment-repository.ts(4메서드) + 007_fix_match_treatments.sql(RPC 수정). 테스트 10개                                           | ✅   |
-| P2-17a | Clinic 리포지토리                               | clinic-repository.ts(3메서드). matchByVector 없음(RPC 미설계). 테스트 8개                                                          | ✅   |
-| P2-20  | Chat Tool — search_beauty_data             | search-handler.ts: domain 분기 + 벡터/SQL 폴백 + beauty 판단 + stores/clinics junction. 테스트 10개                                 | ✅   |
-| P2-21  | Chat Tool — get_external_links             | links-handler.ts: entity_type별 링크 조회 + LinkType 확장(purchase/booking/map). 테스트 7개                                       | ✅   |
-| P2-22  | Chat Tool — extract_user_profile (동기 tool) | extraction-handler.ts: zod 스키마 6개 변수 + parse→반환. DB 없음. budget 'moderate'. 테스트 5개                                      | ✅   |
-| P2-19  | 채팅 서비스                                     | service.ts: conversation CRUD + prompt + LLM(callWithFallback+stopWhen) + 3 tools. 테스트 7개                                  | ✅   |
-| P2-23  | Chat API (스트리밍)                            | route.ts: 인증+검증+rate limit(5/분+100/일)+cross-domain+chatService+SSE+비동기후처리. 테스트 8개                                      | ✅   |
-| P2-18  | Knowledge 리포지토리                            | 🔶 **v0.2 연기**. 사유: (1) KB 테이블 미설계(schema.dbml 미정의) (2) search_beauty_data에 knowledge 도메인 없음(tool-spec.md §1: shopping/treatment만) (3) MVP KB는 시스템 프롬프트 인라인(embedding-strategy.md §2.4). 선행: KB 테이블 마이그레이션(v0.2) + tool domain 확장 | 🔶   |
-| P2-24  | Chat 히스토리 API                              | GET /api/chat/history: conversation 자동 조회 + loadRecentMessages + tool_calls 제외. 테스트 6개                                   | ✅   |
-| P2-25  | Kit CTA API                                | 008_kit_subscribers migration + core/crypto.ts(AES-256+SHA-256) + POST /api/kit/claim. 테스트 11개                             | ✅   |
-| P2-26  | 행동 로그 서비스 + API                            | POST /api/events: 4개 이벤트(path_a_entry/card_exposure/card_click/external_link_click) + metadata zod + Q-15. 테스트 7개       | ✅   |
-| P2-26b | 도메인 데이터 공개 읽기 API                          | 8개 route (4목록+4상세). findAll* 재사용(offset→page). embedding 제외. optionalAuth. 테스트 20개                                    | ✅   |
-| P2-27  | 단위 테스트 — beauty/ 순수 함수                     | P2-12~15에서 TDD로 구현 완료. judgment 6 + shopping 8 + treatment 11 + derived 10 = 35개 테스트                                  | ✅   |
-| P2-28  | 단위 테스트 — zod 스키마 검증                        | 각 route/tool 테스트에서 유효/무효 입력 이미 검증. onboarding 3, chat 2, events 3, extraction 2 등. 추가 불필요                            | ✅   |
-| P2-28a | API 레이어 Hono 전환 + OpenAPI 자동 문서화          | 15 route → Hono. middleware(auth+rateLimit). GET /api/docs Swagger UI 자동. core/features/shared 무수정. 테스트 30개              | ✅   |
+| ID     | 작업                                         | 상세                                                                                                                                                                                                                                | 상태  |
+| ------ | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| P2-9   | Anonymous 인증 서비스 + API                     | 익명 세션 생성/관리. core/auth.ts(인증 미들웨어) + features/auth/service.ts + route. 테스트 21개                                                                                                                                                    | ✅   |
+| P2-10  | 프로필 서비스 + API                              | profile service(upsert/get/update) + journey service(createOrUpdate/getActive) + onboarding/profile route. 테스트 30개                                                                                                                | ✅   |
+| P2-11  | 여정 서비스 + API                               | P2-10에서 완료: createOrUpdateJourney + getActiveJourney. POST /api/journey route는 v0.2 (api-spec B.4)                                                                                                                                | ✅   |
+| P2-12  | 뷰티 판단 엔진                                   | judgment.ts: rank() 공통 정렬 + ScoredItem/RankedResult 계약 인터페이스. 순수 함수. 테스트 6개                                                                                                                                                       | ✅   |
+| P2-13  | 쇼핑 도메인 로직                                  | shopping.ts: scoreProducts (DV-1/2 성분 매칭). ScoredItem 계약 구현. 순수 함수. 테스트 8개                                                                                                                                                        | ✅   |
+| P2-14  | 시술 도메인 로직                                  | treatment.ts: scoreTreatments (다운타임 필터 + checkDowntimeSafety 재사용). 순수 함수. 테스트 11개                                                                                                                                                 | ✅   |
+| P2-15  | DV 계산기                                     | derived.ts: DV-1(선호 성분) + DV-2(기피 성분) + DV-3(세그먼트). 독립 순수 함수. 테스트 10개                                                                                                                                                             | ✅   |
+| P2-16  | Product 리포지토리                              | product-repository.ts(4메서드) + query-utils.ts(공통 8유틸). 테스트 22개                                                                                                                                                                     | ✅   |
+| P2-16a | Store 리포지토리                                | store-repository.ts(3메서드). matchByVector 없음(RPC 미설계). 테스트 8개                                                                                                                                                                      | ✅   |
+| P2-17  | Treatment 리포지토리                            | treatment-repository.ts(4메서드) + 007_fix_match_treatments.sql(RPC 수정). 테스트 10개                                                                                                                                                     | ✅   |
+| P2-17a | Clinic 리포지토리                               | clinic-repository.ts(3메서드). matchByVector 없음(RPC 미설계). 테스트 8개                                                                                                                                                                     | ✅   |
+| P2-20  | Chat Tool — search_beauty_data             | search-handler.ts: domain 분기 + 벡터/SQL 폴백 + beauty 판단 + stores/clinics junction. 테스트 10개                                                                                                                                           | ✅   |
+| P2-21  | Chat Tool — get_external_links             | links-handler.ts: entity_type별 링크 조회 + LinkType 확장(purchase/booking/map). 테스트 7개                                                                                                                                                  | ✅   |
+| P2-22  | Chat Tool — extract_user_profile (동기 tool) | extraction-handler.ts: zod 스키마 6개 변수 + parse→반환. DB 없음. budget 'moderate'. 테스트 5개                                                                                                                                                 | ✅   |
+| P2-19  | 채팅 서비스                                     | service.ts: conversation CRUD + prompt + LLM(callWithFallback+stopWhen) + 3 tools. 테스트 7개                                                                                                                                         | ✅   |
+| P2-23  | Chat API (스트리밍)                            | route.ts: 인증+검증+rate limit(5/분+100/일)+cross-domain+chatService+SSE+비동기후처리. 테스트 8개                                                                                                                                                 | ✅   |
+| P2-18  | Knowledge 리포지토리                            | 🔶 **v0.2 연기**. 사유: (1) KB 테이블 미설계(schema.dbml 미정의) (2) search_beauty_data에 knowledge 도메인 없음(tool-spec.md §1: shopping/treatment만) (3) MVP KB는 시스템 프롬프트 인라인(embedding-strategy.md §2.4). 선행: KB 테이블 마이그레이션(v0.2) + tool domain 확장 | 🔶  |
+| P2-24  | Chat 히스토리 API                              | GET /api/chat/history: conversation 자동 조회 + loadRecentMessages + tool_calls 제외. 테스트 6개                                                                                                                                            | ✅   |
+| P2-25  | Kit CTA API                                | 008_kit_subscribers migration + core/crypto.ts(AES-256+SHA-256) + POST /api/kit/claim. 테스트 11개                                                                                                                                    | ✅   |
+| P2-26  | 행동 로그 서비스 + API                            | POST /api/events: 4개 이벤트(path_a_entry/card_exposure/card_click/external_link_click) + metadata zod + Q-15. 테스트 7개                                                                                                                 | ✅   |
+| P2-26b | 도메인 데이터 공개 읽기 API                          | 8개 route (4목록+4상세). findAll* 재사용(offset→page). embedding 제외. optionalAuth. 테스트 20개                                                                                                                                                | ✅   |
+| P2-27  | 단위 테스트 — beauty/ 순수 함수                     | P2-12~15에서 TDD로 구현 완료. judgment 6 + shopping 8 + treatment 11 + derived 10 = 35개 테스트                                                                                                                                              | ✅   |
+| P2-28  | 단위 테스트 — zod 스키마 검증                        | 각 route/tool 테스트에서 유효/무효 입력 이미 검증. onboarding 3, chat 2, events 3, extraction 2 등. 추가 불필요                                                                                                                                         | ✅   |
+| P2-28a | API 레이어 Hono 전환 + OpenAPI 자동 문서화           | 15 route → Hono. middleware(auth+rateLimit). GET /api/docs Swagger UI 자동. core/features/shared 무수정. 테스트 30개                                                                                                                       | ✅   |
 
 
 ## 사용자 앱 — UI (2~3주, 병렬 가능)
 
 
-| ID    | 작업                        | 상세                                                                     | 의존        | 상태  |
-| ----- | ------------------------- | ---------------------------------------------------------------------- | --------- | --- |
-| P2-29 | 공통 레이아웃 + locale 레이아웃     | shadcn/ui 초기화(18컴포넌트) + cn.ts + viewport 메타태그 + safe-area + touch-action + Sonner Toaster. globals.css 모바일 호환성 | —         | ✅   |
-| P2-30 | 에러 바운더리 + 에러 화면           | error.tsx (role="alert" + 포커스 이동 + reset), not-found.tsx (404). i18n. Full-page 에러만 | —         | ✅   |
-| P2-31 | Header + LanguageSelector | 공유 앱 Header(props 기반 좌측 컨텍스트) + shadcn Select LanguageSelector + LanguageContext(대화 언어) | P2-29     | ✅   |
-| P2-32 | Landing 페이지               | 풀 너비 마케팅 랜딩 7컴포넌트 + (app)/ 라우트 그룹 분리 + CTA 인라인 동의 + ReturnVisitBanner(프로필) + 그래디언트 애니메이션 | P2-29     | ✅   |
-| P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | Step 1~4 (피부/헤어, 고민, 여행, 관심). react-hook-form + OptionGroup + ProgressBar + localStorage 백업 | P2-29     | ✅   |
-| P2-34 | 프로필 전환/확인 화면              | 로딩 애니메이션, 프로필 카드                                                       | P2-29     | ⬜   |
-| P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조. 조건부 렌더링                                                | P2-29     | ⬜   |
-| P2-36 | 5영역 탭 바                   | Shops/Clinic/Salon/Eats/Exp (MVP: 2개 활성, 3개 Coming soon)               | P2-29     | ⬜   |
-| P2-37 | ProductCard 컴포넌트          | PRD §3.5 기반. HighlightBadge 포함                                         | P2-39     | ⬜   |
-| P2-38 | TreatmentCard 컴포넌트        | PRD §3.5 기반. HighlightBadge 포함                                         | P2-39     | ⬜   |
-| P2-35 | Chat 인터페이스                | 메시지 버블, 입력바(visualViewport 키보드 감지), 스트리밍 UI + SuggestedQuestions(경로B) + 카드 렌더링 + 탭 필터 | P2-36~P2-38 | ⬜   |
-| P2-40 | Kit CTA 컴포넌트              | KitCtaCard + KitCtaSheet(Bottom sheet). Chat 내 인라인 (user-screens §6.6) | P2-35     | ⬜   |
-| P2-41 | Profile 페이지               | 프로필 조회/수정                                                              | P2-29     | ⬜   |
-| P2-42 | 프로필 Context               | React Context 상태 관리. UI 편의용 — 페이지는 API 호출로 독립 동작                       | P2-29     | ⬜   |
-| P2-43 | 면책 조항 페이지                 | 시술 추천 면책, 의료 조언 아닌 정보 제공 명시                                            | P2-29     | ⬜   |
-| P2-44 | 이용약관 + 개인정보처리방침 페이지       | 서비스 이용약관, 데이터 수집/보관/삭제 정책                                              | P2-29     | ⬜   |
+| ID    | 작업                        | 상세                                                                                                             | 의존          | 상태  |
+| ----- | ------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------- | --- |
+| P2-29 | 공통 레이아웃 + locale 레이아웃     | shadcn/ui 초기화(18컴포넌트) + cn.ts + viewport 메타태그 + safe-area + touch-action + Sonner Toaster. globals.css 모바일 호환성 | —           | ✅   |
+| P2-30 | 에러 바운더리 + 에러 화면           | error.tsx (role="alert" + 포커스 이동 + reset), not-found.tsx (404). i18n. Full-page 에러만                            | —           | ✅   |
+| P2-31 | Header + LanguageSelector | 공유 앱 Header(props 기반 좌측 컨텍스트) + shadcn Select LanguageSelector + LanguageContext(대화 언어)                        | P2-29       | ✅   |
+| P2-32 | Landing 페이지               | 풀 너비 마케팅 랜딩 7컴포넌트 + (app)/ 라우트 그룹 분리 + CTA 인라인 동의 + ReturnVisitBanner(프로필) + 그래디언트 애니메이션                       | P2-29       | ✅   |
+| P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | Step 1~4 (피부/헤어, 고민, 여행, 관심). react-hook-form + OptionGroup + ProgressBar + localStorage 백업                    | P2-29       | ✅   |
+| P2-34 | 프로필 전환/확인 화면              | ProfileTransition 3단계 체크 애니메이션 + ProfileCard(UP+JC) + ProfileClient(로딩/에러/404) + Edit/ShowPicks 버튼             | P2-29       | ✅   |
+| P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조. 조건부 렌더링                                                                                        | P2-29       | ⬜   |
+| P2-36 | 5영역 탭 바                   | Shops/Clinic/Salon/Eats/Exp (MVP: 2개 활성, 3개 Coming soon)                                                       | P2-29       | ⬜   |
+| P2-37 | ProductCard 컴포넌트          | PRD §3.5 기반. HighlightBadge 포함                                                                                 | P2-39       | ⬜   |
+| P2-38 | TreatmentCard 컴포넌트        | PRD §3.5 기반. HighlightBadge 포함                                                                                 | P2-39       | ⬜   |
+| P2-35 | Chat 인터페이스                | 메시지 버블, 입력바(visualViewport 키보드 감지), 스트리밍 UI + SuggestedQuestions(경로B) + 카드 렌더링 + 탭 필터                          | P2-36~P2-38 | ⬜   |
+| P2-40 | Kit CTA 컴포넌트              | KitCtaCard + KitCtaSheet(Bottom sheet). Chat 내 인라인 (user-screens §6.6)                                         | P2-35       | ⬜   |
+| P2-41 | Profile 페이지               | 프로필 조회/수정                                                                                                      | P2-29       | ⬜   |
+| P2-42 | 프로필 Context               | React Context 상태 관리. UI 편의용 — 페이지는 API 호출로 독립 동작                                                               | P2-29       | ⬜   |
+| P2-43 | 면책 조항 페이지                 | 시술 추천 면책, 의료 조언 아닌 정보 제공 명시                                                                                    | P2-29       | ⬜   |
+| P2-44 | 이용약관 + 개인정보처리방침 페이지       | 서비스 이용약관, 데이터 수집/보관/삭제 정책                                                                                      | P2-29       | ⬜   |
 
 
 ## 관리자 앱 — MVP (병렬 가능)
@@ -383,18 +383,18 @@
 > **Phase 2 코드 작성 전에 완료 필수.** 결과에 따라 파이프라인 전략이 변경될 수 있음.
 
 
-| ID    | 작업                        | 상세                                                                                | 의존  | 상태  |
-| ----- | ------------------------- | --------------------------------------------------------------------------------- | --- | --- |
-| P2-V2 | 식약처 API 실제 호출 검증 (U-2)    | **완료 (2026-03-25)**. S3/S4/S5 실제 호출 성공. 발견: S3 CAS_NO 대부분 NULL → S6 JOIN 키를 INGR_ENG_NAME↔INCI name으로 변경. S4 REGULATE_TYPE 필터 미작동 → 전체 다운로드+클라이언트 필터. 제조업자 API → MVP 불필요 | 없음  | ✅   |
-| P2-V3 | 브랜드 공식 이미지 정책 확인 (U-6)    | **완료 (2026-03-26)**. 5개 브랜드 약관+업계 관행 조사. 4/5 상업적 사용 금지 명시, 1/5 불명확(COSRX). 업계 표준: 브랜드 직접 제출 모델. **판정: MVP placeholder 전략 확정 (D-14). 서면 승인 획득 후 순차 전환** | 없음  | ✅   |
-| P2-V4 | EU CosIng CSV + 커버리지 검증 (U-3) | **V4-A 완료 (2026-03-25)**. 공식 CSV 28,705건 확보. 대표 30개 성분 INCI 매칭률 **100%**. Function 30/30 보유. S3↔CosIng 교차매칭 5/5 성공. **판정: S6 유효, JOIN 키 변경만** | 없음  | ✅   |
-| P2-V5 | 시술 가격 범위 현실성 검증 (U-7)     | M2 시점. 5개 클리닉 실제 상담 가격과 DB price_min/max 대조. 50%+ 불일치 시 가격 표시 방식 재검토             | P2-62 | ⬜   |
-| P2-V7 | 올리브영 글로벌 이용약관 검토 (U-13) | **완료 (2026-03-25)**. 제14조② 상업적 목적 데이터 금지. robots.txt /product Allow. 판정: 브랜드 사이트 1순위, 올리브영 글로벌 2순위(보조). cosrx/laneige/innisfree robots.txt 허용 확인 | 없음 | ✅ |
+| ID    | 작업                            | 상세                                                                                                                                                                       | 의존    | 상태  |
+| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- | --- |
+| P2-V2 | 식약처 API 실제 호출 검증 (U-2)        | **완료 (2026-03-25)**. S3/S4/S5 실제 호출 성공. 발견: S3 CAS_NO 대부분 NULL → S6 JOIN 키를 INGR_ENG_NAME↔INCI name으로 변경. S4 REGULATE_TYPE 필터 미작동 → 전체 다운로드+클라이언트 필터. 제조업자 API → MVP 불필요 | 없음    | ✅   |
+| P2-V3 | 브랜드 공식 이미지 정책 확인 (U-6)        | **완료 (2026-03-26)**. 5개 브랜드 약관+업계 관행 조사. 4/5 상업적 사용 금지 명시, 1/5 불명확(COSRX). 업계 표준: 브랜드 직접 제출 모델. **판정: MVP placeholder 전략 확정 (D-14). 서면 승인 획득 후 순차 전환**                   | 없음    | ✅   |
+| P2-V4 | EU CosIng CSV + 커버리지 검증 (U-3) | **V4-A 완료 (2026-03-25)**. 공식 CSV 28,705건 확보. 대표 30개 성분 INCI 매칭률 **100%**. Function 30/30 보유. S3↔CosIng 교차매칭 5/5 성공. **판정: S6 유효, JOIN 키 변경만**                            | 없음    | ✅   |
+| P2-V5 | 시술 가격 범위 현실성 검증 (U-7)         | M2 시점. 5개 클리닉 실제 상담 가격과 DB price_min/max 대조. 50%+ 불일치 시 가격 표시 방식 재검토                                                                                                     | P2-62 | ⬜   |
+| P2-V7 | 올리브영 글로벌 이용약관 검토 (U-13)       | **완료 (2026-03-25)**. 제14조② 상업적 목적 데이터 금지. robots.txt /product Allow. 판정: 브랜드 사이트 1순위, 올리브영 글로벌 2순위(보조). cosrx/laneige/innisfree robots.txt 허용 확인                         | 없음    | ✅   |
+
 
 ### ~~후순위 대기~~ → MVP 제외 (v0.2 백로그로 이동)
 
 > P2-V1, P2-V6, P2-56e: 어필리에이트 활성화가 현실적으로 어려워 MVP 범위에서 제외 (2026-03-29). 제품 데이터는 A-3 시드 크롤링 + CSV 수동으로 대체. purchase_links는 affiliate_code 없이 일반 URL로 운용.
-
 
 ## 데이터 준비 — 파이프라인 구현 (코어 구현과 병렬)
 
@@ -402,32 +402,32 @@
 > 의존 규칙: `scripts/ → server/core/, shared/` 허용. 역방향 금지. `server/features/` import 금지.
 
 
-| ID     | 작업                                           | 상세                                                                                                       | 의존             | 상태  |
-| ------ | -------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- | --- |
-| P2-56a | shared/validation/ zod 스키마 정의                | **완료 (2026-03-28)**. 7엔티티 create/update 스키마 + 관계 3개 + 하이라이트. 공통 패턴(localizedText, statusEnum, pagination). CLAUDE.md §2.4 + security-infra.md §2.1 갱신. 스켈레톤 데이터 열거값 불일치 17건 수정 | P2-V2          | ✅   |
-| P2-56b | scripts/seed/config.ts 파이프라인 환경변수            | **완료 (2026-03-28)**. zod 검증 14개 변수 (파이프라인 전용 4 + DB 3 + AI 5 + App 2). core/config.ts 독립 — ADMIN_JWT_SECRET 등 불필요 변수 미포함. superRefine AI 키 조건부 필수 | P2-V2   | ✅   |
-| P2-56c | scripts/seed/lib/types.ts 파이프라인 타입           | **완료 (2026-03-28)**. EntityType, RawRecord, EnrichedRecord, ValidatedRecord, LoadResult, PipelineResult, PipelineError, PlaceProvider, RawPlace. shared/types import만 | P2-56a         | ✅   |
-| P2-56d | 카카오 로컬 프로바이더 (S1)                            | **완료 (2026-03-29)**. scripts/seed/lib/providers/kakao-local.ts. PlaceProvider 구현 + 페이지네이션(size=15, is_end, MAX_PAGES=45) + 지수 백오프 재시도(3회) + sourceId dedup. mapDocumentToRawPlace 분리 + 단위 테스트 11개. vitest.config.ts scripts/ include 추가 | P2-56b, P2-56c | ✅   |
-| ~~P2-56e~~ | ~~쿠팡 파트너스 프로바이더 (S7)~~ → **MVP 제외** | v0.2 백로그로 이동. 어필리에이트 활성화 후 coupang-partners.ts 구현 예정 | ~~P2-V1~~ | ❌ 제외 |
-| | **── Layer 1: 프로바이더 (Stage 1 도구, 각각 독립) ──** | | | |
-| P2-56j | CSV 로더 프로바이더                                 | **완료 (2026-03-29)**. csv-loader.ts + csv-parser.ts(공유 유틸, P-7). csv-parse 라이브러리. loadCsvAsRawRecords(filePath, entityType) → RawRecord[]. 테스트 12개. cosing-csv/review-exporter도 csv-parser.ts 공유 예정 | P2-56c         | ✅   |
-| P2-56f | 식약처 원료성분 프로바이더 (S3)                          | **완료 (2026-03-29)**. mfds-ingredient.ts. 전체 풀 다운로드(페이지네이션) + sourceId=INGR_KOR_NAME dedup. fetchWithRetry 재사용. 공공데이터포털 items 구조 방어. 테스트 10개 | P2-V2, P2-56c  | ✅   |
-| P2-56i | CosIng CSV 프로바이더 (S6)                        | **완료 (2026-03-29)**. cosing-csv.ts. csv-parser.ts 공유(P-7). sourceId=INCI name, delimiter=";". config COSING_CSV_PATH 자체 참조. S3↔S6 매칭은 fetch-service(P2-56n) 담당. 테스트 10개 | P2-V4, P2-56c  | ✅   |
-| P2-56g | 식약처 사용제한 프로바이더 (S4)                          | **완료 (2026-03-29)**. mfds-restricted.ts. 전체 다운로드(31K건) + 복합키 sourceId(INGR_ENG_NAME:COUNTRY_NAME) dedup. 국가별 레코드 모두 보존(6개국 서비스). 비즈니스 필터링은 Stage 2~3 담당. 테스트 15개 | P2-56f         | ✅   |
-| P2-56h | 식약처 보고품목 프로바이더 (S5)                          | **완료 (2026-03-29)**. mfds-functional.ts. 키워드 검색(item_name) + 페이지네이션. entityType="product", sourceId=COSMETIC_REPORT_SEQ. 퍼지 매칭은 P2-64e(Phase E) 담당. 테스트 14개 | P2-V2, P2-56c  | ✅   |
-| P2-56e2 | **웹 스크래퍼 프로바이더 (Channel A-3)** | **완료 (2026-03-29)**. web-scraper.ts(엔진) + site-configs.ts(설정 분리, P-7). Playwright 헤드리스. source 분리: scraper-brand/scraper-oliveyoung. Crawl-delay 5초. 사이트 에러 격리. 테스트 10개 | P2-56b, P2-56c, P2-V7 | ✅   |
-| | **── Layer 2: AI 모듈 (Stage 2 도구, 각각 독립) ──** | | | |
-| P2-56k | AI 번역 모듈                                     | **완료 (2026-03-29)**. translator.ts + ai-client.ts(파이프라인 전용 모델 팩토리). ko→en 필수 + ja/zh/es/fr 선택. LocalizedText 출력. 번역 실패 시 ko 폴백. 테스트 19개        | P2-56c, P2-5   | ✅   |
-| P2-56l | AI 분류 모듈                                     | **완료 (2026-03-30)**. classifier.ts. classifyFields(inputData, fieldSpecs) 범용 함수. FieldSpec.promptHint로 분류 의미 구분. 허용값 필터링 + confidence 클램핑. 테스트 16개        | P2-56c, P2-5   | ✅   |
-| P2-56m | AI 설명 생성 모듈                                  | **완료 (2026-03-30)**. description-generator.ts. generateDescriptions(inputData, fieldSpecs) 범용 함수. GenerationFieldSpec 전용 인터페이스. ko+en 동시 생성. 테스트 14개        | P2-56c, P2-5   | ✅   |
-| P2-56r | AI 분류 정확도 PoC (U-1)                          | **완료 (2026-03-30)**. classify-accuracy.ts. M1 10건 Jaccard 비교. 테스트 16개. **실행 결과: overall 80% PASS (skin_types 100%, concerns 80%)**. 실패 2건은 dark_spots 미인식 — 프롬프트 개선 여지 있음. U-1 해소: AI 자동 분류 확정        | P2-56l         | ✅   |
-| | **── Layer 3: 오케스트레이션 + DB 적재 ──** | | | |
-| P2-56p | loader (Stage 4 DB 적재)                       | **완료 (2026-03-30)**. loader.ts + db-client.ts + id-generator.ts. deterministic UUID v5(entityType별 namespace) → zod 재검증 → Phase A→B→C FK순서 → 100건 청크 UPSERT. LoadOptions(dryRun/insertOnly/batchSize/entityTypes) 회차별 유연성. Junction 복합PK ON CONFLICT. 테스트 24개 | P2-56a, P2-2   | ✅   |
-| P2-56n | fetch-service (Stage 1 오케스트레이션)              | **완료 (2026-03-30)**. fetch-service.ts + place-mapper.ts. Promise.allSettled 병렬 호출. classifyPlace(store/clinic) + 4단계 dedup. S3↔S6↔S4 ingredients 텍스트 매칭 합병. FetchOptions(targets/placeQueries/csvFiles/siteConfigs). 에러 격리. 테스트 35개 | P2-56d,56e2,56f~j (~~56e 제외~~) | ✅   |
-| P2-56o | enrich-service (Stage 2 오케스트레이션)             | **완료 (2026-03-30)**. enrich-service.ts. ENRICHMENT_CONFIG 7엔티티별 매핑. 5단계: UUID→번역→분류(confidence)→생성(ko+en)→재번역(4언어). EnrichOptions(entityTypes/targetLangs/skip*). 건별 try-catch 에러 격리. 테스트 14개 | P2-56k~m, P2-56r       | ✅   |
-| | **── Layer 4: 최종 통합 ──** | | | |
-| P2-56o2 | review-exporter (Stage 3 검수 CSV)             | **완료 (2026-03-31)**. review-exporter.ts. 2-파일 전략: JSON(보존)+CSV(검수). 엔티티별 개별 파일. ENTITY_REVIEW_COLUMNS 선언적 설정. export(EnrichedRecord[]→JSON+CSV) + import(JSON+CSV→ValidatedRecord[]). csv-parser.ts에 stringifyCsvRows 추가. 테스트 22개 | P2-56o         | ✅   |
-| P2-56q | CLI 진입점 (8개 + 레거시 삭제)                    | **완료 (2026-03-31)**. 8개 CLI: fetch, import-csv, enrich, export-review, import-review, validate, load, run-all. run-all 두 모드(검수대기/auto-approve). validate DB 불필요 독립 검증. parse-args.ts 공통 유틸. entity-schemas.ts 공유. 레거시 run.ts+interface.ts 삭제 | P2-56n~p       | ✅   |
+| ID         | 작업                                           | 상세                                                                                                                                                                                                                                                            | 의존                             | 상태   |
+| ---------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---- |
+| P2-56a     | shared/validation/ zod 스키마 정의                | **완료 (2026-03-28)**. 7엔티티 create/update 스키마 + 관계 3개 + 하이라이트. 공통 패턴(localizedText, statusEnum, pagination). CLAUDE.md §2.4 + security-infra.md §2.1 갱신. 스켈레톤 데이터 열거값 불일치 17건 수정                                                                                | P2-V2                          | ✅    |
+| P2-56b     | scripts/seed/config.ts 파이프라인 환경변수            | **완료 (2026-03-28)**. zod 검증 14개 변수 (파이프라인 전용 4 + DB 3 + AI 5 + App 2). core/config.ts 독립 — ADMIN_JWT_SECRET 등 불필요 변수 미포함. superRefine AI 키 조건부 필수                                                                                                             | P2-V2                          | ✅    |
+| P2-56c     | scripts/seed/lib/types.ts 파이프라인 타입           | **완료 (2026-03-28)**. EntityType, RawRecord, EnrichedRecord, ValidatedRecord, LoadResult, PipelineResult, PipelineError, PlaceProvider, RawPlace. shared/types import만                                                                                         | P2-56a                         | ✅    |
+| P2-56d     | 카카오 로컬 프로바이더 (S1)                            | **완료 (2026-03-29)**. scripts/seed/lib/providers/kakao-local.ts. PlaceProvider 구현 + 페이지네이션(size=15, is_end, MAX_PAGES=45) + 지수 백오프 재시도(3회) + sourceId dedup. mapDocumentToRawPlace 분리 + 단위 테스트 11개. vitest.config.ts scripts/ include 추가                       | P2-56b, P2-56c                 | ✅    |
+| ~~P2-56e~~ | ~~쿠팡 파트너스 프로바이더 (S7)~~ → **MVP 제외**          | v0.2 백로그로 이동. 어필리에이트 활성화 후 coupang-partners.ts 구현 예정                                                                                                                                                                                                          | ~~P2-V1~~                      | ❌ 제외 |
+|            | **── Layer 1: 프로바이더 (Stage 1 도구, 각각 독립) ──** |                                                                                                                                                                                                                                                               |                                |      |
+| P2-56j     | CSV 로더 프로바이더                                 | **완료 (2026-03-29)**. csv-loader.ts + csv-parser.ts(공유 유틸, P-7). csv-parse 라이브러리. loadCsvAsRawRecords(filePath, entityType) → RawRecord[]. 테스트 12개. cosing-csv/review-exporter도 csv-parser.ts 공유 예정                                                            | P2-56c                         | ✅    |
+| P2-56f     | 식약처 원료성분 프로바이더 (S3)                          | **완료 (2026-03-29)**. mfds-ingredient.ts. 전체 풀 다운로드(페이지네이션) + sourceId=INGR_KOR_NAME dedup. fetchWithRetry 재사용. 공공데이터포털 items 구조 방어. 테스트 10개                                                                                                                   | P2-V2, P2-56c                  | ✅    |
+| P2-56i     | CosIng CSV 프로바이더 (S6)                        | **완료 (2026-03-29)**. cosing-csv.ts. csv-parser.ts 공유(P-7). sourceId=INCI name, delimiter=";". config COSING_CSV_PATH 자체 참조. S3↔S6 매칭은 fetch-service(P2-56n) 담당. 테스트 10개                                                                                       | P2-V4, P2-56c                  | ✅    |
+| P2-56g     | 식약처 사용제한 프로바이더 (S4)                          | **완료 (2026-03-29)**. mfds-restricted.ts. 전체 다운로드(31K건) + 복합키 sourceId(INGR_ENG_NAME:COUNTRY_NAME) dedup. 국가별 레코드 모두 보존(6개국 서비스). 비즈니스 필터링은 Stage 2~3 담당. 테스트 15개                                                                                              | P2-56f                         | ✅    |
+| P2-56h     | 식약처 보고품목 프로바이더 (S5)                          | **완료 (2026-03-29)**. mfds-functional.ts. 키워드 검색(item_name) + 페이지네이션. entityType="product", sourceId=COSMETIC_REPORT_SEQ. 퍼지 매칭은 P2-64e(Phase E) 담당. 테스트 14개                                                                                                   | P2-V2, P2-56c                  | ✅    |
+| P2-56e2    | **웹 스크래퍼 프로바이더 (Channel A-3)**               | **완료 (2026-03-29)**. web-scraper.ts(엔진) + site-configs.ts(설정 분리, P-7). Playwright 헤드리스. source 분리: scraper-brand/scraper-oliveyoung. Crawl-delay 5초. 사이트 에러 격리. 테스트 10개                                                                                       | P2-56b, P2-56c, P2-V7          | ✅    |
+|            | **── Layer 2: AI 모듈 (Stage 2 도구, 각각 독립) ──** |                                                                                                                                                                                                                                                               |                                |      |
+| P2-56k     | AI 번역 모듈                                     | **완료 (2026-03-29)**. translator.ts + ai-client.ts(파이프라인 전용 모델 팩토리). ko→en 필수 + ja/zh/es/fr 선택. LocalizedText 출력. 번역 실패 시 ko 폴백. 테스트 19개                                                                                                                       | P2-56c, P2-5                   | ✅    |
+| P2-56l     | AI 분류 모듈                                     | **완료 (2026-03-30)**. classifier.ts. classifyFields(inputData, fieldSpecs) 범용 함수. FieldSpec.promptHint로 분류 의미 구분. 허용값 필터링 + confidence 클램핑. 테스트 16개                                                                                                            | P2-56c, P2-5                   | ✅    |
+| P2-56m     | AI 설명 생성 모듈                                  | **완료 (2026-03-30)**. description-generator.ts. generateDescriptions(inputData, fieldSpecs) 범용 함수. GenerationFieldSpec 전용 인터페이스. ko+en 동시 생성. 테스트 14개                                                                                                          | P2-56c, P2-5                   | ✅    |
+| P2-56r     | AI 분류 정확도 PoC (U-1)                          | **완료 (2026-03-30)**. classify-accuracy.ts. M1 10건 Jaccard 비교. 테스트 16개. **실행 결과: overall 80% PASS (skin_types 100%, concerns 80%)**. 실패 2건은 dark_spots 미인식 — 프롬프트 개선 여지 있음. U-1 해소: AI 자동 분류 확정                                                                | P2-56l                         | ✅    |
+|            | **── Layer 3: 오케스트레이션 + DB 적재 ──**           |                                                                                                                                                                                                                                                               |                                |      |
+| P2-56p     | loader (Stage 4 DB 적재)                       | **완료 (2026-03-30)**. loader.ts + db-client.ts + id-generator.ts. deterministic UUID v5(entityType별 namespace) → zod 재검증 → Phase A→B→C FK순서 → 100건 청크 UPSERT. LoadOptions(dryRun/insertOnly/batchSize/entityTypes) 회차별 유연성. Junction 복합PK ON CONFLICT. 테스트 24개 | P2-56a, P2-2                   | ✅    |
+| P2-56n     | fetch-service (Stage 1 오케스트레이션)              | **완료 (2026-03-30)**. fetch-service.ts + place-mapper.ts. Promise.allSettled 병렬 호출. classifyPlace(store/clinic) + 4단계 dedup. S3↔S6↔S4 ingredients 텍스트 매칭 합병. FetchOptions(targets/placeQueries/csvFiles/siteConfigs). 에러 격리. 테스트 35개                           | P2-56d,56e2,56f~j (~~56e 제외~~) | ✅    |
+| P2-56o     | enrich-service (Stage 2 오케스트레이션)             | **완료 (2026-03-30)**. enrich-service.ts. ENRICHMENT_CONFIG 7엔티티별 매핑. 5단계: UUID→번역→분류(confidence)→생성(ko+en)→재번역(4언어). EnrichOptions(entityTypes/targetLangs/skip*). 건별 try-catch 에러 격리. 테스트 14개                                                                 | P2-56k~m, P2-56r               | ✅    |
+|            | **── Layer 4: 최종 통합 ──**                     |                                                                                                                                                                                                                                                               |                                |      |
+| P2-56o2    | review-exporter (Stage 3 검수 CSV)             | **완료 (2026-03-31)**. review-exporter.ts. 2-파일 전략: JSON(보존)+CSV(검수). 엔티티별 개별 파일. ENTITY_REVIEW_COLUMNS 선언적 설정. export(EnrichedRecord[]→JSON+CSV) + import(JSON+CSV→ValidatedRecord[]). csv-parser.ts에 stringifyCsvRows 추가. 테스트 22개                             | P2-56o                         | ✅    |
+| P2-56q     | CLI 진입점 (8개 + 레거시 삭제)                        | **완료 (2026-03-31)**. 8개 CLI: fetch, import-csv, enrich, export-review, import-review, validate, load, run-all. run-all 두 모드(검수대기/auto-approve). validate DB 불필요 독립 검증. parse-args.ts 공통 유틸. entity-schemas.ts 공유. 레거시 run.ts+interface.ts 삭제                  | P2-56n~p                       | ✅    |
 
 
 ## 데이터 준비 — 데이터 입력 + 검수 (코어 구현과 병렬)
@@ -436,20 +436,20 @@
 > 수집 순서: Phase A(brands, ingredients, stores, clinics, treatments 병렬) → Phase B(products, doctors) → Phase C(junction) → Phase D(임베딩)
 
 
-| ID     | 작업                                     | 상세                                                                                                                   | 마일스톤  | 상태  |
-| ------ | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----- | --- |
-| P2-57  | 뷰티 지식 KB 작성 (K1)                       | **완료 (2026-03-26)**. 성분 가이드 20종 + 시술 가이드 15종 = 35종 AI 초안. 전체 품질 검증 통과 (면책, 필수 섹션, 200-2000자). K2(지역+상식)는 MVP 출시 전 별도 | K1→K2 | ✅   |
-| P2-58  | M1 스켈레톤 데이터 적재                         | **완료 (2026-03-26)**. 7엔티티 50건 YAML. FK 정합성 검증, 열거값 검증, D-14(images=[]) 모두 통과. domain.ts 전체 필드 준수 | M1    | ✅   |
+| ID     | 작업                                     | 상세                                                                                                                                                          | 마일스톤  | 상태  |
+| ------ | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | --- |
+| P2-57  | 뷰티 지식 KB 작성 (K1)                       | **완료 (2026-03-26)**. 성분 가이드 20종 + 시술 가이드 15종 = 35종 AI 초안. 전체 품질 검증 통과 (면책, 필수 섹션, 200-2000자). K2(지역+상식)는 MVP 출시 전 별도                                        | K1→K2 | ✅   |
+| P2-58  | M1 스켈레톤 데이터 적재                         | **완료 (2026-03-26)**. 7엔티티 50건 YAML. FK 정합성 검증, 열거값 검증, D-14(images=[]) 모두 통과. domain.ts 전체 필드 준수                                                            | M1    | ✅   |
 | P2-59  | 큐레이션 리스트 확정                            | **완료 (2026-03-26)**. products 200 + stores 50 + clinics 30 + treatments 50 = 330건. 커버리지 검증: skin_type 5종 ✅, concerns 11종 ✅, 브랜드 80개(최대8/브랜드) ✅, 관광객접근 95% ✅ | M1    | ✅   |
-| P2-60  | Phase A: brands 50+ / ingredients 100+ | 브랜드 수동 입력 + S3 식약처 원료성분 자동 수집 + S6 CosIng INCI 교차 + S4 안전성 검증 + AI function 분류 + 전문가 검수                              | M2    | ⬜   |
-| P2-61  | Phase A: stores 50+ (S1 자동수집)          | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(영업시간, english_support, tourist_services, 이미지)                                        | M2    | ⬜   |
-| P2-62  | Phase A: clinics 30+ (S1 자동수집)         | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(foreigner_friendly, license_verified, 이미지). english_support >= basic 필수              | M2    | ⬜   |
-| P2-63  | Phase A: treatments 50+                | 수동 입력 + AI 보강(target_concerns, suitable_skin_types, description, precautions). 전문가 검수 필수. downtime_days 정확성          | M2    | ⬜   |
-| P2-64a | Phase B: products 200+ (A-3+CSV+수동)      | A-3 시드 크롤링 + CSV 임포트 + 관리자 수동. AI 분류 → **전수 검수(D-7, 구글시트)**. image_url 수집+DB 저장, UI placeholder (D-14) | M3    | ⬜   |
-| P2-64b | Phase B: doctors 30+                   | 수동 입력. 클리닉당 1명+. languages 영어 포함 필수                                                                                  | M3    | ⬜   |
-| P2-64c | Phase C: junction 데이터                  | product_stores(유형 기반+개별 혼합 ~~2,700건), product_ingredients(~~400건 수동 + key/avoid 분류), clinic_treatments(~150건)        | M3    | ⬜   |
-| P2-64d | Phase D: 임베딩 생성 + 벡터 DB 적재             | text-builder.ts + generator.ts (embedding-strategy §2) + 배치 스크립트. products, stores, clinics, treatments              | M3    | ⬜   |
-| P2-64e | Phase E: S5 교차 검증 + 품질 게이트             | 식약처 보고품목 교차 검증(기능성화장품 태깅). M3 품질 게이트: A등급 100%, B등급 90%, 커버리지 검증(skin_type×40, concern×5)                            | M3    | ⬜   |
+| P2-60  | Phase A: brands 50+ / ingredients 100+ | 브랜드 수동 입력 + S3 식약처 원료성분 자동 수집 + S6 CosIng INCI 교차 + S4 안전성 검증 + AI function 분류 + 전문가 검수                                                                     | M2    | ⬜   |
+| P2-61  | Phase A: stores 50+ (S1 자동수집)          | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(영업시간, english_support, tourist_services, 이미지)                                                                               | M2    | ⬜   |
+| P2-62  | Phase A: clinics 30+ (S1 자동수집)         | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(foreigner_friendly, license_verified, 이미지). english_support >= basic 필수                                                     | M2    | ⬜   |
+| P2-63  | Phase A: treatments 50+                | 수동 입력 + AI 보강(target_concerns, suitable_skin_types, description, precautions). 전문가 검수 필수. downtime_days 정확성                                                 | M2    | ⬜   |
+| P2-64a | Phase B: products 200+ (A-3+CSV+수동)    | A-3 시드 크롤링 + CSV 임포트 + 관리자 수동. AI 분류 → **전수 검수(D-7, 구글시트)**. image_url 수집+DB 저장, UI placeholder (D-14)                                                      | M3    | ⬜   |
+| P2-64b | Phase B: doctors 30+                   | 수동 입력. 클리닉당 1명+. languages 영어 포함 필수                                                                                                                         | M3    | ⬜   |
+| P2-64c | Phase C: junction 데이터                  | product_stores(유형 기반+개별 혼합 ~~2,700건), product_ingredients(~~400건 수동 + key/avoid 분류), clinic_treatments(~150건)                                               | M3    | ⬜   |
+| P2-64d | Phase D: 임베딩 생성 + 벡터 DB 적재             | text-builder.ts + generator.ts (embedding-strategy §2) + 배치 스크립트. products, stores, clinics, treatments                                                     | M3    | ⬜   |
+| P2-64e | Phase E: S5 교차 검증 + 품질 게이트             | 식약처 보고품목 교차 검증(기능성화장품 태깅). M3 품질 게이트: A등급 100%, B등급 90%, 커버리지 검증(skin_type×40, concern×5)                                                                   | M3    | ⬜   |
 
 
 ## 통합 테스트
@@ -574,30 +574,30 @@
 > MVP 후 구현할 기능. Phase 4에서 상세 계획 작성.
 
 
-| ID    | 기능                     | 설명                                                                                                      | 근거                       |
-| ----- | ---------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------ |
-| V2-1  | 관리자 API 설정 관리          | Rate limit, 시스템 설정을 관리자 UI에서 조정. DB settings 테이블 + 메모리 캐시(TTL 5분) + max/min 안전장치                        | P1-22 결정                 |
-| V2-2  | 관리자 데이터 동기화 UI         | 카카오 API 동기화 주기 설정 + 수동 트리거 + 결과 로그                                                                      | P0-32 결정                 |
-| V2-3  | Rate limit Redis 전환    | 메모리 Map → Upstash Redis. 다중 인스턴스 지원                                                                     | P1-22                    |
-| V2-4  | 계정 인증 시스템              | anonymous → 계정 (이메일/소셜). Supabase Auth linking                                                          | PRD §4-C                 |
-| V2-5  | DOM-3 살롱 + DOM-4 맛집    | salons, restaurants 테이블 + CRUD + 추천                                                                     | PRD §2.2                 |
-| V2-6  | 6개 언어 UI               | 영어 외 5개 언어 UI 번역                                                                                        | PRD §5.1                 |
-| V2-7  | 위치 기반 추천               | RT-1 (현재 위치) 수집 + 거리 기반 정렬                                                                              | PRD §2.2                 |
-| V2-8  | 프로필 화면 데이터 삭제 버튼       | "Delete my data" UI                                                                                     | PRD §4-C A-14            |
-| V2-9  | 임베딩 태그 필터링             | 신호 태그(hydrating 등) vs 노이즈 태그(bestseller 등) 분류 규칙 정의 + EMBEDDING_CONFIG.TAG_FILTER 활성화                   | P1-38                    |
-| V2-10 | 다국어 임베딩 텍스트 확장         | ja/zh/es/fr 사용자 비율 >20% 시 해당 언어 임베딩 텍스트 추가. EMBEDDING_CONFIG.TEXT_LANGUAGES 확장                          | P1-38                    |
-| V2-11 | 교차 엔티티 임베딩 재생성         | Brand 이름 변경 시 관련 Product 임베딩 CASCADE 재생성                                                                | P1-39                    |
-| V2-12 | 프롬프트 DB 전환 + 관리자 편집 UI | 코드 상수(prompts.ts) → DB prompt_configs 테이블 마이그레이션. 섹션별 행 관리 + 캐싱(TTL) + 관리자 UI 편집(super_admin) + 버전 히스토리 | system-prompt-spec.md §1 |
-| V2-13 | 히스토리 요약 전략             | 트리거: 계정 인증 + 장기 대화(재방문) 도입 시. 20턴 초과 요약 설계. token-management.md §3.3                                    | P1-36                    |
-| V2-14 | RAG 결과 압축              | 트리거: 데이터 규모 증가 (500→5,000건+) 시. 검색 결과 경량 포맷 설계. tool-spec.md §1                                         | P1-37                    |
-| V2-15 | 토큰 카운터 구현              | 트리거: 비용 모니터링에서 토큰 급증 감지 시                                                                               | P1-35                    |
-| V2-16 | 모델별 토큰 예산 분리           | 트리거: 역방향 폴백(Gemini→Claude) 도입 시                                                                         | P1-35                    |
-| V2-17 | 토큰 기반 히스토리 로드 전환       | 트리거: 턴당 토큰 변동이 커서 턴 수 기반 부정확 시                                                                          | P1-35                    |
-| V2-18 | 채팅 UI 가상 스크롤 최적화       | 트리거: 계정 인증 + 재방문 + 장기 대화 도입 시. MessageList 가상 스크롤, DOM 수 제한. MVP는 Rate limit(100회/일) + 세션 타임아웃(30분)으로 충분 | user-screens.md §6       |
-| V2-19 | 복합 쓰기 rpc 트랜잭션 도입      | 트리거: UPSERT + 보상 전략으로 불충분한 복합 쓰기 시나리오 등장 시. MVP는 모든 시나리오(auth, onboarding, chat, kit)가 UPSERT 멱등성 + 보상 삭제 + 재시도로 해결 가능하여 rpc 불필요. 복잡한 multi-entity 트랜잭션 추가 시 Postgres 함수(rpc) 설계 | Q-11                     |
-| V2-20 | domain.ts 열거값 타입 강화     | `status: string` → `EntityStatus`, `english_support: string` → `EnglishSupportLevel` 등 유니온 타입으로 강화. 기존 repositories/route handlers 전반 영향 → 다른 세션 작업 완료 후 일괄 진행. P-7(단일 변경점) 보장 | Q-14, P-7 |
-| V2-21 | 쿠팡 파트너스 API 활성화 (P2-V1) | 판매 실적 15만원 달성 후 API 활성화. coupang-partners.ts 프로바이더 구현 (P2-56e) | U-12 |
-| V2-22 | 올리브영/CJ 어필리에이트 약관 확인 (P2-V6) | Involve Asia 승인 후 제품 정보 사용 범위 확인 (U-10, U-11). V2-21 선행 | V2-21 |
+| ID    | 기능                           | 설명                                                                                                                                                                               | 근거                       |
+| ----- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| V2-1  | 관리자 API 설정 관리                | Rate limit, 시스템 설정을 관리자 UI에서 조정. DB settings 테이블 + 메모리 캐시(TTL 5분) + max/min 안전장치                                                                                                 | P1-22 결정                 |
+| V2-2  | 관리자 데이터 동기화 UI               | 카카오 API 동기화 주기 설정 + 수동 트리거 + 결과 로그                                                                                                                                               | P0-32 결정                 |
+| V2-3  | Rate limit Redis 전환          | 메모리 Map → Upstash Redis. 다중 인스턴스 지원                                                                                                                                              | P1-22                    |
+| V2-4  | 계정 인증 시스템                    | anonymous → 계정 (이메일/소셜). Supabase Auth linking                                                                                                                                   | PRD §4-C                 |
+| V2-5  | DOM-3 살롱 + DOM-4 맛집          | salons, restaurants 테이블 + CRUD + 추천                                                                                                                                              | PRD §2.2                 |
+| V2-6  | 6개 언어 UI                     | 영어 외 5개 언어 UI 번역                                                                                                                                                                 | PRD §5.1                 |
+| V2-7  | 위치 기반 추천                     | RT-1 (현재 위치) 수집 + 거리 기반 정렬                                                                                                                                                       | PRD §2.2                 |
+| V2-8  | 프로필 화면 데이터 삭제 버튼             | "Delete my data" UI                                                                                                                                                              | PRD §4-C A-14            |
+| V2-9  | 임베딩 태그 필터링                   | 신호 태그(hydrating 등) vs 노이즈 태그(bestseller 등) 분류 규칙 정의 + EMBEDDING_CONFIG.TAG_FILTER 활성화                                                                                            | P1-38                    |
+| V2-10 | 다국어 임베딩 텍스트 확장               | ja/zh/es/fr 사용자 비율 >20% 시 해당 언어 임베딩 텍스트 추가. EMBEDDING_CONFIG.TEXT_LANGUAGES 확장                                                                                                   | P1-38                    |
+| V2-11 | 교차 엔티티 임베딩 재생성               | Brand 이름 변경 시 관련 Product 임베딩 CASCADE 재생성                                                                                                                                         | P1-39                    |
+| V2-12 | 프롬프트 DB 전환 + 관리자 편집 UI       | 코드 상수(prompts.ts) → DB prompt_configs 테이블 마이그레이션. 섹션별 행 관리 + 캐싱(TTL) + 관리자 UI 편집(super_admin) + 버전 히스토리                                                                          | system-prompt-spec.md §1 |
+| V2-13 | 히스토리 요약 전략                   | 트리거: 계정 인증 + 장기 대화(재방문) 도입 시. 20턴 초과 요약 설계. token-management.md §3.3                                                                                                             | P1-36                    |
+| V2-14 | RAG 결과 압축                    | 트리거: 데이터 규모 증가 (500→5,000건+) 시. 검색 결과 경량 포맷 설계. tool-spec.md §1                                                                                                                  | P1-37                    |
+| V2-15 | 토큰 카운터 구현                    | 트리거: 비용 모니터링에서 토큰 급증 감지 시                                                                                                                                                        | P1-35                    |
+| V2-16 | 모델별 토큰 예산 분리                 | 트리거: 역방향 폴백(Gemini→Claude) 도입 시                                                                                                                                                  | P1-35                    |
+| V2-17 | 토큰 기반 히스토리 로드 전환             | 트리거: 턴당 토큰 변동이 커서 턴 수 기반 부정확 시                                                                                                                                                   | P1-35                    |
+| V2-18 | 채팅 UI 가상 스크롤 최적화             | 트리거: 계정 인증 + 재방문 + 장기 대화 도입 시. MessageList 가상 스크롤, DOM 수 제한. MVP는 Rate limit(100회/일) + 세션 타임아웃(30분)으로 충분                                                                         | user-screens.md §6       |
+| V2-19 | 복합 쓰기 rpc 트랜잭션 도입            | 트리거: UPSERT + 보상 전략으로 불충분한 복합 쓰기 시나리오 등장 시. MVP는 모든 시나리오(auth, onboarding, chat, kit)가 UPSERT 멱등성 + 보상 삭제 + 재시도로 해결 가능하여 rpc 불필요. 복잡한 multi-entity 트랜잭션 추가 시 Postgres 함수(rpc) 설계 | Q-11                     |
+| V2-20 | domain.ts 열거값 타입 강화          | `status: string` → `EntityStatus`, `english_support: string` → `EnglishSupportLevel` 등 유니온 타입으로 강화. 기존 repositories/route handlers 전반 영향 → 다른 세션 작업 완료 후 일괄 진행. P-7(단일 변경점) 보장   | Q-14, P-7                |
+| V2-21 | 쿠팡 파트너스 API 활성화 (P2-V1)      | 판매 실적 15만원 달성 후 API 활성화. coupang-partners.ts 프로바이더 구현 (P2-56e)                                                                                                                   | U-12                     |
+| V2-22 | 올리브영/CJ 어필리에이트 약관 확인 (P2-V6) | Involve Asia 승인 후 제품 정보 사용 범위 확인 (U-10, U-11). V2-21 선행                                                                                                                          | V2-21                    |
 
 
 ### v0.3 백로그
