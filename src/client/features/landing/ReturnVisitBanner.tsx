@@ -5,6 +5,7 @@ import "client-only";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { ModalTitle } from "@/client/ui/primitives/typography";
+import { buttonVariants } from "@/client/ui/primitives/button";
 
 type ReturnVisitBannerProps = {
   locale: string;
@@ -23,13 +24,13 @@ export default function ReturnVisitBanner({ locale }: ReturnVisitBannerProps) {
         <div className="flex flex-col gap-2.5">
           <Link
             href={`/${locale}/profile`}
-            className="flex min-h-11 items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
+            className={buttonVariants({ size: "cta", className: "w-full" })}
           >
             {t("returnProfile")}
           </Link>
           <Link
             href={`/${locale}/chat`}
-            className="flex min-h-11 items-center justify-center rounded-lg border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            className={buttonVariants({ variant: "outline", size: "cta", className: "w-full" })}
           >
             {t("returnChat")}
           </Link>

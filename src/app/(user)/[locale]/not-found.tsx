@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { buttonVariants } from "@/client/ui/primitives/button";
 
 export default async function NotFoundPage() {
   const t = await getTranslations("error");
@@ -14,7 +15,7 @@ export default async function NotFoundPage() {
         </p>
         <a
           href="/"
-          className="inline-flex min-h-11 items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
+          className={buttonVariants({ size: "cta" })}
         >
           {t("home")}
         </a>

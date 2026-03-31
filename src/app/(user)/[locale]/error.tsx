@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useRef } from "react";
-import { Button } from "@/client/ui/primitives/button";
+import { Button, buttonVariants } from "@/client/ui/primitives/button";
 
 type Props = {
   error: Error & { digest?: string };
@@ -32,12 +32,12 @@ export default function ErrorPage({ error, reset }: Props) {
           {t("description")}
         </p>
         <div className="flex flex-col gap-3">
-          <Button onClick={reset} size="lg" className="w-full min-h-11">
+          <Button onClick={reset} size="cta" className="w-full">
             {t("retry")}
           </Button>
           <a
             href="/"
-            className="flex min-h-11 w-full items-center justify-center rounded-lg border border-border text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            className={buttonVariants({ variant: "outline", size: "cta", className: "w-full" })}
           >
             {t("home")}
           </a>

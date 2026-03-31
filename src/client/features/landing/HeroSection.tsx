@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { PageTitle, BodyText } from "@/client/ui/primitives/typography";
+import { Button } from "@/client/ui/primitives/button";
 
 type HeroSectionProps = {
   state: "loading" | "new" | "consented" | "returning";
@@ -63,38 +64,44 @@ export default function HeroSection({ state, onConsent, isConsenting, locale }: 
               </a>
             </p>
             <div className="flex gap-3">
-              <button
+              <Button
+                variant="outline"
+                size="cta"
                 onClick={() => setPendingPath(null)}
-                className="flex h-11 flex-1 items-center justify-center rounded-lg border border-border bg-card px-4 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                className="flex-1"
               >
                 {tc("cancel")}
-              </button>
-              <button
+              </Button>
+              <Button
+                size="cta"
                 onClick={handleConsentConfirm}
                 disabled={isConsenting}
-                className="flex h-11 flex-1 items-center justify-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover disabled:opacity-50"
+                className="flex-1"
               >
                 {tc("accept")}
-              </button>
+              </Button>
             </div>
           </div>
         ) : (
           <>
             <div className="mx-auto flex max-w-[360px] gap-3 lg:max-w-[480px]">
-              <button
+              <Button
+                size="cta"
                 onClick={() => handleCtaClick("profile")}
                 disabled={state === "loading"}
-                className="flex h-11 flex-1 items-center justify-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-40"
+                className="flex-1"
               >
                 {t("pathA")}
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="outline"
+                size="cta"
                 onClick={() => handleCtaClick("chat")}
                 disabled={state === "loading"}
-                className="flex h-11 flex-1 items-center justify-center rounded-lg border border-border bg-card px-4 text-sm font-semibold text-foreground transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-40"
+                className="flex-1"
               >
                 {t("pathB")}
-              </button>
+              </Button>
             </div>
             <p className="mx-auto mt-2.5 max-w-[360px] text-center text-xs text-foreground/50 lg:max-w-[480px]">
               {t("ctaDescription")}
