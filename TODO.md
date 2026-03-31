@@ -347,7 +347,7 @@
 | P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조. is_highlighted+badge 조건부 렌더링. teal 토큰. 다국어 폴백                                                  | P2-29       | ✅   |
 | P2-36 | 5영역 탭 바                   | Tabs 프리미티브 variant=line 재사용. 5탭 (shops/clinic 활성, salon/eats/exp Coming soon)                                    | P2-29       | ✅   |
 | P2-37 | ProductCard 컴포넌트          | 4상태(normal/highlighted/skeleton/img-error) + HighlightBadge + localized() + Skeleton                              | P2-39       | ✅   |
-| P2-38 | TreatmentCard 컴포넌트        | PRD §3.5 기반. HighlightBadge 포함                                                                                 | P2-39       | ⬜   |
+| P2-38 | TreatmentCard 컴포넌트        | 시술 카드(가격 범위/시간/다운타임 경고 coral) + HighlightBadge + localized() 공용 추출                                             | P2-39       | ✅   |
 | P2-35 | Chat 인터페이스                | 메시지 버블, 입력바(visualViewport 키보드 감지), 스트리밍 UI + SuggestedQuestions(경로B) + 카드 렌더링 + 탭 필터                          | P2-36~P2-38 | ⬜   |
 | P2-40 | Kit CTA 컴포넌트              | KitCtaCard + KitCtaSheet(Bottom sheet). Chat 내 인라인 (user-screens §6.6)                                         | P2-35       | ⬜   |
 | P2-41 | Profile 페이지               | 프로필 조회/수정                                                                                                      | P2-29       | ⬜   |
