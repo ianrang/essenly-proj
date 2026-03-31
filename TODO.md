@@ -345,7 +345,7 @@
 | P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | Step 1~4 (피부/헤어, 고민, 여행, 관심). react-hook-form + OptionGroup + ProgressBar + localStorage 백업                    | P2-29       | ✅   |
 | P2-34 | 프로필 전환/확인 화면              | ProfileTransition 3단계 체크 애니메이션 + ProfileCard(UP+JC) + ProfileClient(로딩/에러/404) + Edit/ShowPicks 버튼             | P2-29       | ✅   |
 | P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조. is_highlighted+badge 조건부 렌더링. teal 토큰. 다국어 폴백                                                  | P2-29       | ✅   |
-| P2-36 | 5영역 탭 바                   | Shops/Clinic/Salon/Eats/Exp (MVP: 2개 활성, 3개 Coming soon)                                                       | P2-29       | ⬜   |
+| P2-36 | 5영역 탭 바                   | Tabs 프리미티브 variant=line 재사용. 5탭 (shops/clinic 활성, salon/eats/exp Coming soon)                                    | P2-29       | ✅   |
 | P2-37 | ProductCard 컴포넌트          | PRD §3.5 기반. HighlightBadge 포함                                                                                 | P2-39       | ⬜   |
 | P2-38 | TreatmentCard 컴포넌트        | PRD §3.5 기반. HighlightBadge 포함                                                                                 | P2-39       | ⬜   |
 | P2-35 | Chat 인터페이스                | 메시지 버블, 입력바(visualViewport 키보드 감지), 스트리밍 UI + SuggestedQuestions(경로B) + 카드 렌더링 + 탭 필터                          | P2-36~P2-38 | ⬜   |
