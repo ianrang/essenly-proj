@@ -1,0 +1,2925 @@
+[
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "마데카소사이드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "마데카소사이드",
+      "INGR_ENG_NAME": "Madecassoside",
+      "CAS_NO": "34540-22-2",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "MADECASSOSIDE",
+        "function": "ANTIOXIDANT, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:23.438Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "만델릭애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "만델릭애씨드",
+      "INGR_ENG_NAME": "Mandelic Acid",
+      "CAS_NO": "17199-29-0\r,90-64-2",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "MANDELIC ACID",
+        "function": "ANTIMICROBIAL",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "만델릭애씨드",
+          "INGR_ENG_NAME": "Mandelic Acid",
+          "CAS_NO": "90-64-2",
+          "INGR_SYNONYM": "Almond Acid, Amygdalic Acid, Benzeneacetic Acid, α-Hydroxy-, α-Hydroxybenzeneacetic Acid, α-Hydroxyphenyl Acetic Acid, 2-Phenylglycolic Acid",
+          "COUNTRY_NAME": "캐나다",
+          "NOTICE_INGR_NAME": "Alpha-hydroxy acids, including polyhydroxy acids and bionic acids with alpha hydroxyl groups, and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nConditions of Use by product type : (a) Products for use on the skin for consumer use. Manufacturer or importer to provide pH levels.\n(b) Products for use on the skin for professional use:\nManufacturer must provide Health Canada with evidence of safety\nincluding:\n1. pH levels\n2. AHA concentrations\n3. Directions for use\n4. Clinical studies demonstrating minimal skin irritation\n(c) Products intended to be diluted in bath water may contain levels of AHAs exceeding 10%\n(d) Other cosmetics\n(e) Any cosmetics \n\n* 【제한】\n제품 유형에 따른 조건 : (a) 피부에 사용하는 소비자용 제품 : 제조업체 또는 수입업체는 pH 레벨을 제출해야 한다.\n(b) 피부에 사용하는 전문가용 제품 : 제조업체 또는 수입업체는 다음을 포함한 안전성에 대한 자료를 제출해야 한다.\n1. pH levels\n2. AHA 농도\n3. 사용시 주의사항\n4. 피부 자극을 최소화시키는 의학적 연구자료\n(c) 목욕수로 희석하는 제품은 AHA 수치가 10%를 초과할 수 있다.\n(d) 기타 제품\n(e) 어떤 화장품이든 \n\n* 【Restrictions】\nMaximum Concentration Permitted : (a) Between 3% and 18% total mono-AHA equivalents with a pH equal to or greater than 3.5\n\n(b) Between 18% and 30% total mono-AHA equivalents and/or a pH between 3.0 to 3.5\n\n(d) Between 3% and 30% total mono-AHA equivalents with a pH equal to or greater than 3.0\n\n(e) 3%\n* 【제한】\n허용된 최대 농도 : (a) pH가 3.5 이상인 총 모노-AHA 당량 3% ~ 18%\n\n(b) 총 모노-AHA 당량 18% ~ 30% 및/또는 pH 3.0 ~ 3.5\n\n(d) pH가 3.0 이상인 총 모노-AHA 당량 3% ~ 30%\n\n(e) 3% \n* 【Restrictions】\nWarnings and Cautionary Statements: (to the effect of) : (a) and (b) :  \"Use only as directed\", \"Avoid contact with the eyes\", \"If irritation persists, discontinue use and consult a physician\", \"It is recommended that prior to exposure to the sun, users cover areas where AHAs have been applied with sunscreen\"\nProduct labels should contain appropriate directions regarding frequency and/or duration of use.\n(b only) \"For professional use only\"\n(d) \"Use only as directed\", \"Avoid contact with eyes\", \n\"Discontinue use if rash or irritation occurs\" \n\n* 【제한】\n주의 사항 : (a) 및 (b) : \"지시사항에 따라 사용하십시오\", \"눈가와 접촉을 피하십시오.\", \"자극이 지속되면, 사용을 중단하고 의사와 상의하십시오.\", \"햇빛에 노출하기 전에 자외선차단제를 사용하십시오.\" 제품 라벨에는 사용 빈도 및/또는 기간에 관한 적절한 지침이 포함되어야 합니다.\n(b) : 전문가 전용\n(d) : \"지시사항에 따라 사용하십시오\", \"눈가와 접촉을 피하십시오.\", \"자극이 지속되면, 사용을 중단하고 의사와 상의하십시오.\""
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "만델릭애씨드",
+          "INGR_ENG_NAME": "Mandelic Acid",
+          "CAS_NO": "90-64-2",
+          "INGR_SYNONYM": "Almond Acid, Amygdalic Acid, Benzeneacetic Acid, α-Hydroxy-, α-Hydroxybenzeneacetic Acid, α-Hydroxyphenyl Acetic Acid, 2-Phenylglycolic Acid",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "α-Hydroxy acids(AHA)",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : pH≧3.5;\n惟使用後立即沖洗之洗髮或潤髮等產品， 其 AHA 含量為 3%以下時，其 pH 值得為 3.2 以上至3.5 以下。\n\n有關pH 值檢測方式，依產品實際情形，參照「『中華民國標準』（CNS）化粧品pH 值酸鹼性試驗法（ 總號9036 類號S2073）」檢驗之。\npH≥3.5;\n그러나 사용 후 바로 헹구는 샴푸 또는 컨디셔너와 같은 제품의 경우 AHA 함량이 3 % 미만인 경우 pH 값은 3.2에서 3.5 사이여야합니다.\n\npH 값 검출 방법에 대해서는 제품의 실제 상황에 따라 \"\" \"CNS (화장품)\"화장품 pH 값 산 및 알칼리 시험 방법 (일반 번호 9036 클래스 번호 S2073)에 따라 확인하십시오. \n* 주의사항 : 1. α-Hydroxy acids 對皮膚容易引起刺激性，消費者使用時應注意下列事項：\n(1) 皮膚敏感者，使用前請先作皮膚敏感性測試。\n(2) 皮膚有損傷、傷口或紅腫時不得使用。\n(3) 嬰兒及孩童不宜使用本產品。\n(4) 使用時皮膚如有異常現象，請暫停使用。\n(5) 使用後皮膚如有持續紅腫或出現不適應症狀時，請立即就醫診治。\n(6) 本產品含 α-Hydroxy acids  成分，可能增加皮膚對陽光敏感及曬傷可能性。\n(7) 使用本產品後必須使用防曬劑、穿著有保護衣物及一個星期內應避免陽光曝曬。\n2. 化粧品中含 α-Hydroxy acids  成分，其含量為 10%以下，且產品 pH值為 3.5 以上，作為 pH值調整液時，其標籤、仿單或包裝，得免刊載前開注意事項。\n\n1. α-Hydroxy acid는 피부 자극을 유발하므로 소비자는 다음 항목에 주의해야합니다.\n(1) 피부가 민감한 경우, 사용 전에 피부 민감성 테스트를 수행하십시오.\n(2) 피부에 손상, 상처 또는 붉게 부었을 경우 사용해서는 안 됩니다.\n(3) 아기와 어린이는 본 제품을 사용하는 것이 적합하지 않습니다.\n(4) 사용 중 피부에 이상 반응이 나타나면 사용을 중단하십시오.\n(5) 사용 후 피부가 계속 붉게 부어오르거나 부적응증이 나타날 경우 즉시 진료를 받으십시오\n(6) 본 제품은 α-Hydroxy acid 성분이 함유되어 있어 햇빛과 햇볕에 대한 피부 민감도를 높일 수 있습니다.\n(7) 본 제품 사용 후에는 반드시 "
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:24.750Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "메틸파라벤",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "메틸파라벤",
+      "INGR_ENG_NAME": "Methylparaben",
+      "CAS_NO": "99-76-3",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 메틸알코올과 파라-하이드록시벤조익애씨드의 에스터이다. 다음의 구조를 갖는다.",
+      "INGR_SYNONYM": "메칠파라벤",
+      "_cosing": {
+        "inciName": "METHYLPARABEN",
+        "function": "FRAGRANCE, PRESERVATIVE",
+        "restriction": "V/12"
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "메틸파라벤",
+          "INGR_ENG_NAME": "Methylparaben",
+          "CAS_NO": "99-76-3",
+          "INGR_SYNONYM": "Benzoic Acid, 4-Hydroxy-, Methyl Ester \n, p-Carbomethoxyphenol \n, 4-Hydroxybenzoic Acid, Methyl Ester \n, p-Methoxycarbonylphenol \n, Methyl 4-Hydroxybenzoate \n, Methyl p-hydroxybenzoate (RIFM) \n, methylis parahydroxybenzoas (EP) \n, Methyl Parahydroxybenzoate \n, Parahydroxybenzoate Ester",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "4-Hydroxybenzoic acid and its Methyl- and Ethyl-esters, and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum concentration in ready for use preparation : 0,4% (as acid) for single ester 0,8% (as acid) for mixtures of esters \n* 【제한】\n최대 농도 : 단일 에스터일때(산으로서) 0,4% , 에스터의 혼합일때 (산으로서) 0,8%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "메틸파라벤",
+          "INGR_ENG_NAME": "Methylparaben",
+          "CAS_NO": "99-76-3",
+          "INGR_SYNONYM": "Benzoic Acid, 4-Hydroxy-, Methyl Ester \n, p-Carbomethoxyphenol \n, 4-Hydroxybenzoic Acid, Methyl Ester \n, p-Methoxycarbonylphenol \n, Methyl 4-Hydroxybenzoate \n, Methyl p-hydroxybenzoate (RIFM) \n, methylis parahydroxybenzoas (EP) \n, Methyl Parahydroxybenzoate \n, Parahydroxybenzoate Ester",
+          "COUNTRY_NAME": "브라질",
+          "NOTICE_INGR_NAME": "4-Hydroxybenzoic acid and its Methyl- and Ethyl-esters, and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Maximum concentration permitted at final product】 : (a) 0,4% (expresso como ácido)\npara cada substância considerada em forma individual.\n\n(b) 0,8% (expresso como ácido)\npara a soma das concentrações individuais de ácido 4-p-hidroxibenzóico, seus ésteres de metil e etil e seus sais contidos no produto. \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 0.4% (산으로 표시)\n개별 형식으로 판단되는 각 물질 별로\n\n(b) 0.8% (산으로 표시) 제품에 포함된 4-p-하이드록시벤조산, 메틸 및 에틸 에스터 및 그 염의 개별 농도 합계에 대하여\n \n* Restrictions\n【Other limitations and requirements】 : Prohibit: \nisopropylparaben, isobutylparaben, fenylparaben, benzylparaben, pentylparaben. \n* 제한\n【기타 제한 및 요구조건】 : 다음을 금지: 아이소프로필파라벤,아이소부틸파라벤, 페닐파라벤, 벤질파라벤, 펜틸파라벤. "
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "메틸파라벤",
+          "INGR_ENG_NAME": "Methylparaben",
+          "CAS_NO": "99-76-3",
+          "INGR_SYNONYM": "Benzoic Acid, 4-Hydroxy-, Methyl Ester \n, p-Carbomethoxyphenol \n, 4-Hydroxybenzoic Acid, Methyl Ester \n, p-Methoxycarbonylphenol \n, Methyl 4-Hydroxybenzoate \n, Methyl p-hydroxybenzoate (RIFM) \n, methylis parahydroxybenzoas (EP) \n, Methyl Parahydroxybenzoate \n, Parahydroxybenzoate Ester",
+          "COUNTRY_NAME": "아르헨티나",
+          "NOTICE_INGR_NAME": "4-Hydroxybenzoic acid and its Methyl- and Ethyl-esters, and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Maximum concentration permitted at final product】 : (a) 0,4% (expresso como ácido)\npara cada substância considerada em forma individual.\n\n(b) 0,8% (expresso como ácido)\npara a soma das concentrações individuais de ácido 4-p-hidroxibenzóico, seus ésteres de metil e etil e seus sais contidos no produto. \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 0.4% (산으로 표시)\n개별 형식으로 판단되는 각 물질 별로\n\n(b) 0.8% (산으로 표시) 제품에 포함된 4-p-하이드록시벤조산, 메틸 및 에틸 에스터 및 그 염의 개별 농도 합계에 대하여\n \n* Restrictions\n【Other limitations and requirements】 : Prohibit: \nisopropylparaben, isobutylparaben, fenylparaben, benzylparaben, pentylparaben. \n* 제한\n【기타 제한 및 요구조건】 : 다음을 금지: 아이소프로필파라벤,아이소부틸파라벤, 페닐파라벤, 벤질파라벤, 펜틸파라벤. "
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "메틸파라벤",
+          "INGR_ENG_NAME": "Methylparaben",
+          "CAS_NO": "99-76-3",
+          "INGR_SYNONYM": "Benzoic Acid, 4-Hydroxy-, Methyl Ester \n, p-Carbomethoxyphenol \n, 4-Hydroxybenzoic Acid, Methyl Ester \n, p-Methoxycarbonylphenol \n, Methyl 4-Hydroxybenzoate \n, Methyl p-hydroxybenzoate (RIFM) \n, methylis parahydroxybenzoas (EP) \n, Methyl Parahydroxybenzoate \n, Parahydroxybenzoate Ester",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "p-Oxybenzoic acid esters and their sodium salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【제품 타입 또는 목적 (types or intended purposes of cosmetics)】 : すべての化粧品(모든 화장품) \n* 【100g당 최대 배합량(Maximum amount of ingredient per 100 g)】 : 1.0 as total(合計量として1.0)(합계량으로 1.0 g)"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "메틸파라벤",
+          "INGR_ENG_NAME": "Methylparaben",
+          "CAS_NO": "99-76-3",
+          "INGR_SYNONYM": "Benzoic Acid, 4-Hydroxy-, Methyl Ester \n, p-Carbomethoxyphenol \n, 4-Hydroxybenzoic Acid, Methyl Ester \n, p-Methoxycarbonylphenol \n, Methyl 4-Hydroxybenzoate \n, Methyl p-hydroxybenzoate (RIFM) \n, methylis parahydroxybenzoas (EP) \n, Methyl Parahydroxybenzoate \n, Parahydroxybenzoate Ester",
+          "COUNTRY_NAME": "중국",
+          "NOTICE_INGR_NAME": "4-Hydroxybenzoic acid and its salts and esters",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【화장품 중 최대사용농도】\n배합한도 (일반) : 단일 에스테르: 0.4%(산으로 계산) 혼합 에스테르 : 0.8%(산으로 계산)，프로필아세테이트 및 그 염류,n-부틸아세테이트 및 그 염류의 합은 각 각 0.14%를 초과하면 안됨(산으로 계산)"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "메틸파라벤",
+          "INGR_ENG_NAME": "Methylparaben",
+          "CAS_NO": "99-76-3",
+          "INGR_SYNONYM": "Benzoic Acid, 4-Hydroxy-, Methyl Ester \n, p-Carbomethoxyphenol \n, 4-Hydroxybenzoic Acid, Methyl Ester \n, p-Methoxycarbonylphenol \n, Methyl 4-Hydroxybenzoate \n, Methyl p-hydroxybenzoate (RIFM) \n, methylis parahydroxybenzoas (EP) \n, Methyl Parahydroxybenzoate \n, Parahydroxybenzoate Ester",
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "p-하이드록시벤조익애씨드, 그 염류 및 에스텔류 (다만, 에스텔류 중 페닐은 제외)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : ∙ 단일성분일 경우 0.4%(산으로서)\n∙ 혼합사용의 경우 0.8%(산으로서)"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "메틸파라벤",
+          "INGR_ENG_NAME": "Methylparaben",
+          "CAS_NO": "99-76-3",
+          "INGR_SYNONYM": "Benzoic Acid, 4-Hydroxy-, Methyl Ester \n, p-Carbomethoxyphenol \n, 4-Hydroxybenzoic Acid, Methyl Ester \n, p-Methoxycarbonylphenol \n, Methyl 4-Hydroxybenzoate \n, Methyl p-hydroxybenzoate (RIFM) \n, methylis parahydroxybenzoas (EP) \n, Methyl Parahydroxybenzoate \n, Parahydroxybenzoate Ester",
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "4-Hydroxybenzoic acid and its Methyl- and Ethyl- esters, and their salts (INCI)\n4-Hydroxybenzoic acid; CAS No. 99-96-7;\nMethylparaben; CAS No. 99-76-3;\npotassium ethylparaben; CAS No. 36457-19-9;\npotassium paraben; CAS No. 16782-08-4\nsodium methylparaben; CAS No. 5026-62-0;\nsodium ethylparaben; CAS No. 35285-68-8;\nethylparaben; CAS No. 120-47-8;\nsodium paraben; CAS No. 114-63-6;\npotassium methylparaben; CAS No. 26112-07-2;\ncalcium paraben; CAS No. 69959-44-0;",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : 0.4% (as acid) for single ester\n0.8% (as acid) for mixtures of esters \n* 제한\n【완제품에서 허용된 최대 농도】 : 단일 에스터일때(산으로서) 0,4% \r\n에스터의 혼합일때 (산으로서) 0,8%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "메틸파라벤",
+          "INGR_ENG_NAME": "Methylparaben",
+          "CAS_NO": "99-76-3",
+          "INGR_SYNONYM": "Benzoic Acid, 4-Hydroxy-, Methyl Ester \n, p-Carbomethoxyphenol \n, 4-Hydroxybenzoic Acid, Methyl Ester \n, p-Methoxycarbonylphenol \n, Methyl 4-Hydroxybenzoate \n, Methyl p-hydroxybenzoate (RIFM) \n, methylis parahydroxybenzoas (EP) \n, Methyl Parahydroxybenzoate \n, Parahydroxybenzoate Ester",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "4-Hydroxybenzoic acid and its Methyl- and Ethyl- esters, and their salts",
+          "PROVIS_ATRCL": "※ 未列於本表中之防腐劑成分，倘歐、美、日三國家地區政府已公告准用且有其限量管制規定者，我國亦依其限用標準准予使用。\n倘前述三國家地區政府管理有差異時，則採其中限量規定方式最安全者。\n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。",
+          "LIMIT_COND": "* 단서조항 : ※ 未列於本表中之防腐劑成分，倘歐、美、日三國家地區政府已公告准用且有其限量管制規定者，我國亦依其限用標準准予使用。\n倘前述三國家地區政府管理有差異時，則採其中限量規定方式最安全者。\n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。 \n※ 본 표에 열거되지 않은 방부제 성분은 유럽, 미국, 일본 3개국 정부가 사용을 허가하고 그 제한적인 규제 규정이 있는 자를 공고하였을 때 그 사용 제한 기준에 따라 제한적으로 사용할 수 있습니다.\n앞서 언급한 3개국 및 지역 간의 관리가 상이한 경우 가장 엄격한 방식을 채택하여 안전한 사용량으로 사용해야합니다.\n※ 본 표에 언급 된 경구 제제에는 비 의약 치약, 구강 세정제 및 치아 미백 화장품이 포함됩니다. \n* 用途(용도) : 防腐 (방부제) \n* 배합한도 : (a) 0.4% (以 acid 計，單獨使用)\n(b) 0.8% (以 acid 計，混合使用) \n(a) 0.4% (산으로서 계산할 때, 단독 사용)\n(b) 0.8% (산으로서 계산할 때, 혼합 사용) "
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:25.015Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "베타인",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "베타인",
+      "INGR_ENG_NAME": "Betaine",
+      "CAS_NO": "107-43-7",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 양쪽성 이온이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "BETAINE",
+        "function": "ANTISTATIC, HAIR CONDITIONING, HUMECTANT, SKIN CONDITIONING, VISCOSITY CONTROLLING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:26.293Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "병풀추출물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "병풀추출물",
+      "INGR_ENG_NAME": "Centella Asiatica Extract",
+      "CAS_NO": "84696-21-9\r,84776-24-9",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 병풀 (Centella asiatica)의 전초에서 추출한 것이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "CENTELLA ASIATICA EXTRACT",
+        "function": "CLEANSING, SKIN CONDITIONING, SMOOTHING, SOOTHING, TONIC",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:26.607Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "부틸렌글라이콜",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "부틸렌글라이콜",
+      "INGR_ENG_NAME": "Butylene Glycol",
+      "CAS_NO": "107-88-0\r,6290-03-5",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 지방족 디올이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "BUTYLENE GLYCOL",
+        "function": "FRAGRANCE, HUMECTANT, SKIN CONDITIONING, SOLVENT, VISCOSITY CONTROLLING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:26.607Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "글라이콜릭애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "글라이콜릭애씨드",
+      "INGR_ENG_NAME": "Glycolic Acid",
+      "CAS_NO": "79-14-1",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "GLYCOLIC ACID",
+        "function": "BUFFERING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "글라이콜릭애씨드",
+          "INGR_ENG_NAME": "Glycolic Acid",
+          "CAS_NO": "79-14-1",
+          "INGR_SYNONYM": "Acetic Acid, Hydroxy-, Hydroxyacetic Acid, Hydroxyethanoic Acid",
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "Glycolic and lactic acid, their common salts and simple esters",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nField of application and/or use : (a) Skin products\n (i) For general use\n\n (ii) For professional use\n\n \n (iii) For use by a qualified medical practitioner\n\n\n\n\n(b) Other products \n* 제한\n【사용 범위】 : (a) 스킨 케어 제품 \r\n(i) 일반 사용에서 \r\n(ii) 전문가용에서 \r\n (iii) 전문의만\r\n\r\n(b) 기타 제품 \n* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : (a) Skin products\n (i) ≤ 10% total when calculated as the acids\n (ii) > 10% - 20% total when calculated as the acids\n (iii) > 20%, total when calculated as the acids\n\n(b) Other products\n None \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 스킨 제품 \r\n (i) 산으로서 계산했을 때 ≤ 10%\r\n (ii) 산으로서 계산했을 때 > 10% - 20%\r\n (iii) 산으로서 계산했을 때 > 20%,\r\n (b) 기타 제품\r\n없음 \n* 【Restrictions】\nOther limitations and requirements : (a) Skin products\n (i) Final formulation  ≥ pH 3.5\n (ii) Final formulation  ≥ pH 3.0\n For professional use only\n (iii) Final formulation \n ≥ pH 3.0 for products up to 30% total when calculated as the acids.\n For use by a qualified medical practitioner only.\n \n(b) Other products\n None \n* 제한\n【기타 제한 및 요구조건】 : (a) 스킨 제품 \r\n (i) 완 제품 ≥ pH 3.5 \r\n (ii) 완 제품 ≥ pH 3.0 \r\n\r\n전문가용에서 \r\n (iii) 완제품 ≥ pH 3.0 애씨드로 계산했을 때의 제품 총합의 30% \r\n 전문의만 사용가능하다. \r\n\r\n기타 제품 \n* Conditions of use and warning which must be printed on the labels : (a) Skin products\nAll Sunburn alert: This product contains an alpha hydroxy acid (AHA) that may increase your skin’s sensitivity to the sun and particularly the possibility of sunburn. Use a sunscreen, wear sun protective clothing, and limit sun exposure while using this product and for a week afterwards(13)\n\n (ii) For professional use only\n\n (iii) For use by a qualified medical practitioner only.\n\n(b) Other products\n None \n* 사용 조건 및 포장지에 명시되어야 하는 경고사항 : (a) 스킨 제품\r\n화상 경고 : 이 제품은 햇볕으로 피ㅜ 민감성을 노피고, 화상의 가능성이 있는 알파 하이드록시 애씨드(AHA)를 포함한다. 이 제품을 사용하는 동안, 일주일 또는 그 후에 자외선 차단 및 자외선 차단 옷을 착용하는 등 햇볕 노출을 제한하십시오."
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "글라이콜릭애씨드",
+          "INGR_ENG_NAME": "Glycolic Acid",
+          "CAS_NO": "79-14-1",
+          "INGR_SYNONYM": "Acetic Acid, Hydroxy-, Hydroxyacetic Acid, Hydroxyethanoic Acid",
+          "COUNTRY_NAME": "캐나다",
+          "NOTICE_INGR_NAME": "Alpha-hydroxy acids, including polyhydroxy acids and bionic acids with alpha hydroxyl groups, and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "<Alpha-hydroxy acids, including polyhydroxy acids and bionic acids with alpha hydroxyl groups, and their salts\r\nGlycolic Acid>\n* 【Restrictions】\nConditions of Use by product type : (a) Products for use on the skin for consumer use. Manufacturer or importer to provide pH levels.\n(b) Products for use on the skin for professional use:\nManufacturer must provide Health Canada with evidence of safety\nincluding:\n1. pH levels\n2. AHA concentrations\n3. Directions for use\n4. Clinical studies demonstrating minimal skin irritation\n(c) Products intended to be diluted in bath water may contain levels of AHAs exceeding 10%\n(d) Other cosmetics\n(e) Any cosmetics \n\n* 【제한】\n제품 유형에 따른 조건 : (a) 피부에 사용하는 소비자용 제품 : 제조업체 또는 수입업체는 pH 레벨을 제출해야 한다.\n(b) 피부에 사용하는 전문가용 제품 : 제조업체 또는 수입업체는 다음을 포함한 안전성에 대한 자료를 제출해야 한다.\n1. pH levels\n2. AHA 농도\n3. 사용시 주의사항\n4. 피부 자극을 최소화시키는 의학적 연구자료\n(c) 목욕수로 희석하는 제품은 AHA 수치가 10%를 초과할 수 있다.\n(d) 기타 제품\n(e) 어떤 화장품이든 \n\n* 【Restrictions】\nMaximum Concentration Permitted : (a) Between 3% and 18% total mono-AHA equivalents with a pH equal to or greater than 3.5\n\n(b) Between 18% and 30% total mono-AHA equivalents and/or a pH between 3.0 to 3.5\n\n(d) Between 3% and 30% total mono-AHA equivalents with a pH equal to or greater than 3.0\n\n(e) 3%\n* 【제한】\n허용된 최대 농도 : (a) pH가 3.5 이상인 총 모노-AHA 당량 3% ~ 18%\n\n(b) 총 모노-AHA 당량 18% ~ 30% 및/또는 pH 3.0 ~ 3.5\n\n(d) pH가 3.0 이상인 총 모노-AHA 당량 3% ~ 30%\n\n(e) 3% \n* 【Restrictions】\nWarnings and Cautionary Statements: (to the effect of) : (a) and (b) :  \"Use only as directed\", \"Avoid contact with the eyes\", \"If irritation persists, discontinue use and consult a physician\", \"It is recommended that prior to exposure to the sun, users cover areas where AHAs have been applied with sunscreen\"\nProduct labels should contain appropriate directions regarding frequency and/or duration of use.\n(b only) \"For professional use only\"\n(d) \"Use only as directed\", \"Avoid contact with eyes\", \n\"Discontinue use if rash or irritation occurs\" \n\n* 【제한】\n주의 사항 : (a) 및 (b) : \"지시사항에 따라 사용하십시오\", \"눈가와 접촉을 피하십시오.\", \"자극이 지속되면, 사용을 중단하고 의사와 상의하십시오.\", \"햇빛에 노출하기 전에 자외선차단제를 사용하십시오.\" 제품 라벨에는 사용 빈도 및/또는 기간에 관한 적절한 지침이 포함되어야 합니다.\n(b) : 전문가 전용\n(d) : \"지시사항에 따라 사용하십시오\", \"눈가와 접촉을 피하십시오.\", \"자극이 지속되면, 사용을 중단하고 의사와 상의하십시오.\"\n\n<Glycolic Acid>\n* 【Restrictions】\nConditions of Use by product type : See \"Alpha-hydroxy acids\". \n* 【제한】\n제품 유형에 따른 조건 : \"Alpha-hydroxy acids\"를 참고하십시오."
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "글라이콜릭애씨드",
+          "INGR_ENG_NAME": "Glycolic Acid",
+          "CAS_NO": "79-14-1",
+          "INGR_SYNONYM": "Acetic Acid, Hydroxy-, Hydroxyacetic Acid, Hydroxyethanoic Acid",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "α-Hydroxy acids(AHA)",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : pH≧3.5;\n惟使用後立即沖洗之洗髮或潤髮等產品， 其 AHA 含量為 3%以下時，其 pH 值得為 3.2 以上至3.5 以下。\n\n有關pH 值檢測方式，依產品實際情形，參照「『中華民國標準』（CNS）化粧品pH 值酸鹼性試驗法（ 總號9036 類號S2073）」檢驗之。\npH≥3.5;\n그러나 사용 후 바로 헹구는 샴푸 또는 컨디셔너와 같은 제품의 경우 AHA 함량이 3 % 미만인 경우 pH 값은 3.2에서 3.5 사이여야합니다.\n\npH 값 검출 방법에 대해서는 제품의 실제 상황에 따라 \"\" \"CNS (화장품)\"화장품 pH 값 산 및 알칼리 시험 방법 (일반 번호 9036 클래스 번호 S2073)에 따라 확인하십시오. \n* 주의사항 : 1. α-Hydroxy acids 對皮膚容易引起刺激性，消費者使用時應注意下列事項：\n(1) 皮膚敏感者，使用前請先作皮膚敏感性測試。\n(2) 皮膚有損傷、傷口或紅腫時不得使用。\n(3) 嬰兒及孩童不宜使用本產品。\n(4) 使用時皮膚如有異常現象，請暫停使用。\n(5) 使用後皮膚如有持續紅腫或出現不適應症狀時，請立即就醫診治。\n(6) 本產品含 α-Hydroxy acids  成分，可能增加皮膚對陽光敏感及曬傷可能性。\n(7) 使用本產品後必須使用防曬劑、穿著有保護衣物及一個星期內應避免陽光曝曬。\n2. 化粧品中含 α-Hydroxy acids  成分，其含量為 10%以下，且產品 pH值為 3.5 以上，作為 pH值調整液時，其標籤、仿單或包裝，得免刊載前開注意事項。\n\n1. α-Hydroxy acid는 피부 자극을 유발하므로 소비자는 다음 항목에 주의해야합니다.\n(1) 피부가 민감한 경우, 사용 전에 피부 민감성 테스트를 수행하십시오.\n(2) 피부에 손상, 상처 또는 붉게 부었을 경우 사용해서는 안 됩니다.\n(3) 아기와 어린이는 본 제품을 사용하는 것이 적합하지 않습니다.\n(4) 사용 중 피부에 이상 반응이 나타나면 사용을 중단하십시오.\n(5) 사용 후 피부가 계속 붉게 부어오르거나 부적응증이 나타날 경우 즉시 진료를 받으십시오\n(6) 본 제품은 α-Hydroxy acid 성분이 함유되어 있어 햇빛과 햇볕에 대한 피부 민감도를 높일 수 있습니다.\n(7) 본 제품 사용 후에는 반드시 "
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:27.185Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "비사보롤",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "비사보롤",
+      "INGR_ENG_NAME": "Bisabolol",
+      "CAS_NO": "72691-24-8 \r,23089-26-1\r,515-69-5",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 터펜이다.",
+      "INGR_SYNONYM": "비사볼올",
+      "_cosing": {
+        "inciName": "BISABOLOL",
+        "function": "FRAGRANCE, SKIN CONDITIONING, SOOTHING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "비사보롤",
+          "INGR_ENG_NAME": "Bisabolol",
+          "CAS_NO": "72691-24-8, 23089-26-1, 515-69-5 ",
+          "INGR_SYNONYM": "alpha.-Bisabolol (RIFM), Bisabolol (HCPA), 3-Cyclohexene-1-Methanol, α,4-Dimethyl-α-(4-Methyl-3-Pentenyl)-, α,4-Dimethyl-α-(4-Methyl-3-Pentenyl)-3-Cyclohexene-1-Methanol, Levomenol (INN), 1-Methyl-4-(1-hydroxy-1,5,5-trimethyl-4-pentenyl) Cyclohex-1-ene",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "Bisabolol",
+          "PROVIS_ATRCL": "注1)　「＊」は旧基準に収載されていた成分。",
+          "LIMIT_COND": "* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내는 화장품 -Cosmetics not used for mucosa and to be washed away)】 : 1.2 g \n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내지 않는 화장품 - Cosmetics not used for mucosa and not to be washed away)】 : 1.2 g \n* 【100g당 최대 배합량 (점막에 사용하는 화장품 - Cosmetics that may be used for mucosa)】 : 0.7905 g \n* 단서조항 : 注1)　「＊」は旧基準に収載されていた成分。 \n(주1)  ‘*’는 구 기준에 수재되어 있던 성분"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:27.185Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "살리실릭애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "살리실릭애씨드",
+      "INGR_ENG_NAME": "Salicylic Acid",
+      "CAS_NO": "69-72-7",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 방향족 산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SALICYLIC ACID",
+        "function": "ANTI-SEBORRHEIC, FRAGRANCE, HAIR CONDITIONING, KERATOLYTIC, PRESERVATIVE, SKIN CONDITIONING",
+        "restriction": "III/98\r\nV/3"
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "살리실릭애씨드",
+          "INGR_ENG_NAME": "Salicylic Acid",
+          "CAS_NO": "69-72-7",
+          "INGR_SYNONYM": "acidum salicylicum (EP), Benzoic Acid, 2-Hydroxy-, o-Carboxyphenol, o-Hydroxybenzoic Acid, 2-Hydroxybenzoic acid (RIFM), Phenol-2-Carboxylic Acid, Benzoic acid, 2-hydroxy- (10)",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "Salicylic acid",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【제품 타입 또는 목적 (types or intended purposes of cosmetics)】 : すべての化粧品(모든 화장품) \n* 【100g당 최대 배합량(Maximum amount of ingredient per 100 g)】 : 0.20(0.20 g)"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "살리실릭애씨드",
+          "INGR_ENG_NAME": "Salicylic Acid",
+          "CAS_NO": "69-72-7",
+          "INGR_SYNONYM": "acidum salicylicum (EP), Benzoic Acid, 2-Hydroxy-, o-Carboxyphenol, o-Hydroxybenzoic Acid, 2-Hydroxybenzoic acid (RIFM), Phenol-2-Carboxylic Acid, Benzoic acid, 2-hydroxy- (10)",
+          "COUNTRY_NAME": "캐나다",
+          "NOTICE_INGR_NAME": "Salicylic acid",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum Concentration Permitted : 2%\n* 【제한】\n허용된 최대 농도 : 2%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "살리실릭애씨드",
+          "INGR_ENG_NAME": "Salicylic Acid",
+          "CAS_NO": "69-72-7",
+          "INGR_SYNONYM": "acidum salicylicum (EP), Benzoic Acid, 2-Hydroxy-, o-Carboxyphenol, o-Hydroxybenzoic Acid, 2-Hydroxybenzoic acid (RIFM), Phenol-2-Carboxylic Acid, Benzoic acid, 2-hydroxy- (10)",
+          "COUNTRY_NAME": "브라질",
+          "NOTICE_INGR_NAME": "<배합한도>\nSalicylic acid\n<보존제>\nSalicylic acid and its salts (*) (SALICYLIC ACID & salts)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "<배합한도 : Salicylic acid>\n* Restrictions\n【Field of application and/or use】 : (a) hair products that are rinsed\n(b) Other products \n* 제한\n【사용 범위】 : (a) 씻어내는 헤어 제품\r\n(b) 기타 제품 \n* Restrictions\n【Maximum concentration permitted at final product】 : (a) 3%\n(b) 2% \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 3%\r\n(b) 2% \n* Restrictions\n【Other limitations and requirements】 : Should not be used in products in products for children under 3 years old, except for shampoos. \n* 제한\n【기타 제한 및 요구조건】 : 3세 이하의 어린이용 제품에 사용금지. 단, 샴푸 제외. \n* Use conditions and warnings that must appear on the label : -For adult use products: \n\"Do not use in children”\n- For products designed for children public: \"Do not use in children under 3 years old\". \n* 라벨에 반드시 표기해야 하는 사용 조건 및 주의사항 : 성인 전용 제품 : \"아이들에게는 사용하면 안된다.\"\r\n-children public을 위해 디자인된 제품이다: \"3세 이하의 어린이는 사용하면 안된다.\"\n\n<보존제 : Salicylic acid and its salts (*) (SALICYLIC ACID & salts)>\n* Restrictions\n【Maximum concentration permitted at final product】 : 0.5% (expressed as acid) \n* 제한\n【완제품에서 허용된 최대 농도】 : 0.5%(산으로서) \n* Restrictions\n【Other limitations and requirements】 : Prohibited in products for children under 3 years of age, except for shampoos. \n* 제한\n【기타 제한 및 요구조건】 : 3세 이하 어린이 사용금지(다만, 샴푸는 제외) \n* Use conditions and warnings that must appear on the label : Products for use Adults: \"Do not use in children\"\nFor products aimed at children: \"Do not use in children under three years of age (except shampoo)\" \n* 라벨에 반드시 표기해야 하는 사용 조건 및 주의사항 : 성인 전용 제품 : \"아이들에게는 사용하면 안된다.\"\r\n아이들을 대상으로 한 제품 : \"3세 이하의 어린이는 사용하면 안된다.\""
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "살리실릭애씨드",
+          "INGR_ENG_NAME": "Salicylic Acid",
+          "CAS_NO": "69-72-7",
+          "INGR_SYNONYM": "acidum salicylicum (EP), Benzoic Acid, 2-Hydroxy-, o-Carboxyphenol, o-Hydroxybenzoic Acid, 2-Hydroxybenzoic acid (RIFM), Phenol-2-Carboxylic Acid, Benzoic acid, 2-hydroxy- (10)",
+          "COUNTRY_NAME": "아르헨티나",
+          "NOTICE_INGR_NAME": "<배합한도>\nSalicylic acid\n<보존제>\nSalicylic acid and its salts (*) (SALICYLIC ACID & salts)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "<배합한도 : Salicylic acid>\n* Restrictions\n【Field of application and/or use】 : (a) hair products that are rinsed\n(b) Other products \n* 제한\n【사용 범위】 : (a) 씻어내는 헤어 제품\r\n(b) 기타 제품 \n* Restrictions\n【Maximum concentration permitted at final product】 : (a) 3%\n(b) 2% \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 3%\r\n(b) 2% \n* Restrictions\n【Other limitations and requirements】 : Should not be used in products in products for children under 3 years old, except for shampoos. \n* 제한\n【기타 제한 및 요구조건】 : 3세 이하의 어린이용 제품에 사용금지. 단, 샴푸 제외. \n* Use conditions and warnings that must appear on the label : -For adult use products: \n\"Do not use in children”\n- For products designed for children public: \"Do not use in children under 3 years old\". \n* 라벨에 반드시 표기해야 하는 사용 조건 및 주의사항 : 성인 전용 제품 : \"아이들에게는 사용하면 안된다.\"\r\n-children public을 위해 디자인된 제품이다: \"3세 이하의 어린이는 사용하면 안된다.\"\n\n<보존제 : Salicylic acid and its salts (*) (SALICYLIC ACID & salts)>\n* Restrictions\n【Maximum concentration permitted at final product】 : 0.5% (expressed as acid) \n* 제한\n【완제품에서 허용된 최대 농도】 : 0.5%(산으로서) \n* Restrictions\n【Other limitations and requirements】 : Prohibited in products for children under 3 years of age, except for shampoos. \n* 제한\n【기타 제한 및 요구조건】 : 3세 이하 어린이 사용금지(다만, 샴푸는 제외) \n* Use conditions and warnings that must appear on the label : Products for use Adults: \"Do not use in children\"\nFor products aimed at children: \"Do not use in children under three years of age (except shampoo)\" \n* 라벨에 반드시 표기해야 하는 사용 조건 및 주의사항 : 성인 전용 제품 : \"아이들에게는 사용하면 안된다.\"\r\n아이들을 대상으로 한 제품 : \"3세 이하의 어린이는 사용하면 안된다.\""
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "살리실릭애씨드",
+          "INGR_ENG_NAME": "Salicylic Acid",
+          "CAS_NO": "69-72-7",
+          "INGR_SYNONYM": "acidum salicylicum (EP), Benzoic Acid, 2-Hydroxy-, o-Carboxyphenol, o-Hydroxybenzoic Acid, 2-Hydroxybenzoic acid (RIFM), Phenol-2-Carboxylic Acid, Benzoic acid, 2-hydroxy- (10)",
+          "COUNTRY_NAME": "중국",
+          "NOTICE_INGR_NAME": "Salicylic acid",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "<사용제한성분>\n* 【제한】\n적용 및 사용범위 : (a)씻어내지 않는 제품과 씻어내는 피부보호용품\n(b) 씻어내는 두발용품 \n* 【화장품 중 최대사용농도】\n배합한도 (일반) : (a) 2.0%\n(b) 3.0% \n* 기타 제한조건 및 요구사항 : 샴푸를 제외하고 3세이하 아동용품에 사용금지 \n* 라벨에 반드시 표기해야하는 사용조건과 주의사항 : 살리실산 함유; 3세 이하 아동 사용 금지(2)\n\n<사용제한 방부제>\n* 【화장품 중 최대사용농도】\n배합한도 (일반) : 총량 0.5%(산으로 계산) \n* 기타 제한조건 및 요구사항 : 샴푸를 제외하고 3세 이하 아동이 사용하는 제품에 사용금지 \n* 라벨에 반드시 표기해야하는 사용조건과 주의사항 : 살리실산 함유 3세 이하 아동에게 사용금지"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "살리실릭애씨드",
+          "INGR_ENG_NAME": "Salicylic Acid",
+          "CAS_NO": "69-72-7",
+          "INGR_SYNONYM": "acidum salicylicum (EP), Benzoic Acid, 2-Hydroxy-, o-Carboxyphenol, o-Hydroxybenzoic Acid, 2-Hydroxybenzoic acid (RIFM), Phenol-2-Carboxylic Acid, Benzoic acid, 2-hydroxy- (10)",
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "살리실릭애씨드 및 그 염류",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : <보존제>\n∙ 살리실릭애씨드로서 0.5%\n∙ 영유아용 제품류 또는 만 13세 이하 어린이가 사용할 수 있음을 특정하여 표시하는 제품에는 사용금지(다만, 샴푸는 제외)\n<기타배합한도>\n∙ 인체세정용 제품류에 살리실릭애씨드로서 2%\n∙ 사용 후 씻어내는 두발용 제품류에 살리실릭애씨드로서 3%\n∙ 영유아용 제품류 또는 만 13세 이하 어린이가 사용할 수 있음을 특정하여 표시하는 제품에는 사용금지(다만, 샴푸는 제외)\n∙ 기능성화장품의 유효성분으로 사용하는 경우에 한하며 기타 제품에는 사용금지"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "살리실릭애씨드",
+          "INGR_ENG_NAME": "Salicylic Acid",
+          "CAS_NO": "69-72-7",
+          "INGR_SYNONYM": "acidum salicylicum (EP), Benzoic Acid, 2-Hydroxy-, o-Carboxyphenol, o-Hydroxybenzoic Acid, 2-Hydroxybenzoic acid (RIFM), Phenol-2-Carboxylic Acid, Benzoic acid, 2-hydroxy- (10)",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "Benzoic acid, 2-hydroxy- (10)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "<고시명 : Benzoic acid, 2-hydroxy- (10) (III/98)>\n* 【Restrictions】\nProduct Type, body parts : (a) Rinse-off hair products\r\n(b) Other products except body lotion, eye shadow, mascara, eyeliner, lipstick, roll-on deodorant\r\n(c) Body lotion, eye shadow, mascara, eyeliner, lipstick, roll-on deodorant \n* 【제한】\n제품 유형, 사용 부위 : (a) 씻어내는 두발용 제품\r\n(b) 기타 제품 (바디로션, 아이 섀도우, 마스카라, 아이라이너, 립스틱, 롤-온 데오도런트 제외)\r\n(c) 바디로션, 아이 섀도우, 마스카라, 아이라이너, 립스틱, 롤-온 데오도런트\n* 【Restrictions】\nMaximum concentration in ready for use preparation : (a) 3.0%\r\n(b) 2.0%\r\n(c) 0.5% \n* 【제한】\n최대 농도 : (a) 3.0%\r\n(b) 2.0%\r\n(c) 0.5% \n* 【Restrictions】\nOther : (a) (b) (c)\r\n\nNot to be used in preparations for children under 3 years of age.\r\nNot to be used in applications that may lead to exposure of the end-user’s lungs by inhalation.\r\nNot to be used in oral products.\r\nFor purposes other than inhibiting the development of micro-organisms in the product. This purpose has to be apparent from the presentation of the product.\r\n\r\nThese levels are inclusive of any use of salicylic acid. \n* 【제한】\n 기타 : (a) (b) (c)\r\n\n3세 이하 어린이 사용금지\r\n최종 소비자에게 폐 흡입 노출을 야기할 수 있는 부위에 사용해서는 안된다.\r\n구강 제품에 사용금지\r\n제품에서 미생물 증식을 억제하는 것 외의 목적을 위해.  이 목적은 제품 표시에 분명히 드러나야 한다.\r\n\r\n이러한 수준은 살리실릭애씨드의 어떠한 사용도 포함됨 \n* Wording of conditions of use and warnings  : (a) (b) (c)\r\n\nNot to be used for children under three years of age\r\n\r\n* Solely for products which might be used for children under 3 years of age. \n* 사용 조건 및 주의사항 문구 : (a) (b) (c)\r\n3세 이하의 어린이에게 사용 금지\r\n\r\n3세 이하의 어린이에게만 사용할 수 있는 제품.\n\n<고시명 : Salicylic acid (1) and its salts (V/3)>\n* 【Restrictions】\nMaximum concentration in ready for use preparation : Salicylic acid: 0,5 % (acid)\r\nSalicylic acid salts: 0,5 % (acid) \n* 【제한】\n최대 농도 : 살리실릭애씨드 : 0.5% (산)\r\n살라실릭애씨드 염류 :0.5% (산) \n* 【Restrictions】\nOther : Salicylic acid:\r\nNot to be used in products for children under 3 years of age.\r\nNot to be used in oral products.\r\nNot to be used in applications that may lead to exposure of the end-user’s lungs by inhalation.\r\n\r\nSalicylic acid salts:\r\nNot to be used in products for children under 3 years of age, except for shampoos. \n* 【제한】\n 기타 : 살리실릭애씨드:\r\n3세 이하 어린이 사용금지.\r\n구강 제품에 사용금지.\r\n최종 소비자에게 폐 흡입 노출을 야기할 수 있는 부위에 사용해서는 안된다.\r\n\r\n살리실릭애씨드 염류:\r\n3세 이하 어린이 사용금지, 다만, 샴푸는 제외 \n* Wording of conditions of use and warnings  : Salicylic acid:\r\nNot to be used for children under 3 years of age\r\n**Solely for products which might be used for children under 3 years of age.\r\n\r\nSalicylic acid salts:\r\nNot to be used for children under 3 years of age\r\n***Solely for products which might be used for children under 3 years of age and which remain in prolonged contact with the skin.  \n* 사용 조건 및 주의사항 문구 : 살리실릭애씨드:\r\n3세 이하 어린이 사용금지.\r\n**3세 이하 어린이 를 위해 사용될 수 있는 제품의 경우.\r\n\r\n살리실릭애씨드 염류:\r\n3세 이하 어린이 사용금지\r\n***3세 이하 어린이 를 위해 사용할 수 있고 피부에 장기간 접촉할 수 있는 제품의 경우"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "살리실릭애씨드",
+          "INGR_ENG_NAME": "Salicylic Acid",
+          "CAS_NO": "69-72-7",
+          "INGR_SYNONYM": "acidum salicylicum (EP), Benzoic Acid, 2-Hydroxy-, o-Carboxyphenol, o-Hydroxybenzoic Acid, 2-Hydroxybenzoic acid (RIFM), Phenol-2-Carboxylic Acid, Benzoic acid, 2-hydroxy- (10)",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "Salicylic acid(註)",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。\n註：該成分作為防腐劑用途時，應參照化粧品防腐劑成分名稱及使用限制表之規定。倘非防腐劑用途者，業者可自行依據產品屬性，判斷是否需於產品外包裝標示其用途。惟倘產品因未刊載其用途，致生危害消費者身體、健康時，企業經營者應自負相關責任。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。\n註：該成分作為防腐劑用途時，應參照化粧品防腐劑成分名稱及使用限制表之規定。倘非防腐劑用途者，業者可自行依據產品屬性，判斷是否需於產品外包裝標示其用途。惟倘產品因未刊載其用途，致生危害消費者身體、健康時，企業經營者應自負相關責任。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다.\n\n참고: 이 성분을 방부제로 사용하는 경우 화장품의 방부제 성분명 및 사용제한표의 규정을 참조하여야 한다. 방부제를 사용하지 않는 경우 제품 속성에 따라 제품 외부 포장에 용도를 표시해야 하는지 여부를 사업자가 판단할 수 있습니다.다만, 제품이 그 용도를 기재하지 않아 소비자의 건강과 건강을 위협하는 경우에는 사업주가 책임을 져야 한다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : 2%\n除洗髮產品外，不得使用於三歲以下孩童之產品。\n샴푸 제품을 제외하고 3세 미만의 어린이 제품에는 사용하지 마십시오. \n* 주의사항 : 不得使用於三歲以下孩童(洗髮產品得免刊載該注意事項)。\n3세 이하의 어린이에게는 사용하실 수 없습니다(샴푸 제품은 이 주의 사항 게시에서 제외됩니다)."
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "살리실릭애씨드",
+          "INGR_ENG_NAME": "Salicylic Acid",
+          "CAS_NO": "69-72-7",
+          "INGR_SYNONYM": "acidum salicylicum (EP), Benzoic Acid, 2-Hydroxy-, o-Carboxyphenol, o-Hydroxybenzoic Acid, 2-Hydroxybenzoic acid (RIFM), Phenol-2-Carboxylic Acid, Benzoic acid, 2-hydroxy- (10)",
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "<배합한도>\nSalicylic acid\n<보존제>\nSalicylic acid (69-72-7) and its salts(1)\n: Calcium salicylate, magnesium salicylate, MEA-salicylate, sodium salicylate, potassium salicylate, TEA-salicylate (824-35-1, 18917-89-0,59866-70-5, 54-21-7, 578-36-9, 2174-16-5)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "<고시명 : Salicylic acid CAS No 69-72-7 (III/98)>\n* 【Restrictions】\nField of application and/or use : (a) Rinse-off hair products\n(b) Other products except body lotion, eye shadow, mascara, eyeliner, lipstick, roll-on deodorant\n(c) Body lotion, eye shadow, mascara, eyeliner, lipstick, roll-on deodorant \n* 제한\n【사용 범위】 : (a) 씻어내는 두발용 제품\r\n(b) 기타 제품 (바디로션, 아이 섀도우, 마스카라, 아이라이너, 립스틱, 롤-온 데오도런트 제외)\r\n(c) 바디로션, 아이 섀도우, 마스카라, 아이라이너, 립스틱, 롤-온 데오도런트 \n* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : (a) 3.0 % (b) 2.0% (c) 0.5% \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 3.0 % (b) 2.0% (c) 0.5% \n* 【Restrictions】\nOther limitations and requirements : (a) (b) (c)\r\n\nNot to be used in preparations for children under 3 years of age.\r\nNot to be used in applications that may lead to exposure of the end-user’s lungs by inhalation.\r\nNot to be used in oral products.\r\nFor purposes other than inhibiting the development of micro-organisms in the product. This purpose has to be apparent from the presentation of the product.\r\n\r\n\nThese levels are inclusive of any use of salicylic acid.\r\n\r\nAs a preservative, see Annex VI, Part 1, No 3 \n* 제한\n【기타 제한 및 요구조건】 : (a) (b) (c)\r\n\n3세 이하 어린이 사용금지\r\n최종 소비자에게 폐 흡입 노출을 야기할 수 있는 부위에 사용해서는 안된다.\r\n구강 제품에 사용금지\r\n제품에서 미생물 증식을 억제하는 것 외의 목적을 위해.  이 목적은 제품 표시에 분명히 드러나야 한다.\r\n\r\n이러한 수준은 살리실릭애씨드의 어떠한 사용도 포함됨\r\n\r\n보존제로서, Annexe VI, Part 1, No 3을 참고하십시오. \n* Conditions of use and warning which must be printed on the labels : (a) (b) (c)\r\n\nNot to be used for children under three years of age\r\n\r\n* Solely for products which might be used for children \n* 사용 조건 및 포장지에 명시되어야 하는 경고사항 : (a) (b) (c)\r\n3세 이하의 어린이에게 사용 금지\n\n<고시명 : Salicylic acid (69-72-7) and its salts(1)\n: Calcium salicylate, magnesium salicylate, MEA-salicylate, sodium salicylate, potassium salicylate, TEA-salicylate (824-35-1, 18917-89-0,59866-70-5, 54-21-7, 578-36-9, 2174-16-5) (V/3)>\n* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : Salicylic acid: 0,5 % (acid)\r\nSalicylic acid salts: 0,5 % (acid) \n* 제한\n【완제품에서 허용된 최대 농도】 : 살리실릭애씨드 : 0.5% (산)\r\n살라실릭애씨드 염류 :0.5% (산) \n* 【Restrictions】\nOther limitations and requirements : Salicylic acid:\r\nNot to be used in products for children under 3 years of age.\r\nNot to be used in oral products.\r\nNot to be used in applications that may lead to exposure of the end-user’s lungs by inhalation.\r\n\r\nSalicylic acid salts:\r\nNot to be used in products for children under 3 years of age, except for shampoos. \n* 제한\n【기타 제한 및 요구조건】 : 살리실릭애씨드:\r\n3세 이하 어린이 사용금지.\r\n구강 제품에 사용금지.\r\n최종 소비자에게 폐 흡입 노출을 야기할 수 있는 부위에 사용해서는 안된다.\r\n\r\n살리실릭애씨드 염류:\r\n3세 이하 어린이 사용금지, 다만, 샴푸는 제외 \n* Conditions of use and warning which must be printed on the labels : Salicylic acid:\r\nNot to be used for children under 3 years of age\r\n\r\nSalicylic acid salts:\r\nNot to be used for children under 3 years of age \n* 사용 조건 및 포장지에 명시되어야 하는 경고사항 : 살리실릭애씨드:\r\n3세 이하 어린이 사용금지\r\n\r\n살리실릭애씨드 염류:\r\n3세 이하 어린이 사용금지"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:27.711Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "글루타티온",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "글루타티온",
+      "INGR_ENG_NAME": "Glutathione",
+      "CAS_NO": "70-18-8",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": "글루타치온",
+      "_cosing": {
+        "inciName": "GLUTATHIONE",
+        "function": "REDUCING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:27.952Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "글리세린",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "글리세린",
+      "INGR_ENG_NAME": "Glycerin",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 다음의 구조를 갖는 폴리하이드릭알코올이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "GLYCERIN",
+        "function": "DENATURANT, HAIR CONDITIONING, HUMECTANT, ORAL CARE, PERFUMING, SKIN CONDITIONING, SKIN PROTECTING, SOLVENT, VISCOSITY CONTROLLING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "글리세린",
+          "INGR_ENG_NAME": "Glycerin",
+          "CAS_NO": "56-81-5",
+          "INGR_SYNONYM": "Concentrated Glycerin, Glycerine, glycerol (INN), Glycerol (RIFM), glycerolum (EP), Glycyl Alcohol, 1,2,3-Propanetriol, 1,2,3-Trihydroxypropane",
+          "COUNTRY_NAME": "캐나다",
+          "NOTICE_INGR_NAME": "Glycerin",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nConditions of Use by product type : Manufacturers of oral and leave-on products containing glycerin must ensure the raw material used is within the specifications of an accepted pharmacopoeia with respect to diethylene glycol (DEG) impurities (e.g. Glycerin Official Monograph in the most current edition of the USP). \n* 【제한】\n제품 유형에 따른 조건 : 글리세린을 포함하는 씻어내지않는 제품과 구강 제품의 제조업체들은 반드시 원료가 다이에틸렌 글리콜(DEG) 불순물에 대하여 약전의 명시된 규격내에 있는지를 보장해야 한다. (Glycerin Official Monograph in the most current edition of the USP)"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:28.244Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "소듐라우릴설페이트",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "소듐라우릴설페이트",
+      "INGR_ENG_NAME": "Sodium Lauryl Sulfate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 라우릴설페이트의 소듐염이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SODIUM LAURYL SULFATE",
+        "function": "CLEANSING, DENATURANT, FOAMING, SURFACTANT - CLEANSING, SURFACTANT - EMULSIFYING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:28.245Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "소듐하이알루로네이트",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "소듐하이알루로네이트",
+      "INGR_ENG_NAME": "Sodium Hyaluronate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 하이알루로닉애씨드의 소듐염이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SODIUM HYALURONATE",
+        "function": "HUMECTANT, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:29.851Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "스쿠알란",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "스쿠알란",
+      "INGR_ENG_NAME": "Squalane",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 포화된 분지형 탄화수소이며 상어 간유 혹은 다른 천연 오일에 수소첨가하여 얻는다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SQUALANE",
+        "function": "HAIR CONDITIONING, REFATTING, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:31.217Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "아데노신",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "아데노신",
+      "INGR_ENG_NAME": "Adenosine",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 헤테로사이클릭 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ADENOSINE",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:32.747Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "아스코빅애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "아스코빅애씨드",
+      "INGR_ENG_NAME": "Ascorbic Acid",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ASCORBIC ACID",
+        "function": "ANTIOXIDANT, BUFFERING, FRAGRANCE, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:33.041Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "아스코빌글루코사이드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "아스코빌글루코사이드",
+      "INGR_ENG_NAME": "Ascorbyl Glucoside",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 아스코빅애씨드와 글루코오스의 축합반응물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ASCORBYL GLUCOSIDE",
+        "function": "ANTIOXIDANT",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "아스코빌글루코사이드",
+          "INGR_ENG_NAME": "Ascorbyl glucoside",
+          "CAS_NO": "129499-78-1",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "2-O-alpha-D-Glucopyranos yl-L-ascorbic acid",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : 2%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:33.041Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "알란토인",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "알란토인",
+      "INGR_ENG_NAME": "Allantoin",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 헤테로사이클릭 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ALLANTOIN",
+        "function": "SKIN CONDITIONING, SKIN PROTECTING, SOOTHING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "알란토인",
+          "INGR_ENG_NAME": "Allantoin",
+          "CAS_NO": "97-59-6",
+          "INGR_SYNONYM": "(2,5-Dioxo-4-Imidazolidinyl)Urea, Glyoxyldiureid, Glyoxyldiureide, Glyoxylic Diureide, Urea, (2,5-Dioxo-4-Imidazolidinyl)-, 5-Ureidohydantoin",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "Allantoin",
+          "PROVIS_ATRCL": "注1)　「＊」は旧基準に収載されていた成分。\n注2)　(　)内は、旧基準において示していた成分の分量を参考に付したもの。",
+          "LIMIT_COND": "* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내는 화장품 -Cosmetics not used for mucosa and to be washed away)】 : (0.50) g \n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내지 않는 화장품 - Cosmetics not used for mucosa and not to be washed away)】 : 0.3 g \n* 【100g당 최대 배합량 (점막에 사용하는 화장품 - Cosmetics that may be used for mucosa)】 : (0.20) g \n* 단서조항 : 注1)　「＊」は旧基準に収載されていた成分。\n注2)　(　)内は、旧基準において示していた成分の分量を参考に付したもの。 \n(주1)  ‘*’는 구 기준에 수재되어 있던 성분\n(주2)  (  ) 안은 구 기준에 있어서 제시하던 성분 분량을 참고로 한 것"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "알란토인",
+          "INGR_ENG_NAME": "Allantoin",
+          "CAS_NO": "97-59-6",
+          "INGR_SYNONYM": "(2,5-Dioxo-4-Imidazolidinyl)Urea, Glyoxyldiureid, Glyoxyldiureide, Glyoxylic Diureide, Urea, (2,5-Dioxo-4-Imidazolidinyl)-, 5-Ureidohydantoin",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "Allantoin",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : 0.5%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:33.288Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "꿀추출물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "꿀추출물",
+      "INGR_ENG_NAME": "Honey Extract",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 꿀에서 추출한 것이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "HONEY EXTRACT",
+        "function": "FLAVOURING, HUMECTANT, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:33.289Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "나이아신아마이드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "나이아신아마이드",
+      "INGR_ENG_NAME": "Niacinamide",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 헤테로고리 방향족 아마이드이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "NIACINAMIDE",
+        "function": "SMOOTHING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:33.587Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "인삼추출물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "인삼추출물",
+      "INGR_ENG_NAME": "Panax Ginseng Root Extract",
+      "CAS_NO": "72480-62-7\r,1449115-64-3",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 인삼 (Panax ginseng)의 뿌리에서 추출한 것이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "PANAX GINSENG ROOT EXTRACT",
+        "function": "HAIR CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SKIN PROTECTING, TONIC",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:37.245Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "녹차추출물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "녹차추출물",
+      "INGR_ENG_NAME": "Camellia Sinensis Leaf Extract",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 차나무(녹차) Camellia Sinensis의 잎에서 추출한 것이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "CAMELLIA SINENSIS LEAF EXTRACT",
+        "function": "ANTIMICROBIAL, ANTIOXIDANT, ASTRINGENT, FRAGRANCE, HUMECTANT, ORAL CARE, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SKIN PROTECTING, TONIC, UV ABSORBER",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:38.348Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "코직애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "코직애씨드",
+      "INGR_ENG_NAME": "Kojic Acid",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 헤테로사이클릭 화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "KOJIC ACID",
+        "function": "ANTIOXIDANT",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "코직애씨드",
+          "INGR_ENG_NAME": "Kojic acid",
+          "CAS_NO": "501-30-4",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "5-Hydroxy-2-hydroxymethyl-4-pyrone",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : 2%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "코직애씨드",
+          "INGR_ENG_NAME": "Kojic Acid",
+          "CAS_NO": "501-30-4",
+          "INGR_SYNONYM": "4H-Pyran-4-one, 5-Hydroxy-2-(Hydroxymethyl)-\n5-Hydroxy-2-(Hydroxymethyl)-4H-Pyran-4-one",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "5-Hydroxy-2-(hydroxymethyl)-4H-pyrane-4-one",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nProduct Type, body parts : Face and hand products \n* 【제한】\n제품 유형, 사용 부위 : 페이스 및 핸드 제품\n* 【Restrictions】\nMaximum concentration in ready for use preparation : 1% \n* 【제한】\n최대 농도 : 1% "
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:40.340Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "콜라겐",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "콜라겐",
+      "INGR_ENG_NAME": "Collagen",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 동물의 연골조직 및 다른 연결조직에서 발견되는 단백질이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "COLLAGEN",
+        "function": "HAIR CONDITIONING, MOISTURISING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:40.340Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "토코페롤",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "토코페롤",
+      "INGR_ENG_NAME": "Tocopherol",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 알파-토코페롤과 델타-토코페롤의 라세믹 혼합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "TOCOPHEROL",
+        "function": "ANTIOXIDANT, FRAGRANCE, SKIN CONDITIONING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "토코페롤",
+          "INGR_ENG_NAME": "Tocopherol",
+          "CAS_NO": "54-28-4 (gamma), 16698-35-4 (beta-), 10191-41-0(DL-), 119-13-1, 1406-18-4, 1406-66-2, 2074-53-5 (DL-), 59-02-9 (D-), 7616-22-0",
+          "INGR_SYNONYM": "b-δ-Tocopherol \n, 3,4-Dihydro-2,5,7,8-Tetramethyl-2-(4,8,12-Trimethyltridecyl)-2H-1-Benzopyran-6-ol \n, 2H-1-Benzopyran-6-ol, 3,4-Dihydro-2,5,7,8-Tetramethyl-2-(4,8,12-Trimethyltridecyl)- \n, 2H-1-Benzopyran-6-ol, 3,4-dihydro-2,5,8-trimethyl-2-[(4R,8R)-4,8,12-trimethyltridecyl]-, (2R)- \n, 2H-1-Benzopyran-6-ol, 3,4-dihydro-2,7,8-trimethyl-2-[(4R,8R)-4,8,12-trimethyltridecyl]-, (2R)- \n, Mixed Tocopherols \n, Natural Vitamin E \n, γ-Tocohopherol \n, (+)-γ-Tocopherol \n, D-Alpha-Tocopherol \n, DL-α-Tocopherol \n, dl-alpha-Tocopherol \n, dl-alpha-Tocopherol (RIFM)",
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "비타민E(토코페롤)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : 20%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:41.471Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "판테놀",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "판테놀",
+      "INGR_ENG_NAME": "Panthenol",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 알코올이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "PANTHENOL",
+        "function": "ANTISTATIC, HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "판테놀",
+          "INGR_ENG_NAME": "Panthenol",
+          "CAS_NO": "81-13-0(D-Form), 16485-10-2",
+          "INGR_SYNONYM": "Butanamide, 2,4-Dihydroxy-N-(3-Hydroxypropyl)-3,3-Dimethyl-, Dexpanthenol, dexpanthenol (INN), dexpanthenolum (EP), 2,4-Dihydroxy-N-(3-Hydroxypropyl)-3,3-Dimethylbutanamide, panthenol (INN), Pantothenol, Pantothenyl Alcohol, D-Pantothenyl Alcohol, DL-Pantothenyl Alcohol, Provitamin B5",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "DL-Pantothenyl Alcohol\nD-Pantothenyl Alcohol",
+          "PROVIS_ATRCL": "注1)　「＊」は旧基準に収載されていた成分。\n注2)　(　)内は、旧基準において示していた成分の分量を参考に付したもの。",
+          "LIMIT_COND": "<DL-Pantothenyl Alcohol>\n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내는 화장품 -Cosmetics not used for mucosa and to be washed away)】 : 한도 제한 없음(there is no upper limit for the amount of ingredient.) \n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내지 않는 화장품 - Cosmetics not used for mucosa and not to be washed away)】 : 8.0 g \n* 【100g당 최대 배합량 (점막에 사용하는 화장품 - Cosmetics that may be used for mucosa)】 : (0.3) g \n* 단서조항 : 注1)　「＊」は旧基準に収載されていた成分。\n注2)　(　)内は、旧基準において示していた成分の分量を参考に付したもの。 \n(주1)  ‘*’는 구 기준에 수재되어 있던 성분\n(주2)  (  ) 안은 구 기준에 있어서 제시하던 성분 분량을 참고로 한 것\n\n<D-Pantothenyl Alcohol>\n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내는 화장품 -Cosmetics not used for mucosa and to be washed away)】 : 한도 제한 없음(there is no upper limit for the amount of ingredient.) \n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내지 않는 화장품 - Cosmetics not used for mucosa and not to be washed away)】 : 3.0 g \n* 【100g당 최대 배합량 (점막에 사용하는 화장품 - Cosmetics that may be used for mucosa)】 : (0.3) g \n* 단서조항 : 注1)　「＊」は旧基準に収載されていた成分。\n注2)　(　)内は、旧基準において示していた成分の分量を参考に付したもの。 \n(주1)  ‘*’는 구 기준에 수재되어 있던 성분\n(주2)  (  ) 안은 구 기준에 있어서 제시하던 성분 분량을 참고로 한 것"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:42.861Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "페녹시에탄올",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "페녹시에탄올",
+      "INGR_ENG_NAME": "Phenoxyethanol",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 방향족 에텔알코올이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "PHENOXYETHANOL",
+        "function": "ANTIMICROBIAL, PRESERVATIVE",
+        "restriction": "V/29"
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "페녹시에탄올",
+          "INGR_ENG_NAME": "Phenoxyethanol",
+          "CAS_NO": "122-99-6",
+          "INGR_SYNONYM": "Ethanol, 2-Phenoxy-, Ethylene Glycol Monophenyl Ether, 2-Hydroxyethyl Phenyl Ether, 2-Phenoxyethanol, 2-Phenoxyethanol (RIFM), phenoxyethanolum (EP), 2-Phenoxyethyl Alcohol, Phenoxytol",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "2-Phenoxyethanol",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum concentration in ready for use preparation : 1.0% \n* 【제한】\n최대 농도 : 1.0%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "페녹시에탄올",
+          "INGR_ENG_NAME": "Phenoxyethanol",
+          "CAS_NO": "122-99-6",
+          "INGR_SYNONYM": "Ethanol, 2-Phenoxy-, Ethylene Glycol Monophenyl Ether, 2-Hydroxyethyl Phenyl Ether, 2-Phenoxyethanol, 2-Phenoxyethanol (RIFM), phenoxyethanolum (EP), 2-Phenoxyethyl Alcohol, Phenoxytol",
+          "COUNTRY_NAME": "브라질",
+          "NOTICE_INGR_NAME": "2-Phenoxyethanol (PHENOXYETHANOL)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Maximum concentration permitted at final product】 : 1.0% \n* 제한\n【완제품에서 허용된 최대 농도】 : 1.0%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "페녹시에탄올",
+          "INGR_ENG_NAME": "Phenoxyethanol",
+          "CAS_NO": "122-99-6",
+          "INGR_SYNONYM": "Ethanol, 2-Phenoxy-, Ethylene Glycol Monophenyl Ether, 2-Hydroxyethyl Phenyl Ether, 2-Phenoxyethanol, 2-Phenoxyethanol (RIFM), phenoxyethanolum (EP), 2-Phenoxyethyl Alcohol, Phenoxytol",
+          "COUNTRY_NAME": "아르헨티나",
+          "NOTICE_INGR_NAME": "2-Phenoxyethanol (PHENOXYETHANOL)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Maximum concentration permitted at final product】 : 1.0% \n* 제한\n【완제품에서 허용된 최대 농도】 : 1.0%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "페녹시에탄올",
+          "INGR_ENG_NAME": "Phenoxyethanol",
+          "CAS_NO": "122-99-6",
+          "INGR_SYNONYM": "Ethanol, 2-Phenoxy-, Ethylene Glycol Monophenyl Ether, 2-Hydroxyethyl Phenyl Ether, 2-Phenoxyethanol, 2-Phenoxyethanol (RIFM), phenoxyethanolum (EP), 2-Phenoxyethyl Alcohol, Phenoxytol",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "Phenoxyethanol",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【제품 타입 또는 목적 (types or intended purposes of cosmetics)】 : すべての化粧品(모든 화장품) \n* 【100g당 최대 배합량(Maximum amount of ingredient per 100 g)】 : 1.0 g(1.0 g)"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "페녹시에탄올",
+          "INGR_ENG_NAME": "Phenoxyethanol",
+          "CAS_NO": "122-99-6",
+          "INGR_SYNONYM": "Ethanol, 2-Phenoxy-, Ethylene Glycol Monophenyl Ether, 2-Hydroxyethyl Phenyl Ether, 2-Phenoxyethanol, 2-Phenoxyethanol (RIFM), phenoxyethanolum (EP), 2-Phenoxyethyl Alcohol, Phenoxytol",
+          "COUNTRY_NAME": "중국",
+          "NOTICE_INGR_NAME": "2-Phenoxyethanol",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【화장품 중 최대사용농도】\n배합한도 (일반) : 1%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "페녹시에탄올",
+          "INGR_ENG_NAME": "Phenoxyethanol",
+          "CAS_NO": "122-99-6",
+          "INGR_SYNONYM": "Ethanol, 2-Phenoxy-, Ethylene Glycol Monophenyl Ether, 2-Hydroxyethyl Phenyl Ether, 2-Phenoxyethanol, 2-Phenoxyethanol (RIFM), phenoxyethanolum (EP), 2-Phenoxyethyl Alcohol, Phenoxytol",
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "페녹시에탄올",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : 1%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "페녹시에탄올",
+          "INGR_ENG_NAME": "Phenoxyethanol",
+          "CAS_NO": "122-99-6",
+          "INGR_SYNONYM": "Ethanol, 2-Phenoxy-, Ethylene Glycol Monophenyl Ether, 2-Hydroxyethyl Phenyl Ether, 2-Phenoxyethanol, 2-Phenoxyethanol (RIFM), phenoxyethanolum (EP), 2-Phenoxyethyl Alcohol, Phenoxytol",
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "2-Phenoxyethanol",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : 1.0% \n* 제한\n【완제품에서 허용된 최대 농도】 : 1.0%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "페녹시에탄올",
+          "INGR_ENG_NAME": "Phenoxyethanol",
+          "CAS_NO": "122-99-6",
+          "INGR_SYNONYM": "Ethanol, 2-Phenoxy-, Ethylene Glycol Monophenyl Ether, 2-Hydroxyethyl Phenyl Ether, 2-Phenoxyethanol, 2-Phenoxyethanol (RIFM), phenoxyethanolum (EP), 2-Phenoxyethyl Alcohol, Phenoxytol",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "2-Phenoxyethanol",
+          "PROVIS_ATRCL": "※ 未列於本表中之防腐劑成分，倘歐、美、日三國家地區政府已公告准用且有其限量管制規定者，我國亦依其限用標準准予使用。\n倘前述三國家地區政府管理有差異時，則採其中限量規定方式最安全者。\n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。",
+          "LIMIT_COND": "* 단서조항 : ※ 未列於本表中之防腐劑成分，倘歐、美、日三國家地區政府已公告准用且有其限量管制規定者，我國亦依其限用標準准予使用。\n倘前述三國家地區政府管理有差異時，則採其中限量規定方式最安全者。\n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。 \n※ 본 표에 열거되지 않은 방부제 성분은 유럽, 미국, 일본 3개국 정부가 사용을 허가하고 그 제한적인 규제 규정이 있는 자를 공고하였을 때 그 사용 제한 기준에 따라 제한적으로 사용할 수 있습니다.\n앞서 언급한 3개국 및 지역 간의 관리가 상이한 경우 가장 엄격한 방식을 채택하여 안전한 사용량으로 사용해야합니다.\n※ 본 표에 언급 된 경구 제제에는 비 의약 치약, 구강 세정제 및 치아 미백 화장품이 포함됩니다. \n* 用途(용도) : 防腐 (방부제) \n* 배합한도 : 1%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:43.128Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "프로판다이올",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "프로판다이올",
+      "INGR_ENG_NAME": "Propanediol",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": "프로판디올",
+      "_cosing": {
+        "inciName": "PROPANEDIOL",
+        "function": "SOLVENT, VISCOSITY CONTROLLING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:45.989Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "프로폴리스추출물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "프로폴리스추출물",
+      "INGR_ENG_NAME": "Propolis Extract",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 프로몰리스왁스에서 추출한 것이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "PROPOLIS EXTRACT",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:45.989Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "동백나무씨오일",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "동백나무씨오일",
+      "INGR_ENG_NAME": "Camellia Japonica Seed Oil",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 동백나무 Camellia Japonica의 씨에서 얻은 고정유(불휘발성 오일)이다.",
+      "INGR_SYNONYM": "동백오일",
+      "_cosing": {
+        "inciName": "CAMELLIA JAPONICA SEED OIL",
+        "function": "SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:46.234Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "다이메티콘",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "다이메티콘",
+      "INGR_ENG_NAME": "Dimethicone",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 트라이메틸셀록시 단위로 끝이 막힌 완전 메틸화된 선형 실록세인 중합체 혼합물이다.",
+      "INGR_SYNONYM": "디메치콘",
+      "_cosing": {
+        "inciName": "DIMETHICONE",
+        "function": "ANTIFOAMING, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SKIN PROTECTING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:50.595Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "하이드로제네이티드폴리(C6-14올레핀)",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "하이드로제네이티드폴리(C6-14올레핀)",
+      "INGR_ENG_NAME": "Hydrogenated Poly(C6-14 Olefin)",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 각각 탄소원자 6-14개를 가지고있는 올레핀 단일체의 낮은 분자량의 중합체이다.",
+      "INGR_SYNONYM": "하이드로제네이티드C6-14올레핀폴리머",
+      "_cosing": {
+        "inciName": "HYDROGENATED POLY(C6-14 OLEFIN) ",
+        "function": "SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT, VISCOSITY CONTROLLING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:51.682Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "락틱애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "락틱애씨드",
+      "INGR_ENG_NAME": "Lactic Acid",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "LACTIC ACID",
+        "function": "BUFFERING, HUMECTANT, SKIN CONDITIONING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "락틱애씨드",
+          "INGR_ENG_NAME": "Lactic Acid",
+          "CAS_NO": "50-21-5, 79-33-4",
+          "INGR_SYNONYM": "acidum lacticum (EP), α-Hydroxypropanoic Acid, 2-Hydroxypropanoic Acid, 2-Hydroxypropionic Acid, Lactic acid (RIFM), Lactic acid (RIFM), Propanoic Acid, 2-Hydroxy-",
+          "COUNTRY_NAME": "캐나다",
+          "NOTICE_INGR_NAME": "Alpha-hydroxy acids, including polyhydroxy acids and bionic acids with alpha hydroxyl groups, and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "<Alpha-hydroxy acids, including polyhydroxy acids and bionic acids with alpha hydroxyl groups, and their salts\r\nlactic acid>\n* 【Restrictions】\nConditions of Use by product type : (a) Products for use on the skin for consumer use. Manufacturer or importer to provide pH levels.\n(b) Products for use on the skin for professional use:\nManufacturer must provide Health Canada with evidence of safety\nincluding:\n1. pH levels\n2. AHA concentrations\n3. Directions for use\n4. Clinical studies demonstrating minimal skin irritation\n(c) Products intended to be diluted in bath water may contain levels of AHAs exceeding 10%\n(d) Other cosmetics\n(e) Any cosmetics \n\n* 【제한】\n제품 유형에 따른 조건 : (a) 피부에 사용하는 소비자용 제품 : 제조업체 또는 수입업체는 pH 레벨을 제출해야 한다.\n(b) 피부에 사용하는 전문가용 제품 : 제조업체 또는 수입업체는 다음을 포함한 안전성에 대한 자료를 제출해야 한다.\n1. pH levels\n2. AHA 농도\n3. 사용시 주의사항\n4. 피부 자극을 최소화시키는 의학적 연구자료\n(c) 목욕수로 희석하는 제품은 AHA 수치가 10%를 초과할 수 있다.\n(d) 기타 제품\n(e) 어떤 화장품이든 \n\n* 【Restrictions】\nMaximum Concentration Permitted : (a) Between 3% and 18% total mono-AHA equivalents with a pH equal to or greater than 3.5\n\n(b) Between 18% and 30% total mono-AHA equivalents and/or a pH between 3.0 to 3.5\n\n(d) Between 3% and 30% total mono-AHA equivalents with a pH equal to or greater than 3.0\n\n(e) 3%\n* 【제한】\n허용된 최대 농도 : (a) pH가 3.5 이상인 총 모노-AHA 당량 3% ~ 18%\n\n(b) 총 모노-AHA 당량 18% ~ 30% 및/또는 pH 3.0 ~ 3.5\n\n(d) pH가 3.0 이상인 총 모노-AHA 당량 3% ~ 30%\n\n(e) 3% \n* 【Restrictions】\nWarnings and Cautionary Statements: (to the effect of) : (a) and (b) :  \"Use only as directed\", \"Avoid contact with the eyes\", \"If irritation persists, discontinue use and consult a physician\", \"It is recommended that prior to exposure to the sun, users cover areas where AHAs have been applied with sunscreen\"\nProduct labels should contain appropriate directions regarding frequency and/or duration of use.\n(b only) \"For professional use only\"\n(d) \"Use only as directed\", \"Avoid contact with eyes\", \n\"Discontinue use if rash or irritation occurs\" \n\n* 【제한】\n주의 사항 : (a) 및 (b) : \"지시사항에 따라 사용하십시오\", \"눈가와 접촉을 피하십시오.\", \"자극이 지속되면, 사용을 중단하고 의사와 상의하십시오.\", \"햇빛에 노출하기 전에 자외선차단제를 사용하십시오.\" 제품 라벨에는 사용 빈도 및/또는 기간에 관한 적절한 지침이 포함되어야 합니다.\n(b) : 전문가 전용\n(d) : \"지시사항에 따라 사용하십시오\", \"눈가와 접촉을 피하십시오.\", \"자극이 지속되면, 사용을 중단하고 의사와 상의하십시오.\"\n\n<lactic acid>\n* 【Restrictions】\nConditions of Use by product type : See \"Alpha-hydroxy acids\". \n* 【제한】\n제품 유형에 따른 조건 : \"Alpha-hydroxy acids\"를 참고하십시오."
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "락틱애씨드",
+          "INGR_ENG_NAME": "Lactic Acid",
+          "CAS_NO": "50-21-5, 79-33-4",
+          "INGR_SYNONYM": "acidum lacticum (EP), α-Hydroxypropanoic Acid, 2-Hydroxypropanoic Acid, 2-Hydroxypropionic Acid, Lactic acid (RIFM), Lactic acid (RIFM), Propanoic Acid, 2-Hydroxy-",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "α-Hydroxy acids(AHA)",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : pH≧3.5;\n惟使用後立即沖洗之洗髮或潤髮等產品， 其 AHA 含量為 3%以下時，其 pH 值得為 3.2 以上至3.5 以下。\n\n有關pH 值檢測方式，依產品實際情形，參照「『中華民國標準』（CNS）化粧品pH 值酸鹼性試驗法（ 總號9036 類號S2073）」檢驗之。\npH≥3.5;\n그러나 사용 후 바로 헹구는 샴푸 또는 컨디셔너와 같은 제품의 경우 AHA 함량이 3 % 미만인 경우 pH 값은 3.2에서 3.5 사이여야합니다.\n\npH 값 검출 방법에 대해서는 제품의 실제 상황에 따라 \"\" \"CNS (화장품)\"화장품 pH 값 산 및 알칼리 시험 방법 (일반 번호 9036 클래스 번호 S2073)에 따라 확인하십시오. \n* 주의사항 : 1. α-Hydroxy acids 對皮膚容易引起刺激性，消費者使用時應注意下列事項：\n(1) 皮膚敏感者，使用前請先作皮膚敏感性測試。\n(2) 皮膚有損傷、傷口或紅腫時不得使用。\n(3) 嬰兒及孩童不宜使用本產品。\n(4) 使用時皮膚如有異常現象，請暫停使用。\n(5) 使用後皮膚如有持續紅腫或出現不適應症狀時，請立即就醫診治。\n(6) 本產品含 α-Hydroxy acids  成分，可能增加皮膚對陽光敏感及曬傷可能性。\n(7) 使用本產品後必須使用防曬劑、穿著有保護衣物及一個星期內應避免陽光曝曬。\n2. 化粧品中含 α-Hydroxy acids  成分，其含量為 10%以下，且產品 pH值為 3.5 以上，作為 pH值調整液時，其標籤、仿單或包裝，得免刊載前開注意事項。\n\n1. α-Hydroxy acid는 피부 자극을 유발하므로 소비자는 다음 항목에 주의해야합니다.\n(1) 피부가 민감한 경우, 사용 전에 피부 민감성 테스트를 수행하십시오.\n(2) 피부에 손상, 상처 또는 붉게 부었을 경우 사용해서는 안 됩니다.\n(3) 아기와 어린이는 본 제품을 사용하는 것이 적합하지 않습니다.\n(4) 사용 중 피부에 이상 반응이 나타나면 사용을 중단하십시오.\n(5) 사용 후 피부가 계속 붉게 부어오르거나 부적응증이 나타날 경우 즉시 진료를 받으십시오\n(6) 본 제품은 α-Hydroxy acid 성분이 함유되어 있어 햇빛과 햇볕에 대한 피부 민감도를 높일 수 있습니다.\n(7) 본 제품 사용 후에는 반드시 "
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "락틱애씨드",
+          "INGR_ENG_NAME": "Lactic Acid",
+          "CAS_NO": "50-21-5, 79-33-4",
+          "INGR_SYNONYM": "acidum lacticum (EP), α-Hydroxypropanoic Acid, 2-Hydroxypropanoic Acid, 2-Hydroxypropionic Acid, Lactic acid (RIFM), Lactic acid (RIFM), Propanoic Acid, 2-Hydroxy-",
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "Glycolic and lactic acid, their common salts and simple esters",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nField of application and/or use : (a) Skin products\n (i) For general use\n\n (ii) For professional use\n\n \n (iii) For use by a qualified medical practitioner\n\n\n\n\n(b) Other products \n* 제한\n【사용 범위】 : (a) 스킨 케어 제품 \r\n(i) 일반 사용에서 \r\n(ii) 전문가용에서 \r\n (iii) 전문의만\r\n\r\n(b) 기타 제품 \n* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : (a) Skin products\n (i) ≤ 10% total when calculated as the acids\n (ii) > 10% - 20% total when calculated as the acids\n (iii) > 20%, total when calculated as the acids\n\n(b) Other products\n None \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 스킨 제품 \r\n (i) 산으로서 계산했을 때 ≤ 10%\r\n (ii) 산으로서 계산했을 때 > 10% - 20%\r\n (iii) 산으로서 계산했을 때 > 20%,\r\n (b) 기타 제품\r\n없음 \n* 【Restrictions】\nOther limitations and requirements : (a) Skin products\n (i) Final formulation  ≥ pH 3.5\n (ii) Final formulation  ≥ pH 3.0\n For professional use only\n (iii) Final formulation \n ≥ pH 3.0 for products up to 30% total when calculated as the acids.\n For use by a qualified medical practitioner only.\n \n(b) Other products\n None \n* 제한\n【기타 제한 및 요구조건】 : (a) 스킨 제품 \r\n (i) 완 제품 ≥ pH 3.5 \r\n (ii) 완 제품 ≥ pH 3.0 \r\n\r\n전문가용에서 \r\n (iii) 완제품 ≥ pH 3.0 애씨드로 계산했을 때의 제품 총합의 30% \r\n 전문의만 사용가능하다. \r\n\r\n기타 제품 \n* Conditions of use and warning which must be printed on the labels : (a) Skin products\nAll Sunburn alert: This product contains an alpha hydroxy acid (AHA) that may increase your skin’s sensitivity to the sun and particularly the possibility of sunburn. Use a sunscreen, wear sun protective clothing, and limit sun exposure while using this product and for a week afterwards(13)\n\n (ii) For professional use only\n\n (iii) For use by a qualified medical practitioner only.\n\n(b) Other products\n None \n* 사용 조건 및 포장지에 명시되어야 하는 경고사항 : (a) 스킨 제품\r\n화상 경고 : 이 제품은 햇볕으로 피ㅜ 민감성을 노피고, 화상의 가능성이 있는 알파 하이드록시 애씨드(AHA)를 포함한다. 이 제품을 사용하는 동안, 일주일 또는 그 후에 자외선 차단 및 자외선 차단 옷을 착용하는 등 햇볕 노출을 제한하십시오."
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:55.792Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "레스베라트롤",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "레스베라트롤",
+      "INGR_ENG_NAME": "Resveratrol",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "RESVERATROL",
+        "function": "ANTIOXIDANT, SKIN PROTECTING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:55.792Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "레티놀",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "레티놀",
+      "INGR_ENG_NAME": "Retinol",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "RETINOL",
+        "function": "SKIN CONDITIONING, SKIN CONDITIONING - MISCELLANEOUS",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "레티놀",
+          "INGR_ENG_NAME": "Retinol",
+          "CAS_NO": "11103-57-4\n68-26-8",
+          "INGR_SYNONYM": "3,7-Dimethyl-9-(2,6,6-Trimethyl-1-Cyclohexen-1-yl)-2,4,6,8-Nonatetraen-1-ol\nDry Formed Vitamin A\nretinol (INN)\nVitamin A\nvitaminum a (EP)",
+          "COUNTRY_NAME": "캐나다",
+          "NOTICE_INGR_NAME": "Retinol and its esters",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum Concentration Permitted : 1.0% retinol equivalents;\n1.15% w/w retinyl acetate;\n1.83% w/w retinyl palmitate.\n* 【제한】\n허용된 최대 농도 : 1.0% 레티놀 등가물;\r\n1.15% w/w 레티닐 아세테이트;\r\n1.83% w/w 레티닐 팔미테이트"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "레티놀",
+          "INGR_ENG_NAME": "Retinol",
+          "CAS_NO": "11103-57-4\n68-26-8",
+          "INGR_SYNONYM": "3,7-Dimethyl-9-(2,6,6-Trimethyl-1-Cyclohexen-1-yl)-2,4,6,8-Nonatetraen-1-ol\nDry Formed Vitamin A\nretinol (INN)\nVitamin A\nvitaminum a (EP)",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "(2E,4E,6E,8E)-3,7-dimethyl-9-(2,6,6-trimethylcyclohexen-1-yl)nona-2,4,6,8-tetraen-1-ol^[(2E,4E,6E,8E)-3,7-dimethyl-9-(2,6,6-trimethylcyclohexen-1-yl)nona-2,4,6,8-tetraenyl] acetate^[(2E,4E,6E,8E)-3,7-dimethyl-9-(2,6,6-trimethylcyclohexen-1-yl)nona-2,4,6,8-tetraenyl] hexadecanoate\n",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nProduct Type, body parts : (a) Body lotion\n(b) other leave-on and rinse-off products \n* 【제한】\n제품 유형, 사용 부위 : (a) 바디 로션\n(b) 기타 씻어내지 않는 및 씻어내는 제품\n* 【Restrictions】\nMaximum concentration in ready for use preparation : (a) 0,05 % Retinol Equivalent (RE)\n(b) 0,3 % RE \n* 【제한】\n최대 농도 : (a) 0,05 % 레티놀당량 (RE)\n(b) 0,3 % 레티놀당량 RE \n* Wording of conditions of use and warnings  : For any cosmetic product containing Retinol, Retinyl Acetate or Retinyl Palmitate the following, labelling is obligatory: ‘Contains Vitamin A. Consider your daily intake before use’. \n* 사용 조건 및 주의사항 문구 : 레티놀, 레티닐아세테이트 또는 레티닐팔미테이트가 포함된 화장품에는 '비타민 A 함유. 사용 전 일일 섭취량을 고려하세요'라는 라벨이 의무적으로 부착되어야 한다."
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:55.792Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "알파-알부틴",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "알파-알부틴",
+      "INGR_ENG_NAME": "Alpha-Arbutin",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ALPHA-ARBUTIN",
+        "function": "ANTIOXIDANT, BLEACHING, SKIN CONDITIONING - MISCELLANEOUS",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "알파-알부틴",
+          "INGR_ENG_NAME": "Alpha-Arbutin",
+          "CAS_NO": "84380-01-8",
+          "INGR_SYNONYM": "4-Hydroxyphenyl-α-D-Glucopyranoside\np-Hydroxyphenyl-α-D-Glucopyranoside",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "4-Hydroxyphenyl-alpha-D-glucopyranoside",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nProduct Type, body parts : (a) Face cream\n(b) Body lotion \n* 【제한】\n제품 유형, 사용 부위 : (a) 페이스 크림\n(b) 바디 로션\n* 【Restrictions】\nMaximum concentration in ready for use preparation : (a) 2 % (b) 0,5 % \n* 【제한】\n최대 농도 : (a) 2 % (b) 0,5 % \n* Wording of conditions of use and warnings  : Hydroquinone levels shall remain as low as possible in formulations containing alpha-Arbutin and shall not be higher than the unavoidable trace level. \n* 사용 조건 및 주의사항 문구 : 하이드로퀴논 수치는 알파-알부틴이 함유된 제형에서 가능한 한 낮게 유지되어야 하며, 비의도적인 trace 수치보다 높지 않아야 한다."
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:56.312Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "트라넥사믹애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "트라넥사믹애씨드",
+      "INGR_ENG_NAME": "Tranexamic Acid",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "TRANEXAMIC ACID",
+        "function": "ASTRINGENT, SKIN CONDITIONING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "트라넥사믹애씨드",
+          "INGR_ENG_NAME": "Tranexamic Acid",
+          "CAS_NO": "1197-18-8",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "Tranexamic acid",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nField of application and/or use : Skin products \n* 제한\n【사용 범위】 : 스킨케어 제품에 \n* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : 3.0% \n* 제한\n【완제품에서 허용된 최대 농도】 : 3.0% \n* 【Restrictions】\nOther limitations and requirements : Not to be used in products intended to be placed in contact with mucous membranes \n* 제한\n【기타 제한 및 요구조건】 : 점막에 사용되는 제품에는 사용금지"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "트라넥사믹애씨드",
+          "INGR_ENG_NAME": "Tranexamic Acid",
+          "CAS_NO": "1197-18-8",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "Cyclohexanecarboxylic acid, 4-(aminomethyl)-, trans-",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : 3%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:58.426Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "달팽이점액여과물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "달팽이점액여과물",
+      "INGR_ENG_NAME": "Snail Secretion Filtrate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 하나 이상의 달팽이종의 점액을 여과하여 얻은 물질이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SNAIL SECRETION FILTRATE",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:58.427Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "세라마이드엔피",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "세라마이드엔피",
+      "INGR_ENG_NAME": "Ceramide NP",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 D-에리스로구조를 갖는 피토스핑고신에 포화 또는 불포화지방산이 결합된 합성N-아실화스핑고리피드이다.",
+      "INGR_SYNONYM": "세라마이드3",
+      "_cosing": {
+        "inciName": "CERAMIDE NP",
+        "function": "HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:07.237Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "바쿠치올",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "바쿠치올",
+      "INGR_ENG_NAME": "Bakuchiol",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "BAKUCHIOL",
+        "function": "ANTIMICROBIAL, ANTIOXIDANT, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:12.967Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "레틴알",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "레틴알",
+      "INGR_ENG_NAME": "Retinal",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": "레티날",
+      "_cosing": {
+        "inciName": "RETINAL",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:28.043Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "벌독",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "벌독",
+      "INGR_ENG_NAME": "Bee Venom",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 멜리틴으로 된 꿀벌 Apis melifera에서 수집된 물질로,독성을 불활성화한 것이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "BEE VENOM",
+        "function": "ASTRINGENT, SKIN PROTECTING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:32.186Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "쑥추출물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "쑥추출물",
+      "INGR_ENG_NAME": "Artemisia Princeps Extract",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 쑥 Artemisia Princeps의 전초에서 추출한 것이다.",
+      "INGR_SYNONYM": "쑥추출물",
+      "_cosing": {
+        "inciName": "ARTEMISIA PRINCEPS EXTRACT",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:39:13.419Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "에칠헥실메톡시신나메이트",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "에칠헥실메톡시신나메이트",
+      "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 2-에칠헥실알코올과 메톡시신나믹애씨드의 에스터이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ETHYLHEXYL METHOXYCINNAMATE",
+        "function": "LIGHT STABILIZER, UV ABSORBER, UV FILTER",
+        "restriction": "VI/12"
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "2-Ethylhexyl 4-methoxycinnamate / Octinoxate",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum concentration in ready for use preparation : 10% \n* 【제한】\n최대 농도 : 10%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "브라질",
+          "NOTICE_INGR_NAME": "ETHYLHEXYL METHOXYCINNAMATE",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Maximum concentration permitted at final product】 : 10% \n* 제한\n【완제품에서 허용된 최대 농도】 : 10%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "아르헨티나",
+          "NOTICE_INGR_NAME": "ETHYLHEXYL METHOXYCINNAMATE",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Maximum concentration permitted at final product】 : 10% \n* 제한\n【완제품에서 허용된 최대 농도】 : 10%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "중국",
+          "NOTICE_INGR_NAME": "2-Ethylhexyl 4-methoxycinnamate",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【화장품 중 최대사용농도】\n배합한도 (일반) : 10%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "미국",
+          "NOTICE_INGR_NAME": "Octinoxate",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum Concentration (제한) : 7.5% \n* Specific Limitations  and Comments : Use of the term \"sunscreen\" or similar sun protection wording in a product's labeling generally causes the product to be subject to regulation as a drug or a drug/cosmetic, depending on the claims. However, sunscreen ingredients may also be used in some cosmetic products to protect the products’ color. The labelling must also state why the sunscreen ingredient is used, for example, \"Contains a sunscreen to protect product color.\" If this explanation isn’t present, the product may be subject to regulation as a drug (21 CFR 700.35). For more information on sunscreens, refer to Tanning Products \n* 특별 제한조건 : \"선스크린\"의 단어를 사용하거나 자외선 차단과 비슷한 단어를 사용할 경우, 해당 제품은 클레임(표시광고)에 따라 제약 또는 제약/화장품의 규정을 따라야 한다. \r\n그러나, 자외선 차단의 성분들은 제품의 색을 보호하는 역할로 사용되기도 한다. 자외선을 차단하는 성분이 사용된 목적에 대해 라벨링에 반드시 명시해야한다. 예를 들어, \"제품의 색을 보호하기 위해 자외차단제 성분을 함유하고 있다.\" \r\n만약 이러한 설명을 라벨링에 하지 않는다면, 그 상품은 제약으로서의 규정에 따라야한다. (21 CFR 700.35) \r\n자외선 차단에 대한 정보가 궁금하면 태닝 제품을 참고하라."
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "2-Ethylhexyl p-methoxycinnamate",
+          "PROVIS_ATRCL": "（注1）空欄は、配合してはならないことを示し、○印は、配合の上限がないことを示す。",
+          "LIMIT_COND": "* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내는 화장품 -Cosmetics not used for mucosa and to be washed away)】 : 20 g \n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내지 않는 화장품 - Cosmetics not used for mucosa and not to be washed away)】 : 20 g \n* 【100g당 최대 배합량 (점막에 사용하는 화장품 - Cosmetics that may be used for mucosa)】 : 8.0 g"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "캐나다",
+          "NOTICE_INGR_NAME": "Octinoxate",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum Concentration Permitted : ≤ 7.5%\n* 【제한】\n허용된 최대 농도 : ≤ 7.5%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "에칠헥실메톡시신나메이트",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : 7.50%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "2-Ethylhexyl 4-methoxycinnamate/Octinoxate",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 用途(용도) : 防曬劑 (자외선차단제) \n* 배합한도 : 10%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에칠헥실메톡시신나메이트",
+          "INGR_ENG_NAME": "Ethylhexyl Methoxycinnamate",
+          "CAS_NO": "5466-77-3",
+          "INGR_SYNONYM": "2-Ethylhexyl Methoxycinnamate, 2-Ethylhexyl 4-Methoxycinnamate, p-Methoxycinnamic Acid, 2-Ethylhexyl Ester, 3-(4-Methoxyphenyl)-2-Propenoic Acid, 2-Ethylhexyl Ester, Octinoxate (INN), Octyl Methoxycinnamate, 2-Propenoic Acid, 3-(4-Methoxyphenyl)-, 2-Ethylhexyl Ester",
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "Octyl methoxycinnamate",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : 10% \n* 제한\n【완제품에서 허용된 최대 농도】 : 10%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:34.848Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "카프릴릭/카프릭트라이글리세라이드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "카프릴릭/카프릭트라이글리세라이드",
+      "INGR_ENG_NAME": "Caprylic/Capric Triglyceride",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 카프릴릭과 카프릭애씨드 및 글리세린의 혼합 트라이에스터이다.",
+      "INGR_SYNONYM": "카프릴릭/카프릭트리글리세라이드",
+      "_cosing": {
+        "inciName": "CAPRYLIC/CAPRIC TRIGLYCERIDE",
+        "function": "FRAGRANCE, PERFUMING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:38.609Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "세테아릴알코올",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "세테아릴알코올",
+      "INGR_ENG_NAME": "Cetearyl Alcohol",
+      "CAS_NO": "8005-44-5\r,67762-27-0",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 세틸 및 스테아릴알코올로 구성된 지방알코올의 혼합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "CETEARYL ALCOHOL",
+        "function": "EMULSION STABILISING, OPACIFYING, SKIN CONDITIONING - EMOLLIENT, SURFACTANT - CLEANSING, SURFACTANT - EMULSIFYING, SURFACTANT - FOAM BOOSTING, VISCOSITY CONTROLLING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:27.952Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "스테아릭애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "스테아릭애씨드",
+      "INGR_ENG_NAME": "Stearic Acid",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 다음의 구조를 갖는 지방산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "STEARIC ACID",
+        "function": "CLEANSING, EMULSION STABILISING, FRAGRANCE, REFATTING, SURFACTANT - CLEANSING, SURFACTANT - EMULSIFYING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:31.217Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "세틸알코올",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "세틸알코올",
+      "INGR_ENG_NAME": "Cetyl Alcohol",
+      "CAS_NO": "36653-82-4",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 다음의 구조를 갖는 지방알코올이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "CETYL ALCOHOL",
+        "function": "EMULSION STABILISING, FRAGRANCE, OPACIFYING, SKIN CONDITIONING - EMOLLIENT, SURFACTANT - CLEANSING, SURFACTANT - EMULSIFYING, SURFACTANT - FOAM BOOSTING, VISCOSITY CONTROLLING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:27.952Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "글리세릴스테아레이트",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "글리세릴스테아레이트",
+      "INGR_ENG_NAME": "Glyceryl Stearate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음과 같은 구조를 갖는 글리세린과 스테아릭애씨드의 모노에스터이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "GLYCERYL STEARATE",
+        "function": "SKIN CONDITIONING - EMOLLIENT, SURFACTANT - EMULSIFYING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:12.244Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "아이소프로필미리스테이트",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "아이소프로필미리스테이트",
+      "INGR_ENG_NAME": "Isopropyl Myristate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 다음의 구조를 갖는 아이소프로필알코올과 미리스틱애씨드의 에스터이다.",
+      "INGR_SYNONYM": "이소프로필미리스테이트",
+      "_cosing": {
+        "inciName": "ISOPROPYL MYRISTATE",
+        "function": "BINDING, FRAGRANCE, PERFUMING, SKIN CONDITIONING - EMOLLIENT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:37.245Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "사이클로메티콘",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "사이클로메티콘",
+      "INGR_ENG_NAME": "Cyclomethicone",
+      "CAS_NO": "69430-24-6",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 사이클릭다이메틸폴리실록세인 화합물의 일반명이다. n이 3이면 사이클로트리실록산, n이 4이면 사이클로테트라실록산, n이 5이면 사이클로펜타실록산, n이 6이면 사이클로헥사실록산, n이 7이면 사이클로헵타실록산이다.",
+      "INGR_SYNONYM": "사이클로메치콘",
+      "_cosing": {
+        "inciName": "CYCLOMETHICONE",
+        "function": "HAIR CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SOLVENT",
+        "restriction": "II/1388 (Only when Cyclomethicone contains D4)"
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:27.454Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "사이클로펜타실록세인",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "사이클로펜타실록세인",
+      "INGR_ENG_NAME": "Cyclopentasiloxane",
+      "CAS_NO": "541-02-6",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 사이클릭다이메틸폴리실록세인이다. n은 5이며, 다른 사이클로메치콘(n이 3, 4, 6 또는 7)은 1 % 미만을 함유한다.",
+      "INGR_SYNONYM": "사이클로펜타실록산",
+      "_cosing": {
+        "inciName": "CYCLOPENTASILOXANE",
+        "function": "HAIR CONDITIONING, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SOLVENT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:27.454Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "아스코빌테트라이소팔미테이트",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "아스코빌테트라이소팔미테이트",
+      "INGR_ENG_NAME": "Ascorbyl Tetraisopalmitate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 아스코빅애씨드와 이소팔미틱애씨드의 테트라에스터이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ASCORBYL TETRAISOPALMITATE",
+        "function": "ANTIOXIDANT, SKIN CONDITIONING - EMOLLIENT",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "아스코빌테트라이소팔미테이트",
+          "INGR_ENG_NAME": "Ascorbyl Tetraisopalmitate",
+          "CAS_NO": "161436-56-2",
+          "INGR_SYNONYM": "L-Ascorbic acid, 2,3,5,6-tetraisohexadecanoate, L-Ascorbic acid, 2,3,5,6-tetrakis(2-hexyldecanoate)",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "Ascorbyl Tetraisopalmitate",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : 3%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:33.041Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "유비퀴논",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "유비퀴논",
+      "INGR_ENG_NAME": "Ubiquinone",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "UBIQUINONE",
+        "function": "ANTIOXIDANT, SKIN CONDITIONING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "유비퀴논",
+          "INGR_ENG_NAME": "Ubiquinone ",
+          "CAS_NO": "303-98-0  \n60684-33-5",
+          "INGR_SYNONYM": "Coenzyme Q10\n, 2,5-Cyclohexadiene-1,4-Dione, 2-(3,7,11,15,19,23,27,31,35,39-Decamethyl-2,6,10,14,18,22,26,30,34,38- Tetracontadecaenyl)-5,6-Dimethoxy-3-Methyl-,\n, ubidecarenone (INN)\n, Ubiquinone 10\n, Ubiquinone 50\n, Ubiquinone Q10",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "Ubidecarenone",
+          "PROVIS_ATRCL": "（注1）空欄は、配合してはならないことを示し、○印は、配合の上限がないことを示す。",
+          "LIMIT_COND": "* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내는 화장품 -Cosmetics not used for mucosa and to be washed away)】 : 0.03 g \n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내지 않는 화장품 - Cosmetics not used for mucosa and not to be washed away)】 : 0.03 g \n* 【100g당 최대 배합량 (점막에 사용하는 화장품 - Cosmetics that may be used for mucosa)】 : 배합금지"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:36.661Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "유칼립투스잎오일",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "유칼립투스잎오일",
+      "INGR_ENG_NAME": "Eucalyptus Globulus Leaf Oil",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 유칼립투스 (Eucalyptus globulus) 및 다른 Eucalyptus 종의 신선한 잎에서 얻은 휘발성 오일이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "EUCALYPTUS GLOBULUS LEAF OIL",
+        "function": "PERFUMING, SKIN CONDITIONING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "유칼립투스잎오일",
+          "INGR_ENG_NAME": "Eucalyptus Globulus Leaf Oil",
+          "CAS_NO": "97926-40-4, 8000-48-4",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "캐나다",
+          "NOTICE_INGR_NAME": "Eucalyptus oil",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nConditions of Use by product type : (a) Cosmetics in solid forms\n(b) Cosmetics in other forms with greater than 0.022%\n(c) Cosmetics in other forms with less than or equal to 0.022% \n* 【제한】\n제품 유형에 따른 조건 : (a) 고체 형태의 화장품\n(b) 0.022% 이상의 기타 형태의 화장품\n(c) 0.022% 이하의 기타 형태의 화장품 \n\n* 【Restrictions】\nWarnings and Cautionary Statements: (to the effect of) : (b) \"Keep out of reach of children\", and \"In case of accidental ingestion, call a Poison Control Centre or doctor immediately and advise them this product contains eucalyptus oil.\" \n* 【제한】\n주의 사항 : (b) \"아이들이 미치지 않는 범위에 보관하십시오.\", \"실수로 섭취한 경우 즉시 Poison Control Center나 의사에게 연락하여 이 제품에 유칼립투스 오일이 함유되어 있다고 알려 주십시오.\""
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "유칼립투스잎오일",
+          "INGR_ENG_NAME": "Eucalyptus Globulus Leaf Oil",
+          "CAS_NO": "97926-40-4, 8000-48-4",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "Eucalyptus globulus oil",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nOther : The presence of the substance or substances shall be indicated as ‘Eucalyptus Globulus Oil’ in the list of ingredients referred to in Article 19(1), point (g), when the concentration of the substance or substances exceeds: — 0,001 % in leave-on products — 0,01 % in rinse-off products. \n* 【제한】\n 기타 : 해당 물질의 존재는 'Eucalyptus Globulus Oil’로 표시하여야 한다. 본 성분의 함량이 씻어내지 않는 제품에서 0,001%, 씻어내는 제품에서 0,01%를 초과할때는 제19조(1)(g)에 따라 성분 리스트에 본 성분을 명시해야 한다. "
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:36.988Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "팔미토일트라이펩타이드-1",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "팔미토일트라이펩타이드-1",
+      "INGR_ENG_NAME": "Palmitoyl Tripeptide-1",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 팔미틱애씨드 및 트라이펩타이드-1의 반응생성물이다.",
+      "INGR_SYNONYM": "팔미토일트리펩타이드-1",
+      "_cosing": {
+        "inciName": "PALMITOYL TRIPEPTIDE-1",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:43.128Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "아세틸헥사펩타이드-8",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "아세틸헥사펩타이드-8",
+      "INGR_ENG_NAME": "Acetyl Hexapeptide-8",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 헥사펩타이드-8의 아세틸화 반응으로 얻은 생성물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ACETYL HEXAPEPTIDE-8",
+        "function": "HUMECTANT, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:33.041Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "카퍼트라이펩타이드-1",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "카퍼트라이펩타이드-1",
+      "INGR_ENG_NAME": "Copper Tripeptide-1",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 트라이펩타이드-1의 구리복합체이다.",
+      "INGR_SYNONYM": "카퍼트리펩타이드-1",
+      "_cosing": {
+        "inciName": "COPPER TRIPEPTIDE-1",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:38.609Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "에스에이치-올리고펩타이드-1",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "에스에이치-올리고펩타이드-1",
+      "INGR_ENG_NAME": "sh-Oligopeptide-1",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 대장균에 의해 발효된 단일사슬인간재조합펩타이드이다. 출발유전자는 호스트 생산에 사용되는 것과 같은 Epidermal Growth Factor로 코드화된 합성된 복제 사람 유전자이다. 이것은 다이설파이드결합 및/또는 당을 갖는 최대 53개의 아미노산으로 구성되어 있다. 그 단백질을 구성하는 아미노산은 표준아미노산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SH-OLIGOPEPTIDE-1",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "에스에이치-올리고펩타이드-1",
+          "INGR_ENG_NAME": "sh-Oligopeptide-1",
+          "CAS_NO": null,
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "알에이치(또는 에스에이치) 올리고펩타이드-1(상피세포성장인자)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : 0.001%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:38:11.983Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "갈락토미세스발효여과물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "갈락토미세스발효여과물",
+      "INGR_ENG_NAME": "Galactomyces Ferment Filtrate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 미생물인 갈라토미세스 캔디더스 Galactomyces candidus에 의한 성장배지의 발효로 얻은 생성물을 여과한 것이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "GALACTOMYCES FERMENT FILTRATE",
+        "function": "HUMECTANT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:59.233Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "효모발효여과물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "효모발효여과물",
+      "INGR_ENG_NAME": "Saccharomyces Ferment Filtrate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 미생물 효모를 배양 발효시켜 얻은 생성물을 여과한 것이다.",
+      "INGR_SYNONYM": "효모발효여과물",
+      "_cosing": {
+        "inciName": "SACCHAROMYCES FERMENT FILTRATE",
+        "function": "HUMECTANT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:52.661Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "비피다발효용해물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "비피다발효용해물",
+      "INGR_ENG_NAME": "Bifida Ferment Lysate",
+      "CAS_NO": "96507-89-0",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 비피더스균의 발효물을 용해하여 얻은 것이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "BIFIDA FERMENT LYSATE",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:27.454Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "세라마이드에이피",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "세라마이드에이피",
+      "INGR_ENG_NAME": "Ceramide AP",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 α-하이드록시포화 또는 불포화 지방산이 결합된 D-에리스로 구조를 갖는 피토스핑고신이 함유된 N-아실레이티드스핑고리피드로, 구명칭은 세라마이드6Ⅱ이다.",
+      "INGR_SYNONYM": "세라마이드6",
+      "_cosing": {
+        "inciName": "CERAMIDE AP",
+        "function": "HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:18.228Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "세라마이드이오피",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "세라마이드이오피",
+      "INGR_ENG_NAME": "Ceramide EOP",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 포화 또는 불포화 지방산으로 에스터화된 ω-하이드록시에씨드와 결합된 D-에리스로 구조를 갖는 피토스핑고신이 함유된 N-아실레이티드스핑고리피드로, 구명칭은 세라마이드1 또는 세라마이드1에이이다",
+      "INGR_SYNONYM": "세라마이드1",
+      "_cosing": {
+        "inciName": "CERAMIDE EOP",
+        "function": "HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:18.228Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "세라마이드엔에스",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "세라마이드엔에스",
+      "INGR_ENG_NAME": "Ceramide NS",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 포화 또는 불포화 지방산이 결합된 D-에리스로 구조를 갖는 스핑고신이 함유된 N-아실레이티드스핑고리피드로, 구명칭은 세라마이드2이다. 세라마이드2의 정의가 광범위하게 스핑고신 또는 다이하이드로스핑고신(스핑가닌)으로 구성된 스핑고리피드를 포함한다는 것과 달리, 이 원료는 스핑고신으로 구성된 세라마이드로 한정한다.",
+      "INGR_SYNONYM": "세라마이드2",
+      "_cosing": {
+        "inciName": "CERAMIDE NS",
+        "function": "HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:18.228Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "피토스핑고신",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "피토스핑고신",
+      "INGR_ENG_NAME": "Phytosphingosine",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 다음의 구조를 갖는 합성 스핑고이드이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "PHYTOSPHINGOSINE",
+        "function": "HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:50.595Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "콜레스테롤",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "콜레스테롤",
+      "INGR_ENG_NAME": "Cholesterol",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 사이클로펜타노페난트렌 시스템의 모노-불포화, 2차 알코올이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "CHOLESTEROL",
+        "function": "LIGHT STABILIZER, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SURFACTANT - EMULSIFYING, VISCOSITY CONTROLLING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:40.340Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "소듐하이알루로네이트크로스폴리머",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "소듐하이알루로네이트크로스폴리머",
+      "INGR_ENG_NAME": "Sodium Hyaluronate Crosspolymer",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 비닐설폰과 가교된 하이알루로닉애씨드 중합체의 소듐염이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SODIUM HYALURONATE CROSSPOLYMER",
+        "function": "HUMECTANT, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:29.851Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "카보머",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "카보머",
+      "INGR_ENG_NAME": "Carbomer",
+      "CAS_NO": "9003-01-4 \t\r,9007-16-3 \t\r,9007-17-4 \t\r,9062-04-8 \t\r,76050-42-5",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 펜타에리스리톨의 알릴에텔, 수크로스의 알릴에텔 혹은 프로필렌의 알릴에텔로 가교된 아크릴릭애씨드의 호모폴리머이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "CARBOMER",
+        "function": "EMULSION STABILISING, GEL FORMING, VISCOSITY CONTROLLING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:38.609Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "트라이에탄올아민",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "트라이에탄올아민",
+      "INGR_ENG_NAME": "Triethanolamine",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 다음의 구조를 갖는 알칸올아민이다 .",
+      "INGR_SYNONYM": "트리에탄올아민",
+      "_cosing": {
+        "inciName": "TRIETHANOLAMINE",
+        "function": "BUFFERING, FRAGRANCE, SURFACTANT - CLEANSING, SURFACTANT - EMULSIFYING",
+        "restriction": "III/62"
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "트라이에탄올아민",
+          "INGR_ENG_NAME": "Triethanolamine",
+          "CAS_NO": "102-71-6",
+          "INGR_SYNONYM": "Ethanol, 2,2',2\"-Nitrilotris- \n, 2,2',2\"-Nitrilotris[Ethanol] \n, TEA \n, Triethanolamine (RIFM) \n, Trolamine",
+          "COUNTRY_NAME": "중국",
+          "NOTICE_INGR_NAME": "Trialkylamines, trialkanolamines and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【제한】\n적용 및 사용범위 : (a)씻어내지 않는 제품\n(b)씻어내는 제품 \n* 【화장품 중 최대사용농도】\n배합한도 (일반) : (a)총량 2.5% \n* 기타 제한조건 및 요구사항 : 니트로화 시스템과 함께 사용하지 않고,니트로아소민의 생성되지 않도록 하고,최저순도:99%원료중 2차 알킬아민의 최대함량은0.5%,제품중 최대함량은 50μg/kg이며 질산염이 없는 용기에 보존"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "트라이에탄올아민",
+          "INGR_ENG_NAME": "Triethanolamine",
+          "CAS_NO": "102-71-6",
+          "INGR_SYNONYM": "Ethanol, 2,2',2\"-Nitrilotris- \n, 2,2',2\"-Nitrilotris[Ethanol] \n, TEA \n, Triethanolamine (RIFM) \n, Trolamine",
+          "COUNTRY_NAME": "브라질",
+          "NOTICE_INGR_NAME": "Trialkylamines and trialkanolamines and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Field of application and/or use】 : (a) Products without rinse.\n(b) Other products. \n* 제한\n【사용 범위】 : (a) 씻어내지 않는 제품\r\n(b) 기타 제품 \n* Restrictions\n【Maximum concentration permitted at final product】 : (a) 2.5% \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 2.5% \n* Restrictions\n【Other limitations and requirements】 : a.- b.- \n. No use with nitrosating systems \n. -Pureza minimum 99% \nmaximum -Tenor of secondary amines in raw materials 0.5%. \nMaximum nitrosamine -Tenor. 50 ug / kg \n-Envasar / keep in containers free of nitrites \n* 제한\n【기타 제한 및 요구조건】 : (a) (b)\r\n- nitrosating system과 함께 사용하지 말 것 \r\n- 최대 순도 : 99%\r\n- 2급 아민의 최대 함량 : 0.5% (원료에 적용)\r\n\n- 나이트로사민 최대 함량 : 50 ug / kg \r\n- 아질산염이 없는 용기에 보관\n"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "트라이에탄올아민",
+          "INGR_ENG_NAME": "Triethanolamine",
+          "CAS_NO": "102-71-6",
+          "INGR_SYNONYM": "Ethanol, 2,2',2\"-Nitrilotris- \n, 2,2',2\"-Nitrilotris[Ethanol] \n, TEA \n, Triethanolamine (RIFM) \n, Trolamine",
+          "COUNTRY_NAME": "아르헨티나",
+          "NOTICE_INGR_NAME": "Trialkylamines and trialkanolamines and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Field of application and/or use】 : (a) Products without rinse.\n(b) Other products. \n* 제한\n【사용 범위】 : (a) 씻어내지 않는 제품\r\n(b) 기타 제품 \n* Restrictions\n【Maximum concentration permitted at final product】 : (a) 2.5% \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 2.5% \n* Restrictions\n【Other limitations and requirements】 : a.- b.- \n. No use with nitrosating systems \n. -Pureza minimum 99% \nmaximum -Tenor of secondary amines in raw materials 0.5%. \nMaximum nitrosamine -Tenor. 50 ug / kg \n-Envasar / keep in containers free of nitrites \n* 제한\n【기타 제한 및 요구조건】 : (a) (b)\r\n- nitrosating system과 함께 사용하지 말 것 \r\n- 최대 순도 : 99%\r\n- 2급 아민의 최대 함량 : 0.5% (원료에 적용)\r\n\n- 나이트로사민 최대 함량 : 50 ug / kg \r\n- 아질산염이 없는 용기에 보관\n"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "트라이에탄올아민",
+          "INGR_ENG_NAME": "Triethanolamine",
+          "CAS_NO": "102-71-6",
+          "INGR_SYNONYM": "Ethanol, 2,2',2\"-Nitrilotris- \n, 2,2',2\"-Nitrilotris[Ethanol] \n, TEA \n, Triethanolamine (RIFM) \n, Trolamine",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "Trialkylamines, trialkanolamines and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nProduct Type, body parts : (a) Leave-on products (b) Rinse-off products \n* 【제한】\n제품 유형, 사용 부위 : (a) 씻어내지 않는 제품\r\n(b) 씻어내는 제품\n* 【Restrictions】\nMaximum concentration in ready for use preparation : (a) 2.5% \n* 【제한】\n최대 농도 : (a) 2.5% \n* 【Restrictions】\nOther : (a) (b) - Do not use with nitrosating systems - Minimum purity: 99% - Maximum secondary amine content: 0.5% (applies to raw materials) - Maximum nitrosamine content: 50 microgram/kg - Keep in nitrite-free containers \n* 【제한】\n 기타 : (a) (b)\r\n- nitrosating system과 함께 사용하지 말 것 \r\n- 최대 순도 : 99%\r\n- 2급 아민의 최대 함량 : 0.5% (원료에 적용)\r\n\n- 나이트로사민 최대 함량 : 50 microgram/kg\r\n- 아질산염이 없는 용기에 보관"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "트라이에탄올아민",
+          "INGR_ENG_NAME": "Triethanolamine",
+          "CAS_NO": "102-71-6",
+          "INGR_SYNONYM": "Ethanol, 2,2',2\"-Nitrilotris- \n, 2,2',2\"-Nitrilotris[Ethanol] \n, TEA \n, Triethanolamine (RIFM) \n, Trolamine",
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "트리알킬아민, 트리알칸올아민 및 그 염류",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : 사용 후 씻어내지 않는 제품에 2.5%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "트라이에탄올아민",
+          "INGR_ENG_NAME": "Triethanolamine",
+          "CAS_NO": "102-71-6",
+          "INGR_SYNONYM": "Ethanol, 2,2',2\"-Nitrilotris- \n, 2,2',2\"-Nitrilotris[Ethanol] \n, TEA \n, Triethanolamine (RIFM) \n, Trolamine",
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "Trialkylamines, trialkanolamines and their salts",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nField of application and/or use : (a) non-rinse-off products\n(b) other products \n* 제한\n【사용 범위】 : (a) 씻어내지 않는 제품\r\n(b) 기타 제품 \n* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : (a) 2.5% \n* 제한\n【완제품에서 허용된 최대 농도】 : (a) 2.5% \n* 【Restrictions】\nOther limitations and requirements : (a) (b):\n• Do not use with nitrosating systems\n• Minimum purity: 99%\n• Maximum secondary amine content: 0.5% (applies to raw materials)\n• Maximum nitrosamine content: 50 μg/kg\n• Keep in nitrite-free containers \n* 제한\n【기타 제한 및 요구조건】 : (a) (b)\r\nnitrosating system과 함께 사용하지 말 것 \r\n최대 순도 : 99%\r\n2급 아민의 최대 함량 : 0.5% (원료에 적용)\r\n나이트로사민 최대 함량 : 50 ug / kg \r\n아질산염이 없는 용기에 보관\n"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:42.582Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "다이소듐이디티에이",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "다이소듐이디티에이",
+      "INGR_ENG_NAME": "Disodium EDTA",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 치환된 다이아민이다.",
+      "INGR_SYNONYM": "디소듐이디티에이",
+      "_cosing": {
+        "inciName": "DISODIUM EDTA",
+        "function": "CHELATING, VISCOSITY CONTROLLING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:53.950Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "클로페네신",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "클로페네신",
+      "INGR_ENG_NAME": "Chlorphenesin",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "CHLORPHENESIN",
+        "function": "ANTIMICROBIAL, PRESERVATIVE",
+        "restriction": "V/50"
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "클로페네신",
+          "INGR_ENG_NAME": "Chlorphenesin",
+          "CAS_NO": "104-29-0  \n",
+          "INGR_SYNONYM": "3-(4-Chlorophenoxy)-1,2-Propanediol, p-Chlorophenyl Glyceryl Ether, chlorphenesin (INN), 1,2-Propanediol, 3-(4-Chlorophenoxy)-",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "3-(p-Chlorophenoxy)-propane-1,2-diol",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum concentration in ready for use preparation : 0.3% \n* 【제한】\n최대 농도 : 0.3%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "클로페네신",
+          "INGR_ENG_NAME": "Chlorphenesin",
+          "CAS_NO": "104-29-0  \n",
+          "INGR_SYNONYM": "3-(4-Chlorophenoxy)-1,2-Propanediol, p-Chlorophenyl Glyceryl Ether, chlorphenesin (INN), 1,2-Propanediol, 3-(4-Chlorophenoxy)-",
+          "COUNTRY_NAME": "브라질",
+          "NOTICE_INGR_NAME": "3-(p-chlorophenoxy)-propane-1 ,2-diol\n(CHLORPHENESIN)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Maximum concentration permitted at final product】 : 0.3% \n* 제한\n【완제품에서 허용된 최대 농도】 : 0.3%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "클로페네신",
+          "INGR_ENG_NAME": "Chlorphenesin",
+          "CAS_NO": "104-29-0  \n",
+          "INGR_SYNONYM": "3-(4-Chlorophenoxy)-1,2-Propanediol, p-Chlorophenyl Glyceryl Ether, chlorphenesin (INN), 1,2-Propanediol, 3-(4-Chlorophenoxy)-",
+          "COUNTRY_NAME": "아르헨티나",
+          "NOTICE_INGR_NAME": "3-(p-chlorophenoxy)-propane-1 ,2-diol\n(CHLORPHENESIN)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* Restrictions\n【Maximum concentration permitted at final product】 : 0.3% \n* 제한\n【완제품에서 허용된 최대 농도】 : 0.3%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "클로페네신",
+          "INGR_ENG_NAME": "Chlorphenesin",
+          "CAS_NO": "104-29-0  \n",
+          "INGR_SYNONYM": "3-(4-Chlorophenoxy)-1,2-Propanediol, p-Chlorophenyl Glyceryl Ether, chlorphenesin (INN), 1,2-Propanediol, 3-(4-Chlorophenoxy)-",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "Chlorphenesin",
+          "PROVIS_ATRCL": "（注1）空欄は、配合してはならないことを示し、○印は、配合の上限がないことを示す。",
+          "LIMIT_COND": "* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내는 화장품 -Cosmetics not used for mucosa and to be washed away)】 : 0.30 g \n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내지 않는 화장품 - Cosmetics not used for mucosa and not to be washed away)】 : 0.30 g \n* 【100g당 최대 배합량 (점막에 사용하는 화장품 - Cosmetics that may be used for mucosa)】 : 배합금지"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "클로페네신",
+          "INGR_ENG_NAME": "Chlorphenesin",
+          "CAS_NO": "104-29-0  \n",
+          "INGR_SYNONYM": "3-(4-Chlorophenoxy)-1,2-Propanediol, p-Chlorophenyl Glyceryl Ether, chlorphenesin (INN), 1,2-Propanediol, 3-(4-Chlorophenoxy)-",
+          "COUNTRY_NAME": "중국",
+          "NOTICE_INGR_NAME": "3-(p-chlorophenoxy)-propane-1,2-di ol",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【화장품 중 최대사용농도】\n배합한도 (일반) : 0.3%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "클로페네신",
+          "INGR_ENG_NAME": "Chlorphenesin",
+          "CAS_NO": "104-29-0  \n",
+          "INGR_SYNONYM": "3-(4-Chlorophenoxy)-1,2-Propanediol, p-Chlorophenyl Glyceryl Ether, chlorphenesin (INN), 1,2-Propanediol, 3-(4-Chlorophenoxy)-",
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "클로페네신(3-(p-클로로페녹시)-프로판-1,2-디올)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : 0.30%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "클로페네신",
+          "INGR_ENG_NAME": "Chlorphenesin",
+          "CAS_NO": "104-29-0  \n",
+          "INGR_SYNONYM": "3-(4-Chlorophenoxy)-1,2-Propanediol, p-Chlorophenyl Glyceryl Ether, chlorphenesin (INN), 1,2-Propanediol, 3-(4-Chlorophenoxy)-",
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "3-(p-Chlorophenoxy)-propane-1,2-diol (chlorphenesin)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : 0.3% \n* 제한\n【완제품에서 허용된 최대 농도】 : 0.3%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "클로페네신",
+          "INGR_ENG_NAME": "Chlorphenesin",
+          "CAS_NO": "104-29-0  \n",
+          "INGR_SYNONYM": "3-(4-Chlorophenoxy)-1,2-Propanediol, p-Chlorophenyl Glyceryl Ether, chlorphenesin (INN), 1,2-Propanediol, 3-(4-Chlorophenoxy)-",
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "3-(p-chlorophenoxy)-propane-1,2-diol",
+          "PROVIS_ATRCL": "※ 未列於本表中之防腐劑成分，倘歐、美、日三國家地區政府已公告准用且有其限量管制規定者，我國亦依其限用標準准予使用。\n倘前述三國家地區政府管理有差異時，則採其中限量規定方式最安全者。\n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。",
+          "LIMIT_COND": "* 단서조항 : ※ 未列於本表中之防腐劑成分，倘歐、美、日三國家地區政府已公告准用且有其限量管制規定者，我國亦依其限用標準准予使用。\n倘前述三國家地區政府管理有差異時，則採其中限量規定方式最安全者。\n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。 \n※ 본 표에 열거되지 않은 방부제 성분은 유럽, 미국, 일본 3개국 정부가 사용을 허가하고 그 제한적인 규제 규정이 있는 자를 공고하였을 때 그 사용 제한 기준에 따라 제한적으로 사용할 수 있습니다.\n앞서 언급한 3개국 및 지역 간의 관리가 상이한 경우 가장 엄격한 방식을 채택하여 안전한 사용량으로 사용해야합니다.\n※ 본 표에 언급 된 경구 제제에는 비 의약 치약, 구강 세정제 및 치아 미백 화장품이 포함됩니다. \n* 用途(용도) : 防腐 (방부제) \n* 배합한도 : 0.3%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:41.195Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "에틸헥실글리세린",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "에틸헥실글리세린",
+      "INGR_ENG_NAME": "Ethylhexylglycerin",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": "에칠헥실글리세린",
+      "_cosing": {
+        "inciName": "ETHYLHEXYLGLYCERIN",
+        "function": "DEODORANT, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:34.848Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "뽕나무뿌리추출물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "뽕나무뿌리추출물",
+      "INGR_ENG_NAME": "Morus Alba Root Extract",
+      "CAS_NO": "94167-05-2",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 뽕나무 (Morus alba)의 뿌리에서 추출한 것이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "MORUS ALBA ROOT EXTRACT",
+        "function": "BLEACHING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:27.454Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "하이알루로닉애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "하이알루로닉애씨드",
+      "INGR_ENG_NAME": "Hyaluronic Acid",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 N-아세틸-D-글루코사민과 글루쿠로닉애씨드의 결합으로 얻은 천연의 뮤코폴리사카라이드이다.",
+      "INGR_SYNONYM": "히알루론산",
+      "_cosing": {
+        "inciName": "HYALURONIC ACID",
+        "function": "ANTISTATIC, HUMECTANT, MOISTURISING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:52.168Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "소듐아세틸레이티드하이알루로네이트",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "소듐아세틸레이티드하이알루로네이트",
+      "INGR_ENG_NAME": "Sodium Acetylated Hyaluronate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 소듐하이알루로네이트의 아세틸에스터이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SODIUM ACETYLATED HYALURONATE",
+        "function": "HUMECTANT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:28.497Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "피리독신",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "피리독신",
+      "INGR_ENG_NAME": "Pyridoxine",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 치환된 방향족 화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "PYRIDOXINE",
+        "function": "ANTISTATIC, HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:46.234Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "폴릭애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "폴릭애씨드",
+      "INGR_ENG_NAME": "Folic Acid",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "FOLIC ACID",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:45.989Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "바이오틴",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "바이오틴",
+      "INGR_ENG_NAME": "Biotin",
+      "CAS_NO": "58-85-5",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": "비오틴",
+      "_cosing": {
+        "inciName": "BIOTIN",
+        "function": "ANTI-SEBUM, HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:26.293Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "병풀잎수",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "병풀잎수",
+      "INGR_ENG_NAME": "Centella Asiatica Leaf Water",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 병풀 (Centella asiatica)의 잎을 수증기 증류하여 얻은 수용액이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "CENTELLA ASIATICA LEAF WATER",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:17.690Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "약모밀추출물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "약모밀추출물",
+      "INGR_ENG_NAME": "Houttuynia Cordata Extract",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 약모밀 Houttuynia cordata에서 추출한 것이다.",
+      "INGR_SYNONYM": "어성초추출물",
+      "_cosing": {
+        "inciName": "HOUTTUYNIA CORDATA EXTRACT",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:33.587Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "개똥쑥추출물",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "개똥쑥추출물",
+      "INGR_ENG_NAME": "Artemisia Annua Extract",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 개똥쑥 Artemisia annua의 지상부에서 추출한 것이다.",
+      "INGR_SYNONYM": "청호추출물",
+      "_cosing": {
+        "inciName": "ARTEMISIA ANNUA EXTRACT",
+        "function": "FRAGRANCE",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:38.609Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "트레할로오스",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "트레할로오스",
+      "INGR_ENG_NAME": "Trehalose",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 다이사카라이드이다.",
+      "INGR_SYNONYM": "트레할로스",
+      "_cosing": {
+        "inciName": "TREHALOSE",
+        "function": "HUMECTANT, MOISTURISING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:41.471Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "소듐피씨에이",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "소듐피씨에이",
+      "INGR_ENG_NAME": "Sodium PCA",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 피롤리돈카복실릭애씨드(PCA)의 소듐염이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SODIUM PCA",
+        "function": "ANTISTATIC, HAIR CONDITIONING, HUMECTANT, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:29.851Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "우레아",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "우레아",
+      "INGR_ENG_NAME": "Urea",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "UREA",
+        "function": "ANTISTATIC, BUFFERING, HUMECTANT, SKIN CONDITIONING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "우레아",
+          "INGR_ENG_NAME": "Urea",
+          "CAS_NO": "57-13-6",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "캐나다",
+          "NOTICE_INGR_NAME": "Urea",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nConditions of Use by product type : (a) Cosmetics intended to be diluted in bath water\n(b) Other cosmetics \n* 【제한】\n제품 유형에 따른 조건 : (a) 목욕물에서 희석용도의 제품\r\n(b) 기타 제품 \n* 【Restrictions】\nMaximum Concentration Permitted : b) 10%\n* 【제한】\n허용된 최대 농도 : (b) 10%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "우레아",
+          "INGR_ENG_NAME": "Urea",
+          "CAS_NO": "57-13-6",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "우레아",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : 10%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "우레아",
+          "INGR_ENG_NAME": "Urea",
+          "CAS_NO": "57-13-6",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "Urea",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 배합한도 : (a) 染髮產品 : 10%\n(b) 其他產品 : 5%\n(a) 염색약 제품 : 10%\n(b) 기타 제품 : 5% "
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:36.661Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "솔비톨",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "솔비톨",
+      "INGR_ENG_NAME": "Sorbitol",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 헥사하이드릭알코올이다.",
+      "INGR_SYNONYM": "소르비톨",
+      "_cosing": {
+        "inciName": "SORBITOL",
+        "function": "FRAGRANCE, HUMECTANT, PERFUMING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:29.851Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "알지닌",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "알지닌",
+      "INGR_ENG_NAME": "Arginine",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 아미노산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ARGININE",
+        "function": "ANTISTATIC, FRAGRANCE, HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:33.289Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "알라닌",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "알라닌",
+      "INGR_ENG_NAME": "Alanine",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 아미노산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ALANINE",
+        "function": "ANTISTATIC, FRAGRANCE, HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:33.288Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "세린",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "세린",
+      "INGR_ENG_NAME": "Serine",
+      "CAS_NO": "56-45-1(L-Form)",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 아미노산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SERINE",
+        "function": "ANTISTATIC, FRAGRANCE, HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:27.952Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "프롤린",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "프롤린",
+      "INGR_ENG_NAME": "Proline",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 아미노산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "PROLINE",
+        "function": "HAIR CONDITIONING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:45.989Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "세라마이드엔지",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "세라마이드엔지",
+      "INGR_ENG_NAME": "Ceramide NG",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 포화 또는 불포화 지방산이 결합된 D-에리스로 구조를 갖는 스핑가닌이 함유된 N-아실레이티드스핑고리피드로, 구명칭은 세라마이드2이다. 세라마이드2의 정의가 광범위하게 스핑고신 또는 다이하이드로스핑고신(스핑가닌)으로 구성된 스핑고리피드를 포함한다는 것과 달리, 이 원료는 스핑가닌으로 구성된 세라마이드로 한정한다.",
+      "INGR_SYNONYM": "세라마이드2",
+      "_cosing": {
+        "inciName": "CERAMIDE NG",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:38:27.159Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "레시틴",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "레시틴",
+      "INGR_ENG_NAME": "Lecithin",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 스테아릭애씨드, 팔미틱애씨드 및 올레익애씨드의 천연에 존재하는 다이글리세라이드 혼합물로 포스포릭애씨드의 콜린에스터에 결합되어 있으며 살아있는 동식물에서 발견된다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "LECITHIN",
+        "function": "ANTISTATIC, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SURFACTANT - EMULSIFYING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:55.792Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "리놀레익애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "리놀레익애씨드",
+      "INGR_ENG_NAME": "Linoleic Acid",
+      "CAS_NO": "342889-37-6 \t\r,60-33-3",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 다음의 구조를 갖는 불포화 지방산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "LINOLEIC ACID",
+        "function": "ANTISTATIC, CLEANSING, HAIR CONDITIONING, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SURFACTANT - CLEANSING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:23.438Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "리놀레닉애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "리놀레닉애씨드",
+      "INGR_ENG_NAME": "Linolenic Acid",
+      "CAS_NO": "463-40-1",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 주로 다음의 구조를 갖는 불포화 지방산이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "LINOLENIC ACID",
+        "function": "ANTISTATIC, CLEANSING, HAIR CONDITIONING, PERFUMING, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SURFACTANT - CLEANSING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:23.438Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "호호바에스터",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "호호바에스터",
+      "INGR_ENG_NAME": "Jojoba Esters",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 호호바오일, 하이드로제네이티드호호바오일 또는 이들 혼합물을 에스터교환반응(트랜스에스터화/인터에스터화)하여 얻은 에스터의 복합 혼합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "JOJOBA ESTERS",
+        "function": "MOISTURISING, SKIN CONDITIONING, SKIN CONDITIONING - EMOLLIENT, SOOTHING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:52.661Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "마카다미아씨오일",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "마카다미아씨오일",
+      "INGR_ENG_NAME": "Macadamia Ternifolia Seed Oil",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 마카다미아 Macadamia ternifolia의 씨에서 얻은 고정유(불휘발성 오일)이다.",
+      "INGR_SYNONYM": "마카다미아씨오일",
+      "_cosing": {
+        "inciName": "MACADAMIA TERNIFOLIA SEED OIL",
+        "function": "SKIN CONDITIONING - EMOLLIENT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:39:13.419Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "카올린",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "카올린",
+      "INGR_ENG_NAME": "Kaolin",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 천연의 함수알루미늄실리케이트이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "KAOLIN",
+        "function": "ABRASIVE, ABSORBENT, ANTICAKING, BULKING, COLORANT, OPACIFYING",
+        "restriction": "IV/119"
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:38.609Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "징크피씨에이",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "징크피씨에이",
+      "INGR_ENG_NAME": "Zinc PCA",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 피롤리돈카복실릭애씨드(PCA)의 아연염이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ZINC PCA",
+        "function": "HUMECTANT, SKIN CONDITIONING",
+        "restriction": "III/24"
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "징크피씨에이",
+          "INGR_ENG_NAME": "Zinc PCA",
+          "CAS_NO": "15454-75-8",
+          "INGR_SYNONYM": "PCA, Zinc Salt, Zinc, bis(5-oxo-L-prolinato-κN1, κO2)-, (T-4)-",
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "Water-soluble zinc salts with the exception of zinc 4- hydroxy-benzenesulphonate (entry 25) and zinc pyrithione (Annex II, entry 1670)",
+          "PROVIS_ATRCL": "with the exception of zinc 4- hydroxy-benzenesulphonate (entry 25) and zinc pyrithione (Annex II, entry 1670)",
+          "LIMIT_COND": "* 단서조항 : with the exception of zinc 4- hydroxy-benzenesulphonate (entry 25) and zinc pyrithione (Annex II, entry 1670) \n징크4-하이드록시벤젠설포네이트(entry 25) 와 징크피리치온Annex II, entry 1670)은 제외 \n* 【Restrictions】\nMaximum concentration in ready for use preparation : 1% (as zinc) * 【제한】\n최대 농도 : 1% (징크로서)"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "징크피씨에이",
+          "INGR_ENG_NAME": "Zinc PCA",
+          "CAS_NO": "15454-75-8",
+          "INGR_SYNONYM": "PCA, Zinc Salt, Zinc, bis(5-oxo-L-prolinato-κN1, κO2)-, (T-4)-",
+          "COUNTRY_NAME": "브라질",
+          "NOTICE_INGR_NAME": "Zinc salts soluble in water except for zinc hydroxybenzenesulphonate (4-hydroxy-benzenesulfonate zinc) and zinc pyrithione",
+          "PROVIS_ATRCL": "water except for zinc hydroxybenzenesulphonate (4-hydroxy-benzenesulfonate zinc) and zinc pyrithione",
+          "LIMIT_COND": "* 단서조항 : water except for zinc hydroxybenzenesulphonate (4-hydroxy-benzenesulfonate zinc) and zinc pyrithione \n징크 4-하이드록시벤젠설포네이트와 징크피리치온 제외 \n* Restrictions\n【Maximum concentration permitted at final product】 : 1% calculated as zinc. \n* 제한\n【완제품에서 허용된 최대 농도】 : 징크로서 계산했을때 1% \n* "
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "징크피씨에이",
+          "INGR_ENG_NAME": "Zinc PCA",
+          "CAS_NO": "15454-75-8",
+          "INGR_SYNONYM": "PCA, Zinc Salt, Zinc, bis(5-oxo-L-prolinato-κN1, κO2)-, (T-4)-",
+          "COUNTRY_NAME": "아르헨티나",
+          "NOTICE_INGR_NAME": "Zinc salts soluble in water except for zinc hydroxybenzenesulphonate (4-hydroxy-benzenesulfonate zinc) and zinc pyrithione",
+          "PROVIS_ATRCL": "water except for zinc hydroxybenzenesulphonate (4-hydroxy-benzenesulfonate zinc) and zinc pyrithione",
+          "LIMIT_COND": "* 단서조항 : water except for zinc hydroxybenzenesulphonate (4-hydroxy-benzenesulfonate zinc) and zinc pyrithione \n징크 4-하이드록시벤젠설포네이트와 징크피리치온 제외 \n* Restrictions\n【Maximum concentration permitted at final product】 : 1% calculated as zinc. \n* 제한\n【완제품에서 허용된 최대 농도】 : 징크로서 계산했을때 1% \n* "
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "징크피씨에이",
+          "INGR_ENG_NAME": "Zinc PCA",
+          "CAS_NO": "15454-75-8",
+          "INGR_SYNONYM": "PCA, Zinc Salt, Zinc, bis(5-oxo-L-prolinato-κN1, κO2)-, (T-4)-",
+          "COUNTRY_NAME": "중국",
+          "NOTICE_INGR_NAME": "Water-soluble zinc salts with the exception of zinc\n4-hydroxybenzenesul phonate and zinc pyrithione",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【화장품 중 최대사용농도】\n배합한도 (일반) : 총량 1%(아연으로 계산)"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "징크피씨에이",
+          "INGR_ENG_NAME": "Zinc PCA",
+          "CAS_NO": "15454-75-8",
+          "INGR_SYNONYM": "PCA, Zinc Salt, Zinc, bis(5-oxo-L-prolinato-κN1, κO2)-, (T-4)-",
+          "COUNTRY_NAME": "한국",
+          "NOTICE_INGR_NAME": "수용성 징크 염류(징크 4-하이드록시벤젠설포네이트와 징크피리치온 제외)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 배합한도 : 징크로서 1%"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "징크피씨에이",
+          "INGR_ENG_NAME": "Zinc PCA",
+          "CAS_NO": "15454-75-8",
+          "INGR_SYNONYM": "PCA, Zinc Salt, Zinc, bis(5-oxo-L-prolinato-κN1, κO2)-, (T-4)-",
+          "COUNTRY_NAME": "아세안",
+          "NOTICE_INGR_NAME": "Water-soluble zinc salts with the exception of zinc 4-hydroxybenzenesulphonate (entry 25) and zinc pyrithione (entry 101 and Annex VI, entry 8)",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nMaximum authorised concentration in the finished cosmetic product : 1% calculated as zinc \n* 제한\n【완제품에서 허용된 최대 농도】 : 징크로서 계산했을 때 1%"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:38.348Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "살리실로일피토스핑고신",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "살리실로일피토스핑고신",
+      "INGR_ENG_NAME": "Salicyloyl Phytosphingosine",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "SALICYLOYL PHYTOSPHINGOSINE",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:57.282Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "아시아티코사이드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "아시아티코사이드",
+      "INGR_ENG_NAME": "Asiaticoside",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ASIATICOSIDE",
+        "function": "ANTIOXIDANT, PERFUMING, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:33.041Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "아시아틱애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "아시아틱애씨드",
+      "INGR_ENG_NAME": "Asiatic Acid",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "ASIATIC ACID",
+        "function": "LIGHT STABILIZER, SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:33.041Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "마데카식애씨드",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "마데카식애씨드",
+      "INGR_ENG_NAME": "Madecassic Acid",
+      "CAS_NO": "18449-41-7",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "MADECASSIC ACID",
+        "function": "SKIN CONDITIONING",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:23.438Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "에피갈로카테킨갈레이트",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "에피갈로카테킨갈레이트",
+      "INGR_ENG_NAME": "Epigallocatechin Gallate",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "EPIGALLOCATECHIN GALLATE",
+        "function": "ANTIOXIDANT",
+        "restriction": ""
+      }
+    },
+    "fetchedAt": "2026-04-01T13:37:34.848Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "카페인",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "카페인",
+      "INGR_ENG_NAME": "Caffeine",
+      "CAS_NO": null,
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 헤테로사이클릭 유기화합물이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "CAFFEINE",
+        "function": "PERFUMING, SKIN CONDITIONING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "카페인",
+          "INGR_ENG_NAME": "Caffeine",
+          "CAS_NO": "58-08-2",
+          "INGR_SYNONYM": "Anhydrous Caffeine, Caffeine (RIFM), coffeinum (EP), 3,7-Dihydro-1,3,7-Trimethyl-1H-Purine-2,6-dione, 1H-Purine-2,6-dione, 3,7-Dihydro-1,3,7-Trimethyl-, Methyltheobromine, 7-Methyltheophylline",
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "Caffeine",
+          "PROVIS_ATRCL": "注1)　「＊」は旧基準に収載されていた成分。",
+          "LIMIT_COND": "* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내는 화장품 -Cosmetics not used for mucosa and to be washed away)】 : 2.0 g \n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내지 않는 화장품 - Cosmetics not used for mucosa and not to be washed away)】 : 2.0 g \n* 【100g당 최대 배합량 (점막에 사용하는 화장품 - Cosmetics that may be used for mucosa)】 :  \n* 단서조항 : 注1)　「＊」は旧基準に収載されていた成分。 \n(주1)  ‘*’는 구 기준에 수재되어 있던 성분"
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:38.609Z"
+  },
+  {
+    "source": "mfds-ingredient",
+    "sourceId": "멘톨",
+    "entityType": "ingredient",
+    "data": {
+      "INGR_KOR_NAME": "멘톨",
+      "INGR_ENG_NAME": "Menthol",
+      "CAS_NO": "1490-04-6\r,15356-70-4\r,2216-51-5\r,89-78-1",
+      "ORIGIN_MAJOR_KOR_NAME": "이 원료는 다음의 구조를 갖는 디터펜이다.",
+      "INGR_SYNONYM": null,
+      "_cosing": {
+        "inciName": "MENTHOL",
+        "function": "DENATURANT, FRAGRANCE, REFRESHING, SOOTHING",
+        "restriction": ""
+      },
+      "_restricted": [
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "멘톨",
+          "INGR_ENG_NAME": "Menthol",
+          "CAS_NO": "-",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "일본",
+          "NOTICE_INGR_NAME": "l-Menthol",
+          "PROVIS_ATRCL": "注1)　「＊」は旧基準に収載されていた成分。\n注2)　(　)内は、旧基準において示していた成分の分量を参考に付したもの。",
+          "LIMIT_COND": "* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내는 화장품 -Cosmetics not used for mucosa and to be washed away)】 : 7.0 g \n* 【100g당 최대 배합량 (점막에 사용하지 않고 씻어내지 않는 화장품 - Cosmetics not used for mucosa and not to be washed away)】 : 7.0 g \n* 【100g당 최대 배합량 (점막에 사용하는 화장품 - Cosmetics that may be used for mucosa)】 : (1.0) g \n* 단서조항 : 注1)　「＊」は旧基準に収載されていた成分。\n注2)　(　)内は、旧基準において示していた成分の分量を参考に付したもの。 \n(주1)  ‘*’는 구 기준에 수재되어 있던 성분\n(주2)  (  ) 안은 구 기준에 있어서 제시하던 성분 분량을 참고로 한 것"
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "멘톨",
+          "INGR_ENG_NAME": "Menthol",
+          "CAS_NO": "-",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "대만",
+          "NOTICE_INGR_NAME": "Menthol",
+          "PROVIS_ATRCL": "※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。",
+          "LIMIT_COND": "* 단서조항 : ※ 染髮、脫色、脫染及燙髮產品之應刊載之注意事項，應依衛生福利部公告刊載之。\n※ 染髮產品之限量標準：係指該成分依產品使用說明書混合後之最高允許使用量。 \n※ 化粧品之外包裝或容器，應明顯標示本表所列成分之注意事項。因外包裝或容器表面積過小或其他特殊情形致不能標示者，應於標籤、仿單或以其他方式刊載之。 \n※ 本表所稱之口腔製劑，包含非藥用牙膏、漱口水類及美白牙齒類等化粧品。\n※ 化粧品宣稱效能者，須符合化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則規定。 \n※ 염모제, 탈색제, 제모제 및 퍼머넌트제에 게재되어야 하는 주의 사항은 보건복지부 고시에 따라 게재되어야 합니다.\n※ 염모제의 한도기준 : 제품의 사용설명서에 따라 성분을 혼합한 후 허용되는 최대량을 말한다.\n※ 화장품 이외의 포장 또는 용기에 본 표에 열거된 성분의 주의사항을 명확하게 표시하여야 합니다. 겉포장이나 용기의 면적이 너무 작거나 그 밖의 특별한 경우에 표시가 되지 않는 경우, 라벨, 모조본 또는 다른 방식으로 게재되어야 합니다.\n※ 본 표에 언급된 구강 제제에는 비약용 치약, 구강 세정제 및 미백 치아와 같은 화장품이 포함됩니다.\n※ 효능이 있다고 주장하는 화장품은 허위 과장 또는 의료 효능 인증 표준과 관련된 화장품 라벨링 광고의 요구 사항을 충족해야합니다. \n* 用途(용도) : 使用限制 (사용제한) \n* 주의사항 : 可能使用於 2 歲以下孩童之產品（立即沖洗產品得免刊載該注意事項）： 2歲以下孩童使用前請諮詢醫師或藥師。 "
+        },
+        {
+          "REGULATE_TYPE": "한도",
+          "INGR_STD_NAME": "멘톨",
+          "INGR_ENG_NAME": "Menthol",
+          "CAS_NO": "-",
+          "INGR_SYNONYM": null,
+          "COUNTRY_NAME": "EU",
+          "NOTICE_INGR_NAME": "Menthol; dl-menthol; l-menthol; d-menthol",
+          "PROVIS_ATRCL": null,
+          "LIMIT_COND": "* 【Restrictions】\nOther : The presence of the substance shall be indicated in the list of ingredients referred to in Article 19(1), point (g), when its concentration exceeds: — 0,001 % in leave-on products — 0,01 % in rinse-off products. \n* 【제한】\n 기타 : 본 성분의 함량이 씻어내지 않는 제품에서 0,001%, 씻어내는 제품에서 0,01%를 초과할때는 제19조(1)(g)에 따라 성분 리스트에 본 성분을 명시해야 한다. "
+        }
+      ]
+    },
+    "fetchedAt": "2026-04-01T13:37:25.015Z"
+  }
+]
