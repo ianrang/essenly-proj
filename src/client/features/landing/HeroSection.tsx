@@ -87,7 +87,7 @@ export default function HeroSection({ state, onConsent, isConsenting, locale }: 
             <div className="mx-auto flex max-w-[360px] gap-3 lg:max-w-[480px]">
               <Button
                 size="cta"
-                onClick={() => handleCtaClick("profile")}
+                onClick={() => handleCtaClick("chat")}
                 disabled={state === "loading"}
                 className="flex-1"
               >
@@ -96,7 +96,7 @@ export default function HeroSection({ state, onConsent, isConsenting, locale }: 
               <Button
                 variant="outline"
                 size="cta"
-                onClick={() => handleCtaClick("chat")}
+                onClick={() => handleCtaClick("profile")}
                 disabled={state === "loading"}
                 className="flex-1"
               >

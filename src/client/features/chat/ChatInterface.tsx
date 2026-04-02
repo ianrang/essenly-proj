@@ -6,7 +6,6 @@ import { useState, useEffect, useMemo } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { useTranslations } from "next-intl";
-import TabBar from "@/client/features/layout/TabBar";
 import MessageList from "./MessageList";
 import MessageBubble from "./MessageBubble";
 import InputBar from "./InputBar";
@@ -18,7 +17,6 @@ type ChatInterfaceProps = {
 
 export default function ChatInterface({ locale }: ChatInterfaceProps) {
   const t = useTranslations("chat");
-  const [activeTab, setActiveTab] = useState("shops");
   const [hasProfile, setHasProfile] = useState<boolean | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(true);
 
@@ -70,9 +68,7 @@ export default function ChatInterface({ locale }: ChatInterfaceProps) {
   }));
 
   return (
-    <div className="flex h-[calc(100dvh-52px)] flex-col">
-      <TabBar activeTab={activeTab} onTabChange={setActiveTab} />
-
+    <div className="-mx-5 flex h-[calc(100dvh-52px)] flex-col">
       <div className="flex flex-1 flex-col overflow-hidden">
         {chatMessages.length === 0 ? (
           <div className="flex-1 overflow-y-auto px-4 py-4">

@@ -6,15 +6,15 @@
   "landing": {
     "title": "Discover K-Beauty, Tailored to You",
     "subtitle": "AI-powered recommendations for skincare, treatments, and more — personalized to your skin type, concerns, and travel plans.",
-    "pathA": "Start with my profile",
-    "pathB": "Just ask",
-    "pathADescription": "Answer a few quick questions and get personalized picks",
-    "pathBDescription": "Jump straight into a conversation with our AI",
-    "ctaDescription": "Profile for personalized picks, or jump straight into chat",
+    "pathA": "Start chatting",
+    "pathB": "Set up my profile",
+    "pathADescription": "Chat with our AI guide and get instant recommendations",
+    "pathBDescription": "Answer a few quick questions first for personalized picks",
+    "ctaDescription": "Chat with AI now, or set up your profile first",
     "howItWorksLabel": "Simple",
     "howItWorksTitle": "How it works",
-    "step1Title": "Tell us about yourself",
-    "step1Desc": "Share your skin type, concerns, and travel plans — takes about 2 minutes",
+    "step1Title": "Chat with our AI guide",
+    "step1Desc": "Tell us what you're looking for — our AI finds the best picks instantly",
     "step2Title": "Get AI-matched picks",
     "step2Desc": "Our AI finds the best products, clinics, and treatments for your unique profile",
     "step3Title": "Shop & book instantly",
@@ -41,7 +41,7 @@
     "returnTitle": "Welcome back!",
     "returnDescription": "Your beauty profile is ready. Pick up where you left off.",
     "returnProfile": "View my profile",
-    "returnChat": "Just chat"
+    "returnChat": "Continue chatting"
   },
   "onboarding": {
     "heading": "Tell me about you",

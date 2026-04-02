@@ -22,9 +22,9 @@ export default function SuggestedQuestions({ onSelect }: SuggestedQuestionsProps
           <Button
             key={key}
             variant="outline"
-            size="sm"
+            size="default"
             onClick={() => onSelect(text)}
-            className="justify-start whitespace-normal text-left"
+            className="h-auto min-h-8 justify-start whitespace-normal py-2 text-left"
           >
             {text}
           </Button>

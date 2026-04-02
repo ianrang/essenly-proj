@@ -9,7 +9,7 @@ export default function StreamingIndicator() {
 
   return (
     <div className="flex justify-start">
-      <div className="flex items-center gap-2 rounded-[10px] rounded-bl-sm border border-border-warm bg-surface-warm px-3.5 py-2.5 text-sm text-muted-foreground">
+      <div className="flex items-center gap-2 rounded-md rounded-bl-[4px] border border-border-warm bg-surface-warm px-3.5 py-2.5 text-sm text-muted-foreground">
         <span className="flex gap-0.5">
           <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:0ms]" />
           <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:150ms]" />

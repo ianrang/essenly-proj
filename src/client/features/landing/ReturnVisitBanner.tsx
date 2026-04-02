@@ -23,16 +23,16 @@ export default function ReturnVisitBanner({ locale }: ReturnVisitBannerProps) {
         </p>
         <div className="flex flex-col gap-2.5">
           <Link
-            href={`/${locale}/profile`}
+            href={`/${locale}/chat`}
             className={buttonVariants({ size: "cta", className: "w-full" })}
           >
-            {t("returnProfile")}
+            {t("returnChat")}
           </Link>
           <Link
-            href={`/${locale}/chat`}
+            href={`/${locale}/profile`}
             className={buttonVariants({ variant: "outline", size: "cta", className: "w-full" })}
           >
-            {t("returnChat")}
+            {t("returnProfile")}
           </Link>
         </div>
       </div>

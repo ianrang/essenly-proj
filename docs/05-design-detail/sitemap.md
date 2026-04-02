@@ -74,8 +74,8 @@ src/app/
 ### Navigation Flow
 
 ```
-Landing ─── "Start with profile" ──→ Onboarding ──→ Profile ──→ Chat
-       └── "Just ask" ──────────────────────────────────────→ Chat (Path B)
+Landing ─── "Start chatting" ───────────────────────────────→ Chat (주력, VP-3)
+       └── "Set up my profile" ──→ Onboarding ──→ Profile ──→ Chat (보조)
        └── Return visit ── "Profile confirm" ──→ Profile ──→ Chat
                         └── "Just chat" ──────────────────→ Chat
 

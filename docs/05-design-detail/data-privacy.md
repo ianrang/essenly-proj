@@ -27,7 +27,7 @@
 
 **Landing → 세션 생성 흐름:**
 ```
-1. 사용자 CTA 버튼 클릭 ("Start with my profile" 또는 "Just ask")
+1. 사용자 CTA 버튼 클릭 ("Start chatting" 또는 "Set up my profile")
 2. Hero 영역 내 인라인 동의 확인 표시
 3. 사용자 "Continue" 클릭
 4. 클라이언트: POST /api/auth/anonymous { consent: { data_retention: true } }

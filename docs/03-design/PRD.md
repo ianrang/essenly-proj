@@ -128,11 +128,11 @@ Landing은 **서비스 소개 마케팅 페이지 + 앱 진입점**을 겸한다
 ├────────────────────────────────────┤
 │  Section 1: Hero + CTA             │
 │  "Discover K-Beauty, Tailored..."  │
-│  [Start with my profile]           │
-│  [Just ask]                        │
+│  [Start chatting]                  │  ← 주력 CTA (Chat 직행)
+│  [Set up my profile]               │  ← 보조 (선택적 사전 프로필)
 ├────────────────────────────────────┤
 │  Section 2: How it works           │
-│  ① Tell us about yourself          │
+│  ① Chat with our AI guide          │
 │  ② Get AI-matched picks            │
 │  ③ Shop & book instantly           │
 ├────────────────────────────────────┤
@@ -164,8 +164,8 @@ Landing 진입
   │                                    └─ [바로 대화] 버튼 (프로필 자동 적용)
   │
   └─ NO (신규) ──> [신규 흐름]
-                    ├─ [경로A] "Start with my profile" → Onboarding
-                    └─ [경로B] "Just ask" → Results (점진적 개인화)
+                    ├─ [주력] "Start chatting" → Results (점진적 개인화, VP-3)
+                    └─ [보조] "Set up my profile" → Onboarding (선택적 사전 프로필)
 ```
 
 ### 데이터 수집
@@ -182,10 +182,10 @@ Landing 진입
 - 식별 정보(쿠키/anonymous UUID) 소실 시 신규 사용자로 처리
 - 이전 데이터는 서버에 잔존하나 연결 불가. 복구는 v0.2(계정)에서 제공
 
-## 3.3 Onboarding 화면 (경로A)
+## 3.3 Onboarding 화면 (선택적 사전 프로필)
 
 ### 진입 조건
-- 신규 사용자: "Start with my profile" 선택
+- 신규 사용자: "Set up my profile" 선택 (보조 CTA)
 - 재방문 사용자: "프로필 수정" 선택
 
 ### Step 1/4: 피부 & 헤어 기본
@@ -358,7 +358,9 @@ Landing 진입
 └─────────────────────────┘
 ```
 
-### 탭 구성 (5영역 → §2.1)
+### 탭 구성 (5영역 → §2.1) — v0.2 보류
+
+> **MVP 보류**: 5영역 도메인 탭 필터는 MVP에서 제거. 대화 흐름 안에서 AI가 맥락에 맞는 카드를 직접 삽입하는 방식이 VP-4(대화+카드 하이브리드)에 더 부합. v0.2에서 카드 수 증가 시 필터 필요성 재검토.
 
 | 탭 | 도메인 ID | 카드 타입 |
 |---|---|---|
@@ -367,8 +369,6 @@ Landing 진입
 | Salon | DOM-3 | SalonCard |
 | Eats | DOM-4 | DiningCard |
 | Exp | DOM-5 | ExperienceCard |
-
-> MVP 비활성 탭 (Salon/Eats/Exp): 탭 표시 + "Coming soon" 레이블. 회색 처리, 클릭 불가.
 
 ### 경로B (프로필 없이 진입) 특별 처리
 
@@ -489,8 +489,8 @@ Results 화면 내 또는 이후. 핵심 흐름의 외부.
 
 | From | To | 조건 |
 |---|---|---|
-| Landing | Onboarding | 신규 + "Start with my profile" |
-| Landing | Results (경로B) | 신규 + "Just ask" |
+| Landing | Results (Chat) | 신규 + "Start chatting" (주력 CTA) |
+| Landing | Onboarding | 신규 + "Set up my profile" (보조 CTA) |
 | Landing | Profile Confirm | 재방문 + "프로필 확인" |
 | Landing | Results | 재방문 + "바로 대화" |
 | Onboarding | Profile Transition | 4단계 완료 + "Generate profile" |

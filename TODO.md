@@ -349,11 +349,16 @@
 | P2-37 | ProductCard 컴포넌트          | 4상태(normal/highlighted/skeleton/img-error) + HighlightBadge + localized() + Skeleton                              | P2-39       | ✅   |
 | P2-38 | TreatmentCard 컴포넌트        | 시술 카드(가격 범위/시간/다운타임 경고 coral) + HighlightBadge + localized() 공용 추출                                             | P2-39       | ✅   |
 | P2-35 | Chat 인터페이스                | AI SDK v6 useChat + MessageBubble/List + InputBar(visualViewport) + SuggestedQuestions(경로B) + StreamingIndicator + TabBar | P2-36~P2-38 | ✅   |
-| P2-40 | Kit CTA 컴포넌트              | KitCtaCard + KitCtaSheet(Bottom sheet). Chat 내 인라인 (user-screens §6.6)                                         | P2-35       | ⬜   |
-| P2-41 | Profile 페이지               | 프로필 조회/수정                                                                                                      | P2-29       | ⬜   |
-| P2-42 | 프로필 Context               | React Context 상태 관리. UI 편의용 — 페이지는 API 호출로 독립 동작                                                               | P2-29       | ⬜   |
+| P2-46 | MVP 흐름 재설계 — 설계 확정         | Chat-First 단일 경로 설계 문서 작성 완료. Landing 단일 CTA + 채팅 내 온보딩 + 카드 결과 + Kit CTA. 프로필/이메일 로그인 v0.2 연기. 설계: `mvp-flow-redesign.md` | P2-35       | ✅   |
+| P2-47 | Landing 단일 CTA 적용          | HeroSection 보조 CTA 제거 → "Start chatting" 단일. ReturnVisitBanner "Continue chatting" 단일. en.json 텍스트 조정. ChatInterface hasProfile 분기 제거 | P2-46       | ⬜   |
+| P2-48 | PRD/설계 문서 v0.2 범위 동기화     | PRD §3.2~3.4 단일 CTA 확정 반영. §3.3 온보딩/§5.2 프로필 → v0.2 명시. user-screens §3/§6 동기화. data-privacy, ANALYTICS 동기화 | P2-46       | ⬜   |
+| P2-40 | Kit CTA 컴포넌트              | KitCtaCard + KitCtaSheet(Bottom sheet). Chat 내 인라인 (user-screens §6.6). Drawer 프리미티브 추가                       | P2-47       | ⬜   |
+| P2-49 | "Show recommendations" 버튼 | 채팅 내 온보딩 완료 후 액션 버튼. SuggestedQuestions 패턴 재사용. 클릭 → 추천 요청 자동 전송. 카드 통합(P3) 시 함께 구현               | P2-40, P3   | ⬜   |
 | P2-43 | 면책 조항 페이지                 | 시술 추천 면책, 의료 조언 아닌 정보 제공 명시                                                                                    | P2-29       | ⬜   |
 | P2-44 | 이용약관 + 개인정보처리방침 페이지       | 서비스 이용약관, 데이터 수집/보관/삭제 정책                                                                                      | P2-29       | ⬜   |
+| P2-45 | 동의 시점 채팅 내 이동 검토           | Landing 동의 → Chat 첫 메시지 전 동의로 이동. ChatInterface 내 동의 UI + 세션 생성. data-privacy §1.2 연동. 별도 검토 태스크        | P2-47       | ⬜   |
+| P2-41 | Profile 페이지               | 🔶 **v0.2 연기**: 이메일 로그인 후 프로필 조회/편집. 기존 컴포넌트(ProfileClient/ProfileCard) 재사용. mvp-flow-redesign.md §3 참조  | v0.2        | 🔶  |
+| P2-42 | 프로필 Context               | 🔶 **v0.2 연기**: 이메일 로그인 후 React Context 상태 관리. mvp-flow-redesign.md §3 참조                                     | v0.2        | 🔶  |
 
 
 ## 관리자 앱 — MVP (병렬 가능)
@@ -442,7 +447,9 @@
 | P2-58  | M1 스켈레톤 데이터 적재                         | **완료 (2026-03-26)**. 7엔티티 50건 YAML. FK 정합성 검증, 열거값 검증, D-14(images=[]) 모두 통과. domain.ts 전체 필드 준수                                                            | M1    | ✅   |
 | P2-59  | 큐레이션 리스트 확정                            | **완료 (2026-03-26)**. products 200 + stores 50 + clinics 30 + treatments 50 = 330건. 커버리지 검증: skin_type 5종 ✅, concerns 11종 ✅, 브랜드 80개(최대8/브랜드) ✅, 관광객접근 95% ✅ | M1    | ✅   |
 | P2-60  | Phase A: brands 50+ / ingredients 100+ | **완료 (2026-04-01)**. Step 1: classifier strict + function spec + inci_name 매핑 (테스트 6건). Step 2: brands 73건 JSON→enrich(6언어)→검수(영문명 15건 수정)→DB 적재. Step 3: ingredients S3(21,722)+S6+S4→105건 필터→enrich(번역+function+caution)→DB 적재. CosIng 구분자 수정(;→,) | M2    | ✅   |
-| P2-61  | Phase A: stores 50+ (S1 자동수집)          | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(영업시간, english_support, tourist_services, 이미지)                                                                               | M2    | ⬜   |
+| P2-61  | Phase A: stores 200+ (S1 자동수집)         | store_type daiso 추가 + StoreTypeClassifier 인터페이스(MVP 정규식) + district 자동매핑 + review-exporter 컬럼 보강 + 카카오 API 200건+ fetch → AI 번역+설명 → 검수 → DB 적재. clinics-raw.json 동시 저장(P2-62 재사용) | M2    | ⬜   |
+| P2-61b | stores 수동 보완 전수 입력                    | P2-61 적재 후. operating_hours, english_support, tourist_services 200건 전수 입력. 체인별 공통값 일괄 + 개별 매장 보완                                                              | M2    | ⬜   |
+| P2-61c | LLM store_type 분류 검증 (선택)             | 정규식 분류기 → LLM 분류기 교체/보강. StoreTypeClassifier 인터페이스 구현. 정규식 미매칭 other 건 LLM 재분류                                                                              | M2    | ⬜   |
 | P2-62  | Phase A: clinics 30+ (S1 자동수집)         | 카카오 API 수집 → 분류 → AI 번역 → 수동 보완(foreigner_friendly, license_verified, 이미지). english_support >= basic 필수                                                     | M2    | ⬜   |
 | P2-63  | Phase A: treatments 50+                | 수동 입력 + AI 보강(target_concerns, suitable_skin_types, description, precautions). 전문가 검수 필수. downtime_days 정확성                                                 | M2    | ⬜   |
 | P2-63b | M1 스켈레톤 데이터 정리                        | Phase A 완료 후, Phase B 진입 전. M1 스켈레톤 50건(수동 slug ID) → 파이프라인 UUID 정본으로 대체 완료 검증. 고아 레코드(M1 brands/products/ingredients 등) 비활성화 또는 삭제. FK 정합성 검증        | M3    | ⬜   |

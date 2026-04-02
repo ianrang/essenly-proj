@@ -78,7 +78,7 @@ PRD §5.6에 정의된 6개 MVP 성공 지표(KPI)의 **측정 도구와 구현 
 |------|------|------|---------|------|
 | source | string | 필수 | `"landing"` | 진입 경로 출처 |
 
-**발화 시점**: Landing 페이지에서 "Start with my profile" (경로A) CTA 클릭 즉시.
+**발화 시점**: Landing 페이지에서 "Set up my profile" (보조 CTA, 선택적 사전 프로필) 클릭 즉시.
 
 **zod 검증:**
 ```typescript
@@ -291,7 +291,7 @@ z.object({
 ```
 
 - 분자: `user_profiles` 레코드 생성 = 온보딩 4단계 완료 + 프로필 생성
-- 분모: Landing에서 "Start with my profile" 클릭 시 `path_a_entry` 이벤트 기록
+- 분모: Landing에서 "Set up my profile" 클릭 시 `path_a_entry` 이벤트 기록
 - 경로B 사용자는 분모에 포함되지 않음 (PRD §5.6 정의와 일치)
 
 ## K2: 대화 턴 수 (목표 avg 5+)

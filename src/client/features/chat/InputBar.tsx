@@ -6,6 +6,9 @@ import { useRef, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/client/ui/primitives/button";
 
+/** textarea 최대 높이 (px) — auto-grow 상한 */
+const TEXTAREA_MAX_HEIGHT = 120;
+
 type InputBarProps = {
   onSend: (text: string) => void;
   disabled: boolean;
@@ -62,22 +65,24 @@ export default function InputBar({ onSend, disabled }: InputBarProps) {
           value={value}
           onChange={(e) => {
             setValue(e.target.value);
-            // Auto-grow: JS 기반 (fieldSizing 미지원 브라우저 호환)
+            // Auto-grow: overflow hidden으로 리플로우 시 레이아웃 시프트 방지
             const el = e.target;
+            el.style.overflow = "hidden";
             el.style.height = "auto";
-            el.style.height = `${Math.min(el.scrollHeight, 120)}px`;
+            el.style.height = `${Math.min(el.scrollHeight, TEXTAREA_MAX_HEIGHT)}px`;
+            el.style.overflow = "";
           }}
           onKeyDown={handleKeyDown}
           placeholder={t("placeholder")}
           disabled={disabled}
           rows={1}
-          className="flex-1 resize-none rounded-lg border border-border bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/50 disabled:opacity-50"
-          style={{ maxHeight: "120px" }}
+          className="flex-1 resize-none rounded-md border border-border bg-card px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/50 disabled:opacity-50"
+          style={{ maxHeight: `${TEXTAREA_MAX_HEIGHT}px` }}
         />
         <Button
-          size="sm"
           onClick={handleSend}
           disabled={disabled || !value.trim()}
+          className="shrink-0 self-end px-4 py-2.5"
         >
           {t("send")}
         </Button>
