@@ -6,6 +6,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { useTranslations } from "next-intl";
+import { mapUIMessageToParts } from "./card-mapper";
 import MessageList from "./MessageList";
 import MessageBubble from "./MessageBubble";
 import InputBar from "./InputBar";
@@ -37,14 +38,13 @@ export default function ChatInterface({ locale }: ChatInterfaceProps) {
     sendMessage({ text });
   }
 
-  // UIMessage.parts → 표시용 텍스트 추출
+  // UIMessage.parts → ChatMessagePart[] 변환
   const chatMessages = messages.map((m) => ({
     id: m.id,
     role: m.role as "user" | "assistant",
-    content: m.parts
-      ?.filter((p): p is { type: "text"; text: string } => p.type === "text")
-      .map((p) => p.text)
-      .join("") ?? "",
+    parts: mapUIMessageToParts(
+      m.parts as Array<{ type: string; text?: string; state?: string; output?: unknown }>
+    ),
   }));
 
   return (
@@ -62,7 +62,7 @@ export default function ChatInterface({ locale }: ChatInterfaceProps) {
             </div>
           </div>
         ) : (
-          <MessageList messages={chatMessages} isStreaming={isStreaming} />
+          <MessageList messages={chatMessages} isStreaming={isStreaming} locale={locale} />
         )}
 
         {error && (
