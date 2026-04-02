@@ -31,7 +31,7 @@ import {
   classifyPlace,
   mapPlaceToRawRecord,
   deduplicatePlaces,
-} from "./place-mapper";
+} from "./classifiers/place-mapper";
 
 // ── 타입 ────────────────────────────────────────────────────
 

@@ -5,7 +5,7 @@ import {
   mapPlaceToRawRecord,
   deduplicatePlaces,
 } from "./place-mapper";
-import type { RawPlace } from "./types";
+import type { RawPlace } from "../types";
 
 // ── 헬퍼 ──────────────────────────────────────────────────
 

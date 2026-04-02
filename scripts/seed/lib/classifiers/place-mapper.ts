@@ -6,7 +6,7 @@
 // P-10: 삭제 시 빌드 에러 0건.
 // ============================================================
 
-import type { RawPlace, RawRecord } from "./types";
+import type { RawPlace, RawRecord } from "../types";
 
 // ── 상수 (G-10) ────────────────────────────────────────────
 

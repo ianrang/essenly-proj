@@ -37,7 +37,7 @@ import {
   generateDescriptions,
   type GenerationFieldSpec,
 } from "./enrichment/description-generator";
-import { defaultStoreTypeClassifier } from "./store-type-classifier";
+import { defaultStoreTypeClassifier } from "./classifiers/store-type-classifier";
 
 // ── 타입 ────────────────────────────────────────────────────
 
