@@ -169,7 +169,8 @@ learned_preferences       →  (user_preferences 테이블 → 별도 처리)
 
 현재 afterWork 조건: `result.extractionResults.length > 0 && profile`
 - **profile !== null**: anonymous auth → `/api/auth/anonymous` → 세션 생성. 하지만 user_profiles 레코드는 온보딩 완료 시 생성.
-- **MVP Chat-First**: 온보딩 스킵 → profile === null → afterWork 스킵 → 추출 데이터 폐기
+- **MVP Chat-First (수정 전)**: 온보딩 스킵 → profile === null → afterWork 스킵 → 추출 데이터 폐기
+- **MVP Chat-First (수정 후)**: 온보딩 스킵 → profile === null → createMinimalProfile → updateProfile → 추출 데이터 자동 저장
 
 **해결**: 기존 서비스 함수를 재사용하여 레이어 우회 방지 (G-2, G-5).
 

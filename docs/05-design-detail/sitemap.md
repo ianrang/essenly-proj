@@ -16,9 +16,9 @@ src/app/
       page.tsx                       # Landing (풀 너비 마케팅 레이아웃. 자체 Header)
       (app)/                         # App route group (not in URL)
         layout.tsx                   # App layout (640px 중앙 + 공통 Header)
-        chat/page.tsx                # Chat + Cards + Kit CTA (inline + bottom sheet)
-        onboarding/page.tsx          # 4-step onboarding wizard
-        profile/page.tsx             # Profile confirm / edit
+        chat/page.tsx                # Chat + Cards + Kit CTA (inline + bottom sheet) — MVP 핵심
+        onboarding/page.tsx          # 4-step onboarding wizard — v0.2 (라우트 비활성, 코드 유지)
+        profile/page.tsx             # Profile confirm / edit — v0.2 (라우트 비활성, 코드 유지)
       error.tsx                      # Error boundary (Phase 2)
       not-found.tsx                  # 404 (Phase 2)
   (admin)/                           # Admin app group (not in URL)

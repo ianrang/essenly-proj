@@ -330,30 +330,34 @@ Landing 진입
 └─────────────────────────┘
 ```
 
-## 3.4 Results 화면 (핵심)
+## 3.4 Chat 화면 (핵심)
 
-### 화면 구조 — 대화 + 카드 하이브리드
+> MVP에서 "Results"는 별도 화면이 아닌 **Chat 화면 내 인라인 카드**로 표시 (VP-4). URL: `/[locale]/chat`. 탭 필터는 v0.2 보류.
+
+### 화면 구조 — 대화 + 카드 하이브리드 (MVP)
 
 ```
 ┌─────────────────────────┐
 │  [에센리 로고]  [EN ▾]   │
 │                          │
-│  Hi there                │
-│  Based on your profile—  │
+│  Hi! I'm your K-Beauty   │
+│  guide in Seoul...       │
 │                          │
-│ ┌──────────────────────┐ │
-│ │ Shops│Clinic│Salon│Eats│Exp │ ← 5영역 탭 (§2.1)
-│ └──────────────────────┘ │
+│  [추천 질문 1]            │
+│  [추천 질문 2]            │
+│  [추천 질문 3]            │
+│                          │
+│  ... 대화 진행 ...        │
 │                          │
 │ ┌────────────────────┐   │
-│ │ LANEIGE Cream Skin │   │
+│ │ LANEIGE Cream Skin │   │ ← ProductCard (인라인)
 │ │ ₩28,000            │   │
 │ │ Perfect for combo   │   │
 │ │ skin — balances...  │   │
 │ │ English  Map       │   │
 │ └────────────────────┘   │
 │ ┌────────────────────┐   │
-│ │ [H] Essenly Kit    │   │ ← 하이라이트 카드 (VP-1)
+│ │ [H] Essenly Kit    │   │ ← KitCtaCard (하이라이트, VP-1)
 │ │ Matched to your    │   │
 │ │ hair type...        │   │
 │ │ Free starter kit   │   │
@@ -402,9 +406,11 @@ Landing 진입
 └─────────────────────────┘
 ```
 
-- 초기: 추천 질문 버블 표시
-- 대화 중: 언급된 정보에서 개인화 변수 점진적 추출 (VP-3)
-- 프로필 저장 제안 기준: UP-1(피부타입) + JC-1(피부 고민 1개 이상) 추출 시 "프로필을 저장할까요?" 프롬프트. 이는 DV-1(선호 성분) 계산의 최소 입력이자 제품 추천의 최소 조건.
+- 초기: 추천 질문 버블 표시 (SuggestedQuestions 항상 표시)
+- 대화 중: 언급된 정보에서 개인화 변수 점진적 추출 (VP-3, extract_user_profile tool)
+- 프로필 자동 저장: 추출된 변수(skin_type, age_range 등)를 대화 후 비동기로 DB 저장 (afterWork). Landing 동의(data_retention) 시 "We'll store your beauty profile to personalize recommendations" 문구로 프로필 저장 동의를 포함.
+
+> **v0.2**: 이메일 로그인 도입 후 명시적 "프로필 저장 제안" UI 추가 — AI가 "프로필을 저장할까요?" 제안 + [Save] / [Not now] 버튼. UP-1 + JC-1(1개+) 추출 시 트리거.
 
 ## 3.5 카드 UI 요구사항
 
@@ -439,16 +445,16 @@ Landing 진입
 
 ## 3.6 전환 레이어 (Conversion Layer)
 
-Results 화면 내 또는 이후. 핵심 흐름의 외부.
+Chat 화면 내에서 발생. 핵심 흐름의 외부.
 
 | 전환 | 트리거 | 화면/동작 |
 |---|---|---|
-| Kit CTA | 에센리 하이라이트 카드 탭 (유일한 트리거) | Kit CTA 화면 |
+| Kit CTA | 에센리 하이라이트 카드 탭 (유일한 트리거) | KitCtaSheet (Bottom sheet, Chat 내 인라인) |
 | 외부 링크 | 카드 내 "Map" / "Buy" | 새 탭으로 외부 사이트 (Stage 1: F2) |
 | 예약 | 카드 내 "Book" 버튼 | 외부 링크 (Stage 1) → 앱 내 예약 (Stage 3: F4) |
 | 리뷰 요청 | 방문 후 자동 팔로업 | 인앱 알림 (Stage 3: F6) |
 
-### Kit CTA 화면
+### Kit CTA (Bottom Sheet — Chat 내 인라인)
 
 ```
 ┌─────────────────────────┐
@@ -470,7 +476,7 @@ Results 화면 내 또는 이후. 핵심 흐름의 외부.
 │  └────────────────────┘  │
 │  [Claim my free kit]    │
 │                          │
-│  [← Back to results]    │
+│  [← Back to chat]    │
 └─────────────────────────┘
 ```
 
@@ -485,11 +491,11 @@ Results 화면 내 또는 이후. 핵심 흐름의 외부.
 │  with your personalized  │
 │  K-Beauty kit details.   │
 │                          │
-│  [← Back to results]    │
+│  [← Back to chat]    │
 └─────────────────────────┘
 ```
 - 이메일 제출 성공 시 확인 화면 표시
-- "Back to results" 버튼으로 Results 화면 복귀
+- "Back to chat" 버튼으로 Chat 화면 복귀
 - 마케팅 동의 체크박스: 이메일 입력 하단에 위치
 
 ## 3.7 흐름 전환 조건 요약
