@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 60      | 60      | 100%    | ✅      |
-| Phase 2    | 104     | 52      | 50%     | 🔶 진행중 |
+| Phase 2    | 104     | 53      | 51%     | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **249** | **161** | **65%** |        |
+| **MVP 합계** | **249** | **162** | **65%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -350,7 +350,7 @@
 | P2-38 | TreatmentCard 컴포넌트        | 시술 카드(가격 범위/시간/다운타임 경고 coral) + HighlightBadge + localized() 공용 추출                                             | P2-39       | ✅   |
 | P2-35 | Chat 인터페이스                | AI SDK v6 useChat + MessageBubble/List + InputBar(visualViewport) + SuggestedQuestions(경로B) + StreamingIndicator + TabBar | P2-36~P2-38 | ✅   |
 | P2-46 | MVP 흐름 재설계 — 설계 확정         | Chat-First 단일 경로 설계 문서 작성 완료. Landing 단일 CTA + 채팅 내 온보딩 + 카드 결과 + Kit CTA. 프로필/이메일 로그인 v0.2 연기. 설계: `mvp-flow-redesign.md` | P2-35       | ✅   |
-| P2-47 | Landing 단일 CTA + Chat-First 적용 | **UI 변경**: (1) HeroSection 보조 CTA("Set up my profile") 제거 → "Start chatting" 단일. `pathB` 키는 en.json에 유지(v0.2 재사용), 버튼만 제거 (2) ReturnVisitBanner "View my profile" 버튼 제거 → "Continue chatting" 단일 + **닫기 버튼 추가** (Landing 콘텐츠 접근 보장) (3) `ctaDescription` 텍스트 → "Chat with our AI guide — no signup needed" (4) ChatInterface `hasProfile` 상태 + `/api/profile` fetch 제거 → SuggestedQuestions 항상 표시 (5) `/onboarding`, `/profile` 라우트 파일은 유지 (v0.2 재사용) — Landing 진입 경로만 제거. **백엔드 변경**: (6) `features/api/routes/chat.ts` afterWork — 프로필 INSERT 분기 추가 (기존 UPDATE만 → profile===null 시 INSERT). 채팅 내 온보딩으로 추출된 프로필이 DB에 저장되도록 보장 (~15줄) | P2-46       | ⬜   |
+| P2-47 | Landing 단일 CTA + Chat-First 적용 | HeroSection 단일 CTA + ReturnVisitBanner 닫기 버튼 + ChatInterface hasProfile 제거 + chat.ts afterWork 프로필 INSERT + scrollbar-thin + createMinimalProfile 테스트 2개. 커밋 `4830325` | P2-46       | ✅   |
 | P2-48 | PRD/설계 문서 v0.2 범위 동기화     | **PRD 변경 범위**: (1) §3.2 분기 로직 — 재방문 흐름 "[프로필 확인]+[바로 대화]" → "Continue chatting" 단일 (2) §3.3 본문 — v0.2 범위 명시 부족, 전체 섹션에 v0.2 스코프 주석 추가 (3) §3.4 헤더 "[← 프로필]" → "[← Landing]" 또는 제거 (MVP에 프로필 없음) (4) §3.4 "경로B" 표현 → MVP 유일 경로로 재기술 (5) §3.7 흐름 전환 표 — Onboarding/Profile 경로 v0.2 명시 (6) §3.8 경로별 데이터 상태 — "경로A" 컬럼 v0.2 명시. **기타 문서**: user-screens §3/§6, data-privacy, ANALYTICS 동기화 | P2-46       | ⬜   |
 | P2-51 | Chat 카드 렌더링 파이프라인         | ChatInterface에서 `tool-result` 파트를 ProductCard/TreatmentCard로 렌더링. **현재 `text` 파트만 처리, tool-result 폐기 중**. 변경: (1) ChatMessage 타입 확장 — string content → parts 배열 (text + card) (2) MessageList/MessageBubble에서 card 파트 렌더링 (3) tool-result JSON → ProductCard/TreatmentCard props 매핑 (4) is_highlighted 감지 → KitCtaCard 삽입 트리거 준비. VP-4(대화+카드 하이브리드) 핵심. user-screens §6.1 컴포넌트 트리 참조 | P2-47       | ⬜   |
 | P2-40 | Kit CTA 컴포넌트 (UI만)        | KitCtaCard + KitCtaSheet(Bottom sheet/Drawer). **UI 컴포넌트만 구현**. Chat 내 인라인 삽입은 P2-51(카드 렌더링) 이후 연동. user-screens §6.6 참조 | P2-51       | ⬜   |

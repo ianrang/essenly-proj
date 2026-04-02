@@ -314,8 +314,8 @@ const extractUserProfileSchema = z.object({
 | `learned_preferences` | BH-4 | Tier 3 (보조) | learned_preferences | category+preference+direction |
 
 > 조건부 저장 (api-spec.md §3.4 step 11, PRD §4-C):
-> - **프로필 존재** (경로A 완료 or 경로B Save 완료): 추출 결과를 비동기로 DB 갱신. user_profiles UPSERT + learned_preferences UPSERT.
-> - **프로필 미존재** (경로B, 동의 전): 메모리만 보관. 동의 시 `POST /api/profile/onboarding`에서 테이블별 분할 저장.
+> - **프로필 존재**: 추출 결과를 비동기로 DB 갱신 (`updateProfile` — skin_type, age_range).
+> - **프로필 미존재** (MVP Chat-First): `createMinimalProfile` → `updateProfile` 순차 호출. 최소 프로필 생성 후 추출 필드 저장.
 > `learned_preferences.direction` 값 변환: tool 출력 `prefer`→DB `like`, `avoid`→DB `dislike` (서비스 레이어에서 변환. schema.dbml preference_direction enum 참조).
 
 ---

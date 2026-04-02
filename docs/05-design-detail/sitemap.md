@@ -74,13 +74,16 @@ src/app/
 ### Navigation Flow
 
 ```
-Landing ─── "Start chatting" ───────────────────────────────→ Chat (주력, VP-3)
-       └── "Set up my profile" ──→ Onboarding ──→ Profile ──→ Chat (보조)
-       └── Return visit ── "Profile confirm" ──→ Profile ──→ Chat
-                        └── "Just chat" ──────────────────→ Chat
+MVP (Chat-First 단일 경로):
+Landing ─── "Start chatting" → 동의 ────────────────────────→ Chat (VP-3 점진적 개인화)
+       └── Return visit ── "Continue chatting" ─────────────→ Chat (대화 이어가기)
+                        └── ✕ 닫기 ─────────────────────────→ Landing 콘텐츠
 
-Chat ←── "Edit profile" ──→ Profile
 Chat ── Kit CTA (inline card) ── "Claim" ──→ Bottom sheet (email form)
+
+v0.2 (이메일 로그인 도입 시 추가):
+Landing └── "Set up my profile" ──→ Onboarding ──→ Profile ──→ Chat
+Chat ←── "Edit profile" ──→ Profile
 ```
 
 ### Error Handling

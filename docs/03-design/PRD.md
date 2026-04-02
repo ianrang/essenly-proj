@@ -101,16 +101,19 @@ AI 기반 대화형 에이전트:
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                        CORE FLOW                          │
+│                     CORE FLOW (MVP)                       │
 │                                                           │
-│  [Entry] ──> [Landing] ──> [분기] ──> [Onboarding/대화]  │
-│                                  └──> [Results]           │
+│  [Entry] ──> [Landing] ──> [동의] ──> [Chat]             │
+│                                        ├─ 채팅 내 온보딩  │
+│                                        └─ 카드 추천       │
 ├──────────────────────────────────────────────────────────┤
 │                    CONVERSION LAYER                       │
 │                                                           │
-│  [Results] ──> Kit CTA / 외부 링크 / 예약 (선택적)       │
+│  [Chat] ──> Kit CTA / 외부 링크 / 예약 (선택적)         │
 └──────────────────────────────────────────────────────────┘
 ```
+
+> **MVP Chat-First 단일 경로**: Landing → 동의 → Chat. 온보딩은 채팅 내 AI 대화로 수행 (VP-3). Onboarding 폼/Profile 페이지는 v0.2(이메일 로그인) 범위. 상세: `mvp-flow-redesign.md`
 
 ## 3.2 Landing 화면
 
@@ -128,8 +131,9 @@ Landing은 **서비스 소개 마케팅 페이지 + 앱 진입점**을 겸한다
 ├────────────────────────────────────┤
 │  Section 1: Hero + CTA             │
 │  "Discover K-Beauty, Tailored..."  │
-│  [Start chatting]                  │  ← 주력 CTA (Chat 직행)
-│  [Set up my profile]               │  ← 보조 (선택적 사전 프로필)
+│  [Start chatting]                  │  ← 단일 CTA (Chat 직행)
+│  "Chat with our AI guide —         │
+│   no signup needed"                │
 ├────────────────────────────────────┤
 │  Section 2: How it works           │
 │  ① Chat with our AI guide          │
@@ -158,15 +162,16 @@ Landing은 **서비스 소개 마케팅 페이지 + 앱 진입점**을 겸한다
 ```
 Landing 진입
   │
-  ├─ 저장된 프로필 존재? ─── YES ──> [재방문 흐름]
-  │                                    ├─ "Welcome back" 표시
-  │                                    ├─ [프로필 확인] 버튼
-  │                                    └─ [바로 대화] 버튼 (프로필 자동 적용)
+  ├─ 세션 존재? ─── YES ──> [재방문 흐름]
+  │                           ├─ "Welcome back" 배너 표시
+  │                           ├─ [Continue chatting] 단일 버튼
+  │                           └─ [✕ 닫기] → Landing 콘텐츠 표시
   │
   └─ NO (신규) ──> [신규 흐름]
-                    ├─ [주력] "Start chatting" → Results (점진적 개인화, VP-3)
-                    └─ [보조] "Set up my profile" → Onboarding (선택적 사전 프로필)
+                    └─ [Start chatting] → 인라인 동의 → /chat (VP-3 점진적 개인화)
 ```
+
+> **v0.2 범위**: "Set up my profile" 보조 CTA + Onboarding 폼 + Profile 페이지는 이메일 로그인 도입 시 활성화. `mvp-flow-redesign.md` §3 참조.
 
 ### 데이터 수집
 - RT-2 (현재 시간): 자동
@@ -182,9 +187,11 @@ Landing 진입
 - 식별 정보(쿠키/anonymous UUID) 소실 시 신규 사용자로 처리
 - 이전 데이터는 서버에 잔존하나 연결 불가. 복구는 v0.2(계정)에서 제공
 
-## 3.3 Onboarding 화면 (선택적 사전 프로필)
+## 3.3 Onboarding 화면 (선택적 사전 프로필) — v0.2 범위
 
-### 진입 조건
+> **v0.2 범위**: 본 섹션 전체는 이메일 로그인(v0.2) 도입 후 활성화. MVP는 Chat-First 단일 경로 — 온보딩은 채팅 내 AI 대화로 수행 (VP-3 + extract_user_profile). 코드(client/features/onboarding/)는 구현 완료, 라우트 비활성 상태. `mvp-flow-redesign.md` §3 참조.
+
+### 진입 조건 (v0.2)
 - 신규 사용자: "Set up my profile" 선택 (보조 CTA)
 - 재방문 사용자: "프로필 수정" 선택
 
@@ -329,7 +336,7 @@ Landing 진입
 
 ```
 ┌─────────────────────────┐
-│ [← 프로필] [에센리 로고] │
+│  [에센리 로고]  [EN ▾]   │
 │                          │
 │  Hi there                │
 │  Based on your profile—  │
@@ -370,7 +377,7 @@ Landing 진입
 | Eats | DOM-4 | DiningCard |
 | Exp | DOM-5 | ExperienceCard |
 
-### 경로B (프로필 없이 진입) 특별 처리
+### Chat 초기 상태 (MVP 기본 진입)
 
 ```
 ┌─────────────────────────┐
@@ -487,32 +494,40 @@ Results 화면 내 또는 이후. 핵심 흐름의 외부.
 
 ## 3.7 흐름 전환 조건 요약
 
-| From | To | 조건 |
-|---|---|---|
-| Landing | Results (Chat) | 신규 + "Start chatting" (주력 CTA) |
-| Landing | Onboarding | 신규 + "Set up my profile" (보조 CTA) |
-| Landing | Profile Confirm | 재방문 + "프로필 확인" |
-| Landing | Results | 재방문 + "바로 대화" |
-| Onboarding | Profile Transition | 4단계 완료 + "Generate profile" |
-| Profile Transition | Profile Confirm | AI 프로필 계산 완료 |
-| Profile Confirm | Results | "Show my picks" |
-| Profile Confirm | Onboarding | "Edit profile" |
-| Results | Kit CTA | 에센리 하이라이트 카드 탭 (유일한 트리거) |
-| Results | External Link | 카드 내 외부 링크 클릭 |
-| Kit CTA | Kit CTA Success | 이메일 제출 |
-| Kit CTA Success | Results | "Back to results" |
-| Kit CTA | Results | "Back to results" (미제출 시) |
+| From | To | 조건 | MVP |
+|---|---|---|---|
+| Landing | Chat | 신규 + "Start chatting" → 동의 → 세션 생성 | ✅ |
+| Landing | Chat | 재방문 + "Continue chatting" | ✅ |
+| Chat | Kit CTA | 에센리 하이라이트 카드 탭 (유일한 트리거) | ✅ |
+| Chat | External Link | 카드 내 외부 링크 클릭 | ✅ |
+| Kit CTA | Kit CTA Success | 이메일 제출 | ✅ |
+| Kit CTA Success | Chat | "Back to chat" | ✅ |
+| Kit CTA | Chat | "Back to chat" (미제출 시) | ✅ |
+| Landing | Onboarding | "Set up my profile" (보조 CTA) | v0.2 |
+| Onboarding | Profile Transition | 4단계 완료 + "Generate profile" | v0.2 |
+| Profile Transition | Profile Confirm | AI 프로필 계산 완료 | v0.2 |
+| Profile Confirm | Chat | "Show my picks" | v0.2 |
+| Profile Confirm | Onboarding | "Edit profile" | v0.2 |
 
-## 3.8 경로별 데이터 상태 요약
+## 3.8 데이터 상태 요약
 
-| 시점 | 경로A (온보딩) | 경로B (즉시 대화) |
+### MVP (Chat-First 단일 경로)
+
+| 시점 | 데이터 상태 |
+|---|---|
+| Landing | UP-3(언어), RT-2(시간) — 자동 수집 |
+| Chat 진입 | 최소 정보로 시작 (VP-3 점진적 개인화) |
+| 대화 진행 중 | UP/JC 점진적 추출 (extract_user_profile) + BH-4 누적 |
+| 프로필 저장 | UP-1 + JC-1(1개+) 추출 시 → DB 자동 저장 (afterWork) |
+| 추천 요청 시 | DV-1/DV-2 검색 시점 계산 (beauty/ 순수 함수) |
+
+### v0.2 (온보딩 폼 경로 추가 시)
+
+| 시점 | 경로A (온보딩 폼) | 경로B (Chat 직행) |
 |---|---|---|
-| Landing | UP-3(언어), RT-2(시간) | UP-3(언어), RT-2(시간) |
 | Onboarding 완료 | UP-1~4, JC-1~5 수집 완료 | — |
 | Profile 생성 | DV-1~4 계산 완료 | — |
-| Results 진입 | 전체 개인화 적용 | 최소 정보로 시작 |
-| 대화 진행 중 | BH-4 누적 | UP/JC 점진적 추출 + BH-4 누적 |
-| 프로필 저장 제안 | — | UP-1 + JC-1(1개+) 추출 시 → "프로필 저장할까요?" 제안 |
+| Chat 진입 | 전체 개인화 적용 | 최소 정보로 시작 |
 
 ## 3.9 에러 / 엣지 케이스
 
@@ -782,7 +797,7 @@ Anonymous 사용자 데이터 삭제 경로:
 | 언어 | 영어 UI (1차) → 6개 언어 UI (v0.2) |
 | 도메인 | DOM-1 (쇼핑) + DOM-2 (시술) — §2.1 중 2개 |
 | Action | Stage 1 (F1 + F2) — §2.2 |
-| 사용자 흐름 | 경로A + 경로B — §3.2~3.4. 신규 + 쿠키 기반 간이 재방문. |
+| 사용자 흐름 | Chat-First 단일 경로 — §3.2~3.4. Landing → Chat. 온보딩 폼은 v0.2. 쿠키 기반 재방문. |
 | 전환 | Kit CTA — §3.6 |
 | 인증 | anonymous만 — §4-C |
 
@@ -861,7 +876,7 @@ Anonymous 사용자 데이터 삭제 경로:
 
 | 지표 | 목표 | 측정 방법 |
 |---|---|---|
-| 온보딩 완료율 | > 60% | 경로A 진입자 중 프로필 생성 완료 비율 (= 프로필 생성 완료 / 경로A 진입) |
+| 온보딩 완료율 | > 60% | Chat 세션 대비 프로필 생성 완료 비율 (= user_profiles 생성 / conversations 생성). MVP Chat-First 기준 |
 | 대화 턴 수 | 평균 5+ 턴 | 세션당 사용자 메시지 수 |
 | 카드 클릭률 | > 30% | 카드 노출 대비 클릭 비율 (= 카드 클릭 / 카드 노출) |
 | Kit CTA 전환 | > 5% | 전체 세션 대비 이메일 제출 비율 (= 이메일 제출 / 전체 세션) |

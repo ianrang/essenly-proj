@@ -39,7 +39,7 @@ PRD §5.6에 정의된 6개 MVP 성공 지표(KPI)의 **측정 도구와 구현 
 
 | # | KPI (PRD §5.6) | 분자 | 분모 | 필요 데이터 |
 |---|----------------|------|------|------------|
-| K1 | 온보딩 완료율 | 프로필 생성 완료 | 경로A 진입 | ① `path_a_entry` 이벤트 ② `user_profiles` 생성 기록 |
+| K1 | 온보딩 완료율 | 프로필 생성 완료 | Chat 세션 시작 | ① `user_profiles` 생성 기록 ② `conversations` 레코드 수. MVP Chat-First: `path_a_entry` 미발생 → 분모를 Chat 세션으로 대체 |
 | K2 | 대화 턴 수 | 사용자 메시지 합계 | 대화 수 | `messages` 테이블 (role='user') — 기존 DB |
 | K3 | 카드 클릭률 | 카드 클릭 | 카드 노출 | ① `card_exposure` 이벤트 ② `card_click` 이벤트 |
 | K4 | Kit CTA 전환 | 이메일 제출 | 전체 대화 수 | ① `kit_cta_submit` 이벤트 ② `conversations` 레코드 수 |
@@ -65,7 +65,9 @@ PRD §5.6에 정의된 6개 MVP 성공 지표(KPI)의 **측정 도구와 구현 
 
 ## 3.2 KPI 이벤트 상세 (5개) — P1-56
 
-### `path_a_entry` — 온보딩 경로 진입
+### `path_a_entry` — 온보딩 경로 진입 — v0.2 보류
+
+> **v0.2 보류**: MVP Chat-First에서 "Set up my profile" CTA가 제거되어 이 이벤트는 발화되지 않음. v0.2(이메일 로그인 + 프로필 CTA 복귀) 시 재활성화. 이벤트 정의는 보존.
 
 | 속성 | 타입 | 필수 | 값 제약 | 설명 |
 |------|------|------|---------|------|
@@ -78,7 +80,7 @@ PRD §5.6에 정의된 6개 MVP 성공 지표(KPI)의 **측정 도구와 구현 
 |------|------|------|---------|------|
 | source | string | 필수 | `"landing"` | 진입 경로 출처 |
 
-**발화 시점**: Landing 페이지에서 "Set up my profile" (보조 CTA, 선택적 사전 프로필) 클릭 즉시.
+**발화 시점**: Landing 페이지에서 "Set up my profile" (보조 CTA) 클릭 즉시. (v0.2)
 
 **zod 검증:**
 ```typescript
@@ -284,15 +286,27 @@ z.object({
 
 ## K1: 온보딩 완료율 (목표 >60%)
 
+### MVP (Chat-First)
+
 ```
-측정식: COUNT(user_profiles created in period) / COUNT(behavior_logs WHERE event_type='path_a_entry' in period)
-데이터: behavior_logs (path_a_entry) + user_profiles (created_at)
+측정식: COUNT(user_profiles created in period) / COUNT(conversations created in period)
+데이터: user_profiles (created_at) + conversations (created_at)
 집계: 일간/주간
 ```
 
-- 분자: `user_profiles` 레코드 생성 = 온보딩 4단계 완료 + 프로필 생성
-- 분모: Landing에서 "Set up my profile" 클릭 시 `path_a_entry` 이벤트 기록
-- 경로B 사용자는 분모에 포함되지 않음 (PRD §5.6 정의와 일치)
+- 분자: `user_profiles` 레코드 생성 = Chat 내 AI 온보딩으로 프로필 자동 저장 (afterWork)
+- 분모: Chat 세션 시작 = `conversations` 레코드 생성
+- MVP Chat-First: 모든 사용자가 Chat으로 진입하므로 전체 세션이 분모
+
+### v0.2 (온보딩 폼 복귀 시)
+
+```
+측정식: COUNT(user_profiles created in period) / COUNT(behavior_logs WHERE event_type='path_a_entry' in period)
+데이터: behavior_logs (path_a_entry) + user_profiles (created_at)
+```
+
+- 분모: Landing에서 "Set up my profile" 클릭 시 `path_a_entry` 이벤트
+- Chat-First 사용자는 분모에 포함되지 않음 (폼 온보딩 전환율만 측정)
 
 ## K2: 대화 턴 수 (목표 avg 5+)
 
@@ -352,7 +366,7 @@ z.object({
 
 - `conversations.locale TEXT` 컬럼: schema.dbml v2.1에서 추가 완료
 - URL locale = 사용자가 선택한 UI 언어를 대리 지표로 사용. 대화 내 실제 사용 언어 감지는 v0.2+ 범위
-- URL locale 기반 → 경로A/B 모두 포함 (user_profiles.language는 경로B 사용자 누락 가능)
+- URL locale 기반 → 모든 사용자 포함 (MVP Chat-First 단일 경로)
 - 목표 "2+ 언어": 영어 외 1개 이상 언어에서 유의미한 대화 발생 여부
 
 ---

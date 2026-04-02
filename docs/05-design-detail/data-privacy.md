@@ -27,13 +27,13 @@
 
 **Landing → 세션 생성 흐름:**
 ```
-1. 사용자 CTA 버튼 클릭 ("Start chatting" 또는 "Set up my profile")
+1. 사용자 CTA 버튼 클릭 ("Start chatting")
 2. Hero 영역 내 인라인 동의 확인 표시
 3. 사용자 "Continue" 클릭
 4. 클라이언트: POST /api/auth/anonymous { consent: { data_retention: true } }
 5. 서버: signInAnonymously() → users INSERT → consent_records INSERT
 6. 응답: { user_id, session_token }
-7. 클라이언트: session_token을 localStorage에 저장 + 선택한 경로로 이동
+7. 클라이언트: session_token을 localStorage에 저장 + /[locale]/chat으로 이동
 ```
 
 **Kit CTA 마케팅 동의 흐름:**
