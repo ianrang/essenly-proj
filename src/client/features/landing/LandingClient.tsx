@@ -19,6 +19,7 @@ type LandingState = "loading" | "new" | "consented" | "returning";
 export default function LandingClient({ locale }: LandingClientProps) {
   const [state, setState] = useState<LandingState>("loading");
   const [isConsenting, setIsConsenting] = useState(false);
+  const [bannerDismissed, setBannerDismissed] = useState(false);
 
   useEffect(() => {
     async function checkSession() {
@@ -69,7 +70,9 @@ export default function LandingClient({ locale }: LandingClientProps) {
         <BenefitsSection />
         <TrustSection />
       </main>
-      {state === "returning" && <ReturnVisitBanner locale={locale} />}
+      {state === "returning" && !bannerDismissed && (
+        <ReturnVisitBanner locale={locale} onClose={() => setBannerDismissed(true)} />
+      )}
     </div>
   );
 }

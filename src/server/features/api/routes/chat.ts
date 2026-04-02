@@ -5,7 +5,7 @@ import { requireAuth } from '../middleware/auth';
 import { rateLimit } from '../middleware/rate-limit';
 import { errorResponseSchema } from '../schemas/common';
 import type { UserProfile, Journey } from '@/shared/types/profile';
-import { getProfile } from '@/server/features/profile/service';
+import { getProfile, createMinimalProfile, updateProfile } from '@/server/features/profile/service';
 import { getActiveJourney } from '@/server/features/journey/service';
 import { streamChat } from '@/server/features/chat/service';
 import { loadRecentMessages } from '@/server/core/memory';
@@ -212,15 +212,27 @@ export function registerChatRoutes(app: AppType) {
           // TODO(P2-24): step 9 히스토리 저장 — AI SDK onFinish 콜백에서 saveMessages 호출
           // TODO(P2-26): step 10 행동 로그 — behavior service에서 처리
 
-          // step 11: 추출 결과 조건부 저장
-          if (result.extractionResults.length > 0 && profile) {
-            for (const extraction of result.extractionResults) {
-              if (extraction.skin_type) {
-                await serviceClient
-                  .from('user_profiles')
-                  .update({ skin_type: extraction.skin_type })
-                  .eq('user_id', user.id);
+          // step 11: 추출 결과 저장 (Chat-First 온보딩 — mvp-flow-redesign.md §2.1)
+          if (result.extractionResults.length > 0) {
+            // 프로필 미존재 시 최소 프로필 생성 (Chat-First: 온보딩 스킵 가능)
+            if (!profile) {
+              try {
+                // TODO(v0.2): derive locale from request (Accept-Language or chat body)
+                await createMinimalProfile(serviceClient, user.id, 'en');
+              } catch {
+                // PK 충돌 = 동시 요청으로 이미 생성됨 → updateProfile로 진행
               }
+            }
+
+            // 추출된 필드 집계 (마지막 추출 결과 우선)
+            const updates: Record<string, unknown> = {};
+            for (const extraction of result.extractionResults) {
+              if (extraction.skin_type !== null) updates.skin_type = extraction.skin_type;
+              if (extraction.age_range !== null) updates.age_range = extraction.age_range;
+            }
+
+            if (Object.keys(updates).length > 0) {
+              await updateProfile(serviceClient, user.id, updates);
             }
           }
         } catch (error) {

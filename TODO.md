@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 60      | 60      | 100%    | ✅      |
-| Phase 2    | 102     | 52      | 51%     | 🔶 진행중 |
+| Phase 2    | 104     | 52      | 50%     | 🔶 진행중 |
 | Phase 3    | 36      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **247** | **161** | **65%** |        |
+| **MVP 합계** | **249** | **161** | **65%** |        |
 
 
 **✅ Gate 0 통과 (2026-03-21) → Phase 1 (MVP 설계) 착수 준비**
@@ -342,18 +342,20 @@
 | P2-30 | 에러 바운더리 + 에러 화면           | error.tsx (role="alert" + 포커스 이동 + reset), not-found.tsx (404). i18n. Full-page 에러만                            | —           | ✅   |
 | P2-31 | Header + LanguageSelector | 공유 앱 Header(props 기반 좌측 컨텍스트) + shadcn Select LanguageSelector + LanguageContext(대화 언어)                        | P2-29       | ✅   |
 | P2-32 | Landing 페이지               | 풀 너비 마케팅 랜딩 7컴포넌트 + (app)/ 라우트 그룹 분리 + CTA 인라인 동의 + ReturnVisitBanner(프로필) + 그래디언트 애니메이션                       | P2-29       | ✅   |
-| P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | Step 1~4 (피부/헤어, 고민, 여행, 관심). react-hook-form + OptionGroup + ProgressBar + localStorage 백업                    | P2-29       | ✅   |
-| P2-34 | 프로필 전환/확인 화면              | ProfileTransition 3단계 체크 애니메이션 + ProfileCard(UP+JC) + ProfileClient(로딩/에러/404) + Edit/ShowPicks 버튼             | P2-29       | ✅   |
+| P2-33 | 온보딩 페이지 + 4단계 컴포넌트        | ✅ 코드 완료. **MVP에서 비활성** — 라우트 파일 유지, Landing 진입 경로 없음. v0.2(이메일 로그인)에서 활성화. mvp-flow-redesign.md §3 참조      | P2-29       | ✅   |
+| P2-34 | 프로필 전환/확인 화면              | ✅ 코드 완료. **MVP에서 비활성** — 라우트 파일 유지, Landing 진입 경로 없음. v0.2(이메일 로그인)에서 활성화. mvp-flow-redesign.md §3 참조      | P2-29       | ✅   |
 | P2-39 | HighlightBadge 컴포넌트       | VP-1 비개입 시각 강조. is_highlighted+badge 조건부 렌더링. teal 토큰. 다국어 폴백                                                  | P2-29       | ✅   |
-| P2-36 | 5영역 탭 바                   | 🔶 **MVP 보류**: Chat에서 TabBar 제거. 대화 흐름 내 AI 카드 삽입 방식이 VP-4에 부합. v0.2에서 필요성 재검토 (PRD §3.4 탭 구성 보류 참조) | P2-29       | 🔶  |
+| P2-36 | 5영역 탭 바                   | 🔶 **MVP 보류**: Chat에서 TabBar 제거. en.json `tabs` 키 유지 (TabBar.tsx 참조). 대화 흐름 내 AI 카드 삽입 방식이 VP-4에 부합. v0.2에서 필요성 재검토 (PRD §3.4 탭 구성 보류 참조) | P2-29       | 🔶  |
 | P2-37 | ProductCard 컴포넌트          | 4상태(normal/highlighted/skeleton/img-error) + HighlightBadge + localized() + Skeleton                              | P2-39       | ✅   |
 | P2-38 | TreatmentCard 컴포넌트        | 시술 카드(가격 범위/시간/다운타임 경고 coral) + HighlightBadge + localized() 공용 추출                                             | P2-39       | ✅   |
 | P2-35 | Chat 인터페이스                | AI SDK v6 useChat + MessageBubble/List + InputBar(visualViewport) + SuggestedQuestions(경로B) + StreamingIndicator + TabBar | P2-36~P2-38 | ✅   |
 | P2-46 | MVP 흐름 재설계 — 설계 확정         | Chat-First 단일 경로 설계 문서 작성 완료. Landing 단일 CTA + 채팅 내 온보딩 + 카드 결과 + Kit CTA. 프로필/이메일 로그인 v0.2 연기. 설계: `mvp-flow-redesign.md` | P2-35       | ✅   |
-| P2-47 | Landing 단일 CTA 적용          | HeroSection 보조 CTA 제거 → "Start chatting" 단일. ReturnVisitBanner "Continue chatting" 단일. en.json 텍스트 조정. ChatInterface hasProfile 분기 제거 | P2-46       | ⬜   |
-| P2-48 | PRD/설계 문서 v0.2 범위 동기화     | PRD §3.2~3.4 단일 CTA 확정 반영. §3.3 온보딩/§5.2 프로필 → v0.2 명시. user-screens §3/§6 동기화. data-privacy, ANALYTICS 동기화 | P2-46       | ⬜   |
-| P2-40 | Kit CTA 컴포넌트              | KitCtaCard + KitCtaSheet(Bottom sheet). Chat 내 인라인 (user-screens §6.6). Drawer 프리미티브 추가                       | P2-47       | ⬜   |
-| P2-49 | "Show recommendations" 버튼 | 채팅 내 온보딩 완료 후 액션 버튼. SuggestedQuestions 패턴 재사용. 클릭 → 추천 요청 자동 전송. 카드 통합(P3) 시 함께 구현               | P2-40, P3   | ⬜   |
+| P2-47 | Landing 단일 CTA + Chat-First 적용 | **UI 변경**: (1) HeroSection 보조 CTA("Set up my profile") 제거 → "Start chatting" 단일. `pathB` 키는 en.json에 유지(v0.2 재사용), 버튼만 제거 (2) ReturnVisitBanner "View my profile" 버튼 제거 → "Continue chatting" 단일 + **닫기 버튼 추가** (Landing 콘텐츠 접근 보장) (3) `ctaDescription` 텍스트 → "Chat with our AI guide — no signup needed" (4) ChatInterface `hasProfile` 상태 + `/api/profile` fetch 제거 → SuggestedQuestions 항상 표시 (5) `/onboarding`, `/profile` 라우트 파일은 유지 (v0.2 재사용) — Landing 진입 경로만 제거. **백엔드 변경**: (6) `features/api/routes/chat.ts` afterWork — 프로필 INSERT 분기 추가 (기존 UPDATE만 → profile===null 시 INSERT). 채팅 내 온보딩으로 추출된 프로필이 DB에 저장되도록 보장 (~15줄) | P2-46       | ⬜   |
+| P2-48 | PRD/설계 문서 v0.2 범위 동기화     | **PRD 변경 범위**: (1) §3.2 분기 로직 — 재방문 흐름 "[프로필 확인]+[바로 대화]" → "Continue chatting" 단일 (2) §3.3 본문 — v0.2 범위 명시 부족, 전체 섹션에 v0.2 스코프 주석 추가 (3) §3.4 헤더 "[← 프로필]" → "[← Landing]" 또는 제거 (MVP에 프로필 없음) (4) §3.4 "경로B" 표현 → MVP 유일 경로로 재기술 (5) §3.7 흐름 전환 표 — Onboarding/Profile 경로 v0.2 명시 (6) §3.8 경로별 데이터 상태 — "경로A" 컬럼 v0.2 명시. **기타 문서**: user-screens §3/§6, data-privacy, ANALYTICS 동기화 | P2-46       | ⬜   |
+| P2-51 | Chat 카드 렌더링 파이프라인         | ChatInterface에서 `tool-result` 파트를 ProductCard/TreatmentCard로 렌더링. **현재 `text` 파트만 처리, tool-result 폐기 중**. 변경: (1) ChatMessage 타입 확장 — string content → parts 배열 (text + card) (2) MessageList/MessageBubble에서 card 파트 렌더링 (3) tool-result JSON → ProductCard/TreatmentCard props 매핑 (4) is_highlighted 감지 → KitCtaCard 삽입 트리거 준비. VP-4(대화+카드 하이브리드) 핵심. user-screens §6.1 컴포넌트 트리 참조 | P2-47       | ⬜   |
+| P2-40 | Kit CTA 컴포넌트 (UI만)        | KitCtaCard + KitCtaSheet(Bottom sheet/Drawer). **UI 컴포넌트만 구현**. Chat 내 인라인 삽입은 P2-51(카드 렌더링) 이후 연동. user-screens §6.6 참조 | P2-51       | ⬜   |
+| P2-49 | "Show recommendations" 버튼 | 채팅 내 온보딩 완료 후 액션 버튼. SuggestedQuestions 패턴 재사용. 클릭 → 추천 요청 자동 전송. **P2-51(카드 렌더링) 선행 필요** — 카드 인라인 삽입 기능이 있어야 추천 결과 표시 가능 | P2-51       | ⬜   |
+| P2-50 | Chat 히스토리 클라이언트 로드        | ChatInterface 마운트 시 P2-24 API(GET /api/chat/history) 호출 → 기존 대화 로드. 세션 쿠키 기반. **대화방 목록/전환은 v0.2** — MVP는 마지막 대화 1개만 이어가기 | P2-47       | ⬜   |
 | P2-43 | 면책 조항 페이지                 | 시술 추천 면책, 의료 조언 아닌 정보 제공 명시                                                                                    | P2-29       | ⬜   |
 | P2-44 | 이용약관 + 개인정보처리방침 페이지       | 서비스 이용약관, 데이터 수집/보관/삭제 정책                                                                                      | P2-29       | ⬜   |
 | P2-45 | 동의 시점 채팅 내 이동 검토           | Landing 동의 → Chat 첫 메시지 전 동의로 이동. ChatInterface 내 동의 UI + 세션 생성. data-privacy §1.2 연동. 별도 검토 태스크        | P2-47       | ⬜   |
@@ -364,22 +366,25 @@
 ## 관리자 앱 — MVP (병렬 가능)
 
 
-| ID     | 작업                 | 상세                                                                                                                                 | 상태  |
-| ------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | --- |
-| P2-45  | 관리자 인증 서비스 + API   | 로그인, 세션, 권한 확인 (api-spec.md §6)                                                                                                    | ⬜   |
-| P2-46  | 제네릭 CRUD 서비스       | `features/admin/service.ts` + withAuditLog 미들웨어 + 7엔티티 zod 스키마 + CRUD 후 비동기 임베딩 재생성 연동 (api-spec.md §5.1, embedding-strategy §3.4) | ⬜   |
-| P2-46a | 복합 엔티티 라우트         | Product/Store/Treatment/Clinic CRUD 라우트 + 하이라이트 API(§5.3) + 관계 API(§5.2). P2-16/16a/17/17a 리포지토리 의존                                | ⬜   |
-| P2-46b | 단순 엔티티 라우트         | Brand/Ingredient/Doctor CRUD 라우트 + 리포지토리 생성 포함 (findAll/findById/create/update/deactivate, query-utils.ts 재사용)                     | ⬜   |
-| P2-47  | 이미지 업로드 서비스 + API  | Product/Store/Clinic/Treatment 4엔티티. Supabase Storage + magic bytes 검증 + 순서 관리 (api-spec.md §5.4)                                  | ⬜   |
-| P2-48  | 감사 로그 조회 API       | `GET /api/admin/audit-logs` + audit-service.ts. super_admin 전용, 날짜/액터/액션 필터 (api-spec.md §6.6). 기록은 P2-46 withAuditLog가 담당         | ⬜   |
-| P2-49  | 관리자 레이아웃 + 로그인 페이지 | admin 라우트 레이아웃, 인증 UI                                                                                                              | ⬜   |
-| P2-50  | 관리자 대시보드 (간단)      | 엔티티별 데이터 건수, 최근 변경                                                                                                                 | ⬜   |
-| P2-51  | 관리자 공통 컴포넌트 — 목록   | 테이블, 검색, 필터, 페이지네이션                                                                                                                | ⬜   |
-| P2-52  | 관리자 공통 컴포넌트 — 폼    | 폼 필드, JSONB 다국어 입력, 이미지 업로드                                                                                                        | ⬜   |
-| P2-53a | 복합 엔티티 CRUD 페이지    | Product, Store, Clinic, Treatment — 이미지+관계+하이라이트 포함 (P2-46a 대응)                                                                    | ⬜   |
-| P2-53b | 단순 엔티티 CRUD 페이지    | Brand, Ingredient, Doctor — 기본 CRUD (P2-46b 대응)                                                                                    | ⬜   |
-| P2-54  | 관계 관리 UI           | Product↔Store, Product↔Ingredient, Clinic↔Treatment                                                                                | ⬜   |
-| P2-55  | 하이라이트 관리 UI        | is_highlighted 토글 + badge 텍스트                                                                                                      | ⬜   |
+> ID 재부여 (2026-04-02): 사용자 앱 UI P2-45~P2-50과 충돌 해소. 기존 P2-45~P2-55 → P2-80~P2-90 이동. 설계 문서 내 구 ID 참조는 괄호로 병기.
+
+
+| ID      | 작업                 | 상세                                                                                                                                 | 상태  |
+| ------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | --- |
+| P2-80   | 관리자 인증 서비스 + API   | 로그인, 세션, 권한 확인 (api-spec.md §6). (구 P2-45)                                                                                        | ⬜   |
+| P2-81   | 제네릭 CRUD 서비스       | `features/admin/service.ts` + withAuditLog 미들웨어 + 7엔티티 zod 스키마 + CRUD 후 비동기 임베딩 재생성 연동 (api-spec.md §5.1, embedding-strategy §3.4). (구 P2-46) | ⬜   |
+| P2-81a  | 복합 엔티티 라우트         | Product/Store/Treatment/Clinic CRUD 라우트 + 하이라이트 API(§5.3) + 관계 API(§5.2). P2-16/16a/17/17a 리포지토리 의존. (구 P2-46a)                    | ⬜   |
+| P2-81b  | 단순 엔티티 라우트         | Brand/Ingredient/Doctor CRUD 라우트 + 리포지토리 생성 포함 (findAll/findById/create/update/deactivate, query-utils.ts 재사용). (구 P2-46b)         | ⬜   |
+| P2-82   | 이미지 업로드 서비스 + API  | Product/Store/Clinic/Treatment 4엔티티. Supabase Storage + magic bytes 검증 + 순서 관리 (api-spec.md §5.4). (구 P2-47)                       | ⬜   |
+| P2-83   | 감사 로그 조회 API       | `GET /api/admin/audit-logs` + audit-service.ts. super_admin 전용, 날짜/액터/액션 필터 (api-spec.md §6.6). 기록은 P2-81 withAuditLog가 담당. (구 P2-48) | ⬜   |
+| P2-84   | 관리자 레이아웃 + 로그인 페이지 | admin 라우트 레이아웃, 인증 UI. (구 P2-49)                                                                                                   | ⬜   |
+| P2-85   | 관리자 대시보드 (간단)      | 엔티티별 데이터 건수, 최근 변경. (구 P2-50)                                                                                                     | ⬜   |
+| P2-86   | 관리자 공통 컴포넌트 — 목록   | 테이블, 검색, 필터, 페이지네이션. (구 P2-51)                                                                                                    | ⬜   |
+| P2-87   | 관리자 공통 컴포넌트 — 폼    | 폼 필드, JSONB 다국어 입력, 이미지 업로드. (구 P2-52)                                                                                            | ⬜   |
+| P2-88a  | 복합 엔티티 CRUD 페이지    | Product, Store, Clinic, Treatment — 이미지+관계+하이라이트 포함 (P2-81a 대응). (구 P2-53a)                                                        | ⬜   |
+| P2-88b  | 단순 엔티티 CRUD 페이지    | Brand, Ingredient, Doctor — 기본 CRUD (P2-81b 대응). (구 P2-53b)                                                                        | ⬜   |
+| P2-89   | 관계 관리 UI           | Product↔Store, Product↔Ingredient, Clinic↔Treatment. (구 P2-54)                                                                     | ⬜   |
+| P2-90   | 하이라이트 관리 UI        | is_highlighted 토글 + badge 텍스트. (구 P2-55)                                                                                           | ⬜   |
 
 
 ## 데이터 준비 — 사전 검증 (Phase 2 착수 전 필수)

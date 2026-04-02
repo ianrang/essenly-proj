@@ -155,4 +155,39 @@ describe('profile/service', () => {
       ).rejects.toThrow('Profile update failed');
     });
   });
+
+  describe('createMinimalProfile', () => {
+    it('정상: INSERT 호출 + language 설정', async () => {
+      const mockInsert = vi.fn().mockResolvedValue({ error: null });
+      const client = { from: vi.fn(() => ({ insert: mockInsert })) };
+
+      const { createMinimalProfile } = await import(
+        '@/server/features/profile/service'
+      );
+      await createMinimalProfile(client as never, 'user-456', 'en');
+
+      expect(client.from).toHaveBeenCalledWith('user_profiles');
+      expect(mockInsert).toHaveBeenCalledWith(
+        expect.objectContaining({
+          user_id: 'user-456',
+          language: 'en',
+        }),
+      );
+    });
+
+    it('PK 충돌 시 throw + Supabase 에러 메시지 포함', async () => {
+      const mockInsert = vi.fn().mockResolvedValue({
+        error: { message: 'duplicate key value violates unique constraint' },
+      });
+      const client = { from: vi.fn(() => ({ insert: mockInsert })) };
+
+      const { createMinimalProfile } = await import(
+        '@/server/features/profile/service'
+      );
+
+      await expect(
+        createMinimalProfile(client as never, 'user-456', 'en'),
+      ).rejects.toThrow('Minimal profile creation failed: duplicate key value violates unique constraint');
+    });
+  });
 });

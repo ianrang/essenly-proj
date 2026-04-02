@@ -136,19 +136,25 @@ AI 인사 메시지 + SuggestedQuestions (제안 질문 3개)
 ## 6. 기존 코드 영향 분석
 
 ### 건들지 않는 코드
-- server/ 전체 (core, features, api)
+- server/core/ 전체
 - shared/ 전체
 - client/features/onboarding/ 전체 (v0.2 재사용)
 - client/features/profile/ 전체 (v0.2 재사용)
 - /onboarding, /profile 라우트 (v0.2에서 활성화)
 - DB, 마이그레이션, package.json
 
-### 변경하는 코드
-- HeroSection.tsx: 보조 CTA 제거 → 단일 CTA
-- ReturnVisitBanner.tsx: 프로필 버튼 제거 → 단일 버튼
-- ChatInterface.tsx: hasProfile 분기 제거 (항상 SuggestedQuestions 표시)
-- messages/en.json: CTA 설명 텍스트 조정
+### 변경하는 코드 (P2-47 구현 계획)
+- HeroSection.tsx: 보조 CTA 제거 → 단일 CTA [P2-47]
+- ReturnVisitBanner.tsx: 프로필 버튼 제거 → 단일 버튼 + 닫기 버튼 추가 [P2-47]
+- ChatInterface.tsx: hasProfile 분기 제거 (항상 SuggestedQuestions 표시) [P2-47]
+- messages/en.json: CTA 설명 텍스트 조정 [P2-47]
+- features/api/routes/chat.ts: afterWork 프로필 INSERT 분기 추가 (profile===null 시 INSERT) [P2-47]
 - LandingClient.tsx: 변경 없음 (handleConsent 로직 유지)
+
+### 추가 구현 (P2-51)
+- ChatInterface.tsx: tool-result 파트 → ProductCard/TreatmentCard 인라인 렌더링 [P2-51]
+- MessageList/MessageBubble: card 파트 타입 지원 [P2-51]
+- is_highlighted 감지 → KitCtaCard 삽입 트리거 [P2-51 → P2-40]
 
 ---
 

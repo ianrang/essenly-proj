@@ -151,6 +151,25 @@ input, textarea, select {
   font-size: 16px;
 }
 
+/* ── Scrollbar (thin, minimal) ── */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted-foreground) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--muted-foreground);
+  border-radius: var(--radius-full);
+}
+
 /* ── Animations ── */
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }

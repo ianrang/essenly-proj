@@ -17,7 +17,6 @@ type ChatInterfaceProps = {
 
 export default function ChatInterface({ locale }: ChatInterfaceProps) {
   const t = useTranslations("chat");
-  const [hasProfile, setHasProfile] = useState<boolean | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(true);
 
   const transport = useMemo(
@@ -28,25 +27,6 @@ export default function ChatInterface({ locale }: ChatInterfaceProps) {
   const { messages, status, error, sendMessage } = useChat({ transport });
 
   const isStreaming = status === "streaming" || status === "submitted";
-
-  // 프로필 존재 여부 확인 (경로A vs 경로B 분기)
-  useEffect(() => {
-    const controller = new AbortController();
-    async function checkProfile() {
-      try {
-        const res = await fetch("/api/profile", {
-          credentials: "include",
-          signal: controller.signal,
-        });
-        setHasProfile(res.ok);
-      } catch (err) {
-        if (err instanceof DOMException && err.name === "AbortError") return;
-        setHasProfile(false);
-      }
-    }
-    checkProfile();
-    return () => controller.abort();
-  }, []);
 
   // 메시지가 전송되면 제안 질문 숨김
   useEffect(() => {
@@ -76,7 +56,7 @@ export default function ChatInterface({ locale }: ChatInterfaceProps) {
               <MessageBubble role="assistant">
                 {t("greeting")}
               </MessageBubble>
-              {showSuggestions && hasProfile === false && (
+              {showSuggestions && (
                 <SuggestedQuestions onSelect={handleSend} />
               )}
             </div>

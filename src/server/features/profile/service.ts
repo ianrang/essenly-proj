@@ -5,7 +5,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 // 프로필 서비스 — api-spec.md §2.3
 // R-5: shared/ 타입만 import. core/ import 없음 (client 파라미터 주입).
 // R-9: features/journey/ import 없음 (P-4 Composition Root에서 조합).
-// G-9: export 3개 (upsertProfile, getProfile, updateProfile).
+// G-9: export 4개 (upsertProfile, getProfile, updateProfile, createMinimalProfile).
 // L-14: ProfileData, ProfileRow export 안 함.
 // ============================================================
 
@@ -59,6 +59,30 @@ export async function upsertProfile(
 
   if (error) {
     throw new Error('Profile creation failed');
+  }
+}
+
+/**
+ * 최소 프로필 생성 (채팅 내 온보딩용).
+ * user_profiles 레코드가 없는 신규 사용자에게 extract_user_profile 결과 저장 전 호출.
+ * 필수 필드 language만 설정, 나머지는 DB default null.
+ * PK 충돌 시 에러 throw → 호출자(afterWork)에서 catch.
+ */
+export async function createMinimalProfile(
+  client: SupabaseClient,
+  userId: string,
+  language: string,
+): Promise<void> {
+  const { error } = await client
+    .from('user_profiles')
+    .insert({
+      user_id: userId,
+      language,
+      updated_at: new Date().toISOString(),
+    });
+
+  if (error) {
+    throw new Error(`Minimal profile creation failed: ${error.message}`);
   }
 }
 

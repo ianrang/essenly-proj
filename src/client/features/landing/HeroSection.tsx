@@ -19,22 +19,22 @@ export default function HeroSection({ state, onConsent, isConsenting, locale }: 
   const t = useTranslations("landing");
   const tc = useTranslations("consent");
   const router = useRouter();
-  const [pendingPath, setPendingPath] = useState<"profile" | "chat" | null>(null);
+  const [showConsent, setShowConsent] = useState(false);
 
   const ctaEnabled = state === "consented" || state === "returning";
 
-  async function handleCtaClick(path: "profile" | "chat") {
+  function handleCtaClick() {
     if (ctaEnabled) {
-      router.push(path === "profile" ? `/${locale}/onboarding` : `/${locale}/chat`);
+      router.push(`/${locale}/chat`);
       return;
     }
-    setPendingPath(path);
+    setShowConsent(true);
   }
 
   async function handleConsentConfirm() {
     const success = await onConsent();
-    if (success && pendingPath) {
-      router.push(pendingPath === "profile" ? `/${locale}/onboarding` : `/${locale}/chat`);
+    if (success) {
+      router.push(`/${locale}/chat`);
     }
   }
 
@@ -52,7 +52,7 @@ export default function HeroSection({ state, onConsent, isConsenting, locale }: 
           {t("subtitle")}
         </BodyText>
 
-        {pendingPath ? (
+        {showConsent ? (
           <div className="mx-auto max-w-[360px] lg:max-w-[480px]">
             <p className="mb-3 text-sm leading-relaxed text-foreground/70">
               {tc("consentNotice")}{" "}
@@ -67,7 +67,7 @@ export default function HeroSection({ state, onConsent, isConsenting, locale }: 
               <Button
                 variant="outline"
                 size="cta"
-                onClick={() => setPendingPath(null)}
+                onClick={() => setShowConsent(false)}
                 className="flex-1"
               >
                 {tc("cancel")}
@@ -83,30 +83,19 @@ export default function HeroSection({ state, onConsent, isConsenting, locale }: 
             </div>
           </div>
         ) : (
-          <>
-            <div className="mx-auto flex max-w-[360px] gap-3 lg:max-w-[480px]">
-              <Button
-                size="cta"
-                onClick={() => handleCtaClick("chat")}
-                disabled={state === "loading"}
-                className="flex-1"
-              >
-                {t("pathA")}
-              </Button>
-              <Button
-                variant="outline"
-                size="cta"
-                onClick={() => handleCtaClick("profile")}
-                disabled={state === "loading"}
-                className="flex-1"
-              >
-                {t("pathB")}
-              </Button>
-            </div>
-            <p className="mx-auto mt-2.5 max-w-[360px] text-center text-xs text-foreground/50 lg:max-w-[480px]">
+          <div className="mx-auto max-w-[360px] lg:max-w-[480px]">
+            <Button
+              size="cta"
+              onClick={handleCtaClick}
+              disabled={state === "loading"}
+              className="w-full"
+            >
+              {t("pathA")}
+            </Button>
+            <p className="mt-2.5 text-center text-xs text-foreground/50">
               {t("ctaDescription")}
             </p>
-          </>
+          </div>
         )}
       </div>
     </div>

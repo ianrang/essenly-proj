@@ -842,7 +842,7 @@ Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
 | treatments | - | repositories/treatment-repository.ts |
 | stores | - | repositories/store-repository.ts |
 | clinics | - | repositories/clinic-repository.ts |
-| admin CRUD (P2-46) | features/admin/service.ts | repositories/* |
+| admin CRUD (P2-81) | features/admin/service.ts | repositories/* |
 
 ---
 

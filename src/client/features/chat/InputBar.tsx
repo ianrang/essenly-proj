@@ -76,7 +76,7 @@ export default function InputBar({ onSend, disabled }: InputBarProps) {
           placeholder={t("placeholder")}
           disabled={disabled}
           rows={1}
-          className="flex-1 resize-none rounded-md border border-border bg-card px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/50 disabled:opacity-50"
+          className="scrollbar-thin flex-1 resize-none rounded-md border border-border bg-card px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/50 disabled:opacity-50"
           style={{ maxHeight: `${TEXTAREA_MAX_HEIGHT}px` }}
         />
         <Button
