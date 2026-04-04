@@ -8,7 +8,7 @@
 // ============================================================
 
 import { pipelineEnv } from "../../config";
-import { parseCsvFile } from "../csv-parser";
+import { parseCsvFile } from "../utils/csv-parser";
 import type { RawRecord } from "../types";
 
 // ── 상수 (G-10 매직넘버 금지) ──────────────────────────────

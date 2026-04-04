@@ -53,7 +53,7 @@ const { mockGenerateEntityId } = vi.hoisted(() => ({
   mockGenerateEntityId: vi.fn().mockReturnValue("mock-uuid-v5"),
 }));
 
-vi.mock("./id-generator", () => ({
+vi.mock("./utils/id-generator", () => ({
   generateEntityId: mockGenerateEntityId,
 }));
 

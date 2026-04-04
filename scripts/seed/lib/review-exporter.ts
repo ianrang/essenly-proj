@@ -9,7 +9,7 @@
 import { writeFileSync, readFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
-import { parseCsvFile, stringifyCsvRows } from "./csv-parser";
+import { parseCsvFile, stringifyCsvRows } from "./utils/csv-parser";
 
 import type {
   EntityType,

@@ -5,7 +5,7 @@
 // P-7: CSV 파싱은 csv-parser.ts에 위임 (단일 변경점).
 // ============================================================
 
-import { parseCsvFile, type CsvParseOptions } from "../csv-parser";
+import { parseCsvFile, type CsvParseOptions } from "../utils/csv-parser";
 import type { RawRecord, EntityType } from "../types";
 
 // ── 상수 (G-10 매직넘버 금지) ──────────────────────────────

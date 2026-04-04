@@ -9,12 +9,12 @@ vi.mock("../../config", () => ({
   pipelineEnv: mockPipelineEnv,
 }));
 
-vi.mock("../retry", () => ({
+vi.mock("../utils/retry", () => ({
   fetchWithRetry: vi.fn(),
 }));
 
 import { mapItemToRawRecord, searchMfdsFunctional } from "./mfds-functional";
-import { fetchWithRetry } from "../retry";
+import { fetchWithRetry } from "../utils/retry";
 
 const mockFetchWithRetry = vi.mocked(fetchWithRetry);
 

@@ -23,7 +23,7 @@ import type {
   PipelineResult,
 } from "./types";
 
-import { generateEntityId } from "./id-generator";
+import { generateEntityId } from "./utils/id-generator";
 import {
   translateFields,
   ALL_TARGET_LANGS,
@@ -215,6 +215,18 @@ function extractDistrictFromAddress(
   return DISTRICT_MAP[match[1]] ?? null;
 }
 
+/** placeUrl 등 URL 필드 → ExternalLink[] 변환 */
+function buildExternalLinks(
+  data: Record<string, unknown>,
+): Array<{ type: string; url: string; label?: string }> | null {
+  const links: Array<{ type: string; url: string; label?: string }> = [];
+  const placeUrl = data.placeUrl as string | undefined;
+  if (placeUrl) {
+    links.push({ type: "kakao_map", url: placeUrl });
+  }
+  return links.length > 0 ? links : null;
+}
+
 const FIELD_MAPPINGS: Partial<Record<EntityType, Record<string, FieldExtractor>>> = {
   ingredient: {
     inci_name: (data) => {
@@ -226,11 +238,13 @@ const FIELD_MAPPINGS: Partial<Record<EntityType, Record<string, FieldExtractor>>
     store_type: (data) => defaultStoreTypeClassifier.classify(data),
     district: (data) => extractDistrictFromAddress(data),
     english_support: (data) => data.english_support ?? "none",
+    external_links: (data) => buildExternalLinks(data),
   },
   clinic: {
     clinic_type: (data) => defaultClinicTypeClassifier.classify(data),
     district: (data) => extractDistrictFromAddress(data),
     english_support: (data) => data.english_support ?? "none",
+    external_links: (data) => buildExternalLinks(data),
   },
   treatment: {
     duration_minutes: (data: Record<string, unknown>) =>

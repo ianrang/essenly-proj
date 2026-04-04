@@ -9,12 +9,12 @@ vi.mock("../../config", () => ({
   pipelineEnv: mockPipelineEnv,
 }));
 
-vi.mock("../csv-parser", () => ({
+vi.mock("../utils/csv-parser", () => ({
   parseCsvFile: vi.fn(),
 }));
 
 import { mapRowToRawRecord, loadCosIngIngredients } from "./cosing-csv";
-import { parseCsvFile } from "../csv-parser";
+import { parseCsvFile } from "../utils/csv-parser";
 
 const mockParseCsvFile = vi.mocked(parseCsvFile);
 

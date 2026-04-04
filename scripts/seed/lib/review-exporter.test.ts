@@ -24,7 +24,7 @@ const { mockStringifyCsvRows, mockParseCsvFile } = vi.hoisted(() => ({
   mockParseCsvFile: vi.fn().mockReturnValue([]),
 }));
 
-vi.mock("./csv-parser", () => ({
+vi.mock("./utils/csv-parser", () => ({
   stringifyCsvRows: mockStringifyCsvRows,
   parseCsvFile: mockParseCsvFile,
 }));

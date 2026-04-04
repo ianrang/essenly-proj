@@ -59,7 +59,7 @@ function createMockClient(overrides?: {
 // ── imports ────────────────────────────────────────────────
 
 import { loadRecords, loadJunctions } from "./loader";
-import { generateEntityId } from "./id-generator";
+import { generateEntityId } from "./utils/id-generator";
 import type { ValidatedRecord } from "./types";
 
 // ── 헬퍼 ──────────────────────────────────────────────────

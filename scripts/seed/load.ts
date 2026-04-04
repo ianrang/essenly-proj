@@ -5,7 +5,7 @@
 
 import { readFileSync } from "node:fs";
 import { parseArgs, requireArg, splitArg } from "./parse-args";
-import { createPipelineClient } from "./lib/db-client";
+import { createPipelineClient } from "./lib/utils/db-client";
 import { loadRecords } from "./lib/loader";
 import type { LoadOptions } from "./lib/loader";
 import type { EntityType, ValidatedRecord } from "./lib/types";

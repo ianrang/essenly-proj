@@ -10,7 +10,7 @@ import { parseArgs } from "./parse-args";
 import { fetchAllRecords } from "./lib/fetch-service";
 import { enrichRecords } from "./lib/enrich-service";
 import { exportForReview } from "./lib/review-exporter";
-import { createPipelineClient } from "./lib/db-client";
+import { createPipelineClient } from "./lib/utils/db-client";
 import { loadRecords } from "./lib/loader";
 import { validateWithSchemas } from "./lib/entity-schemas";
 

@@ -8,7 +8,7 @@
 // ============================================================
 
 import { pipelineEnv } from "../../config";
-import { fetchWithRetry } from "../retry";
+import { fetchWithRetry } from "../utils/retry";
 import type { RawRecord } from "../types";
 
 // ── 상수 (G-10 매직넘버 금지) ──────────────────────────────

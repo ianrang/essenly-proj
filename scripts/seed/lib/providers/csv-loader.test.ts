@@ -1,12 +1,12 @@
 // @vitest-environment node
 import { describe, it, expect, vi } from "vitest";
 
-vi.mock("../csv-parser", () => ({
+vi.mock("../utils/csv-parser", () => ({
   parseCsvFile: vi.fn(),
 }));
 
 import { loadCsvAsRawRecords } from "./csv-loader";
-import { parseCsvFile } from "../csv-parser";
+import { parseCsvFile } from "../utils/csv-parser";
 
 const mockParseCsvFile = vi.mocked(parseCsvFile);
 
