@@ -1,12 +1,11 @@
 import 'server-only';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { UserProfile, Journey, LearnedPreference, DerivedVariables } from '@/shared/types/profile';
+import type { ModelMessage } from 'ai';
 import { tool, stepCountIs } from 'ai';
 import { z } from 'zod';
 import { callWithFallback } from './llm-client';
 import { buildSystemPrompt } from './prompts';
-import { loadRecentMessages } from '@/server/core/memory';
-import { TOKEN_CONFIG } from '@/shared/constants/ai';
 import { executeSearchBeautyData, type SearchToolContext } from './tools/search-handler';
 import { executeGetExternalLinks, type LinksToolContext } from './tools/links-handler';
 import {
@@ -30,6 +29,7 @@ export interface StreamChatParams {
   userId: string;
   conversationId: string | null;
   message: string;
+  history: ModelMessage[];             // L-3: route에서 UIMessage[] → convertToModelMessages() 변환하여 전달
   profile: UserProfile | null;         // L-3: route에서 조회하여 전달
   journey: Journey | null;             // L-3: route에서 조회하여 전달
   preferences: LearnedPreference[];    // L-3: route에서 조회하여 전달
@@ -53,10 +53,6 @@ export async function streamChat(params: StreamChatParams): Promise<StreamChatRe
 
   // step 3: conversation 조회 또는 생성
   const conversationId = await getOrCreateConversation(client, userId, params.conversationId);
-
-  // step 4: 히스토리 로드
-  const historyLimit = TOKEN_CONFIG.default.historyLimit;
-  const history = await loadRecentMessages(client, conversationId, historyLimit);
 
   // step 6: 시스템 프롬프트 구성
   const system = buildSystemPrompt({
@@ -105,8 +101,9 @@ export async function streamChat(params: StreamChatParams): Promise<StreamChatRe
   // step 7: tool 등록 + LLM 호출
   const tools = buildTools(searchContext, linksContext, extractionResults);
 
-  const messages = [
-    ...history.map(m => ({ role: m.role as 'user' | 'assistant', content: m.content })),
+  // step 4: 히스토리(route handler가 변환한 ModelMessage[]) + 새 메시지 조합
+  const messages: ModelMessage[] = [
+    ...params.history,
     { role: 'user' as const, content: message },
   ];
 

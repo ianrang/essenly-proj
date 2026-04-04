@@ -164,6 +164,7 @@ Table conversations {
   journey_id uuid [ref: > journeys.id, note: 'ON DELETE SET NULL. Nullable: Path B users may not have journey yet.']
   user_id uuid [not null, ref: > users.id, note: 'ON DELETE CASCADE. Intentional denormalization: needed for RLS when journey_id is null.']
   locale text [note: 'URL [locale] parameter at creation. K6 KPI measurement. e.g. en, ko, ja, zh, es, fr']
+  ui_messages jsonb [note: 'AI SDK UIMessage[] snapshot. Overwritten each turn via onFinish. Client restoration + card replay. P2-50b.']
   created_at timestamptz [default: `now()`]
 
   Note: 'Chat conversation container. user_id denormalized for RLS (journey_id nullable for Path B). locale for K6 multi-language KPI.'

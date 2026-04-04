@@ -126,7 +126,7 @@
 
 | 헤더 | 값 | 설명 |
 |------|---|------|
-| `X-RateLimit-Limit` | `5` | 현재 윈도우 최대 요청 수 |
+| `X-RateLimit-Limit` | `15` | 현재 윈도우 최대 요청 수 |
 | `X-RateLimit-Remaining` | `3` | 남은 요청 수 |
 | `X-RateLimit-Reset` | `1679012345` | 윈도우 리셋 Unix timestamp |
 | `Retry-After` | `30` | 429 시 대기 초 |
@@ -421,6 +421,8 @@ export async function METHOD(req: Request) {
 
 `conversation_id` null이면 새 대화 자동 생성. 새 대화 생성 시 URL `[locale]` 파라미터를 `conversations.locale`에 저장 (K6 KPI 측정용, ANALYTICS.md §2 참조). locale은 `Accept-Language` 헤더 또는 referer URL에서 추출.
 
+> **P2-50b**: 요청 형식이 `{ message: UIMessage, conversation_id }` 로 변경됨 (AI SDK `prepareSendMessagesRequest` 패턴). `conversation_id`는 SSE 응답의 `messageMetadata`(`part.type === 'start'`)로 클라이언트에 전달. 클라이언트는 `onFinish`에서 `message.metadata.conversationId`를 추출하여 이후 요청에 포함.
+
 ## 3.2 SSE 이벤트 타입
 
 Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
@@ -472,7 +474,7 @@ Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
 
 | 엔드포인트 | 제한 | 윈도우 | 식별 |
 |-----------|------|--------|------|
-| `POST /api/chat` | **5회** | 분당 | user_id |
+| `POST /api/chat` | **15회** | 분당 | user_id |
 | `POST /api/chat` (일일) | **100회** | 일일 | user_id |
 | `POST /api/auth/anonymous` | **3회** | 분당 | IP |
 | `GET /api/*` (사용자 읽기) | **60회** | 분당 | IP 또는 user_id |

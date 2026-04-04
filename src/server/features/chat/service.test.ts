@@ -7,11 +7,6 @@ vi.mock('ai', () => ({
   stepCountIs: vi.fn((n: number) => n),
 }));
 
-const mockLoadRecentMessages = vi.fn();
-vi.mock('@/server/core/memory', () => ({
-  loadRecentMessages: (...args: unknown[]) => mockLoadRecentMessages(...args),
-}));
-
 const mockCallWithFallback = vi.fn();
 vi.mock('./llm-client', () => ({
   callWithFallback: (...args: unknown[]) => mockCallWithFallback(...args),
@@ -38,11 +33,8 @@ vi.mock('./tools/extraction-handler', () => ({
   extractUserProfileSchema: {},
 }));
 
-vi.mock('@/shared/constants/ai', () => ({
-  TOKEN_CONFIG: {
-    default: { maxTokens: 1024, historyLimit: 20 },
-  },
-}));
+// ModelMessage type for history parameter
+type ModelMessage = { role: 'user' | 'assistant'; content: string };
 
 // ---- Supabase mock builder ----
 
@@ -129,16 +121,14 @@ describe('streamChat', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mockBuildSystemPrompt.mockReturnValue('system prompt');
-    mockLoadRecentMessages.mockResolvedValue([]);
     mockCallWithFallback.mockResolvedValue({ textStream: 'stream-result' });
   });
 
-  it('기존 conversation ID 제공 시 히스토리 로드 + LLM 호출', async () => {
-    const mockHistory = [
-      { role: 'user', content: 'Hello', card_data: null, tool_calls: null, created_at: '2024-01-01' },
-      { role: 'assistant', content: 'Hi!', card_data: null, tool_calls: null, created_at: '2024-01-01' },
+  it('기존 conversation ID + history 제공 시 LLM에 히스토리 포함 호출', async () => {
+    const history: ModelMessage[] = [
+      { role: 'user', content: 'Hello' },
+      { role: 'assistant', content: 'Hi!' },
     ];
-    mockLoadRecentMessages.mockResolvedValue(mockHistory);
 
     const client = makeMockClient({ selectData: { id: 'conv-123' } });
 
@@ -147,7 +137,8 @@ describe('streamChat', () => {
       client: client as unknown as Parameters<typeof streamChat>[0]['client'],
       userId: 'user-1',
       conversationId: 'conv-123',
-      message: 'Hello',
+      message: 'How are you?',
+      history,
       profile: mockProfile,
       journey: mockJourney,
       preferences: [],
@@ -155,17 +146,35 @@ describe('streamChat', () => {
     });
 
     expect(result.conversationId).toBe('conv-123');
-    expect(mockLoadRecentMessages).toHaveBeenCalledWith(
-      expect.anything(),
-      'conv-123',
-      20,
-    );
     expect(mockCallWithFallback).toHaveBeenCalledOnce();
 
     // history messages + current message should be passed to LLM
     const callArgs = mockCallWithFallback.mock.calls[0][0];
     expect(callArgs.messages).toHaveLength(3); // 2 history + 1 current
-    expect(callArgs.messages[2]).toEqual({ role: 'user', content: 'Hello' });
+    expect(callArgs.messages[0]).toEqual({ role: 'user', content: 'Hello' });
+    expect(callArgs.messages[1]).toEqual({ role: 'assistant', content: 'Hi!' });
+    expect(callArgs.messages[2]).toEqual({ role: 'user', content: 'How are you?' });
+  });
+
+  it('빈 history 제공 시 새 메시지만 LLM에 전달', async () => {
+    const client = makeMockClient({ selectData: { id: 'conv-123' } });
+
+    const { streamChat } = await import('./service');
+    await streamChat({
+      client: client as unknown as Parameters<typeof streamChat>[0]['client'],
+      userId: 'user-1',
+      conversationId: 'conv-123',
+      message: 'Hello',
+      history: [],
+      profile: mockProfile,
+      journey: mockJourney,
+      preferences: [],
+      derived: mockDerived,
+    });
+
+    const callArgs = mockCallWithFallback.mock.calls[0][0];
+    expect(callArgs.messages).toHaveLength(1);
+    expect(callArgs.messages[0]).toEqual({ role: 'user', content: 'Hello' });
   });
 
   it('conversationId null 시 새 conversation 생성 후 반환', async () => {
@@ -188,6 +197,7 @@ describe('streamChat', () => {
       userId: 'user-1',
       conversationId: null,
       message: 'Hello',
+      history: [],
       profile: mockProfile,
       journey: mockJourney,
       preferences: [],
@@ -208,6 +218,7 @@ describe('streamChat', () => {
       userId: 'user-1',
       conversationId: 'conv-123',
       message: 'Hello',
+      history: [],
       profile: null,
       journey: null,
       preferences: [],
@@ -226,7 +237,6 @@ describe('getOrCreateConversation (via streamChat)', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mockBuildSystemPrompt.mockReturnValue('system prompt');
-    mockLoadRecentMessages.mockResolvedValue([]);
     mockCallWithFallback.mockResolvedValue({ textStream: 'stream-result' });
   });
 
@@ -251,6 +261,7 @@ describe('getOrCreateConversation (via streamChat)', () => {
       userId: 'user-1',
       conversationId: 'nonexistent-id',
       message: 'Hello',
+      history: [],
       profile: null,
       journey: null,
       preferences: [],
@@ -263,7 +274,6 @@ describe('buildTools (via streamChat)', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mockBuildSystemPrompt.mockReturnValue('system prompt');
-    mockLoadRecentMessages.mockResolvedValue([]);
   });
 
   it('3개 tool 키가 등록된다', async () => {
@@ -281,6 +291,7 @@ describe('buildTools (via streamChat)', () => {
       userId: 'user-1',
       conversationId: 'conv-123',
       message: 'Hello',
+      history: [],
       profile: mockProfile,
       journey: mockJourney,
       preferences: [],
@@ -318,6 +329,7 @@ describe('buildTools (via streamChat)', () => {
       userId: 'user-1',
       conversationId: 'conv-123',
       message: 'I have dry skin and acne',
+      history: [],
       profile: null,
       journey: null,
       preferences: [],
@@ -350,6 +362,7 @@ describe('buildTools (via streamChat)', () => {
       userId: 'user-1',
       conversationId: 'conv-123',
       message: 'Hello',
+      history: [],
       profile: null,
       journey: null,
       preferences: [],

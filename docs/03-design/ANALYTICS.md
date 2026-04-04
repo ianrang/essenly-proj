@@ -294,7 +294,7 @@ z.object({
 집계: 일간/주간
 ```
 
-- 분자: `user_profiles` 레코드 생성 = Chat 내 AI 온보딩으로 프로필 자동 저장 (afterWork)
+- 분자: `user_profiles` 레코드 생성 = Chat 내 AI 온보딩으로 프로필 자동 저장 (onFinish, P2-50b)
 - 분모: Chat 세션 시작 = `conversations` 레코드 생성
 - MVP Chat-First: 모든 사용자가 Chat으로 진입하므로 전체 세션이 분모
 
@@ -313,7 +313,7 @@ z.object({
 ```
 측정식: AVG(user_message_count per conversation)
          = AVG(SELECT COUNT(*) FROM messages WHERE role='user' GROUP BY conversation_id)
-데이터: messages 테이블 — 추가 이벤트 불필요
+데이터: conversations.ui_messages (UIMessage[] JSONB, P2-50b) — user role 카운트. 추가 이벤트 불필요
 집계: 일간/주간
 ```
 

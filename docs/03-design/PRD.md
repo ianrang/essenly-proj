@@ -407,8 +407,10 @@ Landing 진입
 ```
 
 - 초기: 추천 질문 버블 표시 (SuggestedQuestions 항상 표시)
+- 재방문: 이전 대화 히스토리 자동 로드 (카드 포함 복원). MVP는 마지막 대화 1개만 이어가기. 대화방 목록/전환은 v0.2
 - 대화 중: 언급된 정보에서 개인화 변수 점진적 추출 (VP-3, extract_user_profile tool)
-- 프로필 자동 저장: 추출된 변수(skin_type, age_range 등)를 대화 후 비동기로 DB 저장 (afterWork). Landing 동의(data_retention) 시 "We'll store your beauty profile to personalize recommendations" 문구로 프로필 저장 동의를 포함.
+- 대화 저장: 매 턴 완료 시 UIMessage[] 스냅샷 저장 (conversations.ui_messages). 카드 데이터 포함. LLM 컨텍스트 연속성 보장
+- 프로필 자동 저장: 추출된 변수(skin_type, age_range 등)를 대화 완료 후 비동기로 DB 저장 (onFinish). Landing 동의(data_retention) 시 "We'll store your beauty profile to personalize recommendations" 문구로 프로필 저장 동의를 포함.
 
 > **v0.2**: 이메일 로그인 도입 후 명시적 "프로필 저장 제안" UI 추가 — AI가 "프로필을 저장할까요?" 제안 + [Save] / [Not now] 버튼. UP-1 + JC-1(1개+) 추출 시 트리거.
 
@@ -524,7 +526,7 @@ Chat 화면 내에서 발생. 핵심 흐름의 외부.
 | Landing | UP-3(언어), RT-2(시간) — 자동 수집 |
 | Chat 진입 | 최소 정보로 시작 (VP-3 점진적 개인화) |
 | 대화 진행 중 | UP/JC 점진적 추출 (extract_user_profile) + BH-4 누적 |
-| 프로필 저장 | UP-1 + JC-1(1개+) 추출 시 → DB 자동 저장 (afterWork) |
+| 프로필 저장 | UP-1 + JC-1(1개+) 추출 시 → DB 자동 저장 (onFinish, 스트리밍 완료 후) |
 | 추천 요청 시 | DV-1/DV-2 검색 시점 계산 (beauty/ 순수 함수) |
 
 ### v0.2 (온보딩 폼 경로 추가 시)

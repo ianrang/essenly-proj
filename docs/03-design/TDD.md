@@ -127,7 +127,7 @@
 
 ## 3.4 L3: Memory Layer
 
-**단기 메모리**: Supabase DB (messages 테이블). Redis 대신 DB 사용 — 추가 인프라 없이 운영. 성능 이슈 시 v0.2+ Redis 도입.
+**단기 메모리**: Supabase DB (conversations.ui_messages JSONB). AI SDK UIMessage[] 스냅샷으로 매 턴 덮어쓰기 저장. 클라이언트 복원(카드 포함) + LLM 컨텍스트 연속성 모두 이 단일 소스에서 제공 (P2-50b). Redis 대신 DB 사용 — 추가 인프라 없이 운영. 성능 이슈 시 v0.2+ Redis 도입.
 
 **장기 메모리**: Supabase DB. UP/JC/BH 영구 저장. Anonymous 비활동 90일 자동 만료 (PRD §4-C).
 
@@ -171,12 +171,13 @@ src/
 ## 3.7 Chat API 플로우 (핵심)
 
 ```
-Client → POST /api/chat { message }
+Client → POST /api/chat { message: UIMessage, conversation_id }
   │      (Authorization: Bearer <supabase_token>)
+  │      (prepareSendMessagesRequest: 마지막 UIMessage만 전송)
   │
   ├─ 0. authenticateUser(req) → user.id + user.token  [core/auth.ts]
   ├─ 1. createAuthenticatedClient(token) → RLS 적용    [core/db.ts]
-  ├─ 2. 대화 히스토리 로드 (messages, RLS: 본인만)
+  ├─ 2. 대화 히스토리 로드 (conversations.ui_messages → convertToModelMessages, RLS: 본인만)
   ├─ 3. 프로필 로드 (user_profiles + journeys, RLS: 본인만)
   ├─ 4. 시스템 프롬프트 구성
   ├─ 5. LLM 호출 (스트리밍 + tool_use)
@@ -185,9 +186,12 @@ Client → POST /api/chat { message }
   │     ├─ tool_use: extract_user_profile → 개인화 추출 (동기, P1-33 확정)
   │     └─ 최종 응답 생성 (텍스트 + 카드 데이터)
   │
-  ├─ 6. 대화 히스토리 저장 (RLS: 본인 conversation)
-  ├─ 7. 행동 로그 기록 (비동기, service_role + user_id 명시)
-  ├─ 8. 개인화 추출 결과 조건부 저장 (프로필 존재 → 비동기 DB 갱신 / 프로필 미존재 → 메모리만, 동의 후 DB 저장. PRD §4-C)
+  ├─ 6. toUIMessageStreamResponse + consumeStream
+  │     ├─ messageMetadata: conversationId 클라이언트 전달
+  │     └─ onFinish (스트리밍 완료 후, Q-15 격리):
+  │           ├─ 6a. UIMessage[] 스냅샷 저장 (conversations.ui_messages)
+  │           ├─ 6b. 개인화 추출 결과 조건부 저장 (service_role)
+  │           └─ 6c. 행동 로그 기록 (TODO P2-26)
   │
   └─ Response: SSE 스트리밍
 ```
@@ -268,7 +272,7 @@ PRD에서 확정된 비즈니스 결정에 따른 기술 구현 결정 기록.
 |---|---|---|
 | C-3 | 프로필 서버 영구 저장 | Supabase PostgreSQL. localStorage에 anonymous UUID만 |
 | C-4 | MVP 인증 anonymous만 | Supabase anonymous auth (P0-26 검증) |
-| C-5 | 대화 히스토리 서버 DB 저장 | Supabase messages 테이블. Redis는 v0.2+ |
+| C-5 | 대화 히스토리 서버 DB 저장 | Supabase conversations.ui_messages (UIMessage[] JSONB 스냅샷, P2-50b). 클라이언트 복원 + LLM 컨텍스트 단일 소스. messages 테이블은 향후 재검토. Redis는 v0.2+ |
 | C-6 | 다국어 텍스트 JSONB 단일 컬럼 | `entity.name->>'en'` 패턴 |
 | C-7 | Budget level만 사용 | TEXT 단일 컬럼 |
 | A-14 | 비활동 90일 자동 만료 | Supabase cron/Edge Function 스케줄러 |
