@@ -243,6 +243,56 @@ describe("exportForReview", () => {
     expect(csvRows[0].target_concerns_confidence).toBe("0.88");
   });
 
+  it("treatment export — 15개 엔티티 컬럼 + 공통 컬럼 출력", () => {
+    const records = [makeEnriched("treatment", {
+      suitable_skin_types: ["dry", "normal"],
+      target_concerns: ["wrinkles"],
+      duration_minutes: 20,
+      session_count: "3~6개월마다 반복",
+      downtime_days: 0,
+      price_min: 50000,
+      price_max: 150000,
+      description: { ko: "설명", en: "Description" },
+      precautions: { ko: "주의사항", en: "Precautions" },
+      aftercare: { ko: "사후관리", en: "Aftercare" },
+    }, {
+      classifiedFields: ["suitable_skin_types", "target_concerns"],
+      confidence: { suitable_skin_types: 0.95, target_concerns: 0.9 },
+    })];
+
+    exportForReview(records, { outputDir: "/tmp/review", timestamp: FIXED_TIMESTAMP });
+
+    const [csvRows, csvColumns] = mockStringifyCsvRows.mock.calls[0];
+
+    // 공통 4 (id, source_id, name_ko, name_en) + 엔티티 15 + 메타 2 (is_approved, review_notes) = 21
+    expect(csvColumns).toHaveLength(21);
+
+    // Check entity-specific headers exist
+    expect(csvColumns).toContain("suitable_skin_types");
+    expect(csvColumns).toContain("suitable_skin_types_confidence");
+    expect(csvColumns).toContain("target_concerns");
+    expect(csvColumns).toContain("target_concerns_confidence");
+    expect(csvColumns).toContain("duration_minutes");
+    expect(csvColumns).toContain("session_count");
+    expect(csvColumns).toContain("downtime_days");
+    expect(csvColumns).toContain("price_min");
+    expect(csvColumns).toContain("price_max");
+    expect(csvColumns).toContain("description_ko");
+    expect(csvColumns).toContain("description_en");
+    expect(csvColumns).toContain("precautions_ko");
+    expect(csvColumns).toContain("precautions_en");
+    expect(csvColumns).toContain("aftercare_ko");
+    expect(csvColumns).toContain("aftercare_en");
+
+    // Check data row values
+    expect(csvRows[0].suitable_skin_types).toBe("dry|normal");
+    expect(csvRows[0].target_concerns).toBe("wrinkles");
+    expect(csvRows[0].duration_minutes).toBe("20");
+    expect(csvRows[0].price_min).toBe("50000");
+    expect(csvRows[0].precautions_ko).toBe("주의사항");
+    expect(csvRows[0].aftercare_en).toBe("Aftercare");
+  });
+
   it("entityTypes 필터: product만 → 나머지 스킵", () => {
     const records = [
       makeEnriched("product"),
