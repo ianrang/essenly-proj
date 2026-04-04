@@ -83,15 +83,16 @@ function ModalTitle({ className, ...props }: React.ComponentProps<"h2">) {
   );
 }
 
-/** 브랜드 로고 텍스트 */
-function BrandLogo({ className, ...props }: React.ComponentProps<"span">) {
+/** 브랜드 로고 — 홈 링크 */
+function BrandLogo({ className, ...props }: Omit<React.ComponentProps<"a">, "href">) {
   return (
-    <span
+    <a
+      href="/"
       className={cn("text-xl font-bold tracking-tight text-primary", className)}
       {...props}
     >
       Essenly
-    </span>
+    </a>
   );
 }
 

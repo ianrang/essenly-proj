@@ -7,6 +7,7 @@ export default async function NotFoundPage() {
   return (
     <div className="flex min-h-[60dvh] flex-col items-center justify-center px-5 text-center">
       <div className="max-w-sm">
+        <p className="mb-2 text-5xl font-bold text-primary">404</p>
         <h1 className="mb-3 text-2xl font-bold text-foreground">
           {t("notFoundTitle")}
         </h1>

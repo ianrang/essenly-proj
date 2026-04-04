@@ -21,6 +21,7 @@ export default function ErrorPage({ error, reset }: Props) {
   return (
     <div className="flex min-h-[60dvh] flex-col items-center justify-center px-5 text-center">
       <div role="alert" className="max-w-sm">
+        <p className="mb-2 text-5xl font-bold text-primary">!</p>
         <h1
           ref={headingRef}
           tabIndex={-1}
