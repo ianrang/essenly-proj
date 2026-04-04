@@ -114,6 +114,11 @@ const ENTITY_REVIEW_COLUMNS: Record<EntityType, ReviewColumnDef[]> = {
     { header: "description_en", source: "data", path: "description.en", format: "string", editable: true },
   ],
   clinic: [
+    { header: "clinic_type", source: "data", path: "clinic_type", format: "string", editable: true },
+    { header: "district", source: "data", path: "district", format: "string", editable: true },
+    { header: "address_ko", source: "data", path: "address.ko", format: "string", editable: false },
+    { header: "phone", source: "data", path: "phone", format: "string", editable: false },
+    { header: "english_support", source: "data", path: "english_support", format: "string", editable: true },
     { header: "description_ko", source: "data", path: "description.ko", format: "string", editable: true },
     { header: "description_en", source: "data", path: "description.en", format: "string", editable: true },
   ],

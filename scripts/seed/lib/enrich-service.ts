@@ -38,6 +38,7 @@ import {
   type GenerationFieldSpec,
 } from "./enrichment/description-generator";
 import { defaultStoreTypeClassifier } from "./classifiers/store-type-classifier";
+import { defaultClinicTypeClassifier } from "./classifiers/clinic-type-classifier";
 
 // ── 타입 ────────────────────────────────────────────────────
 
@@ -221,6 +222,11 @@ const FIELD_MAPPINGS: Partial<Record<EntityType, Record<string, FieldExtractor>>
   },
   store: {
     store_type: (data) => defaultStoreTypeClassifier.classify(data),
+    district: (data) => extractDistrictFromAddress(data),
+    english_support: (data) => data.english_support ?? "none",
+  },
+  clinic: {
+    clinic_type: (data) => defaultClinicTypeClassifier.classify(data),
     district: (data) => extractDistrictFromAddress(data),
     english_support: (data) => data.english_support ?? "none",
   },
