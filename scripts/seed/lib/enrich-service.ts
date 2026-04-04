@@ -149,6 +149,8 @@ const ENRICHMENT_CONFIG: Record<EntityType, EnrichmentConfig> = {
     classifySpecs: TREATMENT_CLASSIFY_SPECS,
     generateSpecs: [
       { fieldName: "description", promptHint: "Treatment process, expected results, and recovery in 2-3 sentences.", maxLength: 300 },
+      { fieldName: "precautions", promptHint: "Pre-treatment warnings. Include downtime range (e.g. '1-3 days recovery'). Add travel-specific advice for tourists (e.g. schedule timing, sun exposure, activities to avoid). 2-3 sentences.", maxLength: 400 },
+      { fieldName: "aftercare", promptHint: "Post-treatment care instructions relevant to tourists. Include what to avoid (sun, saunas, hot springs, alcohol), when normal activities can resume, and signs to watch for. 2-3 sentences.", maxLength: 400 },
     ],
   },
   brand: {
@@ -229,6 +231,16 @@ const FIELD_MAPPINGS: Partial<Record<EntityType, Record<string, FieldExtractor>>
     clinic_type: (data) => defaultClinicTypeClassifier.classify(data),
     district: (data) => extractDistrictFromAddress(data),
     english_support: (data) => data.english_support ?? "none",
+  },
+  treatment: {
+    duration_minutes: (data: Record<string, unknown>) =>
+      data.duration_minutes != null ? Number(data.duration_minutes) : null,
+    session_count: (data: Record<string, unknown>) =>
+      (data.session_count as string) ?? null,
+    price_min: (data: Record<string, unknown>) =>
+      data.price_min != null ? Number(data.price_min) : null,
+    price_max: (data: Record<string, unknown>) =>
+      data.price_max != null ? Number(data.price_max) : null,
   },
 };
 

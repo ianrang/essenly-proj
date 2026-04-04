@@ -438,6 +438,42 @@ describe("enrichRecords", () => {
     expect(meta.confidence.skin_types).toBe(0.9);
   });
 
+  // ── treatment FIELD_MAPPINGS ──
+
+  it("treatment: FIELD_MAPPINGS — duration_minutes, session_count, price_min, price_max 변환", async () => {
+    const records: RawRecord[] = [
+      {
+        source: "csv",
+        sourceId: "treat-botox-forehead",
+        entityType: "treatment",
+        data: {
+          name_ko: "보톡스 이마",
+          name_en: "Botox Forehead",
+          category: "injection",
+          duration_minutes: "20",
+          session_count: "3~6개월마다 반복",
+          price_min: "50000",
+          price_max: "150000",
+          downtime_days: "0",
+          target_concerns: "wrinkles",
+          suitable_skin_types: "dry|normal|combination|oily|sensitive",
+        },
+        fetchedAt: new Date().toISOString(),
+      },
+    ];
+
+    const result = await enrichRecords(records, {
+      skipTranslation: true,
+      skipClassification: true,
+      skipGeneration: true,
+    });
+
+    expect(result.records[0].data.duration_minutes).toBe(20);
+    expect(result.records[0].data.session_count).toBe("3~6개월마다 반복");
+    expect(result.records[0].data.price_min).toBe(50000);
+    expect(result.records[0].data.price_max).toBe(150000);
+  });
+
   // ── 빈 레코드 ──
 
   it("빈 배열 → 빈 결과 + PipelineResult.total=0", async () => {
