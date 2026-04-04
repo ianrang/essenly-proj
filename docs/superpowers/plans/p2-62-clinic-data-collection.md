@@ -239,6 +239,119 @@ ClinicTypeClassifier interface:
 
 ---
 
+## §7. Step 2 — 파이프라인 실행 (코드 수정 없음)
+
+> Step 1 완료 (2026-04-04 커밋 b05cb83). Step 2는 순수 데이터 수집·실행 단계.
+> **코드 수정 0건**. 데이터 파일 생성만.
+
+### 7-1. clinic-queries.json 설계
+
+**구조**: store-queries.json과 동일 (G-5). `{ query: string; options?: { lat, lng, radius } }[]`
+
+```json
+[
+  { "query": "피부과 강남" },
+  { "query": "피부과 명동" },
+  { "query": "성형외과 강남" },
+  { "query": "에스테틱 강남" },
+  { "query": "피부과 홍대" },
+  { "query": "피부과 이태원" },
+  { "query": "피부과 청담", "options": { "lat": 37.5199, "lng": 127.0473, "radius": 3000 } },
+  { "query": "레이저 피부과 서울" },
+  { "query": "외국인 피부과 서울" },
+  { "query": "메드스파 서울" }
+]
+```
+
+**커버리지 검증**:
+
+| CLINIC_TYPE | 쿼리 수 | 쿼리 예시 | 예상 매칭 |
+|-------------|---------|----------|----------|
+| dermatology | 6개 | 피부과 강남/명동/홍대/이태원/청담, 레이저 피부과 | 주력 (전체의 ~70%) |
+| plastic_surgery | 1개 | 성형외과 강남 | ~15% |
+| aesthetic | 1개 | 에스테틱 강남 | ~5% |
+| med_spa | 1개 | 메드스파 서울 | ~5% |
+| null (미분류) | — | 기타 매칭 | ~5% |
+
+**지역 커버리지**: 강남(4), 명동(1), 홍대(1), 이태원(1), 청담(1), 서울 전역(2) = PRD §5.2 관광 핵심 지역 ✅
+
+**예상 수량**: 10쿼리 × 15-45건/쿼리 = 150-450건 원시 → dedup 후 80-150건 → 30건 목표 충분.
+
+### 7-2. 실행 명령어
+
+```bash
+# ⑥ fetch: 카카오 API → clinics-raw.json
+cd scripts/seed
+npx tsx fetch.ts --targets=places --place-queries=data/clinic-queries.json --output=data/clinics-raw.json
+
+# ⑦ enrich: AI 번역+description 생성 → clinics-enriched.json
+npx tsx enrich.ts --input=data/clinics-raw.json --entity-types=clinic --output=data/clinics-enriched.json
+
+# ⑧ export-review: CSV 검수 파일 생성
+npx tsx export-review.ts --input=data/clinics-enriched.json
+
+# ⑨ 수동 검수: CSV에서 clinic_type, english_support, description 확인/수정
+
+# ⑩ import-review: 검수 CSV → validated JSON
+npx tsx import-review.ts --enriched=<enriched-json> --reviewed=<review-csv> --output=data/clinics-validated.json
+
+# ⑪ load: DB UPSERT (dry-run 먼저)
+npx tsx load.ts --input=data/clinics-validated.json --dry-run
+npx tsx load.ts --input=data/clinics-validated.json
+```
+
+### 7-3. 데이터 흐름 검증
+
+```
+clinic-queries.json (10쿼리)
+  → fetch.ts --place-queries → kakaoLocalProvider.search() × 10
+  → RawPlace[] (150-450건)
+  → deduplicatePlaces() (4단계 dedup)
+  → mapPlaceToRawRecord() → classifyPlace() → entityType="clinic" or "store"
+  → clinics-raw.json (RawRecord[])
+
+clinics-raw.json
+  → enrich.ts --entity-types=clinic (store 필터링)
+  → applyFieldMapping(data, "clinic") → clinic_type, district, english_support 매핑
+  → translateFields(name.ko → 6언어)
+  → generateDescriptions(description ko+en)
+  → retranslateGenerated(description en → ja/zh/es/fr)
+  → clinics-enriched.json (EnrichedRecord[])
+
+clinics-enriched.json
+  → export-review.ts → CSV (7컬럼: clinic_type, district, address_ko, phone, english_support, description_ko/en)
+  → 수동 검수
+
+검수 CSV + enriched JSON
+  → import-review.ts → editable 컬럼만 override → clinics-validated.json
+
+clinics-validated.json
+  → load.ts → clinicCreateSchema zod 검증 → UPSERT to clinics table
+```
+
+### 7-4. classifyPlace 결과 예측
+
+카카오 API "피부과 강남" 검색 시:
+- 카테고리: `"의료,건강 > 피부과"` → `classifyPlace()` CLINIC_PATTERN `/피부과/` 매칭 → `"clinic"` ✅
+- 비뷰티 결과(내과, 정형외과 등): 카카오 "피부과" 키워드 검색이므로 피부과 외 결과 적음
+- "성형외과 강남" 검색 시: `"의료,건강 > 성형외과"` → CLINIC_PATTERN `/성형외과/` → `"clinic"` 후 ClinicTypeClassifier가 `"plastic_surgery"` 분류
+
+**store로 오분류되는 경우**: 카카오 카테고리에 CLINIC_PATTERN 키워드가 없고 STORE_PATTERN 키워드도 없는 경우 → `classifyPlace()` 폴백 `"store"` → `--entity-types=clinic` 필터에서 제외. 이는 정상 동작 (손실 허용 범위).
+
+### 7-5. 중단점 및 사용자 개입 필요 지점
+
+| 단계 | 자동/수동 | 중단 조건 |
+|------|----------|----------|
+| ⑥ fetch | 자동 | API 오류 시 에러 로그 확인 |
+| ⑦ enrich | 자동 (AI 호출) | AI API 오류 시 개별 레코드 격리 |
+| ⑧ export-review | 자동 | — |
+| ⑨ 수동 검수 | **사용자 개입 필수** | CSV 파일에서 clinic_type/english_support 검수 |
+| ⑩ import-review | 자동 | — |
+| ⑪ load (dry-run) | 자동 | 검증 실패 건수 확인 |
+| ⑪ load (실행) | 자동 | DB 연결 필요 |
+
+---
+
 ## §6. 검증 체크리스트
 
 ```
