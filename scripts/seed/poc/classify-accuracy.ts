@@ -82,7 +82,7 @@ const DEFAULT_PASS_THRESHOLD = 0.8;
 const SCRIPT_DIR = typeof __dirname !== "undefined"
   ? __dirname
   : new URL(".", import.meta.url).pathname;
-const M1_YAML_PATH = join(SCRIPT_DIR, "../data/m1-skeleton.yaml");
+const M1_YAML_PATH = join(SCRIPT_DIR, "../data/archive/m1-skeleton.yaml");
 const RESULTS_DIR = join(SCRIPT_DIR, "../data");
 
 // ── 비교 로직 (순수 함수 — 테스트 가능) ─────────────────────
