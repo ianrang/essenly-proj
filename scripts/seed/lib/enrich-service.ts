@@ -249,6 +249,8 @@ const FIELD_MAPPINGS: Partial<Record<EntityType, Record<string, FieldExtractor>>
   treatment: {
     duration_minutes: (data: Record<string, unknown>) =>
       data.duration_minutes != null ? Number(data.duration_minutes) : null,
+    downtime_days: (data: Record<string, unknown>) =>
+      data.downtime_days != null ? Number(data.downtime_days) : null,
     session_count: (data: Record<string, unknown>) =>
       (data.session_count as string) ?? null,
     price_min: (data: Record<string, unknown>) =>

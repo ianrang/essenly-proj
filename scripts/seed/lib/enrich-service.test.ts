@@ -469,6 +469,7 @@ describe("enrichRecords", () => {
     });
 
     expect(result.records[0].data.duration_minutes).toBe(20);
+    expect(result.records[0].data.downtime_days).toBe(0);
     expect(result.records[0].data.session_count).toBe("3~6개월마다 반복");
     expect(result.records[0].data.price_min).toBe(50000);
     expect(result.records[0].data.price_max).toBe(150000);
@@ -496,6 +497,7 @@ describe("enrichRecords", () => {
     });
 
     expect(result.records[0].data.duration_minutes).toBeNull();
+    expect(result.records[0].data.downtime_days).toBeNull();
     expect(result.records[0].data.session_count).toBeNull();
     expect(result.records[0].data.price_min).toBeNull();
     expect(result.records[0].data.price_max).toBeNull();
