@@ -35,6 +35,12 @@ vi.mock('./tools/extraction-handler', () => ({
   extractUserProfileSchema: {},
 }));
 
+const mockExecuteLookupBeautyKnowledge = vi.fn();
+vi.mock('./tools/knowledge-handler', () => ({
+  executeLookupBeautyKnowledge: (...args: unknown[]) => mockExecuteLookupBeautyKnowledge(...args),
+  lookupBeautyKnowledgeSchema: {},
+}));
+
 // ModelMessage type for history parameter
 type ModelMessage = { role: 'user' | 'assistant'; content: string };
 
@@ -278,7 +284,7 @@ describe('buildTools (via streamChat)', () => {
     mockBuildSystemPrompt.mockReturnValue('system prompt');
   });
 
-  it('3개 tool 키가 등록된다', async () => {
+  it('4개 tool 키가 등록된다', async () => {
     const client = makeMockClient();
     let capturedTools: Record<string, unknown> | null = null;
 
@@ -302,9 +308,9 @@ describe('buildTools (via streamChat)', () => {
 
     expect(capturedTools).not.toBeNull();
     expect(Object.keys(capturedTools!)).toEqual(
-      expect.arrayContaining(['search_beauty_data', 'get_external_links', 'extract_user_profile']),
+      expect.arrayContaining(['search_beauty_data', 'get_external_links', 'extract_user_profile', 'lookup_beauty_knowledge']),
     );
-    expect(Object.keys(capturedTools!)).toHaveLength(3);
+    expect(Object.keys(capturedTools!)).toHaveLength(4);
   });
 
   it('extract_user_profile execute 성공 시 extractionResults에 수집된다', async () => {

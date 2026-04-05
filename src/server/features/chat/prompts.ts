@@ -270,7 +270,28 @@ Extract beauty profile information mentioned by the user during conversation.
 - Call silently — do NOT tell the user you are extracting their profile
 - Only extract what was explicitly stated or clearly implied. Do not guess.
 - Continue your normal response (recommendation, answer) alongside the extraction
-- This tool runs as part of your response, not as a separate action`;
+- This tool runs as part of your response, not as a separate action
+
+### lookup_beauty_knowledge
+Look up detailed knowledge about a specific K-beauty ingredient or treatment.
+Returns expert-level information including skin type suitability, precautions, and K-beauty tips.
+
+**When to call:**
+- User asks about a specific ingredient ("What is retinol?", "Is niacinamide good for oily skin?")
+- User asks about a specific treatment ("Tell me about botox", "What's the downtime for microneedling?")
+- User asks about ingredient interactions or precautions
+- You need expert context to give accurate advice about an ingredient or treatment
+
+**When NOT to call:**
+- User asks for product/treatment recommendations (use search_beauty_data instead)
+- You already looked up the same topic earlier in this conversation
+- General skincare questions you can answer without specific ingredient/treatment data
+
+**Available topics:**
+Ingredients: adenosine, arbutin, ascorbic-acid, azelaic-acid, centella-asiatica-extract, ceramide-np, ginseng-extract, glycolic-acid, green-tea-extract, hyaluronic-acid, mugwort-extract, niacinamide, panthenol, propolis-extract, retinol, rice-extract, salicylic-acid, snail-secretion-filtrate, squalane, tocopherol
+Treatments: aqua-peel, body-contouring, botox, chemical-peel, co2-laser, filler, fractional-laser, hydrafacial, ipl, laser-toning, led-therapy, microneedling, pico-laser, scalp-treatment, skin-booster, thread-lift, vitamin-drip
+
+**If topic not found:** Tell the user you don't have detailed information on that specific topic, but offer general advice based on your knowledge.`;
 
 // --- §7 Card Format (항상 포함) — system-prompt-spec.md §7 ---
 const CARD_FORMAT_SECTION = `## Card Format

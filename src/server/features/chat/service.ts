@@ -12,6 +12,7 @@ import {
   extractUserProfileSchema,
   type ExtractionResult,
 } from './tools/extraction-handler';
+import { executeLookupBeautyKnowledge, lookupBeautyKnowledgeSchema } from './tools/knowledge-handler';
 
 // ============================================================
 // Chat 서비스 — api-spec.md §3.4, TDD §4.2
@@ -177,6 +178,11 @@ function buildTools(
         }
         return result;
       },
+    }),
+    lookup_beauty_knowledge: tool({
+      description: 'Look up detailed K-beauty knowledge about a specific ingredient or treatment.',
+      inputSchema: lookupBeautyKnowledgeSchema,
+      execute: async (args) => executeLookupBeautyKnowledge(args),
     }),
   };
 }

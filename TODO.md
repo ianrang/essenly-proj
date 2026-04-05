@@ -366,7 +366,8 @@
 | P2-66 | ProductCard purchase_links 렌더링 | 카드 푸터에 구매 링크 표시 (첫번째만, 새 탭 외부 링크). user-screens.md "푸터 구매 링크" 사양. 데이터: P2-64a에서 products 투입 시 purchase_links 포함 | P2-64a      | ⬜   |
 | P2-67 | ProductCard english_label 배지   | english_label===true 시 "English Label" 푸터 배지. user-screens.md "푸터 배지" 사양. 수동 데이터 필드 (CSV 기입)                    | P2-64a      | ⬜   |
 | P2-68 | store map_url E2E 검증           | 010 마이그레이션 + buildExternalLinks 파이프라인 적용 후, store external_links → card-mapper → ProductCard 지도 링크 동작 E2E 검증    | P2-64a      | ⬜   |
-| P2-69 | KB 시스템 프롬프트 주입             | docs/knowledge-base/ 37종(성분 18+시술 19) → buildSystemPrompt()에 KB 섹션 추가. MVP: 시스템 프롬프트 인라인 (embedding-strategy §2.4). 토큰 비용 측정 후 전수/선택 주입 결정. prompts.ts 수정 | P2-57       | ⬜   |
+| P2-69 | KB 시스템 프롬프트 주입             | **완료 (2026-04-05)**. Tool 기반 + 빌드 생성 방식. generate-kb.ts: docs/knowledge-base/*.md → shared/constants/kb.generated.ts (37종). knowledge-handler: KB_DOCUMENTS 조회 + zod 스키마 co-location. service.ts: 4번째 tool 등록. prompts.ts §6 사용 지침. 테스트 9개 | P2-57       | ✅   |
+| P2-70 | chat tool 단위 테스트 보강         | (1) extraction-handler args: unknown → 스키마 추론 타입 통일 (이중 파싱 제거) (2) treatment vector 검색 경로 직접 테스트 추가 (3) product purchase_links 정상 경로 테스트 추가. 통합 테스트(P2-71~) 선행 조건 | P2-69       | ⬜   |
 | P2-41 | Profile 페이지               | 🔶 **v0.2 연기**: 이메일 로그인 후 프로필 조회/편집. 기존 컴포넌트(ProfileClient/ProfileCard) 재사용. mvp-flow-redesign.md §3 참조  | v0.2        | 🔶  |
 | P2-42 | 프로필 Context               | 🔶 **v0.2 연기**: 이메일 로그인 후 React Context 상태 관리. mvp-flow-redesign.md §3 참조                                     | v0.2        | 🔶  |
 
