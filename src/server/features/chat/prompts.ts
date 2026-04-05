@@ -6,6 +6,7 @@ import type {
   DerivedVariables,
   LearnedPreference,
 } from '@/shared/types/profile';
+import { AVAILABLE_TOPICS } from './tools/knowledge-handler';
 
 // ============================================================
 // 시스템 프롬프트 관리 — system-prompt-spec.md §1~§10
@@ -288,8 +289,8 @@ Returns expert-level information including skin type suitability, precautions, a
 - General skincare questions you can answer without specific ingredient/treatment data
 
 **Available topics:**
-Ingredients: adenosine, arbutin, ascorbic-acid, azelaic-acid, centella-asiatica-extract, ceramide-np, ginseng-extract, glycolic-acid, green-tea-extract, hyaluronic-acid, mugwort-extract, niacinamide, panthenol, propolis-extract, retinol, rice-extract, salicylic-acid, snail-secretion-filtrate, squalane, tocopherol
-Treatments: aqua-peel, body-contouring, botox, chemical-peel, co2-laser, filler, fractional-laser, hydrafacial, ipl, laser-toning, led-therapy, microneedling, pico-laser, scalp-treatment, skin-booster, thread-lift, vitamin-drip
+Ingredients: ${AVAILABLE_TOPICS.ingredients.join(', ')}
+Treatments: ${AVAILABLE_TOPICS.treatments.join(', ')}
 
 **If topic not found:** Tell the user you don't have detailed information on that specific topic, but offer general advice based on your knowledge.`;
 
