@@ -545,7 +545,6 @@ const finalScore = components.reduce((sum, c) => sum + (c.weight / totalWeight) 
 | clinics | `created_at`, `updated_at`, `rating`, `district` | `created_at DESC` |
 | brands | `created_at`, `updated_at` | `created_at DESC` |
 | ingredients | `created_at`, `updated_at` | `created_at DESC` |
-| doctors | `created_at`, `updated_at` | `created_at DESC` |
 
 > 허용되지 않은 필드로 정렬 시도 → 기본값 적용 + 400 에러 아님 (무시). SQL injection 방지.
 

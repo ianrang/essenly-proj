@@ -97,7 +97,6 @@ CREATE INDEX IF NOT EXISTS idx_audit_logs_target ON audit_logs(target_type, targ
 | stores | PK(id) | 1개 |
 | clinics | PK(id) | 1개 |
 | treatments | PK(id) | 1개 |
-| doctors | PK(id) | 1개 |
 | product_stores | PK(product_id, store_id) | 1개 (복합) |
 | product_ingredients | PK(product_id, ingredient_id) | 1개 (복합) |
 | clinic_treatments | PK(clinic_id, treatment_id) | 1개 (복합) |
@@ -148,7 +147,6 @@ LLM tool(`search_beauty_data`)이 `repository.findByFilters()`를 호출한다. 
 | products → product_stores → stores | product_stores.product_id (PK 선두) | ✅ |
 | products → product_ingredients → ingredients | product_ingredients.product_id (PK 선두) | ✅ |
 | treatments → clinic_treatments → clinics | clinic_treatments.treatment_id | **역방향 없음** ⚠️ |
-| doctors → clinics | doctors.clinic_id | **없음** ⚠️ |
 
 > 복합 PK `(clinic_id, treatment_id)`는 clinic_id가 선두이므로 `WHERE clinic_id = ?`에 효율적이나 `WHERE treatment_id = ?`에는 비효율적.
 > 복합 PK `(product_id, store_id)`는 product_id가 선두이므로 `WHERE store_id = ?`에 역방향 인덱스 필요.
@@ -170,7 +168,6 @@ LLM tool(`search_beauty_data`)이 `repository.findByFilters()`를 호출한다. 
 | clinics | district, clinic_type | district ✅, clinic_type **없음** ⚠️ |
 | treatments | category | category ✅ |
 | brands | tier, is_essenly | **없음** (MVP 데이터 소규모) ❌ |
-| doctors | clinic_id | **없음** ⚠️ |
 
 #### 정렬 필드 (search-engine.md §6.2)
 
@@ -182,7 +179,6 @@ LLM tool(`search_beauty_data`)이 `repository.findByFilters()`를 호출한다. 
 | clinics | created_at, updated_at, rating, district | created_at DESC |
 | brands | created_at, updated_at | created_at DESC |
 | ingredients | created_at, updated_at | created_at DESC |
-| doctors | created_at, updated_at | created_at DESC |
 
 > 정렬 전용 인덱스는 MVP에서 생성하지 않는다. 관리자 목록은 페이지네이션(LIMIT 20)과 함께 사용되며, MVP 데이터 규모(수백 건)에서 정렬 비용은 무시할 수 있다. 데이터 1,000건 이상 시 `(status, created_at DESC)` 복합 인덱스를 검토한다.
 
@@ -316,10 +312,6 @@ LLM tool(`search_beauty_data`)이 `repository.findByFilters()`를 호출한다. 
 - ❌ location (GiST): MVP 미구현.
 - ❌ embedding: MVP 벡터 인덱스 제외.
 
-#### doctors
-- ⚠️ **idx_doctors_clinic_id** — FK JOIN (doctors → clinics) + 관리자 필터 `clinic_id = ?`. **누락됨.**
-- ❌ status: MVP 의사 수 소규모.
-
 ### 4.4 관계 테이블
 
 #### product_stores
@@ -413,10 +405,6 @@ CREATE INDEX IF NOT EXISTS idx_clinics_clinic_type
 CREATE INDEX IF NOT EXISTS idx_clinics_english_support
   ON clinics(english_support);
 
--- doctors: FK JOIN + 관리자 필터
-CREATE INDEX IF NOT EXISTS idx_doctors_clinic_id
-  ON doctors(clinic_id);
-
 -- ============================================================
 -- 5.4 관계 테이블 — 역방향 조회 인덱스
 -- ============================================================
@@ -449,8 +437,7 @@ CREATE INDEX IF NOT EXISTS idx_clinic_treatments_treatment_id
 | 9 | idx_treatments_downtime_days | treatments | B-tree | AI 검색 max_downtime |
 | 10 | idx_clinics_clinic_type | clinics | B-tree | AI + 관리자 필터 |
 | 11 | idx_clinics_english_support | clinics | B-tree | AI 검색 필터 |
-| 12 | idx_doctors_clinic_id | doctors | B-tree | FK JOIN + 관리자 필터 |
-| 13 | idx_product_stores_store_id | product_stores | B-tree | 역방향 JOIN |
+| 12 | idx_product_stores_store_id | product_stores | B-tree | 역방향 JOIN |
 | 14 | idx_product_ingredients_ingredient_id | product_ingredients | B-tree | 역방향 JOIN |
 | 15 | idx_clinic_treatments_treatment_id | clinic_treatments | B-tree | 역방향 JOIN |
 
@@ -479,7 +466,6 @@ CREATE INDEX IF NOT EXISTS idx_clinic_treatments_treatment_id
     → Clinic: district ✅, clinic_type ⚠️(신규)
     → Treatment: category ✅
     → Brand: tier, is_essenly ❌(소규모 제외)
-    → Doctor: clinic_id ⚠️(신규)
 
 [x] D-4: 인덱스 타입이 컬럼 타입과 호환되는가?
     → text[] 컬럼: GIN (기존 유지, 신규 해당 없음)

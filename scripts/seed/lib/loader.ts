@@ -67,7 +67,6 @@ const ENTITY_CONFIG: Record<EntityType, EntityConfig> = {
   store: { tableName: "stores", schema: ENTITY_SCHEMAS.store, onConflict: "id" },
   clinic: { tableName: "clinics", schema: ENTITY_SCHEMAS.clinic, onConflict: "id" },
   treatment: { tableName: "treatments", schema: ENTITY_SCHEMAS.treatment, onConflict: "id" },
-  doctor: { tableName: "doctors", schema: ENTITY_SCHEMAS.doctor, onConflict: "id" },
 };
 
 const JUNCTION_CONFIG: Record<JunctionType, EntityConfig> = {
@@ -91,7 +90,7 @@ const JUNCTION_CONFIG: Record<JunctionType, EntityConfig> = {
 // FK 순서 — schema.dbml 의존 관계 (D-4, Q-13)
 const LOAD_PHASES: EntityType[][] = [
   ["brand", "ingredient", "store", "clinic", "treatment"],
-  ["product", "doctor"],
+  ["product"],
 ];
 
 const DEFAULT_LOG_DIR = join(

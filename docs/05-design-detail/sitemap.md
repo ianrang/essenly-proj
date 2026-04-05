@@ -54,10 +54,6 @@ src/app/
         page.tsx                     # Treatment list
         new/page.tsx                 # Treatment create
         [id]/page.tsx                # Treatment detail / edit
-      doctors/
-        page.tsx                     # Doctor list
-        new/page.tsx                 # Doctor create
-        [id]/page.tsx                # Doctor detail / edit
       audit-log/page.tsx             # Audit log (super_admin only)
       admins/
         page.tsx                     # Admin management (super_admin only)
@@ -123,9 +119,6 @@ Chat ←── "Edit profile" ──→ Profile
 | `/admin/treatments` | Treatment list | treatment:read | |
 | `/admin/treatments/new` | Treatment create | treatment:write | |
 | `/admin/treatments/[id]` | Treatment detail/edit | treatment:read/write | |
-| `/admin/doctors` | Doctor list | doctor:read | |
-| `/admin/doctors/new` | Doctor create | doctor:write | |
-| `/admin/doctors/[id]` | Doctor detail/edit | doctor:read/write | |
 | `/admin/audit-log` | Audit log | super_admin | Time-ordered events, filter, before/after diff |
 | `/admin/admins` | Admin management | super_admin | Admin accounts, roles, permissions |
 | `/admin/admins/new` | Admin create | super_admin | |
@@ -143,7 +136,6 @@ Sidebar (always visible):
   Ingredients
   Clinics
   Treatments
-  Doctors
   ── System (super_admin) ──
   Audit Log
   Admins

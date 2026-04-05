@@ -46,7 +46,7 @@ app/(admin)/admin/layout.tsx              ← Composition Root (L-2)
 | 섹션 | 메뉴 항목 | 권한 조건 |
 |------|----------|----------|
 | — | Dashboard | admin+ (모든 인증 관리자) |
-| Entities | Products, Stores, Brands, Ingredients, Clinics, Treatments, Doctors | 해당 `{entity}_read` 권한 보유 시만 표시 |
+| Entities | Products, Stores, Brands, Ingredients, Clinics, Treatments | 해당 `{entity}_read` 권한 보유 시만 표시 |
 | System | Audit Log, Admins | `super_admin` 역할만 표시 |
 
 - 현재 페이지 메뉴 하이라이트 (active 상태)
@@ -222,7 +222,7 @@ API: `DELETE /api/admin/{entity}/:id` (api-spec §5.1 비활성화).
 
 ## 3. 제네릭 CRUD 패턴
 
-> 7엔티티(Product, Store, Brand, Ingredient, Clinic, Treatment, Doctor)에 동일 패턴 적용. 엔티티별 차이는 §4에서 정의.
+> 6엔티티(Product, Store, Brand, Ingredient, Clinic, Treatment)에 동일 패턴 적용. 엔티티별 차이는 §4에서 정의.
 
 ### 3.1 목록 화면 (`/admin/{entity}`)
 
@@ -290,7 +290,7 @@ app/(admin)/admin/{entity}/new/page.tsx   ← Composition Root (L-2)
 | **서버 에러** | API 실패 | 토스트 에러 + 폼 상태 유지 |
 | **권한 없음** | `{entity}_write` 미보유 | 이 페이지에 도달 불가 — 생성 버튼 숨김. URL 직접 접근 시 403 |
 
-**관계 관리**: 생성 화면에서는 불가. 엔티티 생성 후 상세/수정 화면에서 관계 추가. (Doctor의 clinic_id는 예외 — 필수 FK이므로 생성 폼에 검색 가능 Select 포함.)
+**관계 관리**: 생성 화면에서는 불가. 엔티티 생성 후 상세/수정 화면에서 관계 추가.
 
 ### 3.3 상세/수정 화면 (`/admin/{entity}/[id]`)
 
@@ -346,7 +346,6 @@ app/(admin)/admin/{entity}/[id]/page.tsx  ← Composition Root (L-2)
 | Ingredient | — | — | — | — |
 | Clinic | O | O | treatments | — |
 | Treatment | O | O | — | — |
-| Doctor | — | — | — | clinic_id (필수) |
 
 ### 4.2 목록 추가 컬럼
 
@@ -358,7 +357,6 @@ app/(admin)/admin/{entity}/[id]/page.tsx  ← Composition Root (L-2)
 | Ingredient | function | — |
 | Clinic | clinic_type, district | district, clinic_type |
 | Treatment | category, price_min~max | category |
-| Doctor | clinic(name), specialties | clinic_id |
 
 > (*) `has_highlight` 필터: 관리자가 하이라이트 대상 데이터를 관리하기 위한 필터. 사용자 앱 추천 순위/정렬에는 영향 없음 (VP-1 관리 목적 예외).
 

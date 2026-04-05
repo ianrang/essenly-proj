@@ -161,21 +161,6 @@ describe("enrichRecords", () => {
     expect(mockTranslateFields).toHaveBeenCalledTimes(2); // 1회 기본 + 1회 재번역
   });
 
-  // ── doctor 최소 보강 ──
-
-  it("doctor: 번역만 (분류/생성 없음)", async () => {
-    mockTranslateSuccess();
-
-    const records = [makeRecord("doctor", { name_ko: "김의사" })];
-    const { records: enriched } = await enrichRecords(records, { logDir: "/tmp" });
-
-    expect(enriched).toHaveLength(1);
-    expect(mockTranslateFields).toHaveBeenCalledTimes(1);
-    expect(mockClassifyFields).not.toHaveBeenCalled();
-    expect(mockGenerateDescriptions).not.toHaveBeenCalled();
-    expect(enriched[0].enrichments.classifiedFields).toHaveLength(0);
-  });
-
   // ── ingredient 보강 ──
 
   it("ingredient: 번역 + function/caution_skin_types 분류 + inci_name 매핑", async () => {

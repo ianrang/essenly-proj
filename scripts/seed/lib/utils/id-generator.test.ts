@@ -35,10 +35,10 @@ describe("generateEntityId", () => {
     );
   });
 
-  it("7개 entityType 모두 고유 네임스페이스 보유", () => {
+  it("6개 entityType 모두 고유 네임스페이스 보유", () => {
     const types: EntityType[] = [
       "brand", "ingredient", "product", "store",
-      "clinic", "treatment", "doctor",
+      "clinic", "treatment",
     ];
     const ids = types.map((t) => generateEntityId(t, "csv", "same-id"));
     const unique = new Set(ids);

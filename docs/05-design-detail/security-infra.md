@@ -146,7 +146,6 @@ src/
 │       ├── treatment.ts
 │       ├── brand.ts
 │       ├── ingredient.ts
-│       ├── doctor.ts
 │       ├── relation.ts   # junction table 관계 스키마
 │       ├── highlight.ts  # highlightUpdateSchema
 │       └── index.ts

@@ -116,7 +116,6 @@ interface PlaceProvider {
 | treatments | 수동 입력 + AI 보강 | - | 전 필드 |
 | brands | 수동 입력 | - | 전 필드 |
 | ingredients | 식약처 원료성분(S3) + CosIng(S6) + 식약처 사용제한(S4) | 수동 입력 + AI 보강 | inci_name, function, caution_skin_types |
-| doctors | 수동 입력 | - | 전 필드 (클리닉 종속) |
 
 ## 3.2 변환 규칙
 
@@ -170,7 +169,6 @@ stores/clinics의 `district` 필드: 주소에서 서울 구(區) 추출.
 | treatments | name, status | name.ko + name.en |
 | brands | name, status | name.ko + name.en |
 | ingredients | name, status | name.ko + name.en |
-| doctors | clinic_id, name, status | FK 존재 확인 |
 
 ### 3.3.2 값 범위 검증
 
@@ -291,7 +289,6 @@ API 결과 vs DB 기존:
 
 - stores/clinics 비활성화 시 → 사용자 앱 검색에서 제외 (7.2-ADMIN-REQUIREMENTS.md §비활성화 정책)
 - 연관 junction (product_stores, clinic_treatments) → 유지하되 사용자 앱 미노출
-- doctors → clinic 비활성 시 사용자 앱 미노출 (7.2-ADMIN-REQUIREMENTS.md 정책 4)
 
 ## 4.4 충돌 해결
 

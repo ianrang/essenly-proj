@@ -18,7 +18,6 @@ const ENTITY_NAMESPACES: Record<EntityType, string> = {
   store: "8a7c4e1f-b2d9-4a6f-9e3d-a5b8c2f7e0c1",
   clinic: "7f9a2c8b-4e1d-4f6c-a3b9-c5d8e2f7a1b6",
   treatment: "c6b9f2a5-8e3d-4c7b-a1f4-d8c2e5b9a3f6",
-  doctor: "e8a3d6b1-5c9f-4a7e-b4f2-a9d3c6e1b8f5",
 };
 
 // ── 공개 API ────────────────────────────────────────────────

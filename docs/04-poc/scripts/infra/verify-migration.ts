@@ -5,7 +5,7 @@
  */
 import { createServiceClient, printResult } from './helpers.js';
 
-// schema.dbml 기반 테이블 (사용자 데이터 9 + 도메인 10 = 19 기본 테이블)
+// schema.dbml 기반 테이블 (사용자 데이터 9 + 도메인 9 = 18 기본 테이블)
 const EXPECTED_TABLES = [
   'users',
   'user_profiles',
@@ -22,7 +22,6 @@ const EXPECTED_TABLES = [
   'ingredients',
   'clinics',
   'treatments',
-  'doctors',
   'clinic_treatments',
   'product_stores',
   'product_ingredients',

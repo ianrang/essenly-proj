@@ -234,16 +234,6 @@ CREATE TABLE IF NOT EXISTS treatments (
   updated_at TIMESTAMPTZ DEFAULT now()
 );
 
-CREATE TABLE IF NOT EXISTS doctors (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  clinic_id UUID REFERENCES clinics(id),
-  name JSONB NOT NULL,
-  specialties TEXT[],
-  languages TEXT[],
-  certifications TEXT[],
-  created_at TIMESTAMPTZ DEFAULT now()
-);
-
 CREATE TABLE IF NOT EXISTS clinic_treatments (
   clinic_id UUID REFERENCES clinics(id),
   treatment_id UUID REFERENCES treatments(id),
@@ -300,7 +290,6 @@ ALTER TABLE clinics ENABLE ROW LEVEL SECURITY;
 ALTER TABLE treatments ENABLE ROW LEVEL SECURITY;
 ALTER TABLE brands ENABLE ROW LEVEL SECURITY;
 ALTER TABLE ingredients ENABLE ROW LEVEL SECURITY;
-ALTER TABLE doctors ENABLE ROW LEVEL SECURITY;
 
 -- RLS Policies (user data)
 DO $$ BEGIN
@@ -395,10 +384,6 @@ EXCEPTION WHEN duplicate_object THEN NULL;
 END $$;
 DO $$ BEGIN
 CREATE POLICY "Ingredients are publicly readable" ON ingredients FOR SELECT USING (true);
-EXCEPTION WHEN duplicate_object THEN NULL;
-END $$;
-DO $$ BEGIN
-CREATE POLICY "Doctors are publicly readable" ON doctors FOR SELECT USING (true);
 EXCEPTION WHEN duplicate_object THEN NULL;
 END $$;
 

@@ -87,7 +87,7 @@ server/core/
 
 | 리소스 | anonymous | 비고 |
 |--------|-----------|------|
-| 도메인 데이터 (products, stores, clinics, treatments, brands, ingredients, doctors) | **Read** | RLS `USING (true)` |
+| 도메인 데이터 (products, stores, clinics, treatments, brands, ingredients) | **Read** | RLS `USING (true)` |
 | users (본인) | **Read** | RLS `auth.uid() = id` |
 | user_profiles (본인) | **Read / Write** | RLS `auth.uid() = user_id` |
 | journeys (본인) | **Read / Write** | RLS `auth.uid() = user_id` |
@@ -109,7 +109,6 @@ server/core/
 | Ingredient | Read + Write | 권한 비트별 | |
 | Clinic | Read + Write | 권한 비트별 | |
 | Treatment | Read + Write | 권한 비트별 | |
-| Doctor | Read + Write | 권한 비트별 | |
 | product_stores | Read + Write | Product write **또는** Store write | |
 | product_ingredients | Read + Write | Product write **또는** Ingredient write | |
 | clinic_treatments | Read + Write | Clinic write **또는** Treatment write | |
@@ -134,8 +133,6 @@ interface AdminPermissions {
   clinic_write: boolean;
   treatment_read: boolean;
   treatment_write: boolean;
-  doctor_read: boolean;
-  doctor_write: boolean;
 }
 ```
 
@@ -179,7 +176,6 @@ interface AdminPermissions {
 | `/api/admin/treatments` | GET/POST/PUT/DELETE | JWT | treatment_read / treatment_write |
 | `/api/admin/brands` | GET/POST/PUT/DELETE | JWT | brand_read / brand_write |
 | `/api/admin/ingredients` | GET/POST/PUT/DELETE | JWT | ingredient_read / ingredient_write |
-| `/api/admin/doctors` | GET/POST/PUT/DELETE | JWT | doctor_read / doctor_write |
 | `/api/admin/users` | GET/POST/PUT | JWT | **super_admin 전용** |
 | `/api/admin/users/:id/deactivate` | PUT | JWT | **super_admin 전용** |
 | `/api/admin/users/:id/reactivate` | PUT | JWT | **super_admin 전용** |

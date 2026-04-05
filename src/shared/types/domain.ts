@@ -240,18 +240,6 @@ export interface Treatment {
   updated_at: string;
 }
 
-export interface Doctor {
-  id: string;
-  clinic_id: string;
-  name: LocalizedText;
-  specialties: string[];
-  languages: string[];
-  certifications: string[];
-  status: string;
-  created_at: string;
-  updated_at: string;
-}
-
 // --- Domain Configuration ---
 
 export interface DomainConfig {

@@ -136,7 +136,6 @@ const ENTITY_REVIEW_COLUMNS: Record<EntityType, ReviewColumnDef[]> = {
     { header: "description_en", source: "data", path: "description.en", format: "string", editable: true },
   ],
   brand: [],
-  doctor: [],
 };
 
 // ── 상수 ────────────────────────────────────────────────────

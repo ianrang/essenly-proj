@@ -377,7 +377,7 @@ function shouldRegenerateEmbedding(
   newEntity: Record<string, unknown>
 ): boolean {
   if (!(entityType in EMBEDDING_CONFIG.TEXT_FIELDS)) {
-    // 임베딩 미지원 엔티티 (brands, ingredients, doctors 등)
+    // 임베딩 미지원 엔티티 (brands, ingredients 등)
     return false;
   }
   const fields = EMBEDDING_CONFIG.TEXT_FIELDS[entityType];

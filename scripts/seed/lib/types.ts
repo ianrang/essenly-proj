@@ -11,20 +11,18 @@ import type {
   Treatment,
   Brand,
   Ingredient,
-  Doctor,
 } from "@/shared/types";
 
 // ── 엔티티 타입 ──────────────────────────────────────────────
 
-/** 7개 도메인 엔티티 식별자 */
+/** 6개 도메인 엔티티 식별자 */
 export type EntityType =
   | "product"
   | "store"
   | "clinic"
   | "treatment"
   | "brand"
-  | "ingredient"
-  | "doctor";
+  | "ingredient";
 
 /** 도메인 엔티티 유니온 (DB 읽기 형태) */
 export type DomainEntity =
@@ -33,8 +31,7 @@ export type DomainEntity =
   | Clinic
   | Treatment
   | Brand
-  | Ingredient
-  | Doctor;
+  | Ingredient;
 
 // ── Stage 1: Fetch ───────────────────────────────────────────
 

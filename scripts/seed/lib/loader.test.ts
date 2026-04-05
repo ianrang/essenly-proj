@@ -82,8 +82,6 @@ const PRODUCT_ID = "4be39897-d386-5cd1-ab64-7ef417acd865";
 const STORE_ID = "671813ac-7107-5240-8f9e-c49e4ea1b32b";
 const CLINIC_ID = "530aa74e-3093-5d5c-8f30-1082ac9062f3";
 const INGREDIENT_ID = "837f5e51-b7b9-52be-9115-67e6a91fad44";
-const DOCTOR_ID = "41e7b6db-b93f-5441-8c50-dcea8c13dde2";
-
 const validBrand = {
   id: BRAND_ID,
   name: { ko: "이니스프리", en: "Innisfree" },
@@ -101,13 +99,6 @@ const validProduct = {
 const validStore = {
   id: STORE_ID,
   name: { ko: "올리브영", en: "Olive Young" },
-  status: "active",
-};
-
-const validDoctor = {
-  id: DOCTOR_ID,
-  name: { ko: "김의사", en: "Dr. Kim" },
-  clinic_id: CLINIC_ID,
   status: "active",
 };
 

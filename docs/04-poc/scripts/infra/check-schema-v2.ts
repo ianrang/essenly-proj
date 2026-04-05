@@ -17,9 +17,6 @@ async function main() {
   const { error: e3 } = await sb.from('ingredients').select('status, updated_at').limit(0);
   printResult('ingredients.status + updated_at', !e3, e3?.message);
 
-  const { error: e4 } = await sb.from('doctors').select('status, updated_at').limit(0);
-  printResult('doctors.status + updated_at', !e4, e4?.message);
-
   // P1-17: 관리자 테이블 CRUD
   console.log('\n--- P1-17: Admin tables CRUD ---');
 

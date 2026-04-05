@@ -22,11 +22,7 @@ async function main() {
   const { data: s4, error: e4 } = await sb.from('ingredients').select('status').limit(0);
   console.log('ingredients.status:', e4 ? `NOT FOUND (${e4.code})` : 'EXISTS');
 
-  // 5. doctors.status 존재?
-  const { data: s5, error: e5 } = await sb.from('doctors').select('status').limit(0);
-  console.log('doctors.status:', e5 ? `NOT FOUND (${e5.code})` : 'EXISTS');
-
-  // 6. admin_users 테이블?
+  // 5. admin_users 테이블?
   const { error: e6 } = await sb.from('admin_users').select('id').limit(0);
   console.log('admin_users table:', e6 ? `NOT FOUND (${e6.code})` : 'EXISTS');
 

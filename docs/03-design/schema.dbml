@@ -382,20 +382,6 @@ Table treatments {
   Note: 'DOM-2 Treatment: beauty procedures. price_range JSONB split into price_min/max/currency for query performance.'
 }
 
-Table doctors {
-  id uuid [pk, default: `gen_random_uuid()`]
-  clinic_id uuid [not null, ref: > clinics.id, note: 'ON DELETE RESTRICT. Cannot delete clinic with doctors.']
-  name jsonb [not null, note: 'LocalizedText']
-  specialties text[]
-  languages text[] [note: 'Languages the doctor speaks']
-  certifications text[]
-  status text [default: 'active', note: 'CHECK: active/inactive/temporarily_closed']
-  created_at timestamptz [default: `now()`]
-  updated_at timestamptz [default: `now()`]
-
-  Note: 'DOM-2: doctors at clinics. status added for soft-delete consistency.'
-}
-
 // ============================================================
 // Junction Tables (N:M — 3 only, all business-essential)
 // ============================================================
@@ -443,7 +429,7 @@ Table admin_users {
   email text [unique, not null, note: 'Google Workspace email. Allowlist managed by super_admin.']
   name text [note: 'Display name']
   role text [not null, note: 'CHECK: super_admin/admin']
-  permissions jsonb [not null, default: '{}', note: '14-bit: {product_read, product_write, store_read, store_write, brand_read, brand_write, ingredient_read, ingredient_write, clinic_read, clinic_write, treatment_read, treatment_write, doctor_read, doctor_write}. v0.2: +salon_*, stylist_*, restaurant_*. v0.3: +experience_*']
+  permissions jsonb [not null, default: '{}', note: '12-bit: {product_read, product_write, store_read, store_write, brand_read, brand_write, ingredient_read, ingredient_write, clinic_read, clinic_write, treatment_read, treatment_write}. v0.2: +salon_*, stylist_*, restaurant_*. v0.3: +experience_*']
   status text [not null, default: 'active', note: 'CHECK: active/inactive']
   last_login timestamptz
   created_by uuid [ref: > admin_users.id, note: 'Self-reference: which admin created this account']
@@ -457,7 +443,7 @@ Table audit_logs {
   id uuid [pk, default: `gen_random_uuid()`]
   actor_id uuid [not null, ref: > admin_users.id, note: 'ON DELETE RESTRICT. Audit logs must be preserved.']
   action text [not null, note: '17 events: create/update/deactivate/reactivate/highlight_on/highlight_off/relation_connect/relation_disconnect/login_success/login_failure/logout/admin_create/admin_deactivate/admin_reactivate/permission_change']
-  target_type text [note: 'product/store/brand/ingredient/clinic/treatment/doctor/admin_user/relation. v0.2: +salon/salon_service/stylist/restaurant. v0.3: +experience']
+  target_type text [note: 'product/store/brand/ingredient/clinic/treatment/admin_user/relation. v0.2: +salon/salon_service/stylist/restaurant. v0.3: +experience']
   target_id uuid [note: 'ID of affected entity']
   changes jsonb [note: '{before: {...}, after: {...}} for update. Full data for create. status for deactivate.']
   ip_address inet
@@ -495,7 +481,6 @@ TableGroup domain_shopping {
 TableGroup domain_treatment {
   clinics
   treatments
-  doctors
   clinic_treatments
 }
 
@@ -582,7 +567,7 @@ Table stylists {
   created_at timestamptz [default: `now()`]
   updated_at timestamptz [default: `now()`]
 
-  Note: 'DOM-3: stylists at salons. [v0.2 구현 예정] Pattern follows doctors table.'
+  Note: 'DOM-3: stylists at salons. [v0.2 구현 예정] 1:N child of salons, with specialties/languages/certifications.'
 }
 
 // ============================================================

@@ -163,11 +163,6 @@ const ENRICHMENT_CONFIG: Record<EntityType, EnrichmentConfig> = {
     classifySpecs: INGREDIENT_CLASSIFY_SPECS,
     generateSpecs: [],
   },
-  doctor: {
-    translateKeys: { name: "name_ko" },
-    classifySpecs: [],
-    generateSpecs: [],
-  },
 };
 
 // ── 소스→DB 필드 매핑 (F-1: S3 필드명 → DB 필드명 변환) ──

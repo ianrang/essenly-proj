@@ -12,7 +12,6 @@ import {
   treatmentCreateSchema,
   brandCreateSchema,
   ingredientCreateSchema,
-  doctorCreateSchema,
 } from "@/shared/validation";
 
 import type { EntityType, ValidatedRecord } from "./types";
@@ -25,7 +24,6 @@ export const ENTITY_SCHEMAS: Record<EntityType, z.ZodSchema> = {
   treatment: treatmentCreateSchema,
   brand: brandCreateSchema,
   ingredient: ingredientCreateSchema,
-  doctor: doctorCreateSchema,
 };
 
 /** ValidatedRecord[] 공통 검증 — validate.ts + run-all.ts 공유 (G-2) */

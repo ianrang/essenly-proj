@@ -5,6 +5,5 @@ export * from "./clinic";
 export * from "./treatment";
 export * from "./brand";
 export * from "./ingredient";
-export * from "./doctor";
 export * from "./relation";
 export * from "./highlight";

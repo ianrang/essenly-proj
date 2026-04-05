@@ -91,7 +91,6 @@
 | TREATMENT | `TREATMENT_NOT_FOUND` |
 | BRAND | `BRAND_NOT_FOUND` |
 | INGREDIENT | `INGREDIENT_NOT_FOUND` |
-| DOCTOR | `DOCTOR_NOT_FOUND`, `DOCTOR_CLINIC_REQUIRED` |
 | RELATION | `RELATION_ALREADY_EXISTS`, `RELATION_ENTITY_NOT_FOUND` |
 | RATE_LIMIT | `RATE_LIMIT_EXCEEDED` |
 | VALIDATION | `VALIDATION_FAILED` |
@@ -523,7 +522,7 @@ Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
 
 ## 5.1 제네릭 CRUD 패턴
 
-7 엔티티(Product, Store, Brand, Ingredient, Clinic, Treatment, Doctor)에 동일 패턴 적용.
+6 엔티티(Product, Store, Brand, Ingredient, Clinic, Treatment)에 동일 패턴 적용.
 
 ### 목록 조회: `GET /api/admin/{entity}`
 
@@ -559,7 +558,7 @@ Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
 }
 ```
 
-> `relations`는 Product에 stores/ingredients, Clinic에 treatments, Doctor에 clinic.
+> `relations`는 Product에 stores/ingredients, Clinic에 treatments.
 
 ### 생성: `POST /api/admin/{entity}`
 
@@ -637,7 +636,7 @@ Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
 
 ## 5.3 하이라이트 관리
 
-> 대상 엔티티: **Product, Store, Clinic, Treatment** (4개만). Brand, Ingredient, Doctor는 `is_highlighted` 컬럼 없음 (schema.dbml 참조).
+> 대상 엔티티: **Product, Store, Clinic, Treatment** (4개만). Brand, Ingredient는 `is_highlighted` 컬럼 없음 (schema.dbml 참조).
 
 ### `PUT /api/admin/{entity}/:id/highlight`
 
@@ -694,7 +693,6 @@ Vercel AI SDK 6.x `toUIMessageStreamResponse()` 기반.
 | Clinic | `district`, `clinic_type` |
 | Treatment | `category` |
 | Brand | `tier`, `is_essenly` |
-| Doctor | `clinic_id` |
 
 ---
 
