@@ -41,6 +41,9 @@ yarn-error.log*
 .env.production.local
 !.env.example
 
+# generated
+src/shared/constants/kb.generated.ts
+
 # vercel
 .vercel
 
