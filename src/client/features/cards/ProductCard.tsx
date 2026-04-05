@@ -110,6 +110,20 @@ export default function ProductCard({ product, brand, store, whyRecommended, loc
             )}
           </p>
         )}
+
+        {/* Purchase Link */}
+        {product.purchase_links && product.purchase_links.length > 0 && (
+          <p className="text-[10px] text-muted-foreground">
+            <a
+              href={product.purchase_links[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline transition-colors hover:text-foreground"
+            >
+              Buy Online
+            </a>
+          </p>
+        )}
       </div>
     </article>
   );
