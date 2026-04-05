@@ -66,8 +66,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -110,9 +110,10 @@
         "fr": "Laneige Water Sleeping Mask EX"
       },
       "skin_types": [
-        "dry",
         "combination",
-        "normal"
+        "dry",
+        "normal",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
@@ -136,8 +137,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -180,17 +181,18 @@
         "fr": "COSRX Advanced Snail 92 All in One Cream"
       },
       "skin_types": [
-        "dry",
-        "oily",
         "combination",
-        "sensitive",
-        "normal"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
-        "redness",
         "dullness",
-        "uneven_tone"
+        "redness",
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "This all-in-one cream, formulated with 92% snail secretion filtrate, provides rich nourishment and hydration to the skin. It absorbs quickly without stickiness, helping to strengthen the skin barrier and soothe irritation.",
@@ -210,8 +212,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -280,8 +282,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -352,8 +354,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -396,12 +398,13 @@
       },
       "skin_types": [
         "dry",
+        "normal",
         "sensitive"
       ],
       "concerns": [
         "dryness",
-        "redness",
-        "eczema"
+        "eczema",
+        "redness"
       ],
       "description": {
         "ko": "illiYOON Ceramide Ato Concentrate Cream intensely hydrates sensitive, dry skin and strengthens the skin barrier. Infused with ceramide, it delivers deep moisturization without feeling sticky. Apply a moderate amount to cleansed skin every morning and evening.",
@@ -421,8 +424,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -464,15 +467,16 @@
         "fr": "Sulwhasoo Concentrated Ginseng Renewing Cream"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "normal",
-        "combination"
+        "normal"
       ],
       "concerns": [
-        "wrinkles",
+        "dark_spots",
         "dryness",
         "dullness",
-        "uneven_tone"
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "Sulwhasoo Concentrated Ginseng Renewing Cream revitalizes skin with potent ginseng energy, enhancing resilience and providing deep nourishment and elasticity. Apply gently as the last step of your skincare routine, morning and night.",
@@ -492,8 +496,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -562,8 +566,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -631,8 +635,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -674,16 +678,17 @@
         "fr": "isoi Crème Énergisante Intensive à la Rose Bulgare EX"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "sensitive",
         "normal",
-        "combination"
+        "sensitive"
       ],
       "concerns": [
         "dryness",
-        "redness",
         "dullness",
-        "uneven_tone"
+        "redness",
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "Recharge your skin with Bulgarian Rose oil and natural ingredients. This cream deeply moisturizes and boosts skin energy, leaving it revitalized and radiant. Perfect for tired skin seeking a healthy glow.",
@@ -703,8 +708,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -773,8 +778,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -815,14 +820,15 @@
         "fr": "Goodal Crème Hydratante Apaisante Houttuynia Cordata"
       },
       "skin_types": [
-        "sensitive",
+        "combination",
         "oily",
-        "combination"
+        "sensitive"
       ],
       "concerns": [
-        "redness",
+        "acne",
         "dryness",
-        "acne"
+        "pores",
+        "redness"
       ],
       "description": {
         "ko": "Goodal's Houttuynia Cordata Calming Moisture Cream is a daily hydration solution for clear, moisturized skin. Houttuynia Cordata extract soothes irritation, while the non-sticky formula absorbs quickly for comfortable hydration. Safe for sensitive skin.",
@@ -842,8 +848,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -886,12 +892,13 @@
       },
       "skin_types": [
         "dry",
+        "normal",
         "sensitive"
       ],
       "concerns": [
         "dryness",
-        "redness",
-        "eczema"
+        "eczema",
+        "redness"
       ],
       "description": {
         "ko": "Aestura Atobarrier 365 Cream strengthens the skin barrier and provides deep hydration for dry, sensitive skin. It replenishes moisture from within, promoting a healthy complexion. Apply gently after cleansing or whenever needed.",
@@ -911,8 +918,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -953,15 +960,16 @@
         "fr": "Beauty of Joseon Dynasty Cream"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "sensitive",
         "normal",
-        "combination"
+        "sensitive"
       ],
       "concerns": [
         "dryness",
         "dullness",
-        "uneven_tone"
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "The Dynasty Cream is excellent for strengthening the skin barrier and adding radiance. Enriched with rice bran water and ginseng water, it deeply moisturizes and nourishes the skin. Its soft texture provides a non-sticky finish. Use as the last step in your skincare routine.",
@@ -981,8 +989,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1024,13 +1032,15 @@
         "fr": "Etude Soon Jung Moist Full Crème Collagène"
       },
       "skin_types": [
-        "sensitive",
+        "combination",
         "dry",
         "normal",
-        "combination"
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
+        "eczema",
         "redness"
       ],
       "description": {
@@ -1051,8 +1061,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1094,12 +1104,13 @@
         "fr": "Hanyul Masque de Nuit Yuja"
       },
       "skin_types": [
+        "combination",
         "dry",
         "normal",
-        "combination",
         "sensitive"
       ],
       "concerns": [
+        "dark_spots",
         "dryness",
         "dullness",
         "uneven_tone"
@@ -1122,8 +1133,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1192,8 +1203,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1260,8 +1271,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1301,14 +1312,15 @@
         "fr": "Mediheal Crème Madécassoside"
       },
       "skin_types": [
-        "sensitive",
-        "dry",
         "combination",
-        "normal"
+        "dry",
+        "normal",
+        "sensitive"
       ],
       "concerns": [
-        "redness",
-        "dryness"
+        "acne",
+        "dryness",
+        "redness"
       ],
       "description": {
         "ko": "This cream, enriched with madecassoside, effectively soothes sensitive and dry skin. It absorbs smoothly without any stickiness, leaving a refreshing finish. Use it every morning and night for best results.",
@@ -1328,8 +1340,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1370,15 +1382,17 @@
         "fr": "Primera Alpine Berry Watery Cream"
       },
       "skin_types": [
-        "dry",
         "combination",
-        "sensitive",
-        "normal"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
-        "redness",
-        "dullness"
+        "dullness",
+        "pores",
+        "redness"
       ],
       "description": {
         "ko": "This watery cream, infused with Alpine Berry extracts, delivers intense hydration and revitalizes the skin. Its lightweight formula absorbs quickly for a refreshing finish, perfect for daily moisturizing.",
@@ -1398,8 +1412,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1468,8 +1482,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1537,8 +1551,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1579,14 +1593,15 @@
         "fr": "O HUI Age Recovery Cream"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "normal",
-        "combination"
+        "normal"
       ],
       "concerns": [
-        "wrinkles",
+        "dark_spots",
         "dryness",
-        "dullness"
+        "dullness",
+        "wrinkles"
       ],
       "description": {
         "ko": "O HUI Age Recovery Cream boosts skin elasticity by replenishing collagen and delivers intense hydration for a radiant complexion. Gently apply and absorb at the last step of your skincare routine, morning and night.",
@@ -1606,8 +1621,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1676,8 +1691,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1746,8 +1761,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1791,17 +1806,18 @@
         "fr": "COSRX Advanced Snail 96 Mucin Power Essence"
       },
       "skin_types": [
-        "dry",
-        "oily",
         "combination",
-        "sensitive",
-        "normal"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
-        "redness",
         "dullness",
-        "uneven_tone"
+        "redness",
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "This essence, formulated with 96% snail secretion filtrate, delivers intense hydration and nourishment. It absorbs quickly without feeling sticky, promoting skin barrier repair and improved texture. Use after toner for optimal results.",
@@ -1821,8 +1837,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1865,14 +1881,15 @@
         "fr": "Torriden Dive-In Sérum à l'Acide Hyaluronique de Bas Poids Moléculaire"
       },
       "skin_types": [
-        "dry",
-        "oily",
         "combination",
-        "sensitive",
-        "normal"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
+        "dullness",
         "redness"
       ],
       "description": {
@@ -1893,8 +1910,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -1936,16 +1953,17 @@
         "fr": "Beauty of Joseon Sérum Éclat Intense Riz + Arbutine"
       },
       "skin_types": [
-        "normal",
         "combination",
         "dry",
+        "normal",
+        "oily",
         "sensitive"
       ],
       "concerns": [
-        "dullness",
         "dark_spots",
-        "uneven_tone",
-        "dryness"
+        "dryness",
+        "dullness",
+        "uneven_tone"
       ],
       "description": {
         "ko": "Brighten and even your skin tone with this serum formulated with rice bran water and arbutin. Experience a healthy glow with deep hydration that illuminates from within.",
@@ -1965,8 +1983,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2036,8 +2054,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2080,16 +2098,17 @@
         "fr": "MISSHA Time Revolution The First Treatment Essence RX"
       },
       "skin_types": [
-        "dry",
         "combination",
-        "sensitive",
-        "normal"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
-        "wrinkles",
         "dryness",
         "dullness",
-        "uneven_tone"
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "MISSHA's bestseller! This essence refines skin texture with fermented yeast extract, creating a clear and radiant complexion. Use it as the first step after cleansing to boost the absorption of subsequent skincare.",
@@ -2109,8 +2128,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2177,8 +2196,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2221,15 +2240,16 @@
         "fr": "Sulwhasoo First Care Activating Serum EX"
       },
       "skin_types": [
-        "dry",
         "combination",
+        "dry",
         "normal",
         "sensitive"
       ],
       "concerns": [
         "dryness",
         "dullness",
-        "uneven_tone"
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "Sulwhasoo First Care Activating Serum EX strengthens the skin barrier and boosts the absorption of subsequent skincare. Use it as the first step after cleansing for radiant, healthy-looking skin.",
@@ -2249,8 +2269,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2291,14 +2311,17 @@
         "fr": "ROUND LAB Dokdo Toner"
       },
       "skin_types": [
-        "sensitive",
+        "combination",
         "dry",
         "normal",
-        "combination"
+        "oily",
+        "sensitive"
       ],
       "concerns": [
-        "redness",
         "dryness",
+        "dullness",
+        "pores",
+        "redness",
         "uneven_tone"
       ],
       "description": {
@@ -2319,8 +2342,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2363,13 +2386,14 @@
         "fr": "COSRX The Vitamin C 23 Serum"
       },
       "skin_types": [
-        "oily",
         "combination",
-        "normal"
+        "normal",
+        "oily"
       ],
       "concerns": [
         "dark_spots",
         "dullness",
+        "sun_damage",
         "uneven_tone"
       ],
       "description": {
@@ -2390,8 +2414,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2459,8 +2483,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2529,8 +2553,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2600,8 +2624,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2668,8 +2692,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2710,13 +2734,14 @@
         "fr": "Huxley Huile Essentielle; Essence-Like, Huile-Like"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "normal",
-        "combination"
+        "normal"
       ],
       "concerns": [
         "dryness",
-        "dullness"
+        "dullness",
+        "wrinkles"
       ],
       "description": {
         "ko": "Experience the richness of oil and the lightness of essence with Huxley Oil Essence! It quickly absorbs into the skin, leaving it hydrated and radiant. Use as the first step after cleansing or at the end of your skincare routine.",
@@ -2736,8 +2761,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2807,8 +2832,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2878,8 +2903,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -2947,8 +2972,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3016,8 +3041,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3086,8 +3111,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3127,15 +3152,16 @@
         "fr": "The History of Whoo Bichup Essence Auto-Régénérante Anti-Âge"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "normal",
-        "combination"
+        "normal"
       ],
       "concerns": [
-        "wrinkles",
-        "dullness",
+        "dark_spots",
         "dryness",
-        "uneven_tone"
+        "dullness",
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "The History of Whoo Bichup Self-Generating Anti-Aging Essence enhances skin's natural regenerative power. It improves wrinkles, brightens skin tone, and boosts overall skin health. Use morning and night as part of your skincare routine to revitalize your skin from within.",
@@ -3155,8 +3181,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3197,16 +3223,17 @@
         "fr": "VT Reedle Shot 100 Essence"
       },
       "skin_types": [
-        "normal",
         "combination",
+        "normal",
         "oily",
         "sensitive"
       ],
       "concerns": [
+        "dullness",
         "pores",
         "redness",
-        "dullness",
-        "uneven_tone"
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "This essence features micro Reedle™ particles that gently exfoliate and refine skin texture. Apply after cleansing as the first step to boost absorption of subsequent skincare.",
@@ -3226,8 +3253,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3268,15 +3295,16 @@
         "fr": "numbuzin Sérum Apaisant au Panthénol N°5"
       },
       "skin_types": [
-        "sensitive",
-        "dry",
         "combination",
+        "dry",
         "normal",
-        "oily"
+        "oily",
+        "sensitive"
       ],
       "concerns": [
-        "redness",
-        "dryness"
+        "dryness",
+        "eczema",
+        "redness"
       ],
       "description": {
         "ko": "numbuzin No.5 Panthenol Soothing Serum is a concentrated calming solution for sensitive and irritated skin. Enriched with panthenol, it strengthens the skin barrier and provides deep hydration for a healthy complexion. Perfect for daily use and gentle on all skin types.",
@@ -3296,8 +3324,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3338,13 +3366,16 @@
         "fr": "Aestura Dermosica Repair Cica Ampoule"
       },
       "skin_types": [
-        "sensitive",
+        "combination",
         "dry",
-        "combination"
+        "oily",
+        "sensitive"
       ],
       "concerns": [
-        "redness",
+        "acne",
         "dryness",
+        "pores",
+        "redness",
         "uneven_tone"
       ],
       "description": {
@@ -3365,8 +3396,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3436,8 +3467,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3506,8 +3537,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3578,8 +3609,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3647,8 +3678,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3690,14 +3721,17 @@
         "fr": "ROUND LAB Dokdo Huile Démaquillante"
       },
       "skin_types": [
-        "sensitive",
+        "combination",
         "dry",
-        "normal"
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
-        "redness",
-        "pores"
+        "dullness",
+        "pores",
+        "redness"
       ],
       "description": {
         "ko": "This cleansing oil, enriched with deep sea water from Ulleungdo, provides deep cleansing and a moisturized finish. It gently melts away makeup and impurities from pores, while also helping to strengthen the skin barrier.",
@@ -3717,8 +3751,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3789,8 +3823,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3832,15 +3866,16 @@
         "fr": "Etude House Soon Jung pH 6.5 Nettoyant Eau"
       },
       "skin_types": [
-        "sensitive",
+        "combination",
         "dry",
         "normal",
-        "combination",
-        "oily"
+        "oily",
+        "sensitive"
       ],
       "concerns": [
-        "redness",
-        "dryness"
+        "dryness",
+        "eczema",
+        "redness"
       ],
       "description": {
         "ko": "Etude House Soon Jung pH 6.5 Watery Cleanser is a gentle, low-irritant cleanser that helps maintain your skin's natural pH balance. It effectively removes impurities while leaving skin feeling hydrated and refreshed, perfect for sensitive skin.",
@@ -3860,8 +3895,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3928,8 +3963,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -3997,8 +4032,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4070,8 +4105,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4139,8 +4174,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4209,8 +4244,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4278,8 +4313,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4346,8 +4381,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4417,8 +4452,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4484,8 +4519,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4527,15 +4562,16 @@
         "fr": "Hera Cell Essence"
       },
       "skin_types": [
+        "combination",
         "dry",
         "normal",
-        "combination",
         "sensitive"
       ],
       "concerns": [
         "dryness",
         "dullness",
-        "uneven_tone"
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "Hera Cell Essence revitalizes skin from within, creating a clear and radiant complexion. Use it as the first step in your skincare routine, morning and night, to optimize skin condition.",
@@ -4555,8 +4591,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4625,8 +4661,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4666,14 +4702,15 @@
         "fr": "Dr.Jart+ Cicapair Tonique"
       },
       "skin_types": [
-        "sensitive",
-        "dry",
         "combination",
-        "normal"
+        "dry",
+        "normal",
+        "sensitive"
       ],
       "concerns": [
-        "redness",
+        "acne",
         "dryness",
+        "redness",
         "uneven_tone"
       ],
       "description": {
@@ -4694,8 +4731,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4736,14 +4773,15 @@
         "fr": "Sulwhasoo Mousse Nettoyante Douce EX"
       },
       "skin_types": [
-        "dry",
-        "oily",
         "combination",
-        "sensitive",
-        "normal"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
+        "dullness",
         "redness"
       ],
       "description": {
@@ -4764,8 +4802,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4834,8 +4872,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4903,8 +4941,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -4975,8 +5013,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5045,8 +5083,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5114,8 +5152,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5155,13 +5193,14 @@
         "fr": "numbuzin Crème Solaire Filtre Transparent N°1"
       },
       "skin_types": [
-        "sensitive",
-        "normal",
         "combination",
+        "dry",
+        "normal",
         "oily",
-        "dry"
+        "sensitive"
       ],
       "concerns": [
+        "pores",
         "sun_damage"
       ],
       "description": {
@@ -5182,8 +5221,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5253,8 +5292,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5322,8 +5361,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5363,15 +5402,16 @@
         "fr": "Estra Atobarrier 365 Crème Solaire Hydro Apaisante"
       },
       "skin_types": [
-        "sensitive",
+        "combination",
         "dry",
         "normal",
-        "combination"
+        "sensitive"
       ],
       "concerns": [
-        "sun_damage",
+        "dryness",
+        "eczema",
         "redness",
-        "dryness"
+        "sun_damage"
       ],
       "description": {
         "ko": "Estra Atobarrier 365 Hydro Soothing Sun Cream strengthens the skin barrier while providing broad-spectrum UV protection. Its hydrating formula soothes and protects even sensitive, dry skin.",
@@ -5391,8 +5431,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5458,8 +5498,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5500,13 +5540,14 @@
         "fr": "Dr.Jart+ Every Sun Day UV Sun Fluid"
       },
       "skin_types": [
-        "sensitive",
-        "normal",
         "combination",
+        "dry",
+        "normal",
         "oily",
-        "dry"
+        "sensitive"
       ],
       "concerns": [
+        "pores",
         "sun_damage"
       ],
       "description": {
@@ -5527,8 +5568,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5597,8 +5638,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5665,8 +5706,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5735,8 +5776,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5806,8 +5847,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5875,8 +5916,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -5917,12 +5958,14 @@
         "fr": "Primera Skin Relief UV Protector SPF50+"
       },
       "skin_types": [
-        "sensitive",
-        "normal"
+        "dry",
+        "normal",
+        "sensitive"
       ],
       "concerns": [
-        "sun_damage",
-        "redness"
+        "eczema",
+        "redness",
+        "sun_damage"
       ],
       "description": {
         "ko": "Primera Skin Relief UV Protector SPF50+ is a gentle sunscreen formulated for sensitive skin. It provides powerful SPF50+ protection while soothing ingredients keep skin comfortable. Recommended for daily sun care.",
@@ -5942,8 +5985,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6013,8 +6056,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6083,8 +6126,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6150,8 +6193,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6191,14 +6234,15 @@
         "fr": "Masque Revitalisant de Nuit Sulwhasoo"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "normal",
-        "combination"
+        "normal"
       ],
       "concerns": [
         "dryness",
         "dullness",
-        "uneven_tone"
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "Sulwhasoo Overnight Vitalizing Mask delivers rich nourishment and hydration while you sleep, leaving your skin radiant and revitalized in the morning. It strengthens the skin barrier and helps retain moisture. Use 2-3 times a week as the final step in your skincare routine.",
@@ -6218,8 +6262,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6287,8 +6331,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6331,10 +6375,11 @@
         "fr": "LANEIGE Masque de Nuit pour les Lèvres"
       },
       "skin_types": [
+        "combination",
         "dry",
         "normal",
-        "sensitive",
-        "combination"
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -6357,8 +6402,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6427,8 +6472,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6495,8 +6540,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6537,8 +6582,9 @@
         "fr": "COSRX Acne Pimple Master Patch"
       },
       "skin_types": [
-        "oily",
         "combination",
+        "normal",
+        "oily",
         "sensitive"
       ],
       "concerns": [
@@ -6563,8 +6609,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6633,8 +6679,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6674,16 +6720,17 @@
         "fr": "ROUND LAB Dokdo Tonique en Pads"
       },
       "skin_types": [
-        "sensitive",
-        "dry",
         "combination",
+        "dry",
+        "normal",
         "oily",
-        "normal"
+        "sensitive"
       ],
       "concerns": [
-        "redness",
         "dryness",
+        "dullness",
         "pores",
+        "redness",
         "uneven_tone"
       ],
       "description": {
@@ -6704,8 +6751,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6745,14 +6792,15 @@
         "fr": "VT Cica Masque Apaisant Quotidien"
       },
       "skin_types": [
-        "sensitive",
-        "oily",
         "combination",
-        "normal"
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
-        "redness",
-        "dryness"
+        "acne",
+        "dryness",
+        "redness"
       ],
       "description": {
         "ko": "The VT Cica Daily Soothing Mask, infused with Cica, soothes and calms irritated skin daily. The thin, moist sheet adheres perfectly to the skin, effectively delivering hydration and nutrients. Simply apply to face after cleansing for 10-20 minutes and remove.",
@@ -6772,8 +6820,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6839,8 +6887,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6909,8 +6957,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -6974,8 +7022,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7045,8 +7093,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7115,8 +7163,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7184,8 +7232,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7253,8 +7301,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7323,8 +7371,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7364,15 +7412,16 @@
         "fr": "The History of Whoo Bichup Ja Saeng Crème Contour des Yeux"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "sensitive",
         "normal",
-        "combination"
+        "sensitive"
       ],
       "concerns": [
-        "wrinkles",
         "dark_circles",
-        "dryness"
+        "dark_spots",
+        "dryness",
+        "wrinkles"
       ],
       "description": {
         "ko": "The History of Whoo Bichup Ja Saeng Eye Cream intensely cares for fine lines and loss of elasticity around the eyes. It enhances skin's self-regenerating power, creating a youthful and vibrant look, while its smooth texture allows for quick absorption. Apply a suitable amount around the eyes after cleansing in the morning and evening.",
@@ -7392,8 +7441,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7463,8 +7512,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7504,12 +7553,13 @@
         "fr": "the SAEM Crème Yeux Semi Essentielle"
       },
       "skin_types": [
+        "combination",
         "dry",
         "normal"
       ],
       "concerns": [
-        "dryness",
         "dark_circles",
+        "dryness",
         "wrinkles"
       ],
       "description": {
@@ -7530,8 +7580,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7572,15 +7622,16 @@
         "fr": "ISA KNOX Age Focus Phyto-Pro Retinol Crème Yeux"
       },
       "skin_types": [
+        "combination",
         "dry",
         "normal",
-        "sensitive",
-        "combination"
+        "sensitive"
       ],
       "concerns": [
-        "wrinkles",
         "dark_circles",
-        "dryness"
+        "dryness",
+        "dullness",
+        "wrinkles"
       ],
       "description": {
         "ko": "ISA KNOX Age Focus Phyto-Pro Retinol Eye Cream helps improve the appearance of wrinkles around the eyes with its plant-derived retinol. The gentle formula absorbs quickly, leaving the eye area looking firm and healthy. Apply gently around the eyes morning and night.",
@@ -7600,8 +7651,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7670,8 +7721,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7710,10 +7761,11 @@
         "fr": "rom&nd Juicy Lasting Tint"
       },
       "skin_types": [
-        "dry",
-        "oily",
         "combination",
-        "normal"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
@@ -7737,8 +7789,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7779,9 +7831,11 @@
         "fr": "rom&nd Glasting Melting Balm"
       },
       "skin_types": [
+        "combination",
         "dry",
         "normal",
-        "combination"
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -7804,8 +7858,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7870,8 +7924,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7910,10 +7964,11 @@
         "fr": "Peripera Ink Velvet"
       },
       "skin_types": [
-        "normal",
+        "combination",
         "dry",
+        "normal",
         "oily",
-        "combination"
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -7936,8 +7991,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -7976,6 +8031,7 @@
         "fr": "Clio Melting Dew Tint"
       },
       "skin_types": [
+        "combination",
         "dry",
         "normal"
       ],
@@ -8001,8 +8057,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8042,10 +8098,11 @@
         "fr": "Etude Fixing Tint"
       },
       "skin_types": [
-        "normal",
-        "dry",
         "combination",
-        "oily"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -8068,8 +8125,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8109,9 +8166,11 @@
         "fr": "Hera Sensual Powder Matte Lipstick"
       },
       "skin_types": [
-        "normal",
         "combination",
-        "oily"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -8134,8 +8193,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8175,10 +8234,11 @@
         "fr": "Espoir Couture Teinte à Lèvres Velours"
       },
       "skin_types": [
-        "normal",
-        "dry",
         "combination",
-        "oily"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -8201,8 +8261,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8269,8 +8329,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8310,6 +8370,7 @@
         "fr": "Mamonde Creamy Tint Color Balm Intense"
       },
       "skin_types": [
+        "combination",
         "dry",
         "normal"
       ],
@@ -8334,8 +8395,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8374,9 +8435,11 @@
         "fr": "too cool for school Glowy Fit Lip Glaze"
       },
       "skin_types": [
-        "normal",
+        "combination",
         "dry",
-        "combination"
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
@@ -8400,8 +8463,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8442,10 +8505,12 @@
       },
       "skin_types": [
         "dry",
-        "normal"
+        "normal",
+        "sensitive"
       ],
       "concerns": [
-        "dryness"
+        "dryness",
+        "wrinkles"
       ],
       "description": {
         "ko": "Sulwhasoo Essential Lip Serum Stick nourishes and hydrates lips for a healthy, supple look. Infused with camellia and apricot kernel oils, it protects lips while adding a touch of vibrant color. Apply throughout the day for lasting moisture.",
@@ -8465,8 +8530,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8505,8 +8570,11 @@
         "fr": "WAKEMAKE Rouge à lèvres Water Blurring Glow"
       },
       "skin_types": [
+        "combination",
+        "dry",
         "normal",
-        "dry"
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness",
@@ -8530,8 +8598,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8597,8 +8665,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8638,10 +8706,11 @@
         "fr": "3CE Velvet Lip Tint"
       },
       "skin_types": [
-        "dry",
-        "oily",
         "combination",
-        "normal"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -8664,8 +8733,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8729,8 +8798,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8770,12 +8839,14 @@
         "fr": "Missha Magic Cushion Cover Lasting"
       },
       "skin_types": [
-        "oily",
-        "combination"
+        "combination",
+        "normal",
+        "oily"
       ],
       "concerns": [
-        "uneven_tone",
-        "redness"
+        "pores",
+        "redness",
+        "uneven_tone"
       ],
       "description": {
         "ko": "Missha Magic Cushion Cover Lasting provides flawless coverage for a smooth, even complexion. Its lightweight formula adheres seamlessly to the skin for long-lasting wear, offering a comfortable and breathable feel all day.",
@@ -8795,8 +8866,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8861,8 +8932,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8905,12 +8976,13 @@
       },
       "skin_types": [
         "combination",
-        "oily",
-        "normal"
+        "dry",
+        "normal",
+        "oily"
       ],
       "concerns": [
-        "uneven_tone",
-        "dullness"
+        "dullness",
+        "uneven_tone"
       ],
       "description": {
         "ko": "Hera Black Cushion delivers flawless skin all day long with its exceptional adherence and long-lasting power. It provides perfect coverage with a lightweight, thin application, maintaining a smooth complexion even with layering.",
@@ -8930,8 +9002,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -8998,8 +9070,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9040,14 +9112,15 @@
         "fr": "Sulwhasoo Perfecting Cushion"
       },
       "skin_types": [
-        "normal",
+        "combination",
         "dry",
-        "combination"
+        "normal"
       ],
       "concerns": [
-        "uneven_tone",
+        "dryness",
         "dullness",
-        "dryness"
+        "uneven_tone",
+        "wrinkles"
       ],
       "description": {
         "ko": "Sulwhasoo Perfecting Cushion delivers radiant, flawless skin with its hydrating formula and buildable coverage. It feels lightweight and comfortable all day long, offering natural-looking perfection even with multiple applications.",
@@ -9067,8 +9140,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9108,10 +9181,11 @@
         "fr": "Innisfree No Sebum Powder Cushion"
       },
       "skin_types": [
-        "oily",
-        "combination"
+        "combination",
+        "oily"
       ],
       "concerns": [
+        "acne",
         "pores"
       ],
       "description": {
@@ -9132,8 +9206,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9175,12 +9249,15 @@
         "fr": "Espoir Pro Tailor Be Foundation"
       },
       "skin_types": [
-        "oily",
-        "combination"
+        "combination",
+        "dry",
+        "normal",
+        "oily"
       ],
       "concerns": [
-        "uneven_tone",
-        "redness"
+        "pores",
+        "redness",
+        "uneven_tone"
       ],
       "description": {
         "ko": "Espoir Pro Tailor Be Foundation offers a natural-looking complexion with its thin, lightweight formula. It provides long-lasting wear without caking and leaves a comfortable, hydrating finish.",
@@ -9200,8 +9277,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9243,14 +9320,16 @@
         "fr": "MISSHA M Perfect Cover BB Cream"
       },
       "skin_types": [
-        "normal",
+        "combination",
         "dry",
-        "combination"
+        "normal",
+        "sensitive"
       ],
       "concerns": [
-        "uneven_tone",
+        "dark_spots",
+        "dullness",
         "redness",
-        "dullness"
+        "uneven_tone"
       ],
       "description": {
         "ko": "MISSHA M Perfect Cover BB Cream provides excellent coverage and a natural-looking finish. Its hydrating formula conceals imperfections while protecting skin from the sun. Perfect for everyday makeup.",
@@ -9270,8 +9349,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9339,8 +9418,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9406,8 +9485,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9446,10 +9525,11 @@
         "fr": "Peripera All Take Mood Palette"
       },
       "skin_types": [
-        "normal",
+        "combination",
         "dry",
+        "normal",
         "oily",
-        "combination"
+        "sensitive"
       ],
       "concerns": [
         "dullness"
@@ -9472,8 +9552,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9540,8 +9620,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9580,9 +9660,11 @@
         "fr": "Clio Kill Lash Mascara Superproof"
       },
       "skin_types": [
+        "combination",
+        "dry",
         "normal",
         "oily",
-        "combination"
+        "sensitive"
       ],
       "concerns": [],
       "description": {
@@ -9603,8 +9685,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9643,9 +9725,11 @@
         "fr": "rom&nd Han All Mascara Super Proof"
       },
       "skin_types": [
-        "oily",
+        "combination",
+        "dry",
         "normal",
-        "combination"
+        "oily",
+        "sensitive"
       ],
       "concerns": [],
       "description": {
@@ -9666,8 +9750,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9706,9 +9790,11 @@
         "fr": "WAKEMAKE Palette d'Ombres à Paupières Soft Blurring"
       },
       "skin_types": [
-        "normal",
         "combination",
-        "oily"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dullness"
@@ -9731,8 +9817,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9796,8 +9882,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9861,8 +9947,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9929,8 +10015,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -9998,8 +10084,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10066,8 +10152,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10131,8 +10217,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10199,8 +10285,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10264,8 +10350,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10333,8 +10419,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10371,11 +10457,7 @@
         "es": "KUNDAL Champú Natural de Miel y Macadamia",
         "fr": "KUNDAL Shampooing Naturel Miel & Macadamia"
       },
-      "skin_types": [
-        "normal",
-        "dry",
-        "sensitive"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -10397,8 +10479,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10434,10 +10516,7 @@
         "es": "Champú para aliviar la caída del cabello Labo-H",
         "fr": "Shampooing anti-chute Labo-H"
       },
-      "skin_types": [
-        "sensitive",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -10459,8 +10538,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10496,10 +10575,7 @@
         "es": "Champú Amos Green Tea Real Scalp",
         "fr": "Shampooing Amos Green Tea Scalp Pack"
       },
-      "skin_types": [
-        "oily",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness",
         "pores"
@@ -10522,8 +10598,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10561,10 +10637,7 @@
         "es": "Mise-en-scène Perfect Serum Shampoo",
         "fr": "Mise-en-scène Perfect Serum Shampoo"
       },
-      "skin_types": [
-        "normal",
-        "dry"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -10586,8 +10659,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10624,9 +10697,7 @@
         "es": "Champú Ryo Jayang Yunmo",
         "fr": "Shampoing Ryo Jayang Yunmo"
       },
-      "skin_types": [
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -10648,8 +10719,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10687,13 +10758,10 @@
         "es": "Amos Professional Champú Estimulante de Té Verde",
         "fr": "Amos Professional Shampooing Revitalisant au Thé Vert"
       },
-      "skin_types": [
-        "oily",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [
-        "pores",
-        "dullness"
+        "dullness",
+        "pores"
       ],
       "description": {
         "ko": "Amos Professional The Green Tea Scalp Pack Shampoo cleanses the scalp and strengthens hair roots for healthy hair. Experience a clean and refreshed scalp with the power of green tea. Best used daily.",
@@ -10713,8 +10781,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10751,13 +10819,7 @@
         "es": "Moremo Tratamiento de Agua Miracle 10",
         "fr": "Moremo Soin Eau Miracle 10"
       },
-      "skin_types": [
-        "normal",
-        "dry",
-        "oily",
-        "combination",
-        "sensitive"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -10779,8 +10841,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10840,8 +10902,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10901,8 +10963,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -10939,10 +11001,7 @@
         "es": "KUNDAL Tratamiento Capilar de Miel y Macadamia",
         "fr": "KUNDAL Soin Capillaire Miel & Macadamia"
       },
-      "skin_types": [
-        "dry",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -10964,8 +11023,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11004,10 +11063,7 @@
         "es": "Amos Tratamiento en Crema Recuperador",
         "fr": "Amos Soin Crème Réparateur"
       },
-      "skin_types": [
-        "normal",
-        "dry"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -11029,8 +11085,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11067,10 +11123,7 @@
         "es": "Moremo Hair Essence Delightful Oil",
         "fr": "Moremo Hair Essence Delightful Oil"
       },
-      "skin_types": [
-        "dry",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness",
         "dullness"
@@ -11093,8 +11146,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11132,11 +11185,7 @@
         "es": "Mise en Scène Perfect Serum Original",
         "fr": "Mise en Scène Perfect Serum Original"
       },
-      "skin_types": [
-        "dry",
-        "normal",
-        "combination"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -11158,8 +11207,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11197,10 +11246,7 @@
         "es": "Lador Perfect Hair Fill-Up Essence",
         "fr": "Lador Perfect Hair Fill-Up Essence"
       },
-      "skin_types": [
-        "dry",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -11222,8 +11268,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11260,10 +11306,7 @@
         "es": "Hera Signia Aceite para el cabello",
         "fr": "Hera Signia Huile capillaire"
       },
-      "skin_types": [
-        "dry",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -11285,8 +11328,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11324,10 +11367,7 @@
         "es": "Kundal Sérum Capilar de Argán",
         "fr": "Kundal Sérum Capillaire à l'Argan"
       },
-      "skin_types": [
-        "dry",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [
         "dryness"
       ],
@@ -11349,8 +11389,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11408,8 +11448,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11447,9 +11487,7 @@
         "fr": "Amos Essence Coiffante Boucles 2X"
       },
       "skin_types": [],
-      "concerns": [
-        "dryness"
-      ],
+      "concerns": [],
       "description": {
         "ko": "Amos Curling Essence 2X defines and holds curls for long-lasting style. This nourishing formula adds shine and vitality to hair, leaving a non-sticky, lightweight finish. Apply a moderate amount to damp or dry hair to style.",
         "en": "Amos Curling Essence 2X defines and holds curls for long-lasting style. This nourishing formula adds shine and vitality to hair, leaving a non-sticky, lightweight finish. Apply a moderate amount to damp or dry hair to style.",
@@ -11468,8 +11506,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11525,8 +11563,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11565,9 +11603,7 @@
         "fr": "Moremo Sérum Capillaire R"
       },
       "skin_types": [],
-      "concerns": [
-        "dryness"
-      ],
+      "concerns": [],
       "description": {
         "ko": "This hair serum nourishes and adds shine to damaged hair. Its non-sticky formula absorbs quickly, making styling easier, and its subtle fragrance lasts all day.",
         "en": "This hair serum nourishes and adds shine to damaged hair. Its non-sticky formula absorbs quickly, making styling easier, and its subtle fragrance lasts all day.",
@@ -11586,8 +11622,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11655,8 +11691,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11696,11 +11732,15 @@
         "fr": "Happy Bath Gel Douche Thé Vert"
       },
       "skin_types": [
+        "combination",
         "normal",
+        "oily",
         "sensitive"
       ],
       "concerns": [
+        "acne",
         "dryness",
+        "pores",
         "redness"
       ],
       "description": {
@@ -11721,8 +11761,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11763,8 +11803,9 @@
         "fr": "Hanyul Gel Douche Yuja Clair de Lune"
       },
       "skin_types": [
-        "normal",
+        "combination",
         "dry",
+        "normal",
         "sensitive"
       ],
       "concerns": [
@@ -11789,8 +11830,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11856,8 +11897,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11897,7 +11938,8 @@
       },
       "skin_types": [
         "dry",
-        "normal"
+        "normal",
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -11920,8 +11962,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -11960,9 +12002,10 @@
         "fr": "KUNDAL Lotion Corporelle Pure Miel & Macadamia"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "sensitive",
-        "normal"
+        "normal",
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -11985,8 +12028,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12055,8 +12098,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12122,8 +12165,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12164,6 +12207,7 @@
         "fr": "Hanyul Lait Corporel Yuja Moonlight"
       },
       "skin_types": [
+        "combination",
         "dry",
         "normal"
       ],
@@ -12189,8 +12233,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12234,7 +12278,9 @@
         "normal"
       ],
       "concerns": [
-        "dryness"
+        "dryness",
+        "dullness",
+        "wrinkles"
       ],
       "description": {
         "ko": "Infused with the power of Sulwhasoo's Yoonjo essence, this body cream deeply hydrates and nourishes skin from within. Its Yoonjo Essential Complex strengthens the skin barrier and promotes a radiant complexion. Apply generously to the entire body after showering.",
@@ -12254,8 +12300,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12296,6 +12342,7 @@
       },
       "skin_types": [
         "dry",
+        "normal",
         "sensitive"
       ],
       "concerns": [
@@ -12321,8 +12368,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12384,8 +12431,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12448,8 +12495,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12491,8 +12538,11 @@
         "fr": "Tamburins Crème Mains Parfumée"
       },
       "skin_types": [
+        "combination",
+        "dry",
         "normal",
-        "dry"
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "dryness"
@@ -12515,8 +12565,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12579,8 +12629,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12648,8 +12698,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12719,8 +12769,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12760,13 +12810,14 @@
         "fr": "Mediheal Madecassoside Sérum Corps"
       },
       "skin_types": [
-        "sensitive",
         "dry",
-        "normal"
+        "normal",
+        "sensitive"
       ],
       "concerns": [
-        "redness",
-        "dryness"
+        "acne",
+        "dryness",
+        "redness"
       ],
       "description": {
         "ko": "This body serum, formulated with Madecassoside, soothes and hydrates dry, sensitive skin. Apply gently to damp skin after showering for optimal absorption and hydration.",
@@ -12786,8 +12837,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12854,8 +12905,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12889,13 +12940,7 @@
         "es": "Etude My Beauty Tool Esponja de Silicona",
         "fr": "Etude My Beauty Tool Éponge en Silicone"
       },
-      "skin_types": [
-        "dry",
-        "oily",
-        "combination",
-        "sensitive",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [],
       "description": {
         "ko": "This silicone puff applies foundation and BB cream smoothly and hygienically. Easy to clean and doesn't absorb product, making it economical and perfect for a flawless base.",
@@ -12915,8 +12960,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -12951,13 +12996,7 @@
         "es": "Etude My Beauty Tool Esponja Airy",
         "fr": "Etude My Beauty Tool Airy Puff"
       },
-      "skin_types": [
-        "normal",
-        "dry",
-        "oily",
-        "combination",
-        "sensitive"
-      ],
+      "skin_types": [],
       "concerns": [],
       "description": {
         "ko": "This airy puff seamlessly blends foundation and cushion makeup for a thin, even application. Achieve a flawless, smooth complexion with gentle dabbing. Washable and reusable for hygienic use.",
@@ -12977,8 +13016,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -13012,13 +13051,7 @@
         "es": "Fillimilli Esponja Facial Suave de Terciopelo",
         "fr": "Fillimilli Éponge Visage Douce Velours"
       },
-      "skin_types": [
-        "normal",
-        "dry",
-        "oily",
-        "combination",
-        "sensitive"
-      ],
+      "skin_types": [],
       "concerns": [],
       "description": {
         "ko": "Achieve a flawless complexion with the Fillimilli Face Soft Velvet Sponge. Its soft velvet texture enhances adherence and creates a thin, even layer of makeup. Perfect for use with foundation, cushion compacts, and other base products.",
@@ -13038,8 +13071,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -13073,13 +13106,7 @@
         "es": "Fillimilli Set de Brochas para Sombra de Ojos",
         "fr": "Fillimilli Ensemble de Pinceaux pour Ombres à Paupières"
       },
-      "skin_types": [
-        "dry",
-        "oily",
-        "combination",
-        "sensitive",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [],
       "description": {
         "ko": "The Fillimilli Eye Shadow Brush Set allows for easy and precise blending of various eyeshadows. Its soft bristles ensure gentle application and seamless color payoff, creating delicate eye makeup looks. Perfect for beginners to pros!",
@@ -13099,8 +13126,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -13134,16 +13161,8 @@
         "es": "Cubierta de Mascarilla de Silicona Daiso",
         "fr": "Couvre Masque en Silicone Daiso"
       },
-      "skin_types": [
-        "dry",
-        "oily",
-        "combination",
-        "sensitive",
-        "normal"
-      ],
-      "concerns": [
-        "dryness"
-      ],
+      "skin_types": [],
+      "concerns": [],
       "description": {
         "ko": "The Daiso Silicone Mask Pack Cover prevents essence evaporation, enhancing absorption. It improves mask adhesion and allows for free movement, making masking more convenient.",
         "en": "The Daiso Silicone Mask Pack Cover prevents essence evaporation, enhancing absorption. It improves mask adhesion and allows for free movement, making masking more convenient.",
@@ -13162,8 +13181,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -13198,13 +13217,7 @@
         "es": "Etude My Beauty Tool Gancho para Mascarillas Faciales",
         "fr": "Etude My Beauty Tool Crochet pour Masques en Tissu"
       },
-      "skin_types": [
-        "normal",
-        "dry",
-        "oily",
-        "combination",
-        "sensitive"
-      ],
+      "skin_types": [],
       "concerns": [],
       "description": {
         "ko": "This mask sheet hook ensures perfect adhesion and absorption by holding your mask sheet in place. It allows for hygienic storage, keeping your mask sheet clean and ready for use.",
@@ -13224,8 +13237,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -13259,13 +13272,7 @@
         "es": "Fillimilli Espejo Compacto con LED",
         "fr": "Fillimilli Miroir Compact LED"
       },
-      "skin_types": [
-        "dry",
-        "oily",
-        "combination",
-        "sensitive",
-        "normal"
-      ],
+      "skin_types": [],
       "concerns": [],
       "description": {
         "ko": "The Fillimilli LED Compact Mirror offers perfect makeup application on the go with its portable size and bright LED lighting. Achieve a professional finish with its delicate touch and ease of use. Fits perfectly in your bag!",
@@ -13285,8 +13292,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -13341,8 +13348,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -13382,8 +13389,10 @@
         "fr": "TONYMOLY Floria Nutra-Energy Gommage Corporel"
       },
       "skin_types": [
+        "combination",
         "dry",
-        "normal"
+        "normal",
+        "oily"
       ],
       "concerns": [
         "dryness",
@@ -13407,8 +13416,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -13446,9 +13455,10 @@
         "fr": "Innisfree Eco Beauty Tool Nettoyant en Silicone"
       },
       "skin_types": [
+        "combination",
+        "dry",
         "normal",
         "oily",
-        "combination",
         "sensitive"
       ],
       "concerns": [
@@ -13472,8 +13482,8 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   },
   {
     "entityType": "product",
@@ -13511,11 +13521,11 @@
         "fr": "MISSHA Super Aqua Puff Nettoyant Doux"
       },
       "skin_types": [
-        "dry",
-        "oily",
         "combination",
-        "sensitive",
-        "normal"
+        "dry",
+        "normal",
+        "oily",
+        "sensitive"
       ],
       "concerns": [
         "pores"
@@ -13538,7 +13548,7 @@
       }
     },
     "isApproved": true,
-    "reviewedBy": "auto-approve-initial-seed",
-    "reviewNotes": "D-7 전수 검수 대상. 초기 시딩용 자동 승인."
+    "reviewedBy": "D-7-review",
+    "reviewNotes": "D-7 전수 검수 완료. AI+expected 합집합 기반, 카테고리별 규칙 적용."
   }
 ]
