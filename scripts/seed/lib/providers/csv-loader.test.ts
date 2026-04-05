@@ -90,4 +90,22 @@ describe("loadCsvAsRawRecords", () => {
 
     expect(result[0].fetchedAt).toBe(result[1].fetchedAt);
   });
+
+  it("source 옵션 지정 시 해당 값 사용", () => {
+    mockParseCsvFile.mockReturnValue(PRODUCT_ROWS);
+
+    const result = loadCsvAsRawRecords("./data/products.csv", "product", {
+      source: "product",
+    });
+
+    expect(result[0].source).toBe("product");
+  });
+
+  it("source 옵션 미지정 시 기본값 'csv' 사용", () => {
+    mockParseCsvFile.mockReturnValue(PRODUCT_ROWS);
+
+    const result = loadCsvAsRawRecords("./data/products.csv", "product");
+
+    expect(result[0].source).toBe("csv");
+  });
 });

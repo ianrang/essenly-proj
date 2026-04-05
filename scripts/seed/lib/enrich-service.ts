@@ -258,6 +258,30 @@ const FIELD_MAPPINGS: Partial<Record<EntityType, Record<string, FieldExtractor>>
     price_max: (data: Record<string, unknown>) =>
       data.price_max != null ? Number(data.price_max) : null,
   },
+  product: {
+    _expected_skin_types: (data: Record<string, unknown>) => {
+      const val = data.expected_skin_types;
+      if (typeof val === "string") return val ? val.split("|") : [];
+      if (Array.isArray(val)) return val;
+      return [];
+    },
+    _expected_concerns: (data: Record<string, unknown>) => {
+      const val = data.expected_concerns;
+      if (typeof val === "string") return val ? val.split("|") : [];
+      if (Array.isArray(val)) return val;
+      return [];
+    },
+    _available_at: (data: Record<string, unknown>) => {
+      const val = data.available_at;
+      if (typeof val === "string") return val ? val.split("|") : [];
+      if (Array.isArray(val)) return val;
+      return [];
+    },
+    tags: (data: Record<string, unknown>) => {
+      const budget = data.budget_level;
+      return budget ? [`budget:${budget}`] : [];
+    },
+  },
 };
 
 function applyFieldMapping(

@@ -1239,5 +1239,19 @@
       ]
     },
     "fetchedAt": "2026-03-31T00:00:00Z"
+  },
+  {
+    "source": "manual",
+    "sourceId": "daiso",
+    "entityType": "brand",
+    "data": {
+      "name_ko": "다이소",
+      "name_en": "Daiso",
+      "origin": "KR",
+      "tier": "budget",
+      "is_essenly": false,
+      "specialties": ["beauty tools", "basic skincare", "budget cosmetics"]
+    },
+    "fetchedAt": "2026-04-05T00:00:00Z"
   }
 ]

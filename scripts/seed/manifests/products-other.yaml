@@ -60,7 +60,7 @@ products:
   - olive_young
 - name_ko: 클리오 멜팅 디유 틴트
   name_en: Clio Melting Dewy Tint
-  brand: Clio
+  brand: CLIO
   category: makeup
   subcategory: lip_tint
   budget_level: moderate
@@ -74,7 +74,7 @@ products:
   - olive_young
 - name_ko: 에뛰드 픽싱 틴트
   name_en: Etude Fixing Tint
-  brand: Etude
+  brand: ETUDE
   category: makeup
   subcategory: lip_tint
   budget_level: moderate
@@ -90,7 +90,7 @@ products:
   - brand_store
 - name_ko: 헤라 센슈얼 파우더 매트 립스틱
   name_en: Hera Sensual Powder Matte Lipstick
-  brand: Hera
+  brand: HERA
   category: makeup
   subcategory: lip_stick
   budget_level: luxury
@@ -229,7 +229,7 @@ products:
   - brand_store
 - name_ko: 클리오 킬커버 파운웨어 쿠션 올 뉴
   name_en: Clio Kill Cover Foun-Wear Cushion All New
-  brand: Clio
+  brand: CLIO
   category: makeup
   subcategory: cushion
   budget_level: moderate
@@ -243,7 +243,7 @@ products:
   - olive_young
 - name_ko: 미샤 매직 쿠션 커버 래스팅
   name_en: Missha Magic Cushion Cover Lasting
-  brand: Missha
+  brand: MISSHA
   category: makeup
   subcategory: cushion
   budget_level: budget
@@ -273,7 +273,7 @@ products:
   - department_store
 - name_ko: 헤라 블랙 쿠션
   name_en: Hera Black Cushion
-  brand: Hera
+  brand: HERA
   category: makeup
   subcategory: cushion
   budget_level: premium
@@ -290,7 +290,7 @@ products:
   - chicor
 - name_ko: 에뛰드 더블 래스팅 쿠션 글로우
   name_en: Etude Double Lasting Cushion Glow
-  brand: Etude
+  brand: ETUDE
   category: makeup
   subcategory: cushion
   budget_level: premium
@@ -353,7 +353,7 @@ products:
   - olive_young
 - name_ko: 미샤 M 퍼펙트 커버 BB크림
   name_en: Missha M Perfect Cover BB Cream SPF42
-  brand: Missha
+  brand: MISSHA
   category: makeup
   subcategory: bb_cream
   budget_level: budget
@@ -385,7 +385,7 @@ products:
   - department_store
 - name_ko: 클리오 프로 아이 팔레트
   name_en: Clio Pro Eye Palette
-  brand: Clio
+  brand: CLIO
   category: makeup
   subcategory: eye_shadow
   budget_level: premium
@@ -415,7 +415,7 @@ products:
   - olive_young
 - name_ko: 에뛰드 플레이 컬러 아이즈
   name_en: Etude Play Color Eyes
-  brand: Etude
+  brand: ETUDE
   category: makeup
   subcategory: eye_shadow
   budget_level: premium
@@ -431,7 +431,7 @@ products:
   - brand_store
 - name_ko: 클리오 킬 래쉬 슈퍼프루프 마스카라
   name_en: Clio Kill Lash Superproof Mascara
-  brand: Clio
+  brand: CLIO
   category: makeup
   subcategory: mascara
   budget_level: moderate
@@ -476,7 +476,7 @@ products:
   - olive_young
 - name_ko: 클리오 샤프 소 심플 워터프루프 펜슬 라이너
   name_en: Clio Sharp So Simple Waterproof Pencil Liner
-  brand: Clio
+  brand: CLIO
   category: makeup
   subcategory: eye_liner
   budget_level: budget
@@ -522,7 +522,7 @@ products:
   - brand_store
 - name_ko: 헤라 아이 디자이너 팔레트
   name_en: Hera Eye Designer Palette
-  brand: Hera
+  brand: HERA
   category: makeup
   subcategory: eye_shadow
   budget_level: luxury
@@ -583,7 +583,7 @@ products:
   - olive_young
 - name_ko: 클리오 킬커버 피시저 프라이머
   name_en: Clio Kill Cover Fixer Primer
-  brand: Clio
+  brand: CLIO
   category: makeup
   subcategory: primer
   budget_level: moderate
@@ -597,7 +597,7 @@ products:
   - olive_young
 - name_ko: 에뛰드 꽃잎 블러셔
   name_en: Etude Lovely Cookie Blusher
-  brand: Etude
+  brand: ETUDE
   category: makeup
   subcategory: blush
   budget_level: budget
@@ -652,7 +652,7 @@ products:
   - chicor
 - name_ko: 미장센 퍼펙트 세럼 샴푸
   name_en: Mise en Scene Perfect Serum Shampoo
-  brand: Mise en Scene
+  brand: Mise en Scène
   category: haircare
   subcategory: shampoo
   budget_level: budget
@@ -721,7 +721,7 @@ products:
   - olive_young
 - name_ko: 미장센 퍼펙트 세럼 트리트먼트 팩
   name_en: Mise en Scene Perfect Serum Treatment Pack
-  brand: Mise en Scene
+  brand: Mise en Scène
   category: haircare
   subcategory: treatment
   budget_level: budget
@@ -776,7 +776,7 @@ products:
   - olive_young
 - name_ko: 미장센 퍼펙트 오리지널 세럼
   name_en: Mise en Scene Perfect Original Serum
-  brand: Mise en Scene
+  brand: Mise en Scène
   category: haircare
   subcategory: hair_serum
   budget_level: budget
@@ -804,7 +804,7 @@ products:
   - olive_young
 - name_ko: 헤라 시그니아 헤어 오일
   name_en: Hera Signia Hair Oil
-  brand: Hera
+  brand: HERA
   category: haircare
   subcategory: hair_oil
   budget_level: premium
@@ -831,7 +831,7 @@ products:
   - olive_young
 - name_ko: 미장센 헬로 버블 폼 컬러
   name_en: Mise en Scene Hello Bubble Foam Color
-  brand: Mise en Scene
+  brand: Mise en Scène
   category: haircare
   subcategory: hair_color
   budget_level: budget
@@ -932,21 +932,6 @@ products:
   available_at:
   - olive_young
   - department_store
-- name_ko: 스크럽 버디 코코넛 바디 스크럽
-  name_en: Scrub Buddy Coconut Body Scrub
-  brand: Scrub Buddy
-  category: bodycare
-  subcategory: body_scrub
-  budget_level: budget
-  expected_skin_types:
-  - oily
-  - combination
-  - normal
-  expected_concerns:
-  - dullness
-  - acne
-  available_at:
-  - olive_young
 - name_ko: 메디힐 티트리 바디워시
   name_en: Mediheal Tea Tree Body Wash
   brand: Mediheal
@@ -1113,7 +1098,7 @@ products:
   - chicor
 - name_ko: 토니모리 피치 핸드크림
   name_en: Tony Moly Peach Hand Cream
-  brand: Tony Moly
+  brand: TONYMOLY
   category: bodycare
   subcategory: hand_cream
   budget_level: budget
@@ -1198,35 +1183,9 @@ products:
   expected_concerns: []
   available_at:
   - olive_young
-- name_ko: 클린씽 네이처 실리콘 세안 브러시
-  name_en: Cleansing Nature Silicone Face Brush
-  brand: Cleansing Nature
-  category: tools
-  subcategory: cleansing_brush
-  budget_level: budget
-  expected_skin_types:
-  - all
-  expected_concerns:
-  - pores
-  available_at:
-  - olive_young
-  - daiso
-- name_ko: 페이스 팩토리 딥클린 이중 모공 브러시
-  name_en: Face Factory Deep Clean Dual Pore Brush
-  brand: Face Factory
-  category: tools
-  subcategory: cleansing_brush
-  budget_level: budget
-  expected_skin_types:
-  - all
-  expected_concerns:
-  - pores
-  - acne
-  available_at:
-  - olive_young
 - name_ko: 에뛰드 마이 뷰티 툴 에어리 퍼프
   name_en: Etude My Beauty Tool Airy Puff
-  brand: Etude
+  brand: ETUDE
   category: tools
   subcategory: makeup_puff
   budget_level: budget
@@ -1271,7 +1230,7 @@ products:
   - daiso
 - name_ko: 에뛰드 마이 뷰티 툴 마스크 시트 후크
   name_en: Etude My Beauty Tool Mask Sheet Hook
-  brand: Etude
+  brand: ETUDE
   category: tools
   subcategory: mask_accessory
   budget_level: budget
@@ -1294,7 +1253,7 @@ products:
   - olive_young
 - name_ko: 에뛰드 마이 뷰티 툴 브러시 파우치
   name_en: Etude My Beauty Tool Brush Pouch
-  brand: Etude
+  brand: ETUDE
   category: tools
   subcategory: organizer
   budget_level: budget
@@ -1304,3 +1263,44 @@ products:
   available_at:
   - olive_young
   - brand_store
+- name_ko: 스킨푸드 블랙 슈가 퍼펙트 에센셜 스크럽 2X
+  name_en: Skinfood Black Sugar Perfect Essential Scrub 2X
+  brand: Skinfood
+  category: bodycare
+  subcategory: body_scrub
+  budget_level: budget
+  expected_skin_types:
+  - oily
+  - combination
+  - normal
+  expected_concerns:
+  - dullness
+  - pores
+  available_at:
+  - olive_young
+- name_ko: 이니스프리 에코 뷰티 툴 실리콘 클렌저
+  name_en: Innisfree Eco Beauty Tool Silicone Cleanser
+  brand: Innisfree
+  category: tools
+  subcategory: cleansing_brush
+  budget_level: budget
+  expected_skin_types:
+  - all
+  expected_concerns:
+  - pores
+  available_at:
+  - olive_young
+  - innisfree_store
+- name_ko: 미샤 슈퍼 아쿠아 소프트 클렌징 퍼프
+  name_en: MISSHA Super Aqua Soft Cleansing Puff
+  brand: MISSHA
+  category: tools
+  subcategory: cleansing_brush
+  budget_level: budget
+  expected_skin_types:
+  - all
+  expected_concerns:
+  - pores
+  - acne
+  available_at:
+  - olive_young

@@ -322,6 +322,37 @@ describe("exportForReview", () => {
 
     expect(mockMkdirSync).toHaveBeenCalledWith("/tmp/new-dir", { recursive: true });
   });
+
+  it("product: _expected_skin_types, _expected_concerns, _available_at, tags 컬럼 포함", () => {
+    const records = [makeEnriched("product", {
+      skin_types: ["dry"],
+      _expected_skin_types: ["dry", "oily"],
+      concerns: ["dryness"],
+      _expected_concerns: ["dryness", "brightening"],
+      description: { ko: "설명", en: "Desc" },
+      review_summary: { ko: "요약", en: "Summary" },
+      _available_at: ["olive_young", "coupang"],
+      tags: ["budget:moderate"],
+    }, {
+      confidence: { skin_types: 0.85, concerns: 0.78 },
+    })];
+
+    exportForReview(records, { outputDir: "/tmp/review", timestamp: FIXED_TIMESTAMP });
+
+    const [csvRows, csvColumns] = mockStringifyCsvRows.mock.calls[0];
+
+    // 공통 4 + product 12 + 메타 2 = 18
+    expect(csvColumns).toHaveLength(18);
+    expect(csvColumns).toContain("_expected_skin_types");
+    expect(csvColumns).toContain("_expected_concerns");
+    expect(csvColumns).toContain("_available_at");
+    expect(csvColumns).toContain("tags");
+
+    expect(csvRows[0]._expected_skin_types).toBe("dry|oily");
+    expect(csvRows[0]._expected_concerns).toBe("dryness|brightening");
+    expect(csvRows[0]._available_at).toBe("olive_young|coupang");
+    expect(csvRows[0].tags).toBe("budget:moderate");
+  });
 });
 
 // ── importReviewed ─────────────────────────────────────────

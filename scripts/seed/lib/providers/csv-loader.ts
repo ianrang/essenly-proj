@@ -19,14 +19,15 @@ const DEFAULT_ID_COLUMN = "id";
 export function loadCsvAsRawRecords(
   filePath: string,
   entityType: EntityType,
-  options?: CsvParseOptions & { idColumn?: string },
+  options?: CsvParseOptions & { idColumn?: string; source?: string },
 ): RawRecord[] {
   const rows = parseCsvFile(filePath, options);
   const idColumn = options?.idColumn ?? DEFAULT_ID_COLUMN;
+  const source = options?.source ?? "csv";
   const fetchedAt = new Date().toISOString();
 
   return rows.map((row, index) => ({
-    source: "csv",
+    source,
     sourceId: String(row[idColumn] ?? `csv-${index}`),
     entityType,
     data: row,

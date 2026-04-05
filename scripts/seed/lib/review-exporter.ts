@@ -81,12 +81,16 @@ const ENTITY_REVIEW_COLUMNS: Record<EntityType, ReviewColumnDef[]> = {
   product: [
     { header: "skin_types", source: "data", path: "skin_types", format: "array", editable: true },
     { header: "skin_types_confidence", source: "enrichments", path: "confidence.skin_types", format: "number", editable: false },
+    { header: "_expected_skin_types", source: "data", path: "_expected_skin_types", format: "array", editable: false },
     { header: "concerns", source: "data", path: "concerns", format: "array", editable: true },
     { header: "concerns_confidence", source: "enrichments", path: "confidence.concerns", format: "number", editable: false },
+    { header: "_expected_concerns", source: "data", path: "_expected_concerns", format: "array", editable: false },
     { header: "description_ko", source: "data", path: "description.ko", format: "string", editable: true },
     { header: "description_en", source: "data", path: "description.en", format: "string", editable: true },
     { header: "review_summary_ko", source: "data", path: "review_summary.ko", format: "string", editable: true },
     { header: "review_summary_en", source: "data", path: "review_summary.en", format: "string", editable: true },
+    { header: "_available_at", source: "data", path: "_available_at", format: "array", editable: false },
+    { header: "tags", source: "data", path: "tags", format: "array", editable: true },
   ],
   treatment: [
     { header: "suitable_skin_types", source: "data", path: "suitable_skin_types", format: "array", editable: true },

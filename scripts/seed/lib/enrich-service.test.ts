@@ -503,6 +503,64 @@ describe("enrichRecords", () => {
     expect(result.records[0].data.price_max).toBeNull();
   });
 
+  // ── product FIELD_MAPPINGS ──
+
+  it("product: FIELD_MAPPINGS — pipe-delimited 문자열 → 배열 변환 + tags 생성", async () => {
+    const records: RawRecord[] = [
+      {
+        source: "csv",
+        sourceId: "prod-serum-1",
+        entityType: "product",
+        data: {
+          name_ko: "그린티 세럼",
+          name_en: "Green Tea Serum",
+          expected_skin_types: "dry|oily|combination",
+          expected_concerns: "dryness|brightening",
+          available_at: "olive_young|coupang",
+          budget_level: "moderate",
+        },
+        fetchedAt: new Date().toISOString(),
+      },
+    ];
+
+    const result = await enrichRecords(records, {
+      skipTranslation: true,
+      skipClassification: true,
+      skipGeneration: true,
+    });
+
+    expect(result.records[0].data._expected_skin_types).toEqual(["dry", "oily", "combination"]);
+    expect(result.records[0].data._expected_concerns).toEqual(["dryness", "brightening"]);
+    expect(result.records[0].data._available_at).toEqual(["olive_young", "coupang"]);
+    expect(result.records[0].data.tags).toEqual(["budget:moderate"]);
+  });
+
+  it("product: FIELD_MAPPINGS — missing 필드 → 빈 배열, budget_level 없으면 빈 tags", async () => {
+    const records: RawRecord[] = [
+      {
+        source: "csv",
+        sourceId: "prod-minimal",
+        entityType: "product",
+        data: {
+          name_ko: "베이직 세럼",
+          name_en: "Basic Serum",
+        },
+        fetchedAt: new Date().toISOString(),
+      },
+    ];
+
+    const result = await enrichRecords(records, {
+      skipTranslation: true,
+      skipClassification: true,
+      skipGeneration: true,
+    });
+
+    expect(result.records[0].data._expected_skin_types).toEqual([]);
+    expect(result.records[0].data._expected_concerns).toEqual([]);
+    expect(result.records[0].data._available_at).toEqual([]);
+    expect(result.records[0].data.tags).toEqual([]);
+  });
+
   // ── 빈 레코드 ──
 
   it("빈 배열 → 빈 결과 + PipelineResult.total=0", async () => {
