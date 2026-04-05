@@ -1242,6 +1242,7 @@
         "uneven_tone"
       ],
       "suitable_skin_types": [
+        "dry",
         "oily",
         "combination",
         "normal"
@@ -1602,10 +1603,11 @@
         "wrinkles"
       ],
       "suitable_skin_types": [
-        "normal",
         "dry",
+        "oily",
         "combination",
-        "oily"
+        "sensitive",
+        "normal"
       ],
       "price_min": 50000,
       "price_max": 120000,
@@ -1656,9 +1658,7 @@
       "name_ko": "보톡스 턱 (사각턱)",
       "name_en": "Botox Jawline (Masseter)",
       "category": "injection",
-      "target_concerns": [
-        "wrinkles"
-      ],
+      "target_concerns": [],
       "suitable_skin_types": [
         "dry",
         "oily",
@@ -1962,9 +1962,10 @@
       ],
       "suitable_skin_types": [
         "dry",
-        "normal",
+        "oily",
         "combination",
-        "sensitive"
+        "sensitive",
+        "normal"
       ],
       "price_min": 150000,
       "price_max": 350000,
@@ -2074,9 +2075,7 @@
       "name_ko": "턱끝 필러",
       "name_en": "Chin Filler",
       "category": "injection",
-      "target_concerns": [
-        "uneven_tone"
-      ],
+      "target_concerns": [],
       "suitable_skin_types": [
         "normal",
         "dry",
@@ -2438,12 +2437,8 @@
       "target_concerns": [
         "acne",
         "wrinkles",
-        "dark_spots",
         "redness",
-        "pores",
-        "dullness",
-        "uneven_tone",
-        "sun_damage"
+        "dullness"
       ],
       "suitable_skin_types": [
         "dry",
@@ -2623,9 +2618,7 @@
       "name_ko": "지방 분해 주사 (턱 아래)",
       "name_en": "Fat Dissolving Injection (Double Chin)",
       "category": "body",
-      "target_concerns": [
-        "uneven_tone"
-      ],
+      "target_concerns": [],
       "suitable_skin_types": [
         "normal",
         "oily",
@@ -2796,10 +2789,14 @@
       "name_ko": "바디 리프팅 레이저",
       "name_en": "Body Lifting Laser",
       "category": "body",
-      "target_concerns": [
-        "wrinkles"
+      "target_concerns": [],
+      "suitable_skin_types": [
+        "dry",
+        "oily",
+        "combination",
+        "sensitive",
+        "normal"
       ],
-      "suitable_skin_types": [],
       "price_min": 200000,
       "price_max": 500000,
       "downtime_days": 2,

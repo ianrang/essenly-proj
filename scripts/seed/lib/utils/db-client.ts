@@ -6,7 +6,7 @@
 // ============================================================
 
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import { pipelineEnv } from "../config";
+import { pipelineEnv } from "../../config";
 
 /**
  * 파이프라인 전용 Supabase 서비스 클라이언트.
