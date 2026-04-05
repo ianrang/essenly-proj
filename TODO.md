@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 100%    | ✅      |
 | Phase 0    | 37      | 37      | 100%    | ✅      |
 | Phase 1    | 62      | 60      | 97%     | ✅      |
-| Phase 2    | 101     | 71      | 70%     | 🔶 진행중 |
+| Phase 2    | 101     | 72      | 71%     | 🔶 진행중 |
 | Phase 3    | 33      | 0       | 0%      | ⬜ 미시작  |
-| **MVP 합계** | **245** | **180** | **73%** |        |
+| **MVP 합계** | **245** | **181** | **74%** |        |
 | 관리자 앱 (펜딩) | 19      | 0       | 0%      | ⏸️ 펜딩  |
 
 
@@ -366,6 +366,7 @@
 | P2-66 | ProductCard purchase_links 렌더링 | 카드 푸터에 구매 링크 표시 (첫번째만, 새 탭 외부 링크). user-screens.md "푸터 구매 링크" 사양. 데이터: P2-64a에서 products 투입 시 purchase_links 포함 | P2-64a      | ⬜   |
 | P2-67 | ProductCard english_label 배지   | english_label===true 시 "English Label" 푸터 배지. user-screens.md "푸터 배지" 사양. 수동 데이터 필드 (CSV 기입)                    | P2-64a      | ⬜   |
 | P2-68 | store map_url E2E 검증           | 010 마이그레이션 + buildExternalLinks 파이프라인 적용 후, store external_links → card-mapper → ProductCard 지도 링크 동작 E2E 검증    | P2-64a      | ⬜   |
+| P2-69 | KB 시스템 프롬프트 주입             | docs/knowledge-base/ 37종(성분 18+시술 19) → buildSystemPrompt()에 KB 섹션 추가. MVP: 시스템 프롬프트 인라인 (embedding-strategy §2.4). 토큰 비용 측정 후 전수/선택 주입 결정. prompts.ts 수정 | P2-57       | ⬜   |
 | P2-41 | Profile 페이지               | 🔶 **v0.2 연기**: 이메일 로그인 후 프로필 조회/편집. 기존 컴포넌트(ProfileClient/ProfileCard) 재사용. mvp-flow-redesign.md §3 참조  | v0.2        | 🔶  |
 | P2-42 | 프로필 Context               | 🔶 **v0.2 연기**: 이메일 로그인 후 React Context 상태 관리. mvp-flow-redesign.md §3 참조                                     | v0.2        | 🔶  |
 
@@ -445,7 +446,7 @@
 | P2-65  | 분류 검증 + 정규식 개선 (Phase A 완료 후)         | **완료 (2026-04-04)**. 전수 데이터 검증: stores 278건(other 111→94, brand_store 60→81, dept 46→42), clinics 225건(99.1% 정확, null 1건 정당), treatments 53건(critical 4+moderate 5 식별). 분류기 개선: brand_store 패턴 21개 추가 + dept_store 백화점→구체적 체인 패턴 교체(화장품백화점 3건 오분류 해소). 테스트 19→39. 후속: P2-65a(stores 비소매 제거), P2-65b(treatments 보정) | M3    | ✅   |
 | P2-65a | stores 비소매 데이터 제거                      | other 105건 전수 리뷰. 명확 비소매 11건(사옥 6+유통 2+서비스 2+작업실 1) + 경계 8건(오피스빌딩 3+유통 2+법인 2+한의원 1) = 19건 삭제. validated JSON + DB DELETE. 272→253건. P2-61b(6건)와 합산 총 25건 비소매 정리 완료 | M3    | ✅   |
 | P2-65b | treatments 분류 수동 보정 (8건)               | Critical 4건(Botox Jawline/Chin Filler/Fat Dissolving/Body Lifting — contouring 시술 target_concerns→[] 옵션A 적용) + Moderate 4건(Dermapen +dry, Botox Crow's Feet +sensitive, Water Glow +oily, LED 8→4개 축소). Laser Toning은 이미 정상 → 스킵. validated JSON 수정 + DB UPSERT 53건 완료. db-client.ts import 경로 수정(../config→../../config) | M3    | ✅   |
-| P2-64a | Phase B: products 200+ (A-3+CSV+수동)    | A-3 시드 크롤링 + CSV 임포트 + 관리자 수동. AI 분류 → **전수 검수(D-7, 구글시트)**. image_url 수집+DB 저장, UI placeholder (D-14)                                                      | M3    | ⬜   |
+| P2-64a | Phase B: products 200+ (CSV+수동)    | **완료 (2026-04-05)**. Step 1: 매니페스트 정규화(브랜드 25건 수정, 니치 3건→대체 3건) + Daiso 브랜드 추가. Step 2: slug.ts(sourceId 자연키, 13테스트) + csv-loader source옵션 + FIELD_MAPPINGS.product(_expected 보존+tags) + review-exporter 8→12컬럼. Step 3: YAML→CSV 200건 변환 + sourceId 유니크 검증. Step 4: brand_id 룩업(case-insensitive+alias 4건, 200/200 매칭) + AI 보강(6언어+분류+생성). Step 5: auto-approve DB 적재 200건. **D-7 전수 검수 미완료 — review CSV 보존, 추후 구글시트 검수 → re-import**. Step 6: Daiso 매장 84건(카카오 API→enrich→DB적재, stores 253→337). english_support "basic" 보정. 테스트 347/347 pass                                                      | M3    | 🔶   |
 | P2-64b | Phase B: doctors 30+                   | 수동 입력. 클리닉당 1명+. languages 영어 포함 필수                                                                                                                         | M3    | ⬜   |
 | P2-64c | Phase C: junction 데이터                  | product_stores(유형 기반+개별 혼합 ~~2,700건), product_ingredients(~~400건 수동 + key/avoid 분류), clinic_treatments(~150건)                                               | M3    | ⬜   |
 | P2-64d | Phase D: 임베딩 생성 + 벡터 DB 적재             | text-builder.ts + generator.ts (embedding-strategy §2) + 배치 스크립트. products, stores, clinics, treatments                                                     | M3    | ⬜   |
@@ -490,6 +491,8 @@
 | P3-3 | Kit CTA 플로우  | Chat → Kit 카드 → 이메일 입력 → 제출                 | ⬜   |
 | P3-5 | 모바일 반응형      | 주요 플로우를 모바일 뷰포트에서 테스트                       | ⬜   |
 | P3-6 | 에러 시나리오      | 네트워크 끊김, LLM 타임아웃, 잘못된 입력                   | ⬜   |
+| P3-6a | SEO 구현          | P1-11 설계 기반 구현: sitemap.xml(1 URL), robots.txt(admin/api 차단), OG 이미지(정적 1장), JSON-LD(WebApplication), favicon. 현재 미구현 (파일 미존재) | ⬜   |
+| P3-6b | 접근성(a11y) 검증  | P1-12 설계 기반 WCAG 2.1 AA 검증: axe-core 자동 스캔 + 수동 체크리스트(키보드 내비게이션, aria-live, 포커스 트랩, 터치 44x44px, prefers-reduced-motion) | ⬜   |
 
 
 ## AI 품질 테스트
@@ -539,6 +542,7 @@
 | P3-27 | 에러 트래킹 설정              | Sentry 또는 Vercel Analytics             | ⬜   |
 | P3-28 | 성능 모니터링                | Vercel Analytics (Web Vitals)          | ⬜   |
 | P3-29 | LLM 비용 모니터링            | Anthropic Console + 커스텀 로깅             | ⬜   |
+| P3-29a | LLM 비용 한도 + 알림       | 일일/월간 API 비용 한도 설정 + 초과 시 알림/차단. 소프트 런칭 예상치 못한 비용 폭주 방지. Anthropic usage API 또는 커스텀 토큰 카운터 | ⬜   |
 | P3-30 | 로깅 전략                  | 구조화 로깅 (JSON), 로그 레벨                   | ⬜   |
 | P3-31 | DB 백업 확인               | Supabase 일일 백업, Point-in-time Recovery | ⬜   |
 | P3-32 | 도메인 + SSL              | 커스텀 도메인, Vercel SSL                    | ⬜   |
@@ -550,6 +554,7 @@
 | ID    | 작업               | 상세                                    | 상태  |
 | ----- | ---------------- | ------------------------------------- | --- |
 | P3-33 | 버그 수정 + 최적화      | P3-1~22(관리자 제외)에서 발견된 이슈 해결            | ⬜   |
+| P3-33a | 법률 전문가 검토       | 이용약관(/terms), 개인정보처리방침(/privacy), 면책 조항(Disclaimer) 법률 전문가 검토. data-privacy.md 기반 개인정보 수집·처리·제3자 제공 적법성 확인. 외국인 대상 서비스 GDPR/국제 규정 검토. 검토 결과 반영 후 P3-34 진행 | ⬜   |
 | P3-34 | 프로덕션 배포          | 최종 배포                                 | ⬜   |
 | P3-35 | 소프트 런칭           | 제한 사용자 테스트 (대상/규모 별도 결정)              | ⬜   |
 | P3-36 | 사용자 피드백 수집 채널 구축 | 인앱 피드백 버튼/폼, 버그 리포트 채널. 소프트 런칭 피드백 수집 | ⬜   |
@@ -646,6 +651,8 @@
 | V2-20 | domain.ts 열거값 타입 강화          | `status: string` → `EntityStatus`, `english_support: string` → `EnglishSupportLevel` 등 유니온 타입으로 강화. 기존 repositories/route handlers 전반 영향 → 다른 세션 작업 완료 후 일괄 진행. P-7(단일 변경점) 보장   | Q-14, P-7                |
 | V2-21 | 쿠팡 파트너스 API 활성화 (P2-V1)      | 판매 실적 15만원 달성 후 API 활성화. coupang-partners.ts 프로바이더 구현 (P2-56e)                                                                                                                   | U-12                     |
 | V2-22 | 올리브영/CJ 어필리에이트 약관 확인 (P2-V6) | Involve Asia 승인 후 제품 정보 사용 범위 확인 (U-10, U-11). V2-21 선행                                                                                                                          | V2-21                    |
+| V2-23 | 행동 로그 클라이언트 연동              | P2-26 서버 API 완료(POST /api/events). 클라이언트 연동 미구현: card_exposure(Intersection Observer), card_click(onClick), external_link_click(링크 인터셉트). 추적 유틸리티 + 카드 컴포넌트 연결. KPI 측정 활성화 | P2-26, ANALYTICS.md      |
+| V2-24 | 옵저버빌리티 통합                   | 분산 트레이싱(요청 흐름 추적), 구조화 로깅 통합, 대시보드(에러율/응답시간/LLM 비용). P3-27~30 개별 설정을 통합 옵저버빌리티 플랫폼으로 연결 (Sentry/Datadog/Vercel Observability)                                                       | P3-27~30                 |
 
 
 ### v0.3 백로그
