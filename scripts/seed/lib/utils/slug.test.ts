@@ -63,4 +63,8 @@ describe("generateProductSlug", () => {
     const b = generateProductSlug("COSRX Snail Cream");
     expect(a).toBe(b);
   });
+
+  it("빈 문자열 → prod- 접두사만 반환", () => {
+    expect(generateProductSlug("")).toBe("prod-");
+  });
 });
