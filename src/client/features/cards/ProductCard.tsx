@@ -93,6 +93,13 @@ export default function ProductCard({ product, brand, store, whyRecommended, loc
           </div>
         )}
 
+        {/* English Label Badge */}
+        {product.english_label && (
+          <span className="inline-block rounded-full border border-border px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+            English Label
+          </span>
+        )}
+
         {/* Store */}
         {store && (
           <p className="text-[10px] text-muted-foreground">

@@ -85,3 +85,21 @@ describe("ProductCard purchase_links", () => {
     expect(screen.queryByText("Buy Online")).not.toBeInTheDocument();
   });
 });
+
+describe("ProductCard english_label", () => {
+  it("english_label true 시 English Label 배지 렌더링", () => {
+    const product = makeProduct({ english_label: true });
+
+    render(<ProductCard product={product} locale="en" />);
+
+    expect(screen.getByText("English Label")).toBeInTheDocument();
+  });
+
+  it("english_label false 시 배지 미렌더링", () => {
+    const product = makeProduct({ english_label: false });
+
+    render(<ProductCard product={product} locale="en" />);
+
+    expect(screen.queryByText("English Label")).not.toBeInTheDocument();
+  });
+});

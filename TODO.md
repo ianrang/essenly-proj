@@ -364,7 +364,7 @@
 | P2-44 | 이용약관 + 개인정보처리방침 페이지       | Terms(/terms) + Privacy(/privacy) 별도 페이지. PRD §4-C + data-privacy.md 기반 실제 콘텐츠. 법률 상수(shared/constants/legal.ts) 단일 관리. PA-20에서 관리자 화면 전환 예정 | P2-29       | ✅   |
 | P2-45 | 동의 시점 채팅 내 이동 검토           | Landing 동의 → Chat 첫 메시지 전 동의로 이동. ChatInterface 내 ConsentOverlay + 세션 생성. data-privacy §1.2, PRD §4-C, mvp-flow-redesign §2.3 갱신 완료        | P2-47       | ✅   |
 | P2-66 | ProductCard purchase_links 렌더링 | ProductCard 푸터에 "Buy Online" 구매 링크 추가. purchase_links[0] 첫번째만 표시, 외부 링크(새 탭). store 링크와 동일 패턴. 테스트 4건(배열/다수/null/빈배열). 벡터 검색 RPC 컬럼 누락은 P2-78 별도 태스크 | P2-64a      | ✅   |
-| P2-67 | ProductCard english_label 배지   | english_label===true 시 "English Label" 푸터 배지. user-screens.md "푸터 배지" 사양. 수동 데이터 필드 (CSV 기입)                    | P2-64a      | ⬜   |
+| P2-67 | ProductCard english_label 배지   | ProductCard 푸터에 "English Label" pill 배지 추가. english_label===true 시 렌더링. tags 배지와 동일 패턴(neutral pill). 푸터 순서: 배지→지도→구매. 테스트 2건(true/false) | P2-64a      | ✅   |
 | P2-68 | store map_url E2E 검증           | 010 마이그레이션 + buildExternalLinks 파이프라인 적용 후, store external_links → card-mapper → ProductCard 지도 링크 동작 E2E 검증    | P2-64a      | ⬜   |
 | P2-69 | KB 시스템 프롬프트 주입             | **완료 (2026-04-05)**. Tool 기반 + 빌드 생성 방식. generate-kb.ts: docs/knowledge-base/*.md → shared/constants/kb.generated.ts (37종). knowledge-handler: KB_DOCUMENTS 조회 + zod 스키마 co-location. service.ts: 4번째 tool 등록. prompts.ts §6 사용 지침. 테스트 9개 | P2-57       | ✅   |
 | P2-70 | chat tool 단위 테스트 보강         | (1) extraction-handler args: unknown → 스키마 추론 타입 통일 (이중 파싱 제거) (2) treatment vector 검색 경로 직접 테스트 추가 (3) product purchase_links 정상 경로 테스트 추가. 통합 테스트(P2-71~) 선행 조건 | P2-69       | ⬜   |
