@@ -38,6 +38,9 @@ import {
 /** LLM 호출 간 딜레이 (ms) — rate limit 방지 */
 const CALL_DELAY_MS = 300;
 
+/** 진행률 로그 간격 */
+const LOG_INTERVAL = 20;
+
 const REVIEW_DIR = join(
   typeof __dirname !== "undefined"
     ? __dirname
@@ -144,7 +147,7 @@ async function mapAllProducts(
       failed++;
     }
 
-    if (i % 20 === 19) {
+    if ((i + 1) % LOG_INTERVAL === 0) {
       console.log(`  [${i + 1}/${products.length}] processed (${succeeded} ok, ${failed} fail)`);
     }
     if (i < products.length - 1) await sleep(CALL_DELAY_MS);
@@ -183,6 +186,22 @@ async function generateMappings(dryRun: boolean): Promise<void> {
 
 // ── CSV Export (D-7 검수용) ──────────────────────────────────
 
+function buildNameMaps(
+  ingredients: IngredientRef[],
+  products: ValidatedRecord[],
+): { ingredientNames: Map<string, string>; productNames: Map<string, string> } {
+  const ingredientNames = new Map<string, string>();
+  for (const ing of ingredients) ingredientNames.set(ing.id, ing.displayName);
+
+  const productNames = new Map<string, string>();
+  for (const p of products) {
+    const data = p.data as Record<string, unknown>;
+    const nameEn = (data.name as Record<string, string>)?.en ?? (data.name_en as string) ?? "";
+    productNames.set(data.id as string, nameEn);
+  }
+  return { ingredientNames, productNames };
+}
+
 function exportForReview(
   junctionData: JunctionRow[],
   ingredients: IngredientRef[],
@@ -191,24 +210,11 @@ function exportForReview(
   if (!existsSync(REVIEW_DIR)) mkdirSync(REVIEW_DIR, { recursive: true });
 
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const { ingredientNames, productNames } = buildNameMaps(ingredients, products);
 
-  // ID → name 역매핑
-  const ingredientNames = new Map<string, string>();
-  for (const ing of ingredients) {
-    ingredientNames.set(ing.id, ing.displayName);
-  }
-  const productNames = new Map<string, string>();
-  for (const p of products) {
-    const data = p.data as Record<string, unknown>;
-    const nameEn = (data.name as Record<string, string>)?.en ?? (data.name_en as string) ?? "";
-    productNames.set(data.id as string, nameEn);
-  }
-
-  // JSON (원본 보존)
   const jsonPath = join(REVIEW_DIR, `junction-product-ingredients-${timestamp}.json`);
   writeFileSync(jsonPath, JSON.stringify(junctionData, null, 2));
 
-  // CSV (검수용)
   const csvRows = junctionData.map((row) => ({
     product_id: row.product_id,
     product_name_en: productNames.get(row.product_id) ?? "",
