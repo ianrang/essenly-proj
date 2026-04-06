@@ -1,163 +1,338 @@
 // ============================================================
-// P2-64c-3: clinic_treatments junction 유형 기반 자동 생성
-// clinic_type → treatment categories 규칙 매핑 + hair 특수 처리
+// P2-64c-3: clinic_treatments junction — 카카오맵 태그 기반
+// 태그 JSON → LLM 매핑 → D-7 검수 CSV → DELETE + UPSERT
 // P-9: scripts/ → shared/ 허용. server/ import 금지.
-// Usage: npx tsx scripts/seed/generate-clinic-treatments.ts [--dry-run]
+// Usage:
+//   npx tsx scripts/seed/generate-clinic-treatments.ts --generate [--dry-run]
+//   npx tsx scripts/seed/generate-clinic-treatments.ts --load --csv=<path>
 // ============================================================
 
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { join } from "node:path";
+import { generateText } from "ai";
+
+import { getPipelineModel } from "./lib/enrichment/ai-client";
 import { createPipelineClient } from "./lib/utils/db-client";
 import { loadJunctions } from "./lib/loader";
+import { parseCsvFile, stringifyCsvRows } from "./lib/utils/csv-parser";
 import { parseArgs } from "./parse-args";
 import type { JunctionInput } from "./lib/loader";
 
-// ── 매핑 규칙 (data-collection.md §2.3, §9) ────────────────
+import {
+  cleanTags,
+  buildTreatmentListText,
+  buildTagMappingPrompt,
+  parseTagMappingResponse,
+  buildClinicTreatmentJunctions,
+  buildFallbackJunctions,
+  type ClinicTagData,
+  type TreatmentRef,
+  type TagMappingResult,
+  type ClinicTreatmentRow,
+} from "./lib/clinic-treatment-mapper";
 
-/** clinic_type → 제공 가능한 treatment categories */
-const CLINIC_TYPE_CATEGORIES: Record<string, string[]> = {
-  dermatology: ["laser", "skin", "facial", "injection"],
-  plastic_surgery: ["injection", "body", "facial"],
-};
+// ── 상수 (G-10) ────────────────────────────────────────────
 
-/** hair 시술 매핑 — 클리닉명에 모발 키워드 포함 시 */
-const HAIR_KEYWORDS: string[] = ["모발", "탈모", "hair"];
+/** LLM 호출 간 딜레이 (ms) — rate limit 방지 */
+const CALL_DELAY_MS = 500;
 
-// ── 타입 (L-14: 스크립트 전용) ──────────────────────────────
+const TAGS_PATH = "scripts/seed/data/clinic-tags.json";
 
-interface ClinicRow {
-  id: string;
-  clinic_type: string;
-  name: Record<string, string>;
+const REVIEW_DIR = join(
+  typeof __dirname !== "undefined"
+    ? __dirname
+    : new URL(".", import.meta.url).pathname,
+  "review-data",
+);
+
+// ── 데이터 로드 헬퍼 ────────────────────────────────────────
+
+function loadClinicTags(): ClinicTagData[] {
+  return JSON.parse(readFileSync(TAGS_PATH, "utf-8")) as ClinicTagData[];
 }
 
-interface TreatmentRow {
-  id: string;
-  category: string;
+async function loadTreatmentsFromDb(): Promise<TreatmentRef[]> {
+  const client = createPipelineClient();
+  const { data, error } = await client
+    .from("treatments")
+    .select("id, name, category");
+
+  if (error || !data) {
+    console.error("[clinic-treatments] treatments 조회 실패:", error?.message);
+    process.exit(1);
+  }
+
+  return data.map((t) => ({
+    id: t.id as string,
+    nameKo: (t.name as Record<string, string>)?.ko ?? "",
+    nameEn: (t.name as Record<string, string>)?.en ?? "",
+    category: t.category as string,
+  }));
 }
 
-// ── 매핑 로직 ───────────────────────────────────────────────
+// ── Generate 모드 ───────────────────────────────────────────
 
-function matchesHairKeywords(name: Record<string, string>): boolean {
-  const ko = name.ko ?? "";
-  const en = (name.en ?? "").toLowerCase();
-  return HAIR_KEYWORDS.some(
-    (kw) => ko.includes(kw) || en.includes(kw.toLowerCase()),
+/** 단일 클리닉 LLM 매핑 (건별 에러 격리) */
+async function mapSingleClinic(
+  clinic: ClinicTagData,
+  model: Awaited<ReturnType<typeof getPipelineModel>>,
+  treatmentListText: string,
+  treatments: TreatmentRef[],
+): Promise<TagMappingResult | null> {
+  const cleaned = cleanTags(clinic.tags);
+  if (cleaned.length === 0) return null; // 태그 없음 → fallback 대상
+
+  const prompt = buildTagMappingPrompt(clinic, treatmentListText);
+  const result = await generateText({ model, prompt });
+  const parsed = parseTagMappingResponse(result.text, treatments);
+
+  if (!parsed || parsed.treatmentIds.length === 0) return null;
+
+  return {
+    clinicId: clinic.clinicId,
+    clinicNameKo: clinic.clinicNameKo,
+    treatmentIds: parsed.treatmentIds,
+    unmatchedTags: parsed.unmatchedTags,
+  };
+}
+
+/** 태그 있는 클리닉 LLM 루프 (진행률 로깅 + rate limit) */
+async function mapAllClinics(
+  withTags: ClinicTagData[],
+  model: Awaited<ReturnType<typeof getPipelineModel>>,
+  treatmentListText: string,
+  treatments: TreatmentRef[],
+): Promise<TagMappingResult[]> {
+  const mappings: TagMappingResult[] = [];
+  let succeeded = 0;
+  let failed = 0;
+
+  for (let i = 0; i < withTags.length; i++) {
+    try {
+      const mapping = await mapSingleClinic(
+        withTags[i],
+        model,
+        treatmentListText,
+        treatments,
+      );
+      if (mapping) {
+        mappings.push(mapping);
+        succeeded++;
+      } else {
+        failed++;
+      }
+    } catch (err) {
+      console.warn(
+        `  [${i + 1}/${withTags.length}] ERROR: ${withTags[i].clinicNameKo} — ${err instanceof Error ? err.message : String(err)}`,
+      );
+      failed++;
+    }
+
+    if ((i + 1) % 20 === 0) {
+      console.log(
+        `  [${i + 1}/${withTags.length}] processed (${succeeded} ok, ${failed} fail)`,
+      );
+    }
+    if (i < withTags.length - 1) await sleep(CALL_DELAY_MS);
+  }
+
+  console.log(
+    `[clinic-treatments] LLM 완료: ${succeeded} succeeded, ${failed} failed`,
+  );
+  return mappings;
+}
+
+/** 태그/fallback junction 생성 및 CSV export 오케스트레이터 */
+async function runGenerateMappings(
+  clinicTags: ClinicTagData[],
+  treatments: TreatmentRef[],
+): Promise<void> {
+  const treatmentListText = buildTreatmentListText(treatments);
+  const withTags = clinicTags.filter((c) => cleanTags(c.tags).length > 0);
+  const withoutTags = clinicTags.filter((c) => cleanTags(c.tags).length === 0);
+
+  const model = await getPipelineModel();
+  const tagMappings = await mapAllClinics(
+    withTags,
+    model,
+    treatmentListText,
+    treatments,
+  );
+
+  const tagJunctions = buildClinicTreatmentJunctions(tagMappings);
+  const fallbackClinics = withoutTags.map((c) => ({
+    id: c.clinicId,
+    clinicType: c.clinicType,
+    nameKo: c.clinicNameKo,
+  }));
+  const fallbackJunctions = buildFallbackJunctions(fallbackClinics, treatments);
+
+  console.log(
+    `[clinic-treatments] tag-based: ${tagJunctions.length}, fallback: ${fallbackJunctions.length}`,
+  );
+
+  const treatmentNameMap = new Map(treatments.map((t) => [t.id, t.nameKo]));
+  exportForReview(
+    [...tagJunctions, ...fallbackJunctions],
+    treatmentNameMap,
+    clinicTags,
   );
 }
 
-function buildJunctions(
-  clinics: ClinicRow[],
-  treatments: TreatmentRow[],
-): { clinic_id: string; treatment_id: string }[] {
-  // treatment category별 그룹
-  const byCategory = new Map<string, string[]>();
-  for (const t of treatments) {
-    const list = byCategory.get(t.category) ?? [];
-    list.push(t.id);
-    byCategory.set(t.category, list);
+async function generateMappings(dryRun: boolean): Promise<void> {
+  const clinicTags = loadClinicTags();
+  const treatments = await loadTreatmentsFromDb();
+  const withTags = clinicTags.filter((c) => cleanTags(c.tags).length > 0);
+  const withoutTags = clinicTags.filter((c) => cleanTags(c.tags).length === 0);
+
+  console.log(`[clinic-treatments] total: ${clinicTags.length}`);
+  console.log(
+    `[clinic-treatments] with-tags: ${withTags.length}, no-tags: ${withoutTags.length}`,
+  );
+  console.log(`[clinic-treatments] treatments: ${treatments.length}`);
+
+  if (dryRun) {
+    console.log("[clinic-treatments] DRY RUN — LLM 호출 안 함");
+    return;
   }
 
-  const hairTreatmentIds = byCategory.get("hair") ?? [];
-  const junctions: { clinic_id: string; treatment_id: string }[] = [];
-  const seen = new Set<string>();
+  await runGenerateMappings(clinicTags, treatments);
+}
 
-  for (const clinic of clinics) {
-    // 1. clinic_type → categories 규칙 매핑
-    const categories = CLINIC_TYPE_CATEGORIES[clinic.clinic_type] ?? [];
-    for (const cat of categories) {
-      const treatmentIds = byCategory.get(cat) ?? [];
-      for (const treatmentId of treatmentIds) {
-        const key = `${clinic.id}:${treatmentId}`;
-        if (!seen.has(key)) {
-          seen.add(key);
-          junctions.push({ clinic_id: clinic.id, treatment_id: treatmentId });
-        }
-      }
-    }
+// ── CSV Export (D-7 검수용) ──────────────────────────────────
 
-    // 2. hair 특수 처리 — 모발 키워드 클리닉만
-    if (matchesHairKeywords(clinic.name)) {
-      for (const treatmentId of hairTreatmentIds) {
-        const key = `${clinic.id}:${treatmentId}`;
-        if (!seen.has(key)) {
-          seen.add(key);
-          junctions.push({ clinic_id: clinic.id, treatment_id: treatmentId });
-        }
-      }
-    }
+function buildCsvRows(
+  junctions: ClinicTreatmentRow[],
+  clinicTagMap: Map<string, string>,
+  clinicNameMap: Map<string, string>,
+  treatmentNames: Map<string, string>,
+): Record<string, string>[] {
+  return junctions.map((row) => ({
+    clinic_id: row.clinic_id,
+    clinic_name_ko: clinicNameMap.get(row.clinic_id) ?? "",
+    treatment_id: row.treatment_id,
+    treatment_name_ko: treatmentNames.get(row.treatment_id) ?? "",
+    source: clinicTagMap.get(row.clinic_id) ? "tag" : "fallback",
+    kakao_tags: clinicTagMap.get(row.clinic_id) ?? "",
+    is_approved: "",
+    review_notes: "",
+  }));
+}
+
+function exportForReview(
+  junctions: ClinicTreatmentRow[],
+  treatmentNames: Map<string, string>,
+  clinicTags: ClinicTagData[],
+): void {
+  if (!existsSync(REVIEW_DIR)) mkdirSync(REVIEW_DIR, { recursive: true });
+
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const clinicNameMap = new Map(clinicTags.map((c) => [c.clinicId, c.clinicNameKo]));
+  const clinicTagMap = new Map(
+    clinicTags
+      .filter((c) => cleanTags(c.tags).length > 0)
+      .map((c) => [c.clinicId, c.tags.join(", ")]),
+  );
+
+  const jsonPath = join(REVIEW_DIR, `junction-clinic-treatments-${timestamp}.json`);
+  writeFileSync(jsonPath, JSON.stringify(junctions, null, 2));
+
+  const csvRows = buildCsvRows(junctions, clinicTagMap, clinicNameMap, treatmentNames);
+  const csvPath = join(REVIEW_DIR, `review-clinic-treatments-${timestamp}.csv`);
+  const csvContent = stringifyCsvRows(csvRows, [
+    "clinic_id",
+    "clinic_name_ko",
+    "treatment_id",
+    "treatment_name_ko",
+    "source",
+    "kakao_tags",
+    "is_approved",
+    "review_notes",
+  ]);
+  writeFileSync(csvPath, csvContent);
+
+  console.log(`[clinic-treatments] exported:`);
+  console.log(`  JSON: ${jsonPath}`);
+  console.log(`  CSV:  ${csvPath}`);
+}
+
+// ── Load 모드 (검수 완료 CSV → DB) ─────────────────────────
+
+async function deleteExistingJunctions(): Promise<void> {
+  const client = createPipelineClient();
+  console.log("[clinic-treatments] deleting existing clinic_treatments...");
+  const { error } = await client
+    .from("clinic_treatments")
+    .delete()
+    .gte("clinic_id", "00000000-0000-0000-0000-000000000000");
+
+  if (error) {
+    console.error("[clinic-treatments] DELETE 실패:", error.message);
+    process.exit(1);
+  }
+  console.log("[clinic-treatments] DELETE 완료");
+}
+
+async function loadReviewed(csvPath: string): Promise<void> {
+  const csvRows = parseCsvFile(csvPath);
+  console.log(`[clinic-treatments] CSV rows: ${csvRows.length}`);
+
+  const approved = csvRows.filter((row) => {
+    const val = (row.is_approved ?? "").trim().toLowerCase();
+    return ["true", "1", "yes"].includes(val);
+  });
+  console.log(`[clinic-treatments] approved: ${approved.length}`);
+
+  if (approved.length === 0) {
+    console.log("[clinic-treatments] 승인 건 없음 — 종료");
+    return;
   }
 
-  return junctions;
+  await deleteExistingJunctions();
+
+  const junctionData: Record<string, unknown>[] = approved.map((row) => ({
+    clinic_id: row.clinic_id,
+    treatment_id: row.treatment_id,
+  }));
+
+  const client = createPipelineClient();
+  const input: JunctionInput[] = [
+    { type: "clinic_treatment", data: junctionData },
+  ];
+  const results = await loadJunctions(client, input);
+
+  for (const r of results) {
+    console.log(`  ${r.entityType}: ${r.inserted} inserted, ${r.failed} failed`);
+    if (r.errors.length > 0) {
+      r.errors.forEach((e) => console.warn(`    - ${e.message}`));
+    }
+  }
+}
+
+// ── 유틸 ────────────────────────────────────────────────────
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 // ── main ────────────────────────────────────────────────────
 
 async function main(): Promise<void> {
   const args = parseArgs();
-  const dryRun = !!args["dry-run"];
 
-  // 1. DB에서 clinics 조회
-  const client = createPipelineClient();
-  const { data: clinics, error: cErr } = await client
-    .from("clinics")
-    .select("id, clinic_type, name")
-    .eq("status", "active");
-
-  if (cErr || !clinics) {
-    console.error("[clinic-treatments] clinics 조회 실패:", cErr?.message);
-    process.exit(1);
-  }
-
-  // 2. DB에서 treatments 조회
-  const { data: treatments, error: tErr } = await client
-    .from("treatments")
-    .select("id, category");
-
-  if (tErr || !treatments) {
-    console.error("[clinic-treatments] treatments 조회 실패:", tErr?.message);
-    process.exit(1);
-  }
-
-  console.log(`[clinic-treatments] clinics: ${clinics.length}`);
-  console.log(`[clinic-treatments] treatments: ${treatments.length}`);
-
-  // 3. junction 생성
-  const junctionData = buildJunctions(
-    clinics as ClinicRow[],
-    treatments as TreatmentRow[],
-  );
-  console.log(`[clinic-treatments] generated: ${junctionData.length} junctions`);
-
-  // 4. 통계
-  const stats: Record<string, number> = {};
-  for (const clinic of clinics as ClinicRow[]) {
-    const count = junctionData.filter((j) => j.clinic_id === clinic.id).length;
-    stats[clinic.clinic_type] = (stats[clinic.clinic_type] ?? 0) + count;
-  }
-  console.log(`[clinic-treatments] clinic_type별:`, JSON.stringify(stats));
-
-  // hair 매칭 통계
-  const hairClinics = (clinics as ClinicRow[]).filter((c) =>
-    matchesHairKeywords(c.name),
-  );
-  console.log(`[clinic-treatments] hair 키워드 클리닉: ${hairClinics.length}건`);
-
-  if (dryRun) {
-    console.log("[clinic-treatments] DRY RUN — DB 적재 안 함");
-    return;
-  }
-
-  // 5. loadJunctions 적재
-  const input: JunctionInput[] = [
-    { type: "clinic_treatment", data: junctionData },
-  ];
-  const results = await loadJunctions(client, input);
-  for (const r of results) {
-    console.log(
-      `  ${r.entityType}: ${r.inserted} inserted, ${r.failed} failed`,
-    );
-    if (r.errors.length > 0) {
-      r.errors.forEach((e) => console.warn(`    - ${e.message}`));
+  if (args.load) {
+    const csvPath = args.csv;
+    if (!csvPath || csvPath === "true") {
+      console.error("Error: --csv=<path> is required for --load mode");
+      console.error(
+        "Usage: npx tsx scripts/seed/generate-clinic-treatments.ts --load --csv=<path>",
+      );
+      process.exit(1);
     }
+    await loadReviewed(csvPath);
+  } else {
+    const dryRun = !!args["dry-run"];
+    await generateMappings(dryRun);
   }
 }
 
