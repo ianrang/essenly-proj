@@ -63,9 +63,9 @@ MVP 범위: DOM-1 (쇼핑) + DOM-2 (시술). PRD §5.4 기준.
 
 | 관계 | 예상 건수 | 설명 |
 |------|----------|------|
-| product_stores | ~500 | 제품 × 판매 매장 (평균 제품당 2~3 매장). 혼합 매핑(유형 기반+개별) 시 ~2,700건. 정본: data-collection.md §6.2 |
-| product_ingredients | ~800 | 제품 × 핵심 성분 (평균 제품당 3~5 성분) |
-| clinic_treatments | ~150 | 클리닉 × 제공 시술 (평균 클리닉당 5 시술) |
+| product_stores | ~9,900 | 제품 × 판매 매장. 유형 기반 일괄 매핑. 정본: data-collection.md §6.2 |
+| product_ingredients | ~689 | 제품 × 핵심/주의 성분. LLM 매핑 + D-7 검수 |
+| clinic_treatments | ~5,600 | 클리닉 × 제공 시술. 카카오맵 태그 기반 LLM 매핑 + 규칙 fallback (avg 24.9시술/클리닉). 정본: p2-64c-3-clinic-tags-mapping.md |
 
 ## 2.2 수집 방법별 역할
 

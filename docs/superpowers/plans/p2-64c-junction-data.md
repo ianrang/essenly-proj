@@ -4,13 +4,13 @@
 
 **Goal:** 3개 junction 테이블에 관계 데이터를 적재하여 제품-매장, 제품-성분, 클리닉-시술 매핑을 완성한다.
 
-**Architecture:** 기존 loadJunctions() 파이프라인 사용. product_stores는 _available_at 기반 규칙 자동 생성, product_ingredients는 LLM 자동 매핑 + D-7 검수, clinic_treatments는 규칙 기반 + LLM 미세 조정. 스크립트는 scripts/ 배치 (P-9).
+**Architecture:** 기존 loadJunctions() 파이프라인 사용. product_stores는 _available_at 기반 규칙 자동 생성, product_ingredients는 LLM 자동 매핑 + D-7 검수, clinic_treatments는 카카오맵 태그 기반 LLM 매핑 + D-7 검수 + 규칙 기반 fallback. 스크립트는 scripts/ 배치 (P-9).
 
-**Tech Stack:** TypeScript, 기존 loader.ts loadJunctions(), LLM (enrich 패턴)
+**Tech Stack:** TypeScript, 기존 loader.ts loadJunctions(), LLM (enrich 패턴), Playwright (태그 추출)
 
 ---
 
-> 버전: 1.0
+> 버전: 1.1 (2026-04-06 P2-64c-3 방식 변경 반영)
 > 작성일: 2026-04-05
 > 선행: P2-64a (products 201건), P2-60 (ingredients 105건), P2-61 (stores 337건), P2-62 (clinics 225건), P2-63 (treatments 53건)
 > 정본: schema.dbml junction tables, data-collection.md §7 D-4
@@ -65,19 +65,22 @@ Return JSON: { "key": ["ingredient_name", ...], "avoid": ["ingredient_name", ...
 **예상 건수:** ~600-800건 (201제품 × 평균 3-4 성분)
 **D-7 검수 필요:** export-review → 검수 → import-review 패턴
 
-### 2.3 clinic_treatments (규칙 기반 + LLM 미세 조정)
+### 2.3 clinic_treatments (카카오맵 태그 기반 LLM 매핑 + fallback)
 
-**규칙 기반 매핑:**
+> **설계 변경 (2026-04-06):** 원래 "규칙 기반 + LLM 미세 조정"으로 계획했으나, 클리닉 이름/설명에 특화 정보가 부족하여 카카오맵 태그 기반으로 변경. 상세 계획: [[2026-04-06-p2-64c-3-clinic-tags-mapping.md]]
+
+**태그 기반 매핑:**
+1. Playwright로 225곳 카카오맵 placeUrl에서 시술 태그 추출
+2. LLM이 한국어 태그 → treatments 53건 매핑 + D-7 검수
+
+**규칙 기반 fallback:** 태그 없는/LLM 실패 클리닉
 
 | clinic_type | 기본 제공 treatment categories |
 |-------------|------------------------------|
-| dermatology | laser, skin, facial, injection (피부과 전문) |
-| plastic_surgery | injection, body, facial (성형 전문) |
+| dermatology | laser, skin, facial, injection |
+| plastic_surgery | injection, body, facial |
 
-**LLM 미세 조정:** 클리닉 이름/설명에서 특화 시술 추가 식별
-
-**예상 건수:** dermatology 180 × ~46시술 + plastic_surgery 45 × ~25시술 = ~9,000+ 건 (유형 기반 상한)
-→ 실제로는 클리닉당 평균 5-10개 시술이 현실적 → **~1,500-2,000건**
+**실제 건수:** 5,611건 (tag 5,239 + fallback 372). 클리닉별 avg 24.9 시술.
 
 ## 3. 실행 순서
 
@@ -85,9 +88,9 @@ P2-64c를 3개 서브태스크로 분리:
 
 | 서브태스크 | 방식 | LLM | 검수 |
 |-----------|------|:---:|:----:|
-| **P2-64c-1: product_stores** | 규칙 기반 자동 생성 스크립트 | ❌ | 건수 확인만 |
-| **P2-64c-2: product_ingredients** | LLM 매핑 + D-7 검수 | ✅ | 전수 검수 |
-| **P2-64c-3: clinic_treatments** | 규칙 기반 + LLM | ✅ | 의료 정확성 검수 |
+| **P2-64c-1: product_stores** | 규칙 기반 자동 생성 스크립트 | ❌ | 건수 확인만 | ✅ 9,900건 |
+| **P2-64c-2: product_ingredients** | LLM 매핑 + D-7 검수 | ✅ | 전수 검수 | ✅ 689건 |
+| **P2-64c-3: clinic_treatments** | 카카오맵 태그 + LLM + fallback | ✅ | D-7 전수 검수 | ✅ 5,611건 |
 
 ### P2-64c-1: product_stores 스크립트
 
