@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
-import { buttonVariants } from "@/client/ui/primitives/button";
 
+// 서버 컴포넌트 — buttonVariants(client-only cva) 호출 불가.
+// app/not-found.tsx와 동일하게 인라인 Tailwind 클래스 사용.
 export default async function NotFoundPage() {
   const t = await getTranslations("error");
 
@@ -16,7 +17,7 @@ export default async function NotFoundPage() {
         </p>
         <a
           href="/"
-          className={buttonVariants({ size: "cta" })}
+          className="inline-block rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground"
         >
           {t("home")}
         </a>
