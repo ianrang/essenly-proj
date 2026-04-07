@@ -14,8 +14,8 @@
 | Phase 0    | 37      | 37      | 0       | 0      | ✅      |
 | Phase 1    | 62      | 60      | 2       | 0      | ✅      |
 | Phase 2    | 115     | 98      | 13      | 4      | 🔶 진행중 |
-| Phase 3    | 37      | 3       | 18      | 16     | 🔶 진행중 |
-| **MVP 합계** | **263** | **210** | **33**  | **20** |        |
+| Phase 3    | 37      | 5       | 19      | 13     | 🔶 진행중 |
+| **MVP 합계** | **263** | **212** | **34**  | **17** |        |
 | 관리자 앱 (펜딩) | 20      | 0       | 0       | 20     | ⏸️ 펜딩  |
 
 
@@ -548,12 +548,12 @@
 | P3-24  | CI/CD — Vercel 자동 배포   | main → prod, PR → preview. tsx devDep 추가 + 빌드/린트/타입 에러 6건 수정                                | ✅   |
 | P3-25  | 환경 분리                  | MVP: 전 환경 Google Gemini 사용. Production Anthropic 전환은 v0.2. 정본: INFRA-PIPELINE.md            | ✅   |
 | P3-26  | ~~Supabase 프로젝트 분리~~   | **→ v0.2 연기**. 2 프로젝트: dev+preview 공유 / prod. 소프트 런칭은 단일 프로젝트로 충분                         | ➡️  |
-| P3-27  | 에러 트래킹 설정              | MVP 간소화: Vercel 기본 로그로 시작. Sentry는 v0.2                                                    | ⬜   |
-| P3-28  | 성능 모니터링                | MVP 간소화: Vercel Analytics 기본 활성화                                                           | ⬜   |
+| P3-27  | 에러 트래킹 설정              | Vercel Logs 정상 수집 확인. buttonVariants 서버 호출 버그 수정 (P3-33). Sentry는 v0.2                      | ✅   |
+| P3-28  | 성능 모니터링                | @vercel/speed-insights 2.0.0 + root layout \<SpeedInsights /\> 추가. Core Web Vitals 수집 시작   | ✅   |
 | P3-29  | ~~LLM 비용 모니터링~~        | **→ P3-29a에 통합**. Anthropic Console 기본 제공 + P3-29a 한도 설정으로 충분                              | ➡️  |
 | P3-29a | LLM 비용 한도 + 알림         | 일일/월간 API 비용 한도 설정 + 초과 시 알림/차단. 소프트 런칭 예상치 못한 비용 폭주 방지. Anthropic usage API 또는 커스텀 토큰 카운터 | ⬜   |
 | P3-30  | ~~로깅 전략~~              | **→ v0.2 연기**. 구조화 로깅 (JSON), 로그 레벨. MVP는 console.error 기본 로깅 충분                           | ➡️  |
-| P3-31  | DB 백업 확인               | MVP 간소화: Supabase 기본 일일 백업 설정 확인만                                                          | ⬜   |
+| P3-31  | DB 백업 확인               | Supabase Free Plan은 자동 백업 미제공. **소프트 런칭 전 Pro 업그레이드 필요** ($25/월, 7일 스케줄 백업 + PITR)          | 🔶   |
 | P3-32  | 도메인 + SSL              | 커스텀 도메인, Vercel SSL                                                                        | ⬜   |
 
 
@@ -582,7 +582,7 @@
 - LLM 비용 한도 설정 (P3-29a)
 - 의존성 취약점 0 critical (P3-22)
 - 도메인 + SSL 설정 (P3-32)
-- DB 백업 확인 (P3-31)
+- DB 백업 확인 (P3-31 — Supabase Pro 업그레이드 필요)
 - 피드백 수집 채널 준비 (P3-36 — 구글 폼)
 
 **Gate 2 통과 후 순차 실행**
