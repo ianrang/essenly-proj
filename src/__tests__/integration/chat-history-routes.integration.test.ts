@@ -38,7 +38,6 @@ describe.skipIf(!columnExists)('GET /api/chat/history (integration)', () => {
       .insert({
         user_id: session.userId,
         ui_messages: testMessages,
-        locale: 'en',
       })
       .select('id')
       .single();
