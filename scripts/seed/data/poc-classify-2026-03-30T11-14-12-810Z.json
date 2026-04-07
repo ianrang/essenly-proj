@@ -1,0 +1,340 @@
+{
+  "config": {
+    "provider": "google",
+    "model": "default",
+    "threshold": 0.8,
+    "similarityThreshold": 0.5,
+    "timestamp": "2026-03-30T11:14:12.810Z"
+  },
+  "products": [
+    {
+      "id": "p001-green-tea-seed-serum",
+      "name": "Green Tea Seed Serum",
+      "skinTypes": {
+        "predicted": [
+          "normal",
+          "combination",
+          "dry"
+        ],
+        "expected": [
+          "combination",
+          "oily",
+          "normal"
+        ],
+        "similarity": 0.5,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "dryness",
+          "dullness"
+        ],
+        "expected": [
+          "dryness",
+          "dullness"
+        ],
+        "similarity": 1,
+        "accurate": true
+      },
+      "accurate": true
+    },
+    {
+      "id": "p002-volcanic-pore-clay-mask",
+      "name": "Super Volcanic Pore Clay Mask 2X",
+      "skinTypes": {
+        "predicted": [
+          "oily",
+          "combination"
+        ],
+        "expected": [
+          "oily",
+          "combination"
+        ],
+        "similarity": 1,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "acne",
+          "pores",
+          "dullness"
+        ],
+        "expected": [
+          "pores",
+          "acne"
+        ],
+        "similarity": 0.6666666666666666,
+        "accurate": true
+      },
+      "accurate": true
+    },
+    {
+      "id": "p003-water-sleeping-mask",
+      "name": "Water Sleeping Mask EX",
+      "skinTypes": {
+        "predicted": [
+          "dry",
+          "combination",
+          "normal"
+        ],
+        "expected": [
+          "dry",
+          "combination",
+          "normal"
+        ],
+        "similarity": 1,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "dryness",
+          "dullness",
+          "redness"
+        ],
+        "expected": [
+          "dryness",
+          "dullness"
+        ],
+        "similarity": 0.6666666666666666,
+        "accurate": true
+      },
+      "accurate": true
+    },
+    {
+      "id": "p004-lip-sleeping-mask",
+      "name": "Lip Sleeping Mask",
+      "skinTypes": {
+        "predicted": [
+          "dry",
+          "normal"
+        ],
+        "expected": [
+          "dry",
+          "normal",
+          "sensitive"
+        ],
+        "similarity": 0.6666666666666666,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "dryness"
+        ],
+        "expected": [
+          "dryness"
+        ],
+        "similarity": 1,
+        "accurate": true
+      },
+      "accurate": true
+    },
+    {
+      "id": "p005-first-care-activating-serum",
+      "name": "First Care Activating Serum",
+      "skinTypes": {
+        "predicted": [
+          "dry",
+          "combination",
+          "normal",
+          "sensitive"
+        ],
+        "expected": [
+          "dry",
+          "combination",
+          "normal",
+          "sensitive"
+        ],
+        "similarity": 1,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "dryness",
+          "dullness",
+          "uneven_tone",
+          "wrinkles"
+        ],
+        "expected": [
+          "wrinkles",
+          "dullness",
+          "dryness"
+        ],
+        "similarity": 0.75,
+        "accurate": true
+      },
+      "accurate": true
+    },
+    {
+      "id": "p006-concentrated-ginseng-cream",
+      "name": "Concentrated Ginseng Renewing Cream",
+      "skinTypes": {
+        "predicted": [
+          "dry",
+          "normal",
+          "combination"
+        ],
+        "expected": [
+          "dry",
+          "normal"
+        ],
+        "similarity": 0.6666666666666666,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "wrinkles",
+          "dryness",
+          "dullness",
+          "uneven_tone"
+        ],
+        "expected": [
+          "wrinkles",
+          "dryness",
+          "dullness"
+        ],
+        "similarity": 0.75,
+        "accurate": true
+      },
+      "accurate": true
+    },
+    {
+      "id": "p007-snail-mucin-essence",
+      "name": "Advanced Snail 96 Mucin Power Essence",
+      "skinTypes": {
+        "predicted": [
+          "dry",
+          "oily",
+          "combination",
+          "sensitive",
+          "normal"
+        ],
+        "expected": [
+          "dry",
+          "combination",
+          "normal",
+          "sensitive"
+        ],
+        "similarity": 0.8,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "dryness",
+          "redness",
+          "dullness",
+          "uneven_tone"
+        ],
+        "expected": [
+          "dryness",
+          "dullness",
+          "dark_spots"
+        ],
+        "similarity": 0.4,
+        "accurate": false
+      },
+      "accurate": false
+    },
+    {
+      "id": "p008-bha-blackhead-power-liquid",
+      "name": "BHA Blackhead Power Liquid",
+      "skinTypes": {
+        "predicted": [
+          "oily",
+          "combination"
+        ],
+        "expected": [
+          "oily",
+          "combination"
+        ],
+        "similarity": 1,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "acne",
+          "pores"
+        ],
+        "expected": [
+          "acne",
+          "pores"
+        ],
+        "similarity": 1,
+        "accurate": true
+      },
+      "accurate": true
+    },
+    {
+      "id": "p009-time-revolution-essence",
+      "name": "Time Revolution The First Treatment Essence RX",
+      "skinTypes": {
+        "predicted": [
+          "dry",
+          "combination",
+          "sensitive",
+          "normal"
+        ],
+        "expected": [
+          "dry",
+          "combination",
+          "normal"
+        ],
+        "similarity": 0.75,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "wrinkles",
+          "dullness",
+          "uneven_tone",
+          "dryness"
+        ],
+        "expected": [
+          "dullness",
+          "wrinkles",
+          "uneven_tone"
+        ],
+        "similarity": 0.75,
+        "accurate": true
+      },
+      "accurate": true
+    },
+    {
+      "id": "p010-perfect-cover-bb-cream",
+      "name": "M Perfect Cover BB Cream SPF42",
+      "skinTypes": {
+        "predicted": [
+          "normal",
+          "dry",
+          "combination"
+        ],
+        "expected": [
+          "combination",
+          "normal",
+          "oily"
+        ],
+        "similarity": 0.5,
+        "accurate": true
+      },
+      "concerns": {
+        "predicted": [
+          "dryness",
+          "uneven_tone",
+          "redness"
+        ],
+        "expected": [
+          "uneven_tone",
+          "dark_spots"
+        ],
+        "similarity": 0.25,
+        "accurate": false
+      },
+      "accurate": false
+    }
+  ],
+  "accuracy": {
+    "skinTypes": 1,
+    "concerns": 0.8,
+    "overall": 0.8
+  },
+  "passed": true
+}

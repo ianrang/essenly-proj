@@ -1,0 +1,69 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# claude code
+.claude/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+
+# generated (빌드 시 자동 생성)
+src/shared/constants/kb.generated.ts
+
+# vercel
+.vercel
+
+# preview & playwright
+/preview/
+.playwright-mcp/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+supabase/.temp/
+
+# docs - 초기 기획 문서 (PDF 등 바이너리)
+/docs/01-first-plainning/
+
+# pipeline raw data (로컬 전용, 파이프라인 소스 데이터)
+/data/
+
+# screenshots (로컬 참조용)
+*.png
+!src/app/icon.png
+!public/og.png
+!public/apple-touch-icon.png
