@@ -258,7 +258,7 @@ Development 스코프는 설정하지 않는다 (로컬은 `.env.local` 사용).
 
 GitHub repo → Settings → Branches → Add rule:
 - Branch name pattern: `main`
-- Require status checks: `lint`, `type-check`, `test`
+- Require status checks: `Lint`, `Type Check`, `Test` (ci.yml의 `name:` 필드 기준)
 - Require branches to be up to date: 선택
 
 ---
