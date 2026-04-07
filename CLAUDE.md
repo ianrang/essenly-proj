@@ -9,6 +9,8 @@
 - 상태 관리: useChat + react-hook-form + React Context (Zustand/Redux 금지)
 - 별칭: `@/server`, `@/client`, `@/shared`
 - 설계 문서: `docs/03-design/PRD.md`(WHAT) · `docs/03-design/TDD.md`(HOW) · `docs/03-design/schema.dbml`(DB 정본)
+- Git 규칙: `docs/03-design/GIT-CONVENTIONS.md` — 브랜치 전략, 커밋 메시지 컨벤션, PR 워크플로우. 커밋/PR 생성 시 반드시 참조
+- 인프라: `docs/03-design/INFRA-PIPELINE.md` — CI/CD, 환경 분리, 배포 전략
 
 ---
 
