@@ -32,5 +32,6 @@ export const TOKEN_CONFIG: Record<string, TokenConfig> = {
   default: {
     maxTokens: 1024,
     historyLimit: 20,
+    temperature: 0.4,
   },
 };
