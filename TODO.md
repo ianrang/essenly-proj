@@ -549,7 +549,7 @@
 | P3-17 | ~~API 키 노출 확인~~             | **→ v0.2 연기**. Git 이력, 환경변수 클라이언트 노출. MVP는 배포 전 수동 확인                                     | ➡️  |
 | P3-19 | ~~SQL injection / XSS 테스트~~ | **→ v0.2 연기**. 주요 입력 필드 대상. Supabase RLS + zod 검증으로 기본 방어 확보                              | ➡️  |
 | P3-21 | ~~Rate limit 동작 확인~~        | **→ v0.2 연기**. Chat API. MVP는 배포 후 수동 확인                                                  | ➡️  |
-| P3-22 | 의존성 취약점 스캔                  | npm audit                                                                                 | ⬜   |
+| P3-22 | 의존성 취약점 스캔                  | **완료**. `npm audit` 0 vulnerabilities. hono 4.7.11→4.12.12, next 16.1.6→16.2.2, eslint-config-next 동기화. dev 의존성(vite, flatted, brace-expansion, picomatch) 자동 수정. 빌드+테스트 검증 완료 | ✅   |
 
 
 ## 인프라 / DevOps
@@ -566,8 +566,8 @@
 | P3-29  | ~~LLM 비용 모니터링~~        | **→ P3-29a에 통합**. Anthropic Console 기본 제공 + P3-29a 한도 설정으로 충분                              | ➡️  |
 | P3-29a | LLM 비용 한도 + 알림         | Anthropic Console $100/월 한도 + 알림. Google 무료 티어 기본 한도. onFinish 토큰 사용량 로그 추가. v0.2: DB 기반 집계 (V2-24) | ✅   |
 | P3-30  | ~~로깅 전략~~              | **→ v0.2 연기**. 구조화 로깅 (JSON), 로그 레벨. MVP는 console.error 기본 로깅 충분                           | ➡️  |
-| P3-31  | DB 백업 확인               | Supabase Free Plan은 자동 백업 미제공. **소프트 런칭 전 Pro 업그레이드 필요** ($25/월, 7일 스케줄 백업 + PITR)          | 🔶   |
-| P3-32  | 도메인 + SSL              | 커스텀 도메인, Vercel SSL                                                                        | ⬜   |
+| P3-31  | ~~DB 백업 확인~~             | **→ v0.2 연기**. Supabase Pro 업그레이드($25/월)는 정식 런칭 전 수행. MVP 소프트 런칭은 소수 테스트 — 데이터 재시드 가능      | ➡️  |
+| P3-32  | ~~도메인 + SSL~~          | **→ v0.2 연기**. MVP는 `assenly-proj.vercel.app` (Vercel 자동 SSL) 사용. 커스텀 도메인 구매·연결은 v0.2           | ➡️  |
 
 
 ## 배포 + 런칭
@@ -579,7 +579,7 @@
 | P3-33a | 법률 전문가 검토        | 소프트 런칭 후 정식 런칭 전 진행. 이용약관(/terms), 개인정보처리방침(/privacy), 면책 조항 법률 전문가 검토. GDPR/국제 규정 검토. 소프트 런칭 차단 아님 | ⬜   |
 | P3-34  | 프로덕션 배포          | 최종 배포                                                                                               | ⬜   |
 | P3-35  | 소프트 런칭           | 제한 사용자 테스트 (대상/규모 별도 결정)                                                                            | ⬜   |
-| P3-36  | 사용자 피드백 수집 채널 구축 | MVP 간소화: 구글 폼 링크 1개. 인앱 피드백 UI는 v0.2                                                                | ⬜   |
+| P3-36  | ~~사용자 피드백 수집 채널 구축~~ | **→ v0.2 연기**. 인앱 별점+리뷰 UI로 v0.2에서 구현. 소프트 런칭은 소수 사용자 직접 소통으로 피드백 수집                                    | ➡️  |
 
 
 ## Gate 2 통과 기준 (MVP 최소 출시 — 소프트 런칭)
@@ -594,9 +594,9 @@
 - 에러 트래킹 + 성능 모니터링 기본 설정 (P3-27, P3-28 — Vercel 기본)
 - LLM 비용 한도 설정 (P3-29a)
 - 의존성 취약점 0 critical (P3-22)
-- 도메인 + SSL 설정 (P3-32)
-- DB 백업 확인 (P3-31 — Supabase Pro 업그레이드 필요)
-- 피드백 수집 채널 준비 (P3-36 — 구글 폼)
+- ~~도메인 + SSL 설정 (P3-32 — v0.2 연기, MVP는 vercel.app 도메인 사용)~~
+- ~~DB 백업 확인 (P3-31 — v0.2 연기, 정식 런칭 전 Pro 업그레이드)~~
+- ~~피드백 수집 채널 준비 (P3-36 — v0.2 연기, 소프트 런칭은 직접 소통으로 수집)~~
 
 **Gate 2 통과 후 순차 실행**
 
@@ -605,7 +605,7 @@
 - P3-35: 소프트 런칭
 - P3-33a: 법률 전문가 검토 (소프트 런칭 후 정식 런칭 전)
 
-> v0.2에서 추가: 자동화 테스트(통합/E2E/AI 품질/성능), OWASP 보안 점검, 접근성 검증, 구조화 로깅, Supabase 프로젝트 분리, Production LLM Anthropic 전환 (AI_PROVIDER=anthropic + ANTHROPIC_API_KEY 등록 + NEXT_PUBLIC_APP_URL 환경별 분리)
+> v0.2에서 추가: 자동화 테스트(통합/E2E/AI 품질/성능), OWASP 보안 점검, 접근성 검증, 구조화 로깅, Supabase 프로젝트 분리, Production LLM Anthropic 전환 (AI_PROVIDER=anthropic + ANTHROPIC_API_KEY 등록 + NEXT_PUBLIC_APP_URL 환경별 분리), 커스텀 도메인 연결 (P3-32), 인앱 피드백 UI (P3-36), Supabase Pro 업그레이드 (P3-31)
 
 ---
 
