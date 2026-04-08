@@ -2,7 +2,7 @@ import 'server-only';
 import type { ModelMessage, ToolSet } from 'ai';
 import { streamText } from 'ai';
 import { env, getModel } from '@/server/core/config';
-import { LLM_CONFIG } from '@/shared/constants/ai';
+import { LLM_CONFIG, TOKEN_CONFIG } from '@/shared/constants/ai';
 
 // ============================================================
 // LLM 폴백 클라이언트 — llm-resilience.md §2.2
@@ -30,6 +30,8 @@ export async function callWithFallback(options: CallOptions) {
     return await streamText({
       model,
       ...options,
+      temperature: TOKEN_CONFIG.default.temperature,
+      maxOutputTokens: TOKEN_CONFIG.default.maxOutputTokens,
       abortSignal: AbortSignal.timeout(env.LLM_TIMEOUT_MS),
     });
   } catch (primaryError) {
@@ -48,6 +50,8 @@ export async function callWithFallback(options: CallOptions) {
       return await streamText({
         model: fallbackModel,
         ...options,
+        temperature: TOKEN_CONFIG.default.temperature,
+        maxOutputTokens: TOKEN_CONFIG.default.maxOutputTokens,
         abortSignal: AbortSignal.timeout(env.LLM_TIMEOUT_MS),
       });
     } catch (fallbackError) {

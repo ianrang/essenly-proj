@@ -41,6 +41,16 @@ vi.mock('./tools/knowledge-handler', () => ({
   lookupBeautyKnowledgeSchema: {},
 }));
 
+vi.mock('@/shared/constants/ai', () => ({
+  TOKEN_CONFIG: {
+    default: {
+      maxOutputTokens: 1024,
+      historyLimit: 20,
+      temperature: 0.4,
+    },
+  },
+}));
+
 // ModelMessage type for history parameter
 type ModelMessage = { role: 'user' | 'assistant'; content: string };
 
@@ -217,6 +227,61 @@ describe('streamChat', () => {
     expect(chainBase.insert).toHaveBeenCalledWith({ user_id: 'user-1' });
   });
 
+  it('히스토리가 historyLimit 초과 시 최신 N개만 LLM에 전달', async () => {
+    const longHistory: ModelMessage[] = Array.from({ length: 25 }, (_, i) => ({
+      role: (i % 2 === 0 ? 'user' : 'assistant') as 'user' | 'assistant',
+      content: `Message ${i}`,
+    }));
+
+    const client = makeMockClient({ selectData: { id: 'conv-123' } });
+
+    const { streamChat } = await import('./service');
+    await streamChat({
+      client: client as unknown as Parameters<typeof streamChat>[0]['client'],
+      userId: 'user-1',
+      conversationId: 'conv-123',
+      message: 'New message',
+      history: longHistory,
+      profile: mockProfile,
+      journey: mockJourney,
+      preferences: [],
+      derived: mockDerived,
+    });
+
+    const callArgs = mockCallWithFallback.mock.calls[0][0];
+    // 최신 20개 히스토리 + 1개 새 메시지 = 21개
+    expect(callArgs.messages).toHaveLength(21);
+    // 첫 메시지는 히스토리의 index 5 (25-20=5)
+    expect(callArgs.messages[0]).toEqual({ role: 'assistant', content: 'Message 5' });
+    // 마지막 메시지는 새 메시지
+    expect(callArgs.messages[20]).toEqual({ role: 'user', content: 'New message' });
+  });
+
+  it('히스토리가 historyLimit 이하면 트리밍 없이 전체 전달', async () => {
+    const shortHistory: ModelMessage[] = [
+      { role: 'user', content: 'Hello' },
+      { role: 'assistant', content: 'Hi!' },
+    ];
+
+    const client = makeMockClient({ selectData: { id: 'conv-123' } });
+
+    const { streamChat } = await import('./service');
+    await streamChat({
+      client: client as unknown as Parameters<typeof streamChat>[0]['client'],
+      userId: 'user-1',
+      conversationId: 'conv-123',
+      message: 'How are you?',
+      history: shortHistory,
+      profile: mockProfile,
+      journey: mockJourney,
+      preferences: [],
+      derived: mockDerived,
+    });
+
+    const callArgs = mockCallWithFallback.mock.calls[0][0];
+    expect(callArgs.messages).toHaveLength(3); // 2 history + 1 current
+  });
+
   it('profile null (VP-3) — 기본 프롬프트로 동작하며 에러 없음', async () => {
     const client = makeMockClient();
 
@@ -235,7 +300,7 @@ describe('streamChat', () => {
 
     expect(result.conversationId).toBe('conv-123');
     expect(mockBuildSystemPrompt).toHaveBeenCalledWith(
-      expect.objectContaining({ profile: null, journey: null, derived: null }),
+      expect.objectContaining({ profile: null, journey: null, derived: null, isFirstTurn: true }),
     );
     expect(mockCallWithFallback).toHaveBeenCalledOnce();
   });

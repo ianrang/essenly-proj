@@ -13,6 +13,7 @@ import {
   type ExtractionResult,
 } from './tools/extraction-handler';
 import { executeLookupBeautyKnowledge, lookupBeautyKnowledgeSchema } from './tools/knowledge-handler';
+import { TOKEN_CONFIG } from '@/shared/constants/ai';
 
 // ============================================================
 // Chat 서비스 — api-spec.md §3.4, TDD §4.2
@@ -65,6 +66,7 @@ export async function streamChat(params: StreamChatParams): Promise<StreamChatRe
     },
     derived,
     learnedPreferences: preferences,
+    isFirstTurn: params.history.length === 0,
   });
 
   // tool context (P-4: chatService가 조립하여 tool에 전달)
@@ -101,9 +103,13 @@ export async function streamChat(params: StreamChatParams): Promise<StreamChatRe
   // step 7: tool 등록 + LLM 호출
   const tools = buildTools(searchContext, linksContext, extractionResults);
 
-  // step 4: 히스토리(route handler가 변환한 ModelMessage[]) + 새 메시지 조합
+  // step 4: 히스토리 트리밍 (NEW-4: 토큰 관리) + 새 메시지 조합
+  const trimmedHistory = params.history.length > TOKEN_CONFIG.default.historyLimit
+    ? params.history.slice(-TOKEN_CONFIG.default.historyLimit)
+    : params.history;
+
   const messages: ModelMessage[] = [
-    ...params.history,
+    ...trimmedHistory,
     { role: 'user' as const, content: message },
   ];
 

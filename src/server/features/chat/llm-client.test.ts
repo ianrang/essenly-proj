@@ -24,6 +24,13 @@ vi.mock('@/shared/constants/ai', () => ({
     MAX_ATTEMPTS: 2,
     FALLBACK_DELAY_MS: 0, // 테스트에서 대기 없음
   },
+  TOKEN_CONFIG: {
+    default: {
+      maxOutputTokens: 1024,
+      historyLimit: 20,
+      temperature: 0.4,
+    },
+  },
 }));
 
 describe('callWithFallback', () => {
