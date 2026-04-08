@@ -12,6 +12,7 @@ import { getProfile, createMinimalProfile, updateProfile } from '@/server/featur
 import { getActiveJourney } from '@/server/features/journey/service';
 import { streamChat } from '@/server/features/chat/service';
 import { createAuthenticatedClient, createServiceClient } from '@/server/core/db';
+import { env } from '@/server/core/config';
 
 // ============================================================
 // POST /api/chat      — api-spec.md §3.1 (SSE streaming, app.post() NOT openapi)
@@ -274,6 +275,18 @@ export function registerChatRoutes(app: AppType) {
         // 기존 afterWork 로직 통합 (레이스 컨디션 수정: tool 실행 완료 후 실행 보장)
         onFinish: async ({ messages: finalMessages }) => {
           try {
+            // P3-29a: LLM 토큰 사용량 로그 (Vercel Logs 가시성). v0.2: DB 기반 집계.
+            try {
+              const usage = await stream.usage;
+              console.warn('[LLM_USAGE]', {
+                conversationId: result.conversationId,
+                provider: env.AI_PROVIDER,
+                tokens: usage,
+              });
+            } catch {
+              // usage 조회 실패해도 후처리 진행 (Q-15)
+            }
+
             // auth-matrix.md §5.4: service_role 사용 (토큰 만료 대비)
             const serviceClient = createServiceClient();
 
