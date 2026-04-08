@@ -91,15 +91,20 @@ function groupParts(parts: ChatMessagePart[]): PartGroup[] {
   return groups;
 }
 
+/** 카드 파트에서 안정적인 React key 추출 */
+function cardKey(part: ChatMessagePart): string {
+  if (part.type === 'product-card') return part.product.id;
+  if (part.type === 'treatment-card') return part.treatment.id;
+  return part.type;
+}
+
 /** 가로 스크롤 내 개별 카드. compact variant. */
 function CardPart({
   part,
   locale,
-  onKitClaim,
 }: {
   part: ChatMessagePart;
   locale: string;
-  onKitClaim: () => void;
 }) {
   switch (part.type) {
     case 'product-card':
@@ -175,8 +180,8 @@ function GroupedParts({
         if (group.type === 'cards') {
           return (
             <div key={gi} className="flex gap-2 overflow-x-auto pb-1 snap-x snap-mandatory scrollbar-thin">
-              {group.cards.map((card, ci) => (
-                <CardPart key={ci} part={card} locale={locale} onKitClaim={onKitClaim} />
+              {group.cards.map((card) => (
+                <CardPart key={cardKey(card)} part={card} locale={locale} />
               ))}
             </div>
           );
