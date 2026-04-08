@@ -15,6 +15,7 @@ type ProductCardProps = {
   store?: { name: LocalizedText; map_url?: string } | null;
   whyRecommended?: string;
   locale: string;
+  variant?: "default" | "compact";
 };
 
 function formatPrice(price: number | null): string {
@@ -22,11 +23,50 @@ function formatPrice(price: number | null): string {
   return `₩${price.toLocaleString()}`;
 }
 
-export default function ProductCard({ product, brand, store, whyRecommended, locale }: ProductCardProps) {
+export default function ProductCard({ product, brand, store, whyRecommended, locale, variant = "default" }: ProductCardProps) {
   const [imgError, setImgError] = useState(false);
   const imgSrc = product.images[0];
   const showImage = imgSrc && !imgError;
   const isHighlighted = product.is_highlighted && product.highlight_badge !== null;
+  const isCompact = variant === "compact";
+
+  if (isCompact) {
+    return (
+      <article
+        className={cn(
+          "w-40 shrink-0 snap-start overflow-hidden rounded-lg border bg-card",
+          isHighlighted ? "border-primary" : "border-border"
+        )}
+      >
+        <div className="relative flex h-20 items-center justify-center bg-surface-warm">
+          {showImage ? (
+            <img
+              src={imgSrc}
+              alt={localized(product.name, locale)}
+              className="h-full w-full object-cover"
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <span className="text-[10px] text-muted-foreground">Image</span>
+          )}
+          {isHighlighted && (
+            <div className="absolute left-1.5 top-1.5">
+              <HighlightBadge isHighlighted={product.is_highlighted} badge={product.highlight_badge} locale={locale} />
+            </div>
+          )}
+        </div>
+        <div className="p-2">
+          {brand && (
+            <p className="truncate text-[10px] text-muted-foreground">{localized(brand.name, locale)}</p>
+          )}
+          <p className="truncate text-xs font-semibold text-foreground">{localized(product.name, locale)}</p>
+          {product.price !== null && (
+            <p className="text-xs font-bold text-primary">{formatPrice(product.price)}</p>
+          )}
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article
