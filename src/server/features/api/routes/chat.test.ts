@@ -1,6 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 vi.mock('server-only', () => ({}));
 
+// ── Config mock (envSchema.parse 방지) ───────────────────────
+vi.mock('@/server/core/config', () => ({
+  env: { AI_PROVIDER: 'google' },
+}));
+
 // ── Core auth mock ────────────────────────────────────────────
 const mockAuthenticateUser = vi.fn();
 vi.mock('@/server/core/auth', () => ({

@@ -3,9 +3,13 @@ import { getRemainingDays, checkDowntimeSafety } from "./date";
 
 describe("getRemainingDays", () => {
   it("returns days until end date", () => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 5);
-    const result = getRemainingDays(tomorrow.toISOString().split("T")[0], null);
+    const future = new Date();
+    future.setDate(future.getDate() + 5);
+    // 로컬 시간대 기준 YYYY-MM-DD (getRemainingDays와 동일 기준)
+    const yyyy = future.getFullYear();
+    const mm = String(future.getMonth() + 1).padStart(2, "0");
+    const dd = String(future.getDate()).padStart(2, "0");
+    const result = getRemainingDays(`${yyyy}-${mm}-${dd}`, null);
     expect(result).toBe(5);
   });
 
@@ -20,7 +24,10 @@ describe("getRemainingDays", () => {
   it("returns 0 for past end date", () => {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    const result = getRemainingDays(yesterday.toISOString().split("T")[0], null);
+    const yyyy = yesterday.getFullYear();
+    const mm = String(yesterday.getMonth() + 1).padStart(2, "0");
+    const dd = String(yesterday.getDate()).padStart(2, "0");
+    const result = getRemainingDays(`${yyyy}-${mm}-${dd}`, null);
     expect(result).toBe(0);
   });
 });
