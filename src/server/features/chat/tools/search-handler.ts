@@ -84,7 +84,7 @@ async function searchShopping(
   preferences: LearnedPreference[],
 ) {
   const productFilters = {
-    skin_types: filters?.skin_types,
+    skin_types: filters?.skin_types ?? (profile?.skin_type ? [profile.skin_type] : undefined),
     concerns: filters?.concerns,
     category: filters?.category,
     budget_max: filters?.budget_max_krw,
