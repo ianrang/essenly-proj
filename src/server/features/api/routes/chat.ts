@@ -291,6 +291,11 @@ export function registerChatRoutes(app: AppType) {
             const serviceClient = createServiceClient();
 
             // step 9: UIMessage[] 스냅샷 저장
+            console.warn('[chat/onFinish] saving ui_messages', {
+              conversationId: result.conversationId,
+              messageCount: finalMessages.length,
+              roles: finalMessages.map((m: { role: string }) => m.role),
+            });
             const { error: saveErr } = await serviceClient
               .from('conversations')
               .update({ ui_messages: finalMessages })
