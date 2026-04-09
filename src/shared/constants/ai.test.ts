@@ -35,12 +35,21 @@ describe('TOKEN_CONFIG', () => {
     expect(TOKEN_CONFIG['default']).toBeDefined();
   });
 
-  it('default.maxOutputTokens는 1024', () => {
-    expect(TOKEN_CONFIG['default'].maxOutputTokens).toBe(1024);
+  it('default.maxOutputTokens는 2048 (v1.2: 1024→2048 상향)', () => {
+    expect(TOKEN_CONFIG['default'].maxOutputTokens).toBe(2048);
   });
 
   it('default.historyLimit는 20', () => {
     expect(TOKEN_CONFIG['default'].historyLimit).toBe(20);
+  });
+
+  it('default.maxToolSteps는 5 (v1.2: 비교 요청 지원)', () => {
+    expect(TOKEN_CONFIG['default'].maxToolSteps).toBe(5);
+  });
+
+  it('default에 temperature 필드가 없다 (v1.2: env.LLM_TEMPERATURE로 이전, SSOT)', () => {
+    const config = TOKEN_CONFIG['default'] as unknown as Record<string, unknown>;
+    expect(config['temperature']).toBeUndefined();
   });
 
   it('모든 설정의 maxOutputTokens가 양수', () => {
@@ -52,6 +61,12 @@ describe('TOKEN_CONFIG', () => {
   it('모든 설정의 historyLimit가 양수', () => {
     for (const config of Object.values(TOKEN_CONFIG)) {
       expect(config.historyLimit).toBeGreaterThan(0);
+    }
+  });
+
+  it('모든 설정의 maxToolSteps는 1 이상', () => {
+    for (const config of Object.values(TOKEN_CONFIG)) {
+      expect(config.maxToolSteps).toBeGreaterThanOrEqual(1);
     }
   });
 });

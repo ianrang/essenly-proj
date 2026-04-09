@@ -27,11 +27,16 @@ export const LLM_CONFIG = {
 /**
  * 모델별 토큰 설정 (token-management.md §1.2)
  * MVP는 default만 사용. v0.2에서 모델별 설정 추가 가능.
+ *
+ * v1.2 변경 (chat-quality-improvements.md §4):
+ * - maxOutputTokens: 1024 → 2048 (복잡 시나리오 잘림 방지)
+ * - maxToolSteps: 하드코딩 3 → 상수화 5 (비교 요청 지원)
+ * - temperature 필드 제거 — env.LLM_TEMPERATURE (server/core/config.ts)가 단일 정본 (SSOT)
  */
 export const TOKEN_CONFIG: Record<string, TokenConfig> = {
   default: {
-    maxOutputTokens: 1024,
+    maxOutputTokens: 2048,
     historyLimit: 20,
-    temperature: 0.4,
+    maxToolSteps: 5,
   },
 };

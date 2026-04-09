@@ -30,7 +30,7 @@ export async function callWithFallback(options: CallOptions) {
     return await streamText({
       model,
       ...options,
-      temperature: TOKEN_CONFIG.default.temperature,
+      temperature: env.LLM_TEMPERATURE,
       maxOutputTokens: TOKEN_CONFIG.default.maxOutputTokens,
       abortSignal: AbortSignal.timeout(env.LLM_TIMEOUT_MS),
     });
@@ -50,7 +50,7 @@ export async function callWithFallback(options: CallOptions) {
       return await streamText({
         model: fallbackModel,
         ...options,
-        temperature: TOKEN_CONFIG.default.temperature,
+        temperature: env.LLM_TEMPERATURE,
         maxOutputTokens: TOKEN_CONFIG.default.maxOutputTokens,
         abortSignal: AbortSignal.timeout(env.LLM_TIMEOUT_MS),
       });
