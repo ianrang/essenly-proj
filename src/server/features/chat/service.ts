@@ -21,8 +21,8 @@ import { TOKEN_CONFIG } from '@/shared/constants/ai';
 // R-9: features/profile, features/journey import 금지. route에서 파라미터 수신 (P-4).
 // L-9: 자기 도메인 범위 내에서만 동작.
 // ============================================================
-
-const MAX_TOOL_STEPS = 3;
+// v1.1: MAX_TOOL_STEPS 하드코딩 제거 → TOKEN_CONFIG.default.maxToolSteps 참조
+// (G-10 매직 넘버 금지, chat-quality-improvements.md §4)
 
 /** route handler에서 전달하는 chat 요청 파라미터 */
 export interface StreamChatParams {
@@ -117,7 +117,7 @@ export async function streamChat(params: StreamChatParams): Promise<StreamChatRe
     messages,
     system,
     tools,
-    stopWhen: stepCountIs(MAX_TOOL_STEPS),
+    stopWhen: stepCountIs(TOKEN_CONFIG.default.maxToolSteps),
   });
 
   return { stream, conversationId, extractionResults };
