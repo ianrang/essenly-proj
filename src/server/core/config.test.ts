@@ -35,7 +35,7 @@ describe('envSchema', () => {
     const { env } = await import('@/server/core/config');
     expect(env.AI_PROVIDER).toBe('anthropic');
     expect(env.NEXT_PUBLIC_SUPABASE_URL).toBe('https://test.supabase.co');
-    expect(env.LLM_TIMEOUT_MS).toBe(30000);
+    expect(env.LLM_TIMEOUT_MS).toBe(45000); // v1.1: 30000 → 45000 (chat-quality-improvements.md §4)
     expect(env.EMBEDDING_PROVIDER).toBe('google');
     expect(env.EMBEDDING_DIMENSION).toBe(1024);
   });
@@ -86,6 +86,30 @@ describe('envSchema', () => {
   it('AI_FALLBACK_PROVIDER=google인데 GOOGLE_GENERATIVE_AI_API_KEY 없으면 실패', async () => {
     stubValidEnv({ AI_FALLBACK_PROVIDER: 'google' });
     vi.stubEnv('GOOGLE_GENERATIVE_AI_API_KEY', '');
+    await expect(import('@/server/core/config')).rejects.toThrow();
+  });
+
+  // v1.2: LLM_TEMPERATURE SSOT (chat-quality-improvements.md §4)
+  it('LLM_TEMPERATURE 기본값은 0.6', async () => {
+    stubValidEnv();
+    const { env } = await import('@/server/core/config');
+    expect(env.LLM_TEMPERATURE).toBe(0.6);
+  });
+
+  it('LLM_TEMPERATURE 문자열이 숫자로 변환됨 (롤백 경로)', async () => {
+    stubValidEnv({ LLM_TEMPERATURE: '0.4' });
+    const { env } = await import('@/server/core/config');
+    expect(env.LLM_TEMPERATURE).toBe(0.4);
+    expect(typeof env.LLM_TEMPERATURE).toBe('number');
+  });
+
+  it('LLM_TEMPERATURE 범위 초과(2.5)는 파싱 실패', async () => {
+    stubValidEnv({ LLM_TEMPERATURE: '2.5' });
+    await expect(import('@/server/core/config')).rejects.toThrow();
+  });
+
+  it('LLM_TEMPERATURE 음수는 파싱 실패', async () => {
+    stubValidEnv({ LLM_TEMPERATURE: '-0.1' });
     await expect(import('@/server/core/config')).rejects.toThrow();
   });
 });

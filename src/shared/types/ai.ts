@@ -13,6 +13,7 @@ export interface TokenConfig {
   maxOutputTokens: number;
   /** 히스토리 로드 최대 턴 수 (1턴 = user 메시지 기준, token-management.md §1.3) */
   historyLimit: number;
-  /** LLM 응답 temperature. 추천 서비스 일관성 0.3~0.5 (벤치마킹) */
-  temperature: number;
+  /** LLM tool 호출 최대 단계 수. streamText stopWhen(stepCountIs(N)) 에 사용 (chat-quality-improvements.md §4) */
+  maxToolSteps: number;
+  // v1.2: temperature 필드 제거 — env.LLM_TEMPERATURE가 단일 정본 (SSOT, chat-quality-improvements.md §4)
 }

@@ -19,7 +19,13 @@ type DbClient = ReturnType<typeof createAuthenticatedClient>;
 
 // ── Onboarding ────────────────────────────────────────────────
 
-/** Q-1, Q-14: zod 입력 검증 — DB 스키마 열거값과 일치 */
+/**
+ * Q-1, Q-14: zod 입력 검증 — DB 스키마 열거값과 일치.
+ *
+ * v1.2 (NEW-9): OnboardingChips 인라인 온보딩에서는 skin_type + skin_concerns만 수집.
+ * 나머지 필드는 DB에서 NULLABLE이므로 optional + default로 완화.
+ * OnboardingWizard (v0.2)는 여전히 모든 필드를 보내므로 하위 호환 유지.
+ */
 const onboardingBodySchema = z.object({
   // user_profiles 필드 (UP 변수)
   skin_type: z.enum(['dry', 'oily', 'combination', 'sensitive', 'normal']),
@@ -39,13 +45,13 @@ const onboardingBodySchema = z.object({
       ]),
     )
     .default([]),
-  country: z.string().min(2).max(2),
+  country: z.string().min(2).max(2).optional(),  // v1.2: OnboardingChips 미수집, DB user_profiles.country NULLABLE
   language: z.enum(['en', 'ja', 'zh', 'es', 'fr', 'ko']).default('en'),
   age_range: z
     .enum(['18-24', '25-29', '30-34', '35-39', '40-49', '50+'])
     .optional(),
 
-  // journeys 필드 (JC 변수)
+  // journeys 필드 (JC 변수) — v1.2: 인라인 온보딩에서 미수집 필드 optional화
   skin_concerns: z
     .array(
       z.enum([
@@ -62,13 +68,14 @@ const onboardingBodySchema = z.object({
         'eczema',
       ]),
     )
-    .max(5),
+    .max(5)
+    .default([]),  // v1.2: 빈 배열 기본값 (DB NULLABLE)
   interest_activities: z
     .array(z.enum(['shopping', 'clinic', 'salon', 'dining', 'cultural']))
-    .min(1),
-  stay_days: z.number().int().positive(),
+    .default(['shopping']),  // v1.2: OnboardingChips 미수집. 기본값 shopping (MVP DOM-1)
+  stay_days: z.number().int().positive().optional(),  // v1.2: OnboardingChips 미수집 (DB NULLABLE)
   start_date: z.string().date().optional(),
-  budget_level: z.enum(['budget', 'moderate', 'premium', 'luxury']),
+  budget_level: z.enum(['budget', 'moderate', 'premium', 'luxury']).optional(),  // v1.2: OnboardingChips 미수집 (DB NULLABLE)
   travel_style: z
     .array(
       z.enum([
@@ -243,21 +250,22 @@ export function registerProfileRoutes(app: AppType) {
     const parsed = c.req.valid('json');
 
     // 필드 분리 (L-1: route 책임)
+    // v1.2: optional 필드는 ?? null로 안전하게 변환 (DB NULLABLE 호환)
     const profileData = {
       skin_type: parsed.skin_type,
       hair_type: parsed.hair_type ?? null,
       hair_concerns: parsed.hair_concerns,
-      country: parsed.country,
+      country: parsed.country ?? null,
       language: parsed.language,
-      age_range: parsed.age_range,
+      age_range: parsed.age_range ?? null,
     };
 
     const journeyData = {
       skin_concerns: parsed.skin_concerns,
       interest_activities: parsed.interest_activities,
-      stay_days: parsed.stay_days,
-      start_date: parsed.start_date,
-      budget_level: parsed.budget_level,
+      stay_days: parsed.stay_days ?? null,
+      start_date: parsed.start_date ?? null,
+      budget_level: parsed.budget_level ?? null,
       travel_style: parsed.travel_style,
     };
 

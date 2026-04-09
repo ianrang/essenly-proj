@@ -33,11 +33,8 @@ const treatmentPart = {
   whyRecommended: undefined,
 } as unknown as ChatMessagePart;
 
-const kitCtaPart = {
-  type: "kit-cta-card" as const,
-  productName: { en: "Kit" },
-  highlightBadge: { en: "Special" },
-} as unknown as ChatMessagePart;
+// v1.2 NEW-10: kit-cta-card 타입 제거됨. Kit CTA는 ProductCard(is_highlighted) 내부에 통합.
+// kit-cta 관련 fixture와 인터리빙 테스트는 제거. 모든 카드는 동일한 cards 그룹으로 묶임.
 
 // --- Tests ---
 
@@ -73,25 +70,22 @@ describe("groupParts", () => {
     }
   });
 
-  it("kit-cta는 standalone으로 분리", () => {
-    const result = groupParts([kitCtaPart]);
+  // v1.2 NEW-10: product와 treatment 카드가 인터리빙되어도 연속 그룹으로 묶인다.
+  it("product → treatment → product 인터리빙 → 1개 cards group", () => {
+    const result = groupParts([productPart, treatmentPart, productPart2]);
     expect(result).toHaveLength(1);
-    expect(result[0].type).toBe("standalone");
-  });
-
-  it("card → kit-cta → card 인터리빙", () => {
-    const result = groupParts([productPart, kitCtaPart, treatmentPart]);
-    expect(result).toHaveLength(3);
     expect(result[0].type).toBe("cards");
-    expect(result[1].type).toBe("standalone");
-    expect(result[2].type).toBe("cards");
-    if (result[0].type === "cards") expect(result[0].cards).toHaveLength(1);
-    if (result[2].type === "cards") expect(result[2].cards).toHaveLength(1);
+    if (result[0].type === "cards") {
+      expect(result[0].cards).toHaveLength(3);
+    }
   });
 
-  it("text → product → kit-cta → treatment → text 복합 시나리오", () => {
-    const result = groupParts([textPart, productPart, kitCtaPart, treatmentPart, textPart2]);
-    expect(result).toHaveLength(5);
-    expect(result.map((g) => g.type)).toEqual(["text", "cards", "standalone", "cards", "text"]);
+  it("text → product → treatment → text 복합 시나리오", () => {
+    const result = groupParts([textPart, productPart, treatmentPart, textPart2]);
+    expect(result).toHaveLength(3);
+    expect(result.map((g) => g.type)).toEqual(["text", "cards", "text"]);
+    if (result[1].type === "cards") {
+      expect(result[1].cards).toHaveLength(2);
+    }
   });
 });

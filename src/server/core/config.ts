@@ -34,7 +34,11 @@ const envSchema = z.object({
   // LLM Resilience (llm-resilience.md §1.2)
   AI_FALLBACK_PROVIDER: z.enum(['anthropic', 'google']).optional(),
   AI_FALLBACK_MODEL: z.string().optional(),
-  LLM_TIMEOUT_MS: z.coerce.number().default(30000),
+  LLM_TIMEOUT_MS: z.coerce.number().default(45000),
+  // LLM 파라미터 (chat-quality-improvements.md §4) — v1.2 SSOT: temperature 단일 정본
+  // v1.2: TokenConfig.temperature에서 이전. 이 필드가 llm-client.ts streamText temperature의 정본
+  // 롤백 경로: .env에 LLM_TEMPERATURE=0.4 설정 시 재배포 없이 즉시 이전 값 복귀
+  LLM_TEMPERATURE: z.coerce.number().min(0).max(2).default(0.6),
 
   // Rate Limit
   RATE_LIMIT_CHAT_PER_MIN: z.coerce.number().default(5),

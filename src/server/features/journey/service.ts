@@ -9,13 +9,17 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 // L-14: JourneyData, JourneyRow export 안 함.
 // ============================================================
 
-/** 여정 생성/갱신 입력 (온보딩 4단계 중 JC 변수) */
+/**
+ * 여정 생성/갱신 입력 (온보딩 JC 변수).
+ * v1.2 (NEW-9): OnboardingChips 인라인 온보딩은 skin_concerns만 수집.
+ * stay_days, budget_level은 optional (DB journeys NULLABLE).
+ */
 interface JourneyData {
   skin_concerns: string[];
   interest_activities: string[];
-  stay_days: number;
-  start_date?: string;
-  budget_level: string;
+  stay_days: number | null;
+  start_date?: string | null;
+  budget_level: string | null;
   travel_style: string[];
 }
 
@@ -41,10 +45,10 @@ interface JourneyRow {
  * 클라이언트 전송 불필요 — 서버에서 자동 계산.
  */
 function calculateEndDate(
-  startDate: string | undefined,
-  stayDays: number,
+  startDate: string | null | undefined,
+  stayDays: number | null,
 ): string | null {
-  if (!startDate) return null;
+  if (!startDate || stayDays === null) return null;
   const date = new Date(startDate);
   date.setDate(date.getDate() + stayDays);
   return date.toISOString().split('T')[0];

@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 
 vi.mock("client-only", () => ({}));
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import ProductCard from "./ProductCard";
 import type { Product } from "@/shared/types/domain";
 
@@ -156,11 +156,11 @@ describe("ProductCard compact variant", () => {
     expect(screen.getByText("COSRX")).toBeInTheDocument();
   });
 
-  it("compact 렌더 시 tags/english_label/store/purchase_links 미표시", () => {
+  // v1.2 NEW-10: compact variant도 Buy Online 링크 + is_highlighted 시 Get free kit 표시.
+  it("compact 렌더 시 tags/english_label/store는 여전히 미표시", () => {
     const product = makeProduct({
       tags: ["hydrating", "gentle"],
       english_label: true,
-      purchase_links: [{ platform: "coupang", url: "https://coupang.com" }],
     });
     const store = { name: { en: "Olive Young" }, map_url: "http://map.kakao.com/123" };
 
@@ -168,7 +168,6 @@ describe("ProductCard compact variant", () => {
 
     expect(screen.queryByText("hydrating")).not.toBeInTheDocument();
     expect(screen.queryByText("English Label")).not.toBeInTheDocument();
-    expect(screen.queryByText("Buy Online")).not.toBeInTheDocument();
     expect(screen.queryByText("Olive Young")).not.toBeInTheDocument();
   });
 
@@ -180,5 +179,88 @@ describe("ProductCard compact variant", () => {
     render(<ProductCard product={product} locale="en" />);
 
     expect(screen.getByText("Buy Online")).toBeInTheDocument();
+  });
+});
+
+// v1.2 NEW-10: Kit CTA 통합 카드 테스트
+describe("ProductCard Kit CTA integration (v1.2 NEW-10)", () => {
+  it("compact + is_highlighted + onKitClaim → Get free kit 버튼 렌더링", () => {
+    const product = makeProduct({
+      is_highlighted: true,
+      highlight_badge: { en: "Essenly Pick" },
+    });
+    const onKitClaim = vi.fn();
+
+    render(
+      <ProductCard
+        product={product}
+        locale="en"
+        variant="compact"
+        onKitClaim={onKitClaim}
+      />
+    );
+
+    const kitButton = screen.getByRole("button", { name: /Get free kit/i });
+    expect(kitButton).toBeInTheDocument();
+  });
+
+  it("compact + is_highlighted → onKitClaim 콜백 호출 가능", () => {
+    const product = makeProduct({
+      is_highlighted: true,
+      highlight_badge: { en: "Essenly Pick" },
+    });
+    const onKitClaim = vi.fn();
+
+    render(
+      <ProductCard
+        product={product}
+        locale="en"
+        variant="compact"
+        onKitClaim={onKitClaim}
+      />
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: /Get free kit/i }));
+    expect(onKitClaim).toHaveBeenCalledTimes(1);
+  });
+
+  it("compact + !is_highlighted + purchase_links → Buy Online 링크 (Get free kit 미표시)", () => {
+    const product = makeProduct({
+      is_highlighted: false,
+      purchase_links: [{ platform: "coupang", url: "https://coupang.com/p/123" }],
+    });
+
+    render(
+      <ProductCard product={product} locale="en" variant="compact" onKitClaim={() => {}} />
+    );
+
+    expect(screen.getByRole("link", { name: /Buy Online/i })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Get free kit/i })).not.toBeInTheDocument();
+  });
+
+  it("compact + is_highlighted + onKitClaim 미제공 → 버튼 미렌더링 (방어적 기본)", () => {
+    const product = makeProduct({
+      is_highlighted: true,
+      highlight_badge: { en: "Essenly Pick" },
+      purchase_links: [{ platform: "coupang", url: "https://coupang.com/p/123" }],
+    });
+
+    render(<ProductCard product={product} locale="en" variant="compact" />);
+
+    // onKitClaim 미제공 시 Get free kit 버튼 없음. 대신 purchase_links가 있으면 Buy Online 폴백.
+    expect(screen.queryByRole("button", { name: /Get free kit/i })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Buy Online/i })).toBeInTheDocument();
+  });
+
+  it("compact + !is_highlighted + 링크 없음 → 액션 버튼 없음", () => {
+    const product = makeProduct({
+      is_highlighted: false,
+      purchase_links: null,
+    });
+
+    render(<ProductCard product={product} locale="en" variant="compact" />);
+
+    expect(screen.queryByRole("button", { name: /Get free kit/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /Buy Online/i })).not.toBeInTheDocument();
   });
 });

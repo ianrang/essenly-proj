@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 0       | 0      | ✅      |
 | Phase 0    | 37      | 37      | 0       | 0      | ✅      |
 | Phase 1    | 62      | 60      | 2       | 0      | ✅      |
-| Phase 2    | 121     | 99      | 13      | 9      | 🔶 진행중 |
+| Phase 2    | 132     | 107     | 16      | 9      | 🔶 진행중 |
 | Phase 3    | 37      | 6       | 19      | 12     | 🔶 진행중 |
-| **MVP 합계** | **269** | **214** | **34**  | **21** |        |
+| **MVP 합계** | **280** | **222** | **37**  | **21** |        |
 | 관리자 앱 (펜딩) | 20      | 0       | 0       | 20     | ⏸️ 펜딩  |
 
 
@@ -496,6 +496,22 @@
 | NEW-1   | ~~LLM temperature/maxTokens 설정~~ | TokenConfig에 temperature 0.4 + maxOutputTokens 1024 추가. streamText 호출에 적용                                                                                              | ✅   |
 | NEW-2   | ~~프로필 자동 필터 merge~~       | searchShopping에서 LLM이 skin_types 생략 시 profile.skin_type 자동 적용                                                                                                             | ✅   |
 | NEW-4   | ~~히스토리 트리밍~~             | TOKEN_CONFIG.historyLimit(20) 적용. 최신 20개 히스토리만 LLM에 전달                                                                                                                    | ✅   |
+| NEW-5   | ~~Seed 데이터 재적재 (images + purchase_links)~~ | enrich-service images+purchase_links 매핑 추가 + products-validated.json 병합 + DB 201건 upsert 완료. 172/201 제품 Olive Young 링크 반영 | ✅   |
+| NEW-6   | ~~채팅 히스토리 유실 수정~~          | 근본 원인: transport useMemo 클로저가 conversationId(null)를 캡처 → 두 번째 메시지부터 새 conversation 생성 → 대화 분리. 수정: conversationIdRef로 최신 값 참조. Playwright 재현+DB 검증 완료 | ✅   |
+| NEW-7   | ~~토큰 기반 히스토리 트리밍~~      | **→ v0.2 연기**. 현재 메시지 카운트 20개 기반 → 토큰 예산 기반 전환. tool call/result가 메시지 슬롯을 소비하여 실질 대화 턴 감소 문제. P1-36(히스토리 요약)과 함께 하이브리드 방식 검토 | ➡️  |
+| NEW-8   | CSV 소스 제품 이미지 보강         | **→ v0.2 연기**. CSV 채널 200개 제품에 imageUrl 없음. 방안: (1) 스크래퍼로 재수집 (2) CSV에 image URL 컬럼 추가 (3) purchase_links URL의 OG 이미지 추출. 법적/저작권 검토(G-12) 필요 | ➡️  |
+| NEW-9   | ~~채팅 내 인라인 온보딩 (OnboardingChips)~~  | OnboardingChips.tsx 신규: skin_type + concerns 칩 UI. ChatContent에 통합 (신규 세션 시 표시). POST /api/profile/onboarding 스키마 완화 (country/stay_days/budget optional). API 실패해도 채팅 시작 가능 (Q-15). 테스트 8건. 정본: `docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md` §2.1 | ✅   |
+| NEW-10  | ~~Kit CTA 통합 카드 리팩토링~~          | KitCtaCard.tsx 삭제. card-mapper에서 KitCtaCardPart 제거. group-parts standalone 분기 제거. ProductCard(compact)에 is_highlighted → "Get free kit" 분기 통합 + onKitClaim 콜백. 일관성: 일반 = "Buy Online", 에센리 = "Get free kit". 테스트 5건 추가. 정본: `docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md` §2.2 | ✅   |
+| NEW-11  | 에센리 자체 상품 카테고리 확장        | **→ v0.2 연기**. 현재 헤어 마스크 1개만 → 스킨케어/마스크팩/립케어 카테고리별 1~2개씩 추가. 통합 카드 방식(NEW-10) 유지. 노출 빈도 자연 증가 목적. 정본: `docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md` §2.3 | ➡️  |
+| NEW-12  | 다브랜드 샘플 키트 모델 검토        | **→ v0.3 백로그**. 에센리 단독 → 다브랜드 샘플 큐레이션 비즈니스 모델 확장 검토. 협업 협상, 법적 검토(화장품 샘플 배포 규제), 물류 인프라 필요 | ➡️  |
+| NEW-13  | Kit 신청 후 자동 이메일 발송        | **→ v0.2 연기**. 현재 MVP는 DB 저장 + 운영팀 수동. SendGrid 등 이메일 자동화 인프라 도입 후 "Thank you, we'll contact you within 48h" 자동 회신 | ➡️  |
+| NEW-14  | ~~채팅 품질 개선 v1.2 (SSOT)~~   | temperature를 TokenConfig에서 env.LLM_TEMPERATURE로 이전(SSOT). TokenConfig.temperature 필드 제거. llm-client.ts env.LLM_TEMPERATURE 치환. 정본: `docs/superpowers/specs/2026-04-09-chat-quality-improvements.md` | ✅   |
+| NEW-15  | ~~LLM 파라미터 튜닝 (v1.1)~~     | temperature 0.4→0.6 ("warm, knowledgeable" 페르소나), maxOutputTokens 1024→2048 (잘림 방지), maxToolSteps 3→5 (비교 요청 지원), LLM_TIMEOUT_MS 30000→45000 (tool 3-5회 포함 여유) | ✅   |
+| NEW-16  | ~~Q-7 위반 수정 (search-handler)~~ | silent catch 3곳에 에러 로깅 추가: `[EMBED_FALLBACK]` warn, `[STORE_JOIN_FAILED]` error, `[CLINIC_JOIN_FAILED]` error. 폴백 동작 불변, 로깅만 추가. 테스트 3건 추가 | ✅   |
+| NEW-17  | ~~FALLBACK_DELAY_MS 100ms 적용~~ | llm-resilience.md §2.2 선반영된 설계를 코드에 구현. 폴백 프로바이더 전환 전 100ms 대기로 연쇄 실패 방지. 테스트 2건 추가 | ✅   |
+| NEW-18  | ~~Few-shot 예시 통합 (§11)~~     | prompt-examples.ts 신규: 5개 few-shot 예시 (프로필 있는 추천, VP-3 추천, 인젝션 무시, 의료 긴급, 병렬 extract+search). Anthropic/LangChain 권장 3-4개 권장, 5개 채택 | ✅   |
+| NEW-19  | ~~시스템 프롬프트 축약 (578→510줄)~~ | §5 Guardrails 중복 응답 템플릿 6개 제거 (Hard constraints + Adversarial 규칙 전부 유지), §6 Tools 1줄 기능 설명 제거 (extract_user_profile Behavior "Call silently" 블록 유지 — defense-in-depth), §7 CARD_FORMAT 축약 (클라이언트 책임), AVAILABLE_TOPICS import 제거 (G-4) | ✅   |
+| NEW-20  | 의도 분류 (classifyIntent)        | **→ v0.2 후속**. 원래 v1.1에 포함되었으나 plan-eng-review 결정으로 제외. few-shot이 tool 호출 패턴을 가르치므로 v0.1 범위 밖. eval harness 결과 후 별도 PR에서 재검토. 정본: system-prompt-spec.md §12 | ➡️  |
 
 
 ---
@@ -512,10 +528,10 @@
 | ID    | 작업               | 시나리오                                                                                                                           | 상태  |
 | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ | --- |
 | P3-1  | ~~경로A 플로우~~      | **→ v0.2 연기**. 온보딩 4단계가 v0.2 연기됨 (P2-33/34). Landing → Chat 경로B만 MVP 대상                                                        | ➡️  |
-| P3-2  | 경로B 플로우          | Landing → "Just ask" → Chat → 점진적 개인화                                                                                          | ⬜   |
-| P3-3  | Kit CTA 플로우      | Chat → Kit 카드 → 이메일 입력 → 제출                                                                                                    | ⬜   |
-| P3-5  | 모바일 반응형          | 주요 플로우를 모바일 뷰포트에서 테스트                                                                                                          | ⬜   |
-| P3-6  | 에러 시나리오          | 네트워크 끊김, LLM 타임아웃, 잘못된 입력                                                                                                      | ⬜   |
+| P3-2  | 경로B 플로우          | Landing → "Start chatting" → Chat → 점진적 개인화. QA PASS (2026-04-09): 채팅 송수신, 제품 카드, 프로필 저장 정상 동작                                    | ✅   |
+| P3-3  | Kit CTA 플로우      | Chat → Kit 카드 → 이메일 입력 → 제출. 통합 카드 방식으로 재설계 완료 (NEW-10). 통합 카드 구현 후 E2E 재검증 필요. 정본: `docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md` | ⬜   |
+| P3-5  | 모바일 반응형          | QA PASS (2026-04-09): 랜딩/채팅/Terms 모바일(375x812) 레이아웃 정상. 카드 가로 스크롤, 다크모드, 언어 선택 동작 확인                                            | ✅   |
+| P3-6  | 에러 시나리오          | QA PASS (2026-04-09): 빈 입력 차단, 긴 입력 처리, XSS 방어, 404 페이지, API 인증 에러 정상 응답                                                        | ✅   |
 | P3-6a | SEO 구현           | P1-11 설계 기반 구현: sitemap.xml(1 URL), robots.txt(admin/api 차단), OG 이미지(정적 1장), JSON-LD(WebApplication), favicon                     | ✅   |
 | P3-6b | ~~접근성(a11y) 검증~~ | **→ v0.2 연기**. axe-core 자동 스캔 + 수동 체크리스트. MVP는 기본 키보드/스크린리더 수동 확인만                                                             | ➡️  |
 

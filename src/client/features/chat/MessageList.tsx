@@ -10,8 +10,10 @@ import MessageGroup from "./MessageGroup";
 import StreamingIndicator from "./StreamingIndicator";
 import ProductCard from "@/client/features/cards/ProductCard";
 import TreatmentCard from "@/client/features/cards/TreatmentCard";
-import KitCtaCard from "./KitCtaCard";
 import KitCtaSheet from "./KitCtaSheet";
+
+// v1.2 NEW-10: KitCtaCard 삭제, Kit CTA는 ProductCard(compact) 내부 is_highlighted 분기로 통합.
+// StandalonePart도 제거 (kit-cta-card 전용이었음). KitCtaSheet는 그대로 유지.
 
 export type ChatMessage = {
   id: string;
@@ -53,13 +55,15 @@ export default function MessageList({ messages, isStreaming, locale }: MessageLi
   );
 }
 
-/** 가로 스크롤 내 개별 카드. compact variant. */
+/** 가로 스크롤 내 개별 카드. compact variant. v1.2: onKitClaim 콜백 전달. */
 function CardPart({
   part,
   locale,
+  onKitClaim,
 }: {
   part: ChatMessagePart;
   locale: string;
+  onKitClaim: () => void;
 }) {
   switch (part.type) {
     case 'product-card':
@@ -71,6 +75,7 @@ function CardPart({
           whyRecommended={part.whyRecommended}
           locale={locale}
           variant="compact"
+          onKitClaim={onKitClaim}
         />
       );
     case 'treatment-card':
@@ -89,30 +94,7 @@ function CardPart({
   }
 }
 
-/** 전체 폭 standalone 카드 (kit-cta-card 등). */
-function StandalonePart({
-  part,
-  locale,
-  onKitClaim,
-}: {
-  part: ChatMessagePart;
-  locale: string;
-  onKitClaim: () => void;
-}) {
-  if (part.type === 'kit-cta-card') {
-    return (
-      <KitCtaCard
-        productName={part.productName}
-        highlightBadge={part.highlightBadge}
-        locale={locale}
-        onClaim={onKitClaim}
-      />
-    );
-  }
-  return null;
-}
-
-/** 연속 카드 파트를 가로 스크롤 그룹으로 묶어 렌더 */
+/** 연속 카드 파트를 가로 스크롤 그룹으로 묶어 렌더. v1.2: standalone 제거, 모든 카드 가로 스크롤. */
 function GroupedParts({
   parts,
   role,
@@ -132,19 +114,12 @@ function GroupedParts({
         if (group.type === 'text') {
           return <MessageBubble key={gi} role={role}>{group.part.text}</MessageBubble>;
         }
-        if (group.type === 'cards') {
-          return (
-            <div key={gi} className="flex gap-2 overflow-x-auto pb-1 snap-x snap-mandatory scrollbar-thin">
-              {group.cards.map((card) => (
-                <CardPart key={cardKey(card)} part={card} locale={locale} />
-              ))}
-            </div>
-          );
-        }
-        // standalone (kit-cta-card)
+        // cards (product/treatment)
         return (
-          <div key={gi} className="w-full max-w-[85%]">
-            <StandalonePart part={group.part} locale={locale} onKitClaim={onKitClaim} />
+          <div key={gi} className="flex gap-2 overflow-x-auto pb-1 snap-x snap-mandatory scrollbar-thin">
+            {group.cards.map((card) => (
+              <CardPart key={cardKey(card)} part={card} locale={locale} onKitClaim={onKitClaim} />
+            ))}
           </div>
         );
       })}

@@ -30,7 +30,7 @@ export async function callWithFallback(options: CallOptions) {
     return await streamText({
       model,
       ...options,
-      temperature: TOKEN_CONFIG.default.temperature,
+      temperature: env.LLM_TEMPERATURE,
       maxOutputTokens: TOKEN_CONFIG.default.maxOutputTokens,
       abortSignal: AbortSignal.timeout(env.LLM_TIMEOUT_MS),
     });
@@ -45,12 +45,16 @@ export async function callWithFallback(options: CallOptions) {
       reason: (primaryError as Error).message,
     });
 
+    // v1.1: FALLBACK_DELAY_MS 적용 (llm-resilience.md §2.2, chat-quality-improvements.md §5.2)
+    // 폴백 프로바이더 전환 전 짧은 대기. 즉시 재시도로 인한 연쇄 실패 방지.
+    await new Promise((resolve) => setTimeout(resolve, LLM_CONFIG.FALLBACK_DELAY_MS));
+
     try {
       const fallbackModel = await getModel(fallbackProvider);
       return await streamText({
         model: fallbackModel,
         ...options,
-        temperature: TOKEN_CONFIG.default.temperature,
+        temperature: env.LLM_TEMPERATURE,
         maxOutputTokens: TOKEN_CONFIG.default.maxOutputTokens,
         abortSignal: AbortSignal.timeout(env.LLM_TIMEOUT_MS),
       });

@@ -3,25 +3,20 @@ import "client-only";
 import type { ChatMessagePart } from "./card-mapper";
 
 // ============================================================
-// 카드 파트 그룹화 유틸 — P2-94
-// 연속된 product/treatment 카드를 가로 스크롤 그룹으로 묶고,
-// kit-cta-card는 standalone으로 분리.
+// 카드 파트 그룹화 유틸 — P2-94, v1.2 simplified
+// text 파트와 카드 파트(product/treatment)를 교차 배치.
+// 연속된 카드는 가로 스크롤 그룹으로 묶음.
 // 순수 함수: 부작용 없음. DB/API 호출 없음.
+//
+// v1.2 (NEW-10): kit-cta-card 타입 제거 → standalone 분기 제거.
+// Kit CTA는 ProductCard(is_highlighted) 내부에 통합.
 // ============================================================
-
-/** 가로 스크롤 대상 카드 타입 (kit-cta-card 제외 — CTA는 전체 폭) */
-const SCROLL_CARD_TYPES = ["product-card", "treatment-card"] as const;
-
-function isScrollCard(part: ChatMessagePart): boolean {
-  return (SCROLL_CARD_TYPES as readonly string[]).includes(part.type);
-}
 
 export type PartGroup =
   | { type: "text"; part: { type: "text"; text: string } }
-  | { type: "cards"; cards: ChatMessagePart[] }
-  | { type: "standalone"; part: ChatMessagePart };
+  | { type: "cards"; cards: ChatMessagePart[] };
 
-/** parts 배열에서 연속 product/treatment 카드를 그룹화. kit-cta는 standalone. */
+/** parts 배열에서 연속 product/treatment 카드를 가로 스크롤 그룹으로 묶음 */
 export function groupParts(parts: ChatMessagePart[]): PartGroup[] {
   const groups: PartGroup[] = [];
   let cardBuffer: ChatMessagePart[] = [];
@@ -37,11 +32,9 @@ export function groupParts(parts: ChatMessagePart[]): PartGroup[] {
     if (part.type === "text") {
       flushCards();
       groups.push({ type: "text", part });
-    } else if (isScrollCard(part)) {
-      cardBuffer.push(part);
     } else {
-      flushCards();
-      groups.push({ type: "standalone", part });
+      // product-card, treatment-card (그 외 타입은 card-mapper에서 생성 안 됨)
+      cardBuffer.push(part);
     }
   }
   flushCards();

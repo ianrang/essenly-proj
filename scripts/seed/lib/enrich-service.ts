@@ -222,6 +222,32 @@ function buildExternalLinks(
   return links.length > 0 ? links : null;
 }
 
+/** available_at 스토어 목록 → PurchaseLink[] 변환 */
+function buildPurchaseLinks(
+  data: Record<string, unknown>,
+): Array<{ platform: string; url: string }> | null {
+  // _available_at (매핑 후 배열) 또는 available_at (원본 파이프 구분 문자열) 참조
+  let stores = data._available_at as string[] | undefined;
+  if (!stores || stores.length === 0) {
+    const raw = data.available_at;
+    stores = typeof raw === "string" && raw ? raw.split("|") : undefined;
+  }
+  if (!stores || stores.length === 0) return null;
+
+  const nameEn = data.name_en as string | undefined;
+  const links: Array<{ platform: string; url: string }> = [];
+
+  if (stores.includes("olive_young") && nameEn) {
+    const query = encodeURIComponent(nameEn);
+    links.push({
+      platform: "Olive Young Global",
+      url: `https://global.oliveyoung.com/search?query=${query}`,
+    });
+  }
+
+  return links.length > 0 ? links : null;
+}
+
 const FIELD_MAPPINGS: Partial<Record<EntityType, Record<string, FieldExtractor>>> = {
   ingredient: {
     inci_name: (data) => {
@@ -276,6 +302,13 @@ const FIELD_MAPPINGS: Partial<Record<EntityType, Record<string, FieldExtractor>>
       const budget = data.budget_level;
       return budget ? [`budget:${budget}`] : [];
     },
+    images: (data: Record<string, unknown>) => {
+      const imageUrl = data.imageUrl as string | undefined;
+      if (!imageUrl || !imageUrl.trim()) return null;
+      if (!imageUrl.startsWith("https://")) return null;
+      return [imageUrl];
+    },
+    purchase_links: (data: Record<string, unknown>) => buildPurchaseLinks(data),
   },
 };
 

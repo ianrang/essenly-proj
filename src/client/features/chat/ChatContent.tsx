@@ -2,7 +2,7 @@
 
 import "client-only";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { useChat } from "@ai-sdk/react";
 import type { UIMessage } from "ai";
 import { DefaultChatTransport } from "ai";
@@ -13,6 +13,7 @@ import MessageList from "./MessageList";
 import MessageBubble from "./MessageBubble";
 import InputBar from "./InputBar";
 import SuggestedQuestions from "./SuggestedQuestions";
+import OnboardingChips from "./OnboardingChips";
 
 // ============================================================
 // ChatContent — P2-50c: 채팅 UI (히스토리 + 메시지 + 입력)
@@ -31,11 +32,31 @@ export default function ChatContent({ locale, initialMessages, initialConversati
   const [showSuggestions, setShowSuggestions] = useState(
     initialMessages.length === 0
   );
+  // v1.2 NEW-9: 온보딩 칩 표시 여부. 신규 세션(메시지+대화 없음)에서만 표시.
+  // 온보딩 완료 또는 스킵 시 false → SuggestedQuestions 또는 빈 채팅으로 전환.
+  const [showOnboarding, setShowOnboarding] = useState(
+    initialMessages.length === 0 && initialConversationId === null
+  );
   const [conversationId, setConversationId] = useState<string | null>(
     initialConversationId
   );
+  // ref로 최신 conversationId를 transport 클로저에서 참조 (클로저 캡처 타이밍 문제 방지).
+  //
+  // 멀티 탭 동시성 주의사항 (adversarial review, 2026년 4월):
+  // - AI SDK useChat은 단일 스트림 제약: 이전 요청 완료 전 새 sendMessage는 큐잉되므로
+  //   **단일 탭 환경**에서는 race 조건이 발생하지 않는다.
+  // - 멀티 탭 환경(같은 사용자가 두 탭에서 동시 접속)에서는 각 탭의 useChat이 독립적이므로
+  //   탭 #1이 첫 응답을 받기 전 탭 #2가 메시지를 보내면 탭 #2는 `conversationId=null`로
+  //   전송되어 새 conversation이 생성되고 대화 분리가 발생할 수 있다.
+  // - 현재 MVP는 anonymous 세션만 지원하고 멀티 탭은 비정상 경로로 간주. 실사용 시 대화 분리는
+  //   v0.2 계정 인증 + 서버사이드 lastActiveConversationId 병합으로 정면 해결 예정.
+  // - 회귀 방지: conversationIdRef + useEffect 동기화는 단일 탭 순차 전송 시나리오에서
+  //   충분히 안전하다 (messages #1 완료 → onFinish → setConversationId → useEffect flush → #2 전송).
+  const conversationIdRef = useRef<string | null>(initialConversationId);
+  useEffect(() => { conversationIdRef.current = conversationId; }, [conversationId]);
 
   // P2-79: credentials → headers(Bearer 동적 주입)
+  // transport는 1회만 생성. conversationId는 ref로 최신 값 참조.
   const transport = useMemo(
     () =>
       new DefaultChatTransport({
@@ -47,11 +68,12 @@ export default function ChatContent({ locale, initialMessages, initialConversati
         prepareSendMessagesRequest: ({ messages }) => ({
           body: {
             message: messages[messages.length - 1],
-            conversation_id: conversationId,
+            conversation_id: conversationIdRef.current,
           },
         }),
       }),
-    [conversationId]
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- ref로 최신 값 참조, transport 재생성 불필요
+    []
   );
 
   // AI SDK 6.x: messages prop = 초기 메시지 (최초 마운트 시에만 유효)
@@ -63,7 +85,7 @@ export default function ChatContent({ locale, initialMessages, initialConversati
       const meta = message.metadata as
         | { conversationId?: string }
         | undefined;
-      if (meta?.conversationId && !conversationId) {
+      if (meta?.conversationId && !conversationIdRef.current) {
         setConversationId(meta.conversationId);
       }
     },
@@ -94,11 +116,27 @@ export default function ChatContent({ locale, initialMessages, initialConversati
         {chatMessages.length === 0 ? (
           <div className="flex-1 overflow-y-auto px-4 py-4">
             <div className="flex flex-col gap-3">
-              <MessageBubble role="assistant">
-                {t("greeting")}
-              </MessageBubble>
-              {showSuggestionsResolved && (
-                <SuggestedQuestions onSelect={handleSend} />
+              {showOnboarding ? (
+                /* v1.2 NEW-9: 인라인 온보딩 칩 UI */
+                <OnboardingChips
+                  onComplete={() => {
+                    setShowOnboarding(false);
+                    setShowSuggestions(false);
+                  }}
+                  onSkip={() => {
+                    setShowOnboarding(false);
+                    // Skip 시 AI 인사 메시지 + SuggestedQuestions 표시
+                  }}
+                />
+              ) : (
+                <>
+                  <MessageBubble role="assistant">
+                    {t("greeting")}
+                  </MessageBubble>
+                  {showSuggestionsResolved && (
+                    <SuggestedQuestions onSelect={handleSend} />
+                  )}
+                </>
               )}
             </div>
           </div>

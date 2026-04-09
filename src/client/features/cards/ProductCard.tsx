@@ -16,6 +16,12 @@ type ProductCardProps = {
   whyRecommended?: string;
   locale: string;
   variant?: "default" | "compact";
+  /**
+   * is_highlighted 상품의 "Get free kit" 액션 콜백 (v1.2 NEW-10).
+   * 클릭 시 KitCtaSheet를 열어 이메일 수집 → DB 저장.
+   * 미제공 시 버튼은 표시되지 않음 (방어적 기본).
+   */
+  onKitClaim?: () => void;
 };
 
 function formatPrice(price: number | null): string {
@@ -23,7 +29,7 @@ function formatPrice(price: number | null): string {
   return `₩${price.toLocaleString()}`;
 }
 
-export default function ProductCard({ product, brand, store, whyRecommended, locale, variant = "default" }: ProductCardProps) {
+export default function ProductCard({ product, brand, store, whyRecommended, locale, variant = "default", onKitClaim }: ProductCardProps) {
   const [imgError, setImgError] = useState(false);
   const imgSrc = product.images[0];
   const showImage = imgSrc && !imgError;
@@ -34,7 +40,7 @@ export default function ProductCard({ product, brand, store, whyRecommended, loc
     return (
       <article
         className={cn(
-          "w-40 shrink-0 snap-start overflow-hidden rounded-lg border bg-card",
+          "flex w-40 shrink-0 snap-start flex-col overflow-hidden rounded-lg border bg-card",
           isHighlighted ? "border-primary" : "border-border"
         )}
       >
@@ -55,7 +61,7 @@ export default function ProductCard({ product, brand, store, whyRecommended, loc
             </div>
           )}
         </div>
-        <div className="p-2">
+        <div className="flex flex-1 flex-col p-2">
           {brand && (
             <p className="truncate text-[10px] text-muted-foreground">{localized(brand.name, locale)}</p>
           )}
@@ -63,6 +69,25 @@ export default function ProductCard({ product, brand, store, whyRecommended, loc
           {product.price !== null && (
             <p className="text-xs font-bold text-primary">{formatPrice(product.price)}</p>
           )}
+          {/* v1.2 NEW-10: is_highlighted 분기로 액션 버튼 선택 */}
+          {isHighlighted && onKitClaim ? (
+            <button
+              type="button"
+              onClick={onKitClaim}
+              className="mt-1.5 rounded border border-primary bg-primary px-2 py-1 text-[10px] font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              Get free kit →
+            </button>
+          ) : product.purchase_links && product.purchase_links.length > 0 ? (
+            <a
+              href={product.purchase_links[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1.5 rounded border border-border px-2 py-1 text-center text-[10px] font-medium text-foreground transition-colors hover:bg-muted"
+            >
+              Buy Online →
+            </a>
+          ) : null}
         </div>
       </article>
     );

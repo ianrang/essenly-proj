@@ -290,13 +290,24 @@ export function registerChatRoutes(app: AppType) {
             // auth-matrix.md §5.4: service_role 사용 (토큰 만료 대비)
             const serviceClient = createServiceClient();
 
-            // step 9: UIMessage[] 스냅샷 저장
-            const { error: saveErr } = await serviceClient
+            // step 9: UIMessage[] 스냅샷 저장 (defense-in-depth: user_id 방어 조건)
+            // v1.2 수정 (adversarial review): { count: 'exact' } 옵션으로 업데이트 행 수 체크.
+            // Supabase .update()는 WHERE 미매치 시 error=null, count=0을 반환하므로
+            // saveErr만으로는 silent drop을 감지할 수 없음. user_id mismatch 시 명시 로깅.
+            const { error: saveErr, count: savedCount } = await serviceClient
               .from('conversations')
-              .update({ ui_messages: finalMessages })
-              .eq('id', result.conversationId);
+              .update({ ui_messages: finalMessages }, { count: 'exact' })
+              .eq('id', result.conversationId)
+              .eq('user_id', user.id);
             if (saveErr) {
               console.error('[chat/onFinish] ui_messages save failed', saveErr.message);
+            } else if (savedCount === 0) {
+              // id는 존재하지만 user_id 불일치 → silent drop 방지
+              console.error('[CONVERSATION_SAVE_MISMATCH]', {
+                conversationId: result.conversationId,
+                userId: user.id,
+                reason: 'user_id mismatch or conversation not found — silent drop prevented',
+              });
             }
 
             // step 11: 추출 결과 저장 (Chat-First 온보딩 — mvp-flow-redesign.md §2.1)
