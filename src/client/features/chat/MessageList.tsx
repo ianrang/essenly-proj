@@ -4,6 +4,7 @@ import "client-only";
 
 import { useEffect, useRef, useState } from "react";
 import type { ChatMessagePart } from "./card-mapper";
+import { groupParts, cardKey } from "./group-parts";
 import MessageBubble from "./MessageBubble";
 import MessageGroup from "./MessageGroup";
 import StreamingIndicator from "./StreamingIndicator";
@@ -40,9 +41,7 @@ export default function MessageList({ messages, isStreaming, locale }: MessageLi
         <div className="flex flex-col gap-3">
           {messages.map((msg) => (
             <MessageGroup key={msg.id} role={msg.role}>
-              {msg.parts.map((part, idx) => (
-                <MessagePart key={`${msg.id}-${idx}`} part={part} role={msg.role} locale={locale} onKitClaim={() => setSheetOpen(true)} />
-              ))}
+              <GroupedParts parts={msg.parts} role={msg.role} locale={locale} onKitClaim={() => setSheetOpen(true)} />
             </MessageGroup>
           ))}
           {isStreaming && <StreamingIndicator />}
@@ -54,55 +53,101 @@ export default function MessageList({ messages, isStreaming, locale }: MessageLi
   );
 }
 
-/** 파트 타입별 렌더링 분기 */
-function MessagePart({
+/** 가로 스크롤 내 개별 카드. compact variant. */
+function CardPart({
   part,
-  role,
+  locale,
+}: {
+  part: ChatMessagePart;
+  locale: string;
+}) {
+  switch (part.type) {
+    case 'product-card':
+      return (
+        <ProductCard
+          product={part.product}
+          brand={part.brand}
+          store={part.store}
+          whyRecommended={part.whyRecommended}
+          locale={locale}
+          variant="compact"
+        />
+      );
+    case 'treatment-card':
+      return (
+        <TreatmentCard
+          treatment={part.treatment}
+          clinic={part.clinic}
+          whyRecommended={part.whyRecommended}
+          stayDays={null}
+          locale={locale}
+          variant="compact"
+        />
+      );
+    default:
+      return null;
+  }
+}
+
+/** 전체 폭 standalone 카드 (kit-cta-card 등). */
+function StandalonePart({
+  part,
   locale,
   onKitClaim,
 }: {
   part: ChatMessagePart;
+  locale: string;
+  onKitClaim: () => void;
+}) {
+  if (part.type === 'kit-cta-card') {
+    return (
+      <KitCtaCard
+        productName={part.productName}
+        highlightBadge={part.highlightBadge}
+        locale={locale}
+        onClaim={onKitClaim}
+      />
+    );
+  }
+  return null;
+}
+
+/** 연속 카드 파트를 가로 스크롤 그룹으로 묶어 렌더 */
+function GroupedParts({
+  parts,
+  role,
+  locale,
+  onKitClaim,
+}: {
+  parts: ChatMessagePart[];
   role: "user" | "assistant";
   locale: string;
   onKitClaim: () => void;
 }) {
-  switch (part.type) {
-    case "text":
-      return <MessageBubble role={role}>{part.text}</MessageBubble>;
-    case "product-card":
-      return (
-        <div className="w-full max-w-[85%]">
-          <ProductCard
-            product={part.product}
-            brand={part.brand}
-            store={part.store}
-            whyRecommended={part.whyRecommended}
-            locale={locale}
-          />
-        </div>
-      );
-    case "treatment-card":
-      return (
-        <div className="w-full max-w-[85%]">
-          <TreatmentCard
-            treatment={part.treatment}
-            clinic={part.clinic}
-            whyRecommended={part.whyRecommended}
-            stayDays={null}
-            locale={locale}
-          />
-        </div>
-      );
-    case "kit-cta-card":
-      return (
-        <div className="w-full max-w-[85%]">
-          <KitCtaCard
-            productName={part.productName}
-            highlightBadge={part.highlightBadge}
-            locale={locale}
-            onClaim={onKitClaim}
-          />
-        </div>
-      );
-  }
+  const groups = groupParts(parts);
+
+  return (
+    <>
+      {groups.map((group, gi) => {
+        if (group.type === 'text') {
+          return <MessageBubble key={gi} role={role}>{group.part.text}</MessageBubble>;
+        }
+        if (group.type === 'cards') {
+          return (
+            <div key={gi} className="flex gap-2 overflow-x-auto pb-1 snap-x snap-mandatory scrollbar-thin">
+              {group.cards.map((card) => (
+                <CardPart key={cardKey(card)} part={card} locale={locale} />
+              ))}
+            </div>
+          );
+        }
+        // standalone (kit-cta-card)
+        return (
+          <div key={gi} className="w-full max-w-[85%]">
+            <StandalonePart part={group.part} locale={locale} onKitClaim={onKitClaim} />
+          </div>
+        );
+      })}
+    </>
+  );
 }

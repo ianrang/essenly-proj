@@ -14,6 +14,7 @@ type TreatmentCardProps = {
   whyRecommended?: string;
   stayDays?: number | null;
   locale: string;
+  variant?: "default" | "compact";
 };
 
 function formatPriceRange(min: number | null, max: number | null): string {
@@ -23,8 +24,41 @@ function formatPriceRange(min: number | null, max: number | null): string {
   return `~₩${max!.toLocaleString()}`;
 }
 
-export default function TreatmentCard({ treatment, clinic, whyRecommended, stayDays, locale }: TreatmentCardProps) {
+export default function TreatmentCard({ treatment, clinic, whyRecommended, stayDays, locale, variant = "default" }: TreatmentCardProps) {
   const isHighlighted = treatment.is_highlighted && treatment.highlight_badge !== null;
+  const isCompact = variant === "compact";
+
+  if (isCompact) {
+    return (
+      <article
+        className={cn(
+          "w-40 shrink-0 snap-start overflow-hidden rounded-lg border bg-card p-2.5",
+          isHighlighted ? "border-primary" : "border-border"
+        )}
+      >
+        <div className="mb-1 flex items-start justify-between gap-1">
+          {treatment.category && (
+            <span className="truncate rounded-full border border-border px-1.5 py-0.5 text-[9px] font-medium text-muted-foreground">
+              {treatment.category}
+            </span>
+          )}
+          {isHighlighted && (
+            <HighlightBadge isHighlighted={treatment.is_highlighted} badge={treatment.highlight_badge} locale={locale} />
+          )}
+        </div>
+        <p className="truncate text-xs font-semibold text-foreground">{localized(treatment.name, locale)}</p>
+        {(treatment.price_min !== null || treatment.price_max !== null) && (
+          <p className="text-xs font-bold text-primary">{formatPriceRange(treatment.price_min, treatment.price_max)}</p>
+        )}
+        {treatment.duration_minutes && (
+          <p className="mt-1 text-[10px] text-muted-foreground">
+            {treatment.duration_minutes}min{treatment.downtime_days !== null && treatment.downtime_days > 0 ? ` · ${treatment.downtime_days}d rec.` : ""}
+          </p>
+        )}
+      </article>
+    );
+  }
+
   const downtimeWarning = stayDays !== null && stayDays !== undefined && treatment.downtime_days !== null && treatment.downtime_days > 0
     ? treatment.downtime_days >= stayDays * 0.5
     : false;

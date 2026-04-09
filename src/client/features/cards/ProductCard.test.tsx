@@ -136,3 +136,49 @@ describe("ProductCard store map_url", () => {
     expect(screen.queryByText("Olive Young")).not.toBeInTheDocument();
   });
 });
+
+describe("ProductCard compact variant", () => {
+  it("compact 렌더 시 이름과 가격 표시", () => {
+    const product = makeProduct({ name: { en: "Snail Mucin" }, price: 18000 });
+
+    render(<ProductCard product={product} locale="en" variant="compact" />);
+
+    expect(screen.getByText("Snail Mucin")).toBeInTheDocument();
+    expect(screen.getByText("₩18,000")).toBeInTheDocument();
+  });
+
+  it("compact 렌더 시 브랜드 표시", () => {
+    const product = makeProduct();
+    const brand = { name: { en: "COSRX" } };
+
+    render(<ProductCard product={product} brand={brand} locale="en" variant="compact" />);
+
+    expect(screen.getByText("COSRX")).toBeInTheDocument();
+  });
+
+  it("compact 렌더 시 tags/english_label/store/purchase_links 미표시", () => {
+    const product = makeProduct({
+      tags: ["hydrating", "gentle"],
+      english_label: true,
+      purchase_links: [{ platform: "coupang", url: "https://coupang.com" }],
+    });
+    const store = { name: { en: "Olive Young" }, map_url: "http://map.kakao.com/123" };
+
+    render(<ProductCard product={product} store={store} locale="en" variant="compact" />);
+
+    expect(screen.queryByText("hydrating")).not.toBeInTheDocument();
+    expect(screen.queryByText("English Label")).not.toBeInTheDocument();
+    expect(screen.queryByText("Buy Online")).not.toBeInTheDocument();
+    expect(screen.queryByText("Olive Young")).not.toBeInTheDocument();
+  });
+
+  it("variant 미지정 시 default 동작 (Buy Online 표시)", () => {
+    const product = makeProduct({
+      purchase_links: [{ platform: "coupang", url: "https://coupang.com" }],
+    });
+
+    render(<ProductCard product={product} locale="en" />);
+
+    expect(screen.getByText("Buy Online")).toBeInTheDocument();
+  });
+});
