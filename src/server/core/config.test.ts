@@ -35,7 +35,7 @@ describe('envSchema', () => {
     const { env } = await import('@/server/core/config');
     expect(env.AI_PROVIDER).toBe('anthropic');
     expect(env.NEXT_PUBLIC_SUPABASE_URL).toBe('https://test.supabase.co');
-    expect(env.LLM_TIMEOUT_MS).toBe(30000);
+    expect(env.LLM_TIMEOUT_MS).toBe(45000); // v1.1: 30000 → 45000 (chat-quality-improvements.md §4)
     expect(env.EMBEDDING_PROVIDER).toBe('google');
     expect(env.EMBEDDING_DIMENSION).toBe(1024);
   });
