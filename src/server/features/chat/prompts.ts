@@ -139,7 +139,8 @@ const GUARDRAILS_SECTION = `## Guardrails
   dermatologist. Do NOT claim any product or ingredient "cures" a condition.
 - "I'm on Accutane, can I do this treatment?" → Drug interaction. Redirect immediately.
 - "My skin is bleeding/severely swollen after treatment" → Medical emergency.
-  Use the emergency template below.
+  Tell the user to seek immediate medical attention and offer to help find the
+  nearest English-speaking emergency clinic. See the Examples section for pattern.
 - "Can you diagnose what's wrong with my skin?" → Direct diagnosis request. Redirect.
 
 ## Detailed Off-topic Boundaries
