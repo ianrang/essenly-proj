@@ -13,6 +13,7 @@ import MessageList from "./MessageList";
 import MessageBubble from "./MessageBubble";
 import InputBar from "./InputBar";
 import SuggestedQuestions from "./SuggestedQuestions";
+import OnboardingChips from "./OnboardingChips";
 
 // ============================================================
 // ChatContent — P2-50c: 채팅 UI (히스토리 + 메시지 + 입력)
@@ -30,6 +31,11 @@ export default function ChatContent({ locale, initialMessages, initialConversati
   const t = useTranslations("chat");
   const [showSuggestions, setShowSuggestions] = useState(
     initialMessages.length === 0
+  );
+  // v1.2 NEW-9: 온보딩 칩 표시 여부. 신규 세션(메시지+대화 없음)에서만 표시.
+  // 온보딩 완료 또는 스킵 시 false → SuggestedQuestions 또는 빈 채팅으로 전환.
+  const [showOnboarding, setShowOnboarding] = useState(
+    initialMessages.length === 0 && initialConversationId === null
   );
   const [conversationId, setConversationId] = useState<string | null>(
     initialConversationId
@@ -110,11 +116,27 @@ export default function ChatContent({ locale, initialMessages, initialConversati
         {chatMessages.length === 0 ? (
           <div className="flex-1 overflow-y-auto px-4 py-4">
             <div className="flex flex-col gap-3">
-              <MessageBubble role="assistant">
-                {t("greeting")}
-              </MessageBubble>
-              {showSuggestionsResolved && (
-                <SuggestedQuestions onSelect={handleSend} />
+              {showOnboarding ? (
+                /* v1.2 NEW-9: 인라인 온보딩 칩 UI */
+                <OnboardingChips
+                  onComplete={() => {
+                    setShowOnboarding(false);
+                    setShowSuggestions(false);
+                  }}
+                  onSkip={() => {
+                    setShowOnboarding(false);
+                    // Skip 시 AI 인사 메시지 + SuggestedQuestions 표시
+                  }}
+                />
+              ) : (
+                <>
+                  <MessageBubble role="assistant">
+                    {t("greeting")}
+                  </MessageBubble>
+                  {showSuggestionsResolved && (
+                    <SuggestedQuestions onSelect={handleSend} />
+                  )}
+                </>
               )}
             </div>
           </div>

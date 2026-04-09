@@ -9,14 +9,18 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 // L-14: ProfileData, ProfileRow export 안 함.
 // ============================================================
 
-/** 프로필 UPSERT 입력 (온보딩 4단계 중 UP 변수) */
+/**
+ * 프로필 UPSERT 입력 (온보딩 UP 변수).
+ * v1.2 (NEW-9): OnboardingChips 인라인 온보딩은 skin_type만 필수.
+ * country, age_range는 optional (DB user_profiles NULLABLE).
+ */
 interface ProfileData {
   skin_type: string;
   hair_type: string | null;
   hair_concerns: string[];
-  country: string;
+  country: string | null;
   language: string;
-  age_range?: string;
+  age_range?: string | null;
 }
 
 /** DB 조회 결과 */
