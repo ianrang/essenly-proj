@@ -113,9 +113,16 @@ async function searchShopping(
 
   // 관련 stores 조회 (R-6: tool handler에서 junction 조회 허용)
   // tool-spec.md §4.2: 부분 JOIN 실패 → 핵심 데이터 반환, 관계 필드 빈 배열
+  // Q-7: 에러 불삼킴 — 로깅 후 빈 Map 폴백 (chat-quality-improvements.md §5.1)
   const productIds = ranked.map(r => r.item.id);
   const storeMap = await loadRelatedStores(client, productIds, filters?.english_support)
-    .catch(() => new Map<string, unknown[]>());
+    .catch((error: unknown) => {
+      console.error('[STORE_JOIN_FAILED]', {
+        productIds,
+        error: error instanceof Error ? error.message : String(error),
+      });
+      return new Map<string, unknown[]>();
+    });
 
   const cards = ranked.map(r => {
     const product = products.find(p => p.id === r.item.id);
@@ -164,9 +171,16 @@ async function searchTreatment(
 
   // 관련 clinics 조회 (R-6)
   // tool-spec.md §4.2: 부분 JOIN 실패 → 핵심 데이터 반환, 관계 필드 빈 배열
+  // Q-7: 에러 불삼킴 — 로깅 후 빈 Map 폴백 (chat-quality-improvements.md §5.1)
   const treatmentIds = ranked.map(r => r.item.id);
   const clinicMap = await loadRelatedClinics(client, treatmentIds, filters?.english_support)
-    .catch(() => new Map<string, unknown[]>());
+    .catch((error: unknown) => {
+      console.error('[CLINIC_JOIN_FAILED]', {
+        treatmentIds,
+        error: error instanceof Error ? error.message : String(error),
+      });
+      return new Map<string, unknown[]>();
+    });
 
   const cards = ranked.map(r => {
     const treatment = treatments.find(t => t.id === r.item.id);
@@ -196,8 +210,13 @@ async function searchWithFallback<T>(
   try {
     const embedding = await embedQuery(query);
     return await vectorSearch(embedding);
-  } catch {
+  } catch (error) {
     // tool-spec.md §4.2: 임베딩 실패 → SQL 폴백
+    // Q-7: 에러 불삼킴 — 로깅 후 SQL 폴백 (chat-quality-improvements.md §5.1)
+    console.warn('[EMBED_FALLBACK]', {
+      query,
+      error: error instanceof Error ? error.message : String(error),
+    });
     return sqlSearch();
   }
 }

@@ -490,4 +490,133 @@ describe('executeSearchBeautyData', () => {
     expect(card.stores).toHaveLength(1);
     expect(card.stores[0].id).toBe('s1');
   });
+
+  // --- Q-7 에러 로깅 테스트 (v1.1 — chat-quality-improvements.md §5.1) ---
+
+  // Test 11: embedQuery 실패 시 [EMBED_FALLBACK] 경고 로깅
+  it('11. embedQuery 실패 → [EMBED_FALLBACK] console.warn 호출 후 SQL 폴백', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const products = [createMockProduct('p1')];
+    const scoredItems = [{ id: 'p1', score: 0.5, reasons: [], warnings: [], is_highlighted: false }];
+    const rankedItems = [{ item: scoredItems[0], rank: 1, is_highlighted: false }];
+
+    const knowledge = await getKnowledge();
+    const productRepo = await getProductRepo();
+    const shopping = await getBeautyShopping();
+    const judgment = await getBeautyJudgment();
+    const derived = await getBeautyDerived();
+
+    vi.mocked(knowledge.embedQuery).mockRejectedValue(new Error('Embedding API down'));
+    vi.mocked(productRepo.findProductsByFilters).mockResolvedValue(products);
+    vi.mocked(shopping.scoreProducts).mockReturnValue(scoredItems);
+    vi.mocked(judgment.rank).mockReturnValue(rankedItems);
+    vi.mocked(derived.calculatePreferredIngredients).mockReturnValue([]);
+    vi.mocked(derived.calculateAvoidedIngredients).mockReturnValue([]);
+
+    const client = createMockSupabaseClient([]);
+    const { executeSearchBeautyData } = await getHandler();
+
+    const result = await executeSearchBeautyData(
+      { query: 'serum', domain: 'shopping' },
+      { client: client as never, profile: null, journey: null, preferences: [] },
+    );
+
+    expect(warnSpy).toHaveBeenCalledWith(
+      '[EMBED_FALLBACK]',
+      expect.objectContaining({
+        query: 'serum',
+        error: 'Embedding API down',
+      }),
+    );
+    expect(productRepo.findProductsByFilters).toHaveBeenCalled();
+    expect(result.cards).toHaveLength(1);
+    warnSpy.mockRestore();
+  });
+
+  // Test 12: loadRelatedStores 실패 시 [STORE_JOIN_FAILED] 에러 로깅
+  it('12. loadRelatedStores 실패 → [STORE_JOIN_FAILED] console.error + 빈 stores 폴백', async () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const products = [createMockProduct('p1')];
+    const scoredItems = [{ id: 'p1', score: 0.5, reasons: [], warnings: [], is_highlighted: false }];
+    const rankedItems = [{ item: scoredItems[0], rank: 1, is_highlighted: false }];
+
+    const productRepo = await getProductRepo();
+    const shopping = await getBeautyShopping();
+    const judgment = await getBeautyJudgment();
+    const derived = await getBeautyDerived();
+
+    vi.mocked(productRepo.findProductsByFilters).mockResolvedValue(products);
+    vi.mocked(shopping.scoreProducts).mockReturnValue(scoredItems);
+    vi.mocked(judgment.rank).mockReturnValue(rankedItems);
+    vi.mocked(derived.calculatePreferredIngredients).mockReturnValue([]);
+    vi.mocked(derived.calculateAvoidedIngredients).mockReturnValue([]);
+
+    // store 조회 실패 재현: .in()이 reject
+    const inFn = vi.fn().mockRejectedValue(new Error('store join failed'));
+    const selectFn = vi.fn().mockReturnValue({ in: inFn });
+    const client = { from: vi.fn().mockReturnValue({ select: selectFn }) };
+
+    const { executeSearchBeautyData } = await getHandler();
+
+    const result = await executeSearchBeautyData(
+      { query: '', domain: 'shopping' },
+      { client: client as never, profile: null, journey: null, preferences: [] },
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      '[STORE_JOIN_FAILED]',
+      expect.objectContaining({
+        productIds: ['p1'],
+        error: 'store join failed',
+      }),
+    );
+    // 핵심 데이터는 여전히 반환 (빈 stores 배열)
+    expect(result.cards).toHaveLength(1);
+    const card = result.cards[0] as { stores: unknown[] };
+    expect(card.stores).toEqual([]);
+    errorSpy.mockRestore();
+  });
+
+  // Test 13: loadRelatedClinics 실패 시 [CLINIC_JOIN_FAILED] 에러 로깅
+  it('13. loadRelatedClinics 실패 → [CLINIC_JOIN_FAILED] console.error + 빈 clinics 폴백', async () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const treatments = [createMockTreatment('t1')];
+    const scoredItems = [{ id: 't1', score: 0.5, reasons: [], warnings: [], is_highlighted: false }];
+    const rankedItems = [{ item: scoredItems[0], rank: 1, is_highlighted: false }];
+
+    const treatmentRepo = await getTreatmentRepo();
+    const beautyTreatment = await getBeautyTreatment();
+    const judgment = await getBeautyJudgment();
+
+    vi.mocked(treatmentRepo.findTreatmentsByFilters).mockResolvedValue(treatments);
+    vi.mocked(beautyTreatment.scoreTreatments).mockReturnValue(scoredItems);
+    vi.mocked(judgment.rank).mockReturnValue(rankedItems);
+
+    // clinic 조회 실패 재현
+    const inFn = vi.fn().mockRejectedValue(new Error('clinic join failed'));
+    const selectFn = vi.fn().mockReturnValue({ in: inFn });
+    const client = { from: vi.fn().mockReturnValue({ select: selectFn }) };
+
+    const { executeSearchBeautyData } = await getHandler();
+
+    const result = await executeSearchBeautyData(
+      { query: '', domain: 'treatment' },
+      { client: client as never, profile: null, journey: createMockJourney(), preferences: [] },
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      '[CLINIC_JOIN_FAILED]',
+      expect.objectContaining({
+        treatmentIds: ['t1'],
+        error: 'clinic join failed',
+      }),
+    );
+    expect(result.cards).toHaveLength(1);
+    const card = result.cards[0] as { clinics: unknown[] };
+    expect(card.clinics).toEqual([]);
+    errorSpy.mockRestore();
+  });
 });
