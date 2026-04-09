@@ -306,6 +306,80 @@ describe('Chat routes — POST /api/chat', () => {
     expect(serviceClient.from).toHaveBeenCalledWith('conversations');
   });
 
+  // v1.2 추가 (adversarial review): user_id mismatch → silent drop 방지 검증
+  it('onFinish: user_id mismatch 시 [CONVERSATION_SAVE_MISMATCH] 로깅', async () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    // count=0을 반환하는 thenable mock (WHERE 미매치 재현)
+    const makeThenableServiceClient = () => {
+      const qb = {
+        update: vi.fn().mockReturnThis(),
+        eq: vi.fn().mockReturnThis(),
+        // thenable: await 시 { error: null, count: 0 } 반환
+        then: (onFulfilled: (v: { error: null; count: number }) => unknown) =>
+          Promise.resolve({ error: null, count: 0 }).then(onFulfilled),
+      };
+      qb.eq.mockReturnValue(qb);
+      return { from: vi.fn().mockReturnValue(qb) };
+    };
+    mockCreateServiceClient.mockReturnValue(makeThenableServiceClient());
+
+    await app.request('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(makeRequestBody('hello')),
+    });
+
+    // onFinish 호출 시뮬레이션
+    const finalMessages = [makeUIMessage('hello')];
+    await capturedStreamOpts!.onFinish!({ messages: finalMessages });
+
+    // [CONVERSATION_SAVE_MISMATCH] 로그 확인
+    expect(errorSpy).toHaveBeenCalledWith(
+      '[CONVERSATION_SAVE_MISMATCH]',
+      expect.objectContaining({
+        conversationId: expect.any(String),
+        userId: expect.any(String),
+        reason: expect.stringContaining('user_id mismatch'),
+      }),
+    );
+
+    errorSpy.mockRestore();
+  });
+
+  it('onFinish: saveErr 발생 시 [chat/onFinish] 로깅 (기존 에러 경로)', async () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    // error를 반환하는 thenable mock
+    const makeErrorServiceClient = () => {
+      const qb = {
+        update: vi.fn().mockReturnThis(),
+        eq: vi.fn().mockReturnThis(),
+        then: (onFulfilled: (v: { error: { message: string }; count: null }) => unknown) =>
+          Promise.resolve({ error: { message: 'DB connection failed' }, count: null }).then(onFulfilled),
+      };
+      qb.eq.mockReturnValue(qb);
+      return { from: vi.fn().mockReturnValue(qb) };
+    };
+    mockCreateServiceClient.mockReturnValue(makeErrorServiceClient());
+
+    await app.request('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(makeRequestBody('hello')),
+    });
+
+    const finalMessages = [makeUIMessage('hello')];
+    await capturedStreamOpts!.onFinish!({ messages: finalMessages });
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      '[chat/onFinish] ui_messages save failed',
+      'DB connection failed',
+    );
+
+    errorSpy.mockRestore();
+  });
+
   it('messageMetadata — start 파트에 conversationId 포함', async () => {
     await app.request('/api/chat', {
       method: 'POST',
