@@ -496,8 +496,8 @@
 | NEW-1   | ~~LLM temperature/maxTokens 설정~~ | TokenConfig에 temperature 0.4 + maxOutputTokens 1024 추가. streamText 호출에 적용                                                                                              | ✅   |
 | NEW-2   | ~~프로필 자동 필터 merge~~       | searchShopping에서 LLM이 skin_types 생략 시 profile.skin_type 자동 적용                                                                                                             | ✅   |
 | NEW-4   | ~~히스토리 트리밍~~             | TOKEN_CONFIG.historyLimit(20) 적용. 최신 20개 히스토리만 LLM에 전달                                                                                                                    | ✅   |
-| NEW-5   | Seed 데이터 재적재 (images + purchase_links) | enrich-service에 images 매핑(imageUrl→images[]) + purchase_links 매핑(available_at→Olive Young URL) 추가 완료. enrich→load 재실행하여 프로덕션 DB 반영 필요. `.env.local` 환경변수 필요 | ⬜   |
-| NEW-6   | 채팅 히스토리 저장 불완전 조사       | P2-95에서 수정했으나 재발. 재방문 시 마지막 메시지 2개만 표시. onFinish 로깅 추가 완료(chat.ts). 배포 후 Vercel Logs에서 `[chat/onFinish] saving ui_messages` messageCount 확인하여 근본 원인 특정 필요 | ⬜   |
+| NEW-5   | ~~Seed 데이터 재적재 (images + purchase_links)~~ | enrich-service images+purchase_links 매핑 추가 + products-validated.json 병합 + DB 201건 upsert 완료. 172/201 제품 Olive Young 링크 반영 | ✅   |
+| NEW-6   | ~~채팅 히스토리 유실 수정~~          | 근본 원인: transport useMemo 클로저가 conversationId(null)를 캡처 → 두 번째 메시지부터 새 conversation 생성 → 대화 분리. 수정: conversationIdRef로 최신 값 참조. Playwright 재현+DB 검증 완료 | ✅   |
 | NEW-7   | ~~토큰 기반 히스토리 트리밍~~      | **→ v0.2 연기**. 현재 메시지 카운트 20개 기반 → 토큰 예산 기반 전환. tool call/result가 메시지 슬롯을 소비하여 실질 대화 턴 감소 문제. P1-36(히스토리 요약)과 함께 하이브리드 방식 검토 | ➡️  |
 | NEW-8   | CSV 소스 제품 이미지 보강         | **→ v0.2 연기**. CSV 채널 200개 제품에 imageUrl 없음. 방안: (1) 스크래퍼로 재수집 (2) CSV에 image URL 컬럼 추가 (3) purchase_links URL의 OG 이미지 추출. 법적/저작권 검토(G-12) 필요 | ➡️  |
 
