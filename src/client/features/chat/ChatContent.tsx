@@ -34,7 +34,18 @@ export default function ChatContent({ locale, initialMessages, initialConversati
   const [conversationId, setConversationId] = useState<string | null>(
     initialConversationId
   );
-  // ref로 최신 conversationId를 transport 클로저에서 참조 (클로저 캡처 타이밍 문제 방지)
+  // ref로 최신 conversationId를 transport 클로저에서 참조 (클로저 캡처 타이밍 문제 방지).
+  //
+  // 멀티 탭 동시성 주의사항 (adversarial review, 2026년 4월):
+  // - AI SDK useChat은 단일 스트림 제약: 이전 요청 완료 전 새 sendMessage는 큐잉되므로
+  //   **단일 탭 환경**에서는 race 조건이 발생하지 않는다.
+  // - 멀티 탭 환경(같은 사용자가 두 탭에서 동시 접속)에서는 각 탭의 useChat이 독립적이므로
+  //   탭 #1이 첫 응답을 받기 전 탭 #2가 메시지를 보내면 탭 #2는 `conversationId=null`로
+  //   전송되어 새 conversation이 생성되고 대화 분리가 발생할 수 있다.
+  // - 현재 MVP는 anonymous 세션만 지원하고 멀티 탭은 비정상 경로로 간주. 실사용 시 대화 분리는
+  //   v0.2 계정 인증 + 서버사이드 lastActiveConversationId 병합으로 정면 해결 예정.
+  // - 회귀 방지: conversationIdRef + useEffect 동기화는 단일 탭 순차 전송 시나리오에서
+  //   충분히 안전하다 (messages #1 완료 → onFinish → setConversationId → useEffect flush → #2 전송).
   const conversationIdRef = useRef<string | null>(initialConversationId);
   useEffect(() => { conversationIdRef.current = conversationId; }, [conversationId]);
 
