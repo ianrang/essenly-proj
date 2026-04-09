@@ -22,14 +22,7 @@ export type UIPartLike = {
 export type ChatMessagePart =
   | { type: "text"; text: string }
   | ProductCardPart
-  | TreatmentCardPart
-  | KitCtaCardPart;
-
-export type KitCtaCardPart = {
-  type: "kit-cta-card";
-  productName: LocalizedText;
-  highlightBadge: LocalizedText | null;
-};
+  | TreatmentCardPart;
 
 export type ProductCardPart = {
   type: "product-card";
@@ -131,10 +124,13 @@ function mapToolCards(cards: unknown[], domain: string | undefined, result: Chat
 }
 
 function mapProductCard(card: ToolProductCard): ChatMessagePart[] {
+  // v1.2: NEW-10 Kit CTA 통합 카드 — 별도 KitCtaCardPart 제거.
+  // is_highlighted 상품의 "Get free kit" 액션은 ProductCard(compact) 내부 분기로 통합.
+  // 정본: docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md §2.2
   const { reasons, stores, ...product } = card;
   const firstStore = stores[0] ?? null;
 
-  const parts: ChatMessagePart[] = [
+  return [
     {
       type: "product-card",
       product,
@@ -143,17 +139,6 @@ function mapProductCard(card: ToolProductCard): ChatMessagePart[] {
       whyRecommended: reasons[0] ?? undefined,
     },
   ];
-
-  // VP-1: is_highlighted → KitCtaCard 삽입 (렌더링만, 정렬/필터 미영향)
-  if (product.is_highlighted && product.highlight_badge !== null) {
-    parts.push({
-      type: "kit-cta-card",
-      productName: product.name,
-      highlightBadge: product.highlight_badge,
-    });
-  }
-
-  return parts;
 }
 
 function mapTreatmentCard(card: ToolTreatmentCard): TreatmentCardPart {

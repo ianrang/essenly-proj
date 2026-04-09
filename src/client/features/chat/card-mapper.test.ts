@@ -259,7 +259,9 @@ describe("mapUIMessageToParts", () => {
     expect(result[0].whyRecommended).toBe("reason");
   });
 
-  it("highlighted product → product-card + kit-cta-card", () => {
+  // v1.2 NEW-10: highlighted product는 별도 kit-cta-card를 생성하지 않는다.
+  // Kit CTA 액션은 ProductCard(is_highlighted) 내부 분기로 통합되었다.
+  it("highlighted product → product-card only (no separate kit-cta-card)", () => {
     const product = makeProduct({
       is_highlighted: true,
       highlight_badge: { en: "Essenly Pick" },
@@ -274,15 +276,14 @@ describe("mapUIMessageToParts", () => {
     ];
     const result = mapUIMessageToParts(parts);
 
-    expect(result).toHaveLength(2);
+    expect(result).toHaveLength(1);
     expect(result[0].type).toBe("product-card");
-    expect(result[1].type).toBe("kit-cta-card");
-    if (result[1].type !== "kit-cta-card") throw new Error("unreachable");
-    expect(result[1].productName).toEqual({ en: "Gentle Cleanser" });
-    expect(result[1].highlightBadge).toEqual({ en: "Essenly Pick" });
+    if (result[0].type !== "product-card") throw new Error("unreachable");
+    expect(result[0].product.is_highlighted).toBe(true);
+    expect(result[0].product.highlight_badge).toEqual({ en: "Essenly Pick" });
   });
 
-  it("is_highlighted but highlight_badge null → no kit-cta-card", () => {
+  it("is_highlighted but highlight_badge null → still product-card only", () => {
     const product = makeProduct({
       is_highlighted: true,
       highlight_badge: null,
