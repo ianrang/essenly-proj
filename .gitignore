@@ -70,3 +70,4 @@ supabase/.temp/
 !public/icon.png
 !public/apple-touch-icon.png
 .gstack/
+.superpowers/
