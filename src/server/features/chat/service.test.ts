@@ -46,6 +46,7 @@ vi.mock('@/shared/constants/ai', () => ({
     default: {
       maxOutputTokens: 1024,
       historyLimit: 20,
+      maxToolSteps: 5,
       temperature: 0.4,
     },
   },
@@ -173,6 +174,33 @@ describe('streamChat', () => {
     expect(callArgs.messages[0]).toEqual({ role: 'user', content: 'Hello' });
     expect(callArgs.messages[1]).toEqual({ role: 'assistant', content: 'Hi!' });
     expect(callArgs.messages[2]).toEqual({ role: 'user', content: 'How are you?' });
+  });
+
+  it('NEW-30: stopWhen predicate가 steps.length >= maxToolSteps에서 true (5 step 초과 시에도 중단)', async () => {
+    const client = makeMockClient({ selectData: { id: 'conv-123' } });
+
+    const { streamChat } = await import('./service');
+    await streamChat({
+      client: client as unknown as Parameters<typeof streamChat>[0]['client'],
+      userId: 'user-1',
+      conversationId: 'conv-123',
+      message: 'Hi',
+      history: [],
+      profile: mockProfile,
+      journey: mockJourney,
+      preferences: [],
+      derived: mockDerived,
+      locale: 'en',
+    });
+
+    const callArgs = mockCallWithFallback.mock.calls[0][0];
+    const stopWhen = callArgs.stopWhen as (ctx: { steps: unknown[] }) => boolean;
+    expect(typeof stopWhen).toBe('function');
+    expect(stopWhen({ steps: new Array(4) })).toBe(false);
+    expect(stopWhen({ steps: new Array(5) })).toBe(true);
+    // strict equality 버그 회귀 방지: 6 step(초과)도 반드시 중단
+    expect(stopWhen({ steps: new Array(6) })).toBe(true);
+    expect(stopWhen({ steps: new Array(28) })).toBe(true);
   });
 
   it('빈 history 제공 시 새 메시지만 LLM에 전달', async () => {
