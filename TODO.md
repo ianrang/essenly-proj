@@ -540,7 +540,7 @@
 | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ | --- |
 | P3-1  | ~~경로A 플로우~~      | **→ v0.2 연기**. 온보딩 4단계가 v0.2 연기됨 (P2-33/34). Landing → Chat 경로B만 MVP 대상                                                        | ➡️  |
 | P3-2  | 경로B 플로우          | Landing → "Start chatting" → Chat → 점진적 개인화. QA PASS (2026-04-09): 채팅 송수신, 제품 카드, 프로필 저장 정상 동작                                    | ✅   |
-| P3-3  | Kit CTA 플로우      | QA PASS (2026-04-12): 통합 카드 is_highlighted 분기, KitCtaSheet 이메일 폼, POST /api/kit/claim 201 정상, DB kit_subscribers 생성 확인, 동일 이메일 409 멱등 처리 확인. 48개 테스트 통과. 정본: `docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md` | ✅   |
+| P3-3  | Kit CTA 플로우      | QA PASS (2026-04-12): 통합 카드 is_highlighted 분기, KitCtaSheet 이메일 폼, POST /api/kit/claim 201 정상, DB kit_subscribers 생성 확인, 동일 이메일 409 멱등 처리 확인. 69개 테스트 통과 (P3-3a 보강 포함). 정본: `docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md` | ✅   |
 | P3-3a | Kit CTA 테스트 보강   | 완료 (2026-04-12). 69개 테스트 통과. (1) kit.test.ts +6건 (2) KitCtaSheet.test.tsx 신규 11건 (3) conversation_id/locale V-22 수정 (4) ProductCard default variant 문서화 (5) MessageList 통합 테스트. 계획: `docs/superpowers/plans/2026-04-12-kit-cta-test-coverage.md` | ✅   |
 | P3-5  | 모바일 반응형          | QA PASS (2026-04-09): 랜딩/채팅/Terms 모바일(375x812) 레이아웃 정상. 카드 가로 스크롤, 다크모드, 언어 선택 동작 확인                                            | ✅   |
 | P3-6  | 에러 시나리오          | QA PASS (2026-04-09): 빈 입력 차단, 긴 입력 처리, XSS 방어, 404 페이지, API 인증 에러 정상 응답                                                        | ✅   |
@@ -606,7 +606,7 @@
 
 | ID     | 작업               | 상세                                                                                                  | 상태  |
 | ------ | ---------------- | --------------------------------------------------------------------------------------------------- | --- |
-| P3-33  | 버그 수정 + 최적화      | P3-1~22(관리자 제외)에서 발견된 이슈 해결                                                                         | ⬜   |
+| P3-33  | 버그 수정 + 최적화      | 진행 중 (2026-04-12). 수정 완료: (1) 불완전 동의 세션 방어 — chat/history에서 public.users 검증 추가 (2) ChatContent useMemo locale 의존성 경고 수정 (3) enrich-product-links ESM 직접 실행 가드 (4) package-lock.json @emnapi 동기화. 잔여: E2E 전체 재검증 | ⬜   |
 | P3-33a | 법률 전문가 검토        | 소프트 런칭 후 정식 런칭 전 진행. 이용약관(/terms), 개인정보처리방침(/privacy), 면책 조항 법률 전문가 검토. GDPR/국제 규정 검토. 소프트 런칭 차단 아님 | ⬜   |
 | P3-34  | 프로덕션 배포          | 최종 배포                                                                                               | ⬜   |
 | P3-35  | 소프트 런칭           | 제한 사용자 테스트 (대상/규모 별도 결정)                                                                            | ⬜   |
