@@ -537,6 +537,7 @@
 | P3-1  | ~~경로A 플로우~~      | **→ v0.2 연기**. 온보딩 4단계가 v0.2 연기됨 (P2-33/34). Landing → Chat 경로B만 MVP 대상                                                        | ➡️  |
 | P3-2  | 경로B 플로우          | Landing → "Start chatting" → Chat → 점진적 개인화. QA PASS (2026-04-09): 채팅 송수신, 제품 카드, 프로필 저장 정상 동작                                    | ✅   |
 | P3-3  | Kit CTA 플로우      | QA PASS (2026-04-12): 통합 카드 is_highlighted 분기, KitCtaSheet 이메일 폼, POST /api/kit/claim 201 정상, DB kit_subscribers 생성 확인, 동일 이메일 409 멱등 처리 확인. 48개 테스트 통과. 정본: `docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md` | ✅   |
+| P3-3a | Kit CTA 테스트 보강   | 완료 (2026-04-12). 69개 테스트 통과. (1) kit.test.ts +6건 (2) KitCtaSheet.test.tsx 신규 11건 (3) conversation_id/locale V-22 수정 (4) ProductCard default variant 문서화 (5) MessageList 통합 테스트. 계획: `docs/superpowers/plans/2026-04-12-kit-cta-test-coverage.md` | ✅   |
 | P3-5  | 모바일 반응형          | QA PASS (2026-04-09): 랜딩/채팅/Terms 모바일(375x812) 레이아웃 정상. 카드 가로 스크롤, 다크모드, 언어 선택 동작 확인                                            | ✅   |
 | P3-6  | 에러 시나리오          | QA PASS (2026-04-09): 빈 입력 차단, 긴 입력 처리, XSS 방어, 404 페이지, API 인증 에러 정상 응답                                                        | ✅   |
 | P3-6a | SEO 구현           | P1-11 설계 기반 구현: sitemap.xml(1 URL), robots.txt(admin/api 차단), OG 이미지(정적 1장), JSON-LD(WebApplication), favicon                     | ✅   |
