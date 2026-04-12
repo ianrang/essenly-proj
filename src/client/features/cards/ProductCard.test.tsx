@@ -263,4 +263,27 @@ describe("ProductCard Kit CTA integration (v1.2 NEW-10)", () => {
     expect(screen.queryByRole("button", { name: /Get free kit/i })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /Product Details/i })).not.toBeInTheDocument();
   });
+
+  it("default variant + is_highlighted + onKitClaim → Get free kit 미노출 (compact 전용 설계)", () => {
+    const product = makeProduct({
+      is_highlighted: true,
+      highlight_badge: { en: "Essenly Pick" },
+      purchase_links: [{ platform: "coupang", url: "https://coupang.com/p/123" }],
+    });
+    const onKitClaim = vi.fn();
+
+    // variant 미지정 = default
+    render(
+      <ProductCard
+        product={product}
+        locale="en"
+        onKitClaim={onKitClaim}
+      />
+    );
+
+    // default variant에서는 Get free kit 버튼이 없음 — compact 전용 설계
+    expect(screen.queryByRole("button", { name: /Get free kit/i })).not.toBeInTheDocument();
+    // border-primary 강조와 HighlightBadge는 표시됨
+    expect(screen.getByText("Product Details")).toBeInTheDocument();
+  });
 });
