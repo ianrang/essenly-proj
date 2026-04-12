@@ -8,7 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 import { generateObject } from 'ai';
 import { google } from '@ai-sdk/google';
 import { z } from 'zod';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -60,6 +60,7 @@ interface ScenarioResult {
   pass: boolean;
   criteria: JudgeCriterionResult[];
   responsePreview: string;
+  responseFull: string;
   toolCalls: string[];
   error: string | null;
   durationMs: number;
@@ -218,6 +219,7 @@ async function sendChatMessage(
   session: EvalSession,
   messageText: string,
   conversationId: string | null,
+  locale: 'en' | 'ko' = 'en',
 ): Promise<ChatResponse> {
   const messageId = `eval-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 
@@ -234,6 +236,7 @@ async function sendChatMessage(
         parts: [{ type: 'text', text: messageText }],
       },
       conversation_id: conversationId,
+      locale,
     }),
   });
 
@@ -380,13 +383,15 @@ async function runScenario(
     }
 
     // 2. Send messages (multi-turn support)
+    // chat API는 locale: 'en' | 'ko'만 허용. 그 외 언어는 LLM이 입력 감지로 전환.
+    const locale: 'en' | 'ko' = scenario.profile?.language === 'ko' ? 'ko' : 'en';
     let conversationId: string | null = null;
     let lastResponse: ChatResponse = { text: '', toolCalls: [], conversationId: null };
     const conversationLog: string[] = [];
 
     for (const msg of scenario.messages) {
       conversationLog.push(`USER: ${msg.text}`);
-      lastResponse = await sendChatMessage(session, msg.text, conversationId);
+      lastResponse = await sendChatMessage(session, msg.text, conversationId, locale);
       conversationId = lastResponse.conversationId;
       conversationLog.push(`ASSISTANT: ${lastResponse.text}`);
       if (lastResponse.toolCalls.length > 0) {
@@ -406,6 +411,7 @@ async function runScenario(
       pass: allPass,
       criteria,
       responsePreview: lastResponse.text.slice(0, 200),
+      responseFull: lastResponse.text,
       toolCalls: lastResponse.toolCalls,
       error: null,
       durationMs: Date.now() - startTime,
@@ -418,6 +424,7 @@ async function runScenario(
       pass: false,
       criteria: [],
       responsePreview: '',
+      responseFull: '',
       toolCalls: [],
       error: (err as Error).message,
       durationMs: Date.now() - startTime,
@@ -529,6 +536,27 @@ async function main(): Promise<void> {
 
   // Print results
   printResults(results);
+
+  // Save detailed results JSON for calibration review
+  try {
+    const runTimestamp = new Date().toISOString().slice(0, 19).replace(/[T:]/g, '-');
+    const detailPath = resolve(__dirname, 'fixtures', `eval-run-${runTimestamp}-detail.json`);
+    const detailData = results.map((r) => ({
+      id: r.id,
+      category: r.category,
+      name: r.name,
+      pass: r.pass,
+      criteria: r.criteria,
+      responseFull: r.responseFull,
+      toolCalls: r.toolCalls,
+      error: r.error,
+      durationMs: r.durationMs,
+    }));
+    writeFileSync(detailPath, JSON.stringify(detailData, null, 2));
+    console.log(`\nDetailed results saved to: ${detailPath}`);
+  } catch (err) {
+    console.warn(`\nWarning: Failed to save detailed results: ${(err as Error).message}`);
+  }
 
   // Cleanup
   console.log('Cleaning up eval session...');
