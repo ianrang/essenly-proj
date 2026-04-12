@@ -28,7 +28,7 @@ describe('enrich-product-links 순수 함수', () => {
   describe('buildSearchUrl', () => {
     it('영문 제품명으로 검색 URL을 생성한다', () => {
       const url = buildSearchUrl('Innisfree Green Tea Seed Cream');
-      expect(url).toBe('https://global.oliveyoung.com/search?query=Innisfree%20Green%20Tea%20Seed%20Cream');
+      expect(url).toBe('https://global.oliveyoung.com/display/search?query=Innisfree%20Green%20Tea%20Seed%20Cream');
     });
 
     it('특수 문자가 포함된 제품명을 인코딩한다', () => {

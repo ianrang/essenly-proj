@@ -515,6 +515,10 @@
 | NEW-21  | ~~AI 품질 테스트 게이트 (WS1: 결정적 테스트)~~ | 결정적 경로 자동화 완료. OnboardingChips 컴포넌트 8건 + 프로필→검색 필터 통합 4건 + 온보딩 저장 통합 3건 + card-mapper 16건 + group-parts 7건 + ProductCard 17건 + VP-1 회귀 네거티브 3건. unit 772 pass + integration 106 pass. 브랜치: `feat/ws1-deterministic-tests` | ✅   |
 | NEW-22  | ~~LLM-as-Judge Eval 하네스 (WS2: 20 시나리오)~~ | `scripts/eval-chat-quality.ts` + `scripts/fixtures/eval-scenarios.json`. HTTP POST to dev server, Gemini 2.0 Flash judge (temperature=0), 구조화 출력. 5개 카테고리 20 시나리오 (개인화 5, 가드레일 4, 추천 품질 4, 다국어 4, 엣지 3). 1회 수동 보정(judge calibration) 포함. NOT COVERED 목록 명시. 브랜치: `feat/ws1-deterministic-tests`. 정본: `docs/superpowers/plans/2026-04-09-ai-quality-testing-gate.md` WS2 | ✅   |
 | NEW-23  | Eval 하네스 실행 + Judge 보정 | dev 서버 기동 후 `npx tsx scripts/eval-chat-quality.ts --provider google` 실행. 20 시나리오 PASS/FAIL 확인, judge 보정(calibration-notes.md 기록), 실패 시나리오 rubric 조정. 채팅 품질 개선 완료 후 실행. 선행: NEW-22 ✅, 채팅 품질 수정 완료 | ⬜   |
+| NEW-24  | ~~채팅 마크다운 렌더링 + ProductCard 문구 변경~~ | react-markdown@9.0.3 설치. MarkdownMessage 컴포넌트 추가 (assistant 전용). MessageList에서 assistant 텍스트에 마크다운 적용, user는 plain text 유지. ProductCard "Buy Online" → "Product Details" 변경 (compact + default). 테스트 추가 | ✅   |
+| NEW-25  | ~~채팅 언어 파이프라인 — locale 전달 + 프롬프트 강화~~ | ChatContent → chat API body에 locale 추가. chatRequestSchema locale 필드 (en\|ko, default 'en'). buildRulesSection(locale) 함수화, 세션 언어 명시 주입. 언어 혼합 금지 규칙 강화 + 마크다운 포맷팅 가이드. 한국어 few-shot 예시 추가. createMinimalProfile locale 파라미터화. 테스트 추가 | ✅   |
+| NEW-26  | ~~i18n 한국어 지원~~ | routing.ts locales ["en"] → ["en", "ko"] 확장. messages/ko.json 전체 번역 (246줄, en.json 키 구조 100% 동일). i18n 키 패리티 테스트 추가 | ✅   |
+| NEW-27  | ~~제품 이미지/링크 데이터 보강~~ | enrich-product-links.ts: Olive Young Global 스크래퍼 (이미지 + 직접 URL 추출). collect-replacement-products.ts: 실패 제품 → 동일 카테고리 대체 수집. products-validated.json 201개 전 제품 이미지 + 직접 URL 확보. 순수 함수 단위 테스트 추가 | ✅   |
 
 
 ---
