@@ -80,6 +80,28 @@ export function registerChatRoutes(app: AppType) {
     const query = c.req.valid('query');
 
     try {
+      // public.users 존재 확인 — auth.users만 있고 public.users가 없는 불완전 세션 방어
+      // 동의 플로우 부분 실패(signInAnonymously 성공 + POST /api/auth/anonymous 실패) 시 발생.
+      // 401 반환 → 클라이언트 ConsentOverlay 재표시 → 재동의 → public.users 생성.
+      const { data: userRow } = await client
+        .from('users')
+        .select('id')
+        .eq('id', user.id)
+        .maybeSingle();
+
+      if (!userRow) {
+        return c.json(
+          {
+            error: {
+              code: 'AUTH_REQUIRED',
+              message: 'Authentication is required',
+              details: null,
+            },
+          },
+          401,
+        );
+      }
+
       // conversation_id 확인 (없으면 최신 대화 조회)
       let conversationId = query.conversation_id;
 
