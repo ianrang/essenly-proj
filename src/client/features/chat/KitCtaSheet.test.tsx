@@ -23,7 +23,12 @@ beforeEach(() => {
 const renderSheet = (open = true) => {
   const onOpenChange = vi.fn();
   const utils = render(
-    <KitCtaSheet open={open} onOpenChange={onOpenChange} />,
+    <KitCtaSheet
+      open={open}
+      onOpenChange={onOpenChange}
+      conversationId="conv-123"
+      locale="en"
+    />,
   );
   return { ...utils, onOpenChange };
 };
@@ -71,7 +76,7 @@ describe("KitCtaSheet", () => {
       "/api/kit/claim",
       expect.objectContaining({
         method: "POST",
-        body: JSON.stringify({ email: "user@example.com", marketing_consent: false }),
+        body: JSON.stringify({ email: "user@example.com", marketing_consent: false, conversation_id: "conv-123", locale: "en" }),
       }),
     );
   });
@@ -137,7 +142,7 @@ describe("KitCtaSheet", () => {
       expect(mockAuthFetch).toHaveBeenCalledWith(
         "/api/kit/claim",
         expect.objectContaining({
-          body: JSON.stringify({ email: "user@example.com", marketing_consent: true }),
+          body: JSON.stringify({ email: "user@example.com", marketing_consent: true, conversation_id: "conv-123", locale: "en" }),
         }),
       );
     });
@@ -147,13 +152,13 @@ describe("KitCtaSheet", () => {
     mockAuthFetch.mockResolvedValue({ status: 201, ok: true, json: () => Promise.resolve({}) });
     const onOpenChange = vi.fn();
     const { rerender } = render(
-      <KitCtaSheet open={true} onOpenChange={onOpenChange} />,
+      <KitCtaSheet open={true} onOpenChange={onOpenChange} conversationId="conv-123" locale="en" />,
     );
     fireEvent.change(screen.getByLabelText("Email"), { target: { value: "user@example.com" } });
     fireEvent.click(screen.getByRole("button", { name: /Claim my free kit/i }));
     await waitFor(() => { expect(screen.getByText("Thank you!")).toBeInTheDocument(); });
-    rerender(<KitCtaSheet open={false} onOpenChange={onOpenChange} />);
-    rerender(<KitCtaSheet open={true} onOpenChange={onOpenChange} />);
+    rerender(<KitCtaSheet open={false} onOpenChange={onOpenChange} conversationId="conv-123" locale="en" />);
+    rerender(<KitCtaSheet open={true} onOpenChange={onOpenChange} conversationId="conv-123" locale="en" />);
     expect(screen.getByText("Thank you!")).toBeInTheDocument();
   });
 });

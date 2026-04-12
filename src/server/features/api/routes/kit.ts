@@ -20,6 +20,8 @@ type DbClient = ReturnType<typeof createAuthenticatedClient>;
 const kitClaimBodySchema = z.object({
   email: z.string().email().max(320),
   marketing_consent: z.boolean(),
+  conversation_id: z.string().uuid().nullish(),
+  locale: z.string().max(10).nullish(),
 });
 
 const kitClaimResponseSchema = z.object({
@@ -86,6 +88,8 @@ export function registerKitRoutes(app: AppType) {
           email_encrypted: emailEncrypted,
           email_hash: emailHash,
           marketing_consent: parsed.marketing_consent,
+          conversation_id: parsed.conversation_id ?? null,
+          locale: parsed.locale ?? null,
         });
 
       if (insertError) {

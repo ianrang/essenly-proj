@@ -143,7 +143,7 @@ export default function ChatContent({ locale, initialMessages, initialConversati
             </div>
           </div>
         ) : (
-          <MessageList messages={chatMessages} isStreaming={isStreaming} locale={locale} />
+          <MessageList messages={chatMessages} isStreaming={isStreaming} locale={locale} conversationId={conversationId} />
         )}
 
         {error && (

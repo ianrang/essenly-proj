@@ -26,9 +26,10 @@ type MessageListProps = {
   messages: ChatMessage[];
   isStreaming: boolean;
   locale: string;
+  conversationId: string | null;
 };
 
-export default function MessageList({ messages, isStreaming, locale }: MessageListProps) {
+export default function MessageList({ messages, isStreaming, locale, conversationId }: MessageListProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
 
@@ -51,7 +52,7 @@ export default function MessageList({ messages, isStreaming, locale }: MessageLi
           <div ref={bottomRef} />
         </div>
       </div>
-      <KitCtaSheet open={sheetOpen} onOpenChange={setSheetOpen} />
+      <KitCtaSheet open={sheetOpen} onOpenChange={setSheetOpen} conversationId={conversationId} locale={locale} />
     </>
   );
 }

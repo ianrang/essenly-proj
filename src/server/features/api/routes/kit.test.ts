@@ -196,4 +196,39 @@ describe('POST /api/kit/claim', () => {
     });
     expect(res.status).toBe(400);
   });
+
+  it('conversation_id + locale 전달 → insert에 포함', async () => {
+    await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'test@example.com',
+        marketing_consent: true,
+        conversation_id: '550e8400-e29b-41d4-a716-446655440000',
+        locale: 'en',
+      }),
+    });
+
+    expect(mockKitInsert).toHaveBeenCalledWith(
+      expect.objectContaining({
+        conversation_id: '550e8400-e29b-41d4-a716-446655440000',
+        locale: 'en',
+      }),
+    );
+  });
+
+  it('conversation_id / locale 미전달 → null로 insert', async () => {
+    await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'test@example.com', marketing_consent: true }),
+    });
+
+    expect(mockKitInsert).toHaveBeenCalledWith(
+      expect.objectContaining({
+        conversation_id: null,
+        locale: null,
+      }),
+    );
+  });
 });
