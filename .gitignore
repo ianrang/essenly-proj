@@ -62,6 +62,8 @@ supabase/.temp/
 
 # pipeline raw data (로컬 전용, 파이프라인 소스 데이터)
 /data/
+scripts/seed/data/*.backup.json
+scripts/seed/data/*-failures.json
 
 # screenshots (로컬 참조용)
 *.png
@@ -71,3 +73,6 @@ supabase/.temp/
 !public/apple-touch-icon.png
 .gstack/
 .superpowers/
+
+# Eval harness run artifacts (NEW-23)
+scripts/fixtures/eval-run-*

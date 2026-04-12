@@ -23,6 +23,8 @@ import { Label } from "@/client/ui/primitives/label";
 type KitCtaSheetProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  conversationId: string | null;
+  locale: string;
 };
 
 interface KitClaimForm {
@@ -30,7 +32,7 @@ interface KitClaimForm {
   marketingConsent: boolean;
 }
 
-export default function KitCtaSheet({ open, onOpenChange }: KitCtaSheetProps) {
+export default function KitCtaSheet({ open, onOpenChange, conversationId, locale }: KitCtaSheetProps) {
   const [claimed, setClaimed] = useState(false);
 
   const {
@@ -53,6 +55,8 @@ export default function KitCtaSheet({ open, onOpenChange }: KitCtaSheetProps) {
         body: JSON.stringify({
           email: data.email,
           marketing_consent: data.marketingConsent,
+          conversation_id: conversationId,
+          locale,
         }),
       });
 

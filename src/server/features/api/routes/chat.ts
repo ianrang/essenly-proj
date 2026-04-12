@@ -80,6 +80,28 @@ export function registerChatRoutes(app: AppType) {
     const query = c.req.valid('query');
 
     try {
+      // public.users 존재 확인 — auth.users만 있고 public.users가 없는 불완전 세션 방어
+      // 동의 플로우 부분 실패(signInAnonymously 성공 + POST /api/auth/anonymous 실패) 시 발생.
+      // 401 반환 → 클라이언트 ConsentOverlay 재표시 → 재동의 → public.users 생성.
+      const { data: userRow } = await client
+        .from('users')
+        .select('id')
+        .eq('id', user.id)
+        .maybeSingle();
+
+      if (!userRow) {
+        return c.json(
+          {
+            error: {
+              code: 'AUTH_REQUIRED',
+              message: 'Authentication is required',
+              details: null,
+            },
+          },
+          401,
+        );
+      }
+
       // conversation_id 확인 (없으면 최신 대화 조회)
       let conversationId = query.conversation_id;
 
@@ -168,6 +190,7 @@ export function registerChatRoutes(app: AppType) {
         })).min(1),
       }),
       conversation_id: z.string().uuid().nullable().optional(),
+      locale: z.enum(['en', 'ko']).default('en'),
     });
 
     const parsed = chatRequestSchema.safeParse(body);
@@ -249,6 +272,7 @@ export function registerChatRoutes(app: AppType) {
         journey,
         preferences,
         derived: null, // MVP: DV-4 미구현. beauty/ DV-1/2는 search-handler 내부 계산.
+        locale: parsed.data.locale,
       });
 
       // P2-50b: consumeStream — 클라이언트 연결 끊김 시에도 onFinish 보장
@@ -315,8 +339,7 @@ export function registerChatRoutes(app: AppType) {
               // 프로필 미존재 시 최소 프로필 생성 (Chat-First: 온보딩 스킵 가능)
               if (!profile) {
                 try {
-                  // TODO(v0.2): derive locale from request (Accept-Language or chat body)
-                  await createMinimalProfile(serviceClient, user.id, 'en');
+                  await createMinimalProfile(serviceClient, user.id, parsed.data.locale);
                 } catch {
                   // PK 충돌 = 동시 요청으로 이미 생성됨 → updateProfile로 진행
                 }

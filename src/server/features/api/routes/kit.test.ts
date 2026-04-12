@@ -137,4 +137,98 @@ describe('POST /api/kit/claim', () => {
     );
     expect(mockConsentEq).toHaveBeenCalledWith('user_id', 'user-123');
   });
+
+  it('marketing_consent false → consent_records UPDATE 미호출', async () => {
+    await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'test@example.com', marketing_consent: false }),
+    });
+    expect(mockConsentUpdate).not.toHaveBeenCalled();
+  });
+
+  it('Q-15: consent UPDATE 실패 → kit 등록 성공 (201) 유지', async () => {
+    mockConsentEq.mockResolvedValue({ error: { message: 'consent update failed' } });
+    const res = await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(VALID_BODY),
+    });
+    expect(res.status).toBe(201);
+  });
+
+  it('DB insert 에러 (비-중복) → 500 KIT_CLAIM_FAILED', async () => {
+    mockKitInsert.mockResolvedValue({ error: { code: '42P01', message: 'relation does not exist' } });
+    const res = await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(VALID_BODY),
+    });
+    const json = await res.json();
+    expect(res.status).toBe(500);
+    expect(json.error.code).toBe('KIT_CLAIM_FAILED');
+  });
+
+  it('이메일 hash 시 toLowerCase + trim 정규화 적용', async () => {
+    await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'TEST@Example.COM', marketing_consent: true }),
+    });
+    expect(mockEncrypt).toHaveBeenCalledWith('TEST@Example.COM');
+    expect(mockHash).toHaveBeenCalledWith('test@example.com');
+  });
+
+  it('공백 포함 이메일 → 400 (zod email 검증 거부)', async () => {
+    const res = await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: '  test@example.com  ', marketing_consent: true }),
+    });
+    expect(res.status).toBe(400);
+  });
+
+  it('marketing_consent 필드 누락 → 400', async () => {
+    const res = await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'test@example.com' }),
+    });
+    expect(res.status).toBe(400);
+  });
+
+  it('conversation_id + locale 전달 → insert에 포함', async () => {
+    await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'test@example.com',
+        marketing_consent: true,
+        conversation_id: '550e8400-e29b-41d4-a716-446655440000',
+        locale: 'en',
+      }),
+    });
+
+    expect(mockKitInsert).toHaveBeenCalledWith(
+      expect.objectContaining({
+        conversation_id: '550e8400-e29b-41d4-a716-446655440000',
+        locale: 'en',
+      }),
+    );
+  });
+
+  it('conversation_id / locale 미전달 → null로 insert', async () => {
+    await app.request('/api/kit/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'test@example.com', marketing_consent: true }),
+    });
+
+    expect(mockKitInsert).toHaveBeenCalledWith(
+      expect.objectContaining({
+        conversation_id: null,
+        locale: null,
+      }),
+    );
+  });
 });

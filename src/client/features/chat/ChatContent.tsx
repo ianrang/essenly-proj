@@ -54,6 +54,7 @@ export default function ChatContent({ locale, initialMessages, initialConversati
   //   충분히 안전하다 (messages #1 완료 → onFinish → setConversationId → useEffect flush → #2 전송).
   const conversationIdRef = useRef<string | null>(initialConversationId);
   useEffect(() => { conversationIdRef.current = conversationId; }, [conversationId]);
+  const localeRef = useRef(locale);
 
   // P2-79: credentials → headers(Bearer 동적 주입)
   // transport는 1회만 생성. conversationId는 ref로 최신 값 참조.
@@ -70,6 +71,7 @@ export default function ChatContent({ locale, initialMessages, initialConversati
           body: {
             message: messages[messages.length - 1],
             conversation_id: conversationIdRef.current,
+            locale: localeRef.current,
           },
         }),
       }),
@@ -142,7 +144,7 @@ export default function ChatContent({ locale, initialMessages, initialConversati
             </div>
           </div>
         ) : (
-          <MessageList messages={chatMessages} isStreaming={isStreaming} locale={locale} />
+          <MessageList messages={chatMessages} isStreaming={isStreaming} locale={locale} conversationId={conversationId} />
         )}
 
         {error && (

@@ -15,7 +15,16 @@ vi.mock('@/server/core/auth', () => ({
 
 // ── Core db mock ──────────────────────────────────────────────
 const mockClientStub = (overrides?: { uiMessages?: unknown }) => {
-  const qb = {
+  // users 테이블용 query builder (public.users 존재 확인)
+  const usersQb = {
+    select: vi.fn().mockReturnThis(),
+    eq: vi.fn().mockReturnThis(),
+    maybeSingle: vi.fn().mockResolvedValue({ data: { id: 'user-123' }, error: null }),
+  };
+  usersQb.eq.mockReturnValue(usersQb);
+
+  // conversations 테이블용 query builder
+  const convQb = {
     select: vi.fn().mockReturnThis(),
     eq: vi.fn().mockReturnThis(),
     order: vi.fn().mockReturnThis(),
@@ -29,8 +38,14 @@ const mockClientStub = (overrides?: { uiMessages?: unknown }) => {
       error: overrides?.uiMessages !== undefined ? null : { message: 'not found' },
     }),
   };
-  qb.eq.mockReturnValue(qb);
-  return { from: vi.fn().mockReturnValue(qb) };
+  convQb.eq.mockReturnValue(convQb);
+
+  return {
+    from: vi.fn((table: string) => {
+      if (table === 'users') return usersQb;
+      return convQb;
+    }),
+  };
 };
 
 const mockCreateAuthenticatedClient = vi.fn();
