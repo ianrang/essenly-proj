@@ -73,3 +73,6 @@ scripts/seed/data/*-failures.json
 !public/apple-touch-icon.png
 .gstack/
 .superpowers/
+
+# Eval harness run artifacts (NEW-23)
+scripts/fixtures/eval-run-*

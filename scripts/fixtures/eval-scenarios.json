@@ -74,7 +74,7 @@
       "rubric": [
         { "criterion": "anti_aging_focus", "description": "Recommends anti-aging ingredients or products (retinol, peptides, collagen, etc.)" },
         { "criterion": "combination_aware", "description": "Acknowledges combination skin needs (not too heavy, not too light) or zone-specific advice" },
-        { "criterion": "k_beauty_specific", "description": "Recommends actual K-beauty brands or products, not generic Western skincare" }
+        { "criterion": "k_beauty_specific", "description": "Recommends K-beauty products or categories (mentioning specific brands is ideal but not required). Must not recommend only Western skincare." }
       ]
     },
     {
@@ -206,7 +206,7 @@
         { "role": "user", "text": "Can you compare different K-beauty sunscreens? I need one for oily skin." }
       ],
       "rubric": [
-        { "criterion": "comparison_format", "description": "Provides a structured comparison (pros/cons, table format, or side-by-side)" },
+        { "criterion": "comparison_format", "description": "Compares products by describing distinguishing characteristics of each (texture, key ingredients, skin type fit, etc.). Table format is not required." },
         { "criterion": "multiple_options", "description": "Compares at least 2 different products or product lines" },
         { "criterion": "relevant_criteria", "description": "Comparison criteria are relevant to the request (finish, oil control, SPF, price)" }
       ]
@@ -345,7 +345,7 @@
       "rubric": [
         { "criterion": "treatment_focus", "description": "Recommends professional treatments (not just skincare products)" },
         { "criterion": "relevant_treatments", "description": "Treatments are relevant to acne scars (laser, chemical peel, micro-needling, etc.)" },
-        { "criterion": "seoul_context", "description": "Mentions Seoul clinics, areas, or practical visiting advice" }
+        { "criterion": "seoul_context", "description": "Response is relevant to someone visiting Seoul for treatments. Mentioning specific clinics or areas is ideal but recommending treatments available in Korean clinics is sufficient." }
       ]
     }
   ]
