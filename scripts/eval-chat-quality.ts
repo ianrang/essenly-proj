@@ -284,7 +284,8 @@ async function sendChatMessage(
           case 'text-delta':
             if (event.delta) fullText += event.delta;
             break;
-          case 'tool-call':
+          case 'tool-input-start':
+          case 'tool-input-available':
             if (event.toolName) toolCalls.push(event.toolName);
             break;
           case 'start':

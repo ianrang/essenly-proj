@@ -82,3 +82,32 @@ FLAKY + Stable FAIL 시나리오의 공통 패턴:
 - [x] Rubric 보정 3건 완료 (P4, R3, E3)
 - [x] SSE 파서 교체 (Data Stream → UI Message Stream)
 - [x] Rate limit 딜레이 4초 추가
+
+---
+
+## Run 4-6 — Post Chat Quality Tuning (2026-04-12)
+
+### 적용된 변경
+- `config.ts`: DEFAULT_MODELS.google `gemini-2.0-flash` → `gemini-2.5-flash`
+- `llm-client.ts`: streamText에 `toolChoice: 'auto'` 추가 (주 + 폴백)
+- `prompts.ts`: TOOLS_SECTION에 "MUST call search_beauty_data before recommending" 강화
+- `eval-chat-quality.ts`: SSE 파서를 `tool-call` → `tool-input-start/tool-input-available`로 수정
+
+### 결과
+- Run 4: 17/20 PASS
+- Run 5: 19/20 PASS
+- Run 6: 16/20 PASS
+- 평균: 17.3/20 (86.5%)
+
+### 주요 개선
+| 지표 | 튜닝 전 | 튜닝 후 |
+|------|--------|--------|
+| Tool 호출율 | 0/20 (0%) | 11~16/20 (55-80%) |
+| R2, R4 (이전 stable FAIL) | 2건 FAIL | 모두 STABLE PASS |
+| P5 | 2/3 FAIL | 3/3 PASS |
+| 실제 DB 제품 추천 | 없음 (할루시네이션) | 실제 제품명 포함 |
+
+### 남은 이슈 (v0.2 범위)
+- P1: Gemini 2.5 Flash가 empty response 반환 (outputTokens: 0). 재현 조건 불명확.
+- R1: "recommend some K-beauty products" 너무 일반적 → LLM이 clarification 선호. rubric 보정 고려.
+- E1: 매우 긴 입력에서 tool 28회 호출 루프. stopWhen 제한 검토 필요.
