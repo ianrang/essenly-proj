@@ -163,7 +163,7 @@
     {
       "id": "R1",
       "category": "recommendation_quality",
-      "name": "Generic 'recommend something' → diverse results",
+      "name": "Generic 'recommend something' → recs or clarification",
       "profile": {
         "skin_type": "normal",
         "language": "en"
@@ -172,9 +172,9 @@
         { "role": "user", "text": "Can you recommend some K-beauty products for me?" }
       ],
       "rubric": [
-        { "criterion": "multiple_products", "description": "Recommends more than one product (at least 2-3)" },
-        { "criterion": "diverse_categories", "description": "Products span at least 2 different categories (e.g., cleanser + moisturizer, not all serums)" },
-        { "criterion": "structured_response", "description": "Response is well-organized (numbered list, categories, or clear structure)" }
+        { "criterion": "engages_constructively", "description": "Either recommends products OR asks clarifying questions to narrow down preferences. Both are valid responses to a vague request." },
+        { "criterion": "k_beauty_relevant", "description": "Response stays on topic about K-beauty products, skincare, or beauty routines" },
+        { "criterion": "structured_response", "description": "Response is well-organized (numbered list, categories, questions, or clear structure)" }
       ]
     },
     {

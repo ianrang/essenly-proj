@@ -14,8 +14,8 @@
 | Phase 0    | 37      | 37      | 0       | 0      | ✅      |
 | Phase 1    | 62      | 60      | 2       | 0      | ✅      |
 | Phase 2    | 122     | 109     | 13      | 0      | ✅      |
-| Phase 3    | 38      | 13      | 21      | 4      | 🔶 진행중 |
-| **MVP 합계** | **271** | **231** | **36**  | **4**  |        |
+| Phase 3    | 38      | 15      | 21      | 2      | 🔶 진행중 |
+| **MVP 합계** | **271** | **233** | **36**  | **2**  |        |
 | 관리자 앱 (펜딩) | 20      | 0       | 0       | 20     | ⏸️ 펜딩  |
 
 
@@ -518,7 +518,7 @@
 | NEW-28  | ~~채팅 품질 튜닝 v2 — Gemini 2.5 Flash + toolChoice + tool 강제 지시~~ | **근본 원인**: Gemini 2.0 Flash가 긴 시스템 프롬프트(~4500토큰)에서 tool을 전혀 호출하지 않고 자체 지식으로 할루시네이션된 추천 생성(0/20 tool 호출). **수정**: (1) `config.ts` DEFAULT_MODELS.google `gemini-2.0-flash` → `gemini-2.5-flash` (BFCL v3 tool-use 78%→89%) (2) `llm-client.ts` streamText에 `toolChoice: 'auto'` 명시(주+폴백) (3) `prompts.ts` TOOLS_SECTION 앞단에 "MUST call search_beauty_data before recommending" 추가. **검증**: STABLE FAIL R4 해소, P5 2/3 FAIL→3/3 PASS, 실제 DB 제품 추천 활성화 | ✅   |
 | NEW-29  | P1 empty response 조사 — Gemini 2.5 Flash 특이 케이스 | Gemini 2.5 Flash가 P1(dry skin moisturizer) 시나리오에서 `outputTokens: 0`으로 빈 응답 반환. 3/3 FAIL로 재현되나 재현 조건 불명확. `reasoningTokens: 0`이므로 thinking 이슈 아님. 관련: AI SDK v6 + Gemini 2.5 Flash + tool calling 조합. MVP 소프트 런칭 비차단(사용자는 재시도/다른 문구 사용 가능). v0.2에서 조사. 정본: `scripts/fixtures/calibration-notes.md` Run 4-6 | ➡️  |
 | NEW-30  | E1 tool-call 루프 — stopWhen 제한 미동작 | **완료 (2026-04-12, b8b0cc3)**. `stepCountIs(n)`이 ai@6.0.x에서 `steps.length === n` strict equality로 구현되어 step 초과 시 중단 불발. `({steps}) => steps.length >= TOKEN_CONFIG.default.maxToolSteps` predicate로 교체. 회귀 테스트 4건 추가(4/5/6/28 step 경계). 815/815 tests pass | ✅   |
-| NEW-31  | R1 rubric 보정 검토 — 일반적 요청에 대한 기대값 | "Can you recommend some K-beauty products for me?" 같은 매우 일반적 요청에 대해 LLM이 명확화 질문을 하는 것은 실제로 좋은 UX. 현재 rubric은 `multiple_products`/`diverse_categories`를 요구하여 질문을 FAIL로 판정. 3회 중 2회 FAIL(FLAKY). 조치: rubric을 "명확화 질문 OR 다양한 제품 제시" 허용으로 완화 | ⬜   |
+| NEW-31  | ~~R1 rubric 보정 — 일반적 요청에 대한 기대값~~ | R1 rubric `multiple_products`+`diverse_categories` → `engages_constructively`+`k_beauty_relevant`로 보정. 명확화 질문도 유효한 응답으로 허용. Run 7(2026-04-13) 검증: R1 STABLE FAIL → PASS. 전체 17/20 PASS(86%), Guardrails/Recommendation/Multilingual/Edge Cases 전원 PASS. P1,P4,P5는 기존 FLAKY(LLM 비결정성, 프롬프트 튜닝 별도 태스크) | ✅   |
 | NEW-24  | ~~채팅 마크다운 렌더링 + ProductCard 문구 변경~~ | react-markdown@9.0.3 설치. MarkdownMessage 컴포넌트 추가 (assistant 전용). MessageList에서 assistant 텍스트에 마크다운 적용, user는 plain text 유지. ProductCard "Buy Online" → "Product Details" 변경 (compact + default). 테스트 추가 | ✅   |
 | NEW-25  | ~~채팅 언어 파이프라인 — locale 전달 + 프롬프트 강화~~ | ChatContent → chat API body에 locale 추가. chatRequestSchema locale 필드 (en\|ko, default 'en'). buildRulesSection(locale) 함수화, 세션 언어 명시 주입. 언어 혼합 금지 규칙 강화 + 마크다운 포맷팅 가이드. 한국어 few-shot 예시 추가. createMinimalProfile locale 파라미터화. 테스트 추가 | ✅   |
 | NEW-26  | ~~i18n 한국어 지원~~ | routing.ts locales ["en"] → ["en", "ko"] 확장. messages/ko.json 전체 번역 (246줄, en.json 키 구조 100% 동일). i18n 키 패리티 테스트 추가 | ✅   |
@@ -606,7 +606,7 @@
 
 | ID     | 작업               | 상세                                                                                                  | 상태  |
 | ------ | ---------------- | --------------------------------------------------------------------------------------------------- | --- |
-| P3-33  | 버그 수정 + 최적화      | 진행 중 (2026-04-12). 수정 완료: (1) 불완전 동의 세션 방어 — chat/history에서 public.users 검증 추가 (2) ChatContent useMemo locale 의존성 경고 수정 (3) enrich-product-links ESM 직접 실행 가드 (4) package-lock.json @emnapi 동기화. 잔여: E2E 전체 재검증 | ⬜   |
+| P3-33  | ~~버그 수정 + 최적화~~  | 수정 완료 (PR #17 머지): (1) 불완전 동의 세션 방어 (2) ChatContent useMemo locale 의존성 (3) enrich-product-links ESM 가드 (4) package-lock.json 동기화. E2E 재검증 (2026-04-13): 815/815 테스트 통과, tsc 0에러. 코드 레벨 검증 9/9 항목 PASS (언어전환, StoreCard, ClinicCard, search 도메인, 에러retry, 가로스크롤, TreatmentCard booking, map-utils, card-mapper). eval harness 17/20 PASS | ✅   |
 | P3-33a | 법률 전문가 검토        | 소프트 런칭 후 정식 런칭 전 진행. 이용약관(/terms), 개인정보처리방침(/privacy), 면책 조항 법률 전문가 검토. GDPR/국제 규정 검토. 소프트 런칭 차단 아님 | ⬜   |
 | P3-34  | 프로덕션 배포          | 최종 배포                                                                                               | ⬜   |
 | P3-35  | 소프트 런칭           | 제한 사용자 테스트 (대상/규모 별도 결정)                                                                            | ⬜   |
