@@ -27,6 +27,11 @@ const TOURIST_SERVICE_LABELS: Record<string, string> = {
   product_samples: 'Free product samples',
 };
 
+/**
+ * Store[]에 여행객 접근성 기반 점수를 부여하여 ScoredItem[]로 변환한다.
+ * search-handler에서 rank()와 함께 사용.
+ * @param userLanguage 사용자 언어 (profile.language). null이면 언어 보너스 미적용.
+ */
 export function scoreStores(
   stores: Store[],
   userLanguage: string | null = null,
