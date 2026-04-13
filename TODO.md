@@ -13,9 +13,9 @@
 | 사전 완료      | 12      | 12      | 0       | 0      | ✅      |
 | Phase 0    | 37      | 37      | 0       | 0      | ✅      |
 | Phase 1    | 62      | 60      | 2       | 0      | ✅      |
-| Phase 2    | 134     | 107     | 16      | 11     | 🔶 진행중 |
-| Phase 3    | 37      | 6       | 19      | 12     | 🔶 진행중 |
-| **MVP 합계** | **282** | **222** | **37**  | **23** |        |
+| Phase 2    | 122     | 109     | 13      | 0      | ✅      |
+| Phase 3    | 38      | 13      | 21      | 4      | 🔶 진행중 |
+| **MVP 합계** | **271** | **231** | **36**  | **4**  |        |
 | 관리자 앱 (펜딩) | 20      | 0       | 0       | 20     | ⏸️ 펜딩  |
 
 
@@ -517,7 +517,7 @@
 | NEW-23  | ~~Eval 하네스 실행 + Judge 보정~~ | eval harness locale 전달 누락 수정 + SSE 파서 교체(Data Stream → UI Message Stream) + rate limit 4초 딜레이 + JSON 상세 결과 저장. tool-call 파서 교체(`tool-input-start`/`tool-input-available`). Rubric 3건 보정(k_beauty_specific, comparison_format, seoul_context). 6회 실행: 튜닝 전 평균 17/20, 튜닝 후 평균 17.3/20(tool 호출율 0% → 55-80%). 남은 이슈는 NEW-29~31로 분리 | ✅   |
 | NEW-28  | ~~채팅 품질 튜닝 v2 — Gemini 2.5 Flash + toolChoice + tool 강제 지시~~ | **근본 원인**: Gemini 2.0 Flash가 긴 시스템 프롬프트(~4500토큰)에서 tool을 전혀 호출하지 않고 자체 지식으로 할루시네이션된 추천 생성(0/20 tool 호출). **수정**: (1) `config.ts` DEFAULT_MODELS.google `gemini-2.0-flash` → `gemini-2.5-flash` (BFCL v3 tool-use 78%→89%) (2) `llm-client.ts` streamText에 `toolChoice: 'auto'` 명시(주+폴백) (3) `prompts.ts` TOOLS_SECTION 앞단에 "MUST call search_beauty_data before recommending" 추가. **검증**: STABLE FAIL R4 해소, P5 2/3 FAIL→3/3 PASS, 실제 DB 제품 추천 활성화 | ✅   |
 | NEW-29  | P1 empty response 조사 — Gemini 2.5 Flash 특이 케이스 | Gemini 2.5 Flash가 P1(dry skin moisturizer) 시나리오에서 `outputTokens: 0`으로 빈 응답 반환. 3/3 FAIL로 재현되나 재현 조건 불명확. `reasoningTokens: 0`이므로 thinking 이슈 아님. 관련: AI SDK v6 + Gemini 2.5 Flash + tool calling 조합. MVP 소프트 런칭 비차단(사용자는 재시도/다른 문구 사용 가능). v0.2에서 조사. 정본: `scripts/fixtures/calibration-notes.md` Run 4-6 | ➡️  |
-| NEW-30  | E1 tool-call 루프 — stopWhen 제한 미동작 | 매우 긴 입력(500+ 문자)에서 `stopWhen: stepCountIs(5)` 설정에도 불구하고 `search_beauty_data` + `lookup_beauty_knowledge`가 28회 이상 호출되어 토큰/시간 낭비. `stepCountIs(5)`는 `steps.length === 5`일 때만 true 반환하므로 실제로는 5 step 정확히 도달해야 멈춤. 조치: `stopWhen: ({steps}) => steps.length >= 5` 또는 `hasToolCall` 기반 조건으로 변경 검토 | ⬜   |
+| NEW-30  | E1 tool-call 루프 — stopWhen 제한 미동작 | **완료 (2026-04-12, b8b0cc3)**. `stepCountIs(n)`이 ai@6.0.x에서 `steps.length === n` strict equality로 구현되어 step 초과 시 중단 불발. `({steps}) => steps.length >= TOKEN_CONFIG.default.maxToolSteps` predicate로 교체. 회귀 테스트 4건 추가(4/5/6/28 step 경계). 815/815 tests pass | ✅   |
 | NEW-31  | R1 rubric 보정 검토 — 일반적 요청에 대한 기대값 | "Can you recommend some K-beauty products for me?" 같은 매우 일반적 요청에 대해 LLM이 명확화 질문을 하는 것은 실제로 좋은 UX. 현재 rubric은 `multiple_products`/`diverse_categories`를 요구하여 질문을 FAIL로 판정. 3회 중 2회 FAIL(FLAKY). 조치: rubric을 "명확화 질문 OR 다양한 제품 제시" 허용으로 완화 | ⬜   |
 | NEW-24  | ~~채팅 마크다운 렌더링 + ProductCard 문구 변경~~ | react-markdown@9.0.3 설치. MarkdownMessage 컴포넌트 추가 (assistant 전용). MessageList에서 assistant 텍스트에 마크다운 적용, user는 plain text 유지. ProductCard "Buy Online" → "Product Details" 변경 (compact + default). 테스트 추가 | ✅   |
 | NEW-25  | ~~채팅 언어 파이프라인 — locale 전달 + 프롬프트 강화~~ | ChatContent → chat API body에 locale 추가. chatRequestSchema locale 필드 (en\|ko, default 'en'). buildRulesSection(locale) 함수화, 세션 언어 명시 주입. 언어 혼합 금지 규칙 강화 + 마크다운 포맷팅 가이드. 한국어 few-shot 예시 추가. createMinimalProfile locale 파라미터화. 테스트 추가 | ✅   |
@@ -540,7 +540,7 @@
 | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ | --- |
 | P3-1  | ~~경로A 플로우~~      | **→ v0.2 연기**. 온보딩 4단계가 v0.2 연기됨 (P2-33/34). Landing → Chat 경로B만 MVP 대상                                                        | ➡️  |
 | P3-2  | 경로B 플로우          | Landing → "Start chatting" → Chat → 점진적 개인화. QA PASS (2026-04-09): 채팅 송수신, 제품 카드, 프로필 저장 정상 동작                                    | ✅   |
-| P3-3  | Kit CTA 플로우      | QA PASS (2026-04-12): 통합 카드 is_highlighted 분기, KitCtaSheet 이메일 폼, POST /api/kit/claim 201 정상, DB kit_subscribers 생성 확인, 동일 이메일 409 멱등 처리 확인. 48개 테스트 통과. 정본: `docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md` | ✅   |
+| P3-3  | Kit CTA 플로우      | QA PASS (2026-04-12): 통합 카드 is_highlighted 분기, KitCtaSheet 이메일 폼, POST /api/kit/claim 201 정상, DB kit_subscribers 생성 확인, 동일 이메일 409 멱등 처리 확인. 69개 테스트 통과 (P3-3a 보강 포함). 정본: `docs/superpowers/specs/2026-04-09-onboarding-and-kit-cta-design.md` | ✅   |
 | P3-3a | Kit CTA 테스트 보강   | 완료 (2026-04-12). 69개 테스트 통과. (1) kit.test.ts +6건 (2) KitCtaSheet.test.tsx 신규 11건 (3) conversation_id/locale V-22 수정 (4) ProductCard default variant 문서화 (5) MessageList 통합 테스트. 계획: `docs/superpowers/plans/2026-04-12-kit-cta-test-coverage.md` | ✅   |
 | P3-5  | 모바일 반응형          | QA PASS (2026-04-09): 랜딩/채팅/Terms 모바일(375x812) 레이아웃 정상. 카드 가로 스크롤, 다크모드, 언어 선택 동작 확인                                            | ✅   |
 | P3-6  | 에러 시나리오          | QA PASS (2026-04-09): 빈 입력 차단, 긴 입력 처리, XSS 방어, 404 페이지, API 인증 에러 정상 응답                                                        | ✅   |
@@ -606,7 +606,7 @@
 
 | ID     | 작업               | 상세                                                                                                  | 상태  |
 | ------ | ---------------- | --------------------------------------------------------------------------------------------------- | --- |
-| P3-33  | 버그 수정 + 최적화      | P3-1~22(관리자 제외)에서 발견된 이슈 해결                                                                         | ⬜   |
+| P3-33  | 버그 수정 + 최적화      | 진행 중 (2026-04-12). 수정 완료: (1) 불완전 동의 세션 방어 — chat/history에서 public.users 검증 추가 (2) ChatContent useMemo locale 의존성 경고 수정 (3) enrich-product-links ESM 직접 실행 가드 (4) package-lock.json @emnapi 동기화. 잔여: E2E 전체 재검증 | ⬜   |
 | P3-33a | 법률 전문가 검토        | 소프트 런칭 후 정식 런칭 전 진행. 이용약관(/terms), 개인정보처리방침(/privacy), 면책 조항 법률 전문가 검토. GDPR/국제 규정 검토. 소프트 런칭 차단 아님 | ⬜   |
 | P3-34  | 프로덕션 배포          | 최종 배포                                                                                               | ⬜   |
 | P3-35  | 소프트 런칭           | 제한 사용자 테스트 (대상/규모 별도 결정)                                                                            | ⬜   |

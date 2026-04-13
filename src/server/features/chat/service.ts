@@ -2,7 +2,7 @@ import 'server-only';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { UserProfile, Journey, LearnedPreference, DerivedVariables } from '@/shared/types/profile';
 import type { ModelMessage } from 'ai';
-import { tool, stepCountIs } from 'ai';
+import { tool } from 'ai';
 import { callWithFallback } from './llm-client';
 import { buildSystemPrompt } from './prompts';
 import { executeSearchBeautyData, searchBeautyDataSchema, type SearchToolContext } from './tools/search-handler';
@@ -119,7 +119,9 @@ export async function streamChat(params: StreamChatParams): Promise<StreamChatRe
     messages,
     system,
     tools,
-    stopWhen: stepCountIs(TOKEN_CONFIG.default.maxToolSteps),
+    // NEW-30: stepCountIs(n)는 steps.length === n strict equality (ai@6.0.x).
+    // 예상치 못한 step 초과 시 중단되지 않아 tool 루프 폭주 → >=로 변경.
+    stopWhen: ({ steps }) => steps.length >= TOKEN_CONFIG.default.maxToolSteps,
   });
 
   return { stream, conversationId, extractionResults };
