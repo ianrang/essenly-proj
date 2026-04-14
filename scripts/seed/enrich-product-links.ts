@@ -37,10 +37,10 @@ const SELECTORS_GLOBAL = {
   searchResult: ".unit-desc",
   productLink: ".unit-desc a[href*='product/detail']",
   thumbnail: ".unit-thumb img",
-  brand: ".prd-brand a",
-  priceSale: ".price-info .tx_cur",
-  priceOriginal: ".price-info .tx_org",
-  priceAlt: ".price-info .price",
+  brand: ".brand-name",
+  priceSale: ".price-info strong",
+  priceOriginal: ".price-info > span",
+  priceAlt: ".price-info",
   ogImage: "meta[property='og:image']",
 } as const;
 
