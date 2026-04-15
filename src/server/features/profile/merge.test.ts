@@ -97,6 +97,26 @@ describe("computeProfilePatch", () => {
       expect(r.updates).toEqual({});
       expect(r.skipped).toContainEqual({ field: "skin_types", reason: "no_change" });
     });
+    it("multi-element identity → no_change", () => {
+      const r = computeProfilePatch(
+        { skin_types: ["dry", "oily"] },
+        { skin_types: ["dry", "oily"] },
+        "user",
+        PROFILE_FIELD_SPEC,
+      );
+      expect(r.updates).toEqual({});
+      expect(r.skipped).toContainEqual({ field: "skin_types", reason: "no_change" });
+    });
+    it("same set different order → replace (order-sensitive)", () => {
+      const r = computeProfilePatch(
+        { skin_types: ["dry", "oily"] },
+        { skin_types: ["oily", "dry"] },
+        "user",
+        PROFILE_FIELD_SPEC,
+      );
+      // Current semantics: order-sensitive comparison → replace
+      expect(r.updates).toEqual({ skin_types: ["oily", "dry"] });
+    });
   });
 
   describe("array + source=ai — M1 사용자값 보존", () => {
@@ -146,6 +166,19 @@ describe("computeProfilePatch", () => {
         PROFILE_FIELD_SPEC,
       );
       expect(r.updates.skin_types).toEqual(["dry"]);
+    });
+    it("array + source=ai + aiWritable=false → skip (not_ai_writable)", () => {
+      const r = computeProfilePatch(
+        { hair_concerns: ["damage"] },
+        { hair_concerns: ["thinning"] },
+        "ai",
+        PROFILE_FIELD_SPEC,
+      );
+      expect(r.updates).toEqual({});
+      expect(r.skipped).toContainEqual({
+        field: "hair_concerns",
+        reason: "not_ai_writable",
+      });
     });
     it("partial additions at near-cap", () => {
       const r = computeProfilePatch(

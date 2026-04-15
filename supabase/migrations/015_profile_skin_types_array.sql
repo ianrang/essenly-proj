@@ -92,16 +92,20 @@ BEGIN
         FROM jsonb_array_elements_text(v_inc) AS t(text_val);
 
       WITH merged AS (
-        SELECT unnest(v_cur_arr) AS x, 0 AS pri
+        SELECT x, 0 AS pri, ord
+          FROM unnest(v_cur_arr) WITH ORDINALITY AS t(x, ord)
         UNION ALL
-        SELECT unnest(COALESCE(v_inc_arr, ARRAY[]::text[])) AS x, 1 AS pri
+        SELECT x, 1 AS pri, ord
+          FROM unnest(COALESCE(v_inc_arr, ARRAY[]::text[])) WITH ORDINALITY AS t(x, ord)
       ),
-      dedup AS (
-        SELECT x, MIN(pri) AS pri FROM merged GROUP BY x
+      first_seen AS (
+        SELECT DISTINCT ON (x) x, pri, ord
+          FROM merged
+          ORDER BY x, pri, ord
       )
-      SELECT array_agg(x ORDER BY pri, x)
+      SELECT array_agg(x ORDER BY pri, ord)
       INTO v_new_arr
-      FROM (SELECT x, pri FROM dedup ORDER BY pri, x LIMIT v_max) t;
+      FROM (SELECT x, pri, ord FROM first_seen ORDER BY pri, ord LIMIT v_max) t;
 
       v_new_arr := COALESCE(v_new_arr, ARRAY[]::text[]);
 
