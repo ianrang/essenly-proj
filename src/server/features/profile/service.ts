@@ -11,11 +11,15 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 /**
  * 프로필 UPSERT 입력 (온보딩 UP 변수).
- * v1.2 (NEW-9): OnboardingChips 인라인 온보딩은 skin_type만 필수.
- * country, age_range는 optional (DB user_profiles NULLABLE).
+ *
+ * DB user_profiles 컬럼 상태 (schema.dbml §98):
+ *   skin_type nullable · hair_type nullable · country nullable · age_range nullable
+ *   language NOT NULL
+ *
+ * NEW-9b: Start 경로는 skin_type 전달(필수), Skip 경로는 null 전달 허용.
  */
 interface ProfileData {
-  skin_type: string;
+  skin_type: string | null;
   hair_type: string | null;
   hair_concerns: string[];
   country: string | null;

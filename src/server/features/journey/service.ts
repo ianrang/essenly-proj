@@ -96,10 +96,23 @@ export async function createOrUpdateJourney(
   if (firstAttempt.reason === 'unique_violation') {
     const retry = await selectUpdateOrInsert(client, userId, journeyFields);
     if (retry.ok) return { journeyId: retry.journeyId };
-    throw new Error('Journey creation failed: retry exhausted');
+    throw new Error('Journey creation failed');
   }
 
-  throw new Error(firstAttempt.reason);
+  throw new Error(mapReasonToMessage(firstAttempt.reason));
+}
+
+function mapReasonToMessage(reason: string): string {
+  switch (reason) {
+    case 'lookup_failed':
+      return 'Journey lookup failed';
+    case 'update_failed':
+      return 'Journey update failed';
+    case 'create_failed':
+      return 'Journey creation failed';
+    default:
+      return 'Journey persistence failed';
+  }
 }
 
 /**
