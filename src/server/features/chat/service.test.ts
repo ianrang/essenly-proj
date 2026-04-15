@@ -104,7 +104,7 @@ function makeMockClient(overrides?: {
 
 const mockProfile = {
   user_id: 'user-1',
-  skin_type: 'dry' as const,
+  skin_types: ['dry'] as const,
   hair_type: null,
   hair_concerns: [],
   country: 'US',
