@@ -8,6 +8,7 @@ import {
   getProfile,
   updateProfile,
   upsertProfile,
+  createMinimalProfile,
   markOnboardingCompleted,
 } from '@/server/features/profile/service';
 import { getActiveJourney, createOrUpdateJourney } from '@/server/features/journey/service';
@@ -275,16 +276,20 @@ async function persistOnboarding(
   userId: string,
   body: OnboardingBody,
 ): Promise<string | null> {
-  // Skip 경로: user_profiles 레코드 확보(language만) + 게이트 설정
+  // Skip 경로: user_profiles 레코드 확보(language만) + 게이트 설정.
+  //
+  // 데이터 보존(NEW-9b 리뷰 개선):
+  //   upsertProfile로 전체 덮어쓰면 기존 extract_user_profile 결과가 손실된다.
+  //   create-if-missing 패턴 사용 — chat.ts:356-370의 afterWork 패턴과 동일:
+  //     1. createMinimalProfile(language만 set, 나머지 DB default null)
+  //     2. PK 충돌(=이미 존재) → updateProfile({ language })로 language만 갱신,
+  //        기존 skin_type / hair_type / 등 보존
   if (body.skipped === true) {
-    await upsertProfile(client, userId, {
-      skin_type: null,
-      hair_type: null,
-      hair_concerns: [],
-      country: null,
-      language: body.language,
-      age_range: null,
-    });
+    try {
+      await createMinimalProfile(client, userId, body.language);
+    } catch {
+      await updateProfile(client, userId, { language: body.language });
+    }
     await markOnboardingCompleted(client, userId);
     return null;
   }

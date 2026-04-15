@@ -24,11 +24,13 @@ vi.mock('@/server/core/rate-limit', () => ({
 const mockUpsertProfile = vi.fn();
 const mockGetProfile = vi.fn();
 const mockUpdateProfile = vi.fn();
+const mockCreateMinimalProfile = vi.fn();
 const mockMarkOnboardingCompleted = vi.fn();
 vi.mock('@/server/features/profile/service', () => ({
   upsertProfile: (...args: unknown[]) => mockUpsertProfile(...args),
   getProfile: (...args: unknown[]) => mockGetProfile(...args),
   updateProfile: (...args: unknown[]) => mockUpdateProfile(...args),
+  createMinimalProfile: (...args: unknown[]) => mockCreateMinimalProfile(...args),
   markOnboardingCompleted: (...args: unknown[]) => mockMarkOnboardingCompleted(...args),
 }));
 
@@ -82,6 +84,7 @@ describe('Profile routes', () => {
     mockGetProfile.mockResolvedValue({ user_id: 'user-123', skin_type: 'oily' });
     mockGetActiveJourney.mockResolvedValue({ id: 'journey-uuid-456' });
     mockUpdateProfile.mockResolvedValue(undefined);
+    mockCreateMinimalProfile.mockResolvedValue(undefined);
     mockMarkOnboardingCompleted.mockResolvedValue(undefined);
   });
 
@@ -141,7 +144,7 @@ describe('Profile routes', () => {
     expect(mockMarkOnboardingCompleted).toHaveBeenCalledTimes(1);
   });
 
-  it('POST /api/profile/onboarding Skip payload → 201 (skipped:true만, journey_id null)', async () => {
+  it('POST /api/profile/onboarding Skip payload (신규 프로필) → 201 (createMinimalProfile 경로)', async () => {
     const res = await app.request('/api/profile/onboarding', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -154,9 +157,38 @@ describe('Profile routes', () => {
     expect(json.data.journey_id).toBe(null);
     expect(json.data.onboarding_completed).toBe(true);
 
-    // Skip 경로: upsertProfile + markOnboardingCompleted만, journey 생성 없음
-    expect(mockUpsertProfile).toHaveBeenCalledTimes(1);
+    // Skip 경로: createMinimalProfile + markOnboardingCompleted만
+    // upsertProfile과 createOrUpdateJourney는 호출 안 됨 (데이터 보존)
+    expect(mockCreateMinimalProfile).toHaveBeenCalledWith(
+      expect.anything(),
+      'user-123',
+      'en',
+    );
+    expect(mockUpsertProfile).not.toHaveBeenCalled();
     expect(mockCreateOrUpdateJourney).not.toHaveBeenCalled();
+    expect(mockMarkOnboardingCompleted).toHaveBeenCalledTimes(1);
+  });
+
+  it('POST /api/profile/onboarding Skip payload (기존 프로필) → language만 갱신, skin_type 보존', async () => {
+    // createMinimalProfile이 PK 충돌로 실패 → updateProfile로 language만 갱신
+    mockCreateMinimalProfile.mockRejectedValueOnce(new Error('duplicate key'));
+
+    const res = await app.request('/api/profile/onboarding', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ skipped: true }),
+    });
+
+    expect(res.status).toBe(201);
+
+    expect(mockCreateMinimalProfile).toHaveBeenCalledTimes(1);
+    // 기존 프로필 데이터(extract tool이 채운 skin_type 등) 보존 — language만 갱신
+    expect(mockUpdateProfile).toHaveBeenCalledWith(
+      expect.anything(),
+      'user-123',
+      { language: 'en' },
+    );
+    expect(mockUpsertProfile).not.toHaveBeenCalled();
     expect(mockMarkOnboardingCompleted).toHaveBeenCalledTimes(1);
   });
 
