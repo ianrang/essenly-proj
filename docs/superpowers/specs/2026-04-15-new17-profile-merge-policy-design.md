@@ -3,6 +3,22 @@
 > **정본**: 이 문서는 NEW-17 구현의 단일 정본. 상위 정본(PRD §4-A UP-1, schema.dbml §user_profiles, tool-spec §3)이 본 설계대로 갱신되어야 함.
 > **범위**: `extract_user_profile` tool(AI 소스)과 `POST /api/profile/onboarding` / `PUT /api/profile`(사용자 소스) 간 쓰기 경합 정책 확립 + `user_profiles.skin_type` 단일 → `skin_types TEXT[]` 배열화.
 > **검토**: `/gstack-plan-eng-review` CLEAR (2026-04-15). 4 issues / 0 critical gaps / 0 unresolved.
+> **버전**: v1.1 (2026-04-15). v1.0 대비 최종 검증에서 발견된 RPC correctness 2건 + 스펙 공백 4건 + 배포 운영 1건 반영.
+
+## Changelog
+
+### v1.1 (2026-04-15) — 최종 검증 반영
+- **CR-1 (correctness)**: RPC array merge에서 cur 원소 우선 priority ordering 도입. cap 도달 시 사용자값 절단 불가(M1 강화). `UNION ALL + GROUP BY + MIN(pri) + ORDER BY pri LIMIT max` 패턴 채택.
+- **CR-2 (correctness)**: RPC UPDATE 전 신 값 선계산 + `IS DISTINCT FROM` 가드. `FOUND` 거짓양성 제거(M5 멱등 보강). scalar도 현 값 사전 조회 후 NULL 가드.
+- **SG-3**: journey lazy-create INSERT 컬럼 목록에서 country/city 제거 → schema.dbml DEFAULT `'KR'`/`'seoul'` 적용. 빈 문자열 명시 저장 금지.
+- **SG-4**: `updateBodySchema`(PUT) 갱신 규약 명시 — `skin_type` 삭제, `skin_types` optional + min(1).max(3). "비우기"는 필드 생략.
+- **SG-5**: `mergeExtractionResults` spec-driven 라우팅 명시 — PROFILE_FIELD_SPEC vs JOURNEY_FIELD_SPEC 키 기반 분리. 교집합 ∅ 불변량 테스트 추가.
+- **SG-6**: `ProfileRow` 인터페이스 갱신(skin_type → skin_types) 및 `getProfile` 정규화 명시.
+- **DO-7**: 배포 윈도우 데이터 분리 위험 운영 런북 + 선택적 sync trigger 문서화.
+
+### v1.0 (2026-04-15) — 초안
+- eng-review 4 decisions 반영 (atomic RPC, onboarding 명시 대체, avoided-wins, pre-merge + lazy journey).
+- CQ-1~4 반영 (v0.2 wizard 삭제, `?? []` 정규화 1곳, merge.ts 참조 구현, RPC/TS sync test).
 
 ## 1. 목적과 원칙
 
@@ -56,7 +72,13 @@ ALTER TABLE user_profiles
 --   M1 M2 M3 M5 를 단일 SQL 트랜잭션에서 강제.
 --   spec jsonb 인자는 { field: { cardinality, aiWritable, max } } 형태.
 --   patch jsonb 는 { field: value | array } (null 필드는 patch에서 생략).
---   반환: applied 필드명 배열.
+--   반환: applied 필드명 배열 (실제 값 변경된 필드만).
+--
+-- 정합성 보강(v1.1):
+--   CR-1: array merge는 cur 원소를 inc보다 먼저 배치하는 명시적 priority
+--         ordering 사용. cap 도달 시 사용자값이 절대 절단되지 않음(M1).
+--   CR-2: 최종 신 배열을 먼저 계산한 후 `IS DISTINCT FROM`으로 변경 여부
+--         가드. FOUND=true 거짓양성 제거(M5 멱등).
 CREATE OR REPLACE FUNCTION apply_ai_profile_patch(
   p_user_id uuid,
   p_patch jsonb,
@@ -70,7 +92,11 @@ DECLARE
   v_fspec jsonb;
   v_inc jsonb;
   v_applied text[] := ARRAY[]::text[];
-  v_sql text;
+  v_cur_scalar text;
+  v_cur_arr text[];
+  v_new_arr text[];
+  v_inc_arr text[];
+  v_max int;
 BEGIN
   FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(p_spec) LOOP
     -- aiWritable=false → skip
@@ -79,35 +105,57 @@ BEGIN
     IF v_inc IS NULL OR v_inc = 'null'::jsonb THEN CONTINUE; END IF;
 
     IF v_fspec->>'cardinality' = 'scalar' THEN
-      -- M3: existing null일 때만 set. COALESCE로 원자적 보장.
+      -- M3: existing NULL일 때만 set. CR-2 정합: 값이 실제로 NULL→NOT NULL로
+      -- 바뀐 경우에만 applied 추가.
       EXECUTE format(
-        'UPDATE user_profiles SET %I = $1, updated_at = now() WHERE user_id = $2 AND %I IS NULL',
-        v_field, v_field
-      ) USING v_inc#>>'{}', p_user_id;
-      IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        'SELECT %I FROM user_profiles WHERE user_id = $1',
+        v_field
+      ) INTO v_cur_scalar USING p_user_id;
+
+      IF v_cur_scalar IS NULL THEN
+        EXECUTE format(
+          'UPDATE user_profiles SET %I = $1, updated_at = now() WHERE user_id = $2 AND %I IS NULL',
+          v_field, v_field
+        ) USING v_inc#>>'{}', p_user_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
     ELSE
-      -- array: cur ∪ inc, max 적용, 사용자값 우선 보존.
-      v_sql := format($f$
-        UPDATE user_profiles
-           SET %I = (
-             SELECT ARRAY(
-               SELECT x FROM (
-                 SELECT unnest(COALESCE(%I, ARRAY[]::text[])) AS x
-                 UNION
-                 SELECT jsonb_array_elements_text($1)
-               ) u
-               LIMIT $2
-             )
-           ),
-           updated_at = now()
-         WHERE user_id = $3
-           AND (
-             %I IS NULL OR
-             NOT (%I @> ARRAY(SELECT jsonb_array_elements_text($1)))
-           )
-      $f$, v_field, v_field, v_field, v_field);
-      EXECUTE v_sql USING v_inc, (v_fspec->>'max')::int, p_user_id;
-      IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      -- CR-1: array merge에서 cur(priority 0)을 inc(priority 1)보다 먼저 배치.
+      --       GROUP BY로 dedup + MIN(priority)로 "처음 등장 순서" 보존,
+      --       ORDER BY pri + LIMIT max로 cap 초과 시 inc부터 절단.
+      --       cur 전체가 max 이하이므로 사용자값 절단 불가(M1).
+      v_max := (v_fspec->>'max')::int;
+
+      EXECUTE format(
+        'SELECT COALESCE(%I, ARRAY[]::text[]) FROM user_profiles WHERE user_id = $1',
+        v_field
+      ) INTO v_cur_arr USING p_user_id;
+
+      SELECT array_agg(text_val) INTO v_inc_arr
+        FROM jsonb_array_elements_text(v_inc) AS t(text_val);
+
+      WITH merged AS (
+        SELECT unnest(v_cur_arr) AS x, 0 AS pri
+        UNION ALL
+        SELECT unnest(COALESCE(v_inc_arr, ARRAY[]::text[])) AS x, 1 AS pri
+      ),
+      dedup AS (
+        SELECT x, MIN(pri) AS pri FROM merged GROUP BY x
+      )
+      SELECT array_agg(x ORDER BY pri, x)
+      INTO v_new_arr
+      FROM (SELECT x, pri FROM dedup ORDER BY pri, x LIMIT v_max) t;
+
+      v_new_arr := COALESCE(v_new_arr, ARRAY[]::text[]);
+
+      -- CR-2: 값 변화 있을 때만 쓰기. NULL ↔ [] 동치 처리.
+      IF COALESCE(v_cur_arr, ARRAY[]::text[]) IS DISTINCT FROM v_new_arr THEN
+        EXECUTE format(
+          'UPDATE user_profiles SET %I = $1, updated_at = now() WHERE user_id = $2',
+          v_field
+        ) USING v_new_arr, p_user_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
     END IF;
   END LOOP;
   RETURN v_applied;
@@ -148,18 +196,25 @@ DECLARE
   v_fspec jsonb;
   v_inc jsonb;
   v_applied text[] := ARRAY[]::text[];
+  v_cur_scalar text;
+  v_cur_arr text[];
+  v_new_arr text[];
+  v_inc_arr text[];
+  v_max int;
 BEGIN
-  -- active journey 확보(lazy-create)
+  -- active journey 확보 (lazy-create).
+  -- SG-3 정합: country/city는 INSERT 컬럼 목록에서 제외하여 schema.dbml
+  -- DEFAULT 'KR'/'seoul' 기본값이 적용되도록 한다. 빈 문자열을 명시 저장하지 않음.
   SELECT id INTO v_journey_id FROM journeys
    WHERE user_id = p_user_id AND status = 'active'
    LIMIT 1;
 
   IF v_journey_id IS NULL THEN
-    INSERT INTO journeys (user_id, status, country, city, created_at)
-    VALUES (p_user_id, 'active', '', '', now())
+    INSERT INTO journeys (user_id, status)
+    VALUES (p_user_id, 'active')
     ON CONFLICT DO NOTHING
     RETURNING id INTO v_journey_id;
-    -- 경합으로 이미 생성되었으면 다시 조회
+    -- ux_journeys_user_active 경합으로 이미 생성되었으면 재조회
     IF v_journey_id IS NULL THEN
       SELECT id INTO v_journey_id FROM journeys
        WHERE user_id = p_user_id AND status = 'active'
@@ -173,30 +228,53 @@ BEGIN
     IF v_inc IS NULL OR v_inc = 'null'::jsonb THEN CONTINUE; END IF;
 
     IF v_fspec->>'cardinality' = 'scalar' THEN
+      -- CR-2 정합: 현 값 조회 후 NULL일 때만 쓰기, 실제 변경 시에만 applied.
       EXECUTE format(
-        'UPDATE journeys SET %I = $1 WHERE id = $2 AND %I IS NULL',
-        v_field, v_field
-      ) USING v_inc#>>'{}', v_journey_id;
-      IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        'SELECT %I::text FROM journeys WHERE id = $1',
+        v_field
+      ) INTO v_cur_scalar USING v_journey_id;
+
+      IF v_cur_scalar IS NULL THEN
+        EXECUTE format(
+          'UPDATE journeys SET %I = $1 WHERE id = $2 AND %I IS NULL',
+          v_field, v_field
+        ) USING v_inc#>>'{}', v_journey_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
     ELSE
-      -- array merge (015와 동일 패턴)
-      EXECUTE format($f$
-        UPDATE journeys
-           SET %I = (
-             SELECT ARRAY(
-               SELECT x FROM (
-                 SELECT unnest(COALESCE(%I, ARRAY[]::text[])) AS x
-                 UNION
-                 SELECT jsonb_array_elements_text($1)
-               ) u
-               LIMIT $2
-             )
-           )
-         WHERE id = $3
-           AND (%I IS NULL OR NOT (%I @> ARRAY(SELECT jsonb_array_elements_text($1))))
-      $f$, v_field, v_field, v_field, v_field)
-      USING v_inc, (v_fspec->>'max')::int, v_journey_id;
-      IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      -- CR-1 정합: priority ordering으로 cur 원소 우선 보존.
+      -- CR-2 정합: IS DISTINCT FROM 가드.
+      v_max := (v_fspec->>'max')::int;
+
+      EXECUTE format(
+        'SELECT COALESCE(%I, ARRAY[]::text[]) FROM journeys WHERE id = $1',
+        v_field
+      ) INTO v_cur_arr USING v_journey_id;
+
+      SELECT array_agg(text_val) INTO v_inc_arr
+        FROM jsonb_array_elements_text(v_inc) AS t(text_val);
+
+      WITH merged AS (
+        SELECT unnest(v_cur_arr) AS x, 0 AS pri
+        UNION ALL
+        SELECT unnest(COALESCE(v_inc_arr, ARRAY[]::text[])) AS x, 1 AS pri
+      ),
+      dedup AS (
+        SELECT x, MIN(pri) AS pri FROM merged GROUP BY x
+      )
+      SELECT array_agg(x ORDER BY pri, x)
+      INTO v_new_arr
+      FROM (SELECT x, pri FROM dedup ORDER BY pri, x LIMIT v_max) t;
+
+      v_new_arr := COALESCE(v_new_arr, ARRAY[]::text[]);
+
+      IF COALESCE(v_cur_arr, ARRAY[]::text[]) IS DISTINCT FROM v_new_arr THEN
+        EXECUTE format(
+          'UPDATE journeys SET %I = $1 WHERE id = $2',
+          v_field
+        ) USING v_new_arr, v_journey_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
     END IF;
   END LOOP;
   RETURN v_applied;
@@ -219,6 +297,32 @@ ALTER TABLE user_profiles DROP COLUMN IF EXISTS skin_type;
 2. **코드 배포** — 모든 읽기/쓰기 skin_types로 전환.
 3. **24~72h 관측**.
 4. **016 배포** — 구 skin_type DROP. 이 시점 이후 롤백은 DB backup 의존.
+
+#### 2.4.1 배포 윈도우 데이터 분리 위험 (DO-7)
+
+Migration 015 적용 이후 ~ 코드 배포 완료 전 구간에 구 코드(Vercel previous deployment)가 `skin_type` 단일 컬럼에 write 시 `skin_types`가 반영되지 않아 레코드 분리 발생 가능.
+
+**대응 (MVP 소프트런칭)**:
+- Vercel atomic deploy는 실질 전환 시간 분 단위. 소프트런칭 규모(소수 사용자)에서 이 윈도우에 신규 온보딩/PUT 발생 확률 극소.
+- **허용 + 운영 런북 기록**: 배포 후 `SELECT user_id FROM user_profiles WHERE skin_type IS NOT NULL AND (skin_types IS NULL OR NOT (skin_types @> ARRAY[skin_type]))` 쿼리로 탈락 행 0건 확인.
+
+**v0.2 옵션 (정식 런칭 전)**: migration 015에 다음 트리거 추가:
+```sql
+CREATE OR REPLACE FUNCTION sync_skin_type_to_array() RETURNS trigger AS $$
+BEGIN
+  IF NEW.skin_type IS NOT NULL
+     AND (NEW.skin_types IS NULL OR NOT (NEW.skin_types @> ARRAY[NEW.skin_type])) THEN
+    NEW.skin_types := COALESCE(NEW.skin_types, ARRAY[]::text[]) || ARRAY[NEW.skin_type];
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_sync_skin_type
+  BEFORE INSERT OR UPDATE ON user_profiles
+  FOR EACH ROW EXECUTE FUNCTION sync_skin_type_to_array();
+```
+Migration 016에서 trigger + 함수 + 구 컬럼 동시 DROP.
 
 ## 3. Shared 계층
 
@@ -270,6 +374,27 @@ export interface UserProfileVars {
 
 **규약**: scalar→array 전환 필드는 `null` 대신 `[]`로 "없음" 표현. `?? []` 정규화는 **`getProfile` 반환부 1곳**(service.ts)에서만 수행(CQ-2).
 
+### 3.2.1 `ProfileRow` 인터페이스 갱신 (SG-6)
+
+`src/server/features/profile/service.ts`의 내부 인터페이스 `ProfileRow` 필드 업데이트:
+
+```ts
+interface ProfileRow {
+  user_id: string;
+  skin_types: string[] | null;           // ← skin_type 단일 → skin_types 배열
+  hair_type: string | null;
+  hair_concerns: string[] | null;
+  country: string | null;
+  language: string;
+  age_range: string | null;
+  beauty_summary: string | null;
+  onboarding_completed_at: string | null;
+  updated_at: string;
+}
+```
+
+`getProfile` 반환부에서 `skin_types: data.skin_types ?? []`, `hair_concerns: data.hair_concerns ?? []` 정규화하여 `UserProfile` 타입 계약(`SkinType[]`, `HairConcern[]`) 만족.
+
 ### 3.3 `OnboardingFormData` 삭제 (CQ-1)
 
 v0.2 full-wizard 컴포넌트(`OnboardingWizard.tsx`, `StepSkinHair.tsx`, `StepConcerns.tsx`, `StepInterests.tsx`, `StepTravel.tsx`) 및 `OnboardingFormData` 타입을 삭제. PRD §595 재설계로 기존 스텝 구조는 이미 낡음. v0.2 재착수 시 현행 PRD 기반으로 재작성.
@@ -300,13 +425,37 @@ export function computeProfilePatch<TSpec extends Record<string, unknown>>(
 }
 
 // 다중 extraction 결과를 1개 patch로 pre-merge (AI-AI union, 3A 결정).
+//
+// SG-5 정합 — spec-driven 라우팅:
+//   추출 필드는 field 이름으로 PROFILE_FIELD_SPEC / JOURNEY_FIELD_SPEC 에
+//   속한 것을 판별하여 profilePatch / journeyPatch 로 분리한다.
+//   현재 추출 스키마 기준 매핑(빠른 참조):
+//     skin_types     → profile   (PROFILE_FIELD_SPEC)
+//     age_range      → profile   (PROFILE_FIELD_SPEC)
+//     skin_concerns  → journey   (JOURNEY_FIELD_SPEC)
+//     stay_days      → journey   (JOURNEY_FIELD_SPEC)
+//     budget_level   → journey   (JOURNEY_FIELD_SPEC)
+//   두 레지스트리 키 교집합은 ∅ 이며 테스트로 고정한다(정합성 invariant).
+//
+// 동일 턴 내 N 추출 AI-AI 병합 규약:
+//   - scalar: first non-null wins (뒤 추출이 앞 값을 덮지 않음, RPC M3과 일관)
+//   - array:  union (중복 제거, 순서는 첫 등장 순)
 export function mergeExtractionResults(
   results: ExtractionResult[],
 ): { profilePatch: Partial<UserProfileVars>; journeyPatch: Partial<JourneyContextVars> } {
-  // scalar: first-wins (existing=null → 첫 비-null, 이후는 무시)
-  // array:  union
+  // 각 추출 결과의 non-null 필드를 순회, 필드 spec 소속에 따라 라우팅.
+  // 배열은 Set union, 스칼라는 first-wins.
   ...
 }
+```
+
+**라우팅 불변량 테스트**:
+```ts
+it('PROFILE_FIELD_SPEC ∩ JOURNEY_FIELD_SPEC = ∅', () => {
+  const p = new Set(Object.keys(PROFILE_FIELD_SPEC));
+  const j = Object.keys(JOURNEY_FIELD_SPEC);
+  for (const k of j) expect(p.has(k)).toBe(false);
+});
 ```
 
 ### 4.2 Merge 의미론 (정본)
@@ -380,7 +529,32 @@ const startOnboardingBodySchema = z.object({
 
 **Start 경로 동작(1B-A 확정)**: `upsertProfile`이 `skin_types`를 전체 대체. 사용자 명시 편집은 의도된 교체.
 
-**PUT 경로**: `skin_types`가 body에 있으면 전체 대체. partial update 규약 유지.
+**PUT 경로 스키마 갱신 (SG-4)**:
+
+`updateBodySchema` 갱신:
+```ts
+const updateBodySchema = z
+  .object({
+    skin_types: z
+      .array(skinTypeEnum)
+      .min(1)
+      .max(PROFILE_FIELD_SPEC.skin_types.max)  // 3
+      .optional(),
+    hair_type: z.enum([...]).nullable().optional(),
+    hair_concerns: z.array(z.enum([...])).optional(),
+    country: z.string().min(2).max(2).optional(),
+    language: z.enum([...]).optional(),
+    age_range: z.enum([...]).optional(),
+  })
+  .refine((obj) => Object.keys(obj).length > 0, {
+    message: 'At least one field is required',
+  });
+```
+
+- `skin_type` 필드 완전 삭제.
+- `skin_types`는 optional. 필드를 생략하면 변경 없음.
+- 포함 시 `min(1)` 강제 — 빈 배열 저장 금지. "비우기"는 필드 생략으로 표현(의도 명확화).
+- `max(3)` DB CHECK와 일치 (V-22, M2 4중 방어).
 
 ### 4.5 `src/server/features/api/routes/chat.ts` afterWork 수정
 
