@@ -1,4 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import {
+  PROFILE_FIELD_SPEC,
+  JOURNEY_FIELD_SPEC,
+} from '@/shared/constants/profile-field-spec';
 
 vi.mock('server-only', () => ({}));
 
@@ -294,6 +298,7 @@ describe('profile/service', () => {
         expect.objectContaining({
           p_user_id: 'user-1',
           p_patch: { skin_types: ['dry'] },
+          p_spec: PROFILE_FIELD_SPEC,
         }),
       );
       expect(r.applied).toEqual(['skin_types']);
@@ -317,6 +322,16 @@ describe('profile/service', () => {
       const r = await applyAiExtraction(client as never, 'user-1', { age_range: '25-29' });
       expect(r.applied).toEqual([]);
     });
+
+    it('M4: applyAiExtraction은 PROFILE_FIELD_SPEC만 전달 (레지스트리 혼동 방지)', async () => {
+      const mockRpc = vi.fn().mockResolvedValue({ data: [], error: null });
+      const client = { rpc: mockRpc };
+      const { applyAiExtraction } = await import('@/server/features/profile/service');
+      await applyAiExtraction(client as never, 'user-1', {});
+      const args = mockRpc.mock.calls[0][1];
+      expect(args.p_spec).toBe(PROFILE_FIELD_SPEC);
+      expect(args.p_spec).not.toBe(JOURNEY_FIELD_SPEC);
+    });
   });
 
   describe('applyAiExtractionToJourney (RPC wrapper)', () => {
@@ -334,6 +349,7 @@ describe('profile/service', () => {
         expect.objectContaining({
           p_user_id: 'user-1',
           p_patch: { skin_concerns: ['acne'] },
+          p_spec: JOURNEY_FIELD_SPEC,
         }),
       );
       expect(r.applied).toEqual(['skin_concerns']);
@@ -350,6 +366,18 @@ describe('profile/service', () => {
       await expect(
         applyAiExtractionToJourney(client as never, 'user-1', { skin_concerns: ['acne'] }),
       ).rejects.toThrow('AI journey patch failed');
+    });
+
+    it('M4: applyAiExtractionToJourney는 JOURNEY_FIELD_SPEC만 전달 (레지스트리 혼동 방지)', async () => {
+      const mockRpc = vi.fn().mockResolvedValue({ data: [], error: null });
+      const client = { rpc: mockRpc };
+      const { applyAiExtractionToJourney } = await import(
+        '@/server/features/profile/service'
+      );
+      await applyAiExtractionToJourney(client as never, 'user-1', {});
+      const args = mockRpc.mock.calls[0][1];
+      expect(args.p_spec).toBe(JOURNEY_FIELD_SPEC);
+      expect(args.p_spec).not.toBe(PROFILE_FIELD_SPEC);
     });
   });
 });

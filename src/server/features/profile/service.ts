@@ -32,12 +32,29 @@ interface ProfileData {
   age_range?: string | null;
 }
 
-/** DB 조회 결과 (getProfile에서 null 배열은 [] 로 정규화 — SG-6 / CQ-2) */
+/**
+ * Raw DB row shape from Supabase (nullable arrays for text[] columns).
+ * M1: ProfileRow 타입 정확화 — DB 실제 반환 타입 반영.
+ */
+interface ProfileRowRaw {
+  user_id: string;
+  skin_types: string[] | null;
+  hair_type: string | null;
+  hair_concerns: string[] | null;
+  country: string | null;
+  language: string;
+  age_range: string | null;
+  beauty_summary: string | null;
+  onboarding_completed_at: string | null;
+  updated_at: string;
+}
+
+/** 정규화된 return 타입 (배열은 [] 보장 — SG-6 / CQ-2) */
 interface ProfileRow {
   user_id: string;
-  skin_types: string[]; // normalized to [] by getProfile
+  skin_types: string[];
   hair_type: string | null;
-  hair_concerns: string[]; // normalized to []
+  hair_concerns: string[];
   country: string | null;
   language: string;
   age_range: string | null;
@@ -103,6 +120,7 @@ export async function createMinimalProfile(
 /**
  * 본인 프로필 조회. 미존재 시 null.
  * RLS: auth.uid() = user_id (createAuthenticatedClient 사용).
+ * M1: 제네릭 maybeSingle<ProfileRowRaw>로 타입 정확화.
  */
 export async function getProfile(
   client: SupabaseClient,
@@ -112,7 +130,7 @@ export async function getProfile(
     .from('user_profiles')
     .select('*')
     .eq('user_id', userId)
-    .maybeSingle();
+    .maybeSingle<ProfileRowRaw>();
 
   if (error) {
     throw new Error('Profile retrieval failed');
@@ -220,7 +238,15 @@ export async function applyAiExtraction(
     p_patch: patch,
     p_spec: PROFILE_FIELD_SPEC,
   });
-  if (error) throw new Error('AI profile patch failed');
+  if (error) {
+    // M3: error logging (Q-7 관측성)
+    console.error('[applyAiExtraction] rpc error', {
+      userId,
+      code: error.code,
+      message: error.message,
+    });
+    throw new Error('AI profile patch failed');
+  }
   return { applied: (data as string[]) ?? [] };
 }
 
@@ -237,6 +263,14 @@ export async function applyAiExtractionToJourney(
     p_patch: patch,
     p_spec: JOURNEY_FIELD_SPEC,
   });
-  if (error) throw new Error('AI journey patch failed');
+  if (error) {
+    // M3: error logging (Q-7 관측성)
+    console.error('[applyAiExtractionToJourney] rpc error', {
+      userId,
+      code: error.code,
+      message: error.message,
+    });
+    throw new Error('AI journey patch failed');
+  }
   return { applied: (data as string[]) ?? [] };
 }
