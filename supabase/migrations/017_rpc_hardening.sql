@@ -1,6 +1,6 @@
 -- ============================================================
 -- NEW-17b: RPC 보안 하드닝 + CHECK 제약
--- Spec: docs/superpowers/specs/2026-04-16-new17b-rpc-hardening-design.md v1.1
+-- Spec: docs/superpowers/specs/2026-04-16-new17b-rpc-hardening-design.md v1.2
 -- 적용 방법: Supabase Dashboard SQL Editor에서 수동 실행 (단일 트랜잭션)
 -- ============================================================
 
@@ -84,6 +84,7 @@ DECLARE
   v_new_arr text[];
   v_inc_arr text[];
   v_max int;
+  v_count int;
 BEGIN
   FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(v_spec) LOOP
     IF NOT (v_fspec->>'aiWritable')::boolean THEN CONTINUE; END IF;
@@ -104,7 +105,8 @@ BEGIN
             WHERE user_id = $2 AND %I IS NULL',
           v_field, v_field, v_field, v_field
         ) USING v_inc, p_user_id;
-        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        GET DIAGNOSTICS v_count = ROW_COUNT;
+        IF v_count > 0 THEN v_applied := array_append(v_applied, v_field); END IF;
       END IF;
     ELSE
       v_max := (v_fspec->>'max')::int;
@@ -140,7 +142,8 @@ BEGIN
           'UPDATE user_profiles SET %I = $1, updated_at = now() WHERE user_id = $2',
           v_field
         ) USING v_new_arr, p_user_id;
-        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        GET DIAGNOSTICS v_count = ROW_COUNT;
+        IF v_count > 0 THEN v_applied := array_append(v_applied, v_field); END IF;
       END IF;
     END IF;
   END LOOP;
@@ -168,6 +171,7 @@ DECLARE
   v_new_arr text[];
   v_inc_arr text[];
   v_max int;
+  v_count int;
 BEGIN
   SELECT id INTO v_journey_id FROM journeys
    WHERE user_id = p_user_id AND status = 'active'
@@ -204,7 +208,8 @@ BEGIN
             WHERE id = $2 AND %I IS NULL',
           v_field, v_field, v_field, v_field
         ) USING v_inc, v_journey_id;
-        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        GET DIAGNOSTICS v_count = ROW_COUNT;
+        IF v_count > 0 THEN v_applied := array_append(v_applied, v_field); END IF;
       END IF;
     ELSE
       v_max := (v_fspec->>'max')::int;
@@ -240,7 +245,8 @@ BEGIN
           'UPDATE journeys SET %I = $1 WHERE id = $2',
           v_field
         ) USING v_new_arr, v_journey_id;
-        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        GET DIAGNOSTICS v_count = ROW_COUNT;
+        IF v_count > 0 THEN v_applied := array_append(v_applied, v_field); END IF;
       END IF;
     END IF;
   END LOOP;
@@ -285,8 +291,8 @@ GRANT EXECUTE ON FUNCTION get_journey_field_spec() TO service_role;
 
 -- Step 7. COMMENT
 COMMENT ON FUNCTION apply_ai_profile_patch(uuid, jsonb) IS
-  'NEW-17b v1.1: AI 추출 patch를 사용자값 보존 규약으로 원자 적용. spec은 get_profile_field_spec()으로 서버 고정. service_role 전용.';
+  'NEW-17b v1.2: AI 추출 patch를 사용자값 보존 규약으로 원자 적용. spec은 get_profile_field_spec()으로 서버 고정. service_role 전용.';
 COMMENT ON FUNCTION apply_ai_journey_patch(uuid, jsonb) IS
-  'NEW-17b v1.1: journey AI 추출. spec은 get_journey_field_spec()으로 서버 고정. service_role 전용.';
+  'NEW-17b v1.2: journey AI 추출. spec은 get_journey_field_spec()으로 서버 고정. service_role 전용.';
 
 COMMIT;

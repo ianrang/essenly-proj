@@ -1,7 +1,7 @@
 # NEW-17b: RPC 보안 하드닝 + NEW-17e 통합 테스트 설계
 
 - 작성일: 2026-04-16
-- 정본 상태: v1.1 (plan-eng-review 반영 — A1/A3/A4/A5/C1/C2/G1-G4 보강, A2는 NEW-17g로 분리)
+- 정본 상태: v1.2 (T8 통합 테스트로 발견된 PL/pgSQL FOUND 버그 수정 — EXECUTE 후 GET DIAGNOSTICS ROW_COUNT 사용)
 - 선행 설계: `2026-04-15-new17-profile-merge-policy-design.md` v1.1 (NEW-17 정본)
 - CI/CD 정본 참조: `docs/03-design/INFRA-PIPELINE.md` v1.1 §3.5, §4 (A2 결정 근거)
 - 관련 migration: `supabase/migrations/015_profile_skin_types_array.sql`, `015b_apply_ai_journey_patch.sql`
@@ -102,7 +102,7 @@ apply_ai_journey_patch(uuid, jsonb, jsonb)   →   apply_ai_journey_patch(uuid, 
 ```sql
 -- ============================================================
 -- NEW-17b: RPC 보안 하드닝 + CHECK 제약
--- Spec: docs/superpowers/specs/2026-04-16-new17b-rpc-hardening-design.md v1.1
+-- Spec: docs/superpowers/specs/2026-04-16-new17b-rpc-hardening-design.md v1.2
 -- 적용 방법: Supabase Dashboard SQL Editor에서 수동 실행 (단일 트랜잭션)
 -- ============================================================
 
@@ -191,6 +191,7 @@ DECLARE
   v_new_arr text[];
   v_inc_arr text[];
   v_max int;
+  v_count int;
 BEGIN
   FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(v_spec) LOOP
     IF NOT (v_fspec->>'aiWritable')::boolean THEN CONTINUE; END IF;
@@ -212,7 +213,8 @@ BEGIN
             WHERE user_id = $2 AND %I IS NULL',
           v_field, v_field, v_field, v_field
         ) USING v_inc, p_user_id;
-        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        GET DIAGNOSTICS v_count = ROW_COUNT;
+        IF v_count > 0 THEN v_applied := array_append(v_applied, v_field); END IF;
       END IF;
     ELSE
       -- CR-1: priority ordering (cur=0, inc=1)
@@ -250,7 +252,8 @@ BEGIN
           'UPDATE user_profiles SET %I = $1, updated_at = now() WHERE user_id = $2',
           v_field
         ) USING v_new_arr, p_user_id;
-        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        GET DIAGNOSTICS v_count = ROW_COUNT;
+        IF v_count > 0 THEN v_applied := array_append(v_applied, v_field); END IF;
       END IF;
     END IF;
   END LOOP;
@@ -279,6 +282,7 @@ DECLARE
   v_new_arr text[];
   v_inc_arr text[];
   v_max int;
+  v_count int;
 BEGIN
   -- SG-3: active journey lazy-create (country/city는 INSERT 제외 → DEFAULT 'KR'/'seoul' 적용)
   SELECT id INTO v_journey_id FROM journeys
@@ -316,7 +320,8 @@ BEGIN
             WHERE id = $2 AND %I IS NULL',
           v_field, v_field, v_field, v_field
         ) USING v_inc, v_journey_id;
-        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        GET DIAGNOSTICS v_count = ROW_COUNT;
+        IF v_count > 0 THEN v_applied := array_append(v_applied, v_field); END IF;
       END IF;
     ELSE
       v_max := (v_fspec->>'max')::int;
@@ -352,7 +357,8 @@ BEGIN
           'UPDATE journeys SET %I = $1 WHERE id = $2',
           v_field
         ) USING v_new_arr, v_journey_id;
-        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+        GET DIAGNOSTICS v_count = ROW_COUNT;
+        IF v_count > 0 THEN v_applied := array_append(v_applied, v_field); END IF;
       END IF;
     END IF;
   END LOOP;
@@ -397,9 +403,9 @@ GRANT EXECUTE ON FUNCTION get_journey_field_spec() TO service_role;
 
 -- Step 7. COMMENT (검색/추적용)
 COMMENT ON FUNCTION apply_ai_profile_patch(uuid, jsonb) IS
-  'NEW-17b v1.1: AI 추출 patch를 사용자값 보존 규약으로 원자 적용. spec은 get_profile_field_spec()으로 서버 고정. service_role 전용.';
+  'NEW-17b v1.2: AI 추출 patch를 사용자값 보존 규약으로 원자 적용. spec은 get_profile_field_spec()으로 서버 고정. service_role 전용.';
 COMMENT ON FUNCTION apply_ai_journey_patch(uuid, jsonb) IS
-  'NEW-17b v1.1: journey AI 추출. spec은 get_journey_field_spec()으로 서버 고정. service_role 전용.';
+  'NEW-17b v1.2: journey AI 추출. spec은 get_journey_field_spec()으로 서버 고정. service_role 전용.';
 
 COMMIT;
 ```
@@ -853,3 +859,4 @@ PR description에 다음 체크박스 포함:
 |------|------|------|
 | 2026-04-16 | v1.0 | 초안 |
 | 2026-04-16 | v1.1 | `/gstack-plan-eng-review` 반영: A1(migration SQL inline), A3(rollback SQL inline), A4(anon REVOKE), A5(T5 4함수 확장), C1(service.ts import 제거), C2(exact match assertion), G1-G4(T7/T8 journey 대칭/scalar NULL 테스트 추가), A2 결정(INFRA-PIPELINE.md 정본 일치 → 로컬 규율 + NEW-17g 분리). §6.1.1 PR 체크리스트 신설 |
+| 2026-04-16 | v1.2 | Integration test T8로 발견된 PL/pgSQL FOUND 버그 수정: `EXECUTE format(...)` 후 `IF FOUND` → `GET DIAGNOSTICS v_count = ROW_COUNT; IF v_count > 0` 패턴으로 교체. scalar branch는 FOUND=false로 applied 누락, array branch는 stale FOUND=true로 오탐 가능. 두 RPC 함수 각 2곳씩 총 4곳 수정. rollback SQL은 015/015b 원형 유지 (pre-017 상태 복원 목적) |
