@@ -1,8 +1,9 @@
 # NEW-17b: RPC 보안 하드닝 + NEW-17e 통합 테스트 설계
 
 - 작성일: 2026-04-16
-- 정본 상태: v1.0
+- 정본 상태: v1.1 (plan-eng-review 반영 — A1/A3/A4/A5/C1/C2/G1-G4 보강, A2는 NEW-17g로 분리)
 - 선행 설계: `2026-04-15-new17-profile-merge-policy-design.md` v1.1 (NEW-17 정본)
+- CI/CD 정본 참조: `docs/03-design/INFRA-PIPELINE.md` v1.1 §3.5, §4 (A2 결정 근거)
 - 관련 migration: `supabase/migrations/015_profile_skin_types_array.sql`, `015b_apply_ai_journey_patch.sql`
 - 작업 단위: 단일 브랜치 `fix/new-17b-rpc-hardening-and-tests` (NEW-17b + NEW-17e 결합)
 
@@ -52,7 +53,10 @@ NEW-17에서 도입한 `apply_ai_profile_patch(uuid, jsonb, jsonb)` / `apply_ai_
 
 - **YAGNI**: MVP~v0.3 범위에서 AI 쓰기 도메인은 2개(profile, journey)로 유지될 예정. NEW-17c `learned_preferences`는 필드 1개 추가로 기존 도메인에 병합. 메타 테이블 도입은 실제 확장 요구가 생길 때 리팩토링.
 - **작업 범위 집중**: NEW-17b는 보안 하드닝. 저장 구조 리팩토링은 범위 분리가 깔끔.
-- **Drift 감지**: 별도 읽기 전용 함수 `get_profile_field_spec()` / `get_journey_field_spec()`가 spec을 jsonb로 노출. Integration test에서 TS `PROFILE_FIELD_SPEC` / `JOURNEY_FIELD_SPEC`와 equality 비교하여 drift를 CI에서 자동 catch.
+- **Drift 감지**: 별도 읽기 전용 함수 `get_profile_field_spec()` / `get_journey_field_spec()`가 spec을 jsonb로 노출. **로컬**에서 `npm run test:integration` 실행 시 TS `PROFILE_FIELD_SPEC` / `JOURNEY_FIELD_SPEC`와 equality 비교하여 drift 감지 (T1).
+  - **CI 자동 게이트 미포함**: `docs/03-design/INFRA-PIPELINE.md` v1.1 §3.5 정본 결정("GitHub Secrets는 사용하지 않는다") 및 §4("CI 책임은 코드 검증만")에 따라 CI에 Supabase 접근을 추가하지 않는다.
+  - **보완책**: PR template 체크리스트 항목 + `CLAUDE.md` 규칙에 "drift 가능 변경 시 로컬 `npm run test:integration` 실행 필수" 명시 (구현 단계에서 반영).
+  - **v0.2 경로**: INFRA-PIPELINE.md P3-26(Supabase dev/prod 분리) 완료 후 `NEW-17g` (TODO.md) 태스크로 CI integration test 통합 재평가.
 
 ### §2.2 RPC 시그니처 변경
 
@@ -93,32 +97,54 @@ apply_ai_journey_patch(uuid, jsonb, jsonb)   →   apply_ai_journey_patch(uuid, 
 
 ### §3.2 섹션 구성
 
-트랜잭션으로 감싼다. Supabase Dashboard SQL Editor는 단일 statement 또는 `BEGIN;..COMMIT;`을 실행 가능.
+트랜잭션으로 감싼다. Supabase Dashboard SQL Editor는 단일 statement 또는 `BEGIN;..COMMIT;`을 실행 가능. **아래 SQL은 구현 시 `017_rpc_hardening.sql`에 그대로 복사**하여 사용한다 (A1 보강 — 복붙 실수 차단).
 
 ```sql
+-- ============================================================
+-- NEW-17b: RPC 보안 하드닝 + CHECK 제약
+-- Spec: docs/superpowers/specs/2026-04-16-new17b-rpc-hardening-design.md v1.1
+-- 적용 방법: Supabase Dashboard SQL Editor에서 수동 실행 (단일 트랜잭션)
+-- ============================================================
+
 BEGIN;
 
 -- Step 1. 기존 data가 신규 CHECK 제약을 위반하지 않는지 선검증
 DO $$
 DECLARE v_bad bigint;
 BEGIN
+  -- skin_types
   SELECT count(*) INTO v_bad FROM user_profiles
    WHERE skin_types IS NOT NULL
      AND NOT (skin_types <@ ARRAY['dry','oily','combination','sensitive','normal']::text[]);
   IF v_bad > 0 THEN
     RAISE EXCEPTION 'Pre-check failed: % rows violate skin_types enum. Fix before migration 017.', v_bad;
   END IF;
-  -- age_range, budget_level 동일 패턴
+
+  -- age_range
+  SELECT count(*) INTO v_bad FROM user_profiles
+   WHERE age_range IS NOT NULL
+     AND age_range NOT IN ('18-24','25-29','30-34','35-39','40-49','50+');
+  IF v_bad > 0 THEN
+    RAISE EXCEPTION 'Pre-check failed: % rows violate age_range enum. Fix before migration 017.', v_bad;
+  END IF;
+
+  -- budget_level
+  SELECT count(*) INTO v_bad FROM journeys
+   WHERE budget_level IS NOT NULL
+     AND budget_level NOT IN ('budget','moderate','premium','luxury');
+  IF v_bad > 0 THEN
+    RAISE EXCEPTION 'Pre-check failed: % rows violate budget_level enum. Fix before migration 017.', v_bad;
+  END IF;
 END $$;
 
--- Step 2. 구 3-arg RPC DROP
+-- Step 2. 구 3-arg RPC DROP (overload 충돌 방지)
 DROP FUNCTION IF EXISTS apply_ai_profile_patch(uuid, jsonb, jsonb);
 DROP FUNCTION IF EXISTS apply_ai_journey_patch(uuid, jsonb, jsonb);
 
 -- Step 3. Spec 읽기 전용 함수 (Drift test 및 RPC 내부 사용)
--- 구현 시 jsonb literal 본문은 src/shared/constants/profile-field-spec.ts의
--- PROFILE_FIELD_SPEC / JOURNEY_FIELD_SPEC를 JSON 직렬화한 값과 key-by-key 일치해야 한다.
--- Integration test T1이 이 일치를 CI에서 강제한다.
+-- 이 jsonb literal 본문은 src/shared/constants/profile-field-spec.ts의
+-- PROFILE_FIELD_SPEC / JOURNEY_FIELD_SPEC를 JSON 직렬화한 값과 정확히 일치해야 한다.
+-- Integration test T1이 로컬에서 이 일치를 검증.
 CREATE OR REPLACE FUNCTION get_profile_field_spec() RETURNS jsonb
   LANGUAGE sql IMMUTABLE AS $$
     SELECT '{
@@ -144,7 +170,9 @@ CREATE OR REPLACE FUNCTION get_journey_field_spec() RETURNS jsonb
     }'::jsonb
   $$;
 
--- Step 4. 신 2-arg RPC (015/015b의 merge 로직 + get_*_field_spec()로 spec 조회)
+-- Step 4. 신 2-arg apply_ai_profile_patch
+-- 015 line 47-124의 merge 로직을 그대로 사용. 변경점: (1) p_spec 파라미터 제거
+-- (2) FOR 루프의 jsonb_each(p_spec) → jsonb_each(v_spec). CR-1/CR-2 로직 보존.
 CREATE OR REPLACE FUNCTION apply_ai_profile_patch(
   p_user_id uuid,
   p_patch jsonb
@@ -154,16 +182,185 @@ SECURITY INVOKER
 AS $$
 DECLARE
   v_spec jsonb := get_profile_field_spec();
-  -- ... 015와 동일한 변수 ...
+  v_field text;
+  v_fspec jsonb;
+  v_inc jsonb;
+  v_applied text[] := ARRAY[]::text[];
+  v_cur_scalar text;
+  v_cur_arr text[];
+  v_new_arr text[];
+  v_inc_arr text[];
+  v_max int;
 BEGIN
-  -- FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(v_spec) LOOP
-  -- ... 015와 동일한 merge 로직 (CR-1/CR-2 포함) ...
+  FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(v_spec) LOOP
+    IF NOT (v_fspec->>'aiWritable')::boolean THEN CONTINUE; END IF;
+    v_inc := p_patch->v_field;
+    IF v_inc IS NULL OR v_inc = 'null'::jsonb THEN CONTINUE; END IF;
+
+    IF v_fspec->>'cardinality' = 'scalar' THEN
+      -- M3 + CR-2: 현 값 조회, NULL일 때만 set. jsonb_populate_record로 타입 자동 캐스트.
+      EXECUTE format(
+        'SELECT %I::text FROM user_profiles WHERE user_id = $1',
+        v_field
+      ) INTO v_cur_scalar USING p_user_id;
+
+      IF v_cur_scalar IS NULL THEN
+        EXECUTE format(
+          'UPDATE user_profiles
+              SET %I = (jsonb_populate_record(NULL::user_profiles, jsonb_build_object(%L, $1))).%I,
+                  updated_at = now()
+            WHERE user_id = $2 AND %I IS NULL',
+          v_field, v_field, v_field, v_field
+        ) USING v_inc, p_user_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
+    ELSE
+      -- CR-1: priority ordering (cur=0, inc=1)
+      v_max := (v_fspec->>'max')::int;
+
+      EXECUTE format(
+        'SELECT COALESCE(%I, ARRAY[]::text[]) FROM user_profiles WHERE user_id = $1',
+        v_field
+      ) INTO v_cur_arr USING p_user_id;
+
+      SELECT array_agg(text_val) INTO v_inc_arr
+        FROM jsonb_array_elements_text(v_inc) AS t(text_val);
+
+      WITH merged AS (
+        SELECT x, 0 AS pri, ord
+          FROM unnest(v_cur_arr) WITH ORDINALITY AS t(x, ord)
+        UNION ALL
+        SELECT x, 1 AS pri, ord
+          FROM unnest(COALESCE(v_inc_arr, ARRAY[]::text[])) WITH ORDINALITY AS t(x, ord)
+      ),
+      first_seen AS (
+        SELECT DISTINCT ON (x) x, pri, ord
+          FROM merged
+          ORDER BY x, pri, ord
+      )
+      SELECT array_agg(x ORDER BY pri, ord)
+      INTO v_new_arr
+      FROM (SELECT x, pri, ord FROM first_seen ORDER BY pri, ord LIMIT v_max) t;
+
+      v_new_arr := COALESCE(v_new_arr, ARRAY[]::text[]);
+
+      -- CR-2: IS DISTINCT FROM 가드
+      IF COALESCE(v_cur_arr, ARRAY[]::text[]) IS DISTINCT FROM v_new_arr THEN
+        EXECUTE format(
+          'UPDATE user_profiles SET %I = $1, updated_at = now() WHERE user_id = $2',
+          v_field
+        ) USING v_new_arr, p_user_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
+    END IF;
+  END LOOP;
+  RETURN v_applied;
 END;
 $$;
 
--- apply_ai_journey_patch 동일 패턴
+-- Step 4b. 신 2-arg apply_ai_journey_patch
+-- 015b의 lazy-create + merge 로직 그대로. 변경점: (1) p_spec 제거 (2) v_spec := get_journey_field_spec()
+CREATE OR REPLACE FUNCTION apply_ai_journey_patch(
+  p_user_id uuid,
+  p_patch jsonb
+) RETURNS text[]
+LANGUAGE plpgsql
+SECURITY INVOKER
+AS $$
+DECLARE
+  v_spec jsonb := get_journey_field_spec();
+  v_journey_id uuid;
+  v_field text;
+  v_fspec jsonb;
+  v_inc jsonb;
+  v_applied text[] := ARRAY[]::text[];
+  v_cur_scalar text;
+  v_cur_arr text[];
+  v_new_arr text[];
+  v_inc_arr text[];
+  v_max int;
+BEGIN
+  -- SG-3: active journey lazy-create (country/city는 INSERT 제외 → DEFAULT 'KR'/'seoul' 적용)
+  SELECT id INTO v_journey_id FROM journeys
+   WHERE user_id = p_user_id AND status = 'active'
+   LIMIT 1;
 
--- Step 5. CHECK 제약 추가 (멱등 가드)
+  IF v_journey_id IS NULL THEN
+    INSERT INTO journeys (user_id, status)
+    VALUES (p_user_id, 'active')
+    ON CONFLICT (user_id) WHERE status = 'active' DO NOTHING
+    RETURNING id INTO v_journey_id;
+
+    IF v_journey_id IS NULL THEN
+      SELECT id INTO v_journey_id FROM journeys
+       WHERE user_id = p_user_id AND status = 'active'
+       LIMIT 1;
+    END IF;
+  END IF;
+
+  FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(v_spec) LOOP
+    IF NOT (v_fspec->>'aiWritable')::boolean THEN CONTINUE; END IF;
+    v_inc := p_patch->v_field;
+    IF v_inc IS NULL OR v_inc = 'null'::jsonb THEN CONTINUE; END IF;
+
+    IF v_fspec->>'cardinality' = 'scalar' THEN
+      EXECUTE format(
+        'SELECT %I::text FROM journeys WHERE id = $1',
+        v_field
+      ) INTO v_cur_scalar USING v_journey_id;
+
+      IF v_cur_scalar IS NULL THEN
+        EXECUTE format(
+          'UPDATE journeys
+              SET %I = (jsonb_populate_record(NULL::journeys, jsonb_build_object(%L, $1))).%I
+            WHERE id = $2 AND %I IS NULL',
+          v_field, v_field, v_field, v_field
+        ) USING v_inc, v_journey_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
+    ELSE
+      v_max := (v_fspec->>'max')::int;
+
+      EXECUTE format(
+        'SELECT COALESCE(%I, ARRAY[]::text[]) FROM journeys WHERE id = $1',
+        v_field
+      ) INTO v_cur_arr USING v_journey_id;
+
+      SELECT array_agg(text_val) INTO v_inc_arr
+        FROM jsonb_array_elements_text(v_inc) AS t(text_val);
+
+      WITH merged AS (
+        SELECT x, 0 AS pri, ord
+          FROM unnest(v_cur_arr) WITH ORDINALITY AS t(x, ord)
+        UNION ALL
+        SELECT x, 1 AS pri, ord
+          FROM unnest(COALESCE(v_inc_arr, ARRAY[]::text[])) WITH ORDINALITY AS t(x, ord)
+      ),
+      first_seen AS (
+        SELECT DISTINCT ON (x) x, pri, ord
+          FROM merged
+          ORDER BY x, pri, ord
+      )
+      SELECT array_agg(x ORDER BY pri, ord)
+      INTO v_new_arr
+      FROM (SELECT x, pri, ord FROM first_seen ORDER BY pri, ord LIMIT v_max) t;
+
+      v_new_arr := COALESCE(v_new_arr, ARRAY[]::text[]);
+
+      IF COALESCE(v_cur_arr, ARRAY[]::text[]) IS DISTINCT FROM v_new_arr THEN
+        EXECUTE format(
+          'UPDATE journeys SET %I = $1 WHERE id = $2',
+          v_field
+        ) USING v_new_arr, v_journey_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
+    END IF;
+  END LOOP;
+  RETURN v_applied;
+END;
+$$;
+
+-- Step 5. CHECK 제약 3건 (멱등 가드)
 DO $$
 BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'user_profiles_skin_types_values') THEN
@@ -171,34 +368,259 @@ BEGIN
       ADD CONSTRAINT user_profiles_skin_types_values
       CHECK (skin_types IS NULL OR skin_types <@ ARRAY['dry','oily','combination','sensitive','normal']::text[]);
   END IF;
-  -- age_range, budget_level 동일 패턴
+
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'user_profiles_age_range_values') THEN
+    ALTER TABLE user_profiles
+      ADD CONSTRAINT user_profiles_age_range_values
+      CHECK (age_range IS NULL OR age_range IN ('18-24','25-29','30-34','35-39','40-49','50+'));
+  END IF;
+
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'journeys_budget_level_values') THEN
+    ALTER TABLE journeys
+      ADD CONSTRAINT journeys_budget_level_values
+      CHECK (budget_level IS NULL OR budget_level IN ('budget','moderate','premium','luxury'));
+  END IF;
 END $$;
 
--- Step 6. 권한 재설정
-REVOKE ALL ON FUNCTION apply_ai_profile_patch(uuid, jsonb) FROM PUBLIC, authenticated;
+-- Step 6. 권한 재설정 (A4: PUBLIC + anon + authenticated 모두 명시 REVOKE)
+REVOKE ALL ON FUNCTION apply_ai_profile_patch(uuid, jsonb) FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION apply_ai_profile_patch(uuid, jsonb) TO service_role;
 
-REVOKE ALL ON FUNCTION apply_ai_journey_patch(uuid, jsonb) FROM PUBLIC, authenticated;
+REVOKE ALL ON FUNCTION apply_ai_journey_patch(uuid, jsonb) FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION apply_ai_journey_patch(uuid, jsonb) TO service_role;
 
-REVOKE ALL ON FUNCTION get_profile_field_spec() FROM PUBLIC, authenticated;
+REVOKE ALL ON FUNCTION get_profile_field_spec() FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION get_profile_field_spec() TO service_role;
 
-REVOKE ALL ON FUNCTION get_journey_field_spec() FROM PUBLIC, authenticated;
+REVOKE ALL ON FUNCTION get_journey_field_spec() FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION get_journey_field_spec() TO service_role;
+
+-- Step 7. COMMENT (검색/추적용)
+COMMENT ON FUNCTION apply_ai_profile_patch(uuid, jsonb) IS
+  'NEW-17b v1.1: AI 추출 patch를 사용자값 보존 규약으로 원자 적용. spec은 get_profile_field_spec()으로 서버 고정. service_role 전용.';
+COMMENT ON FUNCTION apply_ai_journey_patch(uuid, jsonb) IS
+  'NEW-17b v1.1: journey AI 추출. spec은 get_journey_field_spec()으로 서버 고정. service_role 전용.';
 
 COMMIT;
 ```
 
 ### §3.3 롤백 파일
 
-`supabase/migrations/017_rpc_hardening_rollback.sql` — 비상 시 수동 실행:
+`supabase/migrations/017_rpc_hardening_rollback.sql` (신규) — 비상 시 Supabase Dashboard 수동 실행. **A3 보강: 015/015b 본문 전체 inline 포함**. 아래 SQL을 그대로 복사.
 
-- 구 3-arg RPC `CREATE OR REPLACE` 재생성 (015/015b 본문 복원)
-- `GRANT EXECUTE ... TO authenticated` 재부여
-- CHECK 제약 DROP (값 외 저장이 이미 있었다면 업무적 판단 필요)
+```sql
+-- ============================================================
+-- NEW-17b 롤백: 3-arg RPC 복원 + GRANT authenticated 복원 + CHECK 제약 DROP
+-- 적용: Supabase Dashboard SQL Editor
+-- 주의: 코드 롤백과 동시에 실행. 단독 실행 시 2-arg 호출부가 500 반환.
+-- ============================================================
 
-데이터 유실 없는 로직 롤백만 지원. 017 이후 신규 CHECK 제약을 위반하는 레코드가 새로 생기진 못하므로(CHECK가 방어) 롤백은 안전.
+BEGIN;
+
+-- Step R1. CHECK 제약 DROP (신규 제약만)
+ALTER TABLE user_profiles DROP CONSTRAINT IF EXISTS user_profiles_skin_types_values;
+ALTER TABLE user_profiles DROP CONSTRAINT IF EXISTS user_profiles_age_range_values;
+ALTER TABLE journeys DROP CONSTRAINT IF EXISTS journeys_budget_level_values;
+
+-- Step R2. 신 2-arg RPC DROP
+DROP FUNCTION IF EXISTS apply_ai_profile_patch(uuid, jsonb);
+DROP FUNCTION IF EXISTS apply_ai_journey_patch(uuid, jsonb);
+DROP FUNCTION IF EXISTS get_profile_field_spec();
+DROP FUNCTION IF EXISTS get_journey_field_spec();
+
+-- Step R3. 구 3-arg apply_ai_profile_patch 재생성 (015 line 40-124 동일)
+CREATE OR REPLACE FUNCTION apply_ai_profile_patch(
+  p_user_id uuid,
+  p_patch jsonb,
+  p_spec jsonb
+) RETURNS text[]
+LANGUAGE plpgsql
+SECURITY INVOKER
+AS $$
+DECLARE
+  v_field text;
+  v_fspec jsonb;
+  v_inc jsonb;
+  v_applied text[] := ARRAY[]::text[];
+  v_cur_scalar text;
+  v_cur_arr text[];
+  v_new_arr text[];
+  v_inc_arr text[];
+  v_max int;
+BEGIN
+  FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(p_spec) LOOP
+    IF NOT (v_fspec->>'aiWritable')::boolean THEN CONTINUE; END IF;
+    v_inc := p_patch->v_field;
+    IF v_inc IS NULL OR v_inc = 'null'::jsonb THEN CONTINUE; END IF;
+
+    IF v_fspec->>'cardinality' = 'scalar' THEN
+      EXECUTE format(
+        'SELECT %I::text FROM user_profiles WHERE user_id = $1',
+        v_field
+      ) INTO v_cur_scalar USING p_user_id;
+
+      IF v_cur_scalar IS NULL THEN
+        EXECUTE format(
+          'UPDATE user_profiles
+              SET %I = (jsonb_populate_record(NULL::user_profiles, jsonb_build_object(%L, $1))).%I,
+                  updated_at = now()
+            WHERE user_id = $2 AND %I IS NULL',
+          v_field, v_field, v_field, v_field
+        ) USING v_inc, p_user_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
+    ELSE
+      v_max := (v_fspec->>'max')::int;
+
+      EXECUTE format(
+        'SELECT COALESCE(%I, ARRAY[]::text[]) FROM user_profiles WHERE user_id = $1',
+        v_field
+      ) INTO v_cur_arr USING p_user_id;
+
+      SELECT array_agg(text_val) INTO v_inc_arr
+        FROM jsonb_array_elements_text(v_inc) AS t(text_val);
+
+      WITH merged AS (
+        SELECT x, 0 AS pri, ord
+          FROM unnest(v_cur_arr) WITH ORDINALITY AS t(x, ord)
+        UNION ALL
+        SELECT x, 1 AS pri, ord
+          FROM unnest(COALESCE(v_inc_arr, ARRAY[]::text[])) WITH ORDINALITY AS t(x, ord)
+      ),
+      first_seen AS (
+        SELECT DISTINCT ON (x) x, pri, ord
+          FROM merged
+          ORDER BY x, pri, ord
+      )
+      SELECT array_agg(x ORDER BY pri, ord)
+      INTO v_new_arr
+      FROM (SELECT x, pri, ord FROM first_seen ORDER BY pri, ord LIMIT v_max) t;
+
+      v_new_arr := COALESCE(v_new_arr, ARRAY[]::text[]);
+
+      IF COALESCE(v_cur_arr, ARRAY[]::text[]) IS DISTINCT FROM v_new_arr THEN
+        EXECUTE format(
+          'UPDATE user_profiles SET %I = $1, updated_at = now() WHERE user_id = $2',
+          v_field
+        ) USING v_new_arr, p_user_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
+    END IF;
+  END LOOP;
+  RETURN v_applied;
+END;
+$$;
+
+REVOKE ALL ON FUNCTION apply_ai_profile_patch(uuid, jsonb, jsonb) FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION apply_ai_profile_patch(uuid, jsonb, jsonb) TO authenticated;
+
+-- Step R4. 구 3-arg apply_ai_journey_patch 재생성 (015b 동일)
+CREATE OR REPLACE FUNCTION apply_ai_journey_patch(
+  p_user_id uuid,
+  p_patch jsonb,
+  p_spec jsonb
+) RETURNS text[]
+LANGUAGE plpgsql
+SECURITY INVOKER
+AS $$
+DECLARE
+  v_journey_id uuid;
+  v_field text;
+  v_fspec jsonb;
+  v_inc jsonb;
+  v_applied text[] := ARRAY[]::text[];
+  v_cur_scalar text;
+  v_cur_arr text[];
+  v_new_arr text[];
+  v_inc_arr text[];
+  v_max int;
+BEGIN
+  SELECT id INTO v_journey_id FROM journeys
+   WHERE user_id = p_user_id AND status = 'active'
+   LIMIT 1;
+
+  IF v_journey_id IS NULL THEN
+    INSERT INTO journeys (user_id, status)
+    VALUES (p_user_id, 'active')
+    ON CONFLICT (user_id) WHERE status = 'active' DO NOTHING
+    RETURNING id INTO v_journey_id;
+
+    IF v_journey_id IS NULL THEN
+      SELECT id INTO v_journey_id FROM journeys
+       WHERE user_id = p_user_id AND status = 'active'
+       LIMIT 1;
+    END IF;
+  END IF;
+
+  FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(p_spec) LOOP
+    IF NOT (v_fspec->>'aiWritable')::boolean THEN CONTINUE; END IF;
+    v_inc := p_patch->v_field;
+    IF v_inc IS NULL OR v_inc = 'null'::jsonb THEN CONTINUE; END IF;
+
+    IF v_fspec->>'cardinality' = 'scalar' THEN
+      EXECUTE format(
+        'SELECT %I::text FROM journeys WHERE id = $1',
+        v_field
+      ) INTO v_cur_scalar USING v_journey_id;
+
+      IF v_cur_scalar IS NULL THEN
+        EXECUTE format(
+          'UPDATE journeys
+              SET %I = (jsonb_populate_record(NULL::journeys, jsonb_build_object(%L, $1))).%I
+            WHERE id = $2 AND %I IS NULL',
+          v_field, v_field, v_field, v_field
+        ) USING v_inc, v_journey_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
+    ELSE
+      v_max := (v_fspec->>'max')::int;
+
+      EXECUTE format(
+        'SELECT COALESCE(%I, ARRAY[]::text[]) FROM journeys WHERE id = $1',
+        v_field
+      ) INTO v_cur_arr USING v_journey_id;
+
+      SELECT array_agg(text_val) INTO v_inc_arr
+        FROM jsonb_array_elements_text(v_inc) AS t(text_val);
+
+      WITH merged AS (
+        SELECT x, 0 AS pri, ord
+          FROM unnest(v_cur_arr) WITH ORDINALITY AS t(x, ord)
+        UNION ALL
+        SELECT x, 1 AS pri, ord
+          FROM unnest(COALESCE(v_inc_arr, ARRAY[]::text[])) WITH ORDINALITY AS t(x, ord)
+      ),
+      first_seen AS (
+        SELECT DISTINCT ON (x) x, pri, ord
+          FROM merged
+          ORDER BY x, pri, ord
+      )
+      SELECT array_agg(x ORDER BY pri, ord)
+      INTO v_new_arr
+      FROM (SELECT x, pri, ord FROM first_seen ORDER BY pri, ord LIMIT v_max) t;
+
+      v_new_arr := COALESCE(v_new_arr, ARRAY[]::text[]);
+
+      IF COALESCE(v_cur_arr, ARRAY[]::text[]) IS DISTINCT FROM v_new_arr THEN
+        EXECUTE format(
+          'UPDATE journeys SET %I = $1 WHERE id = $2',
+          v_field
+        ) USING v_new_arr, v_journey_id;
+        IF FOUND THEN v_applied := array_append(v_applied, v_field); END IF;
+      END IF;
+    END IF;
+  END LOOP;
+  RETURN v_applied;
+END;
+$$;
+
+REVOKE ALL ON FUNCTION apply_ai_journey_patch(uuid, jsonb, jsonb) FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION apply_ai_journey_patch(uuid, jsonb, jsonb) TO authenticated;
+
+COMMIT;
+```
+
+**롤백 안전성**: CHECK 제약 DROP만 수행하며 `user_profiles.skin_types` / `age_range`, `journeys.budget_level` 기존 데이터는 영향 없음. 017 기간 중 유입된 레코드는 이미 CHECK를 통과한 상태이므로 추가 작업 불필요. 데이터 유실 없음.
 
 ---
 
@@ -207,6 +629,11 @@ COMMIT;
 ### §4.1 `src/server/features/profile/service.ts`
 
 ```diff
+-import {
+-  PROFILE_FIELD_SPEC,
+-  JOURNEY_FIELD_SPEC,
+-} from '@/shared/constants/profile-field-spec';
+-
  export async function applyAiExtraction(
    client: SupabaseClient,
    userId: string,
@@ -221,16 +648,27 @@ COMMIT;
  }
 ```
 
-`applyAiExtractionToJourney` 동일. Import의 `PROFILE_FIELD_SPEC` / `JOURNEY_FIELD_SPEC`는 Integration test에서 drift 비교용으로 유지. merge.ts는 이미 shared/constants/profile-field-spec에서 사용 중이므로 제거 금지.
+`applyAiExtractionToJourney` 동일.
+
+**C1 보강**: service.ts에서 `PROFILE_FIELD_SPEC` / `JOURNEY_FIELD_SPEC` import를 **제거한다** (호출부에서 사용하지 않음). 상수는 `merge.ts` (computeProfilePatch) 및 integration test T1(drift 비교)에서 직접 import하여 사용 — service.ts 경유 불필요. CLAUDE.md G-4 (미사용 코드 금지) 준수.
 
 ### §4.2 `src/server/features/profile/service.test.ts`
 
 기존 M4 테스트 "PROFILE_FIELD_SPEC만 전달 (레지스트리 혼동 방지)" 의미 재정의:
 
 - 이전: mock rpc 호출 시 3번째 인자로 `PROFILE_FIELD_SPEC`이 전달되는지 검증
-- 신규: mock rpc 호출 시 `p_spec` 키가 **전달되지 않는지** 검증 (서버 고정 확인)
+- **신규 (C2 보강)**: mock rpc 호출이 **정확히 `{ p_user_id, p_patch }` 두 키만** 포함하는지 **exact match assertion**으로 검증. 서버 고정 확인 + 미래에 `p_spec` 키가 실수로 복원되면 즉시 실패.
 
-Mock signature 수정. JOURNEY 테스트 동일.
+예:
+```ts
+expect(rpcMock).toHaveBeenCalledWith('apply_ai_profile_patch', {
+  p_user_id: 'user-1',
+  p_patch: { skin_types: ['dry'] },
+});
+// `toHaveBeenCalledWith`는 deep strict match이므로 추가 키가 있으면 fail
+```
+
+JOURNEY 테스트 동일 패턴. Mock signature도 2-arg로 수정.
 
 ### §4.3 `src/server/features/api/routes/chat.test.ts`
 
@@ -272,15 +710,35 @@ Mock signature 수정. JOURNEY 테스트 동일.
   - `country='KR'`, `city='seoul'` (schema.dbml DEFAULT)
   - `status='active'`, `skin_concerns=['acne']`
 
-**T5. REVOKE 검증**
-- Authenticated token을 가진 client(PostgREST)로 `rpc('apply_ai_profile_patch', { p_user_id, p_patch: {} })` 호출
-- Assert: 응답 에러 코드 `42501` (insufficient_privilege) 또는 PostgREST `PGRST202`
+**T5. REVOKE 검증 — 4개 함수 전수 (A5 보강)**
+- Authenticated token을 가진 client(PostgREST)로 다음 4개 RPC 호출 모두 거부되는지 확인:
+  1. `apply_ai_profile_patch(p_user_id, p_patch)`
+  2. `apply_ai_journey_patch(p_user_id, p_patch)`
+  3. `get_profile_field_spec()`
+  4. `get_journey_field_spec()`
+- Assert: 모두 응답 에러 코드 `42501` (insufficient_privilege) 또는 PostgREST `PGRST202` / `PGRST301`
+- Expect는 `error.code`와 `status >= 400` 둘 다 체크하여 환경별 매핑 차이에 대응 (spec §7 R5)
 
 **T6. CHECK 제약 방어**
 - `service_role` client로 잘못된 값 직접 UPDATE:
   - `UPDATE user_profiles SET skin_types = ARRAY['EXPLOIT']::text[] WHERE user_id = ...` → error `23514`
   - `UPDATE user_profiles SET age_range = 'invalid'` → error `23514`
   - `UPDATE journeys SET budget_level = 'bogus'` → error `23514`
+
+**T7. journey M1 대칭 케이스 (G1-G4 보강)**
+- Setup: `apply_ai_journey_patch(p_user_id, p_patch: { skin_concerns: ['acne','pores'] })` 로 journey 생성 + skin_concerns 저장
+- Action: `apply_ai_journey_patch(p_user_id, p_patch: { skin_concerns: ['dryness'], interest_activities: ['shopping'], travel_style: ['efficient'] })`
+- Assert:
+  - `skin_concerns = ['acne','pores','dryness']` (array union, CR-1 priority: 기존값 우선)
+  - `interest_activities` 불변 (aiWritable=false, 변경 없음)
+  - `travel_style` 불변 (aiWritable=false)
+  - Returned `applied`: `['skin_concerns']` 만
+
+**T8. scalar NULL → AI set (M3 명시 증명)**
+- Setup: `age_range=NULL` 사용자 (온보딩 미입력 가정)
+- Action: `apply_ai_profile_patch(p_user_id, p_patch: { age_range: '25-29' })`
+- Assert: `age_range = '25-29'` (scalar가 NULL일 때만 AI가 set 가능)
+- 추가: Action 재실행 `p_patch: { age_range: '30-34' }` → `age_range = '25-29'` 불변 (M1: 일단 set되면 AI가 덮어쓰기 불가)
 
 ### §5.3 테스트 환경
 
@@ -309,8 +767,20 @@ Mock signature 수정. JOURNEY 테스트 동일.
    - `npm run build`
    - `npm test` (unit)
    - `npm run test:integration`
-7. `/gstack-plan-eng-review` — 전문가 플랜 리뷰
+7. `/gstack-plan-eng-review` — 전문가 플랜 리뷰 (완료 — 본 문서 v1.1 반영)
 8. 필요 시 수정 후 PR
+
+### §6.1.1 PR 체크리스트 (A2 보강)
+
+PR description에 다음 체크박스 포함:
+
+```markdown
+## NEW-17b Pre-merge Checklist
+- [ ] `npm run test:integration` 로컬 실행 통과 (T1~T8)
+- [ ] `017_rpc_hardening.sql` Supabase Dashboard 적용 완료
+- [ ] `SELECT proname, pronargs FROM pg_proc WHERE proname IN ('apply_ai_profile_patch','apply_ai_journey_patch')` 결과 2 rows 확인
+- [ ] `CLAUDE.md`에 "drift 가능 필드 변경 시 로컬 integration test 실행 필수" 규칙 추가
+```
 
 ### §6.2 배포 순서
 
@@ -360,17 +830,26 @@ Mock signature 수정. JOURNEY 테스트 동일.
 
 ## §9. 범위 외
 
-- NEW-17c `learned_preferences` 재도입 — 별도 v0.2 후보
-- NEW-17d 프로필 편집 UX 경로 — 별도 세션 (제품 결정 필요)
-- NEW-17f 배포 윈도우 trigger — 별도 세션 (우선순위 낮음)
+- **NEW-17c** `learned_preferences` 재도입 — 별도 v0.2 후보
+- **NEW-17d** 프로필 편집 UX 경로 — 별도 세션 (제품 결정 필요)
+- **NEW-17f** 배포 윈도우 trigger — 별도 세션 (우선순위 낮음)
+- **NEW-17g** Integration test CI 통합 — v0.2 P3-26 (Supabase dev/prod 분리) 완료 후. `docs/03-design/INFRA-PIPELINE.md` §3.5 개정 동반 필요. 본 PR은 로컬 규율 + PR 체크리스트로 대체
 - 메타 테이블(`ai_field_spec`) 리팩토링 — YAGNI. 도메인 3개 이상 확장 요구 시 재평가
-- `learned_preferences` 또는 신규 aiWritable 필드 추가는 spec 함수 2곳 수정 + TS 상수 1곳 수정으로 대응 (NEW-17c 작업 시)
+- `learned_preferences` 또는 신규 aiWritable 필드 추가는 spec 함수 2곳(`get_*_field_spec()`) + TS 상수 1곳 수정으로 대응 (NEW-17c 작업 시)
 
 ---
 
 ## §10. 정본 우선순위 확인 (D-11)
 
-- schema.dbml §98~§125: `skin_types text[]`, `age_range text`, `budget_level text`, journeys DEFAULT 'KR'/'seoul' — ✓ 일치
-- PRD §4-A: 온보딩 시 사용자 명시값 우선 — ✓ M1과 일치
-- TDD: AI 추출 경로 설계 — ✓ 기존 RPC 의미 불변
+- `schema.dbml` §98~§125: `skin_types text[]`, `age_range text`, `budget_level text`, journeys DEFAULT 'KR'/'seoul' — ✓ 일치
+- `PRD.md` §4-A: 온보딩 시 사용자 명시값 우선 — ✓ M1과 일치
+- `TDD.md`: AI 추출 경로 설계 — ✓ 기존 RPC 의미 불변
+- **`INFRA-PIPELINE.md` v1.1 §3.5 (CI/CD 정본)**: "GitHub Secrets 미사용", "CI는 코드 검증만" — ✓ A2 결정 근거 (CI에 integration job 미추가)
 - 2026-04-15 spec v1.1 (NEW-17 정본): M1/M2/M3/M5 규칙 — ✓ 본 설계는 보안 레이어만 추가하며 의미 보존
+
+## §11. 변경 이력
+
+| 날짜 | 버전 | 변경 |
+|------|------|------|
+| 2026-04-16 | v1.0 | 초안 |
+| 2026-04-16 | v1.1 | `/gstack-plan-eng-review` 반영: A1(migration SQL inline), A3(rollback SQL inline), A4(anon REVOKE), A5(T5 4함수 확장), C1(service.ts import 제거), C2(exact match assertion), G1-G4(T7/T8 journey 대칭/scalar NULL 테스트 추가), A2 결정(INFRA-PIPELINE.md 정본 일치 → 로컬 규율 + NEW-17g 분리). §6.1.1 PR 체크리스트 신설 |
