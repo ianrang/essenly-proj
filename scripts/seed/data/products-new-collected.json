@@ -1,0 +1,3530 @@
+[
+  {
+    "entityType": "product",
+    "data": {
+      "id": "22c0e908-b35a-8387-f7db-c7c02e4b7ef9",
+      "name": {
+        "en": "Kamill Hand & Nail Cream BEST & BONUS Duo Set (Intensive Bonus Pack 133mL+Classic 100mL)",
+        "ko": "Kamill Hand & Nail Cream BEST & BONUS Duo Set (Intensive Bonus Pack 133mL+Classic 100mL)"
+      },
+      "name_en": "Kamill Hand & Nail Cream BEST & BONUS Duo Set (Intensive Bonus Pack 133mL+Classic 100mL)",
+      "name_ko": "Kamill Hand & Nail Cream BEST & BONUS Duo Set (Intensive Bonus Pack 133mL+Classic 100mL)",
+      "brand": "Kamill",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "serum",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 15028,
+      "price_min": 15028,
+      "price_max": 16560,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.810Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA220113423",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA220113423"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1221/d76fc422-3e1a-48a4-a615-12f1b5dccc45.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "b62bbe39-1352-c993-fc56-b6af7fddedfa",
+      "name": {
+        "en": "numbuzin No.5+ Vitamin Concentrated Serum 30mL+30mL Duo Set",
+        "ko": "numbuzin No.5+ Vitamin Concentrated Serum 30mL+30mL Duo Set"
+      },
+      "name_en": "numbuzin No.5+ Vitamin Concentrated Serum 30mL+30mL Duo Set",
+      "name_ko": "numbuzin No.5+ Vitamin Concentrated Serum 30mL+30mL Duo Set",
+      "brand": "numbuzin",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "serum",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 36432,
+      "price_min": 36432,
+      "price_max": 45540,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230820183",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230820183"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1818/82a4fad0-5f00-4de9-9e49-e94c722c72e7.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "f36dde87-ba7d-107f-a716-94a32a47eecc",
+      "name": {
+        "en": "COSRX Advanced The Vitamin C 23 Serum 20g Set (+Sun Serum 15ml)",
+        "ko": "COSRX Advanced The Vitamin C 23 Serum 20g Set (+Sun Serum 15ml)"
+      },
+      "name_en": "COSRX Advanced The Vitamin C 23 Serum 20g Set (+Sun Serum 15ml)",
+      "name_ko": "COSRX Advanced The Vitamin C 23 Serum 20g Set (+Sun Serum 15ml)",
+      "brand": "COSRX",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "serum",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 48300,
+      "price_min": 48300,
+      "price_max": 69000,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251033901",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251033901"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1549/3e4045ef-3570-42fd-aabc-3005cf32cd0c.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "6c944f68-4bf0-d727-4c04-bbfe5410244c",
+      "name": {
+        "en": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 30ml Set (+20ml)",
+        "ko": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 30ml Set (+20ml)"
+      },
+      "name_en": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 30ml Set (+20ml)",
+      "name_ko": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 30ml Set (+20ml)",
+      "brand": "goodal",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "serum",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 51019,
+      "price_min": 51019,
+      "price_max": 74520,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250731968",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250731968"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1201/0123042a-9ddf-4cfe-99fd-a7b36af6646e.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "e5dc2a66-88d0-d11a-2d1f-b335b12d0d64",
+      "name": {
+        "en": "Dr. Althea Vitamin C Boosting Serum 30ml",
+        "ko": "Dr. Althea Vitamin C Boosting Serum 30ml"
+      },
+      "name_en": "Dr. Althea Vitamin C Boosting Serum 30ml",
+      "name_ko": "Dr. Althea Vitamin C Boosting Serum 30ml",
+      "brand": "Dr. Althea",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "serum",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 31464,
+      "price_min": 31464,
+      "price_max": 37260,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250229056",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250229056"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1206/9d3f6227-b97b-4ce9-869f-2e12592294e0.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "ba003bf6-53b9-b498-4480-bade300c58ef",
+      "name": {
+        "en": "SOME BY MI Galactomyces Pure Vitamin C Glow Serum 30mL",
+        "ko": "SOME BY MI Galactomyces Pure Vitamin C Glow Serum 30mL"
+      },
+      "name_en": "SOME BY MI Galactomyces Pure Vitamin C Glow Serum 30mL",
+      "name_ko": "SOME BY MI Galactomyces Pure Vitamin C Glow Serum 30mL",
+      "brand": "SOME BY MI",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "serum",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 22177,
+      "price_min": 22177,
+      "price_max": 31740,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240322789",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240322789"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1756/5936e57e-f0f2-4d03-ae91-9546d7f0c50c.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "eb7b89f0-994b-cc1e-b9c1-2faa0cbdf6b6",
+      "name": {
+        "en": "MEDIHEAL Vitamin C Brightening Serum 40mL double set",
+        "ko": "MEDIHEAL Vitamin C Brightening Serum 40mL double set"
+      },
+      "name_en": "MEDIHEAL Vitamin C Brightening Serum 40mL double set",
+      "name_ko": "MEDIHEAL Vitamin C Brightening Serum 40mL double set",
+      "brand": "MEDIHEAL",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "serum",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 18630,
+      "price_min": 18630,
+      "price_max": 37260,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA241026560",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA241026560"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1437/52f10a21-6d1d-4496-ae7a-502c8bdc00fd.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "45aeb412-d499-cc40-72f2-d886bd8c57e4",
+      "name": {
+        "en": "APLB Retinol Vitamin C Vitamin E Body Lotion 300ml",
+        "ko": "APLB Retinol Vitamin C Vitamin E Body Lotion 300ml"
+      },
+      "name_en": "APLB Retinol Vitamin C Vitamin E Body Lotion 300ml",
+      "name_ko": "APLB Retinol Vitamin C Vitamin E Body Lotion 300ml",
+      "brand": "APLB",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "serum",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 15704,
+      "price_min": 15704,
+      "price_max": 27600,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250329392",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250329392"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1658/594fa71e-3fc5-422e-820f-a5a297082776.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "01d69733-9913-e9f6-1845-889027758bca",
+      "name": {
+        "en": "Torriden Cellmazing Low Molecular Collagen Lip Essence Double Pack",
+        "ko": "Torriden Cellmazing Low Molecular Collagen Lip Essence Double Pack"
+      },
+      "name_en": "Torriden Cellmazing Low Molecular Collagen Lip Essence Double Pack",
+      "name_ko": "Torriden Cellmazing Low Molecular Collagen Lip Essence Double Pack",
+      "brand": "Torriden",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "moisturizer",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 48300,
+      "price_min": 48300,
+      "price_max": 96600,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251034136",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251034136"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1310/e73bff24-2362-4331-94f2-f27b789de19c.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "99dea3c0-ee07-0e4c-2b42-0d0fdc9c8dfb",
+      "name": {
+        "en": "fwee Spa Glowing UV Tone Up Prep (SPF30 Semi Dewy/SPF50+Wet Dewy) (Set/Single) (2 Shades)",
+        "ko": "fwee Spa Glowing UV Tone Up Prep (SPF30 Semi Dewy/SPF50+Wet Dewy) (Set/Single) (2 Shades)"
+      },
+      "name_en": "fwee Spa Glowing UV Tone Up Prep (SPF30 Semi Dewy/SPF50+Wet Dewy) (Set/Single) (2 Shades)",
+      "name_ko": "fwee Spa Glowing UV Tone Up Prep (SPF30 Semi Dewy/SPF50+Wet Dewy) (Set/Single) (2 Shades)",
+      "brand": "fwee",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "moisturizer",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 14973,
+      "price_min": 14973,
+      "price_max": 23460,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260238183",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260238183"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1492/c174dcde-6c2a-4732-9925-5434fbf26da9.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "915937c5-c620-85a3-b646-ca0ecef3b7ee",
+      "name": {
+        "en": "GLOW Breathable Blemish Balm 30ml (3 Shades)",
+        "ko": "GLOW Breathable Blemish Balm 30ml (3 Shades)"
+      },
+      "name_en": "GLOW Breathable Blemish Balm 30ml (3 Shades)",
+      "name_ko": "GLOW Breathable Blemish Balm 30ml (3 Shades)",
+      "brand": "GLOW",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "moisturizer",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 46920,
+      "price_min": 46920,
+      "price_max": 57960,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250228897",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250228897"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1909/11fa1ac1-919d-4644-b2b1-add0ba735f52.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "a54776a4-160c-effe-d00b-b7e0d7c218d0",
+      "name": {
+        "en": "erborian CC Cream SPF30 40ml (2 Shades)",
+        "ko": "erborian CC Cream SPF30 40ml (2 Shades)"
+      },
+      "name_en": "erborian CC Cream SPF30 40ml (2 Shades)",
+      "name_ko": "erborian CC Cream SPF30 40ml (2 Shades)",
+      "brand": "erborian",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "moisturizer",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 49266,
+      "price_min": 49266,
+      "price_max": 57960,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260136569",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260136569"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1359/9c6248fa-946e-42b0-b27a-ca66be0edd0d.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "ec06a3f3-4a83-3c93-c8c6-59ca4ed8fbbf",
+      "name": {
+        "en": "ETUDE Ginger Sugar Lip Serum (9 Colors)",
+        "ko": "ETUDE Ginger Sugar Lip Serum (9 Colors)"
+      },
+      "name_en": "ETUDE Ginger Sugar Lip Serum (9 Colors)",
+      "name_ko": "ETUDE Ginger Sugar Lip Serum (9 Colors)",
+      "brand": "ETUDE",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "moisturizer",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 21376,
+      "price_min": 21376,
+      "price_max": 22080,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251034118",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251034118"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1523/02c202cf-177f-4b50-9743-8913496b58f3.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "bacb6190-deac-cf8a-3c20-88f0d2ffb8a1",
+      "name": {
+        "en": "VT PDRN Reedle Shot Firming Eye Cream 15ml",
+        "ko": "VT PDRN Reedle Shot Firming Eye Cream 15ml"
+      },
+      "name_en": "VT PDRN Reedle Shot Firming Eye Cream 15ml",
+      "name_ko": "VT PDRN Reedle Shot Firming Eye Cream 15ml",
+      "brand": "VT",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "eye_care",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 35659,
+      "price_min": 35659,
+      "price_max": 51060,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250832756",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250832756"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1519/dbad7eaa-36d3-4511-b459-13ed55f0db59.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "db0dd7d7-332d-7317-cb0f-2363dc189739",
+      "name": {
+        "en": "Beauty of Joseon Revive Eye Serum Ginseng + Retinal 30mL",
+        "ko": "Beauty of Joseon Revive Eye Serum Ginseng + Retinal 30mL"
+      },
+      "name_en": "Beauty of Joseon Revive Eye Serum Ginseng + Retinal 30mL",
+      "name_ko": "Beauty of Joseon Revive Eye Serum Ginseng + Retinal 30mL",
+      "brand": "Beauty of Joseon",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "eye_care",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 53116,
+      "price_min": 53116,
+      "price_max": 53820,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA220816048",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA220816048"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1799/32abf014-9f01-46d6-bcfd-86b89e1e08ca.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "b85d2055-d55a-362c-0bee-bbd4532fcba4",
+      "name": {
+        "en": "numbuzin No. 9 NAD Retinol Volume Shot Eye Cream 10ml",
+        "ko": "numbuzin No. 9 NAD Retinol Volume Shot Eye Cream 10ml"
+      },
+      "name_en": "numbuzin No. 9 NAD Retinol Volume Shot Eye Cream 10ml",
+      "name_ko": "numbuzin No. 9 NAD Retinol Volume Shot Eye Cream 10ml",
+      "brand": "numbuzin",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "eye_care",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 37674,
+      "price_min": 37674,
+      "price_max": 57960,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250631809",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250631809"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1891/d024651c-ba21-4be4-8e5a-ca7c9f6395c0.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "5c49630f-7a4d-b7a8-913b-3d464db8562d",
+      "name": {
+        "en": "BIOHEAL BOH PROBIODERM 3D Lifting Eye & Wrinkle Cream 25ml Double Pack",
+        "ko": "BIOHEAL BOH PROBIODERM 3D Lifting Eye & Wrinkle Cream 25ml Double Pack"
+      },
+      "name_en": "BIOHEAL BOH PROBIODERM 3D Lifting Eye & Wrinkle Cream 25ml Double Pack",
+      "name_ko": "BIOHEAL BOH PROBIODERM 3D Lifting Eye & Wrinkle Cream 25ml Double Pack",
+      "brand": "BIOHEAL BOH",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "eye_care",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 43912,
+      "price_min": 43912,
+      "price_max": 77280,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240623965",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240623965"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1508/d78e4623-2e41-4e47-8901-77c7aafed376.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "450b3f96-1e2e-5d45-3296-82be96d54aed",
+      "name": {
+        "en": "AXIS-Y Vegan Collagen Eye Serum 10ml",
+        "ko": "AXIS-Y Vegan Collagen Eye Serum 10ml"
+      },
+      "name_en": "AXIS-Y Vegan Collagen Eye Serum 10ml",
+      "name_ko": "AXIS-Y Vegan Collagen Eye Serum 10ml",
+      "brand": "AXIS-Y",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "eye_care",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 27296,
+      "price_min": 27296,
+      "price_max": 31740,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240624225",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240624225"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1785/15322ffc-5d01-4bca-89f5-871f2474a13d.png"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "46af77b0-17ae-29c0-59d9-e35e17fba021",
+      "name": {
+        "en": "ROUND LAB Birch Juice Moisturizing Sun Serum 50ml+50ml Set (+8ml)",
+        "ko": "ROUND LAB Birch Juice Moisturizing Sun Serum 50ml+50ml Set (+8ml)"
+      },
+      "name_en": "ROUND LAB Birch Juice Moisturizing Sun Serum 50ml+50ml Set (+8ml)",
+      "name_ko": "ROUND LAB Birch Juice Moisturizing Sun Serum 50ml+50ml Set (+8ml)",
+      "brand": "ROUND LAB",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "toner",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 57408,
+      "price_min": 57408,
+      "price_max": 71760,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260238011",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260238011"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1082/44a38d7b-5f14-42b3-bab9-1e5d3cca445a.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "a01b5c5d-43e6-934b-2c3f-4ebc93b56d8c",
+      "name": {
+        "en": "SKIN1004 Madagascar Centella Hyalu-Cica Water-Fit Sun Serum 50mL*2ea (Twin pack)",
+        "ko": "SKIN1004 Madagascar Centella Hyalu-Cica Water-Fit Sun Serum 50mL*2ea (Twin pack)"
+      },
+      "name_en": "SKIN1004 Madagascar Centella Hyalu-Cica Water-Fit Sun Serum 50mL*2ea (Twin pack)",
+      "name_ko": "SKIN1004 Madagascar Centella Hyalu-Cica Water-Fit Sun Serum 50mL*2ea (Twin pack)",
+      "brand": "SKIN1004",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "toner",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 28704,
+      "price_min": 28704,
+      "price_max": 35880,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230518746",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230518746"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1595/6290bfe2-63de-4724-9e18-b27eb424964e.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "d5912985-3838-5121-689d-76b71e4b2ec4",
+      "name": {
+        "en": "Isntree Yam Root Vegan Milk Cleanser 220ml Refill Set (+Refill 200ml+Cleansing Foam 30ml)",
+        "ko": "Isntree Yam Root Vegan Milk Cleanser 220ml Refill Set (+Refill 200ml+Cleansing Foam 30ml)"
+      },
+      "name_en": "Isntree Yam Root Vegan Milk Cleanser 220ml Refill Set (+Refill 200ml+Cleansing Foam 30ml)",
+      "name_ko": "Isntree Yam Root Vegan Milk Cleanser 220ml Refill Set (+Refill 200ml+Cleansing Foam 30ml)",
+      "brand": "Isntree",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "cleanser",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 25254,
+      "price_min": 25254,
+      "price_max": 33672,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260136703",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260136703"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1200/44d78f61-e789-40bc-ad0c-838fa42cec2f.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "14c0c8fb-2d2e-6015-3045-e32785b77af6",
+      "name": {
+        "en": "S.NATURE Aqua Rice Foam Cleanser 160ml Special Set (Special Gift:20ml)",
+        "ko": "S.NATURE Aqua Rice Foam Cleanser 160ml Special Set (Special Gift:20ml)"
+      },
+      "name_en": "S.NATURE Aqua Rice Foam Cleanser 160ml Special Set (Special Gift:20ml)",
+      "name_ko": "S.NATURE Aqua Rice Foam Cleanser 160ml Special Set (Special Gift:20ml)",
+      "brand": "S.NATURE",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "cleanser",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 35811,
+      "price_min": 35811,
+      "price_max": 69000,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230920399",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230920399"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1316/4a16f64c-5c3b-417d-a06e-bc7ea4456d8c.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "be6bbac9-04f5-61c2-5c02-c7ddb23ed3bb",
+      "name": {
+        "en": "Beauty of Joseon Relief Sun Aqua-fresh Rice+B5 (SPF50+ PA++++) 50mL",
+        "ko": "Beauty of Joseon Relief Sun Aqua-fresh Rice+B5 (SPF50+ PA++++) 50mL"
+      },
+      "name_en": "Beauty of Joseon Relief Sun Aqua-fresh Rice+B5 (SPF50+ PA++++) 50mL",
+      "name_ko": "Beauty of Joseon Relief Sun Aqua-fresh Rice+B5 (SPF50+ PA++++) 50mL",
+      "brand": "Beauty of Joseon",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "sunscreen",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 53116,
+      "price_min": 53116,
+      "price_max": 53820,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240825222",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240825222"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1051/ef8e7733-d95f-436b-9dec-42af9646ba34.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "f7645f03-16ec-0a95-d9e1-50905b0c259b",
+      "name": {
+        "en": "Purito Seoul Daily Soft Touch Sunscreen SPF50+ PA++++ 60mL",
+        "ko": "Purito Seoul Daily Soft Touch Sunscreen SPF50+ PA++++ 60mL"
+      },
+      "name_en": "Purito Seoul Daily Soft Touch Sunscreen SPF50+ PA++++ 60mL",
+      "name_ko": "Purito Seoul Daily Soft Touch Sunscreen SPF50+ PA++++ 60mL",
+      "brand": "Purito Seoul",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "sunscreen",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 40986,
+      "price_min": 40986,
+      "price_max": 45540,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240624170",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240624170"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1039/0668f210-d1ce-4c7d-8284-d328d17841d1.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "924983ba-6224-c73b-0dbc-3eedf5153d70",
+      "name": {
+        "en": "BIODANCE Real Deep Mask Sheet 16P (2 Types)",
+        "ko": "BIODANCE Real Deep Mask Sheet 16P (2 Types)"
+      },
+      "name_en": "BIODANCE Real Deep Mask Sheet 16P (2 Types)",
+      "name_ko": "BIODANCE Real Deep Mask Sheet 16P (2 Types)",
+      "brand": "BIODANCE",
+      "brand_id": null,
+      "category": "skincare",
+      "subcategory": "mask",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 42435,
+      "price_min": 42435,
+      "price_max": 49680,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230518544",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230518544"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1469/80420d7c-5e87-4bd7-872f-254c9e0cd515.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "9f7eb2d3-8da2-ebe0-0079-f63296bfd2d5",
+      "name": {
+        "en": "JUNGSAEMMOOL Essential Skin Nuder Cushion (Refill Included) (12 Shades)",
+        "ko": "JUNGSAEMMOOL Essential Skin Nuder Cushion (Refill Included) (12 Shades)"
+      },
+      "name_en": "JUNGSAEMMOOL Essential Skin Nuder Cushion (Refill Included) (12 Shades)",
+      "name_ko": "JUNGSAEMMOOL Essential Skin Nuder Cushion (Refill Included) (12 Shades)",
+      "brand": "JUNGSAEMMOOL",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "cushion",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 42269,
+      "price_min": 42269,
+      "price_max": 59340,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210002919",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210002919"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1009/8d21e6f2-1b3d-4161-99f1-40e024d73c6c.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "a5d538a4-015f-7043-a5cd-c1ade91d1907",
+      "name": {
+        "en": "HERA Black Cushion Refill 15g (9 Shades)",
+        "ko": "HERA Black Cushion Refill 15g (9 Shades)"
+      },
+      "name_en": "HERA Black Cushion Refill 15g (9 Shades)",
+      "name_ko": "HERA Black Cushion Refill 15g (9 Shades)",
+      "brand": "HERA",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "cushion",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 74520,
+      "price_min": 74520,
+      "price_max": 82800,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240825269",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240825269"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1269/8c3a0755-34b6-47df-a21a-9da27f88f304.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "f002abac-cb9d-d3f6-a536-248f65c43201",
+      "name": {
+        "en": "LANEIGE Neo Cushion The Glow 15g (7 Shades)",
+        "ko": "LANEIGE Neo Cushion The Glow 15g (7 Shades)"
+      },
+      "name_en": "LANEIGE Neo Cushion The Glow 15g (7 Shades)",
+      "name_ko": "LANEIGE Neo Cushion The Glow 15g (7 Shades)",
+      "brand": "LANEIGE",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "cushion",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 23184,
+      "price_min": 23184,
+      "price_max": 33120,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338618",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338618"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1335/3bd090a6-5dd7-4bb9-b181-6921296f5a16.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "d9ad6f3c-7f8c-32e9-3b2d-d8ee69b31228",
+      "name": {
+        "en": "JUNGSAEMMOOL Essential Skin Nuder Cushion & Mist Special Set (+Gel Pad 2P*3ea) (3 Shades)",
+        "ko": "JUNGSAEMMOOL Essential Skin Nuder Cushion & Mist Special Set (+Gel Pad 2P*3ea) (3 Shades)"
+      },
+      "name_en": "JUNGSAEMMOOL Essential Skin Nuder Cushion & Mist Special Set (+Gel Pad 2P*3ea) (3 Shades)",
+      "name_ko": "JUNGSAEMMOOL Essential Skin Nuder Cushion & Mist Special Set (+Gel Pad 2P*3ea) (3 Shades)",
+      "brand": "JUNGSAEMMOOL",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "cushion",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 47196,
+      "price_min": 47196,
+      "price_max": 62100,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260439172",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260439172"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1351/68900907-0a6d-44d8-be2d-bfa4179f2a1e.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "0f6e4f10-7161-36b7-1f64-63bd3a0d4ab0",
+      "name": {
+        "en": "fwee Rose Obsession Stay-fit Lip Tint (24 Colors)",
+        "ko": "fwee Rose Obsession Stay-fit Lip Tint (24 Colors)"
+      },
+      "name_en": "fwee Rose Obsession Stay-fit Lip Tint (24 Colors)",
+      "name_ko": "fwee Rose Obsession Stay-fit Lip Tint (24 Colors)",
+      "brand": "fwee",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "lip_tint",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 16795,
+      "price_min": 16795,
+      "price_max": 23460,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260237886",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260237886"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1877/4b7f6c6e-deda-4f1e-bba7-ffbea0fdcde7.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "2a420e96-0665-a229-d733-01d2a36773e1",
+      "name": {
+        "en": "Alternative stereo Lip Potion Caramel Glaze Tint (14 Colors)",
+        "ko": "Alternative stereo Lip Potion Caramel Glaze Tint (14 Colors)"
+      },
+      "name_en": "Alternative stereo Lip Potion Caramel Glaze Tint (14 Colors)",
+      "name_ko": "Alternative stereo Lip Potion Caramel Glaze Tint (14 Colors)",
+      "brand": "Alternative stereo",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "lip_tint",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 22080,
+      "price_min": 22080,
+      "price_max": 26220,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250933464",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250933464"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1176/f7aef79e-6555-4fa3-bcc4-e095a6dd7a54.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "0f550a3a-3c29-4c7e-0d55-5ed70548fe67",
+      "name": {
+        "en": "rom&nd Glasting Color Gloss (Set/Single) (15 Colors)",
+        "ko": "rom&nd Glasting Color Gloss (Set/Single) (15 Colors)"
+      },
+      "name_en": "rom&nd Glasting Color Gloss (Set/Single) (15 Colors)",
+      "name_ko": "rom&nd Glasting Color Gloss (Set/Single) (15 Colors)",
+      "brand": "rom&nd",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "lip_tint",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 16312,
+      "price_min": 16312,
+      "price_max": 22080,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA231221443",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA231221443"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1513/9058887a-c107-48b4-b9da-0d7156b1bfb2.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "274713f9-052b-40c3-201a-cb54663f78fc",
+      "name": {
+        "en": "2aN Better Me Eye Palette (21 Options)",
+        "ko": "2aN Better Me Eye Palette (21 Options)"
+      },
+      "name_en": "2aN Better Me Eye Palette (21 Options)",
+      "name_ko": "2aN Better Me Eye Palette (21 Options)",
+      "brand": "2aN",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "eye_shadow",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 18368,
+      "price_min": 18368,
+      "price_max": 23460,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240222182",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240222182"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1938/43af58e9-02a2-413f-9257-8304e57a54e7.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "66ea8779-1433-0cb2-0545-04c3433ea063",
+      "name": {
+        "en": "CLIO Soft Blending Shadow Stick (9Colors)",
+        "ko": "CLIO Soft Blending Shadow Stick (9Colors)"
+      },
+      "name_en": "CLIO Soft Blending Shadow Stick (9Colors)",
+      "name_ko": "CLIO Soft Blending Shadow Stick (9Colors)",
+      "brand": "CLIO",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "eye_shadow",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 10626,
+      "price_min": 10626,
+      "price_max": 15180,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250430341",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250430341"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1982/ec21021c-9b9f-431a-991b-499ff99e387a.png"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "9a216ad8-c3ef-0e97-b620-a575a51f48f4",
+      "name": {
+        "en": "CLIO Kill Lash Mascara Double Pack (9 Options)",
+        "ko": "CLIO Kill Lash Mascara Double Pack (9 Options)"
+      },
+      "name_en": "CLIO Kill Lash Mascara Double Pack (9 Options)",
+      "name_ko": "CLIO Kill Lash Mascara Double Pack (9 Options)",
+      "brand": "CLIO",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "mascara",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 10626,
+      "price_min": 10626,
+      "price_max": 15180,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210001463",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210001463"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1293/5b559be8-b9a5-4d8d-bee0-8625f98f7ecc.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "16aed74b-b583-fa62-ff86-650e804826cb",
+      "name": {
+        "en": "peripera Speedy Skinny Brow Mascara (10 Colors)",
+        "ko": "peripera Speedy Skinny Brow Mascara (10 Colors)"
+      },
+      "name_en": "peripera Speedy Skinny Brow Mascara (10 Colors)",
+      "name_ko": "peripera Speedy Skinny Brow Mascara (10 Colors)",
+      "brand": "peripera",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "mascara",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 26496,
+      "price_min": 26496,
+      "price_max": 33120,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA241227545",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA241227545"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1889/a4263a82-c2b2-4519-bca8-f4097ca30905.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "beaa3aee-ce8b-7ca1-1fbc-43ef343cc7c5",
+      "name": {
+        "en": "fwee 3D Voluming Gloss Set (Set/Single) (23 Colors)",
+        "ko": "fwee 3D Voluming Gloss Set (Set/Single) (23 Colors)"
+      },
+      "name_en": "fwee 3D Voluming Gloss Set (Set/Single) (23 Colors)",
+      "name_ko": "fwee 3D Voluming Gloss Set (Set/Single) (23 Colors)",
+      "brand": "fwee",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "lip_gloss",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 14973,
+      "price_min": 14973,
+      "price_max": 23460,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260137046",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260137046"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1146/e40055a7-9a12-4deb-aa92-cfd988486cf1.png"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "8af3df6b-bb50-0f55-f94a-d85de1fb64a4",
+      "name": {
+        "en": "too cool for school Sway Lip Velvet (14 Colors)",
+        "ko": "too cool for school Sway Lip Velvet (14 Colors)"
+      },
+      "name_en": "too cool for school Sway Lip Velvet (14 Colors)",
+      "name_ko": "too cool for school Sway Lip Velvet (14 Colors)",
+      "brand": "too cool for school",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "lip_stick",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 14794,
+      "price_min": 14794,
+      "price_max": 17940,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250832651",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250832651"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1547/86941bc8-6e55-48fc-863c-539afc0d2865.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "50713826-4a08-7060-c107-6ad6ad049556",
+      "name": {
+        "en": "too cool for school Frottage Pencil (15 Colors)",
+        "ko": "too cool for school Frottage Pencil (15 Colors)"
+      },
+      "name_en": "too cool for school Frottage Pencil (15 Colors)",
+      "name_ko": "too cool for school Frottage Pencil (15 Colors)",
+      "brand": "too cool for school",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "eye_liner",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 13303,
+      "price_min": 13303,
+      "price_max": 17940,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230317872",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230317872"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1856/a52dead7-a3d5-4657-8e2f-fe5ce9107986.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "5ca0f83f-8733-7fc2-f692-ae0ba0bf84f1",
+      "name": {
+        "en": "lilybyred Luv Beam Cheek Balm (16 Colors)",
+        "ko": "lilybyred Luv Beam Cheek Balm (16 Colors)"
+      },
+      "name_en": "lilybyred Luv Beam Cheek Balm (16 Colors)",
+      "name_ko": "lilybyred Luv Beam Cheek Balm (16 Colors)",
+      "brand": "lilybyred",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "blush",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 16560,
+      "price_min": 16560,
+      "price_max": 16560,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210004833",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210004833"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1817/6f3e83df-664a-4a5c-80ad-ecbb68e0d031.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "3e31267d-0f45-019d-8153-d11714c1f60c",
+      "name": {
+        "en": "too cool for school Artclass By. Rodin Finish Setting Powder",
+        "ko": "too cool for school Artclass By. Rodin Finish Setting Powder"
+      },
+      "name_en": "too cool for school Artclass By. Rodin Finish Setting Powder",
+      "name_ko": "too cool for school Artclass By. Rodin Finish Setting Powder",
+      "brand": "too cool for school",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "setting_powder",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 14794,
+      "price_min": 14794,
+      "price_max": 17940,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230518811",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230518811"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1356/6f890a42-ef6c-478d-8e05-fe19549156de.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "bb3429e3-5eb7-6f03-6882-adf9095571d2",
+      "name": {
+        "en": "espoir Be Glow Foundation 30g (10 Colors)",
+        "ko": "espoir Be Glow Foundation 30g (10 Colors)"
+      },
+      "name_en": "espoir Be Glow Foundation 30g (10 Colors)",
+      "name_ko": "espoir Be Glow Foundation 30g (10 Colors)",
+      "brand": "espoir",
+      "brand_id": null,
+      "category": "makeup",
+      "subcategory": "foundation",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 55200,
+      "price_min": 55200,
+      "price_max": 55200,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250127772",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250127772"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1937/eb23fba7-66ff-4441-9235-86d8e9a5a25f.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "4790f6b4-bad0-b337-d119-ffaf89df61b3",
+      "name": {
+        "en": "Rausch Coltsfoot Anti-Dandruff Shampoo 200ml 2ea SET(+Best Sample 2ea)",
+        "ko": "Rausch Coltsfoot Anti-Dandruff Shampoo 200ml 2ea SET(+Best Sample 2ea)"
+      },
+      "name_en": "Rausch Coltsfoot Anti-Dandruff Shampoo 200ml 2ea SET(+Best Sample 2ea)",
+      "name_ko": "Rausch Coltsfoot Anti-Dandruff Shampoo 200ml 2ea SET(+Best Sample 2ea)",
+      "brand": "Rausch",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "shampoo",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 43498,
+      "price_min": 43498,
+      "price_max": 55200,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251034175",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251034175"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1813/e8815ad9-0cbc-43f5-9f41-951630a70f63.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "7fe99db9-5317-e5b0-d9b4-bdd04d7fac5a",
+      "name": {
+        "en": "Rausch Revital Shampoo with Wassernabel and Caffeine 200ml Limited Set (+Best Sampler 4P)",
+        "ko": "Rausch Revital Shampoo with Wassernabel and Caffeine 200ml Limited Set (+Best Sampler 4P)"
+      },
+      "name_en": "Rausch Revital Shampoo with Wassernabel and Caffeine 200ml Limited Set (+Best Sampler 4P)",
+      "name_ko": "Rausch Revital Shampoo with Wassernabel and Caffeine 200ml Limited Set (+Best Sampler 4P)",
+      "brand": "Rausch",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "shampoo",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 43498,
+      "price_min": 43498,
+      "price_max": 55200,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251034148",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251034148"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1395/d9591b3f-09a4-4ede-80a5-43c688f633ab.png"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "39222d6f-1875-d118-071f-b99a4b902d30",
+      "name": {
+        "en": "LABO-H Scalp Strengthening Care Shampoo 750ml Set (+100ml)",
+        "ko": "LABO-H Scalp Strengthening Care Shampoo 750ml Set (+100ml)"
+      },
+      "name_en": "LABO-H Scalp Strengthening Care Shampoo 750ml Set (+100ml)",
+      "name_ko": "LABO-H Scalp Strengthening Care Shampoo 750ml Set (+100ml)",
+      "brand": "LABO-H",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "shampoo",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 63535,
+      "price_min": 63535,
+      "price_max": 92460,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240825362",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240825362"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1525/833e706a-9fde-4146-8cd5-27b654dc99c9.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "c00bc554-8939-7664-b756-b8139dd2b1e8",
+      "name": {
+        "en": "JUST AS I AM I AM HAIR MASK N1 Damaged Hair Repair 220mL",
+        "ko": "JUST AS I AM I AM HAIR MASK N1 Damaged Hair Repair 220mL"
+      },
+      "name_en": "JUST AS I AM I AM HAIR MASK N1 Damaged Hair Repair 220mL",
+      "name_ko": "JUST AS I AM I AM HAIR MASK N1 Damaged Hair Repair 220mL",
+      "brand": "JUST AS I AM",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "treatment",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 59340,
+      "price_min": 59340,
+      "price_max": 67620,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240322849",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240322849"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1310/aa823832-96e3-46bd-bb5d-1b63af0862f7.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "3adb0348-a6f7-6a80-4d07-bf340c26a609",
+      "name": {
+        "en": "Mise-en-scene Perfect Argan Capsule Repair Hair Mask 180g",
+        "ko": "Mise-en-scene Perfect Argan Capsule Repair Hair Mask 180g"
+      },
+      "name_en": "Mise-en-scene Perfect Argan Capsule Repair Hair Mask 180g",
+      "name_ko": "Mise-en-scene Perfect Argan Capsule Repair Hair Mask 180g",
+      "brand": "Mise-en-scene",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "treatment",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 31919,
+      "price_min": 31919,
+      "price_max": 41400,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250832744",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250832744"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1356/cdc35f19-0b75-4171-8956-517541994f10.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "059dee3d-8ff0-7245-4591-89de7b7c53c5",
+      "name": {
+        "en": "AROMATICA Rosemary Root Enhancer 100mL+100mL Double Set",
+        "ko": "AROMATICA Rosemary Root Enhancer 100mL+100mL Double Set"
+      },
+      "name_en": "AROMATICA Rosemary Root Enhancer 100mL+100mL Double Set",
+      "name_ko": "AROMATICA Rosemary Root Enhancer 100mL+100mL Double Set",
+      "brand": "AROMATICA",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "hair_oil",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 30553,
+      "price_min": 30553,
+      "price_max": 56580,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230819992",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230819992"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1973/84cdf928-9eb6-4bf5-ac41-498753cd1a48.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "47bf95fb-ddd7-6f9b-5020-79e0925babad",
+      "name": {
+        "en": "Dr. Groot Aqua Hair Line Booster Shot 15ml Double Set",
+        "ko": "Dr. Groot Aqua Hair Line Booster Shot 15ml Double Set"
+      },
+      "name_en": "Dr. Groot Aqua Hair Line Booster Shot 15ml Double Set",
+      "name_ko": "Dr. Groot Aqua Hair Line Booster Shot 15ml Double Set",
+      "brand": "Dr. Groot",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "hair_oil",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 36763,
+      "price_min": 36763,
+      "price_max": 41400,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338924",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338924"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1962/91ff53d9-344d-4c60-ae5d-69ad56449ed2.png"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "09eed328-cdde-e77c-2d94-0259e635d4fd",
+      "name": {
+        "en": "VT PDRN Reedle Shot Brush Hair Serum 100ml",
+        "ko": "VT PDRN Reedle Shot Brush Hair Serum 100ml"
+      },
+      "name_en": "VT PDRN Reedle Shot Brush Hair Serum 100ml",
+      "name_ko": "VT PDRN Reedle Shot Brush Hair Serum 100ml",
+      "brand": "VT",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "hair_serum",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 35659,
+      "price_min": 35659,
+      "price_max": 51060,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260237807",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260237807"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1067/8f1d1f78-449c-4593-8fdc-07018e3662b2.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "630a1ac5-71b2-58d6-0594-1285b7fd55c5",
+      "name": {
+        "en": "DASHU Daily Easy Cover Hair Cushion (Natural Black) 16g",
+        "ko": "DASHU Daily Easy Cover Hair Cushion (Natural Black) 16g"
+      },
+      "name_en": "DASHU Daily Easy Cover Hair Cushion (Natural Black) 16g",
+      "name_ko": "DASHU Daily Easy Cover Hair Cushion (Natural Black) 16g",
+      "brand": "DASHU",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "hair_color",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 23984,
+      "price_min": 23984,
+      "price_max": 28980,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210000473",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210000473"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1198/a091dcd4-b49f-4354-8be1-64496962380e.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "ebfc5afa-e2c9-a1ff-717a-009c240cf4ef",
+      "name": {
+        "en": "lilyeve Grow Turn Exosome Brush Ampoule 130ml Set (+30ml)",
+        "ko": "lilyeve Grow Turn Exosome Brush Ampoule 130ml Set (+30ml)"
+      },
+      "name_en": "lilyeve Grow Turn Exosome Brush Ampoule 130ml Set (+30ml)",
+      "name_ko": "lilyeve Grow Turn Exosome Brush Ampoule 130ml Set (+30ml)",
+      "brand": "lilyeve",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "styling",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 46092,
+      "price_min": 46092,
+      "price_max": 46920,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251235989",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251235989"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1983/9d0b2244-35e4-4e5e-a8a9-03c5afad2a54.png"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "4235ebbe-15ca-e81f-1686-89026ce10ab3",
+      "name": {
+        "en": "epais Repair Leave-In Treatment 150ml",
+        "ko": "epais Repair Leave-In Treatment 150ml"
+      },
+      "name_en": "epais Repair Leave-In Treatment 150ml",
+      "name_ko": "epais Repair Leave-In Treatment 150ml",
+      "brand": "epais",
+      "brand_id": null,
+      "category": "haircare",
+      "subcategory": "hair_essence",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 44560,
+      "price_min": 44560,
+      "price_max": 48300,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338647",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338647"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1584/d0465a66-31da-422a-9b0e-86f9ee53c000.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "62ab8cb5-3d34-ae9e-3ec3-676f78149c22",
+      "name": {
+        "en": "ILLIYOON Fresh Moisture Scrub Wash 400ml*2ea Set",
+        "ko": "ILLIYOON Fresh Moisture Scrub Wash 400ml*2ea Set"
+      },
+      "name_en": "ILLIYOON Fresh Moisture Scrub Wash 400ml*2ea Set",
+      "name_ko": "ILLIYOON Fresh Moisture Scrub Wash 400ml*2ea Set",
+      "brand": "ILLIYOON",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "body_wash",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 59740,
+      "price_min": 59740,
+      "price_max": 89700,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250430397",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250430397"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1248/085ade32-784e-4367-b53c-d5297c02d805.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "fbbfa255-4372-2d01-8991-163973f49bc8",
+      "name": {
+        "en": "ILLIYOON Ceramide Ato 6.0 Top To Toe Wash 1000ml",
+        "ko": "ILLIYOON Ceramide Ato 6.0 Top To Toe Wash 1000ml"
+      },
+      "name_en": "ILLIYOON Ceramide Ato 6.0 Top To Toe Wash 1000ml",
+      "name_ko": "ILLIYOON Ceramide Ato 6.0 Top To Toe Wash 1000ml",
+      "brand": "ILLIYOON",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "body_wash",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 59740,
+      "price_min": 59740,
+      "price_max": 89700,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250430401",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250430401"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1381/726b5c85-30a8-441b-8351-73f5742108bf.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "f0039845-f6db-1433-54d9-852e355cbc73",
+      "name": {
+        "en": "ROUND LAB PINE CALMING CICA BODY WASH 400ml",
+        "ko": "ROUND LAB PINE CALMING CICA BODY WASH 400ml"
+      },
+      "name_en": "ROUND LAB PINE CALMING CICA BODY WASH 400ml",
+      "name_ko": "ROUND LAB PINE CALMING CICA BODY WASH 400ml",
+      "brand": "ROUND LAB",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "body_wash",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 57408,
+      "price_min": 57408,
+      "price_max": 71760,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230418430",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA230418430"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1886/56b54014-5dfa-4d4f-899d-8524eedff67e.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "dbff6622-76f2-b542-04d4-143ac826bf4d",
+      "name": {
+        "en": "ILLIYOON Ceramide Ato 5.0 Gentle Skin Cleanser 400ml",
+        "ko": "ILLIYOON Ceramide Ato 5.0 Gentle Skin Cleanser 400ml"
+      },
+      "name_en": "ILLIYOON Ceramide Ato 5.0 Gentle Skin Cleanser 400ml",
+      "name_ko": "ILLIYOON Ceramide Ato 5.0 Gentle Skin Cleanser 400ml",
+      "brand": "ILLIYOON",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "body_wash",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 59740,
+      "price_min": 59740,
+      "price_max": 89700,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250430400",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250430400"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1188/49adbd87-69f3-412b-9938-da0eee5da2fe.png"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "c06e3388-901d-4b11-4393-3c02415ec22a",
+      "name": {
+        "en": "ILLIYOON Ceramide Ato Lotion Double Pack (600ml+600ml)",
+        "ko": "ILLIYOON Ceramide Ato Lotion Double Pack (600ml+600ml)"
+      },
+      "name_en": "ILLIYOON Ceramide Ato Lotion Double Pack (600ml+600ml)",
+      "name_ko": "ILLIYOON Ceramide Ato Lotion Double Pack (600ml+600ml)",
+      "brand": "ILLIYOON",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "body_lotion",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 30250,
+      "price_min": 30250,
+      "price_max": 40020,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250128246",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250128246"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1721/b261f9f1-d23e-40be-a1af-16e8fa7395a7.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "66881e13-049a-b617-6fb1-bd96f5eba41d",
+      "name": {
+        "en": "APLB Glutathione Niacinamide Body Lotion 300mL",
+        "ko": "APLB Glutathione Niacinamide Body Lotion 300mL"
+      },
+      "name_en": "APLB Glutathione Niacinamide Body Lotion 300mL",
+      "name_ko": "APLB Glutathione Niacinamide Body Lotion 300mL",
+      "brand": "APLB",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "body_lotion",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 15704,
+      "price_min": 15704,
+      "price_max": 27600,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240322455",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240322455"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1265/abd7f605-4eb9-4a65-95bd-d2d650bab7bf.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "5636be4a-04af-311e-9622-ac330b58b1f6",
+      "name": {
+        "en": "ILLIYOON Ceramide Ato Lotion 600mL + 128mL",
+        "ko": "ILLIYOON Ceramide Ato Lotion 600mL + 128mL"
+      },
+      "name_en": "ILLIYOON Ceramide Ato Lotion 600mL + 128mL",
+      "name_ko": "ILLIYOON Ceramide Ato Lotion 600mL + 128mL",
+      "brand": "ILLIYOON",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "body_lotion",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 59740,
+      "price_min": 59740,
+      "price_max": 89700,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250127970",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250127970"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1848/33423526-209e-4501-9107-aa6a4a0c2ac6.png"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "89034b8d-37c3-8b42-0872-947125a0c43f",
+      "name": {
+        "en": "hetras Mango Seed Butter Perfume Hand Cream 50mL",
+        "ko": "hetras Mango Seed Butter Perfume Hand Cream 50mL"
+      },
+      "name_en": "hetras Mango Seed Butter Perfume Hand Cream 50mL",
+      "name_ko": "hetras Mango Seed Butter Perfume Hand Cream 50mL",
+      "brand": "hetras",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "hand_cream",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 43553,
+      "price_min": 43553,
+      "price_max": 51060,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240222150",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240222150"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1217/1d9b705f-afe9-46fb-ab1c-06e76c283567.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "4dcee539-6cd6-810f-252e-e8c8613081eb",
+      "name": {
+        "en": "BANDI Derma Pedi Care 3Type",
+        "ko": "BANDI Derma Pedi Care 3Type"
+      },
+      "name_en": "BANDI Derma Pedi Care 3Type",
+      "name_ko": "BANDI Derma Pedi Care 3Type",
+      "brand": "BANDI",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "hand_cream",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 15456,
+      "price_min": 15456,
+      "price_max": 19320,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240222281",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240222281"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1535/e42678fd-bb23-471c-980e-6c638ef7a475.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "6bb0a3ea-02e7-2c3c-5812-68385dac613a",
+      "name": {
+        "en": "LUV SCENT Perfumed Scrub Body Wash 500ml (4 Options)",
+        "ko": "LUV SCENT Perfumed Scrub Body Wash 500ml (4 Options)"
+      },
+      "name_en": "LUV SCENT Perfumed Scrub Body Wash 500ml (4 Options)",
+      "name_ko": "LUV SCENT Perfumed Scrub Body Wash 500ml (4 Options)",
+      "brand": "LUV SCENT",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "body_scrub",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 17471,
+      "price_min": 17471,
+      "price_max": 28980,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338327",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338327"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1706/773f81dd-4b36-4f49-91a1-85fa7b1f2a14.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "8d0d8cbf-eb12-7912-2163-726ec652a8dc",
+      "name": {
+        "en": "FOODOLOGY Coleology Cutting Jelly 30 Sticks (30-day supply)",
+        "ko": "FOODOLOGY Coleology Cutting Jelly 30 Sticks (30-day supply)"
+      },
+      "name_en": "FOODOLOGY Coleology Cutting Jelly 30 Sticks (30-day supply)",
+      "name_ko": "FOODOLOGY Coleology Cutting Jelly 30 Sticks (30-day supply)",
+      "brand": "FOODOLOGY",
+      "brand_id": null,
+      "category": "bodycare",
+      "subcategory": "body_sunscreen",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 48383,
+      "price_min": 48383,
+      "price_max": 73140,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240423305",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240423305"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1476/7df00694-4678-498e-9ac7-3ea46d37b588.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "9b72bbc8-b3fa-a06f-4ea1-6af3c65838f2",
+      "name": {
+        "en": "REJURAN Derma Healer Pore Tightening Toner Pad 60P Limited Set (+Pore Ampoule 2mlX6ea)",
+        "ko": "REJURAN Derma Healer Pore Tightening Toner Pad 60P Limited Set (+Pore Ampoule 2mlX6ea)"
+      },
+      "name_en": "REJURAN Derma Healer Pore Tightening Toner Pad 60P Limited Set (+Pore Ampoule 2mlX6ea)",
+      "name_ko": "REJURAN Derma Healer Pore Tightening Toner Pad 60P Limited Set (+Pore Ampoule 2mlX6ea)",
+      "brand": "REJURAN",
+      "brand_id": null,
+      "category": "tools",
+      "subcategory": "cleansing_tool",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 44464,
+      "price_min": 44464,
+      "price_max": 52440,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251235935",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251235935"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1426/47e3ddce-3003-4b64-9fe1-a018ff8f5dd1.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "540f3577-69d1-5b05-7f4d-774a5d10eb2b",
+      "name": {
+        "en": "S.NATURE Aqua Rice Cleansing Oil 200ml Set (+Calming Pad 2P)",
+        "ko": "S.NATURE Aqua Rice Cleansing Oil 200ml Set (+Calming Pad 2P)"
+      },
+      "name_en": "S.NATURE Aqua Rice Cleansing Oil 200ml Set (+Calming Pad 2P)",
+      "name_ko": "S.NATURE Aqua Rice Cleansing Oil 200ml Set (+Calming Pad 2P)",
+      "brand": "S.NATURE",
+      "brand_id": null,
+      "category": "tools",
+      "subcategory": "cleansing_tool",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 35811,
+      "price_min": 35811,
+      "price_max": 69000,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250631714",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250631714"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1756/570c7f07-60d4-49b4-9acf-cfb4dcaebc40.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "496ae471-c4f1-363b-c3f0-bf9b66fb8a43",
+      "name": {
+        "en": "ROUND LAB Birch Juice Cleansing Pad Sheets",
+        "ko": "ROUND LAB Birch Juice Cleansing Pad Sheets"
+      },
+      "name_en": "ROUND LAB Birch Juice Cleansing Pad Sheets",
+      "name_ko": "ROUND LAB Birch Juice Cleansing Pad Sheets",
+      "brand": "ROUND LAB",
+      "brand_id": null,
+      "category": "tools",
+      "subcategory": "cleansing_tool",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 57408,
+      "price_min": 57408,
+      "price_max": 71760,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210004525",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA210004525"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1022/01cdf2c3-e0d2-474b-b48c-5b6f3a86e3d1.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "1345d337-fc6b-3ac6-71aa-a7e22d55bd5d",
+      "name": {
+        "en": "HERA Black Cushion Foundation Puff 2ea",
+        "ko": "HERA Black Cushion Foundation Puff 2ea"
+      },
+      "name_en": "HERA Black Cushion Foundation Puff 2ea",
+      "name_ko": "HERA Black Cushion Foundation Puff 2ea",
+      "brand": "HERA",
+      "brand_id": null,
+      "category": "tools",
+      "subcategory": "makeup_tool",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 74520,
+      "price_min": 74520,
+      "price_max": 82800,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240825235",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240825235"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1860/6fe86379-6fbb-49ed-bd3e-2172ea95302e.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "07d2215a-f7f3-b26a-f3b5-ab114f2311c3",
+      "name": {
+        "en": "mommycare EMS V-Thera",
+        "ko": "mommycare EMS V-Thera"
+      },
+      "name_en": "mommycare EMS V-Thera",
+      "name_ko": "mommycare EMS V-Thera",
+      "brand": "mommycare",
+      "brand_id": null,
+      "category": "tools",
+      "subcategory": "makeup_tool",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 52454,
+      "price_min": 52454,
+      "price_max": 70380,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260238039",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260238039"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1137/5598abda-70fe-48ce-91d1-d240573450df.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "fefb579b-2baa-3bbf-8a57-5ea49535ec2c",
+      "name": {
+        "en": "THOME The Glow Signature",
+        "ko": "THOME The Glow Signature"
+      },
+      "name_en": "THOME The Glow Signature",
+      "name_ko": "THOME The Glow Signature",
+      "brand": "THOME",
+      "brand_id": null,
+      "category": "tools",
+      "subcategory": "makeup_tool",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 157913,
+      "price_min": 157913,
+      "price_max": 173880,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260238042",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260238042"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1196/830c13b2-b47a-41ff-8381-7dac71fe6cb3.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "fc9d0c85-ad47-d38d-482b-db3223fa35d9",
+      "name": {
+        "en": "ROUND LAB Signature Best Sellers Set",
+        "ko": "ROUND LAB Signature Best Sellers Set"
+      },
+      "name_en": "ROUND LAB Signature Best Sellers Set",
+      "name_ko": "ROUND LAB Signature Best Sellers Set",
+      "brand": "ROUND LAB",
+      "brand_id": null,
+      "category": "tools",
+      "subcategory": "beauty_device",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 57408,
+      "price_min": 57408,
+      "price_max": 71760,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338899",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260338899"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1358/e8719c5f-a941-4704-8cfe-4a80558724b5.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  },
+  {
+    "entityType": "product",
+    "data": {
+      "id": "75221994-c593-8c8f-0ffc-88272e94f58e",
+      "name": {
+        "en": "celimax Retinal Shot Tightening Booster 15ml Set (+3ml)",
+        "ko": "celimax Retinal Shot Tightening Booster 15ml Set (+3ml)"
+      },
+      "name_en": "celimax Retinal Shot Tightening Booster 15ml Set (+3ml)",
+      "name_ko": "celimax Retinal Shot Tightening Booster 15ml Set (+3ml)",
+      "brand": "celimax",
+      "brand_id": null,
+      "category": "tools",
+      "subcategory": "beauty_device",
+      "skin_types": [],
+      "hair_types": [],
+      "concerns": [],
+      "key_ingredients": [],
+      "price": 37012,
+      "price_min": 37012,
+      "price_max": 56580,
+      "price_currency": "KRW",
+      "price_source": "real",
+      "range_source": "real",
+      "price_updated_at": "2026-04-16T11:27:25.811Z",
+      "price_source_url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260339051",
+      "volume": null,
+      "purchase_links": [
+        {
+          "platform": "Olive Young Global",
+          "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260339051"
+        }
+      ],
+      "english_label": true,
+      "tourist_popular": false,
+      "is_highlighted": false,
+      "highlight_badge": null,
+      "rating": null,
+      "review_count": null,
+      "review_summary": null,
+      "images": [
+        "https://cdn-image.oliveyoung.com/prdtImg/1751/ac203add-b0d8-47f0-b509-65d22bcdd588.jpg"
+      ],
+      "tags": [],
+      "status": "active"
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-collected"
+  }
+]

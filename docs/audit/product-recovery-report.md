@@ -1,63 +1,64 @@
 # 제품 데이터 정합성 복구 리포트
 
-> 2026-04-14 · NEW-40
+> 2026-04-16 · NEW-40
 
-## 요약
+## 최종 결과
 
 | 지표 | 수치 |
 |------|------|
-| 작업 전 전체 | 201건 |
-| 브랜드 오염 | 71건 (brand 필드 교체) |
-| name 오염 | 73건 (name_en 교체) |
-| **복구 후 유지** | **129건** (128 완전 성공 + 1 Essenly) |
-| 제거 | 72건 (올리브영 미입점/단종/이름 불일치) |
-| **브랜드 정합성** | **129/129 일치 (100%)** |
-| **이미지 커버리지** | **129/129 (100%)** |
-| **가격 커버리지** | **129/129 (100%)** |
+| **최종 제품 수** | **201건** |
+| 기존 유지 (정상 매칭) | 128건 |
+| Essenly 자체 브랜드 | 1건 |
+| 신규 수집 (올리브영 베스트셀러) | 72건 |
+| **이미지 커버리지** | **201/201 (100%)** |
+| **구매 링크 커버리지** | **201/201 (100%)** |
+| **가격 커버리지** | **201/201 (100%)** |
+| **브랜드 정합성** | **201/201 (100%)** |
 
-## 오염 원인
+## 작업 내역
 
-`collect-replacement-products.ts`가 올리브영 검색 실패(73건)에 대해 다른 제품의 brand/name/images/links/price를 덮어씀.
+### Phase 1: 오염 데이터 복원
+- `products-enriched.json` 기반 71건 brand/brand_id 복원
+- 73건 name 오염 발견 → enriched.json에서 name 필드도 복원
 
-## 복구 과정
+### Phase 2: 올리브영 스크래핑 (기존 제품)
+- 스크래퍼 개선: 브랜드 검증 게이트 + 가격 추출 + 한국 OY fallback
+- 128건 매칭 성공 (이미지 + 링크 + 가격)
+- 72건 매칭 실패 (올리브영 미입점/단종/이름 불일치)
+- 부분 성공 6건도 링크 오염 확인 → 제거
 
-1. **Phase 1**: `products-enriched.json`에서 원본 brand/brand_id 복원
-2. **Phase 2**: 개선된 스크래퍼로 올리브영 재매칭
-   - 브랜드 검증 게이트 추가 (페이지 내 브랜드 확인)
-   - 가격 수집 (USD→KRW 환율 변환)
-   - Global + 한국 OY 4단계 검색
-3. **name 오염 발견**: Phase 1에서 brand만 복원하고 name은 안 건드린 버그 → enriched.json에서 name도 복원
-4. **부분 성공 6건 검증**: 이미지/링크가 잘못된 제품을 가리키고 있어 제거
+### Phase 3: 실패 제품 대체
+- 72건 제거 후 올리브영 카테고리별 베스트셀러에서 72건 신규 수집
+- 제품 상세 페이지에서 직접 추출: 브랜드, 이름, 이미지, URL, 가격
+- 기존 129건과 중복 0건 확인
 
 ## 제거된 72건 분석
 
-### 주요 원인
+| 원인 | 대표 브랜드 |
+|------|------------|
+| 올리브영 미입점 (백화점 전용) | Sulwhasoo, The History of Whoo, Amorepacific, HERA |
+| 단종/품절 | ETUDE Beauty Tool, Moremo, Amos Professional |
+| 이름 불일치 (리뉴얼) | Sulwhasoo Renewing→Rejuvenating, numbuzin 시리즈 |
 
-| 원인 | 건수 | 대표 브랜드 |
-|------|------|------------|
-| 올리브영 미입점 (백화점/자체몰 전용) | ~30 | Sulwhasoo, The History of Whoo, Amorepacific, HERA, ISA KNOX |
-| 올리브영 단종/품절 | ~15 | ETUDE Beauty Tool, Moremo, Amos Professional |
-| 이름 불일치 (리뉴얼/리네이밍) | ~15 | Sulwhasoo Renewing→Rejuvenating, numbuzin No.5 시리즈 |
-| 부분 성공 (링크 오염) | 6 | HERA, Cell Fusion C, Laneige |
-
-### 카테고리별 제거 분포
+## 신규 72건 카테고리 분포
 
 | 카테고리 | 건수 |
 |----------|------|
-| skincare (serum, moisturizer, eye_care, cleanser 등) | 26 |
-| makeup (cushion, lip, eye, mascara 등) | 15 |
-| haircare (shampoo, treatment, oil 등) | 11 |
-| bodycare (wash, lotion, hand 등) | 13 |
-| tools (brush, puff, mirror 등) | 7 |
+| skincare | 25 |
+| makeup | 17 |
+| haircare | 11 |
+| bodycare | 11 |
+| tools | 8 |
 
 ## 가격 데이터
 
 - 통화: KRW (USD→KRW 환율 변환, USD_TO_KRW=1380)
-- 소스: `price_source='real'`, `price_source_url`=올리브영 Global URL
-- 할인 적용: `price_min`=현재 판매가, `price_max`=정가
+- 소스: `price_source='real'`
+- 범위: ₩10,626 ~ ₩157,913
+- 브랜드 52개 (신규), 55개 (기존)
 
 ## 후속 작업
 
-- [ ] 부족분 71건을 올리브영 카테고리별 베스트셀러에서 신규 수집 (목표: 200건)
-- [ ] 제거된 카테고리 분포를 참고하여 균형 있게 수집
-- [ ] `products-removed.json` 참조 (제거 목록)
+- [ ] DB 적재 (`load.ts` → Supabase)
+- [ ] 신규 72건 brand_id 매핑 (brands 테이블 연동)
+- [ ] 신규 72건 한국어 이름 번역
