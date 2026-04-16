@@ -1,5 +1,7 @@
 # NEW-17b RPC 보안 하드닝 + NEW-17e 통합 테스트 — 구현 플랜
 
+> **⚠️ Executed-as amendment (2026-04-16)**: 이 플랜은 작성 시점 spec v1.1 기준이다. 실행 중 통합 테스트 T8에서 발견된 PL/pgSQL `FOUND` 버그 수정이 추가되어 **spec v1.2 + commit `0cd80a1`**로 반영됨. 본 문서 Task 1 Step 1의 embedded SQL은 v1.1 원문이므로, 플랜을 재실행할 경우 반드시 **현재 `supabase/migrations/017_rpc_hardening.sql` 파일을 그대로 사용**하거나 spec v1.2 §3.2를 참조할 것. 차이점: `IF FOUND` 4곳 → `GET DIAGNOSTICS v_count = ROW_COUNT; IF v_count > 0 THEN` + 양 함수 DECLARE 블록에 `v_count int;` 추가.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** RPC `p_spec` 인자 제거 + 서버 고정 + REVOKE/GRANT + CHECK 제약 + 통합 테스트로 DB 레벨 보안 하드닝 완료
@@ -8,7 +10,9 @@
 
 **Tech Stack:** PostgreSQL (Supabase), TypeScript, Vitest, Supabase JS SDK
 
-**Spec 정본:** `docs/superpowers/specs/2026-04-16-new17b-rpc-hardening-design.md` v1.1
+**Spec 정본:** `docs/superpowers/specs/2026-04-16-new17b-rpc-hardening-design.md` v1.2 (v1.1 + FOUND 버그 수정)
+
+**실행 상태**: ✅ 완료 (2026-04-16). 전수 검증: type-check + lint + build + unit 907/907 + integration 124/124 모두 PASS. 커밋 시퀀스: 613a13b → c4da460 → be2b066 → 699d72f → **0cd80a1 (FOUND fix)** → 05bac3e → 87104b4 → 31e9a5e. PR 미생성.
 
 ---
 
@@ -1235,13 +1239,14 @@ PR body:
 - 통합 테스트 T1~T8 추가
 
 ## NEW-17b Pre-merge Checklist
-- [ ] `npm run test:integration` 로컬 실행 통과 (T1~T8)
-- [ ] `017_rpc_hardening.sql` Supabase Dashboard 적용 완료
-- [ ] `SELECT proname, pronargs FROM pg_proc WHERE proname IN ('apply_ai_profile_patch','apply_ai_journey_patch')` 결과 2 rows 확인
-- [ ] 전수 검증 통과 (`type-check && lint && build && test && test:integration`)
+- [x] `npm run test:integration` 로컬 실행 통과 (T1~T8, 124/124)
+- [x] `017_rpc_hardening.sql` Supabase Dashboard 적용 완료 (v1.2 FOUND fix 포함)
+- [x] `SELECT proname, pronargs FROM pg_proc WHERE proname IN ('apply_ai_profile_patch','apply_ai_journey_patch')` 결과 2 rows 확인
+- [x] 전수 검증 통과 (`type-check && lint && build && test && test:integration`)
+- [x] CLAUDE.md Q-16 + V-27 drift 방어 규칙 추가
 
 ## Spec
-`docs/superpowers/specs/2026-04-16-new17b-rpc-hardening-design.md` v1.1
+`docs/superpowers/specs/2026-04-16-new17b-rpc-hardening-design.md` v1.2
 
 ## Rollback
 `supabase/migrations/017_rpc_hardening_rollback.sql` — 코드 revert와 동시 적용 필수
