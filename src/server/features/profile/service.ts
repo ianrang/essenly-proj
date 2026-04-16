@@ -1,5 +1,10 @@
 import 'server-only';
 import type { SupabaseClient } from '@supabase/supabase-js';
+import type { UserProfileVars, JourneyContextVars } from '@/shared/types/profile';
+import {
+  PROFILE_FIELD_SPEC,
+  JOURNEY_FIELD_SPEC,
+} from '@/shared/constants/profile-field-spec';
 
 // ============================================================
 // 프로필 서비스 — api-spec.md §2.3
@@ -12,14 +17,15 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 /**
  * 프로필 UPSERT 입력 (온보딩 UP 변수).
  *
- * DB user_profiles 컬럼 상태 (schema.dbml §98):
- *   skin_type nullable · hair_type nullable · country nullable · age_range nullable
+ * DB user_profiles 컬럼 상태 (schema.dbml, migration 015 이후):
+ *   skin_types text[] nullable · hair_type nullable · country nullable · age_range nullable
  *   language NOT NULL
  *
- * NEW-9b: Start 경로는 skin_type 전달(필수), Skip 경로는 null 전달 허용.
+ * NEW-17: Start 경로는 skin_types 배열(min 1, max 3) 전달(필수).
+ *          Skip 경로는 createMinimalProfile 사용 (upsertProfile 미호출).
  */
 interface ProfileData {
-  skin_type: string | null;
+  skin_types: string[]; // NEW-17: 단일 → 배열
   hair_type: string | null;
   hair_concerns: string[];
   country: string | null;
@@ -27,12 +33,29 @@ interface ProfileData {
   age_range?: string | null;
 }
 
-/** DB 조회 결과 */
-interface ProfileRow {
+/**
+ * Raw DB row shape from Supabase (nullable arrays for text[] columns).
+ * M1: ProfileRow 타입 정확화 — DB 실제 반환 타입 반영.
+ */
+interface ProfileRowRaw {
   user_id: string;
-  skin_type: string | null;
+  skin_types: string[] | null;
   hair_type: string | null;
   hair_concerns: string[] | null;
+  country: string | null;
+  language: string;
+  age_range: string | null;
+  beauty_summary: string | null;
+  onboarding_completed_at: string | null;
+  updated_at: string;
+}
+
+/** 정규화된 return 타입 (배열은 [] 보장 — SG-6 / CQ-2) */
+interface ProfileRow {
+  user_id: string;
+  skin_types: string[];
+  hair_type: string | null;
+  hair_concerns: string[];
   country: string | null;
   language: string;
   age_range: string | null;
@@ -55,7 +78,7 @@ export async function upsertProfile(
     .upsert(
       {
         user_id: userId,
-        skin_type: data.skin_type,
+        skin_types: data.skin_types,
         hair_type: data.hair_type,
         hair_concerns: data.hair_concerns,
         country: data.country,
@@ -98,6 +121,7 @@ export async function createMinimalProfile(
 /**
  * 본인 프로필 조회. 미존재 시 null.
  * RLS: auth.uid() = user_id (createAuthenticatedClient 사용).
+ * M1: 제네릭 maybeSingle<ProfileRowRaw>로 타입 정확화.
  */
 export async function getProfile(
   client: SupabaseClient,
@@ -107,13 +131,18 @@ export async function getProfile(
     .from('user_profiles')
     .select('*')
     .eq('user_id', userId)
-    .maybeSingle();
+    .maybeSingle<ProfileRowRaw>();
 
   if (error) {
     throw new Error('Profile retrieval failed');
   }
 
-  return data;
+  if (!data) return null;
+  return {
+    ...data,
+    skin_types: data.skin_types ?? [],
+    hair_concerns: data.hair_concerns ?? [],
+  };
 }
 
 /**
@@ -193,4 +222,56 @@ export async function markOnboardingCompleted(
   if (error) {
     throw new Error('Onboarding completion mark failed');
   }
+}
+
+/**
+ * NEW-17: AI 추출 결과를 RPC apply_ai_profile_patch로 원자 적용.
+ * M1/M2/M3/M5 DB 레벨 강제 (spec §2.1).
+ * merge.ts의 computeProfilePatch와 의미론 동일 (RPC/TS sync test T9).
+ */
+export async function applyAiExtraction(
+  client: SupabaseClient,
+  userId: string,
+  patch: Partial<UserProfileVars>,
+): Promise<{ applied: string[] }> {
+  const { data, error } = await client.rpc('apply_ai_profile_patch', {
+    p_user_id: userId,
+    p_patch: patch,
+    p_spec: PROFILE_FIELD_SPEC,
+  });
+  if (error) {
+    // M3: error logging (Q-7 관측성)
+    console.error('[applyAiExtraction] rpc error', {
+      userId,
+      code: error.code,
+      message: error.message,
+    });
+    throw new Error('AI profile patch failed');
+  }
+  return { applied: (data as string[]) ?? [] };
+}
+
+/**
+ * NEW-17: journey AI 추출. active journey lazy-create 포함.
+ */
+export async function applyAiExtractionToJourney(
+  client: SupabaseClient,
+  userId: string,
+  patch: Partial<JourneyContextVars>,
+): Promise<{ applied: string[] }> {
+  const { data, error } = await client.rpc('apply_ai_journey_patch', {
+    p_user_id: userId,
+    p_patch: patch,
+    p_spec: JOURNEY_FIELD_SPEC,
+  });
+  if (error) {
+    // M3: error logging (Q-7 관측성)
+    console.error('[applyAiExtractionToJourney] rpc error', {
+      userId,
+      code: error.code,
+      message: error.message,
+    });
+    throw new Error('AI journey patch failed');
+  }
+  return { applied: (data as string[]) ?? [] };
 }

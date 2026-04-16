@@ -97,7 +97,7 @@ Table users {
 
 Table user_profiles {
   user_id uuid [pk, ref: > users.id]
-  skin_type text [note: 'UP-1: dry/oily/combination/sensitive/normal']
+  skin_types text[] [note: 'UP-1: NEW-17 다중값 (max 3). dry/oily/combination/sensitive/normal. CHECK: array_length <= 3. migration 015.']
   hair_type text [note: 'UP-2a: straight/wavy/curly/coily']
   hair_concerns text[] [note: 'UP-2b: damage/thinning/oily_scalp etc.']
   country text [note: 'UP-3: ISO 3166-1 alpha-2. User home country (NOT travel destination)']
