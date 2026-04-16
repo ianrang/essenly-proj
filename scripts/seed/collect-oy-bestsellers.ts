@@ -32,43 +32,43 @@ interface CategoryTarget {
 }
 
 const TARGETS: CategoryTarget[] = [
-  // skincare: 25
-  { category: "skincare", subcategory: "serum", queries: ["best serum", "vitamin C serum", "hyaluronic serum"], need: 8 },
-  { category: "skincare", subcategory: "moisturizer", queries: ["best moisturizer cream", "hydrating cream"], need: 5 },
-  { category: "skincare", subcategory: "eye_care", queries: ["eye cream", "eye serum"], need: 5 },
-  { category: "skincare", subcategory: "toner", queries: ["best toner", "essence toner"], need: 2 },
-  { category: "skincare", subcategory: "cleanser", queries: ["foam cleanser", "cleansing oil"], need: 2 },
-  { category: "skincare", subcategory: "sunscreen", queries: ["sunscreen SPF50"], need: 2 },
-  { category: "skincare", subcategory: "mask", queries: ["sheet mask"], need: 1 },
-  // makeup: 17
-  { category: "makeup", subcategory: "cushion", queries: ["cushion foundation"], need: 4 },
-  { category: "makeup", subcategory: "lip_tint", queries: ["lip tint", "velvet tint"], need: 3 },
-  { category: "makeup", subcategory: "eye_shadow", queries: ["eyeshadow palette"], need: 2 },
-  { category: "makeup", subcategory: "mascara", queries: ["mascara"], need: 2 },
-  { category: "makeup", subcategory: "lip_gloss", queries: ["lip gloss"], need: 1 },
-  { category: "makeup", subcategory: "lip_stick", queries: ["lipstick"], need: 1 },
-  { category: "makeup", subcategory: "eye_liner", queries: ["eyeliner"], need: 1 },
-  { category: "makeup", subcategory: "blush", queries: ["blush cheek"], need: 1 },
-  { category: "makeup", subcategory: "setting_powder", queries: ["setting powder"], need: 1 },
-  { category: "makeup", subcategory: "foundation", queries: ["foundation"], need: 1 },
-  // haircare: 11
-  { category: "haircare", subcategory: "shampoo", queries: ["best shampoo", "scalp shampoo"], need: 3 },
-  { category: "haircare", subcategory: "treatment", queries: ["hair treatment mask"], need: 2 },
-  { category: "haircare", subcategory: "hair_oil", queries: ["hair oil serum"], need: 2 },
-  { category: "haircare", subcategory: "hair_serum", queries: ["hair essence"], need: 1 },
-  { category: "haircare", subcategory: "hair_color", queries: ["hair color dye"], need: 1 },
-  { category: "haircare", subcategory: "styling", queries: ["hair styling"], need: 1 },
-  { category: "haircare", subcategory: "hair_essence", queries: ["leave in treatment"], need: 1 },
-  // bodycare: 11
-  { category: "bodycare", subcategory: "body_wash", queries: ["body wash"], need: 4 },
-  { category: "bodycare", subcategory: "body_lotion", queries: ["body lotion moisturizer"], need: 3 },
-  { category: "bodycare", subcategory: "hand_cream", queries: ["hand cream"], need: 2 },
-  { category: "bodycare", subcategory: "body_scrub", queries: ["body scrub"], need: 1 },
-  { category: "bodycare", subcategory: "body_sunscreen", queries: ["body sunscreen"], need: 1 },
-  // tools: 8
-  { category: "tools", subcategory: "cleansing_tool", queries: ["cleansing pad", "cleansing brush"], need: 3 },
-  { category: "tools", subcategory: "makeup_tool", queries: ["makeup sponge puff", "makeup brush"], need: 3 },
-  { category: "tools", subcategory: "beauty_device", queries: ["beauty device tool"], need: 2 },
+  // skincare: 45 (총 200의 ~22%)
+  { category: "skincare", subcategory: "serum", queries: ["best serum", "vitamin C serum", "hyaluronic serum", "niacinamide serum", "retinol serum"], need: 12 },
+  { category: "skincare", subcategory: "moisturizer", queries: ["best moisturizer cream", "hydrating cream", "gel cream", "barrier cream"], need: 10 },
+  { category: "skincare", subcategory: "eye_care", queries: ["eye cream", "eye serum", "under eye"], need: 5 },
+  { category: "skincare", subcategory: "toner", queries: ["best toner", "essence toner", "exfoliating toner", "hydrating toner"], need: 6 },
+  { category: "skincare", subcategory: "cleanser", queries: ["foam cleanser", "cleansing oil", "gel cleanser", "low pH cleanser"], need: 5 },
+  { category: "skincare", subcategory: "sunscreen", queries: ["sunscreen SPF50", "sun cream", "UV protection"], need: 5 },
+  { category: "skincare", subcategory: "mask", queries: ["sheet mask", "clay mask", "sleeping mask"], need: 2 },
+  // makeup: 30
+  { category: "makeup", subcategory: "cushion", queries: ["cushion foundation", "glow cushion", "matte cushion"], need: 6 },
+  { category: "makeup", subcategory: "lip_tint", queries: ["lip tint", "velvet tint", "water tint", "matte tint"], need: 6 },
+  { category: "makeup", subcategory: "eye_shadow", queries: ["eyeshadow palette", "eye palette", "glitter shadow"], need: 4 },
+  { category: "makeup", subcategory: "mascara", queries: ["mascara", "curl mascara"], need: 3 },
+  { category: "makeup", subcategory: "lip_gloss", queries: ["lip gloss", "lip oil"], need: 2 },
+  { category: "makeup", subcategory: "lip_stick", queries: ["lipstick", "lip balm color"], need: 2 },
+  { category: "makeup", subcategory: "eye_liner", queries: ["eyeliner", "pencil liner"], need: 2 },
+  { category: "makeup", subcategory: "blush", queries: ["blush cheek", "blusher"], need: 2 },
+  { category: "makeup", subcategory: "setting_powder", queries: ["setting powder", "finishing powder"], need: 1 },
+  { category: "makeup", subcategory: "foundation", queries: ["foundation", "BB cream"], need: 2 },
+  // haircare: 22
+  { category: "haircare", subcategory: "shampoo", queries: ["best shampoo", "scalp shampoo", "anti hair loss shampoo", "moisturizing shampoo"], need: 6 },
+  { category: "haircare", subcategory: "treatment", queries: ["hair treatment mask", "deep conditioning", "hair pack"], need: 5 },
+  { category: "haircare", subcategory: "hair_oil", queries: ["hair oil serum", "argan oil hair"], need: 3 },
+  { category: "haircare", subcategory: "hair_serum", queries: ["hair essence serum", "leave in serum"], need: 3 },
+  { category: "haircare", subcategory: "hair_color", queries: ["hair color dye", "hair tint"], need: 2 },
+  { category: "haircare", subcategory: "styling", queries: ["hair styling", "hair wax", "hair spray"], need: 2 },
+  { category: "haircare", subcategory: "hair_essence", queries: ["leave in treatment", "hair mist"], need: 1 },
+  // bodycare: 20
+  { category: "bodycare", subcategory: "body_wash", queries: ["body wash", "shower gel", "body cleanser"], need: 6 },
+  { category: "bodycare", subcategory: "body_lotion", queries: ["body lotion moisturizer", "body cream", "body butter"], need: 5 },
+  { category: "bodycare", subcategory: "hand_cream", queries: ["hand cream", "hand lotion"], need: 4 },
+  { category: "bodycare", subcategory: "body_scrub", queries: ["body scrub", "body exfoliant"], need: 3 },
+  { category: "bodycare", subcategory: "body_sunscreen", queries: ["body sunscreen", "body sun cream"], need: 2 },
+  // tools: 10
+  { category: "tools", subcategory: "cleansing_tool", queries: ["cleansing pad", "cleansing brush", "pore brush"], need: 4 },
+  { category: "tools", subcategory: "makeup_tool", queries: ["makeup sponge puff", "makeup brush set", "beauty blender"], need: 4 },
+  { category: "tools", subcategory: "beauty_device", queries: ["beauty device tool", "LED mask", "facial massager"], need: 2 },
 ];
 
 // ── 타입 ─────────────────────────────────────────────────────
