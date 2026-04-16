@@ -2,7 +2,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "55265963-37ca-5f7c-ad1b-35ee1f574803",
+      "id": "f91ca3f2-9440-494c-86f8-7388569ca5d1",
       "name": {
         "ko": "에센리 케라틴 집중케어 벨벳 헤어팩",
         "en": "Essenly Keratin Hair Mask - Frizz-Taming Mask",
@@ -81,7 +81,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "22c0e908-b35a-8387-f7db-c7c02e4b7ef9",
+      "id": "3a5b1fb0-5633-4f94-b9dd-f544511c12b1",
       "name": {
         "en": "Kamill Hand & Nail Cream BEST & BONUS Duo Set (Intensive Bonus Pack 133mL+Classic 100mL)",
         "ko": "Kamill Hand & Nail Cream BEST & BONUS Duo Set (Intensive Bonus Pack 133mL+Classic 100mL)"
@@ -89,7 +89,7 @@
       "name_en": "Kamill Hand & Nail Cream BEST & BONUS Duo Set (Intensive Bonus Pack 133mL+Classic 100mL)",
       "name_ko": "Kamill Hand & Nail Cream BEST & BONUS Duo Set (Intensive Bonus Pack 133mL+Classic 100mL)",
       "brand": "Kamill",
-      "brand_id": null,
+      "brand_id": "046aebc0-ba04-4c04-8591-0c95000b443d",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -129,7 +129,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "b62bbe39-1352-c993-fc56-b6af7fddedfa",
+      "id": "2d124200-8c9e-4de6-8f13-1f791ec63de7",
       "name": {
         "en": "numbuzin No.5+ Vitamin Concentrated Serum 30mL+30mL Duo Set",
         "ko": "numbuzin No.5+ Vitamin Concentrated Serum 30mL+30mL Duo Set"
@@ -137,7 +137,7 @@
       "name_en": "numbuzin No.5+ Vitamin Concentrated Serum 30mL+30mL Duo Set",
       "name_ko": "numbuzin No.5+ Vitamin Concentrated Serum 30mL+30mL Duo Set",
       "brand": "numbuzin",
-      "brand_id": null,
+      "brand_id": "cfd7a82e-2cd4-50b9-9abb-49b8b8d7efb6",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -177,7 +177,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f36dde87-ba7d-107f-a716-94a32a47eecc",
+      "id": "d8222d7c-4f0e-4d54-926e-f123395f5472",
       "name": {
         "en": "COSRX Advanced The Vitamin C 23 Serum 20g Set (+Sun Serum 15ml)",
         "ko": "COSRX Advanced The Vitamin C 23 Serum 20g Set (+Sun Serum 15ml)"
@@ -185,7 +185,7 @@
       "name_en": "COSRX Advanced The Vitamin C 23 Serum 20g Set (+Sun Serum 15ml)",
       "name_ko": "COSRX Advanced The Vitamin C 23 Serum 20g Set (+Sun Serum 15ml)",
       "brand": "COSRX",
-      "brand_id": null,
+      "brand_id": "5240a3c6-315a-565d-bf7e-cdb9154a9937",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -225,7 +225,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "6c944f68-4bf0-d727-4c04-bbfe5410244c",
+      "id": "0452bd51-0b5f-4cdc-b752-cf5ccc4fb22c",
       "name": {
         "en": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 30ml Set (+20ml)",
         "ko": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 30ml Set (+20ml)"
@@ -233,7 +233,7 @@
       "name_en": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 30ml Set (+20ml)",
       "name_ko": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 30ml Set (+20ml)",
       "brand": "goodal",
-      "brand_id": null,
+      "brand_id": "6bcb921e-fba8-55a7-9706-c0196160247c",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -273,7 +273,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "e5dc2a66-88d0-d11a-2d1f-b335b12d0d64",
+      "id": "4573803b-7e44-49be-952a-79d92e59dc23",
       "name": {
         "en": "Dr. Althea Vitamin C Boosting Serum 30ml",
         "ko": "Dr. Althea Vitamin C Boosting Serum 30ml"
@@ -281,7 +281,7 @@
       "name_en": "Dr. Althea Vitamin C Boosting Serum 30ml",
       "name_ko": "Dr. Althea Vitamin C Boosting Serum 30ml",
       "brand": "Dr. Althea",
-      "brand_id": null,
+      "brand_id": "d92e6668-191d-43b8-b876-61e26a3ecfd0",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -321,7 +321,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "ba003bf6-53b9-b498-4480-bade300c58ef",
+      "id": "cf33b085-7a1a-4c10-9d1b-d2f70c82404e",
       "name": {
         "en": "SOME BY MI Galactomyces Pure Vitamin C Glow Serum 30mL",
         "ko": "SOME BY MI Galactomyces Pure Vitamin C Glow Serum 30mL"
@@ -329,7 +329,7 @@
       "name_en": "SOME BY MI Galactomyces Pure Vitamin C Glow Serum 30mL",
       "name_ko": "SOME BY MI Galactomyces Pure Vitamin C Glow Serum 30mL",
       "brand": "SOME BY MI",
-      "brand_id": null,
+      "brand_id": "539bce87-ff77-58b6-af09-a58036ed0f1c",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -369,7 +369,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "eb7b89f0-994b-cc1e-b9c1-2faa0cbdf6b6",
+      "id": "7f3c9cad-958a-41ef-929f-80a1174653cc",
       "name": {
         "en": "MEDIHEAL Vitamin C Brightening Serum 40mL double set",
         "ko": "MEDIHEAL Vitamin C Brightening Serum 40mL double set"
@@ -377,7 +377,7 @@
       "name_en": "MEDIHEAL Vitamin C Brightening Serum 40mL double set",
       "name_ko": "MEDIHEAL Vitamin C Brightening Serum 40mL double set",
       "brand": "MEDIHEAL",
-      "brand_id": null,
+      "brand_id": "03752259-e005-5bb5-b5da-48b7e21d7736",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -417,7 +417,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "45aeb412-d499-cc40-72f2-d886bd8c57e4",
+      "id": "b6c27740-b88f-4d77-bd87-e6cd20204b96",
       "name": {
         "en": "APLB Retinol Vitamin C Vitamin E Body Lotion 300ml",
         "ko": "APLB Retinol Vitamin C Vitamin E Body Lotion 300ml"
@@ -425,7 +425,7 @@
       "name_en": "APLB Retinol Vitamin C Vitamin E Body Lotion 300ml",
       "name_ko": "APLB Retinol Vitamin C Vitamin E Body Lotion 300ml",
       "brand": "APLB",
-      "brand_id": null,
+      "brand_id": "1d8799fb-7634-444b-a116-f8d401403011",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -465,7 +465,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "01d69733-9913-e9f6-1845-889027758bca",
+      "id": "2da08267-6fad-4453-bc47-d4baa4d38dc1",
       "name": {
         "en": "Torriden Cellmazing Low Molecular Collagen Lip Essence Double Pack",
         "ko": "Torriden Cellmazing Low Molecular Collagen Lip Essence Double Pack"
@@ -473,7 +473,7 @@
       "name_en": "Torriden Cellmazing Low Molecular Collagen Lip Essence Double Pack",
       "name_ko": "Torriden Cellmazing Low Molecular Collagen Lip Essence Double Pack",
       "brand": "Torriden",
-      "brand_id": null,
+      "brand_id": "293e8f32-f2af-511a-b046-b97198a6bc9a",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -513,7 +513,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "99dea3c0-ee07-0e4c-2b42-0d0fdc9c8dfb",
+      "id": "0346dfd5-38c1-4545-9fc7-fde44973701e",
       "name": {
         "en": "fwee Spa Glowing UV Tone Up Prep (SPF30 Semi Dewy/SPF50+Wet Dewy) (Set/Single) (2 Shades)",
         "ko": "fwee Spa Glowing UV Tone Up Prep (SPF30 Semi Dewy/SPF50+Wet Dewy) (Set/Single) (2 Shades)"
@@ -521,7 +521,7 @@
       "name_en": "fwee Spa Glowing UV Tone Up Prep (SPF30 Semi Dewy/SPF50+Wet Dewy) (Set/Single) (2 Shades)",
       "name_ko": "fwee Spa Glowing UV Tone Up Prep (SPF30 Semi Dewy/SPF50+Wet Dewy) (Set/Single) (2 Shades)",
       "brand": "fwee",
-      "brand_id": null,
+      "brand_id": "cdc97d05-8101-4b33-a40c-8c8028052dd2",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -561,7 +561,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "915937c5-c620-85a3-b646-ca0ecef3b7ee",
+      "id": "4455b403-dc6a-4525-bb0b-c8c10e2c8c87",
       "name": {
         "en": "GLOW Breathable Blemish Balm 30ml (3 Shades)",
         "ko": "GLOW Breathable Blemish Balm 30ml (3 Shades)"
@@ -569,7 +569,7 @@
       "name_en": "GLOW Breathable Blemish Balm 30ml (3 Shades)",
       "name_ko": "GLOW Breathable Blemish Balm 30ml (3 Shades)",
       "brand": "GLOW",
-      "brand_id": null,
+      "brand_id": "5c23b7c9-b7ed-49a9-981d-dcab17fcc26b",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -609,7 +609,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "a54776a4-160c-effe-d00b-b7e0d7c218d0",
+      "id": "578575b0-c2c2-4abf-aca2-6e409dba4e7e",
       "name": {
         "en": "erborian CC Cream SPF30 40ml (2 Shades)",
         "ko": "erborian CC Cream SPF30 40ml (2 Shades)"
@@ -617,7 +617,7 @@
       "name_en": "erborian CC Cream SPF30 40ml (2 Shades)",
       "name_ko": "erborian CC Cream SPF30 40ml (2 Shades)",
       "brand": "erborian",
-      "brand_id": null,
+      "brand_id": "214ab70e-df40-4f90-a00c-59c069e65c77",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -657,7 +657,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "ec06a3f3-4a83-3c93-c8c6-59ca4ed8fbbf",
+      "id": "2384eeff-22ea-45cd-a00b-7ff176d2b26b",
       "name": {
         "en": "ETUDE Ginger Sugar Lip Serum (9 Colors)",
         "ko": "ETUDE Ginger Sugar Lip Serum (9 Colors)"
@@ -665,7 +665,7 @@
       "name_en": "ETUDE Ginger Sugar Lip Serum (9 Colors)",
       "name_ko": "ETUDE Ginger Sugar Lip Serum (9 Colors)",
       "brand": "ETUDE",
-      "brand_id": null,
+      "brand_id": "33f7e173-b86c-50da-9d2f-e6b11c8590e8",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -705,7 +705,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "bacb6190-deac-cf8a-3c20-88f0d2ffb8a1",
+      "id": "c220b4a8-446a-4fa7-b92d-626c3fa9f026",
       "name": {
         "en": "VT PDRN Reedle Shot Firming Eye Cream 15ml",
         "ko": "VT PDRN Reedle Shot Firming Eye Cream 15ml"
@@ -713,7 +713,7 @@
       "name_en": "VT PDRN Reedle Shot Firming Eye Cream 15ml",
       "name_ko": "VT PDRN Reedle Shot Firming Eye Cream 15ml",
       "brand": "VT",
-      "brand_id": null,
+      "brand_id": "3ab4c960-517e-5555-be77-d411d21db1b6",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -753,7 +753,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "db0dd7d7-332d-7317-cb0f-2363dc189739",
+      "id": "f82c1738-d256-40e7-805e-80c2c255c5a5",
       "name": {
         "en": "Beauty of Joseon Revive Eye Serum Ginseng + Retinal 30mL",
         "ko": "Beauty of Joseon Revive Eye Serum Ginseng + Retinal 30mL"
@@ -761,7 +761,7 @@
       "name_en": "Beauty of Joseon Revive Eye Serum Ginseng + Retinal 30mL",
       "name_ko": "Beauty of Joseon Revive Eye Serum Ginseng + Retinal 30mL",
       "brand": "Beauty of Joseon",
-      "brand_id": null,
+      "brand_id": "4707822b-da67-5982-9b3d-d454690be959",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -801,7 +801,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "b85d2055-d55a-362c-0bee-bbd4532fcba4",
+      "id": "93838fda-f9ae-45c3-9706-fcf8eeef6a51",
       "name": {
         "en": "numbuzin No. 9 NAD Retinol Volume Shot Eye Cream 10ml",
         "ko": "numbuzin No. 9 NAD Retinol Volume Shot Eye Cream 10ml"
@@ -809,7 +809,7 @@
       "name_en": "numbuzin No. 9 NAD Retinol Volume Shot Eye Cream 10ml",
       "name_ko": "numbuzin No. 9 NAD Retinol Volume Shot Eye Cream 10ml",
       "brand": "numbuzin",
-      "brand_id": null,
+      "brand_id": "cfd7a82e-2cd4-50b9-9abb-49b8b8d7efb6",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -849,7 +849,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "5c49630f-7a4d-b7a8-913b-3d464db8562d",
+      "id": "5ab40e00-5d4d-4d3a-ae68-ed29ac4fa74d",
       "name": {
         "en": "BIOHEAL BOH PROBIODERM 3D Lifting Eye & Wrinkle Cream 25ml Double Pack",
         "ko": "BIOHEAL BOH PROBIODERM 3D Lifting Eye & Wrinkle Cream 25ml Double Pack"
@@ -857,7 +857,7 @@
       "name_en": "BIOHEAL BOH PROBIODERM 3D Lifting Eye & Wrinkle Cream 25ml Double Pack",
       "name_ko": "BIOHEAL BOH PROBIODERM 3D Lifting Eye & Wrinkle Cream 25ml Double Pack",
       "brand": "BIOHEAL BOH",
-      "brand_id": null,
+      "brand_id": "9dae5b0c-1461-4c6b-aa96-cbbef92c7b94",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -897,7 +897,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "450b3f96-1e2e-5d45-3296-82be96d54aed",
+      "id": "3a17fd0f-18df-4d5d-890c-f4aa16409d8e",
       "name": {
         "en": "AXIS-Y Vegan Collagen Eye Serum 10ml",
         "ko": "AXIS-Y Vegan Collagen Eye Serum 10ml"
@@ -905,7 +905,7 @@
       "name_en": "AXIS-Y Vegan Collagen Eye Serum 10ml",
       "name_ko": "AXIS-Y Vegan Collagen Eye Serum 10ml",
       "brand": "AXIS-Y",
-      "brand_id": null,
+      "brand_id": "c1bfa155-8873-4b82-b83d-90fab2a5c259",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -945,7 +945,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "46af77b0-17ae-29c0-59d9-e35e17fba021",
+      "id": "fb6f3f4e-c8ce-4371-9151-f3c07a4de9ba",
       "name": {
         "en": "ROUND LAB Birch Juice Moisturizing Sun Serum 50ml+50ml Set (+8ml)",
         "ko": "ROUND LAB Birch Juice Moisturizing Sun Serum 50ml+50ml Set (+8ml)"
@@ -953,7 +953,7 @@
       "name_en": "ROUND LAB Birch Juice Moisturizing Sun Serum 50ml+50ml Set (+8ml)",
       "name_ko": "ROUND LAB Birch Juice Moisturizing Sun Serum 50ml+50ml Set (+8ml)",
       "brand": "ROUND LAB",
-      "brand_id": null,
+      "brand_id": "5d513efb-cb2e-5921-ab90-5aaae28f22fd",
       "category": "skincare",
       "subcategory": "toner",
       "skin_types": [],
@@ -993,7 +993,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "a01b5c5d-43e6-934b-2c3f-4ebc93b56d8c",
+      "id": "8336729e-5b7c-4f70-859d-5cea3fd4f4b7",
       "name": {
         "en": "SKIN1004 Madagascar Centella Hyalu-Cica Water-Fit Sun Serum 50mL*2ea (Twin pack)",
         "ko": "SKIN1004 Madagascar Centella Hyalu-Cica Water-Fit Sun Serum 50mL*2ea (Twin pack)"
@@ -1001,7 +1001,7 @@
       "name_en": "SKIN1004 Madagascar Centella Hyalu-Cica Water-Fit Sun Serum 50mL*2ea (Twin pack)",
       "name_ko": "SKIN1004 Madagascar Centella Hyalu-Cica Water-Fit Sun Serum 50mL*2ea (Twin pack)",
       "brand": "SKIN1004",
-      "brand_id": null,
+      "brand_id": "0e2d708d-5771-55c1-b566-1a9856194fb0",
       "category": "skincare",
       "subcategory": "toner",
       "skin_types": [],
@@ -1041,7 +1041,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "d5912985-3838-5121-689d-76b71e4b2ec4",
+      "id": "f26bb773-0900-4797-bfbb-9c641fd67497",
       "name": {
         "en": "Isntree Yam Root Vegan Milk Cleanser 220ml Refill Set (+Refill 200ml+Cleansing Foam 30ml)",
         "ko": "Isntree Yam Root Vegan Milk Cleanser 220ml Refill Set (+Refill 200ml+Cleansing Foam 30ml)"
@@ -1049,7 +1049,7 @@
       "name_en": "Isntree Yam Root Vegan Milk Cleanser 220ml Refill Set (+Refill 200ml+Cleansing Foam 30ml)",
       "name_ko": "Isntree Yam Root Vegan Milk Cleanser 220ml Refill Set (+Refill 200ml+Cleansing Foam 30ml)",
       "brand": "Isntree",
-      "brand_id": null,
+      "brand_id": "5abe463f-bcbf-42c2-8aca-8537600606b6",
       "category": "skincare",
       "subcategory": "cleanser",
       "skin_types": [],
@@ -1089,7 +1089,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "14c0c8fb-2d2e-6015-3045-e32785b77af6",
+      "id": "d27e2c0a-7a88-4e55-a4dc-1bdca0622009",
       "name": {
         "en": "S.NATURE Aqua Rice Foam Cleanser 160ml Special Set (Special Gift:20ml)",
         "ko": "S.NATURE Aqua Rice Foam Cleanser 160ml Special Set (Special Gift:20ml)"
@@ -1097,7 +1097,7 @@
       "name_en": "S.NATURE Aqua Rice Foam Cleanser 160ml Special Set (Special Gift:20ml)",
       "name_ko": "S.NATURE Aqua Rice Foam Cleanser 160ml Special Set (Special Gift:20ml)",
       "brand": "S.NATURE",
-      "brand_id": null,
+      "brand_id": "36631f01-c7dd-4acf-8e3e-687234cd32cd",
       "category": "skincare",
       "subcategory": "cleanser",
       "skin_types": [],
@@ -1137,7 +1137,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "be6bbac9-04f5-61c2-5c02-c7ddb23ed3bb",
+      "id": "5a3a9657-479f-4b58-9f41-c0500b4bd661",
       "name": {
         "en": "Beauty of Joseon Relief Sun Aqua-fresh Rice+B5 (SPF50+ PA++++) 50mL",
         "ko": "Beauty of Joseon Relief Sun Aqua-fresh Rice+B5 (SPF50+ PA++++) 50mL"
@@ -1145,7 +1145,7 @@
       "name_en": "Beauty of Joseon Relief Sun Aqua-fresh Rice+B5 (SPF50+ PA++++) 50mL",
       "name_ko": "Beauty of Joseon Relief Sun Aqua-fresh Rice+B5 (SPF50+ PA++++) 50mL",
       "brand": "Beauty of Joseon",
-      "brand_id": null,
+      "brand_id": "4707822b-da67-5982-9b3d-d454690be959",
       "category": "skincare",
       "subcategory": "sunscreen",
       "skin_types": [],
@@ -1185,7 +1185,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f7645f03-16ec-0a95-d9e1-50905b0c259b",
+      "id": "1e2f4050-9850-46b9-9a5a-ba1db6e2f09b",
       "name": {
         "en": "Purito Seoul Daily Soft Touch Sunscreen SPF50+ PA++++ 60mL",
         "ko": "Purito Seoul Daily Soft Touch Sunscreen SPF50+ PA++++ 60mL"
@@ -1193,7 +1193,7 @@
       "name_en": "Purito Seoul Daily Soft Touch Sunscreen SPF50+ PA++++ 60mL",
       "name_ko": "Purito Seoul Daily Soft Touch Sunscreen SPF50+ PA++++ 60mL",
       "brand": "Purito Seoul",
-      "brand_id": null,
+      "brand_id": "5d609a5c-b25d-43d6-b5fd-315c3555bc50",
       "category": "skincare",
       "subcategory": "sunscreen",
       "skin_types": [],
@@ -1233,7 +1233,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "924983ba-6224-c73b-0dbc-3eedf5153d70",
+      "id": "96d0cfa2-dde3-43e6-bce0-336b8335c693",
       "name": {
         "en": "BIODANCE Real Deep Mask Sheet 16P (2 Types)",
         "ko": "BIODANCE Real Deep Mask Sheet 16P (2 Types)"
@@ -1241,7 +1241,7 @@
       "name_en": "BIODANCE Real Deep Mask Sheet 16P (2 Types)",
       "name_ko": "BIODANCE Real Deep Mask Sheet 16P (2 Types)",
       "brand": "BIODANCE",
-      "brand_id": null,
+      "brand_id": "a90d42c8-12bb-400e-9f34-683470c02ba7",
       "category": "skincare",
       "subcategory": "mask",
       "skin_types": [],
@@ -1281,7 +1281,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "9f7eb2d3-8da2-ebe0-0079-f63296bfd2d5",
+      "id": "07d77657-d0f3-4bbc-8e86-dfe4a81a707d",
       "name": {
         "en": "JUNGSAEMMOOL Essential Skin Nuder Cushion (Refill Included) (12 Shades)",
         "ko": "JUNGSAEMMOOL Essential Skin Nuder Cushion (Refill Included) (12 Shades)"
@@ -1289,7 +1289,7 @@
       "name_en": "JUNGSAEMMOOL Essential Skin Nuder Cushion (Refill Included) (12 Shades)",
       "name_ko": "JUNGSAEMMOOL Essential Skin Nuder Cushion (Refill Included) (12 Shades)",
       "brand": "JUNGSAEMMOOL",
-      "brand_id": null,
+      "brand_id": "5074e97b-f0ed-5e6b-97e7-4815119c0700",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -1329,7 +1329,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "a5d538a4-015f-7043-a5cd-c1ade91d1907",
+      "id": "08e2135b-156c-4382-acac-869388cd75d2",
       "name": {
         "en": "HERA Black Cushion Refill 15g (9 Shades)",
         "ko": "HERA Black Cushion Refill 15g (9 Shades)"
@@ -1337,7 +1337,7 @@
       "name_en": "HERA Black Cushion Refill 15g (9 Shades)",
       "name_ko": "HERA Black Cushion Refill 15g (9 Shades)",
       "brand": "HERA",
-      "brand_id": null,
+      "brand_id": "4625585b-b9bf-5f2d-9b06-98c1369e97be",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -1377,7 +1377,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f002abac-cb9d-d3f6-a536-248f65c43201",
+      "id": "1adca407-8e01-4c1e-af04-60c4d970056b",
       "name": {
         "en": "LANEIGE Neo Cushion The Glow 15g (7 Shades)",
         "ko": "LANEIGE Neo Cushion The Glow 15g (7 Shades)"
@@ -1385,7 +1385,7 @@
       "name_en": "LANEIGE Neo Cushion The Glow 15g (7 Shades)",
       "name_ko": "LANEIGE Neo Cushion The Glow 15g (7 Shades)",
       "brand": "LANEIGE",
-      "brand_id": null,
+      "brand_id": "cdecac6e-6a52-5ae2-b10b-9a7b57ecc455",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -1425,7 +1425,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "d9ad6f3c-7f8c-32e9-3b2d-d8ee69b31228",
+      "id": "66e5ec19-c4f6-47e6-90bd-9f3c2333cc7a",
       "name": {
         "en": "JUNGSAEMMOOL Essential Skin Nuder Cushion & Mist Special Set (+Gel Pad 2P*3ea) (3 Shades)",
         "ko": "JUNGSAEMMOOL Essential Skin Nuder Cushion & Mist Special Set (+Gel Pad 2P*3ea) (3 Shades)"
@@ -1433,7 +1433,7 @@
       "name_en": "JUNGSAEMMOOL Essential Skin Nuder Cushion & Mist Special Set (+Gel Pad 2P*3ea) (3 Shades)",
       "name_ko": "JUNGSAEMMOOL Essential Skin Nuder Cushion & Mist Special Set (+Gel Pad 2P*3ea) (3 Shades)",
       "brand": "JUNGSAEMMOOL",
-      "brand_id": null,
+      "brand_id": "5074e97b-f0ed-5e6b-97e7-4815119c0700",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -1473,7 +1473,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "0f6e4f10-7161-36b7-1f64-63bd3a0d4ab0",
+      "id": "e03cbe4c-0dc7-48d5-ab11-769afe370b03",
       "name": {
         "en": "fwee Rose Obsession Stay-fit Lip Tint (24 Colors)",
         "ko": "fwee Rose Obsession Stay-fit Lip Tint (24 Colors)"
@@ -1481,7 +1481,7 @@
       "name_en": "fwee Rose Obsession Stay-fit Lip Tint (24 Colors)",
       "name_ko": "fwee Rose Obsession Stay-fit Lip Tint (24 Colors)",
       "brand": "fwee",
-      "brand_id": null,
+      "brand_id": "cdc97d05-8101-4b33-a40c-8c8028052dd2",
       "category": "makeup",
       "subcategory": "lip_tint",
       "skin_types": [],
@@ -1521,7 +1521,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "2a420e96-0665-a229-d733-01d2a36773e1",
+      "id": "7bf97619-9917-47ab-96e1-5a6a229308b2",
       "name": {
         "en": "Alternative stereo Lip Potion Caramel Glaze Tint (14 Colors)",
         "ko": "Alternative stereo Lip Potion Caramel Glaze Tint (14 Colors)"
@@ -1529,7 +1529,7 @@
       "name_en": "Alternative stereo Lip Potion Caramel Glaze Tint (14 Colors)",
       "name_ko": "Alternative stereo Lip Potion Caramel Glaze Tint (14 Colors)",
       "brand": "Alternative stereo",
-      "brand_id": null,
+      "brand_id": "ba7895ad-8cd2-47a9-9a8a-c5acbbc0d66d",
       "category": "makeup",
       "subcategory": "lip_tint",
       "skin_types": [],
@@ -1569,7 +1569,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "0f550a3a-3c29-4c7e-0d55-5ed70548fe67",
+      "id": "32b48aff-bd46-482a-87c8-d59e390440b8",
       "name": {
         "en": "rom&nd Glasting Color Gloss (Set/Single) (15 Colors)",
         "ko": "rom&nd Glasting Color Gloss (Set/Single) (15 Colors)"
@@ -1577,7 +1577,7 @@
       "name_en": "rom&nd Glasting Color Gloss (Set/Single) (15 Colors)",
       "name_ko": "rom&nd Glasting Color Gloss (Set/Single) (15 Colors)",
       "brand": "rom&nd",
-      "brand_id": null,
+      "brand_id": "20daf081-a0ce-57c7-95e5-1904f2ea65a6",
       "category": "makeup",
       "subcategory": "lip_tint",
       "skin_types": [],
@@ -1617,7 +1617,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "274713f9-052b-40c3-201a-cb54663f78fc",
+      "id": "6dcab37c-c9f0-4ec9-a88e-8754b738c21d",
       "name": {
         "en": "2aN Better Me Eye Palette (21 Options)",
         "ko": "2aN Better Me Eye Palette (21 Options)"
@@ -1625,7 +1625,7 @@
       "name_en": "2aN Better Me Eye Palette (21 Options)",
       "name_ko": "2aN Better Me Eye Palette (21 Options)",
       "brand": "2aN",
-      "brand_id": null,
+      "brand_id": "73173198-b7da-4bea-aa34-f008ee62eb83",
       "category": "makeup",
       "subcategory": "eye_shadow",
       "skin_types": [],
@@ -1665,7 +1665,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "66ea8779-1433-0cb2-0545-04c3433ea063",
+      "id": "e898519e-1f15-44a9-a281-91f7fc02f827",
       "name": {
         "en": "CLIO Soft Blending Shadow Stick (9Colors)",
         "ko": "CLIO Soft Blending Shadow Stick (9Colors)"
@@ -1673,7 +1673,7 @@
       "name_en": "CLIO Soft Blending Shadow Stick (9Colors)",
       "name_ko": "CLIO Soft Blending Shadow Stick (9Colors)",
       "brand": "CLIO",
-      "brand_id": null,
+      "brand_id": "61a850be-2b69-5c40-8b55-40e54fbe8a78",
       "category": "makeup",
       "subcategory": "eye_shadow",
       "skin_types": [],
@@ -1713,7 +1713,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "9a216ad8-c3ef-0e97-b620-a575a51f48f4",
+      "id": "7a4aea9b-233e-4bfd-88d5-6657d9ecbbe7",
       "name": {
         "en": "CLIO Kill Lash Mascara Double Pack (9 Options)",
         "ko": "CLIO Kill Lash Mascara Double Pack (9 Options)"
@@ -1721,7 +1721,7 @@
       "name_en": "CLIO Kill Lash Mascara Double Pack (9 Options)",
       "name_ko": "CLIO Kill Lash Mascara Double Pack (9 Options)",
       "brand": "CLIO",
-      "brand_id": null,
+      "brand_id": "61a850be-2b69-5c40-8b55-40e54fbe8a78",
       "category": "makeup",
       "subcategory": "mascara",
       "skin_types": [],
@@ -1761,7 +1761,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "16aed74b-b583-fa62-ff86-650e804826cb",
+      "id": "b64170ad-2e6a-4e74-948d-216da9d5467d",
       "name": {
         "en": "peripera Speedy Skinny Brow Mascara (10 Colors)",
         "ko": "peripera Speedy Skinny Brow Mascara (10 Colors)"
@@ -1769,7 +1769,7 @@
       "name_en": "peripera Speedy Skinny Brow Mascara (10 Colors)",
       "name_ko": "peripera Speedy Skinny Brow Mascara (10 Colors)",
       "brand": "peripera",
-      "brand_id": null,
+      "brand_id": "0e513a51-9424-50cc-928c-eeca8ad50291",
       "category": "makeup",
       "subcategory": "mascara",
       "skin_types": [],
@@ -1809,7 +1809,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "beaa3aee-ce8b-7ca1-1fbc-43ef343cc7c5",
+      "id": "989d09a1-d097-46df-8817-9448b063030e",
       "name": {
         "en": "fwee 3D Voluming Gloss Set (Set/Single) (23 Colors)",
         "ko": "fwee 3D Voluming Gloss Set (Set/Single) (23 Colors)"
@@ -1817,7 +1817,7 @@
       "name_en": "fwee 3D Voluming Gloss Set (Set/Single) (23 Colors)",
       "name_ko": "fwee 3D Voluming Gloss Set (Set/Single) (23 Colors)",
       "brand": "fwee",
-      "brand_id": null,
+      "brand_id": "cdc97d05-8101-4b33-a40c-8c8028052dd2",
       "category": "makeup",
       "subcategory": "lip_gloss",
       "skin_types": [],
@@ -1857,7 +1857,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8af3df6b-bb50-0f55-f94a-d85de1fb64a4",
+      "id": "3a0b9cec-c7ec-4b89-8746-cd55cc7e4bff",
       "name": {
         "en": "too cool for school Sway Lip Velvet (14 Colors)",
         "ko": "too cool for school Sway Lip Velvet (14 Colors)"
@@ -1865,7 +1865,7 @@
       "name_en": "too cool for school Sway Lip Velvet (14 Colors)",
       "name_ko": "too cool for school Sway Lip Velvet (14 Colors)",
       "brand": "too cool for school",
-      "brand_id": null,
+      "brand_id": "ab40270c-9fef-54f7-9b68-2ccb552e3ea3",
       "category": "makeup",
       "subcategory": "lip_stick",
       "skin_types": [],
@@ -1905,7 +1905,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "50713826-4a08-7060-c107-6ad6ad049556",
+      "id": "31605045-c383-429a-aa21-da44defc1b32",
       "name": {
         "en": "too cool for school Frottage Pencil (15 Colors)",
         "ko": "too cool for school Frottage Pencil (15 Colors)"
@@ -1913,7 +1913,7 @@
       "name_en": "too cool for school Frottage Pencil (15 Colors)",
       "name_ko": "too cool for school Frottage Pencil (15 Colors)",
       "brand": "too cool for school",
-      "brand_id": null,
+      "brand_id": "ab40270c-9fef-54f7-9b68-2ccb552e3ea3",
       "category": "makeup",
       "subcategory": "eye_liner",
       "skin_types": [],
@@ -1953,7 +1953,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "5ca0f83f-8733-7fc2-f692-ae0ba0bf84f1",
+      "id": "d37b69ea-1530-45b5-94f6-e8ed75360e99",
       "name": {
         "en": "lilybyred Luv Beam Cheek Balm (16 Colors)",
         "ko": "lilybyred Luv Beam Cheek Balm (16 Colors)"
@@ -1961,7 +1961,7 @@
       "name_en": "lilybyred Luv Beam Cheek Balm (16 Colors)",
       "name_ko": "lilybyred Luv Beam Cheek Balm (16 Colors)",
       "brand": "lilybyred",
-      "brand_id": null,
+      "brand_id": "fc96832d-da97-5136-b4d0-fbab7a82fa82",
       "category": "makeup",
       "subcategory": "blush",
       "skin_types": [],
@@ -2001,7 +2001,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "3e31267d-0f45-019d-8153-d11714c1f60c",
+      "id": "d2d7c091-a8bf-473f-9084-3165fd6308c7",
       "name": {
         "en": "too cool for school Artclass By. Rodin Finish Setting Powder",
         "ko": "too cool for school Artclass By. Rodin Finish Setting Powder"
@@ -2009,7 +2009,7 @@
       "name_en": "too cool for school Artclass By. Rodin Finish Setting Powder",
       "name_ko": "too cool for school Artclass By. Rodin Finish Setting Powder",
       "brand": "too cool for school",
-      "brand_id": null,
+      "brand_id": "ab40270c-9fef-54f7-9b68-2ccb552e3ea3",
       "category": "makeup",
       "subcategory": "setting_powder",
       "skin_types": [],
@@ -2049,7 +2049,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "bb3429e3-5eb7-6f03-6882-adf9095571d2",
+      "id": "7b7b50fd-35c5-4c2b-8f28-70fb74e8152f",
       "name": {
         "en": "espoir Be Glow Foundation 30g (10 Colors)",
         "ko": "espoir Be Glow Foundation 30g (10 Colors)"
@@ -2057,7 +2057,7 @@
       "name_en": "espoir Be Glow Foundation 30g (10 Colors)",
       "name_ko": "espoir Be Glow Foundation 30g (10 Colors)",
       "brand": "espoir",
-      "brand_id": null,
+      "brand_id": "45b5232b-8e65-5c44-8d1b-2398d8444460",
       "category": "makeup",
       "subcategory": "foundation",
       "skin_types": [],
@@ -2097,7 +2097,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "4790f6b4-bad0-b337-d119-ffaf89df61b3",
+      "id": "dfa319ef-e4b1-449f-9b31-727d25b45f25",
       "name": {
         "en": "Rausch Coltsfoot Anti-Dandruff Shampoo 200ml 2ea SET(+Best Sample 2ea)",
         "ko": "Rausch Coltsfoot Anti-Dandruff Shampoo 200ml 2ea SET(+Best Sample 2ea)"
@@ -2105,7 +2105,7 @@
       "name_en": "Rausch Coltsfoot Anti-Dandruff Shampoo 200ml 2ea SET(+Best Sample 2ea)",
       "name_ko": "Rausch Coltsfoot Anti-Dandruff Shampoo 200ml 2ea SET(+Best Sample 2ea)",
       "brand": "Rausch",
-      "brand_id": null,
+      "brand_id": "997d8f21-3fa1-42e1-b4c6-fbe111dd8e72",
       "category": "haircare",
       "subcategory": "shampoo",
       "skin_types": [],
@@ -2145,7 +2145,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "7fe99db9-5317-e5b0-d9b4-bdd04d7fac5a",
+      "id": "60263f1a-cf1b-43ab-b2a0-6860be7ac4b5",
       "name": {
         "en": "Rausch Revital Shampoo with Wassernabel and Caffeine 200ml Limited Set (+Best Sampler 4P)",
         "ko": "Rausch Revital Shampoo with Wassernabel and Caffeine 200ml Limited Set (+Best Sampler 4P)"
@@ -2153,7 +2153,7 @@
       "name_en": "Rausch Revital Shampoo with Wassernabel and Caffeine 200ml Limited Set (+Best Sampler 4P)",
       "name_ko": "Rausch Revital Shampoo with Wassernabel and Caffeine 200ml Limited Set (+Best Sampler 4P)",
       "brand": "Rausch",
-      "brand_id": null,
+      "brand_id": "997d8f21-3fa1-42e1-b4c6-fbe111dd8e72",
       "category": "haircare",
       "subcategory": "shampoo",
       "skin_types": [],
@@ -2193,7 +2193,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "39222d6f-1875-d118-071f-b99a4b902d30",
+      "id": "0b8abe3f-507d-40cc-a775-23b41b442ef0",
       "name": {
         "en": "LABO-H Scalp Strengthening Care Shampoo 750ml Set (+100ml)",
         "ko": "LABO-H Scalp Strengthening Care Shampoo 750ml Set (+100ml)"
@@ -2201,7 +2201,7 @@
       "name_en": "LABO-H Scalp Strengthening Care Shampoo 750ml Set (+100ml)",
       "name_ko": "LABO-H Scalp Strengthening Care Shampoo 750ml Set (+100ml)",
       "brand": "LABO-H",
-      "brand_id": null,
+      "brand_id": "1e869522-eb7a-4dbd-885f-6014cf68b250",
       "category": "haircare",
       "subcategory": "shampoo",
       "skin_types": [],
@@ -2241,7 +2241,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "c00bc554-8939-7664-b756-b8139dd2b1e8",
+      "id": "d1dc547a-6da9-471e-b154-542f9b3cb32a",
       "name": {
         "en": "JUST AS I AM I AM HAIR MASK N1 Damaged Hair Repair 220mL",
         "ko": "JUST AS I AM I AM HAIR MASK N1 Damaged Hair Repair 220mL"
@@ -2249,7 +2249,7 @@
       "name_en": "JUST AS I AM I AM HAIR MASK N1 Damaged Hair Repair 220mL",
       "name_ko": "JUST AS I AM I AM HAIR MASK N1 Damaged Hair Repair 220mL",
       "brand": "JUST AS I AM",
-      "brand_id": null,
+      "brand_id": "4c684eb9-79a4-4f13-b921-cf4979a4fc87",
       "category": "haircare",
       "subcategory": "treatment",
       "skin_types": [],
@@ -2289,7 +2289,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "3adb0348-a6f7-6a80-4d07-bf340c26a609",
+      "id": "a79ab785-bad5-4fed-bafc-01ded4e1908c",
       "name": {
         "en": "Mise-en-scene Perfect Argan Capsule Repair Hair Mask 180g",
         "ko": "Mise-en-scene Perfect Argan Capsule Repair Hair Mask 180g"
@@ -2297,7 +2297,7 @@
       "name_en": "Mise-en-scene Perfect Argan Capsule Repair Hair Mask 180g",
       "name_ko": "Mise-en-scene Perfect Argan Capsule Repair Hair Mask 180g",
       "brand": "Mise-en-scene",
-      "brand_id": null,
+      "brand_id": "c71d0020-a565-4ceb-b3fa-ce94891090ba",
       "category": "haircare",
       "subcategory": "treatment",
       "skin_types": [],
@@ -2337,7 +2337,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "059dee3d-8ff0-7245-4591-89de7b7c53c5",
+      "id": "4dd99dd8-2e59-422e-b474-76b5b9c268f7",
       "name": {
         "en": "AROMATICA Rosemary Root Enhancer 100mL+100mL Double Set",
         "ko": "AROMATICA Rosemary Root Enhancer 100mL+100mL Double Set"
@@ -2345,7 +2345,7 @@
       "name_en": "AROMATICA Rosemary Root Enhancer 100mL+100mL Double Set",
       "name_ko": "AROMATICA Rosemary Root Enhancer 100mL+100mL Double Set",
       "brand": "AROMATICA",
-      "brand_id": null,
+      "brand_id": "73120e8e-467b-4408-9517-97634cdd0079",
       "category": "haircare",
       "subcategory": "hair_oil",
       "skin_types": [],
@@ -2385,7 +2385,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "47bf95fb-ddd7-6f9b-5020-79e0925babad",
+      "id": "70ce0734-3e07-42dc-878f-85d7270f799b",
       "name": {
         "en": "Dr. Groot Aqua Hair Line Booster Shot 15ml Double Set",
         "ko": "Dr. Groot Aqua Hair Line Booster Shot 15ml Double Set"
@@ -2393,7 +2393,7 @@
       "name_en": "Dr. Groot Aqua Hair Line Booster Shot 15ml Double Set",
       "name_ko": "Dr. Groot Aqua Hair Line Booster Shot 15ml Double Set",
       "brand": "Dr. Groot",
-      "brand_id": null,
+      "brand_id": "748e0e8a-dbc9-4d79-89d0-e44a9a0680c7",
       "category": "haircare",
       "subcategory": "hair_oil",
       "skin_types": [],
@@ -2433,7 +2433,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "09eed328-cdde-e77c-2d94-0259e635d4fd",
+      "id": "6583d0af-0881-4497-8027-0a8e13868387",
       "name": {
         "en": "VT PDRN Reedle Shot Brush Hair Serum 100ml",
         "ko": "VT PDRN Reedle Shot Brush Hair Serum 100ml"
@@ -2441,7 +2441,7 @@
       "name_en": "VT PDRN Reedle Shot Brush Hair Serum 100ml",
       "name_ko": "VT PDRN Reedle Shot Brush Hair Serum 100ml",
       "brand": "VT",
-      "brand_id": null,
+      "brand_id": "3ab4c960-517e-5555-be77-d411d21db1b6",
       "category": "haircare",
       "subcategory": "hair_serum",
       "skin_types": [],
@@ -2481,7 +2481,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "630a1ac5-71b2-58d6-0594-1285b7fd55c5",
+      "id": "f5e03c40-9b37-4376-ac05-40d571fad6c9",
       "name": {
         "en": "DASHU Daily Easy Cover Hair Cushion (Natural Black) 16g",
         "ko": "DASHU Daily Easy Cover Hair Cushion (Natural Black) 16g"
@@ -2489,7 +2489,7 @@
       "name_en": "DASHU Daily Easy Cover Hair Cushion (Natural Black) 16g",
       "name_ko": "DASHU Daily Easy Cover Hair Cushion (Natural Black) 16g",
       "brand": "DASHU",
-      "brand_id": null,
+      "brand_id": "43121d93-c52e-4c5a-aebc-13433cee4a8c",
       "category": "haircare",
       "subcategory": "hair_color",
       "skin_types": [],
@@ -2529,7 +2529,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "ebfc5afa-e2c9-a1ff-717a-009c240cf4ef",
+      "id": "0211029c-e344-4715-85bb-50386b780886",
       "name": {
         "en": "lilyeve Grow Turn Exosome Brush Ampoule 130ml Set (+30ml)",
         "ko": "lilyeve Grow Turn Exosome Brush Ampoule 130ml Set (+30ml)"
@@ -2537,7 +2537,7 @@
       "name_en": "lilyeve Grow Turn Exosome Brush Ampoule 130ml Set (+30ml)",
       "name_ko": "lilyeve Grow Turn Exosome Brush Ampoule 130ml Set (+30ml)",
       "brand": "lilyeve",
-      "brand_id": null,
+      "brand_id": "fc733a89-b143-4111-a593-a0b0be72ea51",
       "category": "haircare",
       "subcategory": "styling",
       "skin_types": [],
@@ -2577,7 +2577,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "4235ebbe-15ca-e81f-1686-89026ce10ab3",
+      "id": "286ed623-2c24-44f2-8796-7524bdcc2902",
       "name": {
         "en": "epais Repair Leave-In Treatment 150ml",
         "ko": "epais Repair Leave-In Treatment 150ml"
@@ -2585,7 +2585,7 @@
       "name_en": "epais Repair Leave-In Treatment 150ml",
       "name_ko": "epais Repair Leave-In Treatment 150ml",
       "brand": "epais",
-      "brand_id": null,
+      "brand_id": "4f1d4ce5-e811-48c4-b623-b829e174fac4",
       "category": "haircare",
       "subcategory": "hair_essence",
       "skin_types": [],
@@ -2625,7 +2625,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "62ab8cb5-3d34-ae9e-3ec3-676f78149c22",
+      "id": "a293197d-7d94-475e-ad7e-e2ee61b362dd",
       "name": {
         "en": "ILLIYOON Fresh Moisture Scrub Wash 400ml*2ea Set",
         "ko": "ILLIYOON Fresh Moisture Scrub Wash 400ml*2ea Set"
@@ -2633,7 +2633,7 @@
       "name_en": "ILLIYOON Fresh Moisture Scrub Wash 400ml*2ea Set",
       "name_ko": "ILLIYOON Fresh Moisture Scrub Wash 400ml*2ea Set",
       "brand": "ILLIYOON",
-      "brand_id": null,
+      "brand_id": "73de06cf-ee98-5db2-b856-e856ddab93cb",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -2673,7 +2673,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "fbbfa255-4372-2d01-8991-163973f49bc8",
+      "id": "2a53f6b4-98f8-4ae5-9bc1-66339ed9800c",
       "name": {
         "en": "ILLIYOON Ceramide Ato 6.0 Top To Toe Wash 1000ml",
         "ko": "ILLIYOON Ceramide Ato 6.0 Top To Toe Wash 1000ml"
@@ -2681,7 +2681,7 @@
       "name_en": "ILLIYOON Ceramide Ato 6.0 Top To Toe Wash 1000ml",
       "name_ko": "ILLIYOON Ceramide Ato 6.0 Top To Toe Wash 1000ml",
       "brand": "ILLIYOON",
-      "brand_id": null,
+      "brand_id": "73de06cf-ee98-5db2-b856-e856ddab93cb",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -2721,7 +2721,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f0039845-f6db-1433-54d9-852e355cbc73",
+      "id": "970b08a0-da67-43fd-9194-a61eb47bf0f8",
       "name": {
         "en": "ROUND LAB PINE CALMING CICA BODY WASH 400ml",
         "ko": "ROUND LAB PINE CALMING CICA BODY WASH 400ml"
@@ -2729,7 +2729,7 @@
       "name_en": "ROUND LAB PINE CALMING CICA BODY WASH 400ml",
       "name_ko": "ROUND LAB PINE CALMING CICA BODY WASH 400ml",
       "brand": "ROUND LAB",
-      "brand_id": null,
+      "brand_id": "5d513efb-cb2e-5921-ab90-5aaae28f22fd",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -2769,7 +2769,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "dbff6622-76f2-b542-04d4-143ac826bf4d",
+      "id": "4bd475ec-a58d-4301-a20e-784f66b54763",
       "name": {
         "en": "ILLIYOON Ceramide Ato 5.0 Gentle Skin Cleanser 400ml",
         "ko": "ILLIYOON Ceramide Ato 5.0 Gentle Skin Cleanser 400ml"
@@ -2777,7 +2777,7 @@
       "name_en": "ILLIYOON Ceramide Ato 5.0 Gentle Skin Cleanser 400ml",
       "name_ko": "ILLIYOON Ceramide Ato 5.0 Gentle Skin Cleanser 400ml",
       "brand": "ILLIYOON",
-      "brand_id": null,
+      "brand_id": "73de06cf-ee98-5db2-b856-e856ddab93cb",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -2817,7 +2817,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "c06e3388-901d-4b11-4393-3c02415ec22a",
+      "id": "c17d96e5-dbc2-4cca-98ab-d4e80c3cad09",
       "name": {
         "en": "ILLIYOON Ceramide Ato Lotion Double Pack (600ml+600ml)",
         "ko": "ILLIYOON Ceramide Ato Lotion Double Pack (600ml+600ml)"
@@ -2825,7 +2825,7 @@
       "name_en": "ILLIYOON Ceramide Ato Lotion Double Pack (600ml+600ml)",
       "name_ko": "ILLIYOON Ceramide Ato Lotion Double Pack (600ml+600ml)",
       "brand": "ILLIYOON",
-      "brand_id": null,
+      "brand_id": "73de06cf-ee98-5db2-b856-e856ddab93cb",
       "category": "bodycare",
       "subcategory": "body_lotion",
       "skin_types": [],
@@ -2865,7 +2865,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "66881e13-049a-b617-6fb1-bd96f5eba41d",
+      "id": "49f6eae6-6eba-40c5-b030-1ba942c8b989",
       "name": {
         "en": "APLB Glutathione Niacinamide Body Lotion 300mL",
         "ko": "APLB Glutathione Niacinamide Body Lotion 300mL"
@@ -2873,7 +2873,7 @@
       "name_en": "APLB Glutathione Niacinamide Body Lotion 300mL",
       "name_ko": "APLB Glutathione Niacinamide Body Lotion 300mL",
       "brand": "APLB",
-      "brand_id": null,
+      "brand_id": "1d8799fb-7634-444b-a116-f8d401403011",
       "category": "bodycare",
       "subcategory": "body_lotion",
       "skin_types": [],
@@ -2913,7 +2913,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "5636be4a-04af-311e-9622-ac330b58b1f6",
+      "id": "43b247c8-e471-45d0-9d0a-0df2ff87835c",
       "name": {
         "en": "ILLIYOON Ceramide Ato Lotion 600mL + 128mL",
         "ko": "ILLIYOON Ceramide Ato Lotion 600mL + 128mL"
@@ -2921,7 +2921,7 @@
       "name_en": "ILLIYOON Ceramide Ato Lotion 600mL + 128mL",
       "name_ko": "ILLIYOON Ceramide Ato Lotion 600mL + 128mL",
       "brand": "ILLIYOON",
-      "brand_id": null,
+      "brand_id": "73de06cf-ee98-5db2-b856-e856ddab93cb",
       "category": "bodycare",
       "subcategory": "body_lotion",
       "skin_types": [],
@@ -2961,7 +2961,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "89034b8d-37c3-8b42-0872-947125a0c43f",
+      "id": "39c0e979-93a8-469f-b84f-82333ae33f47",
       "name": {
         "en": "hetras Mango Seed Butter Perfume Hand Cream 50mL",
         "ko": "hetras Mango Seed Butter Perfume Hand Cream 50mL"
@@ -2969,7 +2969,7 @@
       "name_en": "hetras Mango Seed Butter Perfume Hand Cream 50mL",
       "name_ko": "hetras Mango Seed Butter Perfume Hand Cream 50mL",
       "brand": "hetras",
-      "brand_id": null,
+      "brand_id": "48da4fde-ce3a-480c-ab05-84088fbcfbb5",
       "category": "bodycare",
       "subcategory": "hand_cream",
       "skin_types": [],
@@ -3009,7 +3009,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "4dcee539-6cd6-810f-252e-e8c8613081eb",
+      "id": "c19aec94-304b-4ca4-b8bf-451507120515",
       "name": {
         "en": "BANDI Derma Pedi Care 3Type",
         "ko": "BANDI Derma Pedi Care 3Type"
@@ -3017,7 +3017,7 @@
       "name_en": "BANDI Derma Pedi Care 3Type",
       "name_ko": "BANDI Derma Pedi Care 3Type",
       "brand": "BANDI",
-      "brand_id": null,
+      "brand_id": "b6200047-3dd6-4030-8824-de7c392ea4c7",
       "category": "bodycare",
       "subcategory": "hand_cream",
       "skin_types": [],
@@ -3057,7 +3057,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "6bb0a3ea-02e7-2c3c-5812-68385dac613a",
+      "id": "cb05a163-23a5-4729-a9e5-5ff4e8249988",
       "name": {
         "en": "LUV SCENT Perfumed Scrub Body Wash 500ml (4 Options)",
         "ko": "LUV SCENT Perfumed Scrub Body Wash 500ml (4 Options)"
@@ -3065,7 +3065,7 @@
       "name_en": "LUV SCENT Perfumed Scrub Body Wash 500ml (4 Options)",
       "name_ko": "LUV SCENT Perfumed Scrub Body Wash 500ml (4 Options)",
       "brand": "LUV SCENT",
-      "brand_id": null,
+      "brand_id": "6f3b0b36-270f-46b4-9cc2-680f574b1e27",
       "category": "bodycare",
       "subcategory": "body_scrub",
       "skin_types": [],
@@ -3105,7 +3105,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8d0d8cbf-eb12-7912-2163-726ec652a8dc",
+      "id": "eebc6a07-cf3d-4323-9e78-7fb9ec05f194",
       "name": {
         "en": "FOODOLOGY Coleology Cutting Jelly 30 Sticks (30-day supply)",
         "ko": "FOODOLOGY Coleology Cutting Jelly 30 Sticks (30-day supply)"
@@ -3113,7 +3113,7 @@
       "name_en": "FOODOLOGY Coleology Cutting Jelly 30 Sticks (30-day supply)",
       "name_ko": "FOODOLOGY Coleology Cutting Jelly 30 Sticks (30-day supply)",
       "brand": "FOODOLOGY",
-      "brand_id": null,
+      "brand_id": "0765122c-d028-416f-8e0b-539f269e5e03",
       "category": "bodycare",
       "subcategory": "body_sunscreen",
       "skin_types": [],
@@ -3153,7 +3153,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "9b72bbc8-b3fa-a06f-4ea1-6af3c65838f2",
+      "id": "b2fa0d86-47e5-4b12-8fd0-6f255c633612",
       "name": {
         "en": "REJURAN Derma Healer Pore Tightening Toner Pad 60P Limited Set (+Pore Ampoule 2mlX6ea)",
         "ko": "REJURAN Derma Healer Pore Tightening Toner Pad 60P Limited Set (+Pore Ampoule 2mlX6ea)"
@@ -3161,7 +3161,7 @@
       "name_en": "REJURAN Derma Healer Pore Tightening Toner Pad 60P Limited Set (+Pore Ampoule 2mlX6ea)",
       "name_ko": "REJURAN Derma Healer Pore Tightening Toner Pad 60P Limited Set (+Pore Ampoule 2mlX6ea)",
       "brand": "REJURAN",
-      "brand_id": null,
+      "brand_id": "1b4e1f80-d545-451c-b2b9-fb52f4c9be99",
       "category": "tools",
       "subcategory": "cleansing_tool",
       "skin_types": [],
@@ -3201,7 +3201,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "540f3577-69d1-5b05-7f4d-774a5d10eb2b",
+      "id": "a2a5085e-e50f-4c2e-a5bd-82e4c54397ba",
       "name": {
         "en": "S.NATURE Aqua Rice Cleansing Oil 200ml Set (+Calming Pad 2P)",
         "ko": "S.NATURE Aqua Rice Cleansing Oil 200ml Set (+Calming Pad 2P)"
@@ -3209,7 +3209,7 @@
       "name_en": "S.NATURE Aqua Rice Cleansing Oil 200ml Set (+Calming Pad 2P)",
       "name_ko": "S.NATURE Aqua Rice Cleansing Oil 200ml Set (+Calming Pad 2P)",
       "brand": "S.NATURE",
-      "brand_id": null,
+      "brand_id": "36631f01-c7dd-4acf-8e3e-687234cd32cd",
       "category": "tools",
       "subcategory": "cleansing_tool",
       "skin_types": [],
@@ -3249,7 +3249,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "496ae471-c4f1-363b-c3f0-bf9b66fb8a43",
+      "id": "701c38e5-0d55-401c-89f0-4c343189041e",
       "name": {
         "en": "ROUND LAB Birch Juice Cleansing Pad Sheets",
         "ko": "ROUND LAB Birch Juice Cleansing Pad Sheets"
@@ -3257,7 +3257,7 @@
       "name_en": "ROUND LAB Birch Juice Cleansing Pad Sheets",
       "name_ko": "ROUND LAB Birch Juice Cleansing Pad Sheets",
       "brand": "ROUND LAB",
-      "brand_id": null,
+      "brand_id": "5d513efb-cb2e-5921-ab90-5aaae28f22fd",
       "category": "tools",
       "subcategory": "cleansing_tool",
       "skin_types": [],
@@ -3297,7 +3297,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "1345d337-fc6b-3ac6-71aa-a7e22d55bd5d",
+      "id": "95fb86b4-1fa8-4fc6-908e-de7bf2c75905",
       "name": {
         "en": "HERA Black Cushion Foundation Puff 2ea",
         "ko": "HERA Black Cushion Foundation Puff 2ea"
@@ -3305,7 +3305,7 @@
       "name_en": "HERA Black Cushion Foundation Puff 2ea",
       "name_ko": "HERA Black Cushion Foundation Puff 2ea",
       "brand": "HERA",
-      "brand_id": null,
+      "brand_id": "4625585b-b9bf-5f2d-9b06-98c1369e97be",
       "category": "tools",
       "subcategory": "makeup_tool",
       "skin_types": [],
@@ -3345,7 +3345,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "07d2215a-f7f3-b26a-f3b5-ab114f2311c3",
+      "id": "8863148e-adab-4a21-96a6-6fed22993014",
       "name": {
         "en": "mommycare EMS V-Thera",
         "ko": "mommycare EMS V-Thera"
@@ -3353,7 +3353,7 @@
       "name_en": "mommycare EMS V-Thera",
       "name_ko": "mommycare EMS V-Thera",
       "brand": "mommycare",
-      "brand_id": null,
+      "brand_id": "ed518c09-a3a3-4130-a5a5-c41036839d07",
       "category": "tools",
       "subcategory": "makeup_tool",
       "skin_types": [],
@@ -3393,7 +3393,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "fefb579b-2baa-3bbf-8a57-5ea49535ec2c",
+      "id": "02d77522-b002-4405-aa75-b87a307f616f",
       "name": {
         "en": "THOME The Glow Signature",
         "ko": "THOME The Glow Signature"
@@ -3401,7 +3401,7 @@
       "name_en": "THOME The Glow Signature",
       "name_ko": "THOME The Glow Signature",
       "brand": "THOME",
-      "brand_id": null,
+      "brand_id": "8a58e9e2-201e-41e0-91af-50d70bcc9ec2",
       "category": "tools",
       "subcategory": "makeup_tool",
       "skin_types": [],
@@ -3441,7 +3441,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "fc9d0c85-ad47-d38d-482b-db3223fa35d9",
+      "id": "07f5c47c-5e6d-423d-a0d6-1ef54b58c392",
       "name": {
         "en": "ROUND LAB Signature Best Sellers Set",
         "ko": "ROUND LAB Signature Best Sellers Set"
@@ -3449,7 +3449,7 @@
       "name_en": "ROUND LAB Signature Best Sellers Set",
       "name_ko": "ROUND LAB Signature Best Sellers Set",
       "brand": "ROUND LAB",
-      "brand_id": null,
+      "brand_id": "5d513efb-cb2e-5921-ab90-5aaae28f22fd",
       "category": "tools",
       "subcategory": "beauty_device",
       "skin_types": [],
@@ -3489,7 +3489,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "75221994-c593-8c8f-0ffc-88272e94f58e",
+      "id": "93db6743-eb92-4e59-b4f3-29f006f7afc6",
       "name": {
         "en": "celimax Retinal Shot Tightening Booster 15ml Set (+3ml)",
         "ko": "celimax Retinal Shot Tightening Booster 15ml Set (+3ml)"
@@ -3497,7 +3497,7 @@
       "name_en": "celimax Retinal Shot Tightening Booster 15ml Set (+3ml)",
       "name_ko": "celimax Retinal Shot Tightening Booster 15ml Set (+3ml)",
       "brand": "celimax",
-      "brand_id": null,
+      "brand_id": "3d6dc2cb-ba46-4e0f-8f57-d84c4677eff8",
       "category": "tools",
       "subcategory": "beauty_device",
       "skin_types": [],
@@ -3537,7 +3537,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "907e169d-efcb-b333-5a0d-20d25510a0ea",
+      "id": "b69757c2-9854-4f20-8d80-6792c28e6b76",
       "name": {
         "en": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 50ml Double Pack (+TXA Serum 15ml)",
         "ko": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 50ml Double Pack (+TXA Serum 15ml)"
@@ -3545,7 +3545,7 @@
       "name_en": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 50ml Double Pack (+TXA Serum 15ml)",
       "name_ko": "goodal Green Tangerine Vita-C Dark Spot Care Serum α 50ml Double Pack (+TXA Serum 15ml)",
       "brand": "goodal",
-      "brand_id": null,
+      "brand_id": "6bcb921e-fba8-55a7-9706-c0196160247c",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -3585,7 +3585,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "a8ce3032-0364-5ab0-7f79-36ee2d5c9802",
+      "id": "370c1550-4646-47e7-a074-a14ba5e04778",
       "name": {
         "en": "COSRX Advanced The Vitamin C 23 Serum 20g*2ea",
         "ko": "COSRX Advanced The Vitamin C 23 Serum 20g*2ea"
@@ -3593,7 +3593,7 @@
       "name_en": "COSRX Advanced The Vitamin C 23 Serum 20g*2ea",
       "name_ko": "COSRX Advanced The Vitamin C 23 Serum 20g*2ea",
       "brand": "COSRX",
-      "brand_id": null,
+      "brand_id": "5240a3c6-315a-565d-bf7e-cdb9154a9937",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -3633,7 +3633,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "d4671ead-d670-5fb5-c065-9a192fda6a67",
+      "id": "dffca911-11a4-40d3-9fd3-277b84c1558c",
       "name": {
         "en": "INNISFREE Vitamin C Green Tea Enzyme Brightening Serum 30ml Set (+10ml+Champion Keychain Mini Bag)",
         "ko": "INNISFREE Vitamin C Green Tea Enzyme Brightening Serum 30ml Set (+10ml+Champion Keychain Mini Bag)"
@@ -3641,7 +3641,7 @@
       "name_en": "INNISFREE Vitamin C Green Tea Enzyme Brightening Serum 30ml Set (+10ml+Champion Keychain Mini Bag)",
       "name_ko": "INNISFREE Vitamin C Green Tea Enzyme Brightening Serum 30ml Set (+10ml+Champion Keychain Mini Bag)",
       "brand": "INNISFREE",
-      "brand_id": null,
+      "brand_id": "f4f9081a-cac1-5388-b5ec-c86213241927",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -3681,7 +3681,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "19d75616-4f9a-339a-85a5-a58f581576d3",
+      "id": "64380cba-4469-4ac2-a18c-f9c3dfd1cdbd",
       "name": {
         "en": "goodal Green Tangerine Vita-C Dark Spot Care Eye Cream 30ml 1+1 Set",
         "ko": "goodal Green Tangerine Vita-C Dark Spot Care Eye Cream 30ml 1+1 Set"
@@ -3689,7 +3689,7 @@
       "name_en": "goodal Green Tangerine Vita-C Dark Spot Care Eye Cream 30ml 1+1 Set",
       "name_ko": "goodal Green Tangerine Vita-C Dark Spot Care Eye Cream 30ml 1+1 Set",
       "brand": "goodal",
-      "brand_id": null,
+      "brand_id": "6bcb921e-fba8-55a7-9706-c0196160247c",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -3729,7 +3729,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "d3091894-97d9-3c97-515a-87fa52de4278",
+      "id": "aeb18837-3d68-45e9-a87a-0237f691a9d5",
       "name": {
         "en": "numbuzin No.5+ Vitamin Concentrated Serum 30mL set (+6 pads gift)",
         "ko": "numbuzin No.5+ Vitamin Concentrated Serum 30mL set (+6 pads gift)"
@@ -3737,7 +3737,7 @@
       "name_en": "numbuzin No.5+ Vitamin Concentrated Serum 30mL set (+6 pads gift)",
       "name_ko": "numbuzin No.5+ Vitamin Concentrated Serum 30mL set (+6 pads gift)",
       "brand": "numbuzin",
-      "brand_id": null,
+      "brand_id": "cfd7a82e-2cd4-50b9-9abb-49b8b8d7efb6",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -3777,7 +3777,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "c2b0cc53-7f97-1e0f-5b77-fcda1827b436",
+      "id": "852cd1f5-4921-4cae-b9d9-d15d852b0b0c",
       "name": {
         "en": "d'Alba Watefull UV Essence Vitamin C & Collagen 50ml",
         "ko": "d'Alba Watefull UV Essence Vitamin C & Collagen 50ml"
@@ -3785,7 +3785,7 @@
       "name_en": "d'Alba Watefull UV Essence Vitamin C & Collagen 50ml",
       "name_ko": "d'Alba Watefull UV Essence Vitamin C & Collagen 50ml",
       "brand": "d'Alba",
-      "brand_id": null,
+      "brand_id": "2d6c3d34-26b9-5faf-a7cf-ae55b9c9dda9",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -3825,7 +3825,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "a9ef5e8b-90f7-edc1-5703-5ef67225bb40",
+      "id": "6db131aa-c82e-48cd-ae14-200b5e9b5360",
       "name": {
         "en": "VT Vitamin C Astaxanthin Serum 30ml",
         "ko": "VT Vitamin C Astaxanthin Serum 30ml"
@@ -3833,7 +3833,7 @@
       "name_en": "VT Vitamin C Astaxanthin Serum 30ml",
       "name_ko": "VT Vitamin C Astaxanthin Serum 30ml",
       "brand": "VT",
-      "brand_id": null,
+      "brand_id": "3ab4c960-517e-5555-be77-d411d21db1b6",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -3881,7 +3881,7 @@
       "name_en": "easydew DW-EGF Vitamin C Boosting Amoule 25 13g Set (+Mela Glutathione Cream 2g*2ea)",
       "name_ko": "easydew DW-EGF Vitamin C Boosting Amoule 25 13g Set (+Mela Glutathione Cream 2g*2ea)",
       "brand": "easydew",
-      "brand_id": null,
+      "brand_id": "9012a959-a4f5-479d-abe7-14dcb93578d2",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -3921,7 +3921,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "cdff066f-0d3a-2889-2749-c683a2a88bc8",
+      "id": "2c0b3c93-b2b4-4ea4-afcd-17bcec58e274",
       "name": {
         "en": "goodal Green Tangerine Vita-C Dark Spot Care Serum Mask Sheet α 5ea Set (+1ea)",
         "ko": "goodal Green Tangerine Vita-C Dark Spot Care Serum Mask Sheet α 5ea Set (+1ea)"
@@ -3929,7 +3929,7 @@
       "name_en": "goodal Green Tangerine Vita-C Dark Spot Care Serum Mask Sheet α 5ea Set (+1ea)",
       "name_ko": "goodal Green Tangerine Vita-C Dark Spot Care Serum Mask Sheet α 5ea Set (+1ea)",
       "brand": "goodal",
-      "brand_id": null,
+      "brand_id": "6bcb921e-fba8-55a7-9706-c0196160247c",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -3969,7 +3969,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "6fcb5c24-8b6b-b85a-4072-f9e6da088192",
+      "id": "5ec58492-cc66-479a-99c9-bcfa38d598bd",
       "name": {
         "en": "numbuzin No. 5+ Glutathione Vitamin Concentrated Serum 30ml Set (+Mask Sheet 1ea+Pad 2P*2ea)",
         "ko": "numbuzin No. 5+ Glutathione Vitamin Concentrated Serum 30ml Set (+Mask Sheet 1ea+Pad 2P*2ea)"
@@ -3977,7 +3977,7 @@
       "name_en": "numbuzin No. 5+ Glutathione Vitamin Concentrated Serum 30ml Set (+Mask Sheet 1ea+Pad 2P*2ea)",
       "name_ko": "numbuzin No. 5+ Glutathione Vitamin Concentrated Serum 30ml Set (+Mask Sheet 1ea+Pad 2P*2ea)",
       "brand": "numbuzin",
-      "brand_id": null,
+      "brand_id": "cfd7a82e-2cd4-50b9-9abb-49b8b8d7efb6",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -4017,7 +4017,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "18171b73-abd2-61ba-9310-8e6304624798",
+      "id": "e7524578-532b-4530-a178-cc5770aad005",
       "name": {
         "en": "d’Alba Waterfull UV Essence Vitamin C & Collagen 50ml Duo Set",
         "ko": "d’Alba Waterfull UV Essence Vitamin C & Collagen 50ml Duo Set"
@@ -4025,7 +4025,7 @@
       "name_en": "d’Alba Waterfull UV Essence Vitamin C & Collagen 50ml Duo Set",
       "name_ko": "d’Alba Waterfull UV Essence Vitamin C & Collagen 50ml Duo Set",
       "brand": "d'Alba",
-      "brand_id": null,
+      "brand_id": "2d6c3d34-26b9-5faf-a7cf-ae55b9c9dda9",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -4065,7 +4065,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "583f21e8-aece-43e2-3dd6-d9146e10b53a",
+      "id": "6a31a9c8-277a-4f3a-9f59-76d61dfbae05",
       "name": {
         "en": "goodal Green Tangerine Vita-C Dark Spot Care Cream α 75ml Set (+25ml)",
         "ko": "goodal Green Tangerine Vita-C Dark Spot Care Cream α 75ml Set (+25ml)"
@@ -4073,7 +4073,7 @@
       "name_en": "goodal Green Tangerine Vita-C Dark Spot Care Cream α 75ml Set (+25ml)",
       "name_ko": "goodal Green Tangerine Vita-C Dark Spot Care Cream α 75ml Set (+25ml)",
       "brand": "goodal",
-      "brand_id": null,
+      "brand_id": "6bcb921e-fba8-55a7-9706-c0196160247c",
       "category": "skincare",
       "subcategory": "serum",
       "skin_types": [],
@@ -4113,7 +4113,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "fe59389b-cb5c-ff2b-3118-246f72860e6a",
+      "id": "01b6929a-b39a-40d9-9149-050a7fe6aae2",
       "name": {
         "en": "DEAR DAHLIA Daily Defense PDRN SPF40 BB Cream 40ml (4 Shades)",
         "ko": "DEAR DAHLIA Daily Defense PDRN SPF40 BB Cream 40ml (4 Shades)"
@@ -4121,7 +4121,7 @@
       "name_en": "DEAR DAHLIA Daily Defense PDRN SPF40 BB Cream 40ml (4 Shades)",
       "name_ko": "DEAR DAHLIA Daily Defense PDRN SPF40 BB Cream 40ml (4 Shades)",
       "brand": "DEAR DAHLIA",
-      "brand_id": null,
+      "brand_id": "e2cdad34-1d44-43eb-a949-1996b72993dd",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4161,7 +4161,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "386e0e4f-8172-2531-0821-c168140a6924",
+      "id": "2ed24f20-a0e5-49ae-afb1-0a570e5c7500",
       "name": {
         "en": "Losy kim TXA Healthy Glow BB Essence 40ml (3 Shades)",
         "ko": "Losy kim TXA Healthy Glow BB Essence 40ml (3 Shades)"
@@ -4169,7 +4169,7 @@
       "name_en": "Losy kim TXA Healthy Glow BB Essence 40ml (3 Shades)",
       "name_ko": "Losy kim TXA Healthy Glow BB Essence 40ml (3 Shades)",
       "brand": "Losy kim",
-      "brand_id": null,
+      "brand_id": "05f6ca92-dc92-4da3-9b37-75c36edf895a",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4209,7 +4209,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "761a7758-3c8d-d654-68dc-94c9a9b0a662",
+      "id": "7768ecc7-c674-4724-9658-86f1a9ca1d98",
       "name": {
         "en": "Purito Seoul Wonder Releaf Centella SPF30 BB Cream (6 Shades)",
         "ko": "Purito Seoul Wonder Releaf Centella SPF30 BB Cream (6 Shades)"
@@ -4217,7 +4217,7 @@
       "name_en": "Purito Seoul Wonder Releaf Centella SPF30 BB Cream (6 Shades)",
       "name_ko": "Purito Seoul Wonder Releaf Centella SPF30 BB Cream (6 Shades)",
       "brand": "Purito Seoul",
-      "brand_id": null,
+      "brand_id": "5d609a5c-b25d-43d6-b5fd-315c3555bc50",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4257,7 +4257,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "e4bc777a-2500-f603-d068-01de49768ce0",
+      "id": "f52da8bf-1e0e-4ebf-b2f2-ef8e73ea9f35",
       "name": {
         "en": "OBge Mellow Clay Pomade 100g",
         "ko": "OBge Mellow Clay Pomade 100g"
@@ -4265,7 +4265,7 @@
       "name_en": "OBge Mellow Clay Pomade 100g",
       "name_ko": "OBge Mellow Clay Pomade 100g",
       "brand": "OBgE",
-      "brand_id": null,
+      "brand_id": "3b02edc0-e0ea-4bc0-9629-ed39ddce3f73",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4305,7 +4305,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "d1d6dfb4-ea98-ed1c-73f7-67cd3fc29a03",
+      "id": "0e741cad-9706-4b48-a9b1-f16bdbaa3cfb",
       "name": {
         "en": "BRINGGREEN Bamboo Hyalu Lip Essence Double Set",
         "ko": "BRINGGREEN Bamboo Hyalu Lip Essence Double Set"
@@ -4313,7 +4313,7 @@
       "name_en": "BRINGGREEN Bamboo Hyalu Lip Essence Double Set",
       "name_ko": "BRINGGREEN Bamboo Hyalu Lip Essence Double Set",
       "brand": "BRINGGREEN",
-      "brand_id": null,
+      "brand_id": "23058ce3-3574-4dd9-a3f1-d930c658e5cc",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4353,7 +4353,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8e53ac56-7617-5ced-bb3e-168e4fabdd1b",
+      "id": "b31582e0-9318-4397-ad64-cd0422aaae3d",
       "name": {
         "en": "erborian CC Cream 15ml (Set/Single) (2 Shades)",
         "ko": "erborian CC Cream 15ml (Set/Single) (2 Shades)"
@@ -4361,7 +4361,7 @@
       "name_en": "erborian CC Cream 15ml (Set/Single) (2 Shades)",
       "name_ko": "erborian CC Cream 15ml (Set/Single) (2 Shades)",
       "brand": "erborian",
-      "brand_id": null,
+      "brand_id": "214ab70e-df40-4f90-a00c-59c069e65c77",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4401,7 +4401,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "fdb916c4-2c96-8115-dda7-4f3a1276e695",
+      "id": "ad8f6265-6f7d-4b84-afd0-5f39dc0bb529",
       "name": {
         "en": "erborian CC Red Correct 45ml (Set/Single)",
         "ko": "erborian CC Red Correct 45ml (Set/Single)"
@@ -4409,7 +4409,7 @@
       "name_en": "erborian CC Red Correct 45ml (Set/Single)",
       "name_ko": "erborian CC Red Correct 45ml (Set/Single)",
       "brand": "erborian",
-      "brand_id": null,
+      "brand_id": "214ab70e-df40-4f90-a00c-59c069e65c77",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4449,7 +4449,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "2909e43b-b868-6cb6-6848-3ae2be347913",
+      "id": "fc857f3c-7ca4-4695-ac3f-79d00520bd1d",
       "name": {
         "en": "ISOI Brightening Blemish Rose Serum 20ml (+3ml)",
         "ko": "ISOI Brightening Blemish Rose Serum 20ml (+3ml)"
@@ -4457,7 +4457,7 @@
       "name_en": "ISOI Brightening Blemish Rose Serum 20ml (+3ml)",
       "name_ko": "ISOI Brightening Blemish Rose Serum 20ml (+3ml)",
       "brand": "ISOI",
-      "brand_id": null,
+      "brand_id": "f106ebb7-829b-5f3c-aeab-009f3848532a",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4497,7 +4497,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "017d8535-5c78-e60a-416e-1bf557f41a74",
+      "id": "1bdad7ea-93e2-45ef-9710-89cb8e0aa58c",
       "name": {
         "en": "haming Rice Water Glow BB Lotion 30ml (3 Shades)",
         "ko": "haming Rice Water Glow BB Lotion 30ml (3 Shades)"
@@ -4505,7 +4505,7 @@
       "name_en": "haming Rice Water Glow BB Lotion 30ml (3 Shades)",
       "name_ko": "haming Rice Water Glow BB Lotion 30ml (3 Shades)",
       "brand": "haming",
-      "brand_id": null,
+      "brand_id": "520de4e5-bdc0-4de8-a937-c6919258c86c",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4545,7 +4545,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8d6f5d03-cfbc-8866-1823-3c826af669a5",
+      "id": "b58d0f1f-24ab-4f03-8d70-a71ddfab881f",
       "name": {
         "en": "makeprem Hyal Inteca Deep Hydrating Ampoule 40ml",
         "ko": "makeprem Hyal Inteca Deep Hydrating Ampoule 40ml"
@@ -4553,7 +4553,7 @@
       "name_en": "makeprem Hyal Inteca Deep Hydrating Ampoule 40ml",
       "name_ko": "makeprem Hyal Inteca Deep Hydrating Ampoule 40ml",
       "brand": "makeprem",
-      "brand_id": null,
+      "brand_id": "cc0ec333-7de4-4828-8824-e08b74c50e9f",
       "category": "skincare",
       "subcategory": "moisturizer",
       "skin_types": [],
@@ -4593,7 +4593,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f77d1b8e-2a26-fc81-711b-b73c0a406f3f",
+      "id": "b2d5e2db-aa31-40ab-9331-977bfabd6018",
       "name": {
         "en": "Beauty of Joseon Revive Eye Serum : Ginseng + Retinol Double Pack",
         "ko": "Beauty of Joseon Revive Eye Serum : Ginseng + Retinol Double Pack"
@@ -4601,7 +4601,7 @@
       "name_en": "Beauty of Joseon Revive Eye Serum : Ginseng + Retinol Double Pack",
       "name_ko": "Beauty of Joseon Revive Eye Serum : Ginseng + Retinol Double Pack",
       "brand": "Beauty of Joseon",
-      "brand_id": null,
+      "brand_id": "4707822b-da67-5982-9b3d-d454690be959",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -4641,7 +4641,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "772b4bc8-af39-3299-e778-48c45e50aacf",
+      "id": "f7a58e96-bfd8-42f8-b8df-2d20407fe465",
       "name": {
         "en": "[dropdropdrop EDITION] BIOHEAL BOH Probioderm™ 3D Lifting Cream 50ml Refill Set (+Eye & Wrinkle Cream 2ea)",
         "ko": "[dropdropdrop EDITION] BIOHEAL BOH Probioderm™ 3D Lifting Cream 50ml Refill Set (+Eye & Wrinkle Cream 2ea)"
@@ -4649,7 +4649,7 @@
       "name_en": "[dropdropdrop EDITION] BIOHEAL BOH Probioderm™ 3D Lifting Cream 50ml Refill Set (+Eye & Wrinkle Cream 2ea)",
       "name_ko": "[dropdropdrop EDITION] BIOHEAL BOH Probioderm™ 3D Lifting Cream 50ml Refill Set (+Eye & Wrinkle Cream 2ea)",
       "brand": "BIOHEAL BOH",
-      "brand_id": null,
+      "brand_id": "9dae5b0c-1461-4c6b-aa96-cbbef92c7b94",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -4689,7 +4689,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8b3241e3-371f-604a-d643-043c9a5e270f",
+      "id": "5d28ce7b-43c5-46ed-abff-cd6be91af321",
       "name": {
         "en": "Anua Retinol 0.1 Caffeine Revitalizing Eye Cream 30g",
         "ko": "Anua Retinol 0.1 Caffeine Revitalizing Eye Cream 30g"
@@ -4697,7 +4697,7 @@
       "name_en": "Anua Retinol 0.1 Caffeine Revitalizing Eye Cream 30g",
       "name_ko": "Anua Retinol 0.1 Caffeine Revitalizing Eye Cream 30g",
       "brand": "Anua",
-      "brand_id": null,
+      "brand_id": "ca92dab3-1f6a-5fdc-bede-b02abc8f340a",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -4737,7 +4737,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f4727250-50c5-30e8-0320-21d459b5749e",
+      "id": "17fa57cc-f0ef-40a6-b9fa-7f295d2060b2",
       "name": {
         "en": "Torriden Cellmazing Firming Eye Cream 30mL Special Set (+Eye Massager)",
         "ko": "Torriden Cellmazing Firming Eye Cream 30mL Special Set (+Eye Massager)"
@@ -4745,7 +4745,7 @@
       "name_en": "Torriden Cellmazing Firming Eye Cream 30mL Special Set (+Eye Massager)",
       "name_ko": "Torriden Cellmazing Firming Eye Cream 30mL Special Set (+Eye Massager)",
       "brand": "Torriden",
-      "brand_id": null,
+      "brand_id": "293e8f32-f2af-511a-b046-b97198a6bc9a",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -4785,7 +4785,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "0ae1c208-d83b-0f21-ba1c-d0a0d99bab63",
+      "id": "24be6027-7956-4db7-8cad-741dad4efd84",
       "name": {
         "en": "AESTURA Regederm365 Retinoid Eye Serum 15ml",
         "ko": "AESTURA Regederm365 Retinoid Eye Serum 15ml"
@@ -4793,7 +4793,7 @@
       "name_en": "AESTURA Regederm365 Retinoid Eye Serum 15ml",
       "name_ko": "AESTURA Regederm365 Retinoid Eye Serum 15ml",
       "brand": "AESTURA",
-      "brand_id": null,
+      "brand_id": "071a2325-2bab-5b34-8188-6095d30638dd",
       "category": "skincare",
       "subcategory": "eye_care",
       "skin_types": [],
@@ -4833,7 +4833,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "7c7921f6-db32-9a55-7206-7ac93ab895e2",
+      "id": "2cfe1dd1-42a1-4d30-8f0a-dd7d6d2b9aa9",
       "name": {
         "en": "[TRIPLE] ROUND LAB Birch Juice Moisturizing Sunscreen 50ml Triple Set",
         "ko": "[TRIPLE] ROUND LAB Birch Juice Moisturizing Sunscreen 50ml Triple Set"
@@ -4841,7 +4841,7 @@
       "name_en": "[TRIPLE] ROUND LAB Birch Juice Moisturizing Sunscreen 50ml Triple Set",
       "name_ko": "[TRIPLE] ROUND LAB Birch Juice Moisturizing Sunscreen 50ml Triple Set",
       "brand": "ROUND LAB",
-      "brand_id": null,
+      "brand_id": "5d513efb-cb2e-5921-ab90-5aaae28f22fd",
       "category": "skincare",
       "subcategory": "toner",
       "skin_types": [],
@@ -4881,7 +4881,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "3eefb8fb-4dd8-0b38-631b-26e003ccc687",
+      "id": "aa9ff083-6ff2-4bb4-8567-d803da98f972",
       "name": {
         "en": "Centellian24 Madeca Cream Time Reverse 50ml Double Pack (+15ml*2ea)",
         "ko": "Centellian24 Madeca Cream Time Reverse 50ml Double Pack (+15ml*2ea)"
@@ -4889,7 +4889,7 @@
       "name_en": "Centellian24 Madeca Cream Time Reverse 50ml Double Pack (+15ml*2ea)",
       "name_ko": "Centellian24 Madeca Cream Time Reverse 50ml Double Pack (+15ml*2ea)",
       "brand": "Centellian24",
-      "brand_id": null,
+      "brand_id": "a94f6dc7-d1b2-4fae-b951-9aa648e1a131",
       "category": "skincare",
       "subcategory": "toner",
       "skin_types": [],
@@ -4929,7 +4929,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "6118286a-4f67-52aa-de60-79670fee47d7",
+      "id": "3f9eb61b-53dc-44e5-a1ad-e449dd326242",
       "name": {
         "en": "Beauty of Joseon Relief Sun Rice+Probiotics 50ml Triple Set",
         "ko": "Beauty of Joseon Relief Sun Rice+Probiotics 50ml Triple Set"
@@ -4937,7 +4937,7 @@
       "name_en": "Beauty of Joseon Relief Sun Rice+Probiotics 50ml Triple Set",
       "name_ko": "Beauty of Joseon Relief Sun Rice+Probiotics 50ml Triple Set",
       "brand": "Beauty of Joseon",
-      "brand_id": null,
+      "brand_id": "4707822b-da67-5982-9b3d-d454690be959",
       "category": "skincare",
       "subcategory": "toner",
       "skin_types": [],
@@ -4977,7 +4977,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "72ceed16-8439-6498-6faf-88b342fc3948",
+      "id": "33caa820-eef9-4066-b128-1df2837a2508",
       "name": {
         "en": "MEDIHEAL Toner Pad 100+100 Pads Double Pack (10types)",
         "ko": "MEDIHEAL Toner Pad 100+100 Pads Double Pack (10types)"
@@ -4985,7 +4985,7 @@
       "name_en": "MEDIHEAL Toner Pad 100+100 Pads Double Pack (10types)",
       "name_ko": "MEDIHEAL Toner Pad 100+100 Pads Double Pack (10types)",
       "brand": "MEDIHEAL",
-      "brand_id": null,
+      "brand_id": "03752259-e005-5bb5-b5da-48b7e21d7736",
       "category": "skincare",
       "subcategory": "toner",
       "skin_types": [],
@@ -5025,7 +5025,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "45615d87-d138-7c50-d98d-88922e8c16c9",
+      "id": "787d4e2d-d2cb-42d3-aff6-afbdbadcd20b",
       "name": {
         "en": "AESTURA Atobarrier 365 Cream 80mL",
         "ko": "AESTURA Atobarrier 365 Cream 80mL"
@@ -5033,7 +5033,7 @@
       "name_en": "AESTURA Atobarrier 365 Cream 80mL",
       "name_ko": "AESTURA Atobarrier 365 Cream 80mL",
       "brand": "AESTURA",
-      "brand_id": null,
+      "brand_id": "071a2325-2bab-5b34-8188-6095d30638dd",
       "category": "skincare",
       "subcategory": "toner",
       "skin_types": [],
@@ -5073,7 +5073,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "d4caf6b2-4d21-d4b9-e14b-56e4eafba7b2",
+      "id": "b746fc45-dd04-46ed-991c-4c628d0a93c8",
       "name": {
         "en": "ROUND LAB Birch Juice Moisturizing Cream Double Set (+50ml)",
         "ko": "ROUND LAB Birch Juice Moisturizing Cream Double Set (+50ml)"
@@ -5081,7 +5081,7 @@
       "name_en": "ROUND LAB Birch Juice Moisturizing Cream Double Set (+50ml)",
       "name_ko": "ROUND LAB Birch Juice Moisturizing Cream Double Set (+50ml)",
       "brand": "ROUND LAB",
-      "brand_id": null,
+      "brand_id": "5d513efb-cb2e-5921-ab90-5aaae28f22fd",
       "category": "skincare",
       "subcategory": "toner",
       "skin_types": [],
@@ -5121,7 +5121,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "070d7552-76b4-9666-11e3-aea1ff7dd4af",
+      "id": "e3c357a6-b499-4cd5-a0d6-8063b5cb545d",
       "name": {
         "en": "beplain Mung Bean pH-Balanced Cleansing Foam 80ml",
         "ko": "beplain Mung Bean pH-Balanced Cleansing Foam 80ml"
@@ -5129,7 +5129,7 @@
       "name_en": "beplain Mung Bean pH-Balanced Cleansing Foam 80ml",
       "name_ko": "beplain Mung Bean pH-Balanced Cleansing Foam 80ml",
       "brand": "beplain",
-      "brand_id": null,
+      "brand_id": "a382ed76-b61a-4992-911a-b9fcae572dc3",
       "category": "skincare",
       "subcategory": "cleanser",
       "skin_types": [],
@@ -5169,7 +5169,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "e809eefa-907e-e71a-e815-5b1275598617",
+      "id": "7b649273-f0a4-4883-891a-697903063119",
       "name": {
         "en": "Lagom Cellup Micro Foam Cleanser 120ml*2ea Set (+30ml)",
         "ko": "Lagom Cellup Micro Foam Cleanser 120ml*2ea Set (+30ml)"
@@ -5177,7 +5177,7 @@
       "name_en": "Lagom Cellup Micro Foam Cleanser 120ml*2ea Set (+30ml)",
       "name_ko": "Lagom Cellup Micro Foam Cleanser 120ml*2ea Set (+30ml)",
       "brand": "Lagom",
-      "brand_id": null,
+      "brand_id": "8e8838cf-ccca-4c8c-a802-4d6910c48a2e",
       "category": "skincare",
       "subcategory": "cleanser",
       "skin_types": [],
@@ -5217,7 +5217,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "a93a6830-0e72-c888-4ed9-68afb2cf16f4",
+      "id": "855a2d1e-522c-43c6-a45c-cc07c19d0ad4",
       "name": {
         "en": "Lagom Cellup Micro Foam Cleanser 120ml*2ea",
         "ko": "Lagom Cellup Micro Foam Cleanser 120ml*2ea"
@@ -5225,7 +5225,7 @@
       "name_en": "Lagom Cellup Micro Foam Cleanser 120ml*2ea",
       "name_ko": "Lagom Cellup Micro Foam Cleanser 120ml*2ea",
       "brand": "Lagom",
-      "brand_id": null,
+      "brand_id": "8e8838cf-ccca-4c8c-a802-4d6910c48a2e",
       "category": "skincare",
       "subcategory": "cleanser",
       "skin_types": [],
@@ -5265,7 +5265,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "53bcb261-d7cf-4ce6-e39f-a19875218417",
+      "id": "519cab58-3efa-40a0-b77c-73d906387166",
       "name": {
         "en": "medicube PDRN Gel To Foam Cleanser 200ml Set (+Pore Cleansing Brush)",
         "ko": "medicube PDRN Gel To Foam Cleanser 200ml Set (+Pore Cleansing Brush)"
@@ -5273,7 +5273,7 @@
       "name_en": "medicube PDRN Gel To Foam Cleanser 200ml Set (+Pore Cleansing Brush)",
       "name_ko": "medicube PDRN Gel To Foam Cleanser 200ml Set (+Pore Cleansing Brush)",
       "brand": "medicube",
-      "brand_id": null,
+      "brand_id": "e6aacfda-92e2-4ef5-82a8-086c79f7d777",
       "category": "skincare",
       "subcategory": "cleanser",
       "skin_types": [],
@@ -5313,7 +5313,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "24a7b53f-d1fc-4fe1-1d02-5c3b3f64c290",
+      "id": "a1b64bdf-2006-4c49-a935-df13b52b2a8b",
       "name": {
         "en": "MEDI-PEEL Red Lacto Collagen Konjac Peeling Gel 95mL Special Set (+Red Lacto Foam Cleanser 15mL)",
         "ko": "MEDI-PEEL Red Lacto Collagen Konjac Peeling Gel 95mL Special Set (+Red Lacto Foam Cleanser 15mL)"
@@ -5321,7 +5321,7 @@
       "name_en": "MEDI-PEEL Red Lacto Collagen Konjac Peeling Gel 95mL Special Set (+Red Lacto Foam Cleanser 15mL)",
       "name_ko": "MEDI-PEEL Red Lacto Collagen Konjac Peeling Gel 95mL Special Set (+Red Lacto Foam Cleanser 15mL)",
       "brand": "MEDIPEEL",
-      "brand_id": null,
+      "brand_id": "b6b75439-a27d-4751-b413-5f41790a83a0",
       "category": "skincare",
       "subcategory": "cleanser",
       "skin_types": [],
@@ -5361,7 +5361,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "33899c51-c765-a77b-b2fb-9abe7ee2647c",
+      "id": "10f3406c-9077-4e99-9d8f-a9d9e115b30b",
       "name": {
         "en": "Beauty of Joseon Relief Sun: Rice + Probiotics (SPF50+ PA++++) Double Pack 50mL*2ea",
         "ko": "Beauty of Joseon Relief Sun: Rice + Probiotics (SPF50+ PA++++) Double Pack 50mL*2ea"
@@ -5369,7 +5369,7 @@
       "name_en": "Beauty of Joseon Relief Sun: Rice + Probiotics (SPF50+ PA++++) Double Pack 50mL*2ea",
       "name_ko": "Beauty of Joseon Relief Sun: Rice + Probiotics (SPF50+ PA++++) Double Pack 50mL*2ea",
       "brand": "Beauty of Joseon",
-      "brand_id": null,
+      "brand_id": "4707822b-da67-5982-9b3d-d454690be959",
       "category": "skincare",
       "subcategory": "sunscreen",
       "skin_types": [],
@@ -5409,7 +5409,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "eaff84d8-ae42-c38d-2841-ae4c7b0566df",
+      "id": "47b3fb78-788f-4a17-a740-fc7182475bb3",
       "name": {
         "en": "LANEIGE Water Bank UV Barrier Sunscreen 50ml SPF50+ PA++++",
         "ko": "LANEIGE Water Bank UV Barrier Sunscreen 50ml SPF50+ PA++++"
@@ -5417,7 +5417,7 @@
       "name_en": "LANEIGE Water Bank UV Barrier Sunscreen 50ml SPF50+ PA++++",
       "name_ko": "LANEIGE Water Bank UV Barrier Sunscreen 50ml SPF50+ PA++++",
       "brand": "LANEIGE",
-      "brand_id": null,
+      "brand_id": "cdecac6e-6a52-5ae2-b10b-9a7b57ecc455",
       "category": "skincare",
       "subcategory": "sunscreen",
       "skin_types": [],
@@ -5457,7 +5457,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "b9c0a6f8-31d7-7d0a-7f50-4cbe10db26e5",
+      "id": "ff385a32-7ab2-4b55-ac7d-4c7bebe8674b",
       "name": {
         "en": "COSRX Ultra-Light Invisible Sunscreen SPF50+ PA++++ 50ml",
         "ko": "COSRX Ultra-Light Invisible Sunscreen SPF50+ PA++++ 50ml"
@@ -5465,7 +5465,7 @@
       "name_en": "COSRX Ultra-Light Invisible Sunscreen SPF50+ PA++++ 50ml",
       "name_ko": "COSRX Ultra-Light Invisible Sunscreen SPF50+ PA++++ 50ml",
       "brand": "COSRX",
-      "brand_id": null,
+      "brand_id": "5240a3c6-315a-565d-bf7e-cdb9154a9937",
       "category": "skincare",
       "subcategory": "sunscreen",
       "skin_types": [],
@@ -5505,7 +5505,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "6ee4c3e4-a71e-904d-58b3-d141e889596c",
+      "id": "76000f71-70f6-43f6-8144-89e192eaab7e",
       "name": {
         "en": "Dinsee Premium Vegan 3 in 1 Sunscreen Stick SPF50+ PA++++ 10.5g",
         "ko": "Dinsee Premium Vegan 3 in 1 Sunscreen Stick SPF50+ PA++++ 10.5g"
@@ -5513,7 +5513,7 @@
       "name_en": "Dinsee Premium Vegan 3 in 1 Sunscreen Stick SPF50+ PA++++ 10.5g",
       "name_ko": "Dinsee Premium Vegan 3 in 1 Sunscreen Stick SPF50+ PA++++ 10.5g",
       "brand": "Dinsee",
-      "brand_id": null,
+      "brand_id": "61da097d-9cd1-4172-92f5-22c689930252",
       "category": "skincare",
       "subcategory": "sunscreen",
       "skin_types": [],
@@ -5553,7 +5553,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "90c39235-a784-99b8-87a3-3d584d4393a4",
+      "id": "8f389042-06e4-436b-be25-2af4db10a9d4",
       "name": {
         "en": "ROVECTIN Intense Moisture Sunscreen 50ml(SPF50+/PA++++)",
         "ko": "ROVECTIN Intense Moisture Sunscreen 50ml(SPF50+/PA++++)"
@@ -5561,7 +5561,7 @@
       "name_en": "ROVECTIN Intense Moisture Sunscreen 50ml(SPF50+/PA++++)",
       "name_ko": "ROVECTIN Intense Moisture Sunscreen 50ml(SPF50+/PA++++)",
       "brand": "ROVECTIN",
-      "brand_id": null,
+      "brand_id": "4ddca5ec-5f30-4990-b4f1-59f9aa66dcda",
       "category": "skincare",
       "subcategory": "sunscreen",
       "skin_types": [],
@@ -5601,7 +5601,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "37dff4e7-e620-b461-b656-d9a05e4416fd",
+      "id": "483a8e3d-afc1-42d5-8dd4-4a39216d281a",
       "name": {
         "en": "Torriden Dive In Low Molecular Hyaluronic Acid Mask Sheet 20ea",
         "ko": "Torriden Dive In Low Molecular Hyaluronic Acid Mask Sheet 20ea"
@@ -5609,7 +5609,7 @@
       "name_en": "Torriden Dive In Low Molecular Hyaluronic Acid Mask Sheet 20ea",
       "name_ko": "Torriden Dive In Low Molecular Hyaluronic Acid Mask Sheet 20ea",
       "brand": "Torriden",
-      "brand_id": null,
+      "brand_id": "293e8f32-f2af-511a-b046-b97198a6bc9a",
       "category": "skincare",
       "subcategory": "mask",
       "skin_types": [],
@@ -5649,7 +5649,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "94b800e2-1159-1e2a-d0bc-96710a0dc2aa",
+      "id": "3408f237-153a-42d4-a3e0-4219de707325",
       "name": {
         "en": "MEDIHEAL Essential Mask Sheet 20ea",
         "ko": "MEDIHEAL Essential Mask Sheet 20ea"
@@ -5657,7 +5657,7 @@
       "name_en": "MEDIHEAL Essential Mask Sheet 20ea",
       "name_ko": "MEDIHEAL Essential Mask Sheet 20ea",
       "brand": "MEDIHEAL",
-      "brand_id": null,
+      "brand_id": "03752259-e005-5bb5-b5da-48b7e21d7736",
       "category": "skincare",
       "subcategory": "mask",
       "skin_types": [],
@@ -5697,7 +5697,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f448fe8c-7a61-2745-266c-ec5ece410834",
+      "id": "95403259-d7c4-43dc-a6a4-81737232e39f",
       "name": {
         "en": "HERA Black Cushion Foundation Original (Refill Included) (9 Shades)",
         "ko": "HERA Black Cushion Foundation Original (Refill Included) (9 Shades)"
@@ -5705,7 +5705,7 @@
       "name_en": "HERA Black Cushion Foundation Original (Refill Included) (9 Shades)",
       "name_ko": "HERA Black Cushion Foundation Original (Refill Included) (9 Shades)",
       "brand": "HERA",
-      "brand_id": null,
+      "brand_id": "4625585b-b9bf-5f2d-9b06-98c1369e97be",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -5745,7 +5745,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "de84d4cd-c284-a504-bb8c-fd21fe835ea3",
+      "id": "d1769d3b-9b18-438a-81dc-6efb897485fd",
       "name": {
         "en": "[30 SHADES/SINGLE] JUNGSAEMMOOL Essential Skin Nuder Cushion",
         "ko": "[30 SHADES/SINGLE] JUNGSAEMMOOL Essential Skin Nuder Cushion"
@@ -5753,7 +5753,7 @@
       "name_en": "[30 SHADES/SINGLE] JUNGSAEMMOOL Essential Skin Nuder Cushion",
       "name_ko": "[30 SHADES/SINGLE] JUNGSAEMMOOL Essential Skin Nuder Cushion",
       "brand": "JUNGSAEMMOOL",
-      "brand_id": null,
+      "brand_id": "5074e97b-f0ed-5e6b-97e7-4815119c0700",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -5793,7 +5793,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "4f5d7b06-ac68-51ab-07d5-f5da6a6a6c08",
+      "id": "764d0047-9c05-426d-871d-6f301123bb16",
       "name": {
         "en": "JUNGSAEMMOOL Essential Skin Nuder Long Wear Cushion (Refill Included) (6 Colors)",
         "ko": "JUNGSAEMMOOL Essential Skin Nuder Long Wear Cushion (Refill Included) (6 Colors)"
@@ -5801,7 +5801,7 @@
       "name_en": "JUNGSAEMMOOL Essential Skin Nuder Long Wear Cushion (Refill Included) (6 Colors)",
       "name_ko": "JUNGSAEMMOOL Essential Skin Nuder Long Wear Cushion (Refill Included) (6 Colors)",
       "brand": "JUNGSAEMMOOL",
-      "brand_id": null,
+      "brand_id": "5074e97b-f0ed-5e6b-97e7-4815119c0700",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -5841,7 +5841,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "989c35ea-e9db-97ff-4321-204ce0ef2b11",
+      "id": "a2582c9f-4b5c-41e8-adeb-4d300391d71c",
       "name": {
         "en": "['25 HOLIDAY] JUNGSAEMMOOL Essential Skin Nuder Cushion (+Refill)",
         "ko": "['25 HOLIDAY] JUNGSAEMMOOL Essential Skin Nuder Cushion (+Refill)"
@@ -5849,7 +5849,7 @@
       "name_en": "['25 HOLIDAY] JUNGSAEMMOOL Essential Skin Nuder Cushion (+Refill)",
       "name_ko": "['25 HOLIDAY] JUNGSAEMMOOL Essential Skin Nuder Cushion (+Refill)",
       "brand": "JUNGSAEMMOOL",
-      "brand_id": null,
+      "brand_id": "5074e97b-f0ed-5e6b-97e7-4815119c0700",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -5889,7 +5889,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "1efa5ba6-ad31-b351-4d67-4a9f605d3791",
+      "id": "47a71f57-61ae-4813-8d72-cbda2a436a95",
       "name": {
         "en": "TIRTIR Mask Fit Red Cushion (49 Colors)",
         "ko": "TIRTIR Mask Fit Red Cushion (49 Colors)"
@@ -5897,7 +5897,7 @@
       "name_en": "TIRTIR Mask Fit Red Cushion (49 Colors)",
       "name_ko": "TIRTIR Mask Fit Red Cushion (49 Colors)",
       "brand": "TIRTIR",
-      "brand_id": null,
+      "brand_id": "cb9673ea-62ab-4fb9-8402-1f1dff2e5659",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -5937,7 +5937,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "62c5a177-195b-738e-a45d-eb6daf1c1c05",
+      "id": "f7cea34b-9241-4959-a6e0-57d2b08385a3",
       "name": {
         "en": "WAKEMAKE Water Glow Coating Balm Refill Set (4 Shades)",
         "ko": "WAKEMAKE Water Glow Coating Balm Refill Set (4 Shades)"
@@ -5945,7 +5945,7 @@
       "name_en": "WAKEMAKE Water Glow Coating Balm Refill Set (4 Shades)",
       "name_ko": "WAKEMAKE Water Glow Coating Balm Refill Set (4 Shades)",
       "brand": "WAKEMAKE",
-      "brand_id": null,
+      "brand_id": "b75c8f63-459f-512b-93a1-b5e3c50d8bb5",
       "category": "makeup",
       "subcategory": "cushion",
       "skin_types": [],
@@ -5985,7 +5985,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "ffac5a6e-de44-b94b-3979-aef6e447413c",
+      "id": "effb259a-d2fa-4769-9bd1-a86e8926760a",
       "name": {
         "en": "RISKY Be Bold Lip Gloss (19 Colors)",
         "ko": "RISKY Be Bold Lip Gloss (19 Colors)"
@@ -5993,7 +5993,7 @@
       "name_en": "RISKY Be Bold Lip Gloss (19 Colors)",
       "name_ko": "RISKY Be Bold Lip Gloss (19 Colors)",
       "brand": "RISKY",
-      "brand_id": null,
+      "brand_id": "00b42468-894e-4778-833f-07f58a403853",
       "category": "makeup",
       "subcategory": "lip_tint",
       "skin_types": [],
@@ -6033,7 +6033,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "d5669ee4-80c4-512e-1835-acd090550a6b",
+      "id": "f9cc4dfb-4820-4cd0-8ddc-84fdf5665294",
       "name": {
         "en": "Laka Maxi Glayer Tint (22 Colors)",
         "ko": "Laka Maxi Glayer Tint (22 Colors)"
@@ -6041,7 +6041,7 @@
       "name_en": "Laka Maxi Glayer Tint (22 Colors)",
       "name_ko": "Laka Maxi Glayer Tint (22 Colors)",
       "brand": "Laka",
-      "brand_id": null,
+      "brand_id": "f1c67967-3d64-423c-8fae-43c3c7679077",
       "category": "makeup",
       "subcategory": "lip_tint",
       "skin_types": [],
@@ -6081,7 +6081,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "13d512c5-31a7-a29d-0079-c3f130b8331c",
+      "id": "ad9c2222-26c2-442b-be55-29918c8b6a41",
       "name": {
         "en": "3CE Gummy Oil Tint (11 Colors)",
         "ko": "3CE Gummy Oil Tint (11 Colors)"
@@ -6089,7 +6089,7 @@
       "name_en": "3CE Gummy Oil Tint (11 Colors)",
       "name_ko": "3CE Gummy Oil Tint (11 Colors)",
       "brand": "3CE",
-      "brand_id": null,
+      "brand_id": "c7dd35e8-5cf7-58e5-ac94-186e9caae7b0",
       "category": "makeup",
       "subcategory": "lip_tint",
       "skin_types": [],
@@ -6129,7 +6129,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "b66cf79a-be57-779f-7e7f-75bdac317529",
+      "id": "6970d393-49b3-4d74-badd-3dc1b106cf87",
       "name": {
         "en": "hince Raw Glow Gel Tint (23 Colors)",
         "ko": "hince Raw Glow Gel Tint (23 Colors)"
@@ -6137,7 +6137,7 @@
       "name_en": "hince Raw Glow Gel Tint (23 Colors)",
       "name_ko": "hince Raw Glow Gel Tint (23 Colors)",
       "brand": "hince",
-      "brand_id": null,
+      "brand_id": "9ce32d93-d088-487c-82b9-a3d51295a748",
       "category": "makeup",
       "subcategory": "lip_tint",
       "skin_types": [],
@@ -6177,7 +6177,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "0cdf62e1-654c-4b43-57f0-44e13093883d",
+      "id": "b09f24eb-9cc6-4069-8f4f-3a0328205c45",
       "name": {
         "en": "HERA Sensual Nude Gloss (Set/Single) (15 Colors)",
         "ko": "HERA Sensual Nude Gloss (Set/Single) (15 Colors)"
@@ -6185,7 +6185,7 @@
       "name_en": "HERA Sensual Nude Gloss (Set/Single) (15 Colors)",
       "name_ko": "HERA Sensual Nude Gloss (Set/Single) (15 Colors)",
       "brand": "HERA",
-      "brand_id": null,
+      "brand_id": "4625585b-b9bf-5f2d-9b06-98c1369e97be",
       "category": "makeup",
       "subcategory": "lip_tint",
       "skin_types": [],
@@ -6225,7 +6225,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "fb1b9352-fe26-bb62-b7bb-9b476e919e73",
+      "id": "e1a9e51c-49b4-40c7-b68e-3d6fd3a6445c",
       "name": {
         "en": "MUZIGAE MANSION Objet Stain Tint (Set/Single) (10 Colors)",
         "ko": "MUZIGAE MANSION Objet Stain Tint (Set/Single) (10 Colors)"
@@ -6233,7 +6233,7 @@
       "name_en": "MUZIGAE MANSION Objet Stain Tint (Set/Single) (10 Colors)",
       "name_ko": "MUZIGAE MANSION Objet Stain Tint (Set/Single) (10 Colors)",
       "brand": "MUZIGAE MANSION",
-      "brand_id": null,
+      "brand_id": "f2bf2105-4b21-4aa3-a347-08d6d8eeeb98",
       "category": "makeup",
       "subcategory": "lip_tint",
       "skin_types": [],
@@ -6273,7 +6273,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "65a0cd4d-d12a-853f-0b38-ae8e9089cd08",
+      "id": "66898464-c3b7-4c0c-97c9-d73427eb1bc2",
       "name": {
         "en": "CLIO Pro Eye Palette Air (Set/Single) (12 Options)",
         "ko": "CLIO Pro Eye Palette Air (Set/Single) (12 Options)"
@@ -6281,7 +6281,7 @@
       "name_en": "CLIO Pro Eye Palette Air (Set/Single) (12 Options)",
       "name_ko": "CLIO Pro Eye Palette Air (Set/Single) (12 Options)",
       "brand": "CLIO",
-      "brand_id": null,
+      "brand_id": "61a850be-2b69-5c40-8b55-40e54fbe8a78",
       "category": "makeup",
       "subcategory": "eye_shadow",
       "skin_types": [],
@@ -6321,7 +6321,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f72175d9-399c-584b-c119-a7c462bbc94a",
+      "id": "d8c01b9a-e8c6-497e-a8c6-d88e7ace62a1",
       "name": {
         "en": "RISKY Pigment Eyeshadow Palette (7 Colors)",
         "ko": "RISKY Pigment Eyeshadow Palette (7 Colors)"
@@ -6329,7 +6329,7 @@
       "name_en": "RISKY Pigment Eyeshadow Palette (7 Colors)",
       "name_ko": "RISKY Pigment Eyeshadow Palette (7 Colors)",
       "brand": "RISKY",
-      "brand_id": null,
+      "brand_id": "00b42468-894e-4778-833f-07f58a403853",
       "category": "makeup",
       "subcategory": "eye_shadow",
       "skin_types": [],
@@ -6369,7 +6369,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "4784b2b4-0206-efb0-a260-280966c1b0d7",
+      "id": "0c23badf-5d96-4789-b67d-031047d26f65",
       "name": {
         "en": "espoir eye core palette (8 Options)",
         "ko": "espoir eye core palette (8 Options)"
@@ -6377,7 +6377,7 @@
       "name_en": "espoir eye core palette (8 Options)",
       "name_ko": "espoir eye core palette (8 Options)",
       "brand": "espoir",
-      "brand_id": null,
+      "brand_id": "45b5232b-8e65-5c44-8d1b-2398d8444460",
       "category": "makeup",
       "subcategory": "eye_shadow",
       "skin_types": [],
@@ -6417,7 +6417,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8853c869-e4ac-5804-d15c-5477f51effb4",
+      "id": "9ceedd55-0569-49c1-9440-1d7546bd7a44",
       "name": {
         "en": "dasique Mood Shadow Palette (6 Colors)",
         "ko": "dasique Mood Shadow Palette (6 Colors)"
@@ -6425,7 +6425,7 @@
       "name_en": "dasique Mood Shadow Palette (6 Colors)",
       "name_ko": "dasique Mood Shadow Palette (6 Colors)",
       "brand": "dasique",
-      "brand_id": null,
+      "brand_id": "7b50782e-288e-40a5-a3ed-bbf0f717262d",
       "category": "makeup",
       "subcategory": "eye_shadow",
       "skin_types": [],
@@ -6465,7 +6465,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "0f572bb9-906f-9532-ee99-9b6c41cf0596",
+      "id": "2853caaf-452d-4493-97ff-3e3395e81d6c",
       "name": {
         "en": "ETUDE Curl Fix Mascara 1+1 Set (4 Options)",
         "ko": "ETUDE Curl Fix Mascara 1+1 Set (4 Options)"
@@ -6473,7 +6473,7 @@
       "name_en": "ETUDE Curl Fix Mascara 1+1 Set (4 Options)",
       "name_ko": "ETUDE Curl Fix Mascara 1+1 Set (4 Options)",
       "brand": "ETUDE",
-      "brand_id": null,
+      "brand_id": "33f7e173-b86c-50da-9d2f-e6b11c8590e8",
       "category": "makeup",
       "subcategory": "mascara",
       "skin_types": [],
@@ -6513,7 +6513,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "817a949e-f1d5-02ca-169c-76ff5918b812",
+      "id": "1baaa121-1965-4dc0-8577-5dd3543ee3b1",
       "name": {
         "en": "COSNORI Long Active Eyelash Serum 9g",
         "ko": "COSNORI Long Active Eyelash Serum 9g"
@@ -6521,7 +6521,7 @@
       "name_en": "COSNORI Long Active Eyelash Serum 9g",
       "name_ko": "COSNORI Long Active Eyelash Serum 9g",
       "brand": "COSNORI",
-      "brand_id": null,
+      "brand_id": "2a21fd29-cb08-4e73-9d54-a8187266b20b",
       "category": "makeup",
       "subcategory": "mascara",
       "skin_types": [],
@@ -6561,7 +6561,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "d3a1208e-cdae-aa18-eb8e-5a7217d9a911",
+      "id": "369520a8-79e1-47d6-945e-ea9a3edf7e04",
       "name": {
         "en": "NEOGEN Dermalogy Metal Mascara Black (Slim/Volume)",
         "ko": "NEOGEN Dermalogy Metal Mascara Black (Slim/Volume)"
@@ -6569,7 +6569,7 @@
       "name_en": "NEOGEN Dermalogy Metal Mascara Black (Slim/Volume)",
       "name_ko": "NEOGEN Dermalogy Metal Mascara Black (Slim/Volume)",
       "brand": "Neogen",
-      "brand_id": null,
+      "brand_id": "0f716561-2b32-53b3-8e7b-aa03a2acd234",
       "category": "makeup",
       "subcategory": "mascara",
       "skin_types": [],
@@ -6609,7 +6609,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "82bcec78-d81d-bf68-a1cb-b5ed9f21c584",
+      "id": "8543e53d-f36e-471d-a42f-29b213f06dd4",
       "name": {
         "en": "Dinto Blur Glowy Lip Tint (Set/Single) (32 Colors)",
         "ko": "Dinto Blur Glowy Lip Tint (Set/Single) (32 Colors)"
@@ -6617,7 +6617,7 @@
       "name_en": "Dinto Blur Glowy Lip Tint (Set/Single) (32 Colors)",
       "name_ko": "Dinto Blur Glowy Lip Tint (Set/Single) (32 Colors)",
       "brand": "Dinto",
-      "brand_id": null,
+      "brand_id": "ab03489f-0503-42f0-a653-77a5f81cf80c",
       "category": "makeup",
       "subcategory": "lip_gloss",
       "skin_types": [],
@@ -6657,7 +6657,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "13d476bc-a48c-7176-87b8-9865b90573b4",
+      "id": "8a6a1146-bf92-4664-8320-8219550d7593",
       "name": {
         "en": "Heart Percent Dote On Mood One Way Glowy Tint (20 Colors)",
         "ko": "Heart Percent Dote On Mood One Way Glowy Tint (20 Colors)"
@@ -6665,7 +6665,7 @@
       "name_en": "Heart Percent Dote On Mood One Way Glowy Tint (20 Colors)",
       "name_ko": "Heart Percent Dote On Mood One Way Glowy Tint (20 Colors)",
       "brand": "Heart Percent",
-      "brand_id": null,
+      "brand_id": "d1a1d4f6-fc8e-4a79-af0a-1b39923a77fa",
       "category": "makeup",
       "subcategory": "lip_gloss",
       "skin_types": [],
@@ -6705,7 +6705,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "a0fbb948-09ea-d165-58a7-e1c380866d09",
+      "id": "c292fb1c-2bb5-49fc-b3c1-d7c156abfc30",
       "name": {
         "en": "[HELLO KITTY] WAKEMAKE Healthy Glow Balm Stick (Set/Single) (4 Colors)",
         "ko": "[HELLO KITTY] WAKEMAKE Healthy Glow Balm Stick (Set/Single) (4 Colors)"
@@ -6713,7 +6713,7 @@
       "name_en": "[HELLO KITTY] WAKEMAKE Healthy Glow Balm Stick (Set/Single) (4 Colors)",
       "name_ko": "[HELLO KITTY] WAKEMAKE Healthy Glow Balm Stick (Set/Single) (4 Colors)",
       "brand": "WAKEMAKE",
-      "brand_id": null,
+      "brand_id": "b75c8f63-459f-512b-93a1-b5e3c50d8bb5",
       "category": "makeup",
       "subcategory": "lip_stick",
       "skin_types": [],
@@ -6753,7 +6753,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "df943303-2dae-aff3-be72-b66abf8ef8e2",
+      "id": "885947d6-556d-4094-8fdc-830e030a7665",
       "name": {
         "en": "[HELLO KITTY] WAKEMAKE Soft Blurring Balm Stick (Set/Single) (4 Colors)",
         "ko": "[HELLO KITTY] WAKEMAKE Soft Blurring Balm Stick (Set/Single) (4 Colors)"
@@ -6761,7 +6761,7 @@
       "name_en": "[HELLO KITTY] WAKEMAKE Soft Blurring Balm Stick (Set/Single) (4 Colors)",
       "name_ko": "[HELLO KITTY] WAKEMAKE Soft Blurring Balm Stick (Set/Single) (4 Colors)",
       "brand": "WAKEMAKE",
-      "brand_id": null,
+      "brand_id": "b75c8f63-459f-512b-93a1-b5e3c50d8bb5",
       "category": "makeup",
       "subcategory": "lip_stick",
       "skin_types": [],
@@ -6801,7 +6801,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "3ea1e66a-a8d8-935a-6929-5e780f1e43bd",
+      "id": "17456ddb-ae76-4041-b67c-c700e031ed87",
       "name": {
         "en": "CLIO Sharp So Simple Waterproof Pencil Liner (11 Colors)",
         "ko": "CLIO Sharp So Simple Waterproof Pencil Liner (11 Colors)"
@@ -6809,7 +6809,7 @@
       "name_en": "CLIO Sharp So Simple Waterproof Pencil Liner (11 Colors)",
       "name_ko": "CLIO Sharp So Simple Waterproof Pencil Liner (11 Colors)",
       "brand": "CLIO",
-      "brand_id": null,
+      "brand_id": "61a850be-2b69-5c40-8b55-40e54fbe8a78",
       "category": "makeup",
       "subcategory": "eye_liner",
       "skin_types": [],
@@ -6849,7 +6849,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "2c9e5776-0008-9a7c-28e1-db49c9f18949",
+      "id": "50b9bc0c-86de-439b-be11-407119298b06",
       "name": {
         "en": "[HELLO KITTY] WAKEMAKE Any-Proof Pen Eyeliner 1+1 Set (2 Colors)",
         "ko": "[HELLO KITTY] WAKEMAKE Any-Proof Pen Eyeliner 1+1 Set (2 Colors)"
@@ -6857,7 +6857,7 @@
       "name_en": "[HELLO KITTY] WAKEMAKE Any-Proof Pen Eyeliner 1+1 Set (2 Colors)",
       "name_ko": "[HELLO KITTY] WAKEMAKE Any-Proof Pen Eyeliner 1+1 Set (2 Colors)",
       "brand": "WAKEMAKE",
-      "brand_id": null,
+      "brand_id": "b75c8f63-459f-512b-93a1-b5e3c50d8bb5",
       "category": "makeup",
       "subcategory": "eye_liner",
       "skin_types": [],
@@ -6897,7 +6897,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "604800e5-46eb-2d88-587b-5994c8051fc4",
+      "id": "9bfe44bb-906a-4291-9cdb-a80342c8a822",
       "name": {
         "en": "WAKEMAKE Shaking Blur Cheek (7 Colors)",
         "ko": "WAKEMAKE Shaking Blur Cheek (7 Colors)"
@@ -6905,7 +6905,7 @@
       "name_en": "WAKEMAKE Shaking Blur Cheek (7 Colors)",
       "name_ko": "WAKEMAKE Shaking Blur Cheek (7 Colors)",
       "brand": "WAKEMAKE",
-      "brand_id": null,
+      "brand_id": "b75c8f63-459f-512b-93a1-b5e3c50d8bb5",
       "category": "makeup",
       "subcategory": "blush",
       "skin_types": [],
@@ -6945,7 +6945,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "3c796472-0ed8-bbdf-93e8-48b27a688d8f",
+      "id": "9a91a17f-f547-4e06-9497-14528675d4d7",
       "name": {
         "en": "3CE Blushlighter 4.3g (7 Colors)",
         "ko": "3CE Blushlighter 4.3g (7 Colors)"
@@ -6953,7 +6953,7 @@
       "name_en": "3CE Blushlighter 4.3g (7 Colors)",
       "name_ko": "3CE Blushlighter 4.3g (7 Colors)",
       "brand": "3CE",
-      "brand_id": null,
+      "brand_id": "c7dd35e8-5cf7-58e5-ac94-186e9caae7b0",
       "category": "makeup",
       "subcategory": "blush",
       "skin_types": [],
@@ -6993,7 +6993,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "2c90f2f8-4b6c-9be6-3348-7ff336c5d725",
+      "id": "1cae58ba-4349-4e0e-a8e6-caac288ced7b",
       "name": {
         "en": "espoir Fresh Setting Powder Puff 4P",
         "ko": "espoir Fresh Setting Powder Puff 4P"
@@ -7001,7 +7001,7 @@
       "name_en": "espoir Fresh Setting Powder Puff 4P",
       "name_ko": "espoir Fresh Setting Powder Puff 4P",
       "brand": "espoir",
-      "brand_id": null,
+      "brand_id": "45b5232b-8e65-5c44-8d1b-2398d8444460",
       "category": "makeup",
       "subcategory": "setting_powder",
       "skin_types": [],
@@ -7041,7 +7041,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "6b672be3-001f-27b7-2b9e-e77672ce8de2",
+      "id": "e86c37e7-bc28-40f5-b52b-140bf5500f78",
       "name": {
         "en": "[HELLO KITTY] WAKEMAKE Water Glow Coating Balm (4 Shades)",
         "ko": "[HELLO KITTY] WAKEMAKE Water Glow Coating Balm (4 Shades)"
@@ -7049,7 +7049,7 @@
       "name_en": "[HELLO KITTY] WAKEMAKE Water Glow Coating Balm (4 Shades)",
       "name_ko": "[HELLO KITTY] WAKEMAKE Water Glow Coating Balm (4 Shades)",
       "brand": "WAKEMAKE",
-      "brand_id": null,
+      "brand_id": "b75c8f63-459f-512b-93a1-b5e3c50d8bb5",
       "category": "makeup",
       "subcategory": "foundation",
       "skin_types": [],
@@ -7089,7 +7089,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f8342418-8b20-422b-fb23-60e06098b080",
+      "id": "f5ac61cc-aaf2-40fa-92e7-59593dded149",
       "name": {
         "en": "VDL Cover Stain Perfecting Foundation 30ml (SPF35, PA++) (Set/Single) (7 Shades)",
         "ko": "VDL Cover Stain Perfecting Foundation 30ml (SPF35, PA++) (Set/Single) (7 Shades)"
@@ -7097,7 +7097,7 @@
       "name_en": "VDL Cover Stain Perfecting Foundation 30ml (SPF35, PA++) (Set/Single) (7 Shades)",
       "name_ko": "VDL Cover Stain Perfecting Foundation 30ml (SPF35, PA++) (Set/Single) (7 Shades)",
       "brand": "VDL",
-      "brand_id": null,
+      "brand_id": "6ebe2f40-b0e7-487a-a140-5fd1ea11c772",
       "category": "makeup",
       "subcategory": "foundation",
       "skin_types": [],
@@ -7137,7 +7137,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "6e54726a-3aef-ec9c-0843-86f0e7ee2b47",
+      "id": "45312252-883b-4f37-a2f8-7de4f7cfaff6",
       "name": {
         "en": "LABO-H Scalp Strenghtening Shampoo 750ml Refill Set (+600ml)",
         "ko": "LABO-H Scalp Strenghtening Shampoo 750ml Refill Set (+600ml)"
@@ -7145,7 +7145,7 @@
       "name_en": "LABO-H Scalp Strenghtening Shampoo 750ml Refill Set (+600ml)",
       "name_ko": "LABO-H Scalp Strenghtening Shampoo 750ml Refill Set (+600ml)",
       "brand": "LABO-H",
-      "brand_id": null,
+      "brand_id": "1e869522-eb7a-4dbd-885f-6014cf68b250",
       "category": "haircare",
       "subcategory": "shampoo",
       "skin_types": [],
@@ -7185,7 +7185,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8dc06ae3-9323-5889-aa9c-b75dadf0b651",
+      "id": "f6cf9dc4-f64a-4baa-8b95-c187a28c4ca1",
       "name": {
         "en": "LABO-H Scalp Strengthening Shampoo 333ml (+50ml)",
         "ko": "LABO-H Scalp Strengthening Shampoo 333ml (+50ml)"
@@ -7193,7 +7193,7 @@
       "name_en": "LABO-H Scalp Strengthening Shampoo 333ml (+50ml)",
       "name_ko": "LABO-H Scalp Strengthening Shampoo 333ml (+50ml)",
       "brand": "LABO-H",
-      "brand_id": null,
+      "brand_id": "1e869522-eb7a-4dbd-885f-6014cf68b250",
       "category": "haircare",
       "subcategory": "shampoo",
       "skin_types": [],
@@ -7233,7 +7233,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "1e7801e8-562a-d2e9-2fed-6ad45109b9fb",
+      "id": "f97efc91-6683-49c2-8d8e-31f26ba56d6f",
       "name": {
         "en": "LABO-H Scalp Strengthening Shampoo Refill 333mL*2",
         "ko": "LABO-H Scalp Strengthening Shampoo Refill 333mL*2"
@@ -7241,7 +7241,7 @@
       "name_en": "LABO-H Scalp Strengthening Shampoo Refill 333mL*2",
       "name_ko": "LABO-H Scalp Strengthening Shampoo Refill 333mL*2",
       "brand": "LABO-H",
-      "brand_id": null,
+      "brand_id": "1e869522-eb7a-4dbd-885f-6014cf68b250",
       "category": "haircare",
       "subcategory": "shampoo",
       "skin_types": [],
@@ -7281,7 +7281,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "2afd99c6-14d7-9d59-d292-6763188ac0d1",
+      "id": "d85006ad-49ec-4c3c-984d-5d53802571af",
       "name": {
         "en": "LABO-H Scalp Cooling & No Sebum Shampoo 750ml Refill Set (+600ml)",
         "ko": "LABO-H Scalp Cooling & No Sebum Shampoo 750ml Refill Set (+600ml)"
@@ -7289,7 +7289,7 @@
       "name_en": "LABO-H Scalp Cooling & No Sebum Shampoo 750ml Refill Set (+600ml)",
       "name_ko": "LABO-H Scalp Cooling & No Sebum Shampoo 750ml Refill Set (+600ml)",
       "brand": "LABO-H",
-      "brand_id": null,
+      "brand_id": "1e869522-eb7a-4dbd-885f-6014cf68b250",
       "category": "haircare",
       "subcategory": "shampoo",
       "skin_types": [],
@@ -7329,7 +7329,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "17704a43-48ba-e5c9-1430-412da42a534d",
+      "id": "62b38d45-ede4-4f52-89b0-1aee4f313ed5",
       "name": {
         "en": "LABO-H Scalp Cooling & No Sebum Shampoo 750ml Set (+Shampoo 100ml)",
         "ko": "LABO-H Scalp Cooling & No Sebum Shampoo 750ml Set (+Shampoo 100ml)"
@@ -7337,7 +7337,7 @@
       "name_en": "LABO-H Scalp Cooling & No Sebum Shampoo 750ml Set (+Shampoo 100ml)",
       "name_ko": "LABO-H Scalp Cooling & No Sebum Shampoo 750ml Set (+Shampoo 100ml)",
       "brand": "LABO-H",
-      "brand_id": null,
+      "brand_id": "1e869522-eb7a-4dbd-885f-6014cf68b250",
       "category": "haircare",
       "subcategory": "shampoo",
       "skin_types": [],
@@ -7377,7 +7377,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "7e39b50b-7a38-1d1c-1ec4-cd7a7661ed3a",
+      "id": "a632eb74-742b-44d1-aabd-67736cd5a28a",
       "name": {
         "en": "AROMATICA Rosemary Scalp Scaling Shampoo 400ml Double Set",
         "ko": "AROMATICA Rosemary Scalp Scaling Shampoo 400ml Double Set"
@@ -7385,7 +7385,7 @@
       "name_en": "AROMATICA Rosemary Scalp Scaling Shampoo 400ml Double Set",
       "name_ko": "AROMATICA Rosemary Scalp Scaling Shampoo 400ml Double Set",
       "brand": "AROMATICA",
-      "brand_id": null,
+      "brand_id": "73120e8e-467b-4408-9517-97634cdd0079",
       "category": "haircare",
       "subcategory": "shampoo",
       "skin_types": [],
@@ -7433,7 +7433,7 @@
       "name_en": "Curly Shyll Hair Cure Mask for Damaged Hair 100ml",
       "name_ko": "Curly Shyll Hair Cure Mask for Damaged Hair 100ml",
       "brand": "CURLYSHYLL",
-      "brand_id": null,
+      "brand_id": "f7c674b4-5cdd-452b-990b-54784c66a808",
       "category": "haircare",
       "subcategory": "treatment",
       "skin_types": [],
@@ -7473,7 +7473,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "91546110-c81e-7631-a148-db9e9f0b4289",
+      "id": "e75beb3f-6e2f-4304-a77a-3872ec8ed460",
       "name": {
         "en": "VIVELAB Protein Plumper Repair Hair Mask Treatment 200ml",
         "ko": "VIVELAB Protein Plumper Repair Hair Mask Treatment 200ml"
@@ -7481,7 +7481,7 @@
       "name_en": "VIVELAB Protein Plumper Repair Hair Mask Treatment 200ml",
       "name_ko": "VIVELAB Protein Plumper Repair Hair Mask Treatment 200ml",
       "brand": "vivelab",
-      "brand_id": null,
+      "brand_id": "3bc4ae8d-5ebd-4e23-a2d7-ea444509ce15",
       "category": "haircare",
       "subcategory": "treatment",
       "skin_types": [],
@@ -7521,7 +7521,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "fde8858b-6582-c6df-16dc-4ccc8f287423",
+      "id": "ac61a5e7-56ba-40d5-893e-bdcda7c6c0a8",
       "name": {
         "en": "[mangomee EDITION] SKINFOOD Carrot Carotene Mask Sheet 5ea Set (+2ea+mangomee Hair Grip Sheet)",
         "ko": "[mangomee EDITION] SKINFOOD Carrot Carotene Mask Sheet 5ea Set (+2ea+mangomee Hair Grip Sheet)"
@@ -7529,7 +7529,7 @@
       "name_en": "[mangomee EDITION] SKINFOOD Carrot Carotene Mask Sheet 5ea Set (+2ea+mangomee Hair Grip Sheet)",
       "name_ko": "[mangomee EDITION] SKINFOOD Carrot Carotene Mask Sheet 5ea Set (+2ea+mangomee Hair Grip Sheet)",
       "brand": "SKINFOOD",
-      "brand_id": null,
+      "brand_id": "9be50772-f6f5-5794-ac15-b736abb36448",
       "category": "haircare",
       "subcategory": "treatment",
       "skin_types": [],
@@ -7569,7 +7569,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "b2234e4a-b337-962a-97d6-5c9922394f56",
+      "id": "44243eaf-3d0a-4d99-9b60-bb3974d7e1fd",
       "name": {
         "en": "LUCIDO-L High Damage Repair Hair Mask (Treatment Pack) 200g",
         "ko": "LUCIDO-L High Damage Repair Hair Mask (Treatment Pack) 200g"
@@ -7577,7 +7577,7 @@
       "name_en": "LUCIDO-L High Damage Repair Hair Mask (Treatment Pack) 200g",
       "name_ko": "LUCIDO-L High Damage Repair Hair Mask (Treatment Pack) 200g",
       "brand": "LUCIDO-L",
-      "brand_id": null,
+      "brand_id": "c0849cff-1e6f-428f-a9c2-2a602e9f32b5",
       "category": "haircare",
       "subcategory": "treatment",
       "skin_types": [],
@@ -7617,7 +7617,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "0445ca85-316f-3cfb-109a-873cb2cf114b",
+      "id": "e9126243-a037-44cf-9cf0-daed53518c39",
       "name": {
         "en": "nesh Soy Biome 2-Step Clinic Hair Mask 1ea",
         "ko": "nesh Soy Biome 2-Step Clinic Hair Mask 1ea"
@@ -7625,7 +7625,7 @@
       "name_en": "nesh Soy Biome 2-Step Clinic Hair Mask 1ea",
       "name_ko": "nesh Soy Biome 2-Step Clinic Hair Mask 1ea",
       "brand": "nesh",
-      "brand_id": null,
+      "brand_id": "4de854d5-cec0-47dd-ba49-023b0841da13",
       "category": "haircare",
       "subcategory": "treatment",
       "skin_types": [],
@@ -7665,7 +7665,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "4c0098ed-da05-cd49-fa6a-0d777ec61244",
+      "id": "4c0610a8-11ea-4e4a-af0a-eca37b2062f2",
       "name": {
         "en": "UNOVE Silk Oil Essence 70ml Double Pack (2 Options)",
         "ko": "UNOVE Silk Oil Essence 70ml Double Pack (2 Options)"
@@ -7673,7 +7673,7 @@
       "name_en": "UNOVE Silk Oil Essence 70ml Double Pack (2 Options)",
       "name_ko": "UNOVE Silk Oil Essence 70ml Double Pack (2 Options)",
       "brand": "UNOVE",
-      "brand_id": null,
+      "brand_id": "dd5b974c-00d8-47c1-8303-b54c6fe1cbea",
       "category": "haircare",
       "subcategory": "hair_oil",
       "skin_types": [],
@@ -7713,7 +7713,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "4d644f76-2c7a-635c-53bc-af0f598001ef",
+      "id": "b28178f8-da86-4a0d-ae44-84ad75922c9c",
       "name": {
         "en": "[Exclusive Deal] VT Reedle Shot Hair Ampoule Set",
         "ko": "[Exclusive Deal] VT Reedle Shot Hair Ampoule Set"
@@ -7721,7 +7721,7 @@
       "name_en": "[Exclusive Deal] VT Reedle Shot Hair Ampoule Set",
       "name_ko": "[Exclusive Deal] VT Reedle Shot Hair Ampoule Set",
       "brand": "VT",
-      "brand_id": null,
+      "brand_id": "3ab4c960-517e-5555-be77-d411d21db1b6",
       "category": "haircare",
       "subcategory": "hair_oil",
       "skin_types": [],
@@ -7761,7 +7761,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "da444fb3-b165-2a2f-d059-7922f5cd766b",
+      "id": "0369bd83-4f61-465c-ab93-7f2e2c668318",
       "name": {
         "en": "VT PDRN Reedle Shot Hair Ampoule 15ml (3 Options)",
         "ko": "VT PDRN Reedle Shot Hair Ampoule 15ml (3 Options)"
@@ -7769,7 +7769,7 @@
       "name_en": "VT PDRN Reedle Shot Hair Ampoule 15ml (3 Options)",
       "name_ko": "VT PDRN Reedle Shot Hair Ampoule 15ml (3 Options)",
       "brand": "VT",
-      "brand_id": null,
+      "brand_id": "3ab4c960-517e-5555-be77-d411d21db1b6",
       "category": "haircare",
       "subcategory": "hair_oil",
       "skin_types": [],
@@ -7809,7 +7809,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "a7ad48fd-8a4a-ff28-0abf-7926529cad67",
+      "id": "13aec162-387f-4a2a-83b4-20034df8c24e",
       "name": {
         "en": "Dr.FORHAIR Folligen Thickening Scalp Serum 50ml Set (+Scalp Scaler 60g)",
         "ko": "Dr.FORHAIR Folligen Thickening Scalp Serum 50ml Set (+Scalp Scaler 60g)"
@@ -7817,7 +7817,7 @@
       "name_en": "Dr.FORHAIR Folligen Thickening Scalp Serum 50ml Set (+Scalp Scaler 60g)",
       "name_ko": "Dr.FORHAIR Folligen Thickening Scalp Serum 50ml Set (+Scalp Scaler 60g)",
       "brand": "Dr.FORHAIR",
-      "brand_id": null,
+      "brand_id": "3c5f29ea-0d66-474e-95af-ed210f6c35c5",
       "category": "haircare",
       "subcategory": "hair_serum",
       "skin_types": [],
@@ -7857,7 +7857,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "802875c8-7d30-f507-d698-e785ae266e61",
+      "id": "6ea7911b-c0ae-4d13-bfe3-5b764cfbf800",
       "name": {
         "en": "Ryo Root:Gen Scalp Essence 80mL Double Pack",
         "ko": "Ryo Root:Gen Scalp Essence 80mL Double Pack"
@@ -7865,7 +7865,7 @@
       "name_en": "Ryo Root:Gen Scalp Essence 80mL Double Pack",
       "name_ko": "Ryo Root:Gen Scalp Essence 80mL Double Pack",
       "brand": "Ryo",
-      "brand_id": null,
+      "brand_id": "a6bd971f-28ba-50c1-a7e5-37257109eb73",
       "category": "haircare",
       "subcategory": "hair_serum",
       "skin_types": [],
@@ -7905,7 +7905,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "0361924a-8f19-62b7-eca6-b5d74314bf9f",
+      "id": "01ea556e-9430-4beb-9e57-6941d0254cf0",
       "name": {
         "en": "epais Scalp Boosting Ampoule 150ml",
         "ko": "epais Scalp Boosting Ampoule 150ml"
@@ -7913,7 +7913,7 @@
       "name_en": "epais Scalp Boosting Ampoule 150ml",
       "name_ko": "epais Scalp Boosting Ampoule 150ml",
       "brand": "epais",
-      "brand_id": null,
+      "brand_id": "4f1d4ce5-e811-48c4-b623-b829e174fac4",
       "category": "haircare",
       "subcategory": "hair_serum",
       "skin_types": [],
@@ -7953,7 +7953,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "393fb39f-b74c-8c58-0458-44b3638b96e1",
+      "id": "77a74e54-3209-4754-83b7-bac625ccfc82",
       "name": {
         "en": "LALACHUU Hair Cushion Perfect 9g",
         "ko": "LALACHUU Hair Cushion Perfect 9g"
@@ -7961,7 +7961,7 @@
       "name_en": "LALACHUU Hair Cushion Perfect 9g",
       "name_ko": "LALACHUU Hair Cushion Perfect 9g",
       "brand": "LALACHUU",
-      "brand_id": null,
+      "brand_id": "ee542c3d-ce35-4356-a0d4-4ac333b3c387",
       "category": "haircare",
       "subcategory": "hair_color",
       "skin_types": [],
@@ -8001,7 +8001,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "5aa414ed-15c8-d163-6f66-6393cafea73f",
+      "id": "5070cf57-0970-46b2-b66d-685d6fc6dd6b",
       "name": {
         "en": "ETUDE Pang Pang Hair Shadow 3.5g (3 Colors)",
         "ko": "ETUDE Pang Pang Hair Shadow 3.5g (3 Colors)"
@@ -8009,7 +8009,7 @@
       "name_en": "ETUDE Pang Pang Hair Shadow 3.5g (3 Colors)",
       "name_ko": "ETUDE Pang Pang Hair Shadow 3.5g (3 Colors)",
       "brand": "ETUDE",
-      "brand_id": null,
+      "brand_id": "33f7e173-b86c-50da-9d2f-e6b11c8590e8",
       "category": "haircare",
       "subcategory": "hair_color",
       "skin_types": [],
@@ -8049,7 +8049,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "c6770ba4-ef49-c376-9773-06c7a80ca654",
+      "id": "333cdfce-5ef6-424c-adab-72338c50c5c5",
       "name": {
         "en": "UNOVE Deep Damage Treatment EX 320mL Double Pack (4 Options)",
         "ko": "UNOVE Deep Damage Treatment EX 320mL Double Pack (4 Options)"
@@ -8057,7 +8057,7 @@
       "name_en": "UNOVE Deep Damage Treatment EX 320mL Double Pack (4 Options)",
       "name_ko": "UNOVE Deep Damage Treatment EX 320mL Double Pack (4 Options)",
       "brand": "UNOVE",
-      "brand_id": null,
+      "brand_id": "dd5b974c-00d8-47c1-8303-b54c6fe1cbea",
       "category": "haircare",
       "subcategory": "styling",
       "skin_types": [],
@@ -8097,7 +8097,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "92795cfc-5e39-59e8-f7cf-b6dfdaa52edb",
+      "id": "77ecf0e0-1567-4f6c-aeaf-4a21a5176eec",
       "name": {
         "en": "UNOVE Deep Damage Repair Shampoo 500g Double Set (3 Options)",
         "ko": "UNOVE Deep Damage Repair Shampoo 500g Double Set (3 Options)"
@@ -8105,7 +8105,7 @@
       "name_en": "UNOVE Deep Damage Repair Shampoo 500g Double Set (3 Options)",
       "name_ko": "UNOVE Deep Damage Repair Shampoo 500g Double Set (3 Options)",
       "brand": "UNOVE",
-      "brand_id": null,
+      "brand_id": "dd5b974c-00d8-47c1-8303-b54c6fe1cbea",
       "category": "haircare",
       "subcategory": "styling",
       "skin_types": [],
@@ -8145,7 +8145,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "97930909-e433-5a11-e1b8-e102f8414ba8",
+      "id": "ca82a33d-5645-4491-85e9-7528933253af",
       "name": {
         "en": "PAEKJUN BEAUTY LAB Protein LPP Leave In Treatment 200mL + 80mL Special Set",
         "ko": "PAEKJUN BEAUTY LAB Protein LPP Leave In Treatment 200mL + 80mL Special Set"
@@ -8153,7 +8153,7 @@
       "name_en": "PAEKJUN BEAUTY LAB Protein LPP Leave In Treatment 200mL + 80mL Special Set",
       "name_ko": "PAEKJUN BEAUTY LAB Protein LPP Leave In Treatment 200mL + 80mL Special Set",
       "brand": "PARKJUN BEAUTY LAB",
-      "brand_id": null,
+      "brand_id": "59275da1-f432-4b3e-acff-6cf859bdc7d7",
       "category": "haircare",
       "subcategory": "hair_essence",
       "skin_types": [],
@@ -8193,7 +8193,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "d386f4ba-ce6b-c509-311d-40af84401505",
+      "id": "2eafa913-cb7f-4257-9c52-ff74699563a7",
       "name": {
         "en": "SOME BY MI AHA.BHA.PHA 30 Days Miracle Acne Body Cleanser 400g",
         "ko": "SOME BY MI AHA.BHA.PHA 30 Days Miracle Acne Body Cleanser 400g"
@@ -8201,7 +8201,7 @@
       "name_en": "SOME BY MI AHA.BHA.PHA 30 Days Miracle Acne Body Cleanser 400g",
       "name_ko": "SOME BY MI AHA.BHA.PHA 30 Days Miracle Acne Body Cleanser 400g",
       "brand": "SOME BY MI",
-      "brand_id": null,
+      "brand_id": "539bce87-ff77-58b6-af09-a58036ed0f1c",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -8241,7 +8241,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f5c6e178-bc50-e5da-4514-d3cb37ea25fd",
+      "id": "45f3df1d-fef2-49db-9642-bc48e831e4c5",
       "name": {
         "en": "Skin U INNO:SCENT Shower Gel 500g (EAU DE FLORAL/SUNSET ORANGE) 2 Options To Choose",
         "ko": "Skin U INNO:SCENT Shower Gel 500g (EAU DE FLORAL/SUNSET ORANGE) 2 Options To Choose"
@@ -8249,7 +8249,7 @@
       "name_en": "Skin U INNO:SCENT Shower Gel 500g (EAU DE FLORAL/SUNSET ORANGE) 2 Options To Choose",
       "name_ko": "Skin U INNO:SCENT Shower Gel 500g (EAU DE FLORAL/SUNSET ORANGE) 2 Options To Choose",
       "brand": "Skin U",
-      "brand_id": null,
+      "brand_id": "892682b4-eb73-44a3-9c22-35faceadf7e5",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -8289,7 +8289,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "a5cb2518-707b-8b5c-2431-303738d98756",
+      "id": "50ffb13e-d4a1-439e-bc1f-069fafd0272e",
       "name": {
         "en": "essenHERB Tea Tree Acne Daily Wash 500mL Special Set (+Shower Ball)",
         "ko": "essenHERB Tea Tree Acne Daily Wash 500mL Special Set (+Shower Ball)"
@@ -8297,7 +8297,7 @@
       "name_en": "essenHERB Tea Tree Acne Daily Wash 500mL Special Set (+Shower Ball)",
       "name_ko": "essenHERB Tea Tree Acne Daily Wash 500mL Special Set (+Shower Ball)",
       "brand": "essenHERB",
-      "brand_id": null,
+      "brand_id": "feadd9c9-e980-4530-83d7-4b420b7588da",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -8337,7 +8337,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "37e50bef-8c46-d82c-5da8-8033485083e6",
+      "id": "e8d2803c-08c5-4e14-b92d-8f627f461811",
       "name": {
         "en": "ON:THE BODY Cotton Foot Shampoo #Lemon 510ml Triple Set (+Foot Cream 55ml)",
         "ko": "ON:THE BODY Cotton Foot Shampoo #Lemon 510ml Triple Set (+Foot Cream 55ml)"
@@ -8345,7 +8345,7 @@
       "name_en": "ON:THE BODY Cotton Foot Shampoo #Lemon 510ml Triple Set (+Foot Cream 55ml)",
       "name_ko": "ON:THE BODY Cotton Foot Shampoo #Lemon 510ml Triple Set (+Foot Cream 55ml)",
       "brand": "ON:THE BODY",
-      "brand_id": null,
+      "brand_id": "14589277-e516-4032-a400-0572a0b69874",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -8385,7 +8385,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "455f6d05-cb1b-9322-930f-c59ddf70785f",
+      "id": "344b04fe-e62f-4596-adca-31197ed17d22",
       "name": {
         "en": "Skin U INNO:SCENT Shower Gel 500g",
         "ko": "Skin U INNO:SCENT Shower Gel 500g"
@@ -8393,7 +8393,7 @@
       "name_en": "Skin U INNO:SCENT Shower Gel 500g",
       "name_ko": "Skin U INNO:SCENT Shower Gel 500g",
       "brand": "Skin U",
-      "brand_id": null,
+      "brand_id": "892682b4-eb73-44a3-9c22-35faceadf7e5",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -8433,7 +8433,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "014bf0a8-6a9a-39eb-ded6-f91be1e4ba8a",
+      "id": "b67921a9-733f-4d7c-8fab-f4723a4849c1",
       "name": {
         "en": "UNOVE Glow Body Wash 290ml (Nu Vanilla/Rosy Aura)",
         "ko": "UNOVE Glow Body Wash 290ml (Nu Vanilla/Rosy Aura)"
@@ -8441,7 +8441,7 @@
       "name_en": "UNOVE Glow Body Wash 290ml (Nu Vanilla/Rosy Aura)",
       "name_ko": "UNOVE Glow Body Wash 290ml (Nu Vanilla/Rosy Aura)",
       "brand": "UNOVE",
-      "brand_id": null,
+      "brand_id": "dd5b974c-00d8-47c1-8303-b54c6fe1cbea",
       "category": "bodycare",
       "subcategory": "body_wash",
       "skin_types": [],
@@ -8481,7 +8481,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "261bb0c1-779a-9bb9-0536-95516db409a5",
+      "id": "b56c94d1-2079-4934-bc22-056bde617ddf",
       "name": {
         "en": "ILLIYOON Ceramide Ato Concentrate Cream 150mL Double Set",
         "ko": "ILLIYOON Ceramide Ato Concentrate Cream 150mL Double Set"
@@ -8489,7 +8489,7 @@
       "name_en": "ILLIYOON Ceramide Ato Concentrate Cream 150mL Double Set",
       "name_ko": "ILLIYOON Ceramide Ato Concentrate Cream 150mL Double Set",
       "brand": "ILLIYOON",
-      "brand_id": null,
+      "brand_id": "73de06cf-ee98-5db2-b856-e856ddab93cb",
       "category": "bodycare",
       "subcategory": "body_lotion",
       "skin_types": [],
@@ -8529,7 +8529,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "601f3c3d-5158-5f7a-65fa-0b73c5a952fd",
+      "id": "a9a02b70-5c83-4877-8a9f-4658dd07efba",
       "name": {
         "en": "ILLIYOON MD Red Itch Care Cream 495ml",
         "ko": "ILLIYOON MD Red Itch Care Cream 495ml"
@@ -8537,7 +8537,7 @@
       "name_en": "ILLIYOON MD Red Itch Care Cream 495ml",
       "name_ko": "ILLIYOON MD Red Itch Care Cream 495ml",
       "brand": "ILLIYOON",
-      "brand_id": null,
+      "brand_id": "73de06cf-ee98-5db2-b856-e856ddab93cb",
       "category": "bodycare",
       "subcategory": "body_lotion",
       "skin_types": [],
@@ -8577,7 +8577,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "ae258abc-9918-80ff-5a84-fa172528c47d",
+      "id": "6f97bcb9-f6d9-4dce-b169-4e4a08612f46",
       "name": {
         "en": "ILLIYOON Ceramide Ato Lotion 600ml",
         "ko": "ILLIYOON Ceramide Ato Lotion 600ml"
@@ -8585,7 +8585,7 @@
       "name_en": "ILLIYOON Ceramide Ato Lotion 600ml",
       "name_ko": "ILLIYOON Ceramide Ato Lotion 600ml",
       "brand": "ILLIYOON",
-      "brand_id": null,
+      "brand_id": "73de06cf-ee98-5db2-b856-e856ddab93cb",
       "category": "bodycare",
       "subcategory": "body_lotion",
       "skin_types": [],
@@ -8625,7 +8625,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8dee3175-34c6-6392-a172-dc15b87ef87d",
+      "id": "939d9c9b-b40d-4b66-b928-0c2f7a59b966",
       "name": {
         "en": "ILLIYOON Ceramide Ato Concentrate Cream 150mL",
         "ko": "ILLIYOON Ceramide Ato Concentrate Cream 150mL"
@@ -8633,7 +8633,7 @@
       "name_en": "ILLIYOON Ceramide Ato Concentrate Cream 150mL",
       "name_ko": "ILLIYOON Ceramide Ato Concentrate Cream 150mL",
       "brand": "ILLIYOON",
-      "brand_id": null,
+      "brand_id": "73de06cf-ee98-5db2-b856-e856ddab93cb",
       "category": "bodycare",
       "subcategory": "body_lotion",
       "skin_types": [],
@@ -8673,7 +8673,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "5c4d7d9f-892b-d32a-317d-760bb4a80c9c",
+      "id": "dedcc68b-f5ad-44f8-b3b2-483ac293d90f",
       "name": {
         "en": "AROMATICA Body Oil 100ml Ritual Set (+Guasha) (5 Options)",
         "ko": "AROMATICA Body Oil 100ml Ritual Set (+Guasha) (5 Options)"
@@ -8681,7 +8681,7 @@
       "name_en": "AROMATICA Body Oil 100ml Ritual Set (+Guasha) (5 Options)",
       "name_ko": "AROMATICA Body Oil 100ml Ritual Set (+Guasha) (5 Options)",
       "brand": "AROMATICA",
-      "brand_id": null,
+      "brand_id": "73120e8e-467b-4408-9517-97634cdd0079",
       "category": "bodycare",
       "subcategory": "body_lotion",
       "skin_types": [],
@@ -8721,7 +8721,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "efabf45e-adfc-b504-ded9-f7b3f56bfb44",
+      "id": "659c0ab3-0e0a-4bb9-be2e-5c3ee30cb46a",
       "name": {
         "en": "BLANCDIVA Gleam Coverage Foundation 30ml (3 Shades)",
         "ko": "BLANCDIVA Gleam Coverage Foundation 30ml (3 Shades)"
@@ -8729,7 +8729,7 @@
       "name_en": "BLANCDIVA Gleam Coverage Foundation 30ml (3 Shades)",
       "name_ko": "BLANCDIVA Gleam Coverage Foundation 30ml (3 Shades)",
       "brand": "BLANCDIVA",
-      "brand_id": null,
+      "brand_id": "831ec9a9-886a-4384-aea4-a91c02d294a4",
       "category": "bodycare",
       "subcategory": "hand_cream",
       "skin_types": [],
@@ -8777,7 +8777,7 @@
       "name_en": "EGA Essential Regenerator Hand Cream 50ml",
       "name_ko": "EGA Essential Regenerator Hand Cream 50ml",
       "brand": "EGA",
-      "brand_id": null,
+      "brand_id": "21f891fe-6dea-416a-b868-66f42aa853ce",
       "category": "bodycare",
       "subcategory": "hand_cream",
       "skin_types": [],
@@ -8817,7 +8817,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "ed54069f-bc58-b6c0-a5da-78edc232a2cc",
+      "id": "43729922-ec5e-4f59-9fe6-8825db459942",
       "name": {
         "en": "UNOVE Glow Hand Cream 40ml",
         "ko": "UNOVE Glow Hand Cream 40ml"
@@ -8825,7 +8825,7 @@
       "name_en": "UNOVE Glow Hand Cream 40ml",
       "name_ko": "UNOVE Glow Hand Cream 40ml",
       "brand": "UNOVE",
-      "brand_id": null,
+      "brand_id": "dd5b974c-00d8-47c1-8303-b54c6fe1cbea",
       "category": "bodycare",
       "subcategory": "hand_cream",
       "skin_types": [],
@@ -8865,7 +8865,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "3f52c1fd-ab0d-fb45-f3bb-d28e382cc10a",
+      "id": "fdfdf982-ad01-4e6a-9a03-4437659870bb",
       "name": {
         "en": "d'Alba White Truffle Aromatic Double Hand Cream 50mL",
         "ko": "d'Alba White Truffle Aromatic Double Hand Cream 50mL"
@@ -8873,7 +8873,7 @@
       "name_en": "d'Alba White Truffle Aromatic Double Hand Cream 50mL",
       "name_ko": "d'Alba White Truffle Aromatic Double Hand Cream 50mL",
       "brand": "d'Alba",
-      "brand_id": null,
+      "brand_id": "2d6c3d34-26b9-5faf-a7cf-ae55b9c9dda9",
       "category": "bodycare",
       "subcategory": "hand_cream",
       "skin_types": [],
@@ -8913,7 +8913,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "b4b7b4d8-ef39-ac19-0643-457947c90385",
+      "id": "612b813d-68e0-4a9b-ba04-cf13d54b7249",
       "name": {
         "en": "UNOVE Glow Creamy Body Scrub 300ml Nu Vanilla",
         "ko": "UNOVE Glow Creamy Body Scrub 300ml Nu Vanilla"
@@ -8921,7 +8921,7 @@
       "name_en": "UNOVE Glow Creamy Body Scrub 300ml Nu Vanilla",
       "name_ko": "UNOVE Glow Creamy Body Scrub 300ml Nu Vanilla",
       "brand": "UNOVE",
-      "brand_id": null,
+      "brand_id": "dd5b974c-00d8-47c1-8303-b54c6fe1cbea",
       "category": "bodycare",
       "subcategory": "body_scrub",
       "skin_types": [],
@@ -8961,7 +8961,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "493ab1c3-bc79-bf92-c188-3294ffbcc24c",
+      "id": "46a51d95-50bd-4905-9656-fbd6de7893fe",
       "name": {
         "en": "MECHAI Collagen Sugar Scrub 225ml",
         "ko": "MECHAI Collagen Sugar Scrub 225ml"
@@ -8969,7 +8969,7 @@
       "name_en": "MECHAI Collagen Sugar Scrub 225ml",
       "name_ko": "MECHAI Collagen Sugar Scrub 225ml",
       "brand": "MECHAI",
-      "brand_id": null,
+      "brand_id": "6eefeff5-5b95-4c1b-b140-87ee4bb70472",
       "category": "bodycare",
       "subcategory": "body_scrub",
       "skin_types": [],
@@ -9009,7 +9009,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "97bcb81c-a2db-c083-8baa-9ce8d699b3c7",
+      "id": "b0ef81e0-82eb-441b-bf96-bc678ad84fd4",
       "name": {
         "en": "plu Body Scrub Berry Mix 200g",
         "ko": "plu Body Scrub Berry Mix 200g"
@@ -9017,7 +9017,7 @@
       "name_en": "plu Body Scrub Berry Mix 200g",
       "name_ko": "plu Body Scrub Berry Mix 200g",
       "brand": "plu",
-      "brand_id": null,
+      "brand_id": "e56737a7-caa3-4ab7-ba41-ab49b2e088a0",
       "category": "bodycare",
       "subcategory": "body_scrub",
       "skin_types": [],
@@ -9057,7 +9057,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "aa806008-346e-43bc-7d66-6d4224af12d2",
+      "id": "353203a3-8851-4685-b4d7-d2c11af1d90d",
       "name": {
         "en": "Anua PDRN Hyaluronic Capsule 100 Serum 30ml Refill Set",
         "ko": "Anua PDRN Hyaluronic Capsule 100 Serum 30ml Refill Set"
@@ -9065,7 +9065,7 @@
       "name_en": "Anua PDRN Hyaluronic Capsule 100 Serum 30ml Refill Set",
       "name_ko": "Anua PDRN Hyaluronic Capsule 100 Serum 30ml Refill Set",
       "brand": "Anua",
-      "brand_id": null,
+      "brand_id": "ca92dab3-1f6a-5fdc-bede-b02abc8f340a",
       "category": "bodycare",
       "subcategory": "body_sunscreen",
       "skin_types": [],
@@ -9105,7 +9105,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "ba26f3ce-390a-2371-940a-f0a4f294de4f",
+      "id": "97170e36-035f-47ca-8d50-8befee4be1ec",
       "name": {
         "en": "Centellian24 Expert Madeca Cream Active Renew PDRN Double Set",
         "ko": "Centellian24 Expert Madeca Cream Active Renew PDRN Double Set"
@@ -9113,7 +9113,7 @@
       "name_en": "Centellian24 Expert Madeca Cream Active Renew PDRN Double Set",
       "name_ko": "Centellian24 Expert Madeca Cream Active Renew PDRN Double Set",
       "brand": "Centellian24",
-      "brand_id": null,
+      "brand_id": "a94f6dc7-d1b2-4fae-b951-9aa648e1a131",
       "category": "bodycare",
       "subcategory": "body_sunscreen",
       "skin_types": [],
@@ -9153,7 +9153,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8b07db21-14ed-589b-5ac4-7c14c522c611",
+      "id": "92f7d3e0-8202-4fd7-b368-6d973844feac",
       "name": {
         "en": "ma:nyo Pure Cleansing Water Sensitive 500ml (+Pump+Cotton Pad 20P)",
         "ko": "ma:nyo Pure Cleansing Water Sensitive 500ml (+Pump+Cotton Pad 20P)"
@@ -9161,7 +9161,7 @@
       "name_en": "ma:nyo Pure Cleansing Water Sensitive 500ml (+Pump+Cotton Pad 20P)",
       "name_ko": "ma:nyo Pure Cleansing Water Sensitive 500ml (+Pump+Cotton Pad 20P)",
       "brand": "ma:nyo",
-      "brand_id": null,
+      "brand_id": "55d57ba4-eb95-48b6-9c4b-a529c5578b5b",
       "category": "tools",
       "subcategory": "cleansing_tool",
       "skin_types": [],
@@ -9201,7 +9201,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "ce861854-8c69-0160-92bd-464ce165e030",
+      "id": "073f8dc5-de4b-41b3-913d-981eeee72d47",
       "name": {
         "en": "Anua PDRN Hyaluronic Acid Moisturizing Cleansing Foam 150ml Set (+PDRN Pad 2P*2ea)",
         "ko": "Anua PDRN Hyaluronic Acid Moisturizing Cleansing Foam 150ml Set (+PDRN Pad 2P*2ea)"
@@ -9209,7 +9209,7 @@
       "name_en": "Anua PDRN Hyaluronic Acid Moisturizing Cleansing Foam 150ml Set (+PDRN Pad 2P*2ea)",
       "name_ko": "Anua PDRN Hyaluronic Acid Moisturizing Cleansing Foam 150ml Set (+PDRN Pad 2P*2ea)",
       "brand": "Anua",
-      "brand_id": null,
+      "brand_id": "ca92dab3-1f6a-5fdc-bede-b02abc8f340a",
       "category": "tools",
       "subcategory": "cleansing_tool",
       "skin_types": [],
@@ -9249,7 +9249,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "246e9175-ddb8-6839-80ae-40cfd4874969",
+      "id": "1013c96e-b009-4eea-8025-7d25f7d55f6c",
       "name": {
         "en": "STRIDEX Sensitive Pad 55 Sheets",
         "ko": "STRIDEX Sensitive Pad 55 Sheets"
@@ -9257,7 +9257,7 @@
       "name_en": "STRIDEX Sensitive Pad 55 Sheets",
       "name_ko": "STRIDEX Sensitive Pad 55 Sheets",
       "brand": "STRIDEX",
-      "brand_id": null,
+      "brand_id": "d0d12beb-ad6f-4b98-9659-80c62e3fbe0a",
       "category": "tools",
       "subcategory": "cleansing_tool",
       "skin_types": [],
@@ -9297,7 +9297,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8acd7f9b-3648-5faf-0896-3f498d586f6c",
+      "id": "3cfa335a-d1a0-4744-91fd-f9b994bceef0",
       "name": {
         "en": "OLIVEYOUNG Multi Silicone Cleansing Pad",
         "ko": "OLIVEYOUNG Multi Silicone Cleansing Pad"
@@ -9305,7 +9305,7 @@
       "name_en": "OLIVEYOUNG Multi Silicone Cleansing Pad",
       "name_ko": "OLIVEYOUNG Multi Silicone Cleansing Pad",
       "brand": "OLIVEYOUNG",
-      "brand_id": null,
+      "brand_id": "5d6054e1-b11e-4109-8b44-b5d53e7256c7",
       "category": "tools",
       "subcategory": "cleansing_tool",
       "skin_types": [],
@@ -9345,7 +9345,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "37a9fb9f-b273-f733-2b36-1541f3cf1b80",
+      "id": "7e7dfa82-600c-4a41-a533-c92a2c46a677",
       "name": {
         "en": "PICCASSO FB17 Foundation Brush Set (+2 Sponges)",
         "ko": "PICCASSO FB17 Foundation Brush Set (+2 Sponges)"
@@ -9353,7 +9353,7 @@
       "name_en": "PICCASSO FB17 Foundation Brush Set (+2 Sponges)",
       "name_ko": "PICCASSO FB17 Foundation Brush Set (+2 Sponges)",
       "brand": "PICCASSO",
-      "brand_id": null,
+      "brand_id": "6f459003-1c47-4291-97b7-083570528eea",
       "category": "tools",
       "subcategory": "makeup_tool",
       "skin_types": [],
@@ -9393,7 +9393,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "f5da50b5-8fa8-595c-10aa-368ff68d3f74",
+      "id": "21d7cb69-4df8-42bd-bd45-80d2d10013cd",
       "name": {
         "en": "Fillimilli Creamy Blusher Brush 888 Set (+Pact Type Makeup Palette)",
         "ko": "Fillimilli Creamy Blusher Brush 888 Set (+Pact Type Makeup Palette)"
@@ -9401,7 +9401,7 @@
       "name_en": "Fillimilli Creamy Blusher Brush 888 Set (+Pact Type Makeup Palette)",
       "name_ko": "Fillimilli Creamy Blusher Brush 888 Set (+Pact Type Makeup Palette)",
       "brand": "Fillimilli",
-      "brand_id": null,
+      "brand_id": "474ca76c-1674-535d-a07f-8e4c945800f7",
       "category": "tools",
       "subcategory": "makeup_tool",
       "skin_types": [],
@@ -9441,7 +9441,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "b6bca2c5-26ab-e11e-0e0f-fc7158477071",
+      "id": "7ba5d896-12dc-46fb-a6c0-53e66978e1d6",
       "name": {
         "en": "Fillimilli Eye Brush Pro Collection (5 Types) Set (+Makeup Sealer)",
         "ko": "Fillimilli Eye Brush Pro Collection (5 Types) Set (+Makeup Sealer)"
@@ -9449,7 +9449,7 @@
       "name_en": "Fillimilli Eye Brush Pro Collection (5 Types) Set (+Makeup Sealer)",
       "name_ko": "Fillimilli Eye Brush Pro Collection (5 Types) Set (+Makeup Sealer)",
       "brand": "Fillimilli",
-      "brand_id": null,
+      "brand_id": "474ca76c-1674-535d-a07f-8e4c945800f7",
       "category": "tools",
       "subcategory": "makeup_tool",
       "skin_types": [],
@@ -9489,7 +9489,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "3c04059a-26c6-6847-566b-8d502a74009d",
+      "id": "cb3effc2-27e2-40b0-804e-7e768a6f1423",
       "name": {
         "en": "ilso Super Melting Sebum Cleansing Oil 200ml Set (+Dual Clean Brush)",
         "ko": "ilso Super Melting Sebum Cleansing Oil 200ml Set (+Dual Clean Brush)"
@@ -9497,7 +9497,7 @@
       "name_en": "ilso Super Melting Sebum Cleansing Oil 200ml Set (+Dual Clean Brush)",
       "name_ko": "ilso Super Melting Sebum Cleansing Oil 200ml Set (+Dual Clean Brush)",
       "brand": "ilso",
-      "brand_id": null,
+      "brand_id": "30d88798-3166-4f7f-b67e-2f04403ccb41",
       "category": "tools",
       "subcategory": "makeup_tool",
       "skin_types": [],
@@ -9537,7 +9537,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "8640019c-ee4d-a99b-6a81-60f1f0f6e5a3",
+      "id": "2cb0fac4-a536-4d22-b37b-7558fde8f8c9",
       "name": {
         "en": "Dr. Althea 345 Relief Cream 50ml",
         "ko": "Dr. Althea 345 Relief Cream 50ml"
@@ -9545,7 +9545,7 @@
       "name_en": "Dr. Althea 345 Relief Cream 50ml",
       "name_ko": "Dr. Althea 345 Relief Cream 50ml",
       "brand": "Dr. Althea",
-      "brand_id": null,
+      "brand_id": "d92e6668-191d-43b8-b876-61e26a3ecfd0",
       "category": "tools",
       "subcategory": "beauty_device",
       "skin_types": [],
@@ -9585,7 +9585,7 @@
   {
     "entityType": "product",
     "data": {
-      "id": "b55a32b0-c0dc-90c0-4cf6-3327ac2eed6a",
+      "id": "271966ee-5e5d-41b0-a49d-a6195e354d24",
       "name": {
         "en": "Anua PDRN Hyaluronic Acid Hydrating Capsule Mist 100ml Double Pack",
         "ko": "Anua PDRN Hyaluronic Acid Hydrating Capsule Mist 100ml Double Pack"
@@ -9593,7 +9593,7 @@
       "name_en": "Anua PDRN Hyaluronic Acid Hydrating Capsule Mist 100ml Double Pack",
       "name_ko": "Anua PDRN Hyaluronic Acid Hydrating Capsule Mist 100ml Double Pack",
       "brand": "Anua",
-      "brand_id": null,
+      "brand_id": "ca92dab3-1f6a-5fdc-bede-b02abc8f340a",
       "category": "tools",
       "subcategory": "beauty_device",
       "skin_types": [],

@@ -1865,10 +1865,1288 @@
       "origin": "KR",
       "tier": "moderate",
       "is_essenly": true,
-      "specialties": ["haircare", "keratin treatment"],
+      "specialties": [
+        "haircare",
+        "keratin treatment"
+      ],
       "status": "active"
     },
     "isApproved": true,
     "reviewedBy": "manual-entry"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "73173198-b7da-4bea-aa34-f008ee62eb83",
+      "name": {
+        "en": "2aN",
+        "ko": "2aN"
+      },
+      "name_ko": "2aN",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "1d8799fb-7634-444b-a116-f8d401403011",
+      "name": {
+        "en": "APLB",
+        "ko": "APLB"
+      },
+      "name_ko": "APLB",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "73120e8e-467b-4408-9517-97634cdd0079",
+      "name": {
+        "en": "AROMATICA",
+        "ko": "AROMATICA"
+      },
+      "name_ko": "AROMATICA",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "c1bfa155-8873-4b82-b83d-90fab2a5c259",
+      "name": {
+        "en": "AXIS-Y",
+        "ko": "AXIS-Y"
+      },
+      "name_ko": "AXIS-Y",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "ba7895ad-8cd2-47a9-9a8a-c5acbbc0d66d",
+      "name": {
+        "en": "Alternative stereo",
+        "ko": "Alternative stereo"
+      },
+      "name_ko": "Alternative stereo",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "b6200047-3dd6-4030-8824-de7c392ea4c7",
+      "name": {
+        "en": "BANDI",
+        "ko": "BANDI"
+      },
+      "name_ko": "BANDI",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "a90d42c8-12bb-400e-9f34-683470c02ba7",
+      "name": {
+        "en": "BIODANCE",
+        "ko": "BIODANCE"
+      },
+      "name_ko": "BIODANCE",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "9dae5b0c-1461-4c6b-aa96-cbbef92c7b94",
+      "name": {
+        "en": "BIOHEAL BOH",
+        "ko": "BIOHEAL BOH"
+      },
+      "name_ko": "BIOHEAL BOH",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "831ec9a9-886a-4384-aea4-a91c02d294a4",
+      "name": {
+        "en": "BLANCDIVA",
+        "ko": "BLANCDIVA"
+      },
+      "name_ko": "BLANCDIVA",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "23058ce3-3574-4dd9-a3f1-d930c658e5cc",
+      "name": {
+        "en": "BRINGGREEN",
+        "ko": "BRINGGREEN"
+      },
+      "name_ko": "BRINGGREEN",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "2a21fd29-cb08-4e73-9d54-a8187266b20b",
+      "name": {
+        "en": "COSNORI",
+        "ko": "COSNORI"
+      },
+      "name_ko": "COSNORI",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "f7c674b4-5cdd-452b-990b-54784c66a808",
+      "name": {
+        "en": "CURLYSHYLL",
+        "ko": "CURLYSHYLL"
+      },
+      "name_ko": "CURLYSHYLL",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "a94f6dc7-d1b2-4fae-b951-9aa648e1a131",
+      "name": {
+        "en": "Centellian24",
+        "ko": "Centellian24"
+      },
+      "name_ko": "Centellian24",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "43121d93-c52e-4c5a-aebc-13433cee4a8c",
+      "name": {
+        "en": "DASHU",
+        "ko": "DASHU"
+      },
+      "name_ko": "DASHU",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "e2cdad34-1d44-43eb-a949-1996b72993dd",
+      "name": {
+        "en": "DEAR DAHLIA",
+        "ko": "DEAR DAHLIA"
+      },
+      "name_ko": "DEAR DAHLIA",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "61da097d-9cd1-4172-92f5-22c689930252",
+      "name": {
+        "en": "Dinsee",
+        "ko": "Dinsee"
+      },
+      "name_ko": "Dinsee",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "ab03489f-0503-42f0-a653-77a5f81cf80c",
+      "name": {
+        "en": "Dinto",
+        "ko": "Dinto"
+      },
+      "name_ko": "Dinto",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "d92e6668-191d-43b8-b876-61e26a3ecfd0",
+      "name": {
+        "en": "Dr. Althea",
+        "ko": "Dr. Althea"
+      },
+      "name_ko": "Dr. Althea",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "748e0e8a-dbc9-4d79-89d0-e44a9a0680c7",
+      "name": {
+        "en": "Dr. Groot",
+        "ko": "Dr. Groot"
+      },
+      "name_ko": "Dr. Groot",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "3c5f29ea-0d66-474e-95af-ed210f6c35c5",
+      "name": {
+        "en": "Dr.FORHAIR",
+        "ko": "Dr.FORHAIR"
+      },
+      "name_ko": "Dr.FORHAIR",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "21f891fe-6dea-416a-b868-66f42aa853ce",
+      "name": {
+        "en": "EGA",
+        "ko": "EGA"
+      },
+      "name_ko": "EGA",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "0765122c-d028-416f-8e0b-539f269e5e03",
+      "name": {
+        "en": "FOODOLOGY",
+        "ko": "FOODOLOGY"
+      },
+      "name_ko": "FOODOLOGY",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "5c23b7c9-b7ed-49a9-981d-dcab17fcc26b",
+      "name": {
+        "en": "GLOW",
+        "ko": "GLOW"
+      },
+      "name_ko": "GLOW",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "d1a1d4f6-fc8e-4a79-af0a-1b39923a77fa",
+      "name": {
+        "en": "Heart Percent",
+        "ko": "Heart Percent"
+      },
+      "name_ko": "Heart Percent",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "5abe463f-bcbf-42c2-8aca-8537600606b6",
+      "name": {
+        "en": "Isntree",
+        "ko": "Isntree"
+      },
+      "name_ko": "Isntree",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "4c684eb9-79a4-4f13-b921-cf4979a4fc87",
+      "name": {
+        "en": "JUST AS I AM",
+        "ko": "JUST AS I AM"
+      },
+      "name_ko": "JUST AS I AM",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "046aebc0-ba04-4c04-8591-0c95000b443d",
+      "name": {
+        "en": "Kamill",
+        "ko": "Kamill"
+      },
+      "name_ko": "Kamill",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "1e869522-eb7a-4dbd-885f-6014cf68b250",
+      "name": {
+        "en": "LABO-H",
+        "ko": "LABO-H"
+      },
+      "name_ko": "LABO-H",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "ee542c3d-ce35-4356-a0d4-4ac333b3c387",
+      "name": {
+        "en": "LALACHUU",
+        "ko": "LALACHUU"
+      },
+      "name_ko": "LALACHUU",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "c0849cff-1e6f-428f-a9c2-2a602e9f32b5",
+      "name": {
+        "en": "LUCIDO-L",
+        "ko": "LUCIDO-L"
+      },
+      "name_ko": "LUCIDO-L",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "6f3b0b36-270f-46b4-9cc2-680f574b1e27",
+      "name": {
+        "en": "LUV SCENT",
+        "ko": "LUV SCENT"
+      },
+      "name_ko": "LUV SCENT",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "8e8838cf-ccca-4c8c-a802-4d6910c48a2e",
+      "name": {
+        "en": "Lagom",
+        "ko": "Lagom"
+      },
+      "name_ko": "Lagom",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "f1c67967-3d64-423c-8fae-43c3c7679077",
+      "name": {
+        "en": "Laka",
+        "ko": "Laka"
+      },
+      "name_ko": "Laka",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "05f6ca92-dc92-4da3-9b37-75c36edf895a",
+      "name": {
+        "en": "Losy kim",
+        "ko": "Losy kim"
+      },
+      "name_ko": "Losy kim",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "6eefeff5-5b95-4c1b-b140-87ee4bb70472",
+      "name": {
+        "en": "MECHAI",
+        "ko": "MECHAI"
+      },
+      "name_ko": "MECHAI",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "b6b75439-a27d-4751-b413-5f41790a83a0",
+      "name": {
+        "en": "MEDIPEEL",
+        "ko": "MEDIPEEL"
+      },
+      "name_ko": "MEDIPEEL",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "f2bf2105-4b21-4aa3-a347-08d6d8eeeb98",
+      "name": {
+        "en": "MUZIGAE MANSION",
+        "ko": "MUZIGAE MANSION"
+      },
+      "name_ko": "MUZIGAE MANSION",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "c71d0020-a565-4ceb-b3fa-ce94891090ba",
+      "name": {
+        "en": "Mise-en-scene",
+        "ko": "Mise-en-scene"
+      },
+      "name_ko": "Mise-en-scene",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "3b02edc0-e0ea-4bc0-9629-ed39ddce3f73",
+      "name": {
+        "en": "OBgE",
+        "ko": "OBgE"
+      },
+      "name_ko": "OBgE",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "5d6054e1-b11e-4109-8b44-b5d53e7256c7",
+      "name": {
+        "en": "OLIVEYOUNG",
+        "ko": "OLIVEYOUNG"
+      },
+      "name_ko": "OLIVEYOUNG",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "14589277-e516-4032-a400-0572a0b69874",
+      "name": {
+        "en": "ON:THE BODY",
+        "ko": "ON:THE BODY"
+      },
+      "name_ko": "ON:THE BODY",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "59275da1-f432-4b3e-acff-6cf859bdc7d7",
+      "name": {
+        "en": "PARKJUN BEAUTY LAB",
+        "ko": "PARKJUN BEAUTY LAB"
+      },
+      "name_ko": "PARKJUN BEAUTY LAB",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "6f459003-1c47-4291-97b7-083570528eea",
+      "name": {
+        "en": "PICCASSO",
+        "ko": "PICCASSO"
+      },
+      "name_ko": "PICCASSO",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "5d609a5c-b25d-43d6-b5fd-315c3555bc50",
+      "name": {
+        "en": "Purito Seoul",
+        "ko": "Purito Seoul"
+      },
+      "name_ko": "Purito Seoul",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "1b4e1f80-d545-451c-b2b9-fb52f4c9be99",
+      "name": {
+        "en": "REJURAN",
+        "ko": "REJURAN"
+      },
+      "name_ko": "REJURAN",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "00b42468-894e-4778-833f-07f58a403853",
+      "name": {
+        "en": "RISKY",
+        "ko": "RISKY"
+      },
+      "name_ko": "RISKY",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "4ddca5ec-5f30-4990-b4f1-59f9aa66dcda",
+      "name": {
+        "en": "ROVECTIN",
+        "ko": "ROVECTIN"
+      },
+      "name_ko": "ROVECTIN",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "997d8f21-3fa1-42e1-b4c6-fbe111dd8e72",
+      "name": {
+        "en": "Rausch",
+        "ko": "Rausch"
+      },
+      "name_ko": "Rausch",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "36631f01-c7dd-4acf-8e3e-687234cd32cd",
+      "name": {
+        "en": "S.NATURE",
+        "ko": "S.NATURE"
+      },
+      "name_ko": "S.NATURE",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "d0d12beb-ad6f-4b98-9659-80c62e3fbe0a",
+      "name": {
+        "en": "STRIDEX",
+        "ko": "STRIDEX"
+      },
+      "name_ko": "STRIDEX",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "892682b4-eb73-44a3-9c22-35faceadf7e5",
+      "name": {
+        "en": "Skin U",
+        "ko": "Skin U"
+      },
+      "name_ko": "Skin U",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "8a58e9e2-201e-41e0-91af-50d70bcc9ec2",
+      "name": {
+        "en": "THOME",
+        "ko": "THOME"
+      },
+      "name_ko": "THOME",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "cb9673ea-62ab-4fb9-8402-1f1dff2e5659",
+      "name": {
+        "en": "TIRTIR",
+        "ko": "TIRTIR"
+      },
+      "name_ko": "TIRTIR",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "dd5b974c-00d8-47c1-8303-b54c6fe1cbea",
+      "name": {
+        "en": "UNOVE",
+        "ko": "UNOVE"
+      },
+      "name_ko": "UNOVE",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "6ebe2f40-b0e7-487a-a140-5fd1ea11c772",
+      "name": {
+        "en": "VDL",
+        "ko": "VDL"
+      },
+      "name_ko": "VDL",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "a382ed76-b61a-4992-911a-b9fcae572dc3",
+      "name": {
+        "en": "beplain",
+        "ko": "beplain"
+      },
+      "name_ko": "beplain",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "3d6dc2cb-ba46-4e0f-8f57-d84c4677eff8",
+      "name": {
+        "en": "celimax",
+        "ko": "celimax"
+      },
+      "name_ko": "celimax",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "7b50782e-288e-40a5-a3ed-bbf0f717262d",
+      "name": {
+        "en": "dasique",
+        "ko": "dasique"
+      },
+      "name_ko": "dasique",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "9012a959-a4f5-479d-abe7-14dcb93578d2",
+      "name": {
+        "en": "easydew",
+        "ko": "easydew"
+      },
+      "name_ko": "easydew",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "4f1d4ce5-e811-48c4-b623-b829e174fac4",
+      "name": {
+        "en": "epais",
+        "ko": "epais"
+      },
+      "name_ko": "epais",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "214ab70e-df40-4f90-a00c-59c069e65c77",
+      "name": {
+        "en": "erborian",
+        "ko": "erborian"
+      },
+      "name_ko": "erborian",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "feadd9c9-e980-4530-83d7-4b420b7588da",
+      "name": {
+        "en": "essenHERB",
+        "ko": "essenHERB"
+      },
+      "name_ko": "essenHERB",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "cdc97d05-8101-4b33-a40c-8c8028052dd2",
+      "name": {
+        "en": "fwee",
+        "ko": "fwee"
+      },
+      "name_ko": "fwee",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "520de4e5-bdc0-4de8-a937-c6919258c86c",
+      "name": {
+        "en": "haming",
+        "ko": "haming"
+      },
+      "name_ko": "haming",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "48da4fde-ce3a-480c-ab05-84088fbcfbb5",
+      "name": {
+        "en": "hetras",
+        "ko": "hetras"
+      },
+      "name_ko": "hetras",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "9ce32d93-d088-487c-82b9-a3d51295a748",
+      "name": {
+        "en": "hince",
+        "ko": "hince"
+      },
+      "name_ko": "hince",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "30d88798-3166-4f7f-b67e-2f04403ccb41",
+      "name": {
+        "en": "ilso",
+        "ko": "ilso"
+      },
+      "name_ko": "ilso",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "fc733a89-b143-4111-a593-a0b0be72ea51",
+      "name": {
+        "en": "lilyeve",
+        "ko": "lilyeve"
+      },
+      "name_ko": "lilyeve",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "55d57ba4-eb95-48b6-9c4b-a529c5578b5b",
+      "name": {
+        "en": "ma:nyo",
+        "ko": "ma:nyo"
+      },
+      "name_ko": "ma:nyo",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "cc0ec333-7de4-4828-8824-e08b74c50e9f",
+      "name": {
+        "en": "makeprem",
+        "ko": "makeprem"
+      },
+      "name_ko": "makeprem",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "e6aacfda-92e2-4ef5-82a8-086c79f7d777",
+      "name": {
+        "en": "medicube",
+        "ko": "medicube"
+      },
+      "name_ko": "medicube",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "ed518c09-a3a3-4130-a5a5-c41036839d07",
+      "name": {
+        "en": "mommycare",
+        "ko": "mommycare"
+      },
+      "name_ko": "mommycare",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "4de854d5-cec0-47dd-ba49-023b0841da13",
+      "name": {
+        "en": "nesh",
+        "ko": "nesh"
+      },
+      "name_ko": "nesh",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "e56737a7-caa3-4ab7-ba41-ab49b2e088a0",
+      "name": {
+        "en": "plu",
+        "ko": "plu"
+      },
+      "name_ko": "plu",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
+  },
+  {
+    "entityType": "brand",
+    "data": {
+      "id": "3bc4ae8d-5ebd-4e23-a2d7-ea444509ce15",
+      "name": {
+        "en": "vivelab",
+        "ko": "vivelab"
+      },
+      "name_ko": "vivelab",
+      "origin": "KR",
+      "tier": "moderate",
+      "is_essenly": false,
+      "specialties": []
+    },
+    "isApproved": true,
+    "reviewedBy": "auto-generated"
   }
 ]
