@@ -557,4 +557,47 @@ describe('RPC Hardening (integration)', () => {
       expect(rowD!.hair_type).toBe('straight');  // 무변경
     });
   });
+
+  // ── T19: NEW-17d 019b — null scalar SET NULL ───────────────
+  describe('T19: apply_user_explicit_edit null scalar clears field', () => {
+    it('hair_type: null → SET NULL + applied_profile 포함', async () => {
+      // Setup: hair_type 기존값 있음
+      await admin.from('user_profiles').upsert({
+        user_id: userD.userId,
+        language: 'en',
+        hair_type: 'straight',
+        updated_at: new Date().toISOString(),
+      }, { onConflict: 'user_id' });
+
+      const client = createAuthClient(userD.token);
+      const { data, error } = await client.rpc('apply_user_explicit_edit', {
+        p_user_id: userD.userId,
+        p_profile_patch: { hair_type: null },
+        p_journey_patch: {},
+      });
+      expect(error).toBeNull();
+      const result = data as { applied_profile: string[]; applied_journey: string[] };
+      expect(result.applied_profile).toContain('hair_type');
+
+      const { data: row } = await admin
+        .from('user_profiles')
+        .select('hair_type')
+        .eq('user_id', userD.userId)
+        .single();
+      expect(row!.hair_type).toBeNull();
+    });
+
+    it('hair_type: null 재전송 → 멱등 (이미 NULL)', async () => {
+      // hair_type 이미 NULL 인 상태 가정 (이전 테스트에서)
+      const client = createAuthClient(userD.token);
+      const { data, error } = await client.rpc('apply_user_explicit_edit', {
+        p_user_id: userD.userId,
+        p_profile_patch: { hair_type: null },
+        p_journey_patch: {},
+      });
+      expect(error).toBeNull();
+      const result = data as { applied_profile: string[]; applied_journey: string[] };
+      expect(result.applied_profile).not.toContain('hair_type');  // 이미 NULL 이라 no-op
+    });
+  });
 });
