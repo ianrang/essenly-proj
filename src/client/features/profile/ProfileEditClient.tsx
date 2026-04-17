@@ -186,6 +186,14 @@ export default function ProfileEditClient({ locale }: ProfileEditClientProps) {
         />
       ))}
       {saveError && <p className="text-xs text-destructive" role="alert">{saveError}</p>}
+      {dirty && !hasSkinTypes && (
+        // NEW-17d: skin_types .min(1) 정책(spec §5.2) UX 안내.
+        // Skip onboarding 사용자는 skin_types=[] 상태이므로 canSave 영구 false.
+        // 사용자가 "왜 저장 안 되지?" 혼란을 방지하는 inline hint.
+        <p className="text-xs text-muted-foreground" role="note">
+          {t('skinTypeRequired')}
+        </p>
+      )}
       <div className="flex flex-col gap-2 mt-4">
         <Button size="cta" onClick={handleSave} disabled={!canSave}>
           {save === 'saving' ? tc('saving') : t('save')}
