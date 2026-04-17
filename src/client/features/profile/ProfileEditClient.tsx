@@ -100,11 +100,23 @@ export default function ProfileEditClient({ locale }: ProfileEditClientProps) {
       const initialVal = initial[def.key];
       // Compare current vs initial — only include changed fields (Q-12 멱등).
       const isArrayField = def.spec.cardinality === 'array';
-      const changed = isArrayField
-        ? !Array.isArray(current) || !Array.isArray(initialVal) ||
-          current.length !== initialVal.length ||
-          current.some((x, i) => x !== initialVal[i])
-        : current !== initialVal;
+      let changed: boolean;
+      if (isArrayField) {
+        if (!Array.isArray(current) || !Array.isArray(initialVal)) {
+          changed = true;
+        } else if (current.length !== initialVal.length) {
+          changed = true;
+        } else {
+          // v1.1 RT-4: Sort before compare (order-insensitive set equality).
+          // UI toggle-off-then-on reorders, DB IS DISTINCT FROM is order-sensitive.
+          // Without sort, user round-trips trigger cooldown stamp + AI 30d block.
+          const a = [...current].sort();
+          const b = [...initialVal].sort();
+          changed = a.some((x, i) => x !== b[i]);
+        }
+      } else {
+        changed = current !== initialVal;
+      }
       if (!changed) continue;
 
       const target = def.target === 'profile' ? profilePatch : journeyPatch;
