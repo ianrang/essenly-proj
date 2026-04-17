@@ -122,6 +122,7 @@
   },
   "profile": {
     "title": "Your Beauty Profile",
+    "navLabel": "My Profile",
     "continue": "Show my picks",
     "edit": "Edit profile",
     "editTitle": "Edit your profile",
@@ -130,6 +131,7 @@
     "unsavedChanges": "Unsaved changes",
     "unsavedChangesDescription": "You have unsaved changes. Leave this page anyway?",
     "saveError": "Failed to save. Please try again.",
+    "skinTypeRequired": "Please select at least one skin type to save.",
     "skinType": "Skin Type",
     "hairType": "Hair Type",
     "skinConcerns": "Skin Concerns",

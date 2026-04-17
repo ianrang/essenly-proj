@@ -122,6 +122,7 @@
   },
   "profile": {
     "title": "나의 뷰티 프로필",
+    "navLabel": "내 프로필",
     "continue": "추천 보기",
     "edit": "프로필 수정",
     "editTitle": "프로필 수정",
@@ -130,6 +131,7 @@
     "unsavedChanges": "저장되지 않은 변경사항",
     "unsavedChangesDescription": "저장되지 않은 변경사항이 있습니다. 이 페이지를 떠날까요?",
     "saveError": "저장 실패. 다시 시도하세요.",
+    "skinTypeRequired": "저장하려면 피부 타입을 하나 이상 선택해주세요.",
     "skinType": "피부 타입",
     "hairType": "모발 타입",
     "skinConcerns": "피부 고민",
