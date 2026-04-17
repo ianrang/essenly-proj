@@ -202,6 +202,7 @@ export default function ChatInterface({ locale }: ChatInterfaceProps) {
           initialMessages={initialMessages}
           initialConversationId={initialConversationId}
           initialOnboardingCompleted={initialOnboardingCompleted}
+          onOnboardingComplete={() => setInitialOnboardingCompleted(true)}
           onMessageSent={() => setHasStartedChat(true)}
         />
       </main>
