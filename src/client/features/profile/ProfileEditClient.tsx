@@ -89,21 +89,37 @@ export default function ProfileEditClient({ locale }: ProfileEditClientProps) {
   }, []);
 
   const handleSave = useCallback(async () => {
+    if (load.status !== 'loaded') return;
     setSave('saving');
     setSaveError(null);
     const profilePatch: Record<string, unknown> = {};
     const journeyPatch: Record<string, unknown> = {};
+    const initial = load.initial;
     for (const def of EDITABLE_FIELDS) {
-      const v = form[def.key];
-      // Empty array or empty string = "no change, skip" to keep semantic clean.
-      if (Array.isArray(v) && v.length === 0) continue;
-      if (typeof v === 'string' && v.length === 0) continue;
+      const current = form[def.key];
+      const initialVal = initial[def.key];
+      // Compare current vs initial — only include changed fields (Q-12 멱등).
+      const isArrayField = def.spec.cardinality === 'array';
+      const changed = isArrayField
+        ? !Array.isArray(current) || !Array.isArray(initialVal) ||
+          current.length !== initialVal.length ||
+          current.some((x, i) => x !== initialVal[i])
+        : current !== initialVal;
+      if (!changed) continue;
+
       const target = def.target === 'profile' ? profilePatch : journeyPatch;
-      target[def.key] = v;
+      // Scalar '' (user deselected single-select chip) → null (clear intent).
+      // 019b migration handles scalar null as SET NULL (spec §7.1 EC-3).
+      if (!isArrayField && current === '') {
+        target[def.key] = null;
+      } else {
+        target[def.key] = current;
+      }
     }
-    // refine: 최소 1개
     if (Object.keys(profilePatch).length === 0 && Object.keys(journeyPatch).length === 0) {
+      // No-op save (dirty=true but values round-tripped back to initial).
       setSave('idle');
+      setDirty(false);
       router.push(`/${locale}/profile`);
       return;
     }
@@ -176,7 +192,7 @@ export default function ProfileEditClient({ locale }: ProfileEditClientProps) {
           <AlertDialogContent size="sm">
             <AlertDialogHeader>
               <AlertDialogTitle>{t('unsavedChanges')}</AlertDialogTitle>
-              <AlertDialogDescription>{t('unsavedChanges')}</AlertDialogDescription>
+              <AlertDialogDescription>{t('unsavedChangesDescription')}</AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>{tc('stay')}</AlertDialogCancel>
