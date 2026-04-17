@@ -140,7 +140,7 @@ export default function ProfileEditClient({ locale }: ProfileEditClientProps) {
       setSave('error');
       setSaveError(t('saveError'));
     }
-  }, [form, locale, router, t]);
+  }, [form, load, locale, router, t]);
 
   if (load.status === 'loading') {
     return (
