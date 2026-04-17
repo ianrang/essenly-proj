@@ -295,7 +295,10 @@ export async function applyUserExplicitEdit(
       code: error.code,
       message: error.message,
     });
-    if (/not found/i.test(error.message)) {
+    // v1.1 RT-2: Use SQLSTATE P0002 (no_data_found) instead of message regex.
+    // Regex matching on 'not found' is fragile — migration 019c sets
+    // USING ERRCODE = 'P0002' on the RAISE EXCEPTION for PROFILE_NOT_FOUND case.
+    if (error.code === 'P0002') {
       const err = new Error('PROFILE_NOT_FOUND');
       (err as Error & { code?: string }).code = 'PROFILE_NOT_FOUND';
       throw err;
