@@ -30,7 +30,7 @@ COMMENT ON COLUMN journeys.budget_level_user_updated_at IS
 CREATE OR REPLACE FUNCTION get_user_edit_cooldown() RETURNS interval
   LANGUAGE sql IMMUTABLE AS $$ SELECT INTERVAL '30 days' $$;
 
-REVOKE ALL ON FUNCTION get_user_edit_cooldown() FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION get_user_edit_cooldown() FROM PUBLIC, anon, authenticated, service_role;
 GRANT EXECUTE ON FUNCTION get_user_edit_cooldown() TO authenticated, service_role;
 
 COMMENT ON FUNCTION get_user_edit_cooldown() IS
@@ -43,11 +43,44 @@ CREATE OR REPLACE FUNCTION get_user_edit_cooldown_days() RETURNS numeric
     SELECT EXTRACT(EPOCH FROM get_user_edit_cooldown()) / 86400
   $$;
 
-REVOKE ALL ON FUNCTION get_user_edit_cooldown_days() FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION get_user_edit_cooldown_days() FROM PUBLIC, anon, authenticated, service_role;
 GRANT EXECUTE ON FUNCTION get_user_edit_cooldown_days() TO authenticated, service_role;
 
 COMMENT ON FUNCTION get_user_edit_cooldown_days() IS
   'NEW-17d T11: Q-16 drift guard 용. get_user_edit_cooldown() 을 days(numeric) 로 래핑.';
+
+-- Step 3c. _ensure_active_journey: race-safe lazy-create helper (DRY: CQ3)
+-- apply_user_explicit_edit + apply_ai_journey_patch 양쪽에서 재사용.
+CREATE OR REPLACE FUNCTION _ensure_active_journey(p_user_id uuid) RETURNS uuid
+LANGUAGE plpgsql
+SECURITY INVOKER
+SET search_path = public, pg_temp
+AS $$
+DECLARE
+  v_journey_id uuid;
+BEGIN
+  SELECT id INTO v_journey_id FROM journeys
+   WHERE user_id = p_user_id AND status = 'active'
+   LIMIT 1;
+  IF v_journey_id IS NULL THEN
+    INSERT INTO journeys (user_id, status) VALUES (p_user_id, 'active')
+    ON CONFLICT (user_id) WHERE status = 'active' DO NOTHING
+    RETURNING id INTO v_journey_id;
+    IF v_journey_id IS NULL THEN
+      SELECT id INTO v_journey_id FROM journeys
+       WHERE user_id = p_user_id AND status = 'active'
+       LIMIT 1;
+    END IF;
+  END IF;
+  RETURN v_journey_id;
+END;
+$$;
+
+REVOKE ALL ON FUNCTION _ensure_active_journey(uuid) FROM PUBLIC, anon, authenticated, service_role;
+GRANT EXECUTE ON FUNCTION _ensure_active_journey(uuid) TO authenticated, service_role;
+
+COMMENT ON FUNCTION _ensure_active_journey(uuid) IS
+  'NEW-17d: internal helper. Returns active journey id for user, lazy-creating if missing. 재시도 안전 (ON CONFLICT + fallback SELECT).';
 
 -- Step 4. apply_user_explicit_edit RPC — 사용자 명시 편집 (REPLACE semantic)
 CREATE OR REPLACE FUNCTION apply_user_explicit_edit(
@@ -65,12 +98,15 @@ DECLARE
   v_journey_id   uuid;
   v_field        text;
   v_fspec        jsonb;
+  v_table        text;
+  v_key_col      text;
+  v_key_val      uuid;
+  v_patch        jsonb;
   v_inc          jsonb;
   v_applied_profile text[] := ARRAY[]::text[];
   v_applied_journey text[] := ARRAY[]::text[];
   v_cur_scalar   text;
   v_cur_arr      text[];
-  v_new_arr      text[];
   v_inc_arr      text[];
   v_count        int;
 BEGIN
@@ -79,47 +115,50 @@ BEGIN
     RAISE EXCEPTION 'user_profiles row not found for user_id %', p_user_id;
   END IF;
 
-  -- Journey lazy-create (apply_ai_journey_patch 패턴 연속)
+  -- Journey lazy-create (CQ3: _ensure_active_journey 헬퍼 사용)
   IF p_journey_patch IS NOT NULL AND p_journey_patch <> '{}'::jsonb THEN
-    SELECT id INTO v_journey_id FROM journeys
-     WHERE user_id = p_user_id AND status = 'active'
-     LIMIT 1;
-    IF v_journey_id IS NULL THEN
-      INSERT INTO journeys (user_id, status) VALUES (p_user_id, 'active')
-      ON CONFLICT (user_id) WHERE status = 'active' DO NOTHING
-      RETURNING id INTO v_journey_id;
-      IF v_journey_id IS NULL THEN
-        SELECT id INTO v_journey_id FROM journeys
-         WHERE user_id = p_user_id AND status = 'active'
-         LIMIT 1;
-      END IF;
-    END IF;
+    v_journey_id := _ensure_active_journey(p_user_id);
   END IF;
 
-  -- Profile REPLACE — v1.1 DC-1 whitelist 는 spec (patch 키 아님)
-  FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(v_profile_spec) LOOP
-    v_inc := p_profile_patch->v_field;
+  -- CQ2: profile + journey REPLACE 를 UNION ALL 로 단일 loop 통합.
+  -- v1.1 DC-1 whitelist 는 spec (patch 키 아님). journeys 는 updated_at 컬럼 없음 (001_initial_schema)
+  -- → updated_at = now() 절은 user_profiles 전용 (CASE 로 조건부 삽입).
+  FOR v_field, v_fspec, v_table, v_key_col, v_key_val, v_patch IN
+    SELECT key, value, 'user_profiles'::text, 'user_id'::text, p_user_id, p_profile_patch
+      FROM jsonb_each(v_profile_spec)
+    UNION ALL
+    SELECT key, value, 'journeys'::text, 'id'::text, v_journey_id, p_journey_patch
+      FROM jsonb_each(v_journey_spec)
+     WHERE v_journey_id IS NOT NULL
+  LOOP
+    v_inc := v_patch->v_field;
     IF v_inc IS NULL OR v_inc = 'null'::jsonb THEN CONTINUE; END IF;
 
     IF v_fspec->>'cardinality' = 'scalar' THEN
-      EXECUTE format('SELECT %I::text FROM user_profiles WHERE user_id = $1', v_field)
-        INTO v_cur_scalar USING p_user_id;
+      EXECUTE format('SELECT %I::text FROM %I WHERE %I = $1', v_field, v_table, v_key_col)
+        INTO v_cur_scalar USING v_key_val;
 
       IF v_cur_scalar IS DISTINCT FROM v_inc #>> '{}' THEN
         EXECUTE format(
-          'UPDATE user_profiles SET %I = (jsonb_populate_record(NULL::user_profiles, jsonb_build_object(%L, $1))).%I, updated_at = now() WHERE user_id = $2',
-          v_field, v_field, v_field
-        ) USING v_inc, p_user_id;
+          'UPDATE %I SET %I = (jsonb_populate_record(NULL::%I, jsonb_build_object(%L, $1))).%I%s WHERE %I = $2',
+          v_table, v_field, v_table, v_field, v_field,
+          CASE WHEN v_table = 'user_profiles' THEN ', updated_at = now()' ELSE '' END,
+          v_key_col
+        ) USING v_inc, v_key_val;
         GET DIAGNOSTICS v_count = ROW_COUNT;
 
         -- v1.1 CI-1: identifier concat 후 %I quote
         IF v_count > 0 AND (v_fspec->>'aiWritable')::boolean THEN
-          EXECUTE format('UPDATE user_profiles SET %I = now() WHERE user_id = $1',
-                         v_field || '_user_updated_at')
-            USING p_user_id;
+          EXECUTE format('UPDATE %I SET %I = now() WHERE %I = $1',
+                         v_table, v_field || '_user_updated_at', v_key_col)
+            USING v_key_val;
         END IF;
 
-        IF v_count > 0 THEN v_applied_profile := array_append(v_applied_profile, v_field); END IF;
+        IF v_count > 0 AND v_table = 'user_profiles' THEN
+          v_applied_profile := array_append(v_applied_profile, v_field);
+        ELSIF v_count > 0 THEN
+          v_applied_journey := array_append(v_applied_journey, v_field);
+        END IF;
       END IF;
     ELSE
       -- array REPLACE (union 아님)
@@ -127,74 +166,33 @@ BEGIN
         FROM jsonb_array_elements_text(v_inc) AS t(text_val);
       v_inc_arr := COALESCE(v_inc_arr, ARRAY[]::text[]);
 
-      EXECUTE format('SELECT COALESCE(%I, ARRAY[]::text[]) FROM user_profiles WHERE user_id = $1', v_field)
-        INTO v_cur_arr USING p_user_id;
+      EXECUTE format('SELECT COALESCE(%I, ARRAY[]::text[]) FROM %I WHERE %I = $1',
+                     v_field, v_table, v_key_col)
+        INTO v_cur_arr USING v_key_val;
 
       IF COALESCE(v_cur_arr, ARRAY[]::text[]) IS DISTINCT FROM v_inc_arr THEN
-        EXECUTE format('UPDATE user_profiles SET %I = $1, updated_at = now() WHERE user_id = $2', v_field)
-          USING v_inc_arr, p_user_id;
+        EXECUTE format(
+          'UPDATE %I SET %I = $1%s WHERE %I = $2',
+          v_table, v_field,
+          CASE WHEN v_table = 'user_profiles' THEN ', updated_at = now()' ELSE '' END,
+          v_key_col
+        ) USING v_inc_arr, v_key_val;
         GET DIAGNOSTICS v_count = ROW_COUNT;
 
         IF v_count > 0 AND (v_fspec->>'aiWritable')::boolean THEN
-          EXECUTE format('UPDATE user_profiles SET %I = now() WHERE user_id = $1',
-                         v_field || '_user_updated_at')
-            USING p_user_id;
+          EXECUTE format('UPDATE %I SET %I = now() WHERE %I = $1',
+                         v_table, v_field || '_user_updated_at', v_key_col)
+            USING v_key_val;
         END IF;
 
-        IF v_count > 0 THEN v_applied_profile := array_append(v_applied_profile, v_field); END IF;
+        IF v_count > 0 AND v_table = 'user_profiles' THEN
+          v_applied_profile := array_append(v_applied_profile, v_field);
+        ELSIF v_count > 0 THEN
+          v_applied_journey := array_append(v_applied_journey, v_field);
+        END IF;
       END IF;
     END IF;
   END LOOP;
-
-  -- Journey REPLACE
-  IF v_journey_id IS NOT NULL THEN
-    FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(v_journey_spec) LOOP
-      v_inc := p_journey_patch->v_field;
-      IF v_inc IS NULL OR v_inc = 'null'::jsonb THEN CONTINUE; END IF;
-
-      IF v_fspec->>'cardinality' = 'scalar' THEN
-        EXECUTE format('SELECT %I::text FROM journeys WHERE id = $1', v_field)
-          INTO v_cur_scalar USING v_journey_id;
-
-        IF v_cur_scalar IS DISTINCT FROM v_inc #>> '{}' THEN
-          EXECUTE format(
-            'UPDATE journeys SET %I = (jsonb_populate_record(NULL::journeys, jsonb_build_object(%L, $1))).%I WHERE id = $2',
-            v_field, v_field, v_field
-          ) USING v_inc, v_journey_id;
-          GET DIAGNOSTICS v_count = ROW_COUNT;
-
-          IF v_count > 0 AND (v_fspec->>'aiWritable')::boolean THEN
-            EXECUTE format('UPDATE journeys SET %I = now() WHERE id = $1',
-                           v_field || '_user_updated_at')
-              USING v_journey_id;
-          END IF;
-
-          IF v_count > 0 THEN v_applied_journey := array_append(v_applied_journey, v_field); END IF;
-        END IF;
-      ELSE
-        SELECT array_agg(text_val) INTO v_inc_arr
-          FROM jsonb_array_elements_text(v_inc) AS t(text_val);
-        v_inc_arr := COALESCE(v_inc_arr, ARRAY[]::text[]);
-
-        EXECUTE format('SELECT COALESCE(%I, ARRAY[]::text[]) FROM journeys WHERE id = $1', v_field)
-          INTO v_cur_arr USING v_journey_id;
-
-        IF COALESCE(v_cur_arr, ARRAY[]::text[]) IS DISTINCT FROM v_inc_arr THEN
-          EXECUTE format('UPDATE journeys SET %I = $1 WHERE id = $2', v_field)
-            USING v_inc_arr, v_journey_id;
-          GET DIAGNOSTICS v_count = ROW_COUNT;
-
-          IF v_count > 0 AND (v_fspec->>'aiWritable')::boolean THEN
-            EXECUTE format('UPDATE journeys SET %I = now() WHERE id = $1',
-                           v_field || '_user_updated_at')
-              USING v_journey_id;
-          END IF;
-
-          IF v_count > 0 THEN v_applied_journey := array_append(v_applied_journey, v_field); END IF;
-        END IF;
-      END IF;
-    END LOOP;
-  END IF;
 
   -- beauty_summary stale 방어 (v1.1 CI-4 멱등)
   IF (v_applied_profile <> ARRAY[]::text[] OR v_applied_journey <> ARRAY[]::text[]) THEN
@@ -335,17 +333,8 @@ DECLARE
   v_user_ts timestamptz;
   v_cooldown interval := get_user_edit_cooldown();
 BEGIN
-  SELECT id INTO v_journey_id FROM journeys
-   WHERE user_id = p_user_id AND status = 'active' LIMIT 1;
-  IF v_journey_id IS NULL THEN
-    INSERT INTO journeys (user_id, status) VALUES (p_user_id, 'active')
-    ON CONFLICT (user_id) WHERE status = 'active' DO NOTHING
-    RETURNING id INTO v_journey_id;
-    IF v_journey_id IS NULL THEN
-      SELECT id INTO v_journey_id FROM journeys
-       WHERE user_id = p_user_id AND status = 'active' LIMIT 1;
-    END IF;
-  END IF;
+  -- CQ3: _ensure_active_journey 헬퍼 재사용 (race-safe 로직 단일 SSOT)
+  v_journey_id := _ensure_active_journey(p_user_id);
 
   FOR v_field, v_fspec IN SELECT key, value FROM jsonb_each(v_spec) LOOP
     IF NOT (v_fspec->>'aiWritable')::boolean THEN CONTINUE; END IF;
