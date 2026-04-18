@@ -1,19 +1,21 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { createApp } from '@/server/features/api/app';
+import { registerProfileRoutes } from '@/server/features/api/routes/profile';
 import {
   createRegisteredTestUser,
   cleanupTestUser,
   createVerifyClient,
-  authHeaders,
+  jsonRequest,
   type TestSession,
 } from './helpers';
 
-const BASE_URL = 'http://localhost:3000';
-
 describe('PUT /api/profile/edit (integration)', () => {
+  const app = createApp();
   let userA: TestSession;
   const admin = createVerifyClient();
 
   beforeAll(async () => {
+    registerProfileRoutes(app);
     userA = await createRegisteredTestUser();
     // 편집 테스트 전 user_profiles row 생성 (Start 경로 시뮬레이션)
     await admin.from('user_profiles').upsert({
@@ -31,26 +33,24 @@ describe('PUT /api/profile/edit (integration)', () => {
   // T18: zod .strict() — unknown key 거부
   describe('T18: zod strict — unknown key', () => {
     it('rejects profile.language (NOT NULL field not editable)', async () => {
-      const res = await fetch(`${BASE_URL}/api/profile/edit`, {
-        method: 'PUT',
-        headers: authHeaders(userA.token),
-        body: JSON.stringify({
+      const res = await app.request(
+        '/api/profile/edit',
+        jsonRequest('PUT', userA.token, {
           profile: { language: 'ko' },
           journey: {},
         }),
-      });
+      );
       expect(res.status).toBe(400);
     });
 
     it('rejects profile.unknown_key', async () => {
-      const res = await fetch(`${BASE_URL}/api/profile/edit`, {
-        method: 'PUT',
-        headers: authHeaders(userA.token),
-        body: JSON.stringify({
+      const res = await app.request(
+        '/api/profile/edit',
+        jsonRequest('PUT', userA.token, {
           profile: { unknown_field: 'x' },
           journey: {},
         }),
-      });
+      );
       expect(res.status).toBe(400);
     });
   });
@@ -58,11 +58,13 @@ describe('PUT /api/profile/edit (integration)', () => {
   // T22: zod .refine() — empty payload 거부
   describe('T22: zod refine — empty payload', () => {
     it('rejects {profile: {}, journey: {}}', async () => {
-      const res = await fetch(`${BASE_URL}/api/profile/edit`, {
-        method: 'PUT',
-        headers: authHeaders(userA.token),
-        body: JSON.stringify({ profile: {}, journey: {} }),
-      });
+      const res = await app.request(
+        '/api/profile/edit',
+        jsonRequest('PUT', userA.token, {
+          profile: {},
+          journey: {},
+        }),
+      );
       expect(res.status).toBe(400);
     });
   });
@@ -74,14 +76,13 @@ describe('PUT /api/profile/edit (integration)', () => {
       await admin.from('user_profiles').delete().eq('user_id', userA.userId);
 
       try {
-        const res = await fetch(`${BASE_URL}/api/profile/edit`, {
-          method: 'PUT',
-          headers: authHeaders(userA.token),
-          body: JSON.stringify({
+        const res = await app.request(
+          '/api/profile/edit',
+          jsonRequest('PUT', userA.token, {
             profile: { hair_type: 'curly' },
             journey: {},
           }),
-        });
+        );
         expect(res.status).toBe(404);
         const body = await res.json();
         expect(body.error.code).toBe('PROFILE_NOT_FOUND');
@@ -98,14 +99,13 @@ describe('PUT /api/profile/edit (integration)', () => {
   // Smoke test — 정상 편집 1개 필드 (T24 E2E 의 API 레이어 축약)
   describe('Smoke: 정상 편집 → 200 + applied_profile', () => {
     it('profile.skin_types REPLACE → 200', async () => {
-      const res = await fetch(`${BASE_URL}/api/profile/edit`, {
-        method: 'PUT',
-        headers: authHeaders(userA.token),
-        body: JSON.stringify({
+      const res = await app.request(
+        '/api/profile/edit',
+        jsonRequest('PUT', userA.token, {
           profile: { skin_types: ['dry'] },
           journey: {},
         }),
-      });
+      );
       expect(res.status).toBe(200);
       const body = await res.json();
       expect(body.data.applied_profile).toContain('skin_types');
