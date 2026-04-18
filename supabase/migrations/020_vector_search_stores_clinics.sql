@@ -7,6 +7,10 @@
 --   embedding/created_at/updated_at/status 제외 (카드 미사용).
 -- ============================================================
 
+-- 기존 함수 삭제 (파라미터 시그니처 명시)
+DROP FUNCTION IF EXISTS match_stores(vector, integer, text, text, text);
+DROP FUNCTION IF EXISTS match_clinics(vector, integer, text, text, text);
+
 -- 매장 벡터 검색
 CREATE FUNCTION match_stores(
   query_embedding vector(1024),

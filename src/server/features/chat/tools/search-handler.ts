@@ -226,7 +226,7 @@ async function searchStore(
   const storeFilters = {
     store_type: filters?.category,
     english_support: filters?.english_support,
-    search: undefined as string | undefined,
+    search: query || undefined,
   };
 
   // §5.2 벡터/SQL 분기
@@ -263,7 +263,7 @@ async function searchClinic(
   const clinicFilters = {
     clinic_type: filters?.category,
     english_support: filters?.english_support,
-    search: undefined as string | undefined,
+    search: query || undefined,
   };
 
   // §5.2 벡터/SQL 분기
