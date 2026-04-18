@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import {
   PRICE_TIER_CONFIG,
   type PriceDomain,
-  type TierLevel,
   type DomainTierConfig,
 } from './price-tier';
 
@@ -28,29 +27,15 @@ describe('PRICE_TIER_CONFIG', () => {
   });
 
   it.each<PriceDomain>(['product', 'treatment'])(
-    '%s 도메인에 thresholds, labels, tooltipRange가 존재한다',
+    '%s 도메인에 thresholds, tooltipRange가 존재한다',
     (domain) => {
       const config: DomainTierConfig = PRICE_TIER_CONFIG[domain];
       expect(config.thresholds).toHaveProperty('low');
       expect(config.thresholds).toHaveProperty('high');
       expect(config.thresholds.low).toBeLessThan(config.thresholds.high);
 
-      expect(config.labels).toHaveProperty('$');
-      expect(config.labels).toHaveProperty('$$');
-      expect(config.labels).toHaveProperty('$$$');
-
       expect(typeof config.tooltipRange).toBe('string');
       expect(config.tooltipRange.length).toBeGreaterThan(0);
     },
   );
-
-  it('labels 값은 비어있지 않은 문자열이다', () => {
-    for (const domain of ['product', 'treatment'] as PriceDomain[]) {
-      const { labels } = PRICE_TIER_CONFIG[domain];
-      for (const tier of ['$', '$$', '$$$'] as TierLevel[]) {
-        expect(typeof labels[tier]).toBe('string');
-        expect(labels[tier].length).toBeGreaterThan(0);
-      }
-    }
-  });
 });

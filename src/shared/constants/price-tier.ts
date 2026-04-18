@@ -12,8 +12,6 @@ export type { TierLevel, PriceDomain };
 export interface DomainTierConfig {
   /** $ < low, low ≤ $$ ≤ high, $$$ > high */
   thresholds: { low: number; high: number };
-  /** 티어별 표시 라벨 (영어) */
-  labels: Record<TierLevel, string>;
   /** 툴팁에 표시할 범위 텍스트 */
   tooltipRange: string;
 }
@@ -27,20 +25,10 @@ export interface DomainTierConfig {
 export const PRICE_TIER_CONFIG: Record<PriceDomain, DomainTierConfig> = {
   product: {
     thresholds: { low: 25_000, high: 50_000 },
-    labels: {
-      '$': 'Budget',
-      '$$': 'Mid-range',
-      '$$$': 'Premium',
-    },
     tooltipRange: '₩25,000–₩50,000',
   },
   treatment: {
     thresholds: { low: 50_000, high: 200_000 },
-    labels: {
-      '$': 'Budget',
-      '$$': 'Mid-range',
-      '$$$': 'Premium',
-    },
     tooltipRange: '₩50,000–₩200,000',
   },
 } as const;

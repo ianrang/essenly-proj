@@ -48,10 +48,10 @@ export default function PriceTierBadge({
       role="group"
     >
       <span className="font-bold text-primary">
-        {tier} · {displayPrice ?? ""}
+        {tier}{displayPrice ? ` · ${displayPrice}` : ""}
       </span>
       {displayPrice === null && (
-        <span className="font-normal text-muted-foreground">Price varies</span>
+        <span className="ml-1 font-normal text-muted-foreground">Price varies</span>
       )}
       {showInfo && (
         <TooltipProvider>

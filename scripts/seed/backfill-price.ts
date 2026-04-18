@@ -86,17 +86,6 @@ function loadEnv(): z.infer<typeof backfillEnvSchema> {
 // ─────────────────────────────────────────────────────────────
 // 타입
 // ─────────────────────────────────────────────────────────────
-interface ProductRow {
-  id: string;
-  url: string | null;
-  price: number | null;
-  price_min: number | null;
-  price_max: number | null;
-  price_source: string | null;
-  range_source: string | null;
-  category: string | null;
-}
-
 interface BackfillReport {
   phase36a: { attempted: number; success: number; failed: number; skipped: number };
   phase36d: { applied: number; skipped: number; noCategoryMatch: number };
