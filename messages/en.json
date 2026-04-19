@@ -11,6 +11,7 @@
     "pathADescription": "Chat with our AI guide and get instant recommendations",
     "pathBDescription": "Answer a few quick questions first for personalized picks",
     "ctaDescription": "Chat with our AI guide — no signup needed",
+    "browseExplore": "or Browse products",
     "howItWorksLabel": "Simple",
     "howItWorksTitle": "How it works",
     "step1Title": "Chat with our AI guide",
@@ -268,6 +269,105 @@
     "contactBody": "For privacy-related questions or data deletion requests, contact us at {email}. We will respond within {processingDays} business days.",
     "changesTitle": "Changes to This Policy",
     "changesBody": "We may update this policy to reflect changes in our practices or legal requirements. Continued use of the service after changes constitutes acceptance of the updated policy."
+  },
+  "explore": {
+    "tabs": {
+      "products": "Products",
+      "treatments": "Treatments",
+      "stores": "Stores",
+      "clinics": "Clinics"
+    },
+    "filters": {
+      "title": "Filters",
+      "apply": "Apply",
+      "reset": "Reset",
+      "skinType": "Skin Type",
+      "category": "Category",
+      "budget": "Budget",
+      "concerns": "Concerns",
+      "downtime": "Max Downtime",
+      "storeType": "Store Type",
+      "clinicType": "Clinic Type",
+      "englishSupport": "English Support"
+    },
+    "sort": {
+      "label": "Sort by",
+      "relevance": "Best for you",
+      "rating": "Highest rated",
+      "price": "Lowest price",
+      "priceLow": "Lowest price"
+    },
+    "empty": {
+      "title": "No results found",
+      "suggestion": "Try removing some filters",
+      "resetFilters": "Reset filters"
+    },
+    "profileBanner": {
+      "title": "Get personalized picks",
+      "description": "Set up your beauty profile for recommendations tailored to you",
+      "cta": "Set up profile"
+    },
+    "loadMore": {
+      "button": "Load more ({remaining} remaining)",
+      "loading": "Loading..."
+    }
+  },
+  "beauty": {
+    "skinType": {
+      "dry": "Dry",
+      "oily": "Oily",
+      "combination": "Combination",
+      "sensitive": "Sensitive",
+      "normal": "Normal"
+    },
+    "productCategory": {
+      "skincare": "Skincare",
+      "makeup": "Makeup",
+      "haircare": "Hair Care",
+      "bodycare": "Body Care",
+      "tools": "Tools"
+    },
+    "concern": {
+      "acne": "Acne",
+      "wrinkles": "Wrinkles",
+      "dark_spots": "Dark Spots",
+      "redness": "Redness",
+      "dryness": "Dryness",
+      "pores": "Pores",
+      "dullness": "Dullness",
+      "dark_circles": "Dark Circles",
+      "uneven_tone": "Uneven Tone",
+      "sun_damage": "Sun Damage",
+      "eczema": "Eczema"
+    },
+    "treatmentCategory": {
+      "skin": "Skin",
+      "laser": "Laser",
+      "injection": "Injection",
+      "facial": "Facial",
+      "body": "Body",
+      "hair": "Hair"
+    },
+    "storeType": {
+      "olive_young": "Olive Young",
+      "chicor": "Chicor",
+      "daiso": "Daiso",
+      "department_store": "Department Store",
+      "brand_store": "Brand Store",
+      "pharmacy": "Pharmacy",
+      "other": "Other"
+    },
+    "clinicType": {
+      "dermatology": "Dermatology",
+      "plastic_surgery": "Plastic Surgery",
+      "aesthetic": "Aesthetic",
+      "med_spa": "Med Spa"
+    },
+    "englishSupport": {
+      "basic": "Basic English",
+      "good": "Good English",
+      "fluent": "Fluent English"
+    }
   },
   "common": {
     "loading": "Loading...",

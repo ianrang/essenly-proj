@@ -11,6 +11,7 @@
     "pathADescription": "AI 가이드와 대화하며 즉시 추천을 받아보세요",
     "pathBDescription": "간단한 질문에 답하고 맞춤 추천을 받아보세요",
     "ctaDescription": "AI 가이드와 대화하세요 — 가입 불필요",
+    "browseExplore": "또는 제품 둘러보기",
     "howItWorksLabel": "간단해요",
     "howItWorksTitle": "이용 방법",
     "step1Title": "AI 가이드와 대화하기",
@@ -268,6 +269,105 @@
     "contactBody": "개인정보 관련 문의 또는 데이터 삭제 요청은 {email}로 연락해주세요. {processingDays} 영업일 이내에 답변드리겠습니다.",
     "changesTitle": "방침 변경",
     "changesBody": "당사의 관행이나 법적 요구 사항의 변경을 반영하기 위해 본 방침을 업데이트할 수 있습니다. 변경 후 서비스를 계속 이용하시면 업데이트된 방침에 동의하는 것으로 간주됩니다."
+  },
+  "explore": {
+    "tabs": {
+      "products": "제품",
+      "treatments": "시술",
+      "stores": "매장",
+      "clinics": "클리닉"
+    },
+    "filters": {
+      "title": "필터",
+      "apply": "적용",
+      "reset": "초기화",
+      "skinType": "피부 타입",
+      "category": "카테고리",
+      "budget": "예산",
+      "concerns": "피부 고민",
+      "downtime": "최대 회복기간",
+      "storeType": "매장 유형",
+      "clinicType": "클리닉 유형",
+      "englishSupport": "영어 지원"
+    },
+    "sort": {
+      "label": "정렬",
+      "relevance": "맞춤 추천순",
+      "rating": "평점순",
+      "price": "가격순",
+      "priceLow": "낮은 가격순"
+    },
+    "empty": {
+      "title": "검색 결과가 없습니다",
+      "suggestion": "필터를 줄여보세요",
+      "resetFilters": "필터 초기화"
+    },
+    "profileBanner": {
+      "title": "맞춤 추천 받기",
+      "description": "뷰티 프로필을 설정하면 나에게 맞는 추천을 받을 수 있어요",
+      "cta": "프로필 설정"
+    },
+    "loadMore": {
+      "button": "더 보기 ({remaining}개 남음)",
+      "loading": "로딩 중..."
+    }
+  },
+  "beauty": {
+    "skinType": {
+      "dry": "건성",
+      "oily": "지성",
+      "combination": "복합성",
+      "sensitive": "민감성",
+      "normal": "보통"
+    },
+    "productCategory": {
+      "skincare": "스킨케어",
+      "makeup": "메이크업",
+      "haircare": "헤어케어",
+      "bodycare": "바디케어",
+      "tools": "도구"
+    },
+    "concern": {
+      "acne": "여드름",
+      "wrinkles": "주름",
+      "dark_spots": "다크스팟",
+      "redness": "홍조",
+      "dryness": "건조",
+      "pores": "모공",
+      "dullness": "칙칙함",
+      "dark_circles": "다크서클",
+      "uneven_tone": "피부톤 불균일",
+      "sun_damage": "자외선 손상",
+      "eczema": "습진"
+    },
+    "treatmentCategory": {
+      "skin": "피부",
+      "laser": "레이저",
+      "injection": "주사",
+      "facial": "페이셜",
+      "body": "바디",
+      "hair": "헤어"
+    },
+    "storeType": {
+      "olive_young": "올리브영",
+      "chicor": "시코르",
+      "daiso": "다이소",
+      "department_store": "백화점",
+      "brand_store": "브랜드 매장",
+      "pharmacy": "약국",
+      "other": "기타"
+    },
+    "clinicType": {
+      "dermatology": "피부과",
+      "plastic_surgery": "성형외과",
+      "aesthetic": "에스테틱",
+      "med_spa": "메디스파"
+    },
+    "englishSupport": {
+      "basic": "기본 영어",
+      "good": "좋은 영어",
+      "fluent": "유창한 영어"
+    }
   },
   "common": {
     "loading": "로딩 중...",
