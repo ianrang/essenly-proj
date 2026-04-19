@@ -756,6 +756,7 @@
 | V2-22 | 올리브영/CJ 어필리에이트 약관 확인 (P2-V6) | Involve Asia 승인 후 제품 정보 사용 범위 확인 (U-10, U-11). V2-21 선행                                                                                                                          | V2-21                    |
 | V2-23 | 행동 로그 클라이언트 연동               | P2-26 서버 API 완료(POST /api/events). 클라이언트 연동 미구현: card_exposure(Intersection Observer), card_click(onClick), external_link_click(링크 인터셉트). 추적 유틸리티 + 카드 컴포넌트 연결. KPI 측정 활성화       | P2-26, ANALYTICS.md      |
 | V2-24 | 옵저버빌리티 통합                    | 분산 트레이싱(요청 흐름 추적), 구조화 로깅 통합, 대시보드(에러율/응답시간/LLM 비용). P3-27~30 개별 설정을 통합 옵저버빌리티 플랫폼으로 연결 (Sentry/Datadog/Vercel Observability)                                                    | P3-27~30                 |
+| V2-25 | 성능 최적화 (Core Web Vitals)       | Vercel RES 79 (Needs Improvement). 랜딩(71)·Explore(71) 페이지 LCP/INP/CLS 개선. 이미지 최적화, 폰트 로딩, JS 번들 분석 등. 소프트 런칭 후 실사용 데이터 충분히 쌓인 후 병목 식별하여 진행                                        | P3-28                    |
 
 
 ### MVP 간소화로 v0.2 연기된 항목 (Phase 2/3에서 이동)
