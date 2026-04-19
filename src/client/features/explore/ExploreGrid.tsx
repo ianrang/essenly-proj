@@ -23,6 +23,7 @@ type ExploreGridProps = {
   locale: string;
   isLoading: boolean;
   onResetFilters: () => void;
+  footer?: React.ReactNode;
 };
 
 function useColumns(): number {
@@ -93,6 +94,7 @@ function renderSkeleton(domain: ExploreDomain, count: number) {
 }
 
 function useVirtualRows(items: Record<string, unknown>[], columns: number) {
+  "use no memo";
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const rows = useMemo(() => {
@@ -103,6 +105,7 @@ function useVirtualRows(items: Record<string, unknown>[], columns: number) {
     return result;
   }, [items, columns]);
 
+  // eslint-disable-next-line react-hooks/incompatible-library -- "use no memo" 지시문으로 React Compiler 메모이제이션 제외 처리 완료
   const virtualizer = useVirtualizer({
     count: rows.length,
     getScrollElement: () => scrollContainerRef.current,
@@ -119,9 +122,10 @@ type VirtualGridProps = {
   virtualizer: Virtualizer<HTMLDivElement, Element>;
   domain: ExploreDomain;
   locale: string;
+  footer?: React.ReactNode;
 };
 
-function VirtualGrid({ scrollContainerRef, rows, virtualizer, domain, locale }: VirtualGridProps) {
+function VirtualGrid({ scrollContainerRef, rows, virtualizer, domain, locale, footer }: VirtualGridProps) {
   return (
     <div
       ref={scrollContainerRef}
@@ -148,7 +152,7 @@ function VirtualGrid({ scrollContainerRef, rows, virtualizer, domain, locale }: 
               transform: `translateY(${virtualRow.start}px)`,
             }}
           >
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
               {rows[virtualRow.index].map((item) => (
                 <div key={item.id as string}>
                   {renderCard(domain, item, locale)}
@@ -158,6 +162,7 @@ function VirtualGrid({ scrollContainerRef, rows, virtualizer, domain, locale }: 
           </div>
         ))}
       </div>
+      {footer}
     </div>
   );
 }
@@ -168,13 +173,14 @@ export default function ExploreGrid({
   locale,
   isLoading,
   onResetFilters,
+  footer,
 }: ExploreGridProps) {
   const columns = useColumns();
   const { scrollContainerRef, rows, virtualizer } = useVirtualRows(items, columns);
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
         {renderSkeleton(domain, 6)}
       </div>
     );
@@ -191,6 +197,7 @@ export default function ExploreGrid({
       virtualizer={virtualizer}
       domain={domain}
       locale={locale}
+      footer={footer}
     />
   );
 }
