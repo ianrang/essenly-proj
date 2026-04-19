@@ -8,6 +8,7 @@ import { registerProductRoutes } from '@/server/features/api/routes/products';
 import { registerTreatmentRoutes } from '@/server/features/api/routes/treatments';
 import { registerStoreRoutes } from '@/server/features/api/routes/stores';
 import { registerClinicRoutes } from '@/server/features/api/routes/clinics';
+import { registerExploreRoutes } from '@/server/features/api/routes/explore';
 
 const app = createApp();
 
@@ -20,6 +21,7 @@ registerProductRoutes(app);
 registerTreatmentRoutes(app);
 registerStoreRoutes(app);
 registerClinicRoutes(app);
+registerExploreRoutes(app);
 
 export const GET = app.fetch;
 export const POST = app.fetch;

@@ -11,16 +11,18 @@ type HeaderProps = {
   leftContent?: ReactNode;
   rightContent?: ReactNode;
   showLanguageSelector?: boolean;
+  maxWidth?: string;
 };
 
 export default function Header({
   leftContent,
   rightContent,
   showLanguageSelector = false,
+  maxWidth = 'max-w-[640px]',
 }: HeaderProps) {
   return (
     <header className="relative z-20 border-b border-border">
-      <div className="mx-auto flex h-13 max-w-[640px] items-center justify-between px-5">
+      <div className={`mx-auto flex h-13 items-center justify-between px-5 ${maxWidth}`}>
         <div className="flex min-w-[60px] items-center">
           {leftContent}
         </div>
